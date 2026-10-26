@@ -8,14 +8,19 @@ workers_dev = true
 #   LHG_BRAIN_TOKEN  - Brain service token (brk_..., scope chat:send)
 #   LHG_ACCESS_KEY   - shared key the extension sends as x-lhg-key
 #   LHG_GATE_KEY     - key for the Modal gate classifier (Modal secret lhg-gate)
+#   LHG_GATE_ORACLE_KEY - key for the Oracle gate (GATE_KEY in /home/ubuntu/lhg-gate/gate.env)
 [vars]
 LHG_ACCOUNT_BASE = "https://tz.ysho.uk"
 LHG_BRAIN_BASE_URL = "https://br.ysho.uk/dash"
 LHG_BRAIN_ACCOUNT = "yoni"
 LHG_BRAIN_TIMEOUT_MS = "20000"
 LHG_ALWAYS_EXTRACT = "1"
-# Fast gate (classifier/serve_modal.py, model v2 fp32). p < threshold skips the
-# model; gate failure or timeout always escalates to the model. Remove the URL to disable.
+# Fast gate (model v2 fp32). p < threshold skips the model. Oracle (classifier/oracle,
+# docs/16) is asked first; on failure or timeout the Modal copy (classifier/serve_modal.py);
+# if both fail, the model. Remove LHG_GATE_ORACLE_URL to go back to Modal only; remove
+# both URLs to disable the gate.
+LHG_GATE_ORACLE_URL = "https://shiurim.ysho.uk/lhg-gate/check"
+LHG_GATE_ORACLE_TIMEOUT_MS = "800"
 LHG_GATE_URL = "https://yonicc--lhg-gate-gate-check.us-east.modal.run"
 LHG_GATE_THRESHOLD = "0.2"
 LHG_GATE_TIMEOUT_MS = "1500"

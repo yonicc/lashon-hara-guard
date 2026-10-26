@@ -164,8 +164,93 @@ test('proxy /warm needs the key and pings the gate', async () => {
   assert.equal((await handle(post({}, 'bad', '/warm'), GATED, provider(CONCERN))).status, 401);
   const calls: string[] = [];
   const r = await handle(post({}, ENV.LHG_ACCESS_KEY, '/warm'), GATED, provider(CONCERN), gateFetch(0.5, calls));
-  assert.deepEqual(await r.json(), { warm: true });
+  assert.deepEqual(await r.json(), { warm: true, by: 'modal' });
   assert.equal(calls.length, 1);
+});
+
+// Oracle primary + Modal fallback (docs/16). Each copy has its own URL and key.
+const DUAL: Env = {
+  ...GATED, LHG_GATE_ORACLE_URL: 'https://oracle.test/lhg-gate/check', LHG_GATE_ORACLE_KEY: 'o',
+  LHG_GATE_ORACLE_TIMEOUT_MS: '20', LHG_GATE_TIMEOUT_MS: '20',
+};
+type GateAnswer = number | Error | 'slow' | 500 | 302;
+
+function dualFetch(oracle: GateAnswer, modal: GateAnswer, calls: string[] = []): typeof fetch {
+  return (async (url: unknown, init?: RequestInit) => {
+    const isOracle = String(url).startsWith('https://oracle.test');
+    calls.push(isOracle ? 'oracle' : 'modal');
+    assert.equal((init?.headers as Record<string, string>)['x-gate-key'], isOracle ? 'o' : 'g');
+    assert.equal(init?.redirect, 'manual');
+    const answer = isOracle ? oracle : modal;
+    if (answer instanceof Error) throw answer;
+    if (answer === 'slow') {
+      return new Promise<Response>((_res, rej) =>
+        init?.signal?.addEventListener('abort', () => rej(Object.assign(new Error('a'), { name: 'AbortError' }))));
+    }
+    if (answer === 500) return new Response('boom', { status: 500 });
+    if (answer === 302) return new Response(null, { status: 302, headers: { location: 'https://evil.test' } });
+    return new Response(JSON.stringify({ p: answer }), { status: 200 });
+  }) as typeof fetch;
+}
+
+async function check(env: Env, f: typeof fetch, seen: string[]) {
+  const r = await handle(post({ text: IRONY }), env, provider(CONCERN, seen), f);
+  return (await r.json()) as Record<string, unknown>;
+}
+
+test('proxy gate dual: Oracle answers -> Modal is never asked', async () => {
+  for (const [p, alert, modelCalls] of [[0.01, 'none', 0], [0.9, 'warn', 1]] as const) {
+    const calls: string[] = []; const seen: string[] = [];
+    const b = await check(DUAL, dualFetch(p, 0.5, calls), seen);
+    assert.deepEqual(calls, ['oracle']);
+    assert.equal(b['alert'], alert);
+    assert.equal(b['gate'], p);
+    assert.equal(b['gateBy'], 'oracle');
+    assert.equal(seen.length, modelCalls);
+  }
+});
+
+test('proxy gate dual: Oracle failure/timeout/redirect falls back to Modal', async () => {
+  for (const bad of [new Error('down'), 'slow' as const, 500 as const, 302 as const]) {
+    const calls: string[] = []; const seen: string[] = [];
+    const b = await check(DUAL, dualFetch(bad, 0.01, calls), seen);
+    assert.deepEqual(calls, ['oracle', 'modal']);
+    assert.equal(b['alert'], 'none');
+    assert.equal(b['gateBy'], 'modal');
+    assert.equal(seen.length, 0);
+  }
+});
+
+test('proxy gate dual: both copies down -> the model decides (never hidden)', async () => {
+  const calls: string[] = []; const seen: string[] = [];
+  const b = await check(DUAL, dualFetch('slow', new Error('down'), calls), seen);
+  assert.deepEqual(calls, ['oracle', 'modal']);
+  assert.equal(b['alert'], 'warn');
+  assert.equal(b['gate'], null);
+  assert.equal(b['gateBy'], null);
+  assert.equal(seen.length, 1);
+});
+
+test('proxy gate dual: Oracle-only config works without Modal', async () => {
+  const env: Env = { ...ENV, LHG_GATE_ORACLE_URL: DUAL.LHG_GATE_ORACLE_URL, LHG_GATE_ORACLE_KEY: 'o' };
+  const calls: string[] = []; const seen: string[] = [];
+  const b = await check(env, dualFetch(0.01, 0.01, calls), seen);
+  assert.deepEqual(calls, ['oracle']);
+  assert.equal(b['gateBy'], 'oracle');
+  const down = await check({ ...env, LHG_GATE_ORACLE_TIMEOUT_MS: '20' }, dualFetch('slow', 0.01, calls), seen);
+  assert.equal(down['alert'], 'warn');
+  assert.equal(seen.length, 1);
+});
+
+test('proxy /warm dual: healthy Oracle keeps Modal asleep; Oracle down wakes Modal', async () => {
+  let calls: string[] = [];
+  let r = await handle(post({}, ENV.LHG_ACCESS_KEY, '/warm'), DUAL, provider(CONCERN), dualFetch(0.5, 0.5, calls));
+  assert.deepEqual(await r.json(), { warm: true, by: 'oracle' });
+  assert.deepEqual(calls, ['oracle']);
+  calls = [];
+  r = await handle(post({}, ENV.LHG_ACCESS_KEY, '/warm'), DUAL, provider(CONCERN), dualFetch(500, 0.5, calls));
+  assert.deepEqual(await r.json(), { warm: true, by: 'modal' });
+  assert.deepEqual(calls, ['oracle', 'modal']);
 });
 
 test('proxy: no context -> identical shape (no req.context), same alert mapping', async () => {
