@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<!-- אב־טיפוס עיצובי בלבד (UI mock) לפרויקט lashon-hara-guard.
+     אין כאן פסיקה, אין כלל מאושר, והדוגמאות סינתטיות לחלוטין.
+     מקורות ההלכה מסומנים כטיוטה שטרם אומתה. -->
+<html dir="rtl" lang="he">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>שמירת הדיבור — אב־טיפוס ממשק</title>
+<style>
+  :root{
+    --sky:#e9f4fd; --cream:#fdf8ee; --lav:#efeafb; --mint:#e9f7f1;
+    --ink:#3d4457; --muted:#8b93a9; --line:rgba(120,140,180,.22);
+    --teal:#4fae9c; --amber:#dfa245; --blue:#7aa7e8; --rose:#d98a9e;
+    --card:rgba(255,255,255,.62); --radius:22px;
+    --shadow:0 12px 40px rgba(110,140,190,.18), 0 2px 6px rgba(110,140,190,.10);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; color:var(--ink);
+    font-family:"Heebo","Noto Sans Hebrew","Segoe UI",Arial,sans-serif;
+    background:linear-gradient(160deg,var(--sky),var(--cream) 55%,var(--lav));
+    min-height:100vh; padding:28px 16px 60px;
+  }
+  .cloud{position:fixed; border-radius:50%; filter:blur(70px); opacity:.55;
+    pointer-events:none; z-index:0; animation:drift 26s ease-in-out infinite alternate}
+  .c1{width:420px;height:220px;background:#fff;top:-60px;right:-80px}
+  .c2{width:360px;height:200px;background:#dcebfb;top:30%;left:-120px;animation-delay:-8s}
+  .c3{width:300px;height:180px;background:#f6e8f3;bottom:-60px;right:20%;animation-delay:-14s}
+  @keyframes drift{from{transform:translateY(0)}to{transform:translateY(26px)}}
+  .wrap{max-width:860px;margin:0 auto;position:relative;z-index:1}
+  header{text-align:center;margin-bottom:18px}
+  header h1{font-size:1.7rem;margin:.2em 0;font-weight:700}
+  header p{color:var(--muted);margin:.2em 0}
+  .badge{display:inline-block;background:var(--card);border:1px solid var(--line);
+    border-radius:999px;padding:4px 14px;font-size:.8rem;color:var(--muted);
+    backdrop-filter:blur(8px)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);backdrop-filter:blur(14px);padding:20px;margin:16px 0}
+  .card h2{font-size:1.1rem;margin:0 0 10px}
+  .hint{font-size:.85rem;color:var(--muted)}
+  /* כפתורי תרחיש (בקרי הדגמה) */
+  .scn-row{display:flex;gap:10px;flex-wrap:wrap}
+  .scn{flex:1;min-width:150px;border:1.5px solid var(--line);background:rgba(255,255,255,.7);
+    border-radius:16px;padding:10px;cursor:pointer;font:inherit;color:var(--ink);
+    transition:all .35s ease}
+  .scn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+  .scn.active{border-color:var(--teal);background:#fff;box-shadow:var(--shadow)}
+  .scn b{display:block;font-size:.9rem}
+  .scn span{font-size:.78rem;color:var(--muted)}
+  /* דמוי צ'אט */
+  .phone{background:rgba(255,255,255,.55);border:1px solid var(--line);
+    border-radius:26px;padding:18px;box-shadow:var(--shadow);backdrop-filter:blur(14px)}
+  .bubble{max-width:75%;padding:10px 14px;border-radius:18px;margin:8px 0;
+    font-size:.92rem;line-height:1.6}
+  .in{background:#fff;border:1px solid var(--line);border-start-start-radius:6px}
+  .out{background:linear-gradient(135deg,#d9efe9,#cfe6f7);margin-inline-start:auto;
+    border-start-end-radius:6px}
+  .draft-zone{position:relative;margin-top:14px}
+  textarea#draft{width:100%;min-height:74px;resize:vertical;font:inherit;font-size:.92rem;
+    border:1.5px solid var(--line);border-radius:18px;padding:12px 14px;background:#fff;
+    line-height:1.7}
+  textarea#draft:focus{outline:none;border-color:var(--teal)}
+  /* הפופאפ הקטן */
+  .pill{position:absolute;top:-18px;inset-inline-start:12px;display:flex;align-items:center;
+    gap:8px;background:rgba(255,255,255,.85);border:1px solid var(--line);
+    border-radius:999px;padding:6px 14px;font-size:.8rem;cursor:pointer;
+    box-shadow:0 6px 18px rgba(110,140,190,.20);backdrop-filter:blur(10px);
+    transition:all .3s ease}
+  .pill:hover{transform:translateY(-2px)}
+  .dot{width:10px;height:10px;border-radius:50%;flex:none}
+  .dot.ok{background:var(--teal);box-shadow:0 0 0 4px rgba(79,174,156,.18)}
+  .dot.ask{background:var(--amber);box-shadow:0 0 0 4px rgba(223,162,69,.18)}
+  .dot.alt{background:var(--blue);box-shadow:0 0 0 4px rgba(122,167,232,.18)}
+  .pill .more{color:var(--teal);font-weight:700}
+  /* מרחב העבודה */
+  .panel{overflow:hidden;max-height:0;opacity:0;transition:max-height .6s ease,opacity .5s ease,margin .4s}
+  .panel.open{max-height:1200px;opacity:1;margin-top:14px}
+  .sheet{background:rgba(255,255,255,.78);border:1px solid var(--line);
+    border-radius:var(--radius);box-shadow:var(--shadow);padding:6px 18px 18px}
+  .tabs{display:flex;gap:6px;flex-wrap:wrap;border-bottom:1px solid var(--line);
+    padding:10px 0;margin-bottom:12px}
+  .tab{border:none;background:transparent;font:inherit;font-size:.86rem;color:var(--muted);
+    padding:8px 12px;border-radius:12px;cursor:pointer;transition:all .3s}
+  .tab:hover{background:rgba(122,167,232,.12)}
+  .tab.active{background:#fff;color:var(--ink);font-weight:700;
+    box-shadow:0 3px 10px rgba(110,140,190,.15)}
+  .pane{display:none;animation:fade .45s ease}
+  .pane.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .src{font-size:.8rem;color:var(--muted);background:var(--cream);
+    border:1px dashed var(--line);border-radius:12px;padding:8px 12px;margin-top:10px}
+  .btn{font:inherit;border:1.5px solid var(--line);background:#fff;color:var(--ink);
+    border-radius:14px;padding:9px 16px;cursor:pointer;font-size:.88rem;
+    transition:all .3s ease;margin:4px}
+  .btn:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+  .btn.primary{background:linear-gradient(135deg,#5fb8a6,#6cb6e2);color:#fff;border:none}
+  .btn.soft{background:rgba(122,167,232,.12);border-color:transparent}
+  .btn.warn{background:transparent}
+  .q-prog{font-size:.78rem;color:var(--muted);margin-bottom:6px}
+  .q-text{font-size:1rem;font-weight:700;margin:4px 0 10px}
+  .alt-box{background:var(--mint);border:1px solid var(--line);border-radius:16px;
+    padding:12px 14px;line-height:1.8;margin:8px 0}
+  .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);
+    background:rgba(61,68,87,.92);color:#fff;border-radius:999px;padding:10px 22px;
+    font-size:.85rem;opacity:0;transition:all .4s ease;z-index:50;pointer-events:none}
+  .toast.show{opacity:1;transform:translateX(-50%)}
+  .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+  label.set{display:flex;align-items:center;gap:8px;font-size:.88rem;margin:8px 0}
+  select,input[type=range]{font:inherit}
+  /* מפרט */
+  table.spec{width:100%;border-collapse:collapse;font-size:.85rem}
+  table.spec td,table.spec th{border:1px solid var(--line);padding:8px 10px;text-align:right}
+  table.spec th{background:rgba(255,255,255,.7)}
+  .sw{display:inline-block;width:16px;height:16px;border-radius:50%;vertical-align:middle}
+  ul.air li{margin:8px 0;line-height:1.7}
+</style>
+</head>
+<body>
+<div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div>
+<div class="wrap">
+
+  <header>
+    <h1>☁️ שמירת הדיבור</h1>
+    <p>אב־טיפוס חוויית שימוש — התוסף מתריע ומכווין, לא פוסק</p>
+    <span class="badge">מדגם עיצוב בלבד · דוגמאות סינתטיות · אין כלל מאושר</span>
+  </header>
+
+  <div class="card">
+    <h2>בקרי הדגמה — מעבר בין מצבים</h2>
+    <div class="scn-row">
+      <button class="scn" data-scn="ok"><b>🌿 רגוע</b><span>נבדק — לא נמצאה נקודה</span></button>
+      <button class="scn active" data-scn="ask"><b>💭 נקודה לבירור</b><span>חסר פרט קטן בקונטקסט</span></button>
+      <button class="scn" data-scn="alt"><b>✨ ניסוח חלופי</b><span>יש הצעה עדינה יותר</span></button>
+    </div>
+  </div>
+
+  <div class="phone">
+    <div class="bubble in">שלום! איך היה השיעור אתמול? שווה להגיע בשבוע הבא?</div>
+    <div class="bubble out">היה מעניין, אני מתלבט איך לספר…</div>
+    <div class="draft-zone">
+      <div class="pill" id="pill" title="לחץ להרחבה">
+        <span class="dot ask" id="pillDot"></span>
+        <span id="pillText">יש נקודה אחת לבירור</span>
+        <span class="more" id="pillMore">▾ פרטים</span>
+      </div>
+      <textarea id="draft">השיעור אתמול היה ממש מאכזב, הוא הגיע בלי להתכונן ובלבל את כולם</textarea>
+    </div>
+
+    <div class="panel" id="panel">
+      <div class="sheet">
+        <div class="tabs">
+          <button class="tab active" data-tab="diag">אבחנה ומקור</button>
+          <button class="tab" data-tab="clarify">בירור קצר</button>
+          <button class="tab" data-tab="alt">ניסוח חלופי</button>
+          <button class="tab" data-tab="actions">פעולות</button>
+          <button class="tab" data-tab="settings">הגדרות</button>
+        </div>
+
+        <div class="pane active" id="pane-diag">
+          <p id="diagText" style="line-height:1.9"></p>
+          <div class="src" id="diagSrc"></div>
+          <p class="hint">שימו לב: זו הכוונה בלבד, לא פסיקה. המקור בטיוטה וטרם אומת.</p>
+        </div>
+
+        <div class="pane" id="pane-clarify">
+          <div class="q-prog" id="qProg"></div>
+          <div class="q-text" id="qText"></div>
+          <div id="qOpts" class="row"></div>
+          <div class="row">
+            <button class="btn soft" id="qSkip">דלג — לא יודע / לא רלוונטי</button>
+          </div>
+          <p class="hint">כלל ההפרעה: שאלה אחת בכל פעם, תמיד אפשר לדלג. פרט שעדיין חסר נשמר כ״לא ידוע״ — לעולם לא כ״לא״.</p>
+        </div>
+
+        <div class="pane" id="pane-alt">
+          <div class="alt-box" id="altText"></div>
+          <div class="row">
+            <button class="btn primary" id="useAlt">השתמש בניסוח הזה</button>
+            <button class="btn" id="copyAlt">העתק</button>
+          </div>
+        </div>
+
+        <div class="pane" id="pane-actions">
+          <div class="row">
+            <button class="btn primary" data-act="send">שליחה בכל זאת</button>
+            <button class="btn" data-act="edit">עריכת ההודעה</button>
+            <button class="btn soft" data-act="benefit">זה לתועלת — סמן מטרה</button>
+            <button class="btn warn" data-act="ignore">התעלם לעת עתה</button>
+          </div>
+          <p class="hint">שום פעולה אינה חוסמת. ״שליחה בכל זאת״ נשארת זמינה תמיד.</p>
+        </div>
+
+        <div class="pane" id="pane-settings">
+          <label class="set">רגישות ההתראה:
+            <select id="setSens">
+              <option value="gentle">עדינה — רק נקודות ברורות</option>
+              <option value="balanced" selected>מאוזנת</option>
+              <option value="strict">רגישה — גם ספקות קלים</option>
+            </select>
+          </label>
+          <label class="set">שיטת ההכוונה:
+            <select id="setMethod">
+              <option>ברירת מחדל (הצעה — טרם הוחלט)</option>
+              <option>מחמירה יותר (הצעה)</option>
+              <option>מקילה יותר (הצעה)</option>
+            </select>
+          </label>
+          <label class="set"><input type="checkbox" id="setQuiet" checked> ברירת מחדל שקטה — הפופאפ לא נפתח מעצמו</label>
+          <p class="hint">הגדרות נשמרות מקומית בלבד. פרופילי השיטה מוצעים בלבד — טרם הוחלט כיצד בוחרים פרופיל (שאלה פתוחה 6).</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>📋 מפרט קצר</h2>
+    <h3 style="font-size:.95rem">רכיבים</h3>
+    <table class="spec">
+      <tr><th>רכיב</th><th>תפקיד</th></tr>
+      <tr><td>פופאפ (pill)</td><td>חיווי מצב בלבד ליד תיבת ההקלדה. לא חוסם, לא נפתח מעצמו.</td></tr>
+      <tr><td>מרחב עבודה</td><td>נפתח בלחיצה; חמש לשוניות: אבחנה · בירור · חלופי · פעולות · הגדרות.</td></tr>
+      <tr><td>אשף בירור</td><td>שאלה אחת בכל פעם, דילוג תמיד אפשרי, תקציב עד 3 שאלות להודעה (הצעה).</td></tr>
+      <tr><td>ניסוח חלופי</td><td>הצעה עדינה; ״השתמש״ מחליף את הטיוטה, ״העתק״ ללוח.</td></tr>
+      <tr><td>טוסט</td><td>אישור שקט לפעולות, נעלם מעצמו.</td></tr>
+    </table>
+    <h3 style="font-size:.95rem">מצבים</h3>
+    <table class="spec">
+      <tr><th>מצב</th><th>חיווי</th></tr>
+      <tr><td>נבדק</td><td><span class="sw" style="background:var(--teal)"></span> ירוק רך — ״נבדק, לא נמצאה נקודה״</td></tr>
+      <tr><td>בירור</td><td><span class="sw" style="background:var(--amber)"></span> ענבר — ״יש נקודה אחת לבירור״</td></tr>
+      <tr><td>חלופי</td><td><span class="sw" style="background:var(--blue)"></span> תכלת — ״יש הצעה לניסוח עדין יותר״</td></tr>
+    </table>
+    <h3 style="font-size:.95rem">צבעים וטיפוגרפיה</h3>
+    <ul class="air hint">
+      <li>רקע: גרדיאנט שמיים־קרם־לבנדר בהיר; עננים לבנים מטושטשים נעים לאט.</li>
+      <li>כרטיסים: זכוכית לבנה חצי־שקופה (blur), פינות 22px+, צללים רכים כחלחלים.</li>
+      <li>גופן: Heebo / Noto Sans Hebrew / Segoe UI; כותרות 700, גוף רגיל, קו־גובה 1.7+.</li>
+      <li>טון: מילים מכווינות — ״אולי שווה לבדוק״, ״הצעה עדינה״. לעולם לא ״אסור/מותר/עבירה״.</li>
+    </ul>
+    <h3 style="font-size:.95rem">כללי הפרעה</h3>
+    <ul class="air hint">
+      <li>מקסימום שאלה אחת גלויה; דילוג תמיד זמין; חסר = ״לא ידוע״, לא ״לא״.</li>
+      <li>ברירת מחדל שקטה: הפופאפ לא מתרחב מעצמו; אין חסימת שליחה.</li>
+      <li>תקציב בירור מוצע: עד 3 שאלות להודעה; עובדות יציבות נשמרות מקומית (שאלה פתוחה 10).</li>
+    </ul>
+  </div>
+
+</div>
+<div class="toast" id="toast"></div>
+<script>
+const DRAFTS = {
+  ok: "מחר יש שיעור מעניין בנושא שביקשתי, אשלח לך את השעה",
+  ask: "השיעור אתמול היה ממש מאכזב, הוא הגיע בלי להתכונן ובלבל את כולם",
+  alt: "השיעור אתמול היה ממש מאכזב, הוא הגיע בלי להתכונן ובלבל את כולם"
+};
+const STATE = {
+  ok: {
+    dot: "ok", pill: "נבדק — לא נמצאה נקודה",
+    diag: "הטקסט נבדק ולא נמצאה נקודה שדורשת בירור. אם תרצו, אפשר להמשיך כרגיל.",
+    src: "מקור: אין ממצא. אין כלל מאושר פעיל באב־טיפוס זה.",
+    prog: "אין שאלות פתוחות כרגע.", q: "הכול נראה רגוע — אין מה לברר.",
+    qopts: [], alt: "אין הצעה חלופית — הניסוח הנוכחי נראה בסדר גמור. 🌿"
+  },
+  ask: {
+    dot: "ask", pill: "יש נקודה אחת לבירור",
+    diag: "ייתכן שיש כאן אמירה על אדם מסוים (מוסר השיעור) שעלולה לפגוע בו בעיני אחרים. לפני שמחליטים איך לנסח, שווה לברר פרט קטן אחד.",
+    src: "מקור (טיוטה, טרם אומת): כלל מוצע בנושא אמירה פוגענית על אדם — מיפוי מדויק טרם בוצע (שלב B). אין פסיקה.",
+    prog: "שאלה 1 מתוך עד 3 (תקציב מוצע, ניתן לדלג תמיד)",
+    q: "מוסר השיעור הוא אביך?",
+    qopts: ["כן", "לא", "לא בטוח"],
+    alt: "״השיעור אתמול פחות התאים לי — אולי אשאל אותו שאלה לפני השיעור הבא.״"
+  },
+  alt: {
+    dot: "alt", pill: "יש הצעה לניסוח עדין יותר",
+    diag: "נראה שהטקסט מבקר אדם ספציפי. הכנו הצעה עדינה יותר שמעבירה את אותו המסר בלי לתאר אותו באופן פוגעני.",
+    src: "מקור (טיוטה, טרם אומת): כלל מוצע בנושא ביקורת פומבית — מיפוי מדויק טרם בוצע (שלב B). אין פסיקה.",
+    prog: "הבירור הושלם (מדומה).",
+    q: "האם ההודעה מיועדת לתועלת — למשל למנוע נזק או לעזור למישהו?",
+    qopts: ["כן, לתועלת", "לא, סתם שיתוף", "לא בטוח"],
+    alt: "״השיעור אתמול פחות התאים לי — אולי אשאל אותו שאלה לפני השיעור הבא.״"
+  }
+};
+let cur = "ask";
+const $ = id => document.getElementById(id);
+const toastEl = $("toast");
+let toastT = null;
+function toast(msg){
+  toastEl.textContent = msg; toastEl.classList.add("show");
+  clearTimeout(toastT); toastT = setTimeout(()=>toastEl.classList.remove("show"), 2600);
+}
+function render(){
+  const s = STATE[cur];
+  $("pillDot").className = "dot " + s.dot;
+  $("pillText").textContent = s.pill;
+  $("draft").value = DRAFTS[cur];
+  $("diagText").textContent = s.diag;
+  $("diagSrc").textContent = s.src;
+  $("qProg").textContent = s.prog;
+  $("qText").textContent = s.q;
+  $("altText").textContent = "“" + s.alt + "”";
+  const box = $("qOpts"); box.innerHTML = "";
+  s.qopts.forEach(o => {
+    const b = document.createElement("button");
+    b.className = "btn"; b.textContent = o;
+    b.onclick = () => {
+      toast("תודה! התשובה נשמרה מקומית (מדומה): " + o);
+      if (cur === "ask"){ setScn("alt"); }
+      else { goTab("alt"); }
+    };
+    box.appendChild(b);
+  });
+  document.querySelectorAll(".scn").forEach(b =>
+    b.classList.toggle("active", b.dataset.scn === cur));
+}
+function setScn(name){ cur = name; render(); }
+function goTab(name){
+  document.querySelectorAll(".tab").forEach(t =>
+    t.classList.toggle("active", t.dataset.tab === name));
+  document.querySelectorAll(".pane").forEach(p =>
+    p.classList.toggle("active", p.id === "pane-" + name));
+}
+document.querySelectorAll(".scn").forEach(b =>
+  b.onclick = () => setScn(b.dataset.scn));
+document.querySelectorAll(".tab").forEach(t =>
+  t.onclick = () => goTab(t.dataset.tab));
+$("pill").onclick = () => {
+  const p = $("panel"); p.classList.toggle("open");
+  $("pillMore").textContent = p.classList.contains("open") ? "▴ סגור" : "▾ פרטים";
+};
+$("qSkip").onclick = () => toast("דילגת — הפרט נשמר כ״לא ידוע״, לא כ״לא״.");
+$("useAlt").onclick = () => {
+  $("draft").value = STATE[cur].alt;
+  toast("הניסוח החלופי הוכנס לטיוטה. תמיד אפשר לערוך.");
+};
+$("copyAlt").onclick = () => {
+  const t = STATE[cur].alt;
+  if (navigator.clipboard) navigator.clipboard.writeText(t).catch(()=>{});
+  toast("הועתק ללוח.");
+};
+document.querySelectorAll("[data-act]").forEach(b =>
+  b.onclick = () => {
+    const a = b.dataset.act;
+    const msgs = {
+      send: "נשלח (מדומה). ההחלטה תמיד בידיים שלך.",
+      edit: "חזרה לעריכה — הטיוטה מחכה למעלה.",
+      benefit: "סומן כ״לתועלת״ (מדומה, מקומי בלבד).",
+      ignore: "ההתראה הושתקה להודעה זו."
+    };
+    toast(msgs[a] || "בוצע.");
+    if (a === "edit"){ $("draft").focus(); }
+  });
+$("setSens").onchange = e => toast("רגישות: " + e.target.selectedOptions[0].text);
+render();</script>
+</body>
+</html>
