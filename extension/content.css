@@ -28,3 +28,19 @@
   cursor: pointer;
   color: inherit;
 }
+
+/* Subtle tag attached next to an incoming message bubble/row. */
+.lhg-tag {
+  margin-top: 4px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font: 11px/1.5 system-ui, "Segoe UI", Arial, sans-serif;
+  display: inline-block;
+  direction: rtl;
+  text-align: right;
+  opacity: 0.85;
+}
+.lhg-tag-warn { background: #fff4e5; border: 1px solid #f0a020; color: #5a3a00; }
+.lhg-tag-unsure { background: #fffbe0; border: 1px solid #d8c040; color: #4a4300; }
+.lhg-tag-not_checked { background: #f2f2f2; border: 1px solid #c8c8c8; color: #666; }
+.lhg-tag-checking { background: #eef6ff; border: 1px solid #a8c8ec; color: #2a4a6a; }

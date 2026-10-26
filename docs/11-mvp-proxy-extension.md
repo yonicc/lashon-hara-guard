@@ -4,13 +4,35 @@
 התוסף רק מציג תזכורת ואינו חוסם שליחה.
 
 ```text
-extension (content.js בוואטסאפ Web)
-  → background.js   (מחזיק רק את מפתח הגישה x-lhg-key)
+extension (WhatsApp Web: יוצאות + נכנסות; Gmail/Google Chat: נכנסות)
+  → background.js   (מחזיק רק את מפתח הגישה x-lhg-key, מעביר direction)
   → https://lhg-proxy.yonicc.workers.dev/check   (Cloudflare Worker, proxy/)
       מחזיק את LHG_BRAIN_TOKEN כ־secret; קורא ל־runExtraction של ה־engine
   → https://br.ysho.uk/dash/api/v1/chat/completions (agent_kind=meta_api)
   → Meta: muse-spark-1.3, reasoning minimal
 ```
+
+## סריקת נכנסות (עודכנה ב־2026-10-26, דרישת ליבה לפי docs/06 ‏U-03)
+
+- **היכן:** WhatsApp Web (בנוסף ליוצאות), Google Chat ו־Gmail (שרשור פתוח).
+  כל הסלקטורים מרוכזים ב־`extension/selectors.js` עם fallback; אין סלקטור
+  שמפוזר בקבצי ה־content.
+- **מה נחשב ״חדש״:** ה־Scanner (`extension/incoming.js`) רץ פעם אחת בלי
+  לשלוח דבר — זו נקודת הבסיס (baseline). רק בועות/שורות שמופיעות אחרי
+  טעינת הדף נשלחות. היסטוריה ישנה אינה נשלחית ״בבת אחת״.
+- **כיוון:** `direction: "incoming"`. `background.js` מעביר את הכיוון
+  כפי שהוא ל־`/check`; ה־proxy כבר מקבל אותו.
+- **סימון:** תגית קטנה צמודה לבועה בלבד: ״עלולה להתפרש כגנאי — אינה
+  פסיקה״ / ״ייתכן שיש כאן משמעות לא מכוונת״ / ״לא נבדק״. אין הסתרה,
+  טשטוש, חסימה או שכתוב.
+- **קצב:** ה־proxy מגביל ל־30 בקשות לדקה למפתח. הלקוח מאט את עצמו
+  לשליחה אחת כל ~2.1 שניות ומחזיק תור קטן; עודף מעבר לתור מסומן
+  ״לא נבדק (עומס בדיקות)״ ואינו נעלם בשקט.
+- **מגבלות מוכרות:** הסלקטורים של Google מבוססים על מבנה DOM מוכר אך
+  לא אומתו חי מול חשבון Google (אין סביבת Google מחוברת ב־BI-1);
+  נפילת סלקטור = אין סריקה ואין התרעת כשל גלויה ב־Google בשלב זה.
+  ב־WhatsApp כן קיים באנר ״התוסף לא מזהה את שורת הכתיבה״ כששורת
+  הכתיבה לא נמצאה בזמן שיחה פתוחה.
 
 ## חוזה `POST /check`
 
@@ -56,7 +78,11 @@ npx wrangler secret bulk C:\path\outside\repo\secrets.json   # {"LHG_ACCESS_KEY"
 
 ## פתוח
 
-- סריקת הודעות נכנסות היא דרישת ליבה, ועדיין לא מומשה (רק `outgoing`).
-- הסלקטור של שורת הכתיבה (`footer [contenteditable=true]`) תלוי ב־DOM של WhatsApp
-  ועלול להישבר כשהוא משתנה.
+- ~~סריקת הודעות נכנסות~~ — מומשה ב־2026-10-26 (WhatsApp Web, Google Chat,
+  Gmail). סלקטורי Google לא אומתו חי; נותר לאמת מול חשבון אמיתי.
+- הסלקטורים תלויים ב־DOM של האתרים ועלולים להישבר כשהוא משתנה — כל
+  הסלקטורים ב־`extension/selectors.js` עם fallback, וב־WhatsApp מוצג
+  באנר גלוי כשהכתיבה אינה מזוהה; ב־Google נפילת סלקטור עדיין שקטה.
 - מפתח גישה אחד משותף; התחברות פר־משתמש תיבנה בהמשך.
+- גמייל/צ׳אט: אין עדיין באנר ״שורת הכתיבה לא זוהתה״ ואין סריקת יוצאות
+  ב־Google; ולא נמדד קצב כוזב־חיובי של תגיות הנכנסות.
