@@ -76,6 +76,12 @@ npx wrangler secret bulk C:\path\outside\repo\secrets.json   # {"LHG_ACCESS_KEY"
 3. ב־web.whatsapp.com: לכתוב הודעה ולעצור לרגע. אחרי כ־1.2 שניות של שקט נשלחת בדיקה,
    והחלון מופיע מעל שורת הכתיבה.
 
+### YONI-PC (עותק פעיל קבוע)
+- מקור האמת הוא `extension/` במאגר הזה (BI-1). כל שינוי בתוסף מועתק גם לעותק ה־unpacked הפעיל במחשב YONI-PC: `/home/yoni/lashon-hara-guard-gmail/extension` (לינוקס, משתמש `yoni`). לאחר ההעתקה מאמתים התאמת SHA-256 מול המאגר ושה־`manifest.json` תקין.
+- לא מעתיקים סודות או מפתח גישה; המפתח נשמר מקומית בפרופיל ה־Chrome של אותו מחשב דרך דף ההגדרות.
+- לאחר עדכון יידני של התיקייה יש ללחוץ Reload לתוסף ב־`chrome://extensions` (אין טעינה חמה כש־`manifest.json` השתנה).
+- ב־2026-10-26 סונכרנה לשם גרסה `0.2.0` (commit `72bf6d7`); הגרסה הישנה `0.1.2` נשמרה בגיבוי תחת `backups/` באותו מחשב.
+
 ## פתוח
 
 - ~~סריקת הודעות נכנסות~~ — מומשה ב־2026-10-26 (WhatsApp Web, Google Chat,
