@@ -87,6 +87,7 @@
       const wrapped = S.asRoot(area);
       for (const el of S.all(wrapped, S.googleChat.messageBubble)) {
         if (!el || el.children.length !== 0) continue; // text leaf, not a wrapper
+        if (globalThis.LHG_INCOMING.isEditable && globalThis.LHG_INCOMING.isEditable(el)) continue; // own draft
         const raw = (el.innerText || el.textContent || '').trim();
         const text = S.cleanText(raw);
         if (text && text.length >= MIN_CHARS) out.push({ el, text });
@@ -143,6 +144,11 @@
           lines.push(findChatCompose()
             ? 'שורת הכתיבה של הצ׳אט זוהתה; הקלדה תיבדק אוטומטית אחרי הפסקה קצרה.'
             : 'שורת הכתיבה של הצ׳אט לא זוהתה; הבדיקה בזמן כתיבה אינה פעילה כעת.');
+          const ids = new Set(Array.from(document.querySelectorAll('[data-group-id], [data-space-id]'),
+            (n) => n.getAttribute('data-group-id') || n.getAttribute('data-space-id')));
+          lines.push(ids.size === 1
+            ? 'מזהה השיחה זוהה: הקשר השיחה (הודעות קודמות, משתתפים) נאסף מקומית ונשלח מוסתר.'
+            : 'מזהה השיחה לא זוהה (' + ids.size + ' מועמדים), ולכן כל הודעה נבדקת לבדה, בלי הקשר השיחה.');
         } else {
           const frames = chatIframes().filter((f) => f.visible).length;
           if (frames) {
@@ -181,6 +187,10 @@
       areas: S.googleChatArea(document).length,
       rows: findRows(document).length,
       chatCompose: describe(findChatCompose()),
+      idAttrs: Object.fromEntries(['data-group-id', 'data-space-id', 'data-topic-id', 'data-message-id', 'data-member-id', 'data-thread-id', 'data-id']
+        .map((a) => [a, count('[' + a + ']')])),
+      groupIdKinds: Array.from(new Set(Array.from(document.querySelectorAll('[data-group-id]'),
+        (n) => (n.getAttribute('data-group-id') || '').split('/')[0]))).slice(0, 5),
       contentEditables: Array.from(document.querySelectorAll('[contenteditable="true"]')).slice(0, 5).map(describe),
       iframes: IS_TOP ? chatIframes() : null,
     };

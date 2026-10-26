@@ -64,6 +64,10 @@
 
   function tag(el, kind) {
     if (!el || typeof el.appendChild !== 'function') return;
+    // Never inside an editable area: a tag appended into the compose box
+    // becomes part of what the user types (seen in Google Chat 2026-10-27:
+    // the caret landed in the tag and the typed text appeared as a "bubble").
+    if (isEditable(el)) return;
     const old = el.querySelector(':scope > .lhg-tag');
     if (old) old.remove();
     if (kind === 'none' || kind === 'hidden') return;
@@ -73,6 +77,15 @@
     t.textContent = TAG_TEXT[kind] || TAG_TEXT.not_checked;
     t.title = 'Lashon Hara Guard: תזכורת בלבד, אינה פסיקה הלכתית.';
     el.appendChild(t);
+  }
+
+  function isEditable(el) {
+    try {
+      if (el.isContentEditable) return true;
+      return !!(el.closest && el.closest('[contenteditable="true"], [contenteditable=""], [role="textbox"], textarea, input'));
+    } catch (_e) {
+      return false;
+    }
   }
 
   function renderResult(el, r) {
@@ -127,6 +140,7 @@
       }
       const fresh = [];
       for (const row of rows) {
+        if (row.el && isEditable(row.el)) continue; // the user's own draft is not an incoming message
         const text = (row.text || '').trim();
         if (text.length < MIN_CHARS) continue;
         const id = S.weakId(platform, row.el, text);
@@ -164,5 +178,6 @@
   }
 
   G.createScanner = createScanner;
+  G.isEditable = isEditable;
   G.TAG_TEXT = TAG_TEXT;
 })();

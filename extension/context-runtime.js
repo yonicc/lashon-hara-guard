@@ -22,11 +22,20 @@
     } else {
       // Require an explicit thread/space ID; a URL or page-wide root alone can
       // mix Gmail mail with embedded Chat. Missing identity => single-message.
-      root = el?.closest?.('[data-thread-id], [data-space-id]');
+      // Google Chat (incl. the Gmail chat iframe) marks the conversation with
+      // data-group-id ("dm/…" / "space/…"); data-space-id is the older name.
+      root = el?.closest?.('[data-thread-id], [data-space-id], [data-group-id]');
+      // Outgoing checks pass the compose box, which may sit outside the
+      // message list: fall back to the single conversation in this frame.
+      if (!root && platform === 'google-chat' && globalThis.top !== globalThis) {
+        const all = document.querySelectorAll('[data-group-id]');
+        const ids = new Set(Array.from(all, (n) => n.getAttribute('data-group-id')));
+        if (ids.size === 1) root = all[0];
+      }
       if (!root) return null;
-      key = root.getAttribute('data-thread-id') || root.getAttribute('data-space-id');
+      key = root.getAttribute('data-thread-id') || root.getAttribute('data-space-id') || root.getAttribute('data-group-id');
       kind = root.getAttribute('data-thread-id') ? 'email_thread' : 'unknown';
-      if (root.getAttribute('data-space-id')) platform = 'google-chat';
+      if (root.getAttribute('data-space-id') || root.getAttribute('data-group-id')) platform = 'google-chat';
     }
     if (!key) return null;
     let scope = scopes.get(root);
