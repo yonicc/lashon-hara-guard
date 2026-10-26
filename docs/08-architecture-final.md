@@ -22,7 +22,9 @@
 Adapter (WhatsApp/Gmail/Chat)
   -> MessageEnvelope { id, revision, direction, authorRef, audienceSnapshot, forwarded, text }
   -> LocalGate (סינון מקומי זול; מעבר שלו אינו הוכחת היעדר חשש)
-  -> Extractor (פלט מובנה מאומת סכמה + ראיות + directAssessment אופציונלי)
+  -> Extractor (פלט מובנה מאומת סכמה + ראיות + directAssessment אופציונלי;
+       כולל הערכת משמעות לפי U-06: mayBeUnderstoodAsDisparagement,
+       interpretationUncertain, mechanism, evidenceExcerpt, identifiable, confidence)
   -> FactStore (עובדות מאושרות/מוצעות/שנויות במחלוקת, scope ותוקף)
   -> RuleEngine (הערכה תלת־ערכית של חבילת כללים ב־JSON)
   -> QuestionPlanner (בחירת שאלה בתקציב)
@@ -65,7 +67,8 @@ Adapter (WhatsApp/Gmail/Chat)
 
 ליבת מנוע ב־`engine/` (TypeScript, ללא תלות ב־DOM או בספק AI):
 הערכת ביטויים תלת־ערכית, FactStore עם מדיניות מוצא, מתכנן שאלות בתקציב,
-ולידציית חבילות, מפתח מטמון, וחבילת כללי **ניתוב־טיוטה** לתרחיש השיעור.
+ולידציית חבילות, מפתח מטמון, וחבילות כללי **ניתוב־טיוטה** לתרחיש השיעור
+ולשכבת המשמעות (`engine/src/meaning.ts`: `buildMeaningFacts` + `MEANING_ROUTING_PACK`).
 בדיקות: `engine/test/`. הרצה: `npm --prefix engine test`.
 
 ## מה אינו ממומש ואינו מאושר

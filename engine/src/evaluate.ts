@@ -104,6 +104,10 @@ export function evaluate(input: EvaluationInput): EvaluationResult {
           note: 'draft_or_unapproved_rule_matched_internal_only',
         });
       }
+      // A matched rule may still declare required facts that were not part of
+      // its conditions (e.g. identifiability for a perceived-meaning cue).
+      // Those facts remain clarification candidates: matching is not concluding.
+      if (missing.length > 0) missingByRule.set(rule.id, { rule, missing });
       continue;
     }
 
