@@ -58,5 +58,14 @@ chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
     check(msg.text, msg.platform || 'unknown', msg.direction, msg.context).then(sendResponse);
     return true; // async response
   }
+  if (msg && msg.type === 'lhg-warm') {
+    // Fire-and-forget: wake the proxy's fast classifier while the user types.
+    settings().then(({ proxyUrl, accessKey }) => {
+      if (accessKey) {
+        fetch(proxyUrl + '/warm', { method: 'POST', headers: { 'x-lhg-key': accessKey } }).catch(() => {});
+      }
+    });
+    return false;
+  }
   return false;
 });

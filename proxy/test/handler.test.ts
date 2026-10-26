@@ -109,6 +109,65 @@ test('proxy: missing Brain config is 503', async () => {
   assert.equal(r.status, 503);
 });
 
+const GATED: Env = { ...ENV, LHG_GATE_URL: 'https://gate.test', LHG_GATE_KEY: 'g' };
+
+function gateFetch(answer: number | Error | 'slow', calls: string[] = []): typeof fetch {
+  return (async (url: unknown, init?: RequestInit) => {
+    calls.push(String(url));
+    assert.equal((init?.headers as Record<string, string>)['x-gate-key'], 'g');
+    if (answer instanceof Error) throw answer;
+    if (answer === 'slow') {
+      return new Promise<Response>((_res, rej) =>
+        init?.signal?.addEventListener('abort', () => rej(Object.assign(new Error('a'), { name: 'AbortError' }))));
+    }
+    return new Response(JSON.stringify({ p: answer }), { status: 200 });
+  }) as typeof fetch;
+}
+
+test('proxy gate: low p skips the model and reports none', async () => {
+  const seen: string[] = [];
+  const r = await handle(post({ text: 'הפגישה נדחתה למחר' }), GATED, provider(CONCERN, seen), gateFetch(0.01));
+  const b = (await r.json()) as Record<string, unknown>;
+  assert.equal(b['alert'], 'none');
+  assert.equal(b['gate'], 0.01);
+  assert.equal(seen.length, 0);
+});
+
+test('proxy gate: high p escalates to the model', async () => {
+  const seen: string[] = [];
+  const r = await handle(post({ text: IRONY }), GATED, provider(CONCERN, seen), gateFetch(0.9));
+  const b = (await r.json()) as Record<string, unknown>;
+  assert.equal(b['alert'], 'warn');
+  assert.equal(b['gate'], 0.9);
+  assert.equal(seen.length, 1);
+});
+
+test('proxy gate: failure or timeout escalates to the model (never hides a message)', async () => {
+  for (const answer of [new Error('down'), 'slow' as const]) {
+    const seen: string[] = [];
+    const env: Env = { ...GATED, LHG_GATE_TIMEOUT_MS: '20' };
+    const r = await handle(post({ text: IRONY }), env, provider(CONCERN, seen), gateFetch(answer));
+    const b = (await r.json()) as Record<string, unknown>;
+    assert.equal(b['alert'], 'warn');
+    assert.equal(b['gate'], null);
+    assert.equal(seen.length, 1);
+  }
+});
+
+test('proxy gate: disabled when LHG_GATE_URL is unset', async () => {
+  const calls: string[] = [];
+  await handle(post({ text: IRONY }), ENV, provider(CONCERN), gateFetch(0.01, calls));
+  assert.equal(calls.length, 0);
+});
+
+test('proxy /warm needs the key and pings the gate', async () => {
+  assert.equal((await handle(post({}, 'bad', '/warm'), GATED, provider(CONCERN))).status, 401);
+  const calls: string[] = [];
+  const r = await handle(post({}, ENV.LHG_ACCESS_KEY, '/warm'), GATED, provider(CONCERN), gateFetch(0.5, calls));
+  assert.deepEqual(await r.json(), { warm: true });
+  assert.equal(calls.length, 1);
+});
+
 test('proxy: no context -> identical shape (no req.context), same alert mapping', async () => {
   const seenReqs: ExtractorRequest[] = [];
   const r = await handle(post({ text: IRONY, platform: 'whatsapp-web' }), ENV, capturingProvider(CONCERN, seenReqs));

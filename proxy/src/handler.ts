@@ -29,6 +29,13 @@ export interface Env {
   LHG_BRAIN_TIMEOUT_MS?: string;
   /** "1" = call the model even when the cheap local gate finds no cue (MVP default). */
   LHG_ALWAYS_EXTRACT?: string;
+  /** Optional fast classifier (classifier/serve_modal.py). Unset = disabled. */
+  LHG_GATE_URL?: string;
+  LHG_GATE_KEY?: string;
+  /** p(concern) below this skips the model call. Default 0.2. */
+  LHG_GATE_THRESHOLD?: string;
+  /** Gate budget; on timeout the message goes to the model. Default 1500. */
+  LHG_GATE_TIMEOUT_MS?: string;
   LIMITER?: { limit(o: { key: string }): Promise<{ success: boolean }> };
 }
 
@@ -56,6 +63,8 @@ export interface CheckResponse {
   evidence: string | null;
   limitationsHe: string[];
   ms: number;
+  /** Gate probability when the gate answered, else null. */
+  gate: number | null;
 }
 
 /**
@@ -111,19 +120,55 @@ export function providerFromEnv(env: Env): ExtractorProvider | null {
   return opts ? new BrainSendExtractorProvider(opts) : null;
 }
 
+/**
+ * Ask the fast classifier for p(concern). Returns null on ANY failure or
+ * timeout, so the caller escalates to the model: the gate can only save a
+ * model call, never hide a message.
+ */
+export async function gateScore(
+  env: Env, text: string, fetchImpl: typeof fetch = fetch, timeoutMs?: number,
+): Promise<number | null> {
+  if (!env.LHG_GATE_URL || !env.LHG_GATE_KEY) return null;
+  const ctrl = new AbortController();
+  const budget = timeoutMs ?? (Number(env.LHG_GATE_TIMEOUT_MS) || 1500);
+  const timer = setTimeout(() => ctrl.abort(), budget);
+  try {
+    const r = await fetchImpl(env.LHG_GATE_URL, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json', 'x-gate-key': env.LHG_GATE_KEY },
+      body: JSON.stringify({ text }),
+      signal: ctrl.signal,
+    });
+    if (!r.ok) return null;
+    const p = ((await r.json()) as { p?: unknown }).p;
+    return typeof p === 'number' && p >= 0 && p <= 1 ? p : null;
+  } catch {
+    return null;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 export async function handle(
   request: Request,
   env: Env,
   makeProvider: (env: Env) => ExtractorProvider | null = providerFromEnv,
+  fetchImpl: typeof fetch = fetch,
 ): Promise<Response> {
   const url = new URL(request.url);
   if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: CORS });
   if (url.pathname === '/health') return json({ ok: true });
-  if (url.pathname !== '/check') return json({ error: 'not_found' }, 404);
+  if (url.pathname !== '/check' && url.pathname !== '/warm') return json({ error: 'not_found' }, 404);
   if (request.method !== 'POST') return json({ error: 'method_not_allowed' }, 405);
 
   const key = request.headers.get('x-lhg-key') ?? '';
   if (!sameKey(key, env.LHG_ACCESS_KEY ?? '')) return json({ error: 'unauthorized' }, 401);
+
+  if (url.pathname === '/warm') {
+    // Wake the gate container (cold start ~12s) when the user starts typing.
+    const p = await gateScore(env, 'warm', fetchImpl, 30000);
+    return json({ warm: p !== null });
+  }
 
   if (env.LIMITER) {
     const { success } = await env.LIMITER.limit({ key: key.slice(0, 16) });
@@ -150,12 +195,23 @@ export async function handle(
   const provider = makeProvider(env);
   if (!provider) return json({ error: 'proxy_not_configured' }, 503);
 
+  const started = Date.now();
+  const gate = await gateScore(env, text, fetchImpl);
+  const threshold = Number(env.LHG_GATE_THRESHOLD) || 0.2;
+  if (gate !== null && gate < threshold) {
+    const res: CheckResponse = {
+      alert: 'none', status: 'skipped_local_gate', mechanism: null, evidence: null,
+      limitationsHe: ['המסווג המהיר לא מצא סימנים; זה אינו קובע שאין חשש.'],
+      ms: Date.now() - started, gate,
+    };
+    return json(res);
+  }
+
   const message: MessageEnvelope = {
     id: 'ext-' + Date.now().toString(36), revision: 1, direction, authorRef: 'user',
     platform, conversationId: 'ext', audienceSnapshot: {}, text,
   } as MessageEnvelope;
 
-  const started = Date.now();
   const outcome = await runExtraction(message, {
     provider, catalog: FACT_CATALOG, alwaysCallProvider: (env.LHG_ALWAYS_EXTRACT ?? '1') === '1',
     ...(context ? { context } : {}),
@@ -170,6 +226,7 @@ export async function handle(
     evidence,
     limitationsHe: outcome.limitationsHe,
     ms: Date.now() - started,
+    gate,
   };
   return json(res);
 }

@@ -123,11 +123,13 @@ def train(rows: list[dict], base_model: str, epochs: int, run: str, seed: int = 
 
 @app.local_entrypoint()
 def main(data: str, run: str = "v1", base_model: str = "dicta-il/dictabert", epochs: int = 4):
-    rows = [json.loads(line) for line in open(data, encoding="utf-8")]
+    # --data accepts a comma-separated list of jsonl files (base set + augmentations).
+    files = [p.strip() for p in data.split(",") if p.strip()]
+    rows = [json.loads(line) for f in files for line in open(f, encoding="utf-8")]
     kept = [r for r in rows if not (r["label"] == 0 and r.get("verify") == "concern")]
     print(f"rows {len(rows)}, kept {len(kept)} (dropped harmless-labelled rows the verifier flagged)")
     res = train.remote(kept, base_model, epochs, run)
-    out = pathlib.Path(data).parent.parent / "results" / f"{run}.json"
+    out = pathlib.Path(files[0]).parent.parent / "results" / f"{run}.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(res, ensure_ascii=False, indent=1), encoding="utf-8")
     print(json.dumps({k: res[k] for k in res if k not in ("misses", "per_category")}, ensure_ascii=False, indent=1))

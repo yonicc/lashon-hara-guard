@@ -8,6 +8,14 @@
   const PAUSE_MS = 1200;
   const MIN_CHARS = 6;
   const COMPOSE_WATCH_MS = 4000;
+  const WARM_EVERY_MS = 4 * 60 * 1000; // the gate container sleeps after 5 idle minutes
+  let lastWarm = 0;
+  function warm() {
+    const now = Date.now();
+    if (now - lastWarm < WARM_EVERY_MS) return;
+    lastWarm = now;
+    try { chrome.runtime.sendMessage({ type: 'lhg-warm' }); } catch (_e) { /* extension reloaded */ }
+  }
 
   const MECHANISM_HE = {
     irony: 'אירוניה',
@@ -95,7 +103,10 @@
     'input',
     (e) => {
       const box = composeBox(e.target);
-      if (box) schedule(box);
+      if (box) {
+        warm();
+        schedule(box);
+      }
     },
     true,
   );

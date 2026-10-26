@@ -50,6 +50,16 @@ CATEGORIES: list[tuple[str, int, str, str]] = [
     ("n_neutral_fact", 0, "", "עובדה ניטרלית על אדם שלישי (עבר דירה, התחיל עבודה, נסע)"),
     ("n_humor", 0, "", "הומור קליל שלא צוחק על אדם מסוים"),
     ("n_request", 0, "", "בקשה או שאלה מנומסת לנמען"),
+    # v2 (2026-10-26): the independent Codex eval showed v1 missing quiet
+    # insinuations and over-flagging sincere "כל הכבוד ל..." praise.
+    ("c_insinuation", 1, "hint", "רמיזה שמשאירה את הפרט השלילי לא אמור (\"אתם יודעים למה\", \"זוכרים מה היה בפעם הקודמת\", \"בפרטי אם צריך\")"),
+    ("c_logistic_jab", 1, "hint", "עקיצה שמוסתרת בתוך הודעה לוגיסטית ומרמזת על הרגל רע של אדם מזוהה (\"נגיד לו שעה מוקדמת יותר\", \"שאדע כמה מרווח להשאיר\")"),
+    ("c_avoid_person", 1, "hint", "העדפה לא לעבוד או להיות עם אדם מזוהה, בניסוח שמרמז על פגם בו"),
+    ("c_conditional_praise", 1, "praise", "שבח מותנה שחושף פגם (\"מקסימה כשהמנהלת בסביבה\", \"מצוין כשהוא כבר מגיע\")"),
+    ("c_private_exposure", 1, "direct", "חשיפה בקבוצה של דבר שאדם אמר או עשה בפרטי, כדי להציג אותו באור שלילי"),
+    ("n_hard_praise", 0, "", "שבח כן לאדם בשמו במבנה שדומה לעקיצה (\"כל הכבוד ל...\", \"איזה כיף ש...\", \"שוב הציל אותנו\"), אבל ברור שהוא כן ואין בו עוקץ"),
+    ("n_hard_logistics", 0, "", "הודעה לוגיסטית שמזכירה אדם בשמו או בכינוי, בלי שום רמז שלילי"),
+    ("n_short_reaction", 0, "", "תגובה קצרצרה של רגש או מצב (\"איזה לחץ\", \"מבאס\", \"הם כבר פה\") שלא מדברת רעה על אף אחד"),
 ]
 
 SETTINGS = ["קבוצת משפחה", "קבוצת עבודה", "קבוצת הורים בכיתה", "צ'אט עם חבר קרוב",
@@ -75,8 +85,8 @@ VERIFY_SYSTEM = (
 
 
 def call(base: str, token: str, account: str, model: str, effort: str,
-         system: str, user: str, timeout: float = 120.0) -> str:
-    body = {"agent_kind": "meta_api", "model": model, "account": account, "stream": False,
+         system: str, user: str, timeout: float = 120.0, agent_kind: str = "meta_api") -> str:
+    body = {"agent_kind": agent_kind, "model": model, "account": account, "stream": False,
             "system_prompt": system, "messages": [{"role": "user", "content": user}]}
     if effort:
         body["reasoning_effort"] = effort
@@ -126,6 +136,7 @@ def main() -> int:
     ap.add_argument("--verify-model", default="muse-spark-1.3-contributor")
     ap.add_argument("--verify-effort", default="low")
     ap.add_argument("--seed", type=int, default=7)
+    ap.add_argument("--only", default="", help="comma-separated category ids to generate (default: all)")
     a = ap.parse_args()
 
     base = os.environ["LHG_BRAIN_BASE_URL"]
@@ -134,7 +145,10 @@ def main() -> int:
     rng = random.Random(a.seed)
 
     jobs = []
+    only = {c.strip() for c in a.only.split(",") if c.strip()}
     for cat in CATEGORIES:
+        if only and cat[0] not in only:
+            continue
         for i in range(a.calls_per_category):
             jobs.append((cat, rng.choice(SETTINGS), LENGTHS[i % len(LENGTHS)]))
 
