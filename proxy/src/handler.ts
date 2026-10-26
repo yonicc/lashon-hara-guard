@@ -1,3 +1,4 @@
+import { personalCheck } from './accountAccess.js';
 import {
   BrainSendExtractorProvider,
   brainSendOptionsFromEnv,
@@ -19,6 +20,8 @@ import {
  * file only adds auth, limits and the alert mapping.
  */
 export interface Env {
+  LHG_ACCOUNT_BASE?: string;
+  LHG_ACCOUNT_KEY?: string;
   LHG_BRAIN_BASE_URL: string;
   LHG_BRAIN_TOKEN: string;
   /** Shared access key the extension sends in `x-lhg-key`. */
@@ -39,7 +42,16 @@ export interface Env {
   LIMITER?: { limit(o: { key: string }): Promise<{ success: boolean }> };
 }
 
-export const MAX_TEXT_CHARS = 2000;
+export async function handle(
+  request: Request, env: Env,
+  makeProvider: (env: Env) => ExtractorProvider | null = providerFromEnv,
+  fetchImpl: typeof fetch = fetch,
+): Promise<Response> {
+  return personalCheck(request, env, (req, settings) => handleAuthorized(req, settings, makeProvider, fetchImpl), fetchImpl);
+}
+
+export { MAX_TEXT_CHARS } from './limits.js';
+import { MAX_TEXT_CHARS } from './limits.js';
 
 /**
  * Cap on the SERIALIZED `context` field of POST /check (ContextPacket v1).
@@ -149,7 +161,7 @@ export async function gateScore(
   }
 }
 
-export async function handle(
+async function handleAuthorized(
   request: Request,
   env: Env,
   makeProvider: (env: Env) => ExtractorProvider | null = providerFromEnv,

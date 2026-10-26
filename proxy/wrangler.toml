@@ -9,6 +9,7 @@ workers_dev = true
 #   LHG_ACCESS_KEY   - shared key the extension sends as x-lhg-key
 #   LHG_GATE_KEY     - key for the Modal gate classifier (Modal secret lhg-gate)
 [vars]
+LHG_ACCOUNT_BASE = "https://tz.ysho.uk"
 LHG_BRAIN_BASE_URL = "https://br.ysho.uk/dash"
 LHG_BRAIN_ACCOUNT = "yoni"
 LHG_BRAIN_TIMEOUT_MS = "20000"

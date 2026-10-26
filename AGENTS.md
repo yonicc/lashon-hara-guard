@@ -23,6 +23,13 @@
 - Regression commands: `node --test extension/*.test.cjs`; in both `engine/` and `proxy/`: `npm run typecheck`, `npm test`. `proxy/test/contextIntegration.test.ts` exercises the real browser scripts through the Worker handler with a synthetic provider.
 
 ## MVP runtime (verified 2026-10-26)
+- Personal `lap_...` tokens are managed at `https://lap.ysho.uk` (TZ repo,
+  `src/lap-access.js`). `proxy/src/accountAccess.ts` verifies/reserves via
+  central LAP partner endpoints before extraction and captures/releases after.
+  `LHG_ACCOUNT_KEY` is a Worker secret; no message text goes to accounts.
+  Legacy access key remains valid for the owner's existing installation.
+  Token revocation, current grants, funds and daily account quota are enforced
+  centrally. Failed settlement returns 503 and leaves a hold for admin recovery.
 - Brain machine API base is `https://br.ysho.uk/dash` (without `/dash`: 401). Model call: `agent_kind=meta_api`, `muse-spark-1.3`, `reasoning_effort=minimal` (docs/10 §0).
 - Proxy = Cloudflare Worker `lhg-proxy` (`proxy/`), deployed from BI-1 with `npx wrangler deploy` (wrangler logged in as yonicc). The extension's alert level is defined only in `proxy/src/handler.ts` `alertFor`.
 - Worker secrets: use `npx wrangler secret bulk <json outside repo>`. Piping a value into `npx wrangler secret put` in PowerShell 5.1 reports Success but stores a wrong value (every call then 401).
