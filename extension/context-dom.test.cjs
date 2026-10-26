@@ -125,3 +125,65 @@ test('extractVisibleParticipants: empty/unknown returns null', () => {
   assert.equal(C.extractVisibleParticipants(null), null);
   assert.equal(C.extractVisibleParticipants(['', '  ']), null);
 });
+;(() => {
+const { test: t3a } = require('node:test');
+const a3a = require('node:assert/strict');
+const f3a = require('fs');
+const v3a = require('vm');
+const p3a = require('path');
+function load3a() {
+  const fp = p3a.join(__dirname, 'context-dom.js');
+  const code = f3a.readFileSync(fp, 'utf8');
+  const sb = {};
+  sb.globalThis = sb;
+  sb.console = console;
+  v3a.createContext(sb);
+  v3a.runInContext(code, sb, { filename: 'context-dom.js' });
+  return sb;
+}
+function el3a(attrs, kids) {
+  attrs = attrs || {};
+  kids = kids || [];
+  const el = {
+    _a: attrs,
+    _k: kids,
+    textContent: attrs.text || '',
+    getAttribute(n) { return Object.prototype.hasOwnProperty.call(this._a, n) ? this._a[n] : null; },
+    querySelector(sel) {
+      if (String(sel).indexOf('data-pre-plain-text') !== -1) {
+        if (this._a['data-pre-plain-text'] != null) return this;
+        for (const c of this._k) { if (c && c._a && c._a['data-pre-plain-text'] != null) return c; }
+        return null;
+      }
+      return null;
+    },
+    querySelectorAll() { return []; }
+  };
+  return el;
+}
+t3a('local-context attach returns author for bubble with pre-plain-text', () => {
+  const sb = load3a();
+  a3a.ok(sb.LHG_LOCAL_CONTEXT, 'LHG_LOCAL_CONTEXT exists');
+  a3a.equal(typeof sb.LHG_LOCAL_CONTEXT.attach, 'function');
+  const b = el3a({ 'data-pre-plain-text': '[12:00, 01/01/2024] \u05d0\u05d3\u05dd \u05dc\u05d3\u05d5\u05d2\u05de\u05d4:' });
+  const r = sb.LHG_LOCAL_CONTEXT.attach(b);
+  a3a.ok(r, 'result not null');
+  a3a.equal(r.authorDisplayName, '\u05d0\u05d3\u05dd \u05dc\u05d3\u05d5\u05d2\u05de\u05d4');
+  a3a.ok('forwarded' in r, 'has forwarded key');
+  a3a.ok('quoted' in r, 'has quoted key');
+});
+t3a('local-context attach returns null for bubble without info', () => {
+  const sb = load3a();
+  const b = el3a({});
+  const r = sb.LHG_LOCAL_CONTEXT.attach(b);
+  a3a.equal(r, null);
+});
+t3a('local-context attach(null) does not throw', () => {
+  const sb = load3a();
+  let r;
+  a3a.doesNotThrow(() => { r = sb.LHG_LOCAL_CONTEXT.attach(null); });
+  a3a.equal(r, null);
+  a3a.doesNotThrow(() => { r = sb.LHG_LOCAL_CONTEXT.attach(undefined); });
+  a3a.equal(r, null);
+});
+})();
