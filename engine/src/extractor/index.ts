@@ -3,7 +3,7 @@ import { buildMeaningFacts } from '../meaning.js';
 import { normalizeHebrewText } from './normalize.js';
 import { localGate } from './localGate.js';
 import { validateExtraction } from './validate.js';
-import type { ExtractorProvider, ExtractionOutcome } from './types.js';
+import type { ExtractorProvider, ExtractionOutcome, ExtractorContextPacket } from './types.js';
 
 export * from './types.js';
 export * from './normalize.js';
@@ -18,6 +18,12 @@ export interface RunExtractionOptions {
   catalog: FactCatalogEntry[];
   /** When false (default), provider is called only if the local gate triages in. */
   alwaysCallProvider?: boolean;
+  /**
+   * Optional ContextPacket v1. Passed through to provider.extract() as
+   * req.context (untrusted data; prompt renderer allowlists its fields).
+   * Absent = single-message behavior, unchanged.
+   */
+  context?: ExtractorContextPacket;
 }
 
 /**
@@ -49,6 +55,7 @@ export async function runExtraction(
       normalizedText,
       gateCues: gate.cues,
       catalogFactIds: opts.catalog.map((c) => c.id),
+      ...(opts.context ? { context: opts.context } : {}),
     });
   } catch (e) {
     return {
