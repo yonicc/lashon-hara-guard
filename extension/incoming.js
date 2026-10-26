@@ -83,6 +83,20 @@
     return tag(el, 'none'); // alert === 'none': stay silent, remove pending tag
   }
 
+  // Local-only context (checkpoint 3b): computed per bubble via
+  // LHG_LOCAL_CONTEXT.attach when present. Real names stay in the page and
+  // are NEVER added to the payload sent to the proxy (queue only sends text).
+  // Missing API or failure => null, never throws.
+  function safeLocalContext(el) {
+    try {
+      const api = globalThis.LHG_LOCAL_CONTEXT;
+      if (!api || typeof api.attach !== 'function') return null;
+      return api.attach(el);
+    } catch (_e) {
+      return null;
+    }
+  }
+
   // platform: 'whatsapp-web' | 'google-chat' | 'gmail'
   // findRows(root) -> [{ el, text }] candidate message rows currently in DOM.
   // firstRunBaselinesOnly: on the first call only record ids (history), then
@@ -90,6 +104,9 @@
   function createScanner({ platform, findRows, root = document }) {
     const S = globalThis.LHG_SELECTORS;
     const seen = new Set();
+    // Local-only bubble context (checkpoint 3b): WeakMap el -> attach() result.
+    // Never enters the queue payload (queue only ever sends { text }).
+    const localByEl = new WeakMap();
     let baselined = false;
     const queue = makeQueue(
       (job) =>
@@ -115,7 +132,12 @@
         const id = S.weakId(platform, row.el, text);
         if (seen.has(id)) continue;
         seen.add(id);
-        fresh.push({ ...row, id, text });
+        // Local-only context snapshot for the builder; never sent to proxy.
+        const localContext = safeLocalContext(row.el);
+        if (row.el && localContext) {
+          try { localByEl.set(row.el, localContext); } catch (_e) { /* WeakMap only */ }
+        }
+        fresh.push({ ...row, id, text, localContext });
       }
       if (!baselined) {
         baselined = true;
@@ -131,7 +153,9 @@
       }
     }
 
-    return { scan, queueSize: queue.size, seenCount: () => seen.size };
+    return { scan, queueSize: queue.size, seenCount: () => seen.size, localContextFor: (el) => {
+      try { return (el && localByEl.get(el)) || null; } catch (_e) { return null; }
+    } };
   }
 
   G.createScanner = createScanner;

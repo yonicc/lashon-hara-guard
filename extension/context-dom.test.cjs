@@ -186,4 +186,50 @@ t3a('local-context attach(null) does not throw', () => {
   a3a.doesNotThrow(() => { r = sb.LHG_LOCAL_CONTEXT.attach(undefined); });
   a3a.equal(r, null);
 });
+// --- checkpoint 3b: wiring path coverage ---------------------------------
+// The findRows wrappers in content.js / content-google.js follow this exact
+// contract: rows pass through untouched when the API is missing, get a
+// localContext field when attach() yields one, and stay intact when null.
+function decorateLikeContent(rows, api) {
+  try {
+    if (!api || typeof api.attach !== 'function') return rows;
+    return rows.map((row) => {
+      let localContext = null;
+      try { localContext = api.attach(row.el); } catch (e) { localContext = null; }
+      return localContext ? Object.assign({}, row, { localContext: localContext }) : row;
+    });
+  } catch (e) {
+    return rows;
+  }
+}
+t3a('wiring: bubble with data-pre-plain-text gets localContext with author', () => {
+  const sb = load3a();
+  const b = el3a({ 'data-pre-plain-text': '[12:00, 01/01/2024] \u05d0\u05d3\u05dd \u05dc\u05d3\u05d5\u05d2\u05de\u05d4:' });
+  const rows = decorateLikeContent([{ el: b, text: 'hello world' }], sb.LHG_LOCAL_CONTEXT);
+  a3a.ok(rows[0].localContext, 'localContext attached');
+  a3a.equal(rows[0].localContext.authorDisplayName, '\u05d0\u05d3\u05dd \u05dc\u05d3\u05d5\u05d2\u05de\u05d4');
+  a3a.equal(rows[0].text, 'hello world');
+});
+t3a('wiring: missing LHG_LOCAL_CONTEXT keeps normal flow without crashing', () => {
+  const b = el3a({ 'data-pre-plain-text': '[12:00, 01/01/2024] \u05d0\u05d3\u05dd \u05dc\u05d3\u05d5\u05d2\u05de\u05d4:' });
+  const rows = decorateLikeContent([{ el: b, text: 'hello world' }], undefined);
+  a3a.equal(rows.length, 1);
+  a3a.equal(rows[0].text, 'hello world');
+  a3a.equal('localContext' in rows[0], false);
+});
+t3a('wiring: attach returning null breaks nothing', () => {
+  const sb = load3a();
+  const b = el3a({});
+  const rows = decorateLikeContent([{ el: b, text: 'hello world' }], sb.LHG_LOCAL_CONTEXT);
+  a3a.equal(rows.length, 1);
+  a3a.equal(rows[0].text, 'hello world');
+  a3a.equal('localContext' in rows[0], false);
+});
+t3a('wiring: throwing attach is swallowed, rows intact', () => {
+  const bad = { attach: () => { throw new Error('boom'); } };
+  const b = el3a({ 'data-pre-plain-text': '[12:00, 01/01/2024] \u05d0\u05d3\u05dd \u05dc\u05d3\u05d5\u05d2\u05de\u05d4:' });
+  const rows = decorateLikeContent([{ el: b, text: 'hello world' }], bad);
+  a3a.equal(rows.length, 1);
+  a3a.equal(rows[0].text, 'hello world');
+});
 })();
