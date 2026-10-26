@@ -33,6 +33,18 @@ Authorization: Bearer $LHG_BRAIN_TOKEN        (scope chat:send, לא guest)
 `LHG_BRAIN_REASONING_EFFORT`. כל כשל (רשת/timeout/HTTP/תשובה ריקה/לא JSON)
 זורק, וה־pipeline ממפה אותו ל־`not_checked`. הזרימה new→model→send→delete הוסרה.
 
+**אומת חי 2026-10-26** מול ה־Brain בפרודקשן (`brain-mcp:491364e`):
+
+- `LHG_BRAIN_BASE_URL=https://br.ysho.uk/dash`. ה־API יושב תחת `/dash`;
+  בלי הקידומת מתקבל 401. ה־token חייב להיות `brk_...` עם scope `chat:send`.
+- ping קצר: כ־3.1 שניות. חילוץ מלא (קטלוג שלם + הודעה), 10 קריאות ברצף:
+  9 הצליחו, 1 נכשלה ב־`fetch failed` אחרי 74ms (כשל רשת חולף, מופה ל־`not_checked`).
+  **p50 ≈ 13.0s, p95 ≈ 18.7s**, ללא `reasoning_effort`.
+- איכות ראשונית: אירוניה (״איזה גאון, שוב באיחור״), רמז (״כולם יודעים למה...״)
+  וביקורת ← `concern` + משמעות מעליבה; תודה והודעה עניינית ← `no_concern`.
+- latency גבוה מדי לפופאפ בזמן אמת. הצעדים הבאים: `LHG_BRAIN_REASONING_EFFORT=minimal`,
+  קיצור הקטלוג בבקשה, ו־retry אחד לכשל רשת חולף בלבד.
+
 ## 1. ממצא מאומת: ‎/api/v1/chat/completions אינו תומך ב־muse
 
 מקור: `brain_mcp/dashboard/routes/v1_chat.py`, שורות ~148–156 (נכון ל־2026-10-26).
