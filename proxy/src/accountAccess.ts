@@ -4,10 +4,12 @@ type AccessEnv = Env & { LHG_ACCOUNT_BASE?: string; LHG_ACCOUNT_KEY?: string };
 export async function accountCall(env: AccessEnv, mode: string, body: unknown, fetchImpl: typeof fetch): Promise<Response> {
  if (!env.LHG_ACCOUNT_BASE || !env.LHG_ACCOUNT_KEY) return new Response('{"error":"accounts_unavailable"}', {status:503});
  try {
-  return await fetchImpl(env.LHG_ACCOUNT_BASE + '/api/partner/lap/' + mode, {
+  const response = await fetchImpl(env.LHG_ACCOUNT_BASE + '/api/partner/lap/' + mode, {
    method:'POST',headers:{'content-type':'application/json',authorization:'Bearer '+env.LHG_ACCOUNT_KEY},
-   body:JSON.stringify(body),signal:AbortSignal.timeout(8000),redirect:'error',
+   body:JSON.stringify(body),signal:AbortSignal.timeout(8000),redirect:'manual',
   });
+  if(response.status>=300&&response.status<400)return new Response('{"error":"accounts_unavailable"}',{status:503});
+  return response;
  } catch { return new Response('{"error":"accounts_unavailable"}',{status:503}); }
 }
 export async function personalCheck(

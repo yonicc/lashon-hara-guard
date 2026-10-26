@@ -23,6 +23,9 @@
 - Regression commands: `node --test extension/*.test.cjs`; in both `engine/` and `proxy/`: `npm run typecheck`, `npm test`. `proxy/test/contextIntegration.test.ts` exercises the real browser scripts through the Worker handler with a synthetic provider.
 
 ## MVP runtime (verified 2026-10-26)
+- Worker server calls must use `redirect:'manual'` and explicitly reject 3xx:
+  Cloudflare Workers does not implement `redirect:'error'` (it throws before
+  making any request). Never follow redirects carrying partner credentials.
 - Personal `lap_...` tokens are managed at `https://lap.ysho.uk` (TZ repo,
   `src/lap-access.js`). `proxy/src/accountAccess.ts` verifies/reserves via
   central LAP partner endpoints before extraction and captures/releases after.
