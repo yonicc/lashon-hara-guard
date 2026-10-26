@@ -29,6 +29,35 @@
     messageText: ['.copyable-text', 'span.selectable-text', '[class*="copyable"]'],
     chatRoot: ['#main', 'main'],
     composeContainer: ['footer', '#pane-side'],
+    // Context-DOM locators (checkpoint 2): locating only, extraction stays
+    // in LHG_CONTEXT_DOM. Every list is fallbacks; unknown => null, never guess.
+    conversationTitle: [
+      '#main header [data-testid="conversation-info-header-chat-title"]',
+      '#main header [data-testid="conversation-header-title"]',
+      '#main header span[title]',
+      '#main header [title]',
+    ],
+    visibleParticipants: [
+      '#main header [data-testid="conversation-info-header-chat-subtitle"]',
+      '#main header span[title] + span',
+      '#main header div span',
+    ],
+    messageBubble: [
+      '[data-pre-plain-text]',
+      '.message-in [data-pre-plain-text]',
+      '.message-out [data-pre-plain-text]',
+    ],
+    authorPrePlain: ['[data-pre-plain-text]'],
+    forwardedMark: [
+      '[data-testid="forwarded-message"]',
+      '[data-testid="forwarded-badge"]',
+      '[aria-label*="Forwarded"]',
+    ],
+    quotedMark: [
+      '[data-testid="quote-message"]',
+      '[data-testid="quoted-message"]',
+      '[class*="quoted"]',
+    ],
   };
 
   S.googleChat = {
