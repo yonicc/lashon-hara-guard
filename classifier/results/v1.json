@@ -1,0 +1,179 @@
+{
+ "run": "v1",
+ "base_model": "dicta-il/dictabert",
+ "train_rows": 2312,
+ "test_rows": 560,
+ "epochs": 4,
+ "train_seconds": 75,
+ "cpu_ms_per_message": 98.5,
+ "thresholds": {
+  "0.1": {
+   "concern_recall": 0.986,
+   "precision": 0.975,
+   "f1": 0.98,
+   "harmless_escalated": 0.025
+  },
+  "0.2": {
+   "concern_recall": 0.986,
+   "precision": 0.986,
+   "f1": 0.986,
+   "harmless_escalated": 0.014
+  },
+  "0.3": {
+   "concern_recall": 0.982,
+   "precision": 0.986,
+   "f1": 0.984,
+   "harmless_escalated": 0.014
+  },
+  "0.5": {
+   "concern_recall": 0.975,
+   "precision": 0.986,
+   "f1": 0.98,
+   "harmless_escalated": 0.014
+  },
+  "0.7": {
+   "concern_recall": 0.971,
+   "precision": 0.993,
+   "f1": 0.982,
+   "harmless_escalated": 0.007
+  }
+ },
+ "per_category": {
+  "n_thanks": {
+   "n": 28,
+   "hit@0.3": 27
+  },
+  "c_mock_praise": {
+   "n": 28,
+   "hit@0.3": 27
+  },
+  "n_humor": {
+   "n": 28,
+   "hit@0.3": 26
+  },
+  "c_habit": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "c_gossip": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "n_neutral_fact": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "n_self": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "c_group": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "n_request": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "n_idea_critique": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "n_sincere_praise": {
+   "n": 28,
+   "hit@0.3": 27
+  },
+  "n_feelings": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "c_direct": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "n_good_news": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "c_hint": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "c_omission": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "c_negative_fact": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "c_rhetorical": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "n_logistics": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "c_irony": {
+   "n": 28,
+   "hit@0.3": 24
+  }
+ },
+ "misses": [
+  {
+   "text": "תודה רבה לליאת על העזרה המדהימה",
+   "category": "c_irony",
+   "label": 1,
+   "p": 0.005
+  },
+  {
+   "text": "שאפו לגל בזכותו נשארנו שבת",
+   "category": "c_irony",
+   "label": 1,
+   "p": 0.032
+  },
+  {
+   "text": "נועם הזה פשוט נשמה טהורה, ביקשתי ממנו טרמפ קטן לרכבת והוא נזכר פתאום שיש לו משהו סופר דחוף בדיוק באותו רגע.",
+   "category": "c_irony",
+   "label": 1,
+   "p": 0.054
+  },
+  {
+   "text": "ברור שטליה תציל את כולנו 🙄",
+   "category": "c_irony",
+   "label": 1,
+   "p": 0.024
+  },
+  {
+   "text": "איזה כיף שיש לנו את יוסי המקסים שדואג תמיד לקחת קרדיט על העבודה של כולם בישיבות צוות פשוט מלך",
+   "category": "c_mock_praise",
+   "label": 1,
+   "p": 0.27
+  },
+  {
+   "text": "מישהו שמע את הנחירות באוהל חחח",
+   "category": "n_humor",
+   "label": 0,
+   "p": 0.807
+  },
+  {
+   "text": "יוסי הציע לעשות על האש כמו בימי חמישי בבסיס אבל שכח שאין לנו כבר תורן מדיח אז כל אחד מביא חד פעמי ומנגל מהמרפסת",
+   "category": "n_humor",
+   "label": 0,
+   "p": 0.557
+  },
+  {
+   "text": "כל הכבוד לנועם על ההופעה אתמול",
+   "category": "n_sincere_praise",
+   "label": 0,
+   "p": 0.747
+  },
+  {
+   "text": "סחטיין על אתמול תודה לכולם 🙏",
+   "category": "n_thanks",
+   "label": 0,
+   "p": 0.507
+  }
+ ]
+}
