@@ -16,12 +16,14 @@ param(
 $ErrorActionPreference = 'Stop'
 $repo = Split-Path -Parent $PSScriptRoot
 function Fail($m) { Write-Host "RELEASE FAILED: $m"; exit 1 }
-function Git { & git @args; if ($LASTEXITCODE -ne 0) { Fail "git $args" } }
+# NOT named "Git": PowerShell names are case-insensitive, so a function "Git"
+# shadows git.exe and calls itself (call depth overflow).
+function Invoke-Git { & git.exe @args; if ($LASTEXITCODE -ne 0) { Fail "git $args" } }
 
 Set-Location $repo
 $env:GH_TOKEN = (gh auth token --user yonicc)
 try {
-  Git fetch -q origin
+  Invoke-Git fetch -q origin
   $head = (git rev-parse HEAD).Trim()
   $main = (git rev-parse origin/main).Trim()
   if ($head -ne $main) { Fail "HEAD $head is not origin/main $main - push (or pull) first" }
@@ -43,17 +45,17 @@ try {
     Write-Host "LAP already serves $head - nothing to publish."
   } else {
     $wt = Join-Path $env:TEMP ('tz-lap-release-' + [DateTime]::Now.ToString('yyyyMMddHHmmss'))
-    Git -C $TzRepo fetch -q origin
-    Git -C $TzRepo worktree add --detach $wt origin/main
+    Invoke-Git -C $TzRepo fetch -q origin
+    Invoke-Git -C $TzRepo worktree add --detach $wt origin/main
     try {
       Set-Location $wt
       & python lap-worker\package-extension.py $head
       if ($LASTEXITCODE -ne 0) { Fail 'package-extension.py failed' }
-      Git add lap-worker/public/downloads/lap-extension.zip lap-worker/public/downloads/version.json
+      Invoke-Git add lap-worker/public/downloads/lap-extension.zip lap-worker/public/downloads/version.json
       $msg = Join-Path $env:TEMP 'lhg-lap-release-msg.txt'
       [IO.File]::WriteAllText($msg, "LAP download: publish extension $version (lashon-hara-guard $($head.Substring(0,7)))`n", (New-Object Text.UTF8Encoding $false))
-      Git -c user.name=yoni -c user.email=yonicc@gmail.com commit -q -F $msg
-      Git push -q origin HEAD:main
+      Invoke-Git -c user.name=yoni -c user.email=yonicc@gmail.com commit -q -F $msg
+      Invoke-Git push -q origin HEAD:main
       Set-Location (Join-Path $wt 'lap-worker')
       $ErrorActionPreference = 'Continue'
       & $Wrangler deploy 2>&1 | Select-String -Pattern 'Current Version ID|Deployed|error' 
@@ -77,3 +79,4 @@ try {
 } finally {
   Remove-Item Env:GH_TOKEN -ErrorAction SilentlyContinue
 }
+exit 0
