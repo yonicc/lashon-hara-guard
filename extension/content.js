@@ -5,31 +5,8 @@
 (() => {
   const S = globalThis.LHG_SELECTORS;
   const PLATFORM = 'whatsapp-web';
-  const PAUSE_MS = 1200;
-  const MIN_CHARS = 6;
   const COMPOSE_WATCH_MS = 4000;
-  const WARM_EVERY_MS = 4 * 60 * 1000; // the gate container sleeps after 5 idle minutes
-  let lastWarm = 0;
-  function warm() {
-    const now = Date.now();
-    if (now - lastWarm < WARM_EVERY_MS) return;
-    lastWarm = now;
-    try { chrome.runtime.sendMessage({ type: 'lhg-warm' }); } catch (_e) { /* extension reloaded */ }
-  }
 
-  const MECHANISM_HE = {
-    irony: 'אירוניה',
-    praise: 'שבח שעלול להישמע כלעג',
-    hint: 'רמז שמזהה אדם',
-    mockery: 'לעג',
-    omission: 'השמטה שמרמזת',
-    direct: 'ביקורת ישירה',
-    other: 'משמעות שלילית אפשרית',
-  };
-
-  let timer = null;
-  let lastChecked = '';
-  let seq = 0;
   let composeMissingSince = 0;
   const P = globalThis.LHG_PANEL;
 
@@ -50,9 +27,7 @@
     return S.closestMatch(el, S.whatsapp.compose);
   }
 
-  const hide = () => P && P.hide();
   const show = (kind, title, lines) => P && P.show(kind, title, lines);
-  const render = (r) => P && P.renderResult(r);
 
   function readComposeText() {
     const box = findCompose();
@@ -135,62 +110,10 @@
     return 'incoming';
   }
 
-  function schedule(box) {
-    clearTimeout(timer);
-    const text = (box.innerText || '').trim();
-    if (text.length < MIN_CHARS) {
-      lastChecked = '';
-      hide();
-      return;
-    }
-    timer = setTimeout(() => run(text), PAUSE_MS);
+  // Outgoing check while typing: shared watcher (compose-watch.js).
+  if (globalThis.LHG_COMPOSE) {
+    globalThis.LHG_COMPOSE.createComposeWatcher({ platform: PLATFORM, composeBox, findCompose });
   }
-
-  function run(text) {
-    if (text === lastChecked) return;
-    lastChecked = text;
-    const my = ++seq;
-    show('checking', '…בודק ניסוח', []);
-    const send = globalThis.LHG_CONTEXT_RUNTIME?.send || ((msg, cb) => chrome.runtime.sendMessage(msg, cb));
-    send(
-      { type: 'lhg-check', text, platform: PLATFORM, direction: 'outgoing' },
-      (r) => {
-        if (my !== seq) return; // the user kept typing: a newer check owns the panel
-        if (chrome.runtime.lastError) {
-          render({ alert: 'not_checked' });
-          return;
-        }
-        render(r);
-      },
-      findCompose(),
-    );
-  }
-
-  document.addEventListener(
-    'input',
-    (e) => {
-      const box = composeBox(e.target);
-      if (box) {
-        warm();
-        schedule(box);
-      }
-    },
-    true,
-  );
-
-  // After sending (Enter clears the box) drop any stale panel.
-  document.addEventListener(
-    'keyup',
-    (e) => {
-      const box = composeBox(e.target);
-      if (box && !(box.innerText || '').trim()) {
-        seq++;
-        lastChecked = '';
-        hide();
-      }
-    },
-    true,
-  );
 
   // --- "compose box not recognized" instead of silently failing -------------
   // Only relevant once a conversation view exists; the chat list legitimately

@@ -192,12 +192,31 @@
   // built-in zoom (Ctrl+Shift+= / Ctrl+plus) the way a page keydown can.
   // Registering it is a no-op (via bindCommandFallback) when a caller does
   // not want the native path. Returns true when the native path is armed.
+  // The command message reaches EVERY frame of the tab (Gmail's Chat windows
+  // are iframes). Exactly one frame should answer: the one holding focus. The
+  // top frame answers unless focus is inside one of its child frames (or when
+  // nothing in the page has focus, e.g. the shortcut came from the toolbar).
+  function ownsCommand(win = globalThis.window, doc = globalThis.document) {
+    try {
+      const ae = doc.activeElement;
+      const focusInChild = !!ae && /^(IFRAME|FRAME)$/.test(ae.tagName || '');
+      const hasFocus = typeof doc.hasFocus === 'function' ? doc.hasFocus() : true;
+      if (!win || win.top === win) return !(hasFocus && focusInChild);
+      return hasFocus && !focusInChild;
+    } catch (_e) {
+      return true;
+    }
+  }
+
   function bindCommandOpenPanel(opts = {}) {
     try {
-      chrome.runtime.onMessage.addListener((msg) => {
+      chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
         if (msg && msg.type === 'lhg-open-panel') {
+          if (!ownsCommand()) return false;
           openManual(opts);
-          return true;
+          // Answer at once so the popup's "open panel" button gets a reply.
+          try { if (typeof sendResponse === 'function') sendResponse({ ok: true }); } catch (_e) { /* ignore */ }
+          return false;
         }
         return false;
       });
@@ -245,6 +264,7 @@
     openManual,
     bindManualShortcut,
     bindCommandOpenPanel,
+    ownsCommand,
     isVisible: () => visible,
   };
 })();

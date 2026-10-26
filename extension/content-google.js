@@ -18,6 +18,51 @@
   const MAP = onChat ? S.googleChat : S.gmail;
   const PLATFORM = onChat ? 'google-chat' : 'gmail';
   const MIN_CHARS = 6;
+  const IS_TOP = window.top === window;
+
+  // Gmail renders its Chat windows (the floating DM popups and the Chat
+  // panel) inside IFRAMES. The manifest injects this script into every frame
+  // (all_frames); a sub-frame is a chat frame, the top frame is the mailbox.
+  const chatFrame = onChat || !IS_TOP || /^\/chat\//.test(location.pathname);
+
+  // Gmail's own e-mail compose must never be treated as a chat compose box:
+  // e-mail drafts are not sent to the checker while typing.
+  const MAIL_COMPOSE = ['.Am.Al.editable', '[g_editable="true"]', '.editable[aria-multiline="true"]'];
+  function chatComposeBox(el) {
+    if (!el || !el.isContentEditable) return null;
+    const box = S.closestMatch(el, S.googleChat.compose);
+    if (!box || S.closestMatch(box, MAIL_COMPOSE)) return null;
+    return box;
+  }
+  function findChatCompose() {
+    for (const el of S.all(document, S.googleChat.compose)) {
+      const box = chatComposeBox(el);
+      if (box) return box;
+    }
+    return null;
+  }
+
+  // Outgoing check while typing in a Chat conversation (shared watcher).
+  let compose = null;
+  if (chatFrame && globalThis.LHG_COMPOSE) {
+    compose = globalThis.LHG_COMPOSE.createComposeWatcher({
+      platform: 'google-chat',
+      composeBox: chatComposeBox,
+      findCompose: findChatCompose,
+    });
+  }
+
+  // Chat frames embedded in the Gmail top frame (origin + path only, no query).
+  function chatIframes() {
+    return Array.from(document.querySelectorAll('iframe')).map((f) => {
+      try {
+        const u = new URL(f.src || 'about:blank', location.href);
+        return { src: u.origin + u.pathname, visible: f.offsetWidth > 0 && f.offsetHeight > 0 };
+      } catch (_e) {
+        return { src: '?', visible: false };
+      }
+    }).filter((f) => /chat|frame|mole|dynamite/i.test(f.src));
+  }
 
   // Gmail: only bodies inside a real opened-message container count. A
   // folder preview row (tr.zA / [role="row"]) is never a message.
@@ -81,7 +126,7 @@
       getStatusLines: () => {
         const rows = findRows(document);
         const inChat = !onChat && rows.some((r) => S.closestMatch(r.el, S.googleChat.area));
-        return [
+        const lines = [
           rows.length
             ? 'התוסף פעיל ומזהה הודעות בעמוד. הודעות חדשות ייבדקו אוטומטית ויתווספו לידן תגיות.'
             : 'התוסף פעיל, אך כרגע לא זוהתה הודעת דוא״ל/צ׳אט פתוחה. פתח הודעה או שיחה ונסה שוב. מצב זה אינו מוצג כבדיקה תקינה.',
@@ -89,8 +134,51 @@
             ? 'שיחת צ׳אט בתוך ג׳ימייל זוהתה; רק הודעות חדשות בשיחה ייבדקו, שורות תיקייה לא ייסרקו.'
             : 'לבדיקה ידנית: סמן את טקסט ההודעה בעמוד ולחץ על קיצור הפאנל (Ctrl+Shift+L).',
         ];
+        if (chatFrame) {
+          lines.push(findChatCompose()
+            ? 'שורת הכתיבה של הצ׳אט זוהתה; הקלדה תיבדק אוטומטית אחרי הפסקה קצרה.'
+            : 'שורת הכתיבה של הצ׳אט לא זוהתה; הבדיקה בזמן כתיבה אינה פעילה כעת.');
+        } else {
+          const frames = chatIframes().filter((f) => f.visible).length;
+          if (frames) {
+            lines.push('חלונות צ׳אט פתוחים בעמוד: ' + frames +
+              '. הם נטענים במסגרת נפרדת — כדי לראות את מצב השיחה, לחץ בתוך חלון הצ׳אט ואז על קיצור הפאנל.');
+          }
+        }
+        return lines;
       },
+      fallbackText: () => (compose ? compose.readText() : ''),
+      fallbackDirection: 'outgoing',
+      resolveDirection: (node) => (chatComposeBox(node) ? 'outgoing' : 'incoming'),
+      getDiagnostics: diagnostics,
     });
+  }
+
+  // Structure only: tag/attribute NAMES, counts, text LENGTHS. Never text,
+  // names or titles. Pasted to a developer when Chat is not recognised.
+  function diagnostics() {
+    const describe = (el) => el ? {
+      tag: el.tagName.toLowerCase(),
+      attrs: Array.from(el.attributes).map((a) => a.name).filter((n) => n !== 'class').slice(0, 15),
+      role: el.getAttribute('role'), classes: el.classList.length,
+      children: el.children.length, textLen: (el.textContent || '').length,
+    } : null;
+    const count = (sel) => { try { return document.querySelectorAll(sel).length; } catch (_e) { return -1; } };
+    const matches = {};
+    for (const [k, list] of Object.entries(S.googleChat)) {
+      if (Array.isArray(list)) matches[k] = list.map((sel) => [sel, count(sel)]);
+    }
+    return {
+      version: chrome.runtime.getManifest().version,
+      host: location.host, path: location.pathname.split('/').slice(0, 3).join('/'),
+      top: IS_TOP, chatFrame,
+      matches,
+      areas: S.googleChatArea(document).length,
+      rows: findRows(document).length,
+      chatCompose: describe(findChatCompose()),
+      contentEditables: Array.from(document.querySelectorAll('[contenteditable="true"]')).slice(0, 5).map(describe),
+      iframes: IS_TOP ? chatIframes() : null,
+    };
   }
 
   let t = null;
