@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { handle, MAX_TEXT_CHARS, type Env } from '../src/handler.js';
-import type { ExtractorProvider } from '../../engine/src/index.js';
+import { handle, MAX_CONTEXT_JSON_CHARS, MAX_TEXT_CHARS, type Env } from '../src/handler.js';
+import type { ExtractorProvider, ExtractorRequest } from '../../engine/src/index.js';
 
 const ENV: Env = {
   LHG_BRAIN_BASE_URL: 'http://brain:1', LHG_BRAIN_TOKEN: 'brain-tok', LHG_ACCESS_KEY: 'k'.repeat(32),
@@ -13,6 +13,17 @@ function provider(raw: unknown | Error, seen: string[] = []): () => ExtractorPro
     async extract(req) {
       seen.push(req.text);
       if (raw instanceof Error) throw raw;
+      return raw;
+    },
+  });
+}
+
+/** Captures the full ExtractorRequest the proxy built (for context assertions). */
+function capturingProvider(raw: unknown, seenReqs: ExtractorRequest[]): () => ExtractorProvider {
+  return () => ({
+    id: 'mock', modelVersion: 'm',
+    async extract(req: ExtractorRequest) {
+      seenReqs.push(req);
       return raw;
     },
   });
@@ -96,4 +107,46 @@ test('proxy: rate limiter refusal is 429', async () => {
 test('proxy: missing Brain config is 503', async () => {
   const r = await handle(post({ text: IRONY }), { ...ENV, LHG_BRAIN_TOKEN: '' });
   assert.equal(r.status, 503);
+});
+
+test('proxy: no context -> identical shape (no req.context), same alert mapping', async () => {
+  const seenReqs: ExtractorRequest[] = [];
+  const r = await handle(post({ text: IRONY, platform: 'whatsapp-web' }), ENV, capturingProvider(CONCERN, seenReqs));
+  assert.equal(r.status, 200);
+  const b = (await r.json()) as Record<string, unknown>;
+  assert.equal(b['alert'], 'warn');
+  assert.equal(b['mechanism'], 'irony');
+  assert.equal(seenReqs.length, 1);
+  assert.equal(seenReqs[0]!.context, undefined);
+  assert.equal(seenReqs[0]!.platform, 'whatsapp-web');
+  assert.equal(seenReqs[0]!.direction, 'outgoing');
+});
+
+test('proxy: valid context object is forwarded to runExtraction', async () => {
+  const seenReqs: ExtractorRequest[] = [];
+  const ctx = { version: 1, conversationKind: 'group', participantCount: 5 };
+  const r = await handle(post({ text: IRONY, context: ctx }), ENV, capturingProvider(CONCERN, seenReqs));
+  assert.equal(r.status, 200);
+  assert.equal(((await r.json()) as Record<string, unknown>)['alert'], 'warn');
+  assert.deepEqual(seenReqs[0]!.context, ctx);
+});
+
+test('proxy: non-object context is ignored, never breaks a valid check', async () => {
+  for (const bad of ['oops', 42, true, ['array'], null]) {
+    const seenReqs: ExtractorRequest[] = [];
+    const r = await handle(post({ text: IRONY, context: bad }), ENV, capturingProvider(CONCERN, seenReqs));
+    assert.equal(r.status, 200, `context=${JSON.stringify(bad)}`);
+    assert.equal(((await r.json()) as Record<string, unknown>)['alert'], 'warn');
+    assert.equal(seenReqs[0]!.context, undefined);
+  }
+});
+
+test('proxy: oversized context is ignored (cap documented in handler)', async () => {
+  const big = { version: 1, filler: 'x'.repeat(MAX_CONTEXT_JSON_CHARS + 100) };
+  assert.ok(JSON.stringify(big)!.length > MAX_CONTEXT_JSON_CHARS);
+  const seenReqs: ExtractorRequest[] = [];
+  const r = await handle(post({ text: IRONY, context: big }), ENV, capturingProvider(CONCERN, seenReqs));
+  assert.equal(r.status, 200);
+  assert.equal(((await r.json()) as Record<string, unknown>)['alert'], 'warn');
+  assert.equal(seenReqs[0]!.context, undefined);
 });

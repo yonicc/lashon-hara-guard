@@ -4,6 +4,7 @@ import {
   FACT_CATALOG,
   runExtraction,
   type ExtractionOutcome,
+  type ExtractorContextPacket,
   type ExtractorProvider,
   type MessageEnvelope,
 } from '../../engine/src/index.js';
@@ -31,6 +32,19 @@ export interface Env {
 }
 
 export const MAX_TEXT_CHARS = 2000;
+
+/**
+ * Cap on the SERIALIZED `context` field of POST /check (ContextPacket v1).
+ *
+ * Policy: when the client-supplied context is not a plain object it is
+ * IGNORED (single-message path, never a 400 — backward compatible). When it
+ * serializes beyond this limit it is IGNORED as well (not truncated in the
+ * proxy: silent partial context would look like full context to the model;
+ * ignoring is explicit and safe). The renderer in the engine additionally
+ * caps messages (5 x 300 chars) and the whole block (4000 chars), so a
+ * well-formed packet that passes this gate still cannot blow up the prompt.
+ */
+export const MAX_CONTEXT_JSON_CHARS = 6000;
 
 export type AlertLevel = 'warn' | 'unsure' | 'none' | 'not_checked';
 
@@ -78,6 +92,19 @@ function sameKey(a: string, b: string): boolean {
   return diff === 0;
 }
 
+/** Plain-object guard: arrays, null and primitives are "no context", never an error. */
+function pickContext(raw: unknown): ExtractorContextPacket | undefined {
+  if (typeof raw !== 'object' || raw === null || Array.isArray(raw)) return undefined;
+  let size: number;
+  try {
+    size = JSON.stringify(raw)?.length ?? 0;
+  } catch {
+    return undefined; // unserializable (cyclic/BigInt/…) => ignore, stay a valid check
+  }
+  if (size > MAX_CONTEXT_JSON_CHARS) return undefined;
+  return raw as ExtractorContextPacket;
+}
+
 export function providerFromEnv(env: Env): ExtractorProvider | null {
   const opts = brainSendOptionsFromEnv(env as unknown as NodeJS.ProcessEnv);
   return opts ? new BrainSendExtractorProvider(opts) : null;
@@ -114,6 +141,11 @@ export async function handle(
   const direction = body['direction'] === 'incoming' ? 'incoming' : 'outgoing';
   const platform = typeof body['platform'] === 'string' ? (body['platform'] as string).slice(0, 40) : 'unknown';
 
+  // Optional ContextPacket v1: non-object => ignore (backward compatible);
+  // over-cap serialized size => ignore (documented above). Either way the
+  // request stays a valid single-message check with identical shape.
+  const context = pickContext(body['context']);
+
   const provider = makeProvider(env);
   if (!provider) return json({ error: 'proxy_not_configured' }, 503);
 
@@ -125,6 +157,7 @@ export async function handle(
   const started = Date.now();
   const outcome = await runExtraction(message, {
     provider, catalog: FACT_CATALOG, alwaysCallProvider: (env.LHG_ALWAYS_EXTRACT ?? '1') === '1',
+    ...(context ? { context } : {}),
   });
   const meaning = outcome.extraction?.meaning;
   const evidence =

@@ -1,11 +1,15 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
+  buildUserContent,
+  EXTRACTION_SYSTEM_INSTRUCTION,
   FACT_CATALOG,
   BrainSendExtractorProvider,
   brainSendOptionsFromEnv,
+  renderContextBlock,
   runExtraction,
   validateExtraction,
+  type ExtractorContextPacket,
   type ExtractorRequest,
   type MessageEnvelope,
 } from '../src/index.js';
