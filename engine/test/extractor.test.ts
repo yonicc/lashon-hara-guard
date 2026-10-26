@@ -136,3 +136,34 @@ test('failure is explicit: provider error -> not_checked, never clean', async ()
   assert.equal(out.status, 'not_checked');
   assert.ok(out.limitationsHe.some((s) => s.includes('לא נבדק')));
 });
+
+test('context passthrough: absent context behaves exactly as before (mock sees no context)', async () => {
+  let seen: unknown = 'unset';
+  const spy = {
+    id: 'spy', modelVersion: 'spy-1',
+    extract: async (req: import('../src/index.js').ExtractorRequest) => {
+      seen = req.context;
+      return { proposedFacts: [], directAssessment: 'no_concern' as const };
+    },
+  };
+  const out = await runExtraction(msg('הוא טיפש'), { provider: spy, catalog: FACT_CATALOG });
+  assert.equal(out.status, 'extracted');
+  assert.equal(seen, undefined);
+});
+
+test('context passthrough: provided context reaches provider.extract as req.context', async () => {
+  let seen: unknown = undefined;
+  const spy = {
+    id: 'spy', modelVersion: 'spy-1',
+    extract: async (req: import('../src/index.js').ExtractorRequest) => {
+      seen = req.context;
+      return { proposedFacts: [], directAssessment: 'no_concern' as const };
+    },
+  };
+  const ctx: import('../src/index.js').ExtractorContextPacket = {
+    version: 1, conversationKind: 'group', participantCount: 5,
+  };
+  const out = await runExtraction(msg('הוא טיפש'), { provider: spy, catalog: FACT_CATALOG, context: ctx });
+  assert.equal(out.status, 'extracted');
+  assert.deepEqual(seen, ctx);
+});
