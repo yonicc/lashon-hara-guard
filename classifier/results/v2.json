@@ -1,0 +1,271 @@
+{
+ "run": "v2",
+ "base_model": "dicta-il/dictabert",
+ "train_rows": 3680,
+ "test_rows": 899,
+ "epochs": 4,
+ "train_seconds": 139,
+ "cpu_ms_per_message": 119.8,
+ "thresholds": {
+  "0.1": {
+   "concern_recall": 0.98,
+   "precision": 0.98,
+   "f1": 0.98,
+   "harmless_escalated": 0.025
+  },
+  "0.2": {
+   "concern_recall": 0.974,
+   "precision": 0.988,
+   "f1": 0.981,
+   "harmless_escalated": 0.015
+  },
+  "0.3": {
+   "concern_recall": 0.974,
+   "precision": 0.988,
+   "f1": 0.981,
+   "harmless_escalated": 0.015
+  },
+  "0.5": {
+   "concern_recall": 0.972,
+   "precision": 0.99,
+   "f1": 0.981,
+   "harmless_escalated": 0.012
+  },
+  "0.7": {
+   "concern_recall": 0.97,
+   "precision": 0.994,
+   "f1": 0.982,
+   "harmless_escalated": 0.007
+  }
+ },
+ "per_category": {
+  "n_thanks": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "c_mock_praise": {
+   "n": 28,
+   "hit@0.3": 26
+  },
+  "n_humor": {
+   "n": 28,
+   "hit@0.3": 26
+  },
+  "c_habit": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "c_gossip": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "n_neutral_fact": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "n_self": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "c_group": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "n_request": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "n_idea_critique": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "n_sincere_praise": {
+   "n": 28,
+   "hit@0.3": 27
+  },
+  "n_feelings": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "c_direct": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "n_good_news": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "c_hint": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "c_omission": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "c_negative_fact": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "c_rhetorical": {
+   "n": 28,
+   "hit@0.3": 27
+  },
+  "n_logistics": {
+   "n": 28,
+   "hit@0.3": 28
+  },
+  "c_irony": {
+   "n": 28,
+   "hit@0.3": 22
+  },
+  "c_insinuation": {
+   "n": 42,
+   "hit@0.3": 41
+  },
+  "n_short_reaction": {
+   "n": 42,
+   "hit@0.3": 42
+  },
+  "c_conditional_praise": {
+   "n": 42,
+   "hit@0.3": 40
+  },
+  "n_hard_praise": {
+   "n": 41,
+   "hit@0.3": 40
+  },
+  "n_hard_logistics": {
+   "n": 43,
+   "hit@0.3": 41
+  },
+  "c_logistic_jab": {
+   "n": 43,
+   "hit@0.3": 43
+  },
+  "c_private_exposure": {
+   "n": 43,
+   "hit@0.3": 42
+  },
+  "c_avoid_person": {
+   "n": 43,
+   "hit@0.3": 43
+  }
+ },
+ "misses": [
+  {
+   "text": "אתה נראה מעולה בחולצה ההיא, תזרוק כבר את הטרנינג הקרוע שלך",
+   "category": "c_conditional_praise",
+   "label": 1,
+   "p": 0.138
+  },
+  {
+   "text": "תודה שסידרת את האוטו דני, רק למה חיכית חודשיים לתקן אותו?",
+   "category": "c_conditional_praise",
+   "label": 1,
+   "p": 0.001
+  },
+  {
+   "text": "בואו נשמור על כבוד המקום חברים",
+   "category": "c_insinuation",
+   "label": 1,
+   "p": 0.02
+  },
+  {
+   "text": "תודה רבה לליאת על העזרה המדהימה",
+   "category": "c_irony",
+   "label": 1,
+   "p": 0.019
+  },
+  {
+   "text": "גדול עידו איך סחב את האלונקה לבד",
+   "category": "c_irony",
+   "label": 1,
+   "p": 0.035
+  },
+  {
+   "text": "שאפו לגל בזכותו נשארנו שבת",
+   "category": "c_irony",
+   "label": 1,
+   "p": 0.051
+  },
+  {
+   "text": "נועם הזה פשוט נשמה טהורה, ביקשתי ממנו טרמפ קטן לרכבת והוא נזכר פתאום שיש לו משהו סופר דחוף בדיוק באותו רגע.",
+   "category": "c_irony",
+   "label": 1,
+   "p": 0.122
+  },
+  {
+   "text": "ברור שטליה תציל את כולנו 🙄",
+   "category": "c_irony",
+   "label": 1,
+   "p": 0.018
+  },
+  {
+   "text": "יוסי כרגיל הגיע ראשון היום",
+   "category": "c_irony",
+   "label": 1,
+   "p": 0.003
+  },
+  {
+   "text": "איזה כיף שיש לנו את יוסי המקסים שדואג תמיד לקחת קרדיט על העבודה של כולם בישיבות צוות פשוט מלך",
+   "category": "c_mock_praise",
+   "label": 1,
+   "p": 0.021
+  },
+  {
+   "text": "אין דברים כמו הרצון הטוב של שלמה היקר שתמיד מגיע לעזור בסידור הכיסאות אחרי שכולם כבר סיימו והלכו הביתה",
+   "category": "c_mock_praise",
+   "label": 1,
+   "p": 0.164
+  },
+  {
+   "text": "שלח לי הודעה מגעילה אשלח צילום",
+   "category": "c_private_exposure",
+   "label": 1,
+   "p": 0.003
+  },
+  {
+   "text": "וואו איזה אבא השנה, כל הכבוד לו 👏",
+   "category": "c_rhetorical",
+   "label": 1,
+   "p": 0.036
+  },
+  {
+   "text": "תגיד לרוני להביא מפתחות נוספים 🙏",
+   "category": "n_hard_logistics",
+   "label": 0,
+   "p": 0.569
+  },
+  {
+   "text": "שירה תודיעי לגל מתי יוצאים",
+   "category": "n_hard_logistics",
+   "label": 0,
+   "p": 0.57
+  },
+  {
+   "text": "טוב חייב להגיד כל הכבוד לעידן ששוב נשאר אחרי כולם לסגור את הקופה ולנקות בלי שביקשו ממנו בכלל כיף שיש אנשים כמוך בצוות תודה אחי",
+   "category": "n_hard_praise",
+   "label": 0,
+   "p": 0.996
+  },
+  {
+   "text": "מישהו שמע את הנחירות באוהל חחח",
+   "category": "n_humor",
+   "label": 0,
+   "p": 0.928
+  },
+  {
+   "text": "יוסי הציע לעשות על האש כמו בימי חמישי בבסיס אבל שכח שאין לנו כבר תורן מדיח אז כל אחד מביא חד פעמי ומנגל מהמרפסת",
+   "category": "n_humor",
+   "label": 0,
+   "p": 0.994
+  },
+  {
+   "text": "שאפו לרועי על המצגת המעולה👏",
+   "category": "n_sincere_praise",
+   "label": 0,
+   "p": 0.312
+  }
+ ]
+}

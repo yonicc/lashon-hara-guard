@@ -7,11 +7,17 @@ workers_dev = true
 # Secrets (set with `wrangler secret put`, never committed):
 #   LHG_BRAIN_TOKEN  - Brain service token (brk_..., scope chat:send)
 #   LHG_ACCESS_KEY   - shared key the extension sends as x-lhg-key
+#   LHG_GATE_KEY     - key for the Modal gate classifier (Modal secret lhg-gate)
 [vars]
 LHG_BRAIN_BASE_URL = "https://br.ysho.uk/dash"
 LHG_BRAIN_ACCOUNT = "yoni"
 LHG_BRAIN_TIMEOUT_MS = "20000"
 LHG_ALWAYS_EXTRACT = "1"
+# Fast gate (classifier/serve_modal.py, model v2 fp32). p < threshold skips the
+# model; gate failure or timeout always escalates to the model. Remove the URL to disable.
+LHG_GATE_URL = "https://yonicc--lhg-gate-gate-check.us-east.modal.run"
+LHG_GATE_THRESHOLD = "0.2"
+LHG_GATE_TIMEOUT_MS = "1500"
 
 [[ratelimits]]
 name = "LIMITER"

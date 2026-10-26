@@ -1,139 +1,91 @@
 {
  "fp32": {
-  "seconds": 30.0,
+  "seconds": 29.8,
   "n": 254,
-  "concern_recall": 0.891,
-  "precision": 0.95,
-  "harmless_escalated": 0.048
+  "concern_recall": 0.961,
+  "precision": 0.961,
+  "harmless_escalated": 0.04
  },
  "int8": {
-  "seconds": 20.3,
+  "seconds": 23.2,
   "n": 254,
-  "concern_recall": 0.906,
-  "precision": 0.935,
-  "harmless_escalated": 0.063
+  "concern_recall": 0.961,
+  "precision": 0.946,
+  "harmless_escalated": 0.056
  },
  "misses_int8": [
   {
-   "text": "מיכל נשמעת מקסימה בקבוצה, אבל בפרטי היא כתבה לי שהילדים שלנו יכולים לסבול קצת רעש. שתכירו.",
+   "text": "איזה מתחשב רועי, היום נתן לנו לישון עד שבע וחמש 👏",
    "gold": "concern",
-   "p": 0.185,
-   "why": "Shares a negative private exchange and casts doubt on a neighbor's sincerity."
+   "p": 0.028,
+   "why": "Sarcastic praise mocks an identifiable neighbor."
   },
   {
    "text": "לירון מגיעה? שאדע כמה מרווח להשאיר בלו״ז.",
    "gold": "concern",
-   "p": 0.002,
+   "p": 0.073,
    "why": "The scheduling joke implies Liron habitually causes delays."
   },
   {
    "text": "כולם מחכים לשחרור, ועומר מעלה סטורי מהים. סדר עדיפויות מרשים 👏",
    "gold": "concern",
-   "p": 0.014,
+   "p": 0.065,
    "why": "Sarcastically shames a coworker for perceived lack of commitment."
   },
   {
-   "text": "נועם שוב הציל אותנו עם סיכום מסודר. שלחתי בקבוצה באישורו.",
+   "text": "לדעתי השיטה של לפתור בלי להציץ בתשובות עובדת יותר טוב משינון.",
    "gold": "no_concern",
-   "p": 0.37,
-   "why": "Positive acknowledgment and ordinary file sharing."
+   "p": 0.936,
+   "why": "Evaluates a study method without criticizing anyone."
   },
   {
    "text": "שאפו לעידו, הגיע היום רק עשרים דקות אחרי שהתחלנו 👏",
    "gold": "concern",
-   "p": 0.055,
+   "p": 0.038,
    "why": "Sarcastic praise publicly highlights an identifiable person's lateness."
   },
   {
    "text": "תודה לאיתמר שנשאר לסדר אחרי כולם, ממש לא מובן מאליו ❤️",
    "gold": "no_concern",
-   "p": 0.891,
+   "p": 0.953,
    "why": "Sincere appreciation for a volunteer."
   },
   {
-   "text": "בואו נגיד שהיו סיבות לזה שהעברתי את החניכים מהקבוצה של איתמר. בפרטי אם צריך",
-   "gold": "concern",
-   "p": 0.002,
-   "why": "Hints at undisclosed negative information about Itamar."
-  },
-  {
-   "text": "אני מעדיפה שבטיול הבא מישהו אחר יהיה איתי על המטבח, עם הדר זה פשוט לא עובד לי",
-   "gold": "concern",
-   "p": 0.005,
-   "why": "Conveys a negative assessment of working with Hadar."
+   "text": "אין על ההסברים של אביגיל, בזכותה הבנתי סוף סוף איך מעדכנים את הטבלה.",
+   "gold": "no_concern",
+   "p": 0.905,
+   "why": "Direct, sincere praise for someone's help."
   },
   {
    "text": "מבאס להפסיד ככה 😞",
    "gold": "no_concern",
-   "p": 0.221,
+   "p": 0.335,
    "why": "Expresses disappointment without blaming anyone."
   },
   {
    "text": "כל הכבוד לניב, המשיך לרוץ עד השריקה גם כשהמשחק כבר היה גמור",
    "gold": "no_concern",
-   "p": 0.994,
+   "p": 0.828,
    "why": "Sincerely praises a teammate's effort."
   },
   {
    "text": "לפחות עומר שמר כוחות להליכה לאוטו 🙃",
    "gold": "concern",
-   "p": 0.11,
+   "p": 0.056,
    "why": "Sarcastically implies that Omer made little effort."
   },
   {
-   "text": "לא אומרת שמות, אבל מי שגר שתי קומות מעל אמא יכול לפחות לבדוק אם יש לה לחם.",
-   "gold": "concern",
-   "p": 0.102,
-   "why": "Identifying hints accuse a family member of neglect."
-  },
-  {
-   "text": "איזה לחץץץ 😅",
+   "text": "ברק הביא לי אוכל עד הבית כשלא היה לי כוח לצאת. איזה לב יש לבנאדם הזה",
    "gold": "no_concern",
-   "p": 0.586,
-   "why": "Expresses a feeling without targeting anyone."
-  },
-  {
-   "text": "שירה מקסימה עם המשפחות כשיש מנהלת בסביבה.",
-   "gold": "concern",
-   "p": 0.005,
-   "why": "Backhanded praise implies her kindness is performative."
+   "p": 0.263,
+   "why": "Sincere praise for a considerate act."
   },
   {
    "text": "איזה כיף שאבא שלך שטף את כל הכלים בלי שביקשנו ❤️",
    "gold": "no_concern",
-   "p": 0.997,
+   "p": 0.417,
    "why": "Expresses sincere appreciation for helpful behavior."
-  },
-  {
-   "text": "הם כבר פה.",
-   "gold": "no_concern",
-   "p": 0.912,
-   "why": "Simply announces their arrival."
-  },
-  {
-   "text": "ממש מתאים לאבא שלך להביא מתנה ולהשאיר עליה את המחיר.",
-   "gold": "concern",
-   "p": 0.052,
-   "why": "Frames an incident as evidence of a negative character trait."
-  },
-  {
-   "text": "כל הכבוד למעיין, היא זכרה בדיוק איזו עוגה סבתא אוהבת ❤️",
-   "gold": "no_concern",
-   "p": 0.318,
-   "why": "Sincere praise for a cousin."
-  },
-  {
-   "text": "בואו נשלח לשחר שעה מוקדמת יותר. אתם יודעים למה.",
-   "gold": "concern",
-   "p": 0.002,
-   "why": "The hint implies Shachar is habitually late."
-  },
-  {
-   "text": "אם נדב מרכז את הטיול, הייתי מחכה עם התשלום. זוכרים מה היה עם האוטובוסים בפעם הקודמת.",
-   "gold": "concern",
-   "p": 0.002,
-   "why": "Questions Nadav's reliability through an insinuation about a past failure."
   }
  ],
- "ambiguous_escalated": 0.659
+ "ambiguous_escalated": 0.75
 }

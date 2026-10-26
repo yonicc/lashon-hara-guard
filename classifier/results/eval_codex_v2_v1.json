@@ -1,0 +1,67 @@
+{
+ "fp32": {
+  "seconds": 28.7,
+  "n": 249,
+  "concern_recall": 0.959,
+  "precision": 0.967,
+  "harmless_escalated": 0.031
+ },
+ "int8": {
+  "seconds": 21.4,
+  "n": 249,
+  "concern_recall": 0.967,
+  "precision": 0.967,
+  "harmless_escalated": 0.031
+ },
+ "misses_int8": [
+  {
+   "text": "התרגיל הזה מנוסח ממש גרוע, לא ברור בכלל מה צריך להוכיח",
+   "gold": "no_concern",
+   "p": 0.954,
+   "why": "Criticizes an exercise without targeting a person."
+  },
+  {
+   "text": "כל הכבוד לנריה, נשאר לקפל כיסאות גם אחרי שכולם הלכו ❤️",
+   "gold": "no_concern",
+   "p": 0.967,
+   "why": "Sincere praise without a clear negative comparison."
+  },
+  {
+   "text": "מעניין שתמיד כשצריך להישאר לסדר את הציוד, לתומר בדיוק יש משהו דחוף.",
+   "gold": "concern",
+   "p": 0.04,
+   "why": "Insinuates that Tomer habitually avoids helping."
+  },
+  {
+   "text": "המכונה הזאת שוב הוציאה מים בטעם של עצב במקום קפה 😂",
+   "gold": "no_concern",
+   "p": 0.566,
+   "why": "Humorous criticism of a machine."
+  },
+  {
+   "text": "איזה מזל שמאור היה איתנו היום, נשאר רגוע גם כשהכול הגיע ביחד.",
+   "gold": "no_concern",
+   "p": 0.221,
+   "why": "Straightforward praise for a colleague."
+  },
+  {
+   "text": "מי שכבר קנה מאורית יבין למה אני שואלת אם יש קבלה 😉",
+   "gold": "concern",
+   "p": 0.01,
+   "why": "Insinuates a problem with a named seller without stating it explicitly."
+  },
+  {
+   "text": "מיכל, הייתי בודקת שוב את השעות שאלעד רשם לך. אצלי המספרים שלו לא בדיוק הסתדרו, אם את מבינה.",
+   "gold": "concern",
+   "p": 0.152,
+   "why": "Hints that Elad's reporting is unreliable or dishonest."
+  },
+  {
+   "text": "אל תבנו על הקישורים של נועה בלי לבדוק. פעמיים כבר הגעתי דרכם לטופס שבוטל.",
+   "gold": "concern",
+   "p": 0.032,
+   "why": "A practical warning also spreads negative information about Noa's reliability."
+  }
+ ],
+ "ambiguous_escalated": 0.521
+}

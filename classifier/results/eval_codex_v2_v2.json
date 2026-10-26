@@ -1,0 +1,79 @@
+{
+ "fp32": {
+  "seconds": 20.4,
+  "n": 249,
+  "concern_recall": 0.992,
+  "precision": 0.96,
+  "harmless_escalated": 0.039
+ },
+ "int8": {
+  "seconds": 25.8,
+  "n": 249,
+  "concern_recall": 0.992,
+  "precision": 0.931,
+  "harmless_escalated": 0.071
+ },
+ "misses_int8": [
+  {
+   "text": "עידו, הסלט שלך היה מעולה בפעם הקודמת, תביא שוב 🙏",
+   "gold": "no_concern",
+   "p": 0.575,
+   "why": "Sincere praise and a request."
+  },
+  {
+   "text": "האישור של נוגה עוד חסר; היא כתבה שתתפנה בעשר, אז הזזתי את ההעלאה לעשר ורבע.",
+   "gold": "no_concern",
+   "p": 0.834,
+   "why": "Neutrally reports a dependency and revised schedule."
+  },
+  {
+   "text": "התרגיל הזה מנוסח ממש גרוע, לא ברור בכלל מה צריך להוכיח",
+   "gold": "no_concern",
+   "p": 0.952,
+   "why": "Criticizes an exercise without targeting a person."
+  },
+  {
+   "text": "בואו נעשה עשר דקות הפסקה ואז כל אחד יסביר שאלה אחת. אני כבר קורא את אותה שורה בפעם השישית 😵‍💫",
+   "gold": "no_concern",
+   "p": 0.872,
+   "why": "Suggests a study routine and describes personal fatigue."
+  },
+  {
+   "text": "כל הכבוד לנריה, נשאר לקפל כיסאות גם אחרי שכולם הלכו ❤️",
+   "gold": "no_concern",
+   "p": 0.99,
+   "why": "Sincere praise without a clear negative comparison."
+  },
+  {
+   "text": "כל הכבוד לניב, הצליח להגיע בדיוק כשהתחלנו לחלק קינוח 👏",
+   "gold": "concern",
+   "p": 0.08,
+   "why": "Sarcastic praise implies Niv avoided helping until dessert."
+  },
+  {
+   "text": "הנוהל החדש להפסקות פשוט לא עובד במשמרת עמוסה. צריך להציע חלופה בישיבה.",
+   "gold": "no_concern",
+   "p": 0.573,
+   "why": "Criticizes a procedure without targeting a person."
+  },
+  {
+   "text": "המכונה הזאת שוב הוציאה מים בטעם של עצב במקום קפה 😂",
+   "gold": "no_concern",
+   "p": 0.392,
+   "why": "Humorous criticism of a machine."
+  },
+  {
+   "text": "איזה מזל שמאור היה איתנו היום, נשאר רגוע גם כשהכול הגיע ביחד.",
+   "gold": "no_concern",
+   "p": 0.201,
+   "why": "Straightforward praise for a colleague."
+  },
+  {
+   "text": "סגרתי עם סבתא שאנחנו קופצות לקפה בחמישי, היא לא חושדת בכלום 🤫",
+   "gold": "no_concern",
+   "p": 0.998,
+   "why": "Harmless coordination of the surprise."
+  }
+ ],
+ "ambiguous_escalated": 0.792
+}

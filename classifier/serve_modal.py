@@ -18,7 +18,9 @@ import time
 import modal
 from fastapi import Header, HTTPException
 
-MODEL_RUN = os.environ.get("LHG_GATE_RUN", "v1")
+# v2 + fp32 chosen 2026-10-26 on the fresh Codex eval (eval_codex_v2): recall 0.992,
+# harmless escalated 3.9%; int8 kept the recall but escalated 7.1% of harmless.
+MODEL_RUN = os.environ.get("LHG_GATE_RUN", "v2")
 app = modal.App("lhg-gate")
 image = (
     modal.Image.debian_slim(python_version="3.11")
@@ -32,14 +34,14 @@ vol = modal.Volume.from_name("lhg-models")
 @app.cls(image=image, volumes={"/models": vol}, cpu=2.0, memory=2048,
          secrets=[modal.Secret.from_name("lhg-gate")], scaledown_window=300)
 class Gate:
-    quantize: int = modal.parameter(default=1)
+    quantize: int = modal.parameter(default=0)
 
     @modal.enter()
     def load(self):
         import torch
         from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
-        path = f"/models/{os.environ.get('LHG_GATE_RUN', 'v1')}"
+        path = f"/models/{os.environ.get('LHG_GATE_RUN', MODEL_RUN)}"
         torch.set_num_threads(2)
         self.tok = AutoTokenizer.from_pretrained(path)
         model = AutoModelForSequenceClassification.from_pretrained(path).eval()
@@ -69,7 +71,7 @@ class Gate:
         t0 = time.time()
         p = self._score([text.strip()])[0]
         return {"p": round(p, 4), "ms": round((time.time() - t0) * 1000, 1),
-                "run": os.environ.get("LHG_GATE_RUN", "v1")}
+                "run": os.environ.get("LHG_GATE_RUN", MODEL_RUN)}
 
 
 @app.local_entrypoint()
