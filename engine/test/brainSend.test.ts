@@ -73,10 +73,9 @@ test('brainSend: env builder returns null without base/token, parses full env ot
   assert.equal(opts?.account, 'yoni');
   assert.equal(opts?.timeoutMs, 5000);
   assert.equal(opts?.reasoningEffort, 'minimal');
-  assert.equal(
-    brainSendOptionsFromEnv({ LHG_BRAIN_BASE_URL: 'http://x', LHG_BRAIN_TOKEN: 't' })?.model,
-    'muse-spark-1.3-contributor',
-  );
+  const defaults = brainSendOptionsFromEnv({ LHG_BRAIN_BASE_URL: 'http://x', LHG_BRAIN_TOKEN: 't' });
+  assert.equal(defaults?.model, 'muse-spark-1.3');
+  assert.equal(defaults?.reasoningEffort, 'minimal');
 });
 
 test('brainSend: one stateless v1 call, raw JSON passes validateExtraction', async () => {
@@ -142,17 +141,45 @@ test('brainSend: empty reply throws', async () => {
 });
 
 test('brainSend: HTTP failure throws (never resolves to clean)', async () => {
+  const calls: Call[] = [];
   const p = new BrainSendExtractorProvider({
     baseUrl: 'http://brain:1', token: 'tok',
-    fetchImpl: mockFetch(() => new Response('boom', { status: 502 })),
+    fetchImpl: mockFetch(() => new Response('boom', { status: 502 }), calls),
   });
   await assert.rejects(() => p.extract(req()), /completions_http_502/);
+  assert.equal(calls.length, 1); // an HTTP error is never retried
+});
+
+test('brainSend: a fast network failure (stale socket) is retried exactly once', async () => {
+  let n = 0;
+  const flaky = (async () => {
+    n++;
+    if (n === 1) throw new TypeError('fetch failed');
+    return replyRes(JSON.stringify(VALID_MODEL_JSON));
+  }) as typeof fetch;
+  const p = new BrainSendExtractorProvider({ baseUrl: 'http://brain:1', token: 'tok', fetchImpl: flaky });
+  const raw = (await p.extract(req())) as Record<string, unknown>;
+  assert.equal(raw['directAssessment'], 'concern');
+  assert.equal(n, 2);
+});
+
+test('brainSend: default request carries reasoning_effort=minimal', async () => {
+  const calls: Call[] = [];
+  const p = new BrainSendExtractorProvider({
+    baseUrl: 'http://brain:1', token: 'tok',
+    fetchImpl: mockFetch(() => replyRes(JSON.stringify(VALID_MODEL_JSON)), calls),
+  });
+  await p.extract(req());
+  assert.equal(calls[0]!.body['model'], 'muse-spark-1.3');
+  assert.equal(calls[0]!.body['reasoning_effort'], 'minimal');
 });
 
 test('brainSend: network failure throws BrainSendError', async () => {
-  const failing = (async () => { throw new Error('socket hang up'); }) as typeof fetch;
+  let n = 0;
+  const failing = (async () => { n++; throw new Error('socket hang up'); }) as typeof fetch;
   const p = new BrainSendExtractorProvider({ baseUrl: 'http://brain:1', token: 'tok', fetchImpl: failing });
   await assert.rejects(() => p.extract(req()), /brain_request_failed/);
+  assert.equal(n, 2); // one retry, then the failure stands (-> not_checked)
 });
 
 test('brainSend: timeout aborts and throws brain_request_timeout', async () => {

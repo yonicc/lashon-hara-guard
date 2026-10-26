@@ -22,15 +22,15 @@
 ```
 POST {LHG_BRAIN_BASE_URL}/api/v1/chat/completions
 Authorization: Bearer $LHG_BRAIN_TOKEN        (scope chat:send, לא guest)
-{ "agent_kind":"meta_api", "model":"muse-spark-1.3-contributor", "account":"yoni",
+{ "agent_kind":"meta_api", "model":"muse-spark-1.3", "account":"yoni",
   "stream":false, "system_prompt":"<הוראות JSON בלבד>",
   "messages":[{"role":"user","content":"<קטלוג + cues + הודעה>"}],
-  "reasoning_effort":"<אופציונלי>" }
+  "reasoning_effort":"minimal" }
 -> { "reply":"<JSON של RawExtraction>", "model":..., "usage":... }
 ```
 
-ברירת מחדל `LHG_BRAIN_MODEL=muse-spark-1.3-contributor`; משתנה חדש
-`LHG_BRAIN_REASONING_EFFORT`. כל כשל (רשת/timeout/HTTP/תשובה ריקה/לא JSON)
+ברירות מחדל: `LHG_BRAIN_MODEL=muse-spark-1.3` ו־`LHG_BRAIN_REASONING_EFFORT=minimal` (ראו טבלת הכיוונון).
+כל כשל (רשת/timeout/HTTP/תשובה ריקה/לא JSON)
 זורק, וה־pipeline ממפה אותו ל־`not_checked`. הזרימה new→model→send→delete הוסרה.
 
 **אומת חי 2026-10-26** מול ה־Brain בפרודקשן (`brain-mcp:491364e`):
@@ -42,8 +42,26 @@ Authorization: Bearer $LHG_BRAIN_TOKEN        (scope chat:send, לא guest)
   **p50 ≈ 13.0s, p95 ≈ 18.7s**, ללא `reasoning_effort`.
 - איכות ראשונית: אירוניה (״איזה גאון, שוב באיחור״), רמז (״כולם יודעים למה...״)
   וביקורת ← `concern` + משמעות מעליבה; תודה והודעה עניינית ← `no_concern`.
-- latency גבוה מדי לפופאפ בזמן אמת. הצעדים הבאים: `LHG_BRAIN_REASONING_EFFORT=minimal`,
-  קיצור הקטלוג בבקשה, ו־retry אחד לכשל רשת חולף בלבד.
+- latency גבוה מדי לפופאפ בזמן אמת, ולכן נמדדה מטריצת הגדרות.
+
+**כיוונון (10 הודעות, כולל רמז, אירוניה, שבח כן ופנייה עניינית):**
+
+| מודל | reasoning | חציון | מקסימום | נכון |
+|---|---|---|---|---|
+| 1.3-contributor | ברירת מחדל | 13.5s | 20.1s | 5/5 |
+| 1.3-contributor | low | 8.1s | 9.5s | 5/5 |
+| 1.3-contributor | minimal | 5.5s | 5.7s | 4/5 |
+| 1.3 | ברירת מחדל | 5.8s | 12.5s | 7/10 |
+| 1.3 | low | 3.5s | 4.1s | 9/10 |
+| **1.3** | **minimal** | **2.2s** | **2.7s** | **9/10** |
+
+- **נבחר: `muse-spark-1.3` + `minimal`** (ברירות המחדל בקוד). אימות סופי: 20/20 קריאות
+  הצליחו, חציון 2.3s, מקסימום 2.8s, ו־18/20 תאמו. שתי ההחטאות היו `unsure` על רמז, לא
+  `no_concern`, ולכן המנוע עדיין מנתב אותן לבירור.
+- ping (system+user של מילה אחת) נע בין 0.9 ל־2.4s. זו הרצפה של Brain, Cloudflare ו־Meta יחד.
+  הנתיב עצמו הוא `httpx` בלבד (`_http_completion`), בלי MCP, כלים או סוכן.
+- `fetch failed` אחרי כ־75ms הוא חיבור keep-alive מת: הספק מבצע retry אחד רק לכשל רשת
+  שקורה תוך פחות משנייה. timeout, שגיאת HTTP ו־JSON פגום לא נשלחים שוב.
 
 ## 1. ממצא מאומת: ‎/api/v1/chat/completions אינו תומך ב־muse
 
@@ -105,7 +123,7 @@ Authorization: Bearer $LHG_BRAIN_TOKEN        (scope chat:send, לא guest)
 |---|---|
 | בסיס | `LHG_BRAIN_BASE_URL` (למשל `http://localhost:PORT`) |
 | auth | `Authorization: Bearer $LHG_BRAIN_TOKEN` (שם בלבד, אין סוד בקוד/גיט) |
-| מודל | `LHG_BRAIN_MODEL` (ברירת מחדל `muse-spark-1.3-contributor`) |
+| מודל | `LHG_BRAIN_MODEL` (ברירת מחדל `muse-spark-1.3`), `LHG_BRAIN_REASONING_EFFORT` (ברירת מחדל `minimal`) |
 | חשבון | `LHG_BRAIN_ACCOUNT` (תווית החשבון ב־Brain, למשל `yoni`) |
 | timeout | `LHG_BRAIN_TIMEOUT_MS` (ברירת מחדל 30000) |
 | זרימה | קריאה אחת ל־`/api/v1/chat/completions` עם `agent_kind=meta_api` (ראו סעיף 0); כל כשל רשת/HTTP/JSON/ולידציה = `not_checked` |
@@ -149,9 +167,9 @@ Authorization: Bearer $LHG_BRAIN_TOKEN        (scope chat:send, לא guest)
 ## 6. הפעלה מקומית ל־MVP (בלי סודות במאגר)
 
 ```powershell
-$env:LHG_BRAIN_BASE_URL='http://<brain-host>:<port>'
-$env:LHG_BRAIN_TOKEN='<service-token>'   # Bearer, scope chat:send
-$env:LHG_BRAIN_MODEL='muse-spark-1.3-contributor'
+$env:LHG_BRAIN_BASE_URL='https://br.ysho.uk/dash'   # הקידומת /dash חובה
+$env:LHG_BRAIN_TOKEN='<service-token>'   # Bearer brk_..., scope chat:send
+$env:LHG_BRAIN_MODEL='muse-spark-1.3'
 $env:LHG_BRAIN_ACCOUNT='yoni'
 $env:LHG_BRAIN_TIMEOUT_MS='30000'
 $env:LHG_BRAIN_LIVE='1'                  # רק לבדיקת אינטגרציה חיה; כבוי כברירת מחדל

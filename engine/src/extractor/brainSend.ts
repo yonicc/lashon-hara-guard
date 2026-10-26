@@ -32,7 +32,7 @@ export interface BrainSendExtractorOptions {
   model?: string;
   account?: string;
   timeoutMs?: number;
-  /** Meta reasoning_effort: minimal | low | medium | high. Empty = provider default. */
+  /** Meta reasoning_effort: minimal | low | medium | high. Empty = DEFAULT_BRAIN_REASONING_EFFORT. */
   reasoningEffort?: string;
   fetchImpl?: typeof fetch;
 }
@@ -48,8 +48,14 @@ export const BRAIN_SEND_ENV = {
 
 export const BRAIN_AGENT_KIND = 'meta_api';
 export const BRAIN_COMPLETIONS_PATH = '/api/v1/chat/completions';
-export const DEFAULT_BRAIN_MODEL = 'muse-spark-1.3-contributor';
+// Measured live 2026-10-26 (docs/10 §0): muse-spark-1.3 + minimal reasoning
+// answered in ~2.2s median / 2.7s max with 9/10 correct; 1.3-contributor at
+// default reasoning took ~13.5s median. Both stay overridable via env.
+export const DEFAULT_BRAIN_MODEL = 'muse-spark-1.3';
+export const DEFAULT_BRAIN_REASONING_EFFORT = 'minimal';
 export const DEFAULT_BRAIN_TIMEOUT_MS = 30000;
+/** A network failure faster than this is a dead pooled connection, not an overload: retry once. */
+const FAST_NETWORK_FAILURE_MS = 1000;
 
 /** Build options from environment. Returns null when required env is missing. */
 export function brainSendOptionsFromEnv(
@@ -61,7 +67,7 @@ export function brainSendOptionsFromEnv(
   if (!baseUrl || !token) return null;
   const model = (env[BRAIN_SEND_ENV.model] ?? '').trim() || DEFAULT_BRAIN_MODEL;
   const account = (env[BRAIN_SEND_ENV.account] ?? '').trim();
-  const reasoningEffort = (env[BRAIN_SEND_ENV.reasoningEffort] ?? '').trim();
+  const reasoningEffort = (env[BRAIN_SEND_ENV.reasoningEffort] ?? '').trim() || DEFAULT_BRAIN_REASONING_EFFORT;
   const timeoutRaw = Number(env[BRAIN_SEND_ENV.timeoutMs]);
   const timeoutMs =
     Number.isFinite(timeoutRaw) && timeoutRaw > 0 ? Math.floor(timeoutRaw) : DEFAULT_BRAIN_TIMEOUT_MS;
@@ -134,13 +140,30 @@ export class BrainSendExtractorProvider implements ExtractorProvider {
       model: opts.model?.trim() || DEFAULT_BRAIN_MODEL,
       timeoutMs: opts.timeoutMs && opts.timeoutMs > 0 ? Math.floor(opts.timeoutMs) : DEFAULT_BRAIN_TIMEOUT_MS,
       ...(opts.account?.trim() ? { account: opts.account.trim() } : {}),
-      ...(opts.reasoningEffort?.trim() ? { reasoningEffort: opts.reasoningEffort.trim() } : {}),
+      reasoningEffort: opts.reasoningEffort?.trim() || DEFAULT_BRAIN_REASONING_EFFORT,
       ...(opts.fetchImpl ? { fetchImpl: opts.fetchImpl } : {}),
     };
     this.modelVersion = this.opts.model;
   }
 
   async extract(req: ExtractorRequest): Promise<unknown> {
+    const started = Date.now();
+    try {
+      return await this.extractOnce(req, this.opts.timeoutMs);
+    } catch (e) {
+      // Retry ONLY a fast transport failure (stale keep-alive socket closed by
+      // the proxy: seen live as "fetch failed" after ~75ms). Timeouts, HTTP
+      // errors and bad model output are deterministic or slow: never retried.
+      const elapsed = Date.now() - started;
+      const transient =
+        e instanceof BrainSendError && e.message.startsWith('brain_request_failed:') &&
+        elapsed < FAST_NETWORK_FAILURE_MS;
+      if (!transient) throw e;
+      return await this.extractOnce(req, this.opts.timeoutMs - elapsed);
+    }
+  }
+
+  private async extractOnce(req: ExtractorRequest, timeoutMs: number): Promise<unknown> {
     const fetchImpl = this.opts.fetchImpl ?? fetch;
     const body = {
       agent_kind: BRAIN_AGENT_KIND,
@@ -152,7 +175,7 @@ export class BrainSendExtractorProvider implements ExtractorProvider {
       messages: [{ role: 'user', content: buildUserContent(req) }],
     };
     const ctrl = new AbortController();
-    const timer = setTimeout(() => ctrl.abort(), this.opts.timeoutMs);
+    const timer = setTimeout(() => ctrl.abort(), timeoutMs);
     let res: Response;
     let data: unknown;
     try {
