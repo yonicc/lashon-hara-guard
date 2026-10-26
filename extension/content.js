@@ -22,8 +22,8 @@
   let timer = null;
   let lastChecked = '';
   let seq = 0;
-  let panel = null;
   let composeMissingSince = 0;
+  const P = globalThis.LHG_PANEL;
 
   function findCompose() {
     if (!S) return null;
@@ -42,68 +42,22 @@
     return S.closestMatch(el, S.whatsapp.compose);
   }
 
-  function ensurePanel() {
-    if (panel && document.body.contains(panel)) return panel;
-    panel = document.createElement('div');
-    panel.id = 'lhg-panel';
-    panel.setAttribute('dir', 'rtl');
-    panel.setAttribute('role', 'status');
-    document.body.appendChild(panel);
-    return panel;
+  const hide = () => P && P.hide();
+  const show = (kind, title, lines) => P && P.show(kind, title, lines);
+  const render = (r) => P && P.renderResult(r);
+
+  function readComposeText() {
+    const box = findCompose();
+    return box ? (box.innerText || '').trim() : '';
   }
 
-  function hide() {
-    if (panel) panel.className = 'lhg-hidden';
-  }
-
-  function show(kind, title, lines) {
-    const p = ensurePanel();
-    p.className = 'lhg-' + kind;
-    p.textContent = '';
-    const close = document.createElement('button');
-    close.className = 'lhg-close';
-    close.textContent = '×';
-    close.title = 'סגור';
-    close.addEventListener('click', hide);
-    const h = document.createElement('div');
-    h.className = 'lhg-title';
-    h.textContent = title;
-    p.append(close, h);
-    for (const line of lines) {
-      if (!line) continue;
-      const d = document.createElement('div');
-      d.className = 'lhg-line';
-      d.textContent = line; // never innerHTML: the evidence is user text
-      p.appendChild(d);
+  function resolveDirection(node) {
+    if (node && node.closest) {
+      if (node.closest(S ? S.whatsapp.compose.join(',') : 'footer [contenteditable="true"]')) return 'outgoing';
+      if (node.closest('.message-out, [class*="message-out"]')) return 'outgoing';
+      if (node.closest('.message-in, [class*="message-in"]')) return 'incoming';
     }
-  }
-
-  function render(r) {
-    const mech = r && r.mechanism ? MECHANISM_HE[r.mechanism] || '' : '';
-    const evidence = r && r.evidence ? '״' + r.evidence + '״' : '';
-    switch (r && r.alert) {
-      case 'warn':
-        show('warn', '⚠️ שים לב: ההודעה עלולה להתפרש כגנאי', [
-          mech && 'אופן: ' + mech,
-          evidence && 'בגלל: ' + evidence,
-          'זו תזכורת לשקול ניסוח, לא פסיקה הלכתית.',
-        ]);
-        break;
-      case 'unsure':
-        show('unsure', 'ℹ️ ייתכן שיש כאן משמעות לא מכוונת', [
-          evidence && 'כדאי לבדוק: ' + evidence,
-          'איך יבין את זה מי שמדברים עליו?',
-        ]);
-        break;
-      case 'not_checked':
-        show('muted', 'ההודעה לא נבדקה', ['אין חיבור לשרת הבדיקה כרגע. זה לא אומר שהיא תקינה.']);
-        break;
-      case 'not_configured':
-        show('muted', 'Lashon Hara Guard לא מוגדר', ['פתח את הגדרות התוסף והדבק את מפתח הגישה.']);
-        break;
-      default:
-        hide();
-    }
+    return 'incoming';
   }
 
   function schedule(box) {
@@ -166,19 +120,35 @@
     const compose = findCompose();
     if (compose) {
       composeMissingSince = 0;
-      if (panel && panel.dataset.lhgMissing === '1') hide();
       return;
     }
     if (!chatOpen) return;
     if (!composeMissingSince) composeMissingSince = Date.now();
+    if (!P) return;
     if (Date.now() - composeMissingSince > COMPOSE_WATCH_MS) {
       show('muted', 'התוסף לא מזהה את שורת הכתיבה', [
         'מבנה העמוד השתנה, לכן הבדיקה בזמן כתיבה מושהית. ההודעה לא נבדקה.',
       ]);
-      if (panel) panel.dataset.lhgMissing = '1';
     }
   }
   setInterval(watchComposePresence, 2000);
+
+  if (P) {
+    P.bindManualShortcut({
+      platform: PLATFORM,
+      fallbackText: readComposeText,
+      fallbackDirection: 'outgoing',
+      resolveDirection,
+      getStatusLines: () => {
+        const compose = findCompose();
+        return [
+          compose
+            ? 'שורת הכתיבה זוהתה; הקלדה חדשה תיבדק אוטומטית אחרי הפסקה קצרה.'
+            : 'שורת הכתיבה לא זוהתה; הבדיקה האוטומטית בזמן כתיבה אינה פעילה כעת.',
+        ];
+      },
+    });
+  }
 
   // --- incoming messages ---------------------------------------------------
   if (S && globalThis.LHG_INCOMING) {

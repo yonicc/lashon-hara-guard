@@ -25,3 +25,4 @@
 - Source of truth is `extension/` in this repo (on BI-1). Every extension change must also be copied to the active unpacked copy on YONI-PC: `/home/yoni/lashon-hara-guard-gmail/extension` (Linux, user `yoni`; Chrome profile `Default`, extension id `naggldcglajoihfllgnboobgkfaknkoj`). Verify the copied files' SHA-256 match the repo's and that `manifest.json` parses.
 - Never copy secrets or the user's access key to YONI-PC; the options page stores it locally in that Chrome profile.
 - After updating that directory, the user reloads the extension in `chrome://extensions` (there is no hot-reload for an unpacked extension whose `manifest.json` changed).
+- Merely reopening Gmail/WhatsApp does not load new content scripts after a manifest change; reload the extension first, then refresh the supported page. Incoming messages never show an automatic popup: they only get an inline tag, while the shared manual panel opens with Ctrl+Shift+plus in the focused supported tab.

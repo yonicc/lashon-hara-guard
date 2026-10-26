@@ -20,6 +20,22 @@
   const scanner = globalThis.LHG_INCOMING.createScanner({ platform: PLATFORM, findRows });
   scanner.scan(); // baseline: opened history is marked seen, never sent
 
+  if (globalThis.LHG_PANEL) {
+    globalThis.LHG_PANEL.bindManualShortcut({
+      platform: PLATFORM,
+      direction: 'incoming',
+      getStatusLines: () => {
+        const rows = findRows(document);
+        return [
+          rows.length
+            ? 'התוסף פעיל ומזהה הודעות בעמוד. הודעות חדשות ייבדקו אוטומטית ויתווספו לידן תגיות.'
+            : 'התוסף פעיל, אך כרגע לא זוהתה הודעת דוא״ל/צ׳אט פתוחה. פתח הודעה או שיחה ונסה שוב. מצב זה אינו מוצג כבדיקה תקינה.',
+          'לבדיקה ידנית: סמן את טקסט ההודעה בעמוד ולחץ Ctrl+Shift+‎+.',
+        ];
+      },
+    });
+  }
+
   let t = null;
   const requestScan = () => {
     clearTimeout(t);
