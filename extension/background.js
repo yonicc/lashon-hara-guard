@@ -32,6 +32,27 @@ async function check(text, platform, direction) {
   }
 }
 
+// Native Chrome command "open-panel" (manifest "commands"). Chrome delivers
+// it before any page handler runs, so it cannot collide with the built-in
+// Ctrl+Shift+= / Ctrl+plus zoom shortcut. Forward to the ACTIVE tab's content
+// script, which owns the panel and the current selection. Tabs without our
+// content script (unsupported pages) simply ignore it — no error, no panel.
+if (chrome.commands && chrome.commands.onCommand) {
+  chrome.commands.onCommand.addListener((command) => {
+    if (command !== 'open-panel') return;
+    chrome.tabs.query({ active: true, lastFocusedWindow: true }, (tabs) => {
+      const tab = tabs && tabs[0];
+      if (!tab || tab.id == null) return;
+      try {
+        chrome.tabs.sendMessage(tab.id, { type: 'lhg-open-panel' }, () => {
+          // No receiver on unsupported tabs: not an error.
+          void chrome.runtime.lastError;
+        });
+      } catch (_e) { /* tab gone mid-flight: ignore */ }
+    });
+  });
+}
+
 chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
   if (msg && msg.type === 'lhg-check' && typeof msg.text === 'string') {
     check(msg.text, msg.platform || 'unknown', msg.direction).then(sendResponse);

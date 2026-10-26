@@ -1,6 +1,14 @@
 // Shared in-page panel for every platform. Loaded before the adapters.
 // The panel only presents the proxy result; it never defines an alert level,
 // never blocks sending and never rewrites a message.
+//
+// Manual opening (0.4.0): the Chrome-NATIVE command "open-panel"
+// (chrome.commands, manifest "commands"; default Ctrl+Shift+L) is delivered
+// by background.js as {type:'lhg-open-panel'} — a true extension command
+// fires before any page/browser default, so it cannot collide with Chrome's
+// built-in zoom the way a page keydown could. The legacy page-level
+// Ctrl+Shift+plus handler is kept only as a fallback for builds where the
+// command cannot be registered, and no longer claims to prevent zoom.
 (() => {
   if (globalThis.LHG_PANEL) return;
 
@@ -131,7 +139,7 @@
         typeof opts.getStatusLines === 'function' ? opts.getStatusLines() : [];
       show('muted', 'Lashon Hara Guard פעיל בעמוד זה', [
         ...statusLines,
-        'לבדיקה ידנית של טקסט: סמן אותו בעמוד ולחץ שוב Ctrl+Shift+‎+.',
+        'לבדיקה ידנית של טקסט: סמן אותו בעמוד ולחץ שוב על קיצור הפאנל.',
         'זו תזכורת בלבד, לא פסיקה הלכתית.',
       ]);
       return;
@@ -155,10 +163,31 @@
     );
   }
 
+  // Preferred manual trigger: the native Chrome command. Chrome fires it
+  // before any page/browser default, so it cannot be eaten by Chrome's
+  // built-in zoom (Ctrl+Shift+= / Ctrl+plus) the way a page keydown can.
+  // Registering it is a no-op (via bindCommandFallback) when a caller does
+  // not want the native path. Returns true when the native path is armed.
+  function bindCommandOpenPanel(opts = {}) {
+    try {
+      chrome.runtime.onMessage.addListener((msg) => {
+        if (msg && msg.type === 'lhg-open-panel') {
+          openManual(opts);
+          return true;
+        }
+        return false;
+      });
+      return true;
+    } catch (_e) {
+      return false;
+    }
+  }
+
   // The user's Ctrl+Shift+"+" is physically Ctrl+Shift+= on the main keyboard
-  // (code Equal) or Ctrl+Shift+NumpadAdd on a numeric keypad. Chrome's
-  // extension Commands API has no supported Plus/Equal key name, so this is a
-  // page-level shortcut in the focused supported tab.
+  // (code Equal) or Ctrl+Shift+NumpadAdd on a numeric keypad. This is ONLY a
+  // page-level fallback for builds without the native command bound. Chrome
+  // reserves Ctrl+Shift+=/Ctrl+plus for built-in page zoom, and a content
+  // script keydown cannot reliably pre-empt it — do not claim it does.
   function isPlusShortcut(e) {
     return !!(
       e &&
@@ -171,12 +200,14 @@
   }
 
   function bindManualShortcut(opts = {}) {
+    // Arm the native command first; keep the page-level plus as fallback.
+    bindCommandOpenPanel(opts);
     document.addEventListener(
       'keydown',
       (e) => {
         if (!isPlusShortcut(e)) return;
-        e.preventDefault();
-        e.stopPropagation();
+        try { e.preventDefault(); } catch (_e) { /* may already be handled */ }
+        try { e.stopPropagation(); } catch (_e) { /* ignore */ }
         openManual(opts);
       },
       true,
@@ -189,6 +220,7 @@
     renderResult,
     openManual,
     bindManualShortcut,
+    bindCommandOpenPanel,
     isVisible: () => visible,
   };
 })();

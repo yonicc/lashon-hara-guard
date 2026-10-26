@@ -1,11 +1,20 @@
 {
   "manifest_version": 3,
   "name": "Lashon Hara Guard (MVP)",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "תזכורת עדינה בזמן כתיבה וליד הודעות נכנסות כשהודעה עלולה להתפרש כגנאי. אינה פסיקה הלכתית.",
-  "permissions": ["storage"],
+  "permissions": ["storage", "tabs"],
   "host_permissions": ["https://lhg-proxy.yonicc.workers.dev/*"],
   "background": { "service_worker": "background.js" },
+  "commands": {
+    "open-panel": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+L",
+        "mac": "Command+Shift+L"
+      },
+      "description": "פתח/סגור את פאנל Lashon Hara Guard בעמוד הנתמך שבפוקוס"
+    }
+  },
   "content_scripts": [
     {
       "matches": ["https://web.whatsapp.com/*"],
