@@ -27,11 +27,16 @@
 
   // Gmail's own e-mail compose must never be treated as a chat compose box:
   // e-mail drafts are not sent to the checker while typing.
+  // Only on mail.google.com: the Chat compose box (chat.google.com frame) ALSO
+  // carries g_editable / aria-multiline (diagnostics from BI, 2026-10-27), so
+  // applying this filter there rejected the real chat compose box.
+  const onMailHost = location.hostname === 'mail.google.com';
   const MAIL_COMPOSE = ['.Am.Al.editable', '[g_editable="true"]', '.editable[aria-multiline="true"]'];
   function chatComposeBox(el) {
     if (!el || !el.isContentEditable) return null;
     const box = S.closestMatch(el, S.googleChat.compose);
-    if (!box || S.closestMatch(box, MAIL_COMPOSE)) return null;
+    if (!box) return null;
+    if (onMailHost && S.closestMatch(box, MAIL_COMPOSE)) return null;
     return box;
   }
   function findChatCompose() {
