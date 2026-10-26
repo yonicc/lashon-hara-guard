@@ -16,6 +16,12 @@
 - Use synthetic examples only. Do not commit messages, identities, tokens, or real relationship graphs.
 - One rule has one canonical definition; adapters and UI consume it.
 
+## Context integration
+- Canonical packet types/sanitizer: `engine/src/contextPacket.ts`; extractor types reference it. The proxy sanitizes before extraction. `user_confirmed` is the builder's explicit confirmation provenance; candidate/unknown never become false.
+- Load DOM → store → builder → runtime before adapters. Capture packets before incoming queue delays so switching conversations cannot change a queued request's context. Names and DOM conversation keys stay local.
+- Visible authors do not establish total audience size. Omit participantCount unless independently known. Google context requires a thread/space identity; otherwise retain single-message checks.
+- Regression commands: `node --test extension/*.test.cjs`; in both `engine/` and `proxy/`: `npm run typecheck`, `npm test`. `proxy/test/contextIntegration.test.ts` exercises the real browser scripts through the Worker handler with a synthetic provider.
+
 ## MVP runtime (verified 2026-10-26)
 - Brain machine API base is `https://br.ysho.uk/dash` (without `/dash`: 401). Model call: `agent_kind=meta_api`, `muse-spark-1.3`, `reasoning_effort=minimal` (docs/10 §0).
 - Proxy = Cloudflare Worker `lhg-proxy` (`proxy/`), deployed from BI-1 with `npx wrangler deploy` (wrangler logged in as yonicc). The extension's alert level is defined only in `proxy/src/handler.ts` `alertFor`.

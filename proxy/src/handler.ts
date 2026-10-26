@@ -3,6 +3,7 @@ import {
   brainSendOptionsFromEnv,
   FACT_CATALOG,
   runExtraction,
+  sanitizeContextPacket,
   type ExtractionOutcome,
   type ExtractorContextPacket,
   type ExtractorProvider,
@@ -102,7 +103,7 @@ function pickContext(raw: unknown): ExtractorContextPacket | undefined {
     return undefined; // unserializable (cyclic/BigInt/…) => ignore, stay a valid check
   }
   if (size > MAX_CONTEXT_JSON_CHARS) return undefined;
-  return raw as ExtractorContextPacket;
+  return sanitizeContextPacket(raw) ?? undefined;
 }
 
 export function providerFromEnv(env: Env): ExtractorProvider | null {

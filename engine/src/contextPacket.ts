@@ -7,7 +7,8 @@ export const CONTEXT_PACKET_VERSION = 1 as const;
 
 export type PacketDirection = 'outgoing' | 'incoming';
 export type ConversationKind = 'direct' | 'group' | 'channel' | 'email_thread' | 'unknown';
-export type FactStatus = 'known' | 'unknown' | 'disputed';
+import type { FactStatus } from './types.js';
+export type { FactStatus } from './types.js';
 export type MessageDirection = 'outgoing' | 'incoming' | 'unknown';
 
 export interface ContextParticipant {
@@ -98,6 +99,7 @@ const SENSITIVE_FACT_IDS = new Set<string>([
 const FAMILY_RELATIONS = new Set<string>([
   'father', 'mother', 'brother', 'sister', 'son', 'daughter',
   'spouse', 'husband', 'wife', 'family', 'relative', 'parent', 'child',
+  'parent_of', 'father_of', 'mother_of', 'child_of', 'sibling_of',
 ]);
 
 function isPlainObject(v: unknown): v is LooseRecord {
@@ -112,7 +114,7 @@ function asTrimmedString(v: unknown, max: number): string | null {
 }
 
 function asFactStatus(v: unknown): FactStatus {
-  return v === 'known' || v === 'unknown' || v === 'disputed' ? v : 'unknown';
+  return v === 'known' || v === 'unknown' || v === 'disputed' || v === 'candidate' ? v : 'unknown';
 }
 
 function sanitizeRef(v: unknown): string | null {
@@ -183,7 +185,8 @@ export function computeContextVersion(input: {
  * - participants <= 50, recentMessages <= 5 (each text <= 300), facts <= 50, rels <= 50
  * - invalid packet direction => null; invalid message direction/kind => 'unknown'
  * - forwarded non-boolean => undefined (unknown stays unknown, never false)
- * - sensitive fact => known ONLY with provenance=user AND explicit userConfirmed=true,
+ * - sensitive fact => known ONLY with provenance=user_confirmed (builder), or
+ *   legacy provenance=user AND explicit userConfirmed=true,
  *   otherwise downgraded to unknown; model_extraction never confirms family relation.
  */
 export function sanitizeContextPacket(input: unknown): ContextPacket | null {
@@ -207,7 +210,7 @@ export function sanitizeContextPacket(input: unknown): ContextPacket | null {
         ? ckRaw
         : 'unknown';
 
-    const currentAuthorRef = sanitizeRef(input['currentAuthorRef']);
+    const currentAuthorRef = input['currentAuthorRef'] === 'unknown' ? 'unknown' : sanitizeRef(input['currentAuthorRef']);
     if (!currentAuthorRef) return null;
 
     // participants (allowlist ref/isSelf/roles only)
@@ -243,7 +246,7 @@ export function sanitizeContextPacket(input: unknown): ContextPacket | null {
     if (Array.isArray(input['recentMessages'])) {
       for (const m of (input['recentMessages'] as unknown[]).slice(0, MAX_RECENT)) {
         if (!isPlainObject(m)) continue;
-        const authorRef = sanitizeRef(m['authorRef']);
+        const authorRef = m['authorRef'] === 'unknown' ? 'unknown' : sanitizeRef(m['authorRef']);
         if (!authorRef) continue;
         const text = asTrimmedString(m['text'], MAX_TEXT);
         if (!text) continue;
@@ -258,7 +261,7 @@ export function sanitizeContextPacket(input: unknown): ContextPacket | null {
       }
     }
 
-    // facts: <= 50, sensitive-known only with provenance=user + userConfirmed=true
+    // Sensitive known facts require explicit user confirmation on the wire.
     const facts: ContextFact[] = [];
     if (Array.isArray(input['facts'])) {
       for (const f of (input['facts'] as unknown[]).slice(0, MAX_FACTS)) {
@@ -275,7 +278,7 @@ export function sanitizeContextPacket(input: unknown): ContextPacket | null {
         const sensitive = f['sensitive'] === true || SENSITIVE_FACT_IDS.has(id);
         const userConfirmed = f['userConfirmed'] === true || f['confirmedByUser'] === true;
         if (sensitive && status === 'known') {
-          if (!(provenance === 'user' && userConfirmed)) {
+          if (!(provenance === 'user_confirmed' || (provenance === 'user' && userConfirmed))) {
             status = 'unknown';
           }
         }
@@ -298,7 +301,9 @@ export function sanitizeContextPacket(input: unknown): ContextPacket | null {
         let status = asFactStatus(r['status']);
         const provRaw = typeof r['provenance'] === 'string' ? (r['provenance'] as string).trim().slice(0, 64) : '';
         const provenance = provRaw ? provRaw : 'unknown';
-        if (status === 'known' && provenance === 'model_extraction' && FAMILY_RELATIONS.has(relation.toLowerCase())) {
+        if (status === 'known' && FAMILY_RELATIONS.has(relation.toLowerCase()) &&
+            !(provenance === 'user_confirmed' ||
+              (provenance === 'user' && (r['userConfirmed'] === true || r['confirmedByUser'] === true)))) {
           status = 'unknown';
         }
         relationships.push({ subjectRef, relation, objectRef, status, provenance });

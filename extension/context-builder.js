@@ -53,7 +53,7 @@
 
   function createContextBuilder(opts) {
     opts = opts || {};
-    var extStore = opts.store || null;
+    var extStore = opts.store || globalThis.LHG_CONTEXT_STORE || null;
     var nowFn = opts.now || null;
 
     var convs = new Map();          // convId -> { kind, platform, direction }
@@ -154,7 +154,7 @@
       try {
         if (!extStore) return;
         if (typeof extStore[op.fn] === 'function') {
-          extStore[op.fn].apply(extStore, op.args || []);
+          return Promise.resolve(extStore[op.fn].apply(extStore, op.args || [])).catch(function () {});
         }
       } catch (e) { /* local builder never crashes on persistence */ }
     }
@@ -169,7 +169,7 @@
       if (input.platform) meta.platform = String(input.platform);
       if (input.direction) meta.direction = String(input.direction);
       bump(id);
-      persist({ fn: 'putConversation', args: [{ id: id, kind: meta.kind, platform: meta.platform }] });
+      await persist({ fn: 'putConversation', args: [{ id: id, kind: meta.kind, platform: meta.platform }] });
       return { id: id, contextVersion: getVersion(id) };
     }
 
@@ -186,7 +186,7 @@
         ent.roles = Array.isArray(p.roles) ? p.roles.slice() : ent.roles;
       }
       bump(convId);
-      persist({ fn: 'putParticipant', args: [{ conversationId: convId, ref: ref }] });
+      await persist({ fn: 'putParticipant', args: [{ conversationId: convId, ref: ref, displayName: ent ? ent.display : '' }] });
       return ref;
     }
 
@@ -204,9 +204,13 @@
         text: String(msg.text || ''),
         ts: ts
       };
-      messages.get(convId).push(entry);
+      var history = messages.get(convId);
+      var existing = history.findIndex(function (m) { return m.id === entry.id; });
+      if (existing >= 0) history.splice(existing, 1);
+      history.push(entry);
+      if (history.length > 30) history.splice(0, history.length - 30);
       bump(convId);
-      persist({ fn: 'putMessage', args: [Object.assign({ conversationId: convId }, entry)] });
+      await persist({ fn: 'putMessage', args: [Object.assign({ conversationId: convId }, entry)] });
       return entry.id;
     }
 
@@ -218,7 +222,7 @@
       var id = String(f.id || ('f' + (facts.get(convId).size + 1)));
       var rec = {
         id: id,
-        value: String(f.value || ''),
+        value: typeof f.value === 'boolean' || typeof f.value === 'number' ? f.value : String(f.value || ''),
         sensitive: !!f.sensitive,
         // A model/content proposal is NEVER known.
         status: 'candidate',
@@ -291,7 +295,7 @@
       facts.delete(convId);
       rels.delete(convId);
       versions.delete(convId);
-      persist({ fn: 'deleteConversation', args: [convId] });
+      await persist({ fn: 'deleteConversation', args: [convId] });
       return true;
     }
 
@@ -306,7 +310,7 @@
           status = (status === 'candidate') ? 'candidate' : 'unknown';
           if (status !== 'candidate') status = 'unknown';
         }
-        var f = { id: rec.id, value: scrubExportText(rec.value, names), status: status, provenance: rec.provenance };
+        var f = { id: rec.id, value: typeof rec.value === 'string' ? scrubExportText(rec.value, names) : rec.value, status: status, provenance: rec.provenance };
         if (rec.scope) f.scope = rec.scope;
         out.push(f);
       }
@@ -336,7 +340,6 @@
       if (!convId) throw new Error('buildPacket: missing conversationId');
       ensureConv(convId);
       var meta = convs.get(convId);
-      var names = localDisplayNames(convId);
 
       var currentAuthorRef = resolveRef(
         convId,
@@ -351,12 +354,14 @@
       }
 
       // Recent window: up to MAX_RECENT messages BEFORE the current one, chronological.
+      var names = localDisplayNames(convId);
       var hist = (messages.get(convId) || []).slice();
       hist.sort(function (a, b) { return (a.ts < b.ts ? -1 : a.ts > b.ts ? 1 : 0); });
       // Exclude the current message itself if it was already ingested (duplicate guard).
       var curText = String(current.text || '');
       var curTs = (current.timestamp != null ? current.timestamp : nowMs(nowFn));
       var filtered = hist.filter(function (m) {
+        if (m.ts > curTs) return false;
         if (current.id && m.id === String(current.id)) return false;
         if (curText && m.text === curText && m.authorRef === currentAuthorRef && Math.abs((m.ts || 0) - (curTs || 0)) < 1000) return false;
         return true;
@@ -374,7 +379,7 @@
         var rm = {
           authorRef: m.authorRef,
           direction: m.direction,
-          text: scrubExportText(trunc(m.text, MAX_TEXT_OUT), names)
+          text: trunc(scrubExportText(m.text, names), MAX_TEXT_OUT)
         };
         if (age != null) rm.ageMinutes = age;
         return rm;
@@ -417,13 +422,11 @@
         recentMessages: recentMessages,
         facts: exportFacts(convId, names),
         relationships: exportRels(convId),
-        contextVersion: getVersion(convId)
+        contextVersion: String(getVersion(convId))
       };
-      if (meta.kind && (meta.kind === 'group' || meta.kind === 'channel')) {
-        packet.participantCount = plist.length;
-      }
+      // Visible authors are not the total audience; do not invent a count.
       if (replyToAuthorRef) packet.replyToAuthorRef = replyToAuthorRef;
-      if (current.forwarded != null) packet.forwarded = !!current.forwarded;
+      if (typeof current.forwarded === 'boolean') packet.forwarded = current.forwarded;
       if (current.event != null) packet.event = current.event;
       return packet;
     }
@@ -438,7 +441,7 @@
           try { hints.pre = D.parsePrePlainText(root); } catch (e) {}
         }
         if (root != null && typeof D.detectForwarded === 'function') {
-          try { hints.forwarded = !!D.detectForwarded(root); } catch (e) {}
+          try { hints.forwarded = D.detectForwarded(root); } catch (e) {}
         }
         if (root != null && typeof D.detectQuoted === 'function') {
           try { hints.quoted = D.detectQuoted(root); } catch (e) {}

@@ -8,5 +8,7 @@ export * from './lessonScenario.js';
 export * from './meaning.js';
 export * from './extractor/index.js';
 export * from './connectors/index.js';
+export { sanitizeContextPacket, computeContextVersion, CONTEXT_PACKET_VERSION } from './contextPacket.js';
+export type { ContextPacket, ContextSnapshot } from './contextPacket.js';
 
 // FACT_CATALOG is defined once in lessonScenario.ts (imported via MEANING_FACT_IDS refs).

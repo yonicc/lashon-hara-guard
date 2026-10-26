@@ -43,7 +43,7 @@ test('context-prompt: with context renders allowlisted block incl platform/direc
   const ctx = packet({
     relationships: [{ subjectRef: 'p-a', relation: 'family', objectRef: 'p-b', status: 'known', provenance: 'user' }],
     facts: [{ id: 'audience.size', value: 5, status: 'known', provenance: 'site_metadata', scope: 'conversation' }],
-    event: { kind: 'lesson', title: 'שיעור ערב' },
+    event: { kind: 'lesson', teacherRef: 'p1' },
   });
   const content = buildUserContent(baseReq({ context: ctx }));
   assert.ok(content.includes('platform: whatsapp-web'));
@@ -82,7 +82,7 @@ test('context-prompt: hostile keys (name/phone/email) never leak into the prompt
 
 test('context-prompt: recentMessages capped at 5, each at 300 chars', () => {
   const msgs = Array.from({ length: 8 }, (_, i) => ({
-    authorRef: `p${i}`, direction: 'incoming', text: `${i}: ` + 'א'.repeat(500),
+    authorRef: `p${i}`, direction: 'incoming' as const, text: `${i}: ` + 'א'.repeat(500),
   }));
   const block = renderContextBlock(packet({ recentMessages: msgs }));
   assert.ok(!block.includes('[6 '), 'must render at most 5 messages');

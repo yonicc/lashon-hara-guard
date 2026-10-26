@@ -9,7 +9,7 @@ async function settings() {
   return { proxyUrl: (s.proxyUrl || DEFAULT_PROXY).replace(/\/+$/, ''), accessKey: s.accessKey || '' };
 }
 
-async function check(text, platform, direction) {
+async function check(text, platform, direction, context) {
   const { proxyUrl, accessKey } = await settings();
   if (!accessKey) return { alert: 'not_configured' };
   const ctrl = new AbortController();
@@ -18,7 +18,7 @@ async function check(text, platform, direction) {
     const res = await fetch(proxyUrl + '/check', {
       method: 'POST',
       headers: { 'content-type': 'application/json', 'x-lhg-key': accessKey },
-      body: JSON.stringify({ text, platform, direction: direction === 'incoming' ? 'incoming' : 'outgoing' }),
+      body: JSON.stringify({ text, platform, direction: direction === 'incoming' ? 'incoming' : 'outgoing', ...(context ? { context } : {}) }),
       signal: ctrl.signal,
     });
     if (res.status === 401) return { alert: 'not_configured', error: 'unauthorized' };
@@ -55,7 +55,7 @@ if (chrome.commands && chrome.commands.onCommand) {
 
 chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
   if (msg && msg.type === 'lhg-check' && typeof msg.text === 'string') {
-    check(msg.text, msg.platform || 'unknown', msg.direction).then(sendResponse);
+    check(msg.text, msg.platform || 'unknown', msg.direction, msg.context).then(sendResponse);
     return true; // async response
   }
   return false;

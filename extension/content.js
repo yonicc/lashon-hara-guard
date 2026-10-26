@@ -76,7 +76,8 @@
     lastChecked = text;
     const my = ++seq;
     show('checking', '…בודק ניסוח', []);
-    chrome.runtime.sendMessage(
+    const send = globalThis.LHG_CONTEXT_RUNTIME?.send || ((msg, cb) => chrome.runtime.sendMessage(msg, cb));
+    send(
       { type: 'lhg-check', text, platform: PLATFORM, direction: 'outgoing' },
       (r) => {
         if (my !== seq) return; // the user kept typing: a newer check owns the panel
@@ -86,6 +87,7 @@
         }
         render(r);
       },
+      findCompose(),
     );
   }
 

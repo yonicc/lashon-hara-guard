@@ -146,7 +146,8 @@
     }
 
     show('checking', '…בודק את הטקסט', []);
-    chrome.runtime.sendMessage(
+    const send = globalThis.LHG_CONTEXT_RUNTIME?.send || ((msg, cb) => chrome.runtime.sendMessage(msg, cb));
+    send(
       {
         type: 'lhg-check',
         text: text.slice(0, 2000),
@@ -160,6 +161,7 @@
         }
         renderResult(r || { alert: 'not_checked' }, { manual: true });
       },
+      globalThis.getSelection?.()?.anchorNode?.parentElement || document.activeElement,
     );
   }
 

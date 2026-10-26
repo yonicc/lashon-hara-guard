@@ -82,7 +82,7 @@ test('recent window: exactly 5 chronological, current excluded', async () => {
   assert.equal(p.recentMessages.length, 5);
   assert.equal(JSON.stringify(p.recentMessages.map((m) => m.text)), JSON.stringify(['synthetic message 3', 'synthetic message 4', 'synthetic message 5', 'synthetic message 6', 'synthetic message 7']));
   assert.equal(p.recentMessages[4].ageMinutes, 1);
-  assert.equal(p.participantCount, 2);
+  assert.equal(p.participantCount, undefined, 'visible authors do not prove total audience size');
   const dup = await b.buildPacket('c2', { id: ids[6], authorRef: 'p1', direction: 'incoming', text: 'synthetic message 7', timestamp: NOW - 1 * MIN });
   assert.equal(dup.recentMessages.length, 5);
   assert.equal(JSON.stringify(dup.recentMessages.map((m) => m.text)), JSON.stringify(['synthetic message 2', 'synthetic message 3', 'synthetic message 4', 'synthetic message 5', 'synthetic message 6']));
@@ -105,7 +105,7 @@ test('classroom: teacher confirmed as father only after user confirm', async () 
   assert.equal(p.facts[0].provenance, 'content');
   assert.equal(p.relationships[0].status, 'candidate');
   assert.equal(p.participants.length, 5);
-  assert.equal(p.participantCount, 5);
+  assert.equal(p.participantCount, undefined, 'observed authors are not the full audience');
   await b.confirmFact('class1', fid);
   await b.confirmRelationship('class1', rid);
   p = await b.buildPacket('class1', { authorRef: 'self', direction: 'outgoing', text: 'thanks', timestamp: NOW });

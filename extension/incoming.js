@@ -85,7 +85,7 @@
 
   // Local-only context (checkpoint 3b): computed per bubble via
   // LHG_LOCAL_CONTEXT.attach when present. Real names stay in the page and
-  // are NEVER added to the payload sent to the proxy (queue only sends text).
+  // are NEVER added to the payload sent to the proxy; the builder exports refs.
   // Missing API or failure => null, never throws.
   function safeLocalContext(el) {
     try {
@@ -105,17 +105,17 @@
     const S = globalThis.LHG_SELECTORS;
     const seen = new Set();
     // Local-only bubble context (checkpoint 3b): WeakMap el -> attach() result.
-    // Never enters the queue payload (queue only ever sends { text }).
+    // The queue receives a separate, redacted packet, never this local object.
     const localByEl = new WeakMap();
     let baselined = false;
     const queue = makeQueue(
       (job) =>
-        new Promise((resolve) => {
+        Promise.resolve(job.message).then((message) => new Promise((resolve) => {
           chrome.runtime.sendMessage(
-            { type: 'lhg-check', text: job.text, platform, direction: 'incoming' },
+            message,
             (r) => resolve(chrome.runtime.lastError ? { alert: 'not_checked' } : r || { alert: 'not_checked' }),
           );
-        }),
+        })),
     );
 
     function scan() {
@@ -132,12 +132,16 @@
         const id = S.weakId(platform, row.el, text);
         if (seen.has(id)) continue;
         seen.add(id);
-        // Local-only context snapshot for the builder; never sent to proxy.
+        // Names remain local. Capture the redacted packet before queue delays.
         const localContext = safeLocalContext(row.el);
         if (row.el && localContext) {
           try { localByEl.set(row.el, localContext); } catch (_e) { /* WeakMap only */ }
         }
-        fresh.push({ ...row, id, text, localContext });
+        const payload = { type: 'lhg-check', text: text.slice(0, 2000), platform, direction: 'incoming' };
+        const message = globalThis.LHG_CONTEXT_RUNTIME
+          ? globalThis.LHG_CONTEXT_RUNTIME.prepare(payload, row.el, true)
+          : payload;
+        fresh.push({ ...row, id, text, localContext, message });
       }
       if (!baselined) {
         baselined = true;
@@ -147,6 +151,7 @@
         tag(row.el, 'checking');
         const accepted = queue.push({
           text: row.text.slice(0, 2000),
+          message: row.message,
           done: (r) => renderResult(row.el, r && r.dropped ? { alert: 'not_checked' } : r),
         });
         if (!accepted) tag(row.el, 'not_checked');

@@ -124,7 +124,9 @@ test('proxy: no context -> identical shape (no req.context), same alert mapping'
 
 test('proxy: valid context object is forwarded to runExtraction', async () => {
   const seenReqs: ExtractorRequest[] = [];
-  const ctx = { version: 1, conversationKind: 'group', participantCount: 5 };
+  const ctx = { version: 1, platform: 'whatsapp-web', direction: 'outgoing',
+    conversationRef: 'c1', currentAuthorRef: 'self', conversationKind: 'group', participantCount: 5,
+    participants: [], recentMessages: [], facts: [], relationships: [], contextVersion: '1' };
   const r = await handle(post({ text: IRONY, context: ctx }), ENV, capturingProvider(CONCERN, seenReqs));
   assert.equal(r.status, 200);
   assert.equal(((await r.json()) as Record<string, unknown>)['alert'], 'warn');
@@ -132,7 +134,7 @@ test('proxy: valid context object is forwarded to runExtraction', async () => {
 });
 
 test('proxy: non-object context is ignored, never breaks a valid check', async () => {
-  for (const bad of ['oops', 42, true, ['array'], null]) {
+  for (const bad of ['oops', 42, true, ['array'], null, { version: 1 }, { version: 2 }]) {
     const seenReqs: ExtractorRequest[] = [];
     const r = await handle(post({ text: IRONY, context: bad }), ENV, capturingProvider(CONCERN, seenReqs));
     assert.equal(r.status, 200, `context=${JSON.stringify(bad)}`);
