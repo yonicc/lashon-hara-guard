@@ -171,3 +171,29 @@
     extractVisibleParticipants: extractVisibleParticipants
   };
 })();
+;
+;(function () {
+  "use strict";
+  function attach(bubbleEl) {
+    try {
+      if (!bubbleEl) return null;
+      var C = null;
+      try { C = globalThis.LHG_CONTEXT_DOM; } catch (e) { return null; }
+      if (!C) return null;
+      var author = null;
+      var forwarded = null;
+      var quoted = null;
+      try { author = C.extractAuthorFromBubble(bubbleEl); } catch (e) { author = null; }
+      try { forwarded = C.detectForwarded(bubbleEl); } catch (e) { forwarded = null; }
+      try { quoted = C.detectQuoted(bubbleEl); } catch (e) { quoted = null; }
+      if (author == null && forwarded == null && quoted == null) return null;
+      return { authorDisplayName: author, forwarded: forwarded, quoted: quoted };
+    } catch (e) {
+      return null;
+    }
+  }
+  try {
+    globalThis.LHG_LOCAL_CONTEXT = globalThis.LHG_LOCAL_CONTEXT || {};
+    globalThis.LHG_LOCAL_CONTEXT.attach = attach;
+  } catch (e) {}
+})();
