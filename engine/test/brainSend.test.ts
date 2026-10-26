@@ -26,21 +26,21 @@ function req(text = 'הוא טיפש'): ExtractorRequest {
   };
 }
 
-type RouteHandler = (url: string, init: RequestInit) => Response;
+interface Call { url: string; init: RequestInit; body: Record<string, unknown> }
 
-/** Minimal fetch mock routing on URL path. */
-function mockFetch(routes: Record<string, RouteHandler>): typeof fetch {
+/** fetch mock: records every call and answers with `respond`. */
+function mockFetch(respond: () => Response, calls: Call[] = []): typeof fetch {
   return (async (url: unknown, init?: RequestInit): Promise<Response> => {
-    const u = String(url);
-    for (const [path, handler] of Object.entries(routes)) {
-      if (u.endsWith(path)) return handler(u, init ?? {});
-    }
-    throw new Error(`unexpected_url:${u}`);
+    const i = init ?? {};
+    calls.push({ url: String(url), init: i, body: JSON.parse(String(i.body ?? '{}')) });
+    return respond();
   }) as typeof fetch;
 }
 
-function jsonRes(body: unknown, contentType = 'application/json'): Response {
-  return new Response(JSON.stringify(body), { status: 200, headers: { 'content-type': contentType } });
+function replyRes(reply: string, status = 200): Response {
+  return new Response(JSON.stringify({ reply, session_id: '', usage: {}, model: 'm' }), {
+    status, headers: { 'content-type': 'application/json' },
+  });
 }
 
 const VALID_MODEL_JSON = {
@@ -56,20 +56,6 @@ const VALID_MODEL_JSON = {
   directAssessment: 'concern',
 };
 
-function sseRes(fullText: string): Response {
-  const body = `data: {"delta": ${JSON.stringify(fullText.slice(0, 20))}}\n\ndata: {"delta": ${JSON.stringify(fullText.slice(20))}}\n\ndata: {"type": "done"}\n\n`;
-  return new Response(body, { status: 200, headers: { 'content-type': 'text/event-stream' } });
-}
-
-function successRoutes(modelJson: unknown = VALID_MODEL_JSON): Record<string, RouteHandler> {
-  const text = JSON.stringify(modelJson);
-  return {
-    '/api/chat/chats/new': () => jsonRes({ chat_id: 'abc123def456' }),
-    '/api/chat/model': () => jsonRes({ ok: true }),
-    '/api/chat/send': () => sseRes(text),
-  };
-}
-
 test('brainSend: env builder returns null without base/token, parses full env otherwise', () => {
   assert.equal(brainSendOptionsFromEnv({}), null);
   assert.equal(brainSendOptionsFromEnv({ LHG_BRAIN_BASE_URL: 'http://x' }), null);
@@ -79,74 +65,109 @@ test('brainSend: env builder returns null without base/token, parses full env ot
     LHG_BRAIN_MODEL: 'm',
     LHG_BRAIN_ACCOUNT: 'yoni',
     LHG_BRAIN_TIMEOUT_MS: '5000',
+    LHG_BRAIN_REASONING_EFFORT: 'minimal',
   });
   assert.ok(opts);
   assert.equal(opts?.baseUrl, 'http://brain:1'); // trailing slash trimmed
   assert.equal(opts?.model, 'm');
   assert.equal(opts?.account, 'yoni');
   assert.equal(opts?.timeoutMs, 5000);
+  assert.equal(opts?.reasoningEffort, 'minimal');
+  assert.equal(
+    brainSendOptionsFromEnv({ LHG_BRAIN_BASE_URL: 'http://x', LHG_BRAIN_TOKEN: 't' })?.model,
+    'muse-spark-1.3-contributor',
+  );
 });
 
-test('brainSend: success path returns raw JSON that passes validateExtraction', async () => {
-  const calls: string[] = [];
-  const routes = successRoutes();
-  const wrapped: Record<string, RouteHandler> = {};
-  for (const [k, h] of Object.entries(routes)) {
-    wrapped[k] = (u, init) => { calls.push(u); return h(u, init); };
-  }
-  wrapped['/api/chat/chats/abc123def456'] = (u, init) => { calls.push(u); return jsonRes({ ok: true }); };
+test('brainSend: one stateless v1 call, raw JSON passes validateExtraction', async () => {
+  const calls: Call[] = [];
   const p = new BrainSendExtractorProvider({
     baseUrl: 'http://brain:1', token: 'tok',
-    fetchImpl: mockFetch(wrapped),
+    fetchImpl: mockFetch(() => replyRes(JSON.stringify(VALID_MODEL_JSON)), calls),
   });
   const raw = await p.extract(req('השיעור מבזבז זמן'));
   const v = validateExtraction(raw, FACT_CATALOG, 'השיעור מבזבז זמן');
   assert.equal(v.proposedFacts.length, 1);
   assert.equal(v.directAssessment, 'concern');
-  assert.ok(calls.some((u) => u.endsWith('/api/chat/chats/abc123def456'))); // cleanup DELETE issued
+  assert.equal(calls.length, 1); // no chat created, nothing to clean up
+  assert.equal(calls[0]!.url, 'http://brain:1/api/v1/chat/completions');
+  assert.equal(calls[0]!.init.method, 'POST');
+  const headers = calls[0]!.init.headers as Record<string, string>;
+  assert.equal(headers['authorization'], 'Bearer tok');
 });
 
-test('brainSend: model pins agent_kind muse on the dedicated chat', async () => {
-  let modelBody: unknown = null;
-  const routes = successRoutes();
-  routes['/api/chat/model'] = (_u, init) => {
-    modelBody = JSON.parse(String(init.body));
-    return jsonRes({ ok: true });
-  };
+test('brainSend: request pins meta_api, model, account, stream=false', async () => {
+  const calls: Call[] = [];
   const p = new BrainSendExtractorProvider({
-    baseUrl: 'http://brain:1', token: 'tok', model: 'muse-spark-1.2-contributor',
-    account: 'yoni', fetchImpl: mockFetch(routes),
+    baseUrl: 'http://brain:1', token: 'tok', model: 'muse-spark-1.3-contributor',
+    account: 'yoni', reasoningEffort: 'low',
+    fetchImpl: mockFetch(() => replyRes(JSON.stringify(VALID_MODEL_JSON)), calls),
   });
-  await p.extract(req());
-  const body = modelBody as Record<string, unknown>;
-  assert.equal(body['agent_kind'], 'muse');
-  assert.equal(body['model'], 'muse-spark-1.2-contributor');
+  await p.extract(req('הוא טיפש'));
+  const body = calls[0]!.body;
+  assert.equal(body['agent_kind'], 'meta_api');
+  assert.equal(body['model'], 'muse-spark-1.3-contributor');
   assert.equal(body['account'], 'yoni');
-  assert.equal(body['chat_id'], 'abc123def456');
+  assert.equal(body['stream'], false);
+  assert.equal(body['reasoning_effort'], 'low');
+  assert.match(String(body['system_prompt']), /JSON ONLY/);
+  const messages = body['messages'] as Array<{ role: string; content: string }>;
+  assert.equal(messages.length, 1);
+  assert.equal(messages[0]!.role, 'user');
+  assert.ok(messages[0]!.content.includes('הוא טיפש'));
+});
+
+test('brainSend: fenced JSON reply is accepted', async () => {
+  const fenced = '```json\n' + JSON.stringify(VALID_MODEL_JSON) + '\n```';
+  const p = new BrainSendExtractorProvider({
+    baseUrl: 'http://brain:1', token: 'tok', fetchImpl: mockFetch(() => replyRes(fenced)),
+  });
+  const raw = (await p.extract(req())) as Record<string, unknown>;
+  assert.equal(raw['directAssessment'], 'concern');
 });
 
 test('brainSend: non-JSON model output throws (pipeline would map to not_checked)', async () => {
-  const routes = successRoutes();
-  routes['/api/chat/send'] = () => sseRes('זו סתם תשובה בעברית בלי JSON');
   const p = new BrainSendExtractorProvider({
-    baseUrl: 'http://brain:1', token: 'tok', fetchImpl: mockFetch(routes),
+    baseUrl: 'http://brain:1', token: 'tok',
+    fetchImpl: mockFetch(() => replyRes('זו סתם תשובה בעברית בלי JSON')),
   });
   await assert.rejects(() => p.extract(req()), /model_output_not_json/);
 });
 
-test('brainSend: HTTP failure on send throws (never resolves to clean)', async () => {
-  const routes = successRoutes();
-  routes['/api/chat/send'] = () => new Response('boom', { status: 500 });
+test('brainSend: empty reply throws', async () => {
   const p = new BrainSendExtractorProvider({
-    baseUrl: 'http://brain:1', token: 'tok', fetchImpl: mockFetch(routes),
+    baseUrl: 'http://brain:1', token: 'tok', fetchImpl: mockFetch(() => replyRes('  ')),
   });
-  await assert.rejects(() => p.extract(req()), /send_http_500/);
+  await assert.rejects(() => p.extract(req()), /completions_empty_reply/);
+});
+
+test('brainSend: HTTP failure throws (never resolves to clean)', async () => {
+  const p = new BrainSendExtractorProvider({
+    baseUrl: 'http://brain:1', token: 'tok',
+    fetchImpl: mockFetch(() => new Response('boom', { status: 502 })),
+  });
+  await assert.rejects(() => p.extract(req()), /completions_http_502/);
 });
 
 test('brainSend: network failure throws BrainSendError', async () => {
   const failing = (async () => { throw new Error('socket hang up'); }) as typeof fetch;
   const p = new BrainSendExtractorProvider({ baseUrl: 'http://brain:1', token: 'tok', fetchImpl: failing });
   await assert.rejects(() => p.extract(req()), /brain_request_failed/);
+});
+
+test('brainSend: timeout aborts and throws brain_request_timeout', async () => {
+  const hanging = ((_u: unknown, init?: RequestInit) =>
+    new Promise<Response>((_resolve, reject) => {
+      init?.signal?.addEventListener('abort', () => {
+        const e = new Error('aborted');
+        e.name = 'AbortError';
+        reject(e);
+      });
+    })) as typeof fetch;
+  const p = new BrainSendExtractorProvider({
+    baseUrl: 'http://brain:1', token: 'tok', timeoutMs: 20, fetchImpl: hanging,
+  });
+  await assert.rejects(() => p.extract(req()), /brain_request_timeout/);
 });
 
 test('brainSend: runExtraction maps a throwing provider to not_checked end-to-end', async () => {
