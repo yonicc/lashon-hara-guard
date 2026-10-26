@@ -1,8 +1,14 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { personalCheck } from '../src/accountAccess.js';
+import { personalCheck, accountCall } from '../src/accountAccess.js';
 import type { Env } from '../src/handler.js';
 const env:Env={LHG_BRAIN_BASE_URL:'https://brain.test',LHG_BRAIN_TOKEN:'unused',LHG_ACCESS_KEY:'legacy',LHG_ACCOUNT_BASE:'https://center.test',LHG_ACCOUNT_KEY:'partner-secret'};
+test('account calls use Worker-supported manual redirects and reject 3xx without forwarding credentials',async()=>{
+ let calls=0;
+ const fetcher=(async(_url:any,options:any)=>{calls++;assert.equal(options.redirect,'manual');return new Response(null,{status:302,headers:{location:'https://untrusted.test'}});}) as typeof fetch;
+ const result=await accountCall(env,'validate',{token:'lap_test'},fetcher);
+ assert.equal(result.status,503);assert.equal(calls,1);
+});
 const request=(path='/check',body:unknown={text:'synthetic'})=>new Request('https://proxy.test'+path,{method:'POST',headers:{'x-lhg-key':'lap_test'},body:JSON.stringify(body)});
 function mock(denied=false){const calls:Array<{path:string,body:any}>=[];return {calls,fetch:(async(url:any,opts:any)=>{const path=new URL(String(url)).pathname;calls.push({path,body:JSON.parse(opts.body)});return new Response(JSON.stringify(denied?{error:'no_access'}:{ok:true,userId:'same-account'}),{status:denied?403:200});}) as typeof fetch};}
 test('personal token authorizes before provider and captures only completed work',async()=>{
