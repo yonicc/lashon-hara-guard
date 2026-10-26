@@ -49,3 +49,23 @@
 /* Who / about whom / why block; scrolls inside small Gmail chat windows. */
 #lhg-panel { max-height: calc(100vh - 100px); overflow-y: auto; }
 #lhg-panel .lhg-details { margin-top: 6px; padding-top: 6px; border-top: 1px dashed currentColor; font-size: 13px; }
+
+/* Held incoming message (hidden until checked / approved). The message's own
+   children are display:none and its direct text is collapsed with font-size 0;
+   only the placeholder shows. No position/size changes on the page's rows. */
+.lhg-held { font-size: 0 !important; }
+.lhg-held > :not(.lhg-hold) { display: none !important; }
+.lhg-hold {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+  margin: 2px 0; padding: 4px 10px; border-radius: 8px;
+  font: 12px/1.5 system-ui, "Segoe UI", Arial, sans-serif !important;
+  direction: rtl; text-align: right;
+  background: #f2f2f2; border: 1px dashed #b8b8b8; color: #444 !important;
+}
+.lhg-held-warn > .lhg-hold { background: #fff4e5; border-color: #f0a020; color: #5a3a00 !important; }
+.lhg-held-unsure > .lhg-hold { background: #fffbe0; border-color: #d8c040; color: #4a4300 !important; }
+.lhg-hold-btn {
+  font: 12px/1.4 system-ui, "Segoe UI", Arial, sans-serif !important;
+  padding: 1px 8px; border: 1px solid #999; border-radius: 6px; background: #fff; color: #333; cursor: pointer;
+}
+.lhg-hold-note { font-size: 11px !important; opacity: 0.75; }

@@ -34,10 +34,17 @@ if (chrome.commands && chrome.commands.getAll) {
 }
 
 async function load() {
-  const s = await chrome.storage.local.get(['proxyUrl', 'accessKey']);
+  const s = await chrome.storage.local.get(['proxyUrl', 'accessKey', 'hideIncoming']);
   $('accessKey').value = s.accessKey || '';
   $('proxyUrl').value = s.proxyUrl || '';
+  $('hideIncoming').checked = s.hideIncoming !== false; // default on
 }
+
+// Takes effect at once in open tabs (incoming.js listens to storage changes).
+$('hideIncoming').addEventListener('change', async () => {
+  await chrome.storage.local.set({ hideIncoming: $('hideIncoming').checked });
+  $('status').textContent = $('hideIncoming').checked ? 'הסתרת הודעות נכנסות: פעילה ✓' : 'הסתרת הודעות נכנסות: כבויה';
+});
 
 $('save').addEventListener('click', async () => {
   await chrome.storage.local.set({

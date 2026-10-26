@@ -7,6 +7,8 @@
     body { font: 14px/1.5 system-ui, "Segoe UI", Arial, sans-serif; margin: 16px; min-width: 340px; }
     label { display: block; margin-top: 10px; font-weight: 600; }
     input { width: 100%; box-sizing: border-box; padding: 6px; direction: ltr; }
+    label.check { font-weight: normal; }
+    label.check input { width: auto; margin-left: 6px; vertical-align: middle; }
     button { margin-top: 12px; margin-left: 8px; padding: 6px 14px; }
     #status { margin-top: 12px; white-space: pre-wrap; }
     .note { color: #666; font-size: 12px; margin-top: 14px; }
@@ -23,6 +25,8 @@
   <input id="accessKey" type="password" autocomplete="off" placeholder="lhg_...">
   <label for="proxyUrl">כתובת שרת הבדיקה</label>
   <input id="proxyUrl" type="url" placeholder="https://lhg-proxy.yonicc.workers.dev">
+  <label class="check"><input id="hideIncoming" type="checkbox" checked> הסתר הודעות צ׳אט נכנסות עד שייבדקו</label>
+  <div class="note">הודעה שעלולה להתפרש כגנאי, או שלא נבדקה, נשארת מוסתרת עד שתלחץ ״הצג״. הודעות דוא״ל אינן מוסתרות.</div>
   <div>
     <button id="save">שמור</button>
     <button id="test">בדיקת חיבור</button>

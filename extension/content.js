@@ -171,13 +171,8 @@
         return mapped;
       },
     });
-    let scanTimer = null;
-    const requestScan = () => {
-      clearTimeout(scanTimer);
-      scanTimer = setTimeout(() => scanner.scan(), 700);
-    };
     scanner.scan(); // baseline only: history is marked seen, never sent
-    new MutationObserver(requestScan).observe(document.body, { childList: true, subtree: true });
-    setInterval(() => scanner.scan(), 15000);
+    // Frame-synchronised scan: a new message is held before it is painted.
+    globalThis.LHG_INCOMING.observe(scanner);
   }
 })();

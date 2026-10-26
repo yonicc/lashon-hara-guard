@@ -1,26 +1,63 @@
 // Shared incoming-message scanning for every platform (loaded after
-// selectors.js). Behaviour contract (docs/11):
+// selectors.js). Behaviour contract (docs/11, docs/15):
 //   - Only messages that appear AFTER the page loaded are checked: the first
 //     scan only records a baseline, so old history is never sent in a burst.
+//     Later bursts (> BURST_LIMIT new rows in one scan: opening another chat,
+//     scrolling up into history) are treated the same way: history, not live.
 //   - Server cap is 30 requests/minute per access key; the client paces
 //     itself to at most one request every 2.1s and drops (marks unchecked)
 //     anything beyond a small queue.
-//   - A subtle tag is attached next to the message. Never a ruling:
-//     "עלולה להתפרש כגנאי" / "ייתכן ש..." / "לא נבדק".
-//   - Nothing is blocked, hidden or rewritten.
+//   - HOLD (setting "hideIncoming", default on; chat rows only, never e-mail):
+//     a live incoming message is covered by a neutral placeholder BEFORE the
+//     next paint, and is revealed automatically only when the check comes back
+//     without an alert. A warning / possible meaning / "not checked" stays
+//     covered until the user explicitly presses "show" (manual approval).
+//     A failed check is never an implicit approval (IN-02).
+//   - Without hold: a subtle tag next to the message, as before.
+//   - Never a ruling: "עלולה להתפרש כגנאי" / "ייתכן ש..." / "לא נבדק".
+//   - Nothing is deleted or rewritten; revealing is always one click away.
 (() => {
   const G = (globalThis.LHG_INCOMING = globalThis.LHG_INCOMING || {});
 
   const MIN_CHARS = 6;
   const MAX_QUEUE = 12;
   const PACE_MS = 2100; // 30/min server cap, with margin
+  const BURST_LIMIT = 3; // more new rows than this in one scan = history
 
   const TAG_TEXT = {
+    // Was missing: "checking" fell back to "לא נבדק" while a check was still
+    // running (the "לא נבדק" chip seen in Google Chat 2026-10-27).
+    checking: '…נבדקת',
     warn: '⚠️ עלולה להתפרש כגנאי — אינה פסיקה',
     unsure: 'ℹ️ ייתכן שיש כאן משמעות לא מכוונת',
     not_checked: 'לא נבדק',
     unchecked_overflow: 'לא נבדק (עומס בדיקות)',
   };
+
+  const MECHANISM_HE = {
+    irony: 'אירוניה', praise: 'שבח שעלול להישמע כלעג', hint: 'רמז שמזהה אדם',
+    mockery: 'לעג', omission: 'השמטה שמרמזת', direct: 'ביקורת ישירה', other: 'משמעות שלילית אפשרית',
+  };
+
+  // Placeholder text per phase (shown INSTEAD of the message while held).
+  const HOLD_TEXT = {
+    pending: '⏳ הודעה נכנסת נבדקת לפני הצגה…',
+    warn: '⚠️ ההודעה הוסתרה: היא עלולה להתפרש כגנאי',
+    unsure: 'ℹ️ ההודעה הוסתרה: ייתכן שיש בה משמעות לא מכוונת',
+    not_checked: 'ההודעה לא נבדקה (אין חיבור או עומס בדיקות), ולכן היא מוסתרת',
+  };
+  const REVEAL_LABEL = { warn: 'הצג בכל זאת', unsure: 'הצג בכל זאת', not_checked: 'הצג בלי בדיקה' };
+
+  // Setting: hide incoming chat messages until checked. Default ON.
+  G.holdEnabled = true;
+  try {
+    chrome.storage.local.get(['hideIncoming'], (s) => {
+      if (s && typeof s.hideIncoming === 'boolean') G.holdEnabled = s.hideIncoming;
+    });
+    chrome.storage.onChanged.addListener((ch) => {
+      if (ch.hideIncoming && typeof ch.hideIncoming.newValue === 'boolean') G.holdEnabled = ch.hideIncoming.newValue;
+    });
+  } catch (_e) { /* tests / no storage: keep default */ }
 
   function makeQueue(sendFn) {
     const queue = [];
@@ -88,6 +125,72 @@
     }
   }
 
+  // --- hold (hide until checked) --------------------------------------------
+  function unhold(el) {
+    if (!el || !el.classList) return;
+    el.classList.remove('lhg-held', 'lhg-held-warn', 'lhg-held-unsure', 'lhg-held-not_checked', 'lhg-held-pending');
+    const h = el.querySelector && el.querySelector(':scope > .lhg-hold');
+    if (h) h.remove();
+  }
+
+  // st: { phase, result }. onReveal: called on the explicit "show" click.
+  function renderHold(el, st, onReveal) {
+    if (!el || !el.classList || isEditable(el)) return;
+    const old = el.querySelector(':scope > .lhg-tag');
+    if (old) old.remove();
+    el.classList.remove('lhg-held-warn', 'lhg-held-unsure', 'lhg-held-not_checked', 'lhg-held-pending');
+    el.classList.add('lhg-held', 'lhg-held-' + st.phase);
+    let h = el.querySelector(':scope > .lhg-hold');
+    if (h && h.getAttribute('data-phase') === st.phase) return; // already showing this phase
+    if (!h) {
+      h = document.createElement('div');
+      h.className = 'lhg-hold';
+      h.setAttribute('dir', 'rtl');
+      // Clicks on the placeholder must not open/quote/react to the message.
+      for (const ev of ['click', 'mousedown', 'mouseup', 'dblclick', 'contextmenu']) {
+        h.addEventListener(ev, (e) => { e.stopPropagation(); }, true);
+      }
+      el.appendChild(h);
+    }
+    h.setAttribute('data-phase', st.phase);
+    h.textContent = '';
+    const label = document.createElement('span');
+    const mech = st.result && st.result.mechanism ? MECHANISM_HE[st.result.mechanism] : '';
+    label.textContent = HOLD_TEXT[st.phase] + (mech ? ' (' + mech + ')' : '');
+    h.appendChild(label);
+    if (REVEAL_LABEL[st.phase]) {
+      const show = document.createElement('button');
+      show.type = 'button';
+      show.className = 'lhg-hold-btn';
+      show.textContent = REVEAL_LABEL[st.phase];
+      show.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); onReveal(); });
+      h.appendChild(show);
+    }
+    if ((st.phase === 'warn' || st.phase === 'unsure') && globalThis.LHG_PANEL) {
+      const why = document.createElement('button');
+      why.type = 'button';
+      why.className = 'lhg-hold-btn';
+      why.textContent = 'למה?';
+      why.addEventListener('click', (e) => {
+        e.preventDefault(); e.stopPropagation();
+        try { globalThis.LHG_PANEL.renderResult(st.result, { manual: true }); } catch (_e) { /* panel absent */ }
+      });
+      h.appendChild(why);
+    }
+    const note = document.createElement('span');
+    note.className = 'lhg-hold-note';
+    note.textContent = 'תזכורת בלבד, לא פסיקה הלכתית.';
+    if (st.phase !== 'pending') h.appendChild(note);
+  }
+
+  function phaseOf(r) {
+    if (!r || r.dropped) return 'not_checked';
+    if (r.alert === 'warn') return 'warn';
+    if (r.alert === 'unsure') return 'unsure';
+    if (r.alert === 'none') return 'clear';
+    return 'not_checked'; // not_checked, not_configured, unknown: never implicit approval
+  }
+
   function renderResult(el, r) {
     if (!r) return tag(el, 'not_checked');
     if (r.alert === 'warn') return tag(el, 'warn');
@@ -111,12 +214,14 @@
   }
 
   // platform: 'whatsapp-web' | 'google-chat' | 'gmail'
-  // findRows(root) -> [{ el, text }] candidate message rows currently in DOM.
-  // firstRunBaselinesOnly: on the first call only record ids (history), then
-  // check only rows whose id was never seen before.
-  function createScanner({ platform, findRows, root = document }) {
+  // findRows(root) -> [{ el, text, kind? }] candidate message rows in the DOM;
+  //   kind 'email' rows are never held (tag only).
+  // hold() -> boolean: hide live chat messages until checked (default: setting).
+  function createScanner({ platform, findRows, root = document, hold = () => G.holdEnabled }) {
     const S = globalThis.LHG_SELECTORS;
     const seen = new Set();
+    // id -> { phase: pending|warn|unsure|not_checked|clear, result, revealed, held, el }
+    const state = new Map();
     // Local-only bubble context (checkpoint 3b): WeakMap el -> attach() result.
     // The queue receives a separate, redacted packet, never this local object.
     const localByEl = new WeakMap();
@@ -131,6 +236,19 @@
         })),
     );
 
+    // Paint the current state of one message onto (possibly re-mounted) el.
+    function apply(id) {
+      const st = state.get(id);
+      if (!st || !st.el) return;
+      if (st.held && !st.revealed && st.phase !== 'clear') {
+        renderHold(st.el, st, () => { st.revealed = true; apply(id); });
+        return;
+      }
+      unhold(st.el);
+      if (st.phase === 'pending') tag(st.el, 'checking');
+      else renderResult(st.el, st.result);
+    }
+
     function scan() {
       let rows;
       try {
@@ -144,7 +262,13 @@
         const text = (row.text || '').trim();
         if (text.length < MIN_CHARS) continue;
         const id = S.weakId(platform, row.el, text);
-        if (seen.has(id)) continue;
+        if (seen.has(id)) {
+          // Re-mounted by the page (virtualised list): repaint its state so a
+          // held message never reappears uncovered.
+          const st = state.get(id);
+          if (st && st.el !== row.el) { st.el = row.el; apply(id); }
+          continue;
+        }
         seen.add(id);
         // Names remain local. Capture the redacted packet before queue delays.
         const localContext = safeLocalContext(row.el);
@@ -161,23 +285,76 @@
         baselined = true;
         return; // history at load time: marked seen, never sent
       }
+      if (fresh.length > BURST_LIMIT) return; // another chat / older history rendered: not live
       for (const row of fresh) {
-        tag(row.el, 'checking');
+        const held = !!hold() && row.kind !== 'email';
+        state.set(row.id, { phase: 'pending', result: null, revealed: false, held, el: row.el });
+        apply(row.id); // before the next paint when called from observe()
         const accepted = queue.push({
           text: row.text.slice(0, 2000),
           message: row.message,
-          done: (r) => renderResult(row.el, r && r.dropped ? { alert: 'not_checked' } : r),
+          done: (r) => {
+            const st = state.get(row.id);
+            if (!st) return;
+            st.result = r && r.dropped ? { alert: 'not_checked' } : r;
+            st.phase = phaseOf(r);
+            apply(row.id);
+          },
         });
-        if (!accepted) tag(row.el, 'not_checked');
+        if (!accepted) { /* done() already ran with not_checked */ }
       }
     }
 
-    return { scan, queueSize: queue.size, seenCount: () => seen.size, localContextFor: (el) => {
-      try { return (el && localByEl.get(el)) || null; } catch (_e) { return null; }
-    } };
+    return {
+      scan,
+      queueSize: queue.size,
+      seenCount: () => seen.size,
+      stateOf: (id) => state.get(id) || null,
+      localContextFor: (el) => {
+        try { return (el && localByEl.get(el)) || null; } catch (_e) { return null; }
+      },
+    };
+  }
+
+  // Scan once per animation frame after DOM additions, so a new message is
+  // covered BEFORE it is first painted (a debounced scan would let it flash).
+  // Mutations that add no element are ignored to keep idle pages cheap.
+  function observe(scanner, target = document.body) {
+    let scheduled = false;
+    let lastEnd = 0;
+    let lastCost = 0;
+    const raf = globalThis.requestAnimationFrame || ((fn) => setTimeout(fn, 16));
+    const run = () => {
+      // Adaptive guard for heavy pages (Gmail): when a scan is expensive, keep
+      // a gap of ~4x its cost (max 250ms) so scanning never dominates the page.
+      const gap = Math.min(250, lastCost * 4);
+      const wait = lastEnd + gap - Date.now();
+      if (lastCost > 8 && wait > 0) { setTimeout(() => raf(run), wait); return; }
+      scheduled = false;
+      const t0 = Date.now();
+      scanner.scan();
+      lastEnd = Date.now();
+      lastCost = lastEnd - t0;
+    };
+    new MutationObserver((records) => {
+      if (scheduled) return;
+      for (const rec of records) {
+        for (const n of rec.addedNodes) {
+          if (n.nodeType === 1 && !(n.classList && (n.classList.contains('lhg-hold') || n.classList.contains('lhg-tag')))) {
+            scheduled = true;
+            raf(run);
+            return;
+          }
+        }
+      }
+    }).observe(target, { childList: true, subtree: true });
+    setInterval(() => scanner.scan(), 15000);
   }
 
   G.createScanner = createScanner;
+  G.observe = observe;
   G.isEditable = isEditable;
+  G.phaseOf = phaseOf;
   G.TAG_TEXT = TAG_TEXT;
+  G.HOLD_TEXT = HOLD_TEXT;
 })();

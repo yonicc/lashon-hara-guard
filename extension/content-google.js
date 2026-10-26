@@ -74,7 +74,8 @@
   function gmailRows(root) {
     return S.all(root, MAP.messageBody)
       .filter((el) => S.gmailIsMessageBody(el))
-      .map((el) => ({ el, text: S.extractText(el, MAP.messageText) }))
+      // kind 'email': opened mail is tagged, never held (hold is for chat).
+      .map((el) => ({ el, text: S.extractText(el, MAP.messageText), kind: 'email' }))
       .filter((r) => r.text && r.text.length >= MIN_CHARS);
   }
 
@@ -196,11 +197,6 @@
     };
   }
 
-  let t = null;
-  const requestScan = () => {
-    clearTimeout(t);
-    t = setTimeout(() => scanner.scan(), 800);
-  };
-  new MutationObserver(requestScan).observe(document.body, { childList: true, subtree: true });
-  setInterval(() => scanner.scan(), 15000);
+  // Frame-synchronised scan: a new chat message is held before it is painted.
+  globalThis.LHG_INCOMING.observe(scanner);
 })();
