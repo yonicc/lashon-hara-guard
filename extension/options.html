@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <title>Lashon Hara Guard — הגדרות</title>
+  <style>
+    body { font: 14px/1.5 system-ui, "Segoe UI", Arial, sans-serif; margin: 16px; min-width: 340px; }
+    label { display: block; margin-top: 10px; font-weight: 600; }
+    input { width: 100%; box-sizing: border-box; padding: 6px; direction: ltr; }
+    button { margin-top: 12px; margin-left: 8px; padding: 6px 14px; }
+    #status { margin-top: 12px; white-space: pre-wrap; }
+    .note { color: #666; font-size: 12px; margin-top: 14px; }
+  </style>
+</head>
+<body>
+  <h3>Lashon Hara Guard (MVP)</h3>
+  <label for="accessKey">מפתח גישה</label>
+  <input id="accessKey" type="password" autocomplete="off" placeholder="lhg_...">
+  <label for="proxyUrl">כתובת שרת הבדיקה</label>
+  <input id="proxyUrl" type="url" placeholder="https://lhg-proxy.yonicc.workers.dev">
+  <div>
+    <button id="save">שמור</button>
+    <button id="test">בדיקת חיבור</button>
+  </div>
+  <div id="status"></div>
+  <div class="note">התוסף מציג תזכורת בלבד ואינו חוסם שליחה. אינו פסיקה הלכתית.</div>
+  <script src="options.js"></script>
+</body>
+</html>

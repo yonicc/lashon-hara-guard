@@ -1,0 +1,30 @@
+#lhg-panel {
+  position: fixed;
+  bottom: 84px;
+  right: 24px;
+  z-index: 2147483647;
+  max-width: 360px;
+  padding: 10px 14px 10px 30px;
+  border-radius: 10px;
+  font: 14px/1.45 system-ui, "Segoe UI", Arial, sans-serif;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  direction: rtl;
+  text-align: right;
+}
+#lhg-panel.lhg-hidden { display: none; }
+#lhg-panel.lhg-warn { background: #fff4e5; border: 1px solid #f0a020; color: #5a3a00; }
+#lhg-panel.lhg-unsure { background: #fffbe0; border: 1px solid #d8c040; color: #4a4300; }
+#lhg-panel.lhg-muted { background: #f2f2f2; border: 1px solid #c8c8c8; color: #444; }
+#lhg-panel.lhg-checking { background: #eef6ff; border: 1px solid #a8c8ec; color: #2a4a6a; opacity: 0.85; }
+#lhg-panel .lhg-title { font-weight: 600; margin-bottom: 2px; }
+#lhg-panel .lhg-line { margin-top: 2px; }
+#lhg-panel .lhg-close {
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  border: 0;
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+  color: inherit;
+}

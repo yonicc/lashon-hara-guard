@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Lashon Hara Guard (MVP)",
+  "version": "0.1.0",
+  "description": "תזכורת עדינה בזמן כתיבה בוואטסאפ Web כשהודעה עלולה להתפרש כגנאי. אינה פסיקה הלכתית.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://lhg-proxy.yonicc.workers.dev/*"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["https://web.whatsapp.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "options.html",
+  "action": { "default_title": "Lashon Hara Guard", "default_popup": "options.html" }
+}

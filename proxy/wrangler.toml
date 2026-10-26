@@ -1,0 +1,19 @@
+name = "lhg-proxy"
+main = "src/index.ts"
+compatibility_date = "2026-10-01"
+compatibility_flags = ["nodejs_compat"]
+workers_dev = true
+
+# Secrets (set with `wrangler secret put`, never committed):
+#   LHG_BRAIN_TOKEN  - Brain service token (brk_..., scope chat:send)
+#   LHG_ACCESS_KEY   - shared key the extension sends as x-lhg-key
+[vars]
+LHG_BRAIN_BASE_URL = "https://br.ysho.uk/dash"
+LHG_BRAIN_ACCOUNT = "yoni"
+LHG_BRAIN_TIMEOUT_MS = "20000"
+LHG_ALWAYS_EXTRACT = "1"
+
+[[ratelimits]]
+name = "LIMITER"
+namespace_id = "1001"
+simple = { limit = 30, period = 60 }
