@@ -73,6 +73,64 @@
     return p;
   }
 
+  const AUDIENCE_HE = {
+    private: 'שיחה פרטית',
+    group: 'קבוצה',
+    public: 'פרסום פומבי',
+  };
+
+  // The proxy's "analysis" as display lines. Explanation only: it never
+  // changes the alert level. Names come from r.localNames (resolved in-page).
+  function detailLines(r) {
+    const a = (r && r.analysis) || {};
+    const n = (r && r.localNames) || {};
+    const who = (ref, local) => (ref === 'self' ? 'אתה' : local || '');
+    const speaker = who(a.speakerRef, n.speaker);
+    const subject = n.subject || (a.subjectMention ? '״' + a.subjectMention + '״' : '') || a.subjectDescriptionHe || '';
+    const lines = [];
+    if (speaker) lines.push('מי אומר: ' + speaker);
+    if (subject) lines.push('על מי: ' + subject + (n.subject && a.subjectDescriptionHe ? ' (' + a.subjectDescriptionHe + ')' : ''));
+    if (a.audience && AUDIENCE_HE[a.audience]) lines.push('למי: ' + AUDIENCE_HE[a.audience]);
+    if (a.claimHe) lines.push('מה נאמר עליו: ' + a.claimHe);
+    if (a.whyHe) lines.push('למה זה עלול להתפרש כגנאי: ' + a.whyHe);
+    for (const q of a.questionsHe || []) lines.push('• ' + q);
+    const ctx = r && typeof r.contextMessages === 'number' ? r.contextMessages : null;
+    if (ctx !== null) {
+      lines.push(ctx > 0
+        ? 'נלקחו בחשבון ' + ctx + ' הודעות קודמות בשיחה.'
+        : 'ההודעה נבדקה לבדה, בלי הקשר השיחה.');
+    }
+    return lines;
+  }
+
+  // A collapsed "details" action that expands the who/about-whom/why block.
+  function detailsAction(r) {
+    const lines = detailLines(r);
+    if (!lines.length) return [];
+    let box = null;
+    return [{
+      label: 'פרטים: מי, על מי ולמה ▾',
+      onClick: (btn) => {
+        if (box) {
+          box.remove();
+          box = null;
+          btn.textContent = 'פרטים: מי, על מי ולמה ▾';
+          return;
+        }
+        box = document.createElement('div');
+        box.className = 'lhg-details';
+        for (const line of lines) {
+          const d = document.createElement('div');
+          d.className = 'lhg-line';
+          d.textContent = line; // never innerHTML
+          box.appendChild(d);
+        }
+        btn.after(box);
+        btn.textContent = 'הסתר פרטים ▴';
+      },
+    }];
+  }
+
   function renderResult(r, opts = {}) {
     const manual = !!opts.manual;
     const mech = r && r.mechanism ? MECHANISM_HE[r.mechanism] || '' : '';
@@ -83,14 +141,14 @@
           mech && 'אופן: ' + mech,
           evidence && 'בגלל: ' + evidence,
           'זו תזכורת לשקול ניסוח, לא פסיקה הלכתית.',
-        ]);
+        ], detailsAction(r));
         break;
       case 'unsure':
         show('unsure', 'ℹ️ ייתכן שיש כאן משמעות לא מכוונת', [
           evidence && 'כדאי לבדוק: ' + evidence,
           'איך יבין את זה מי שמדברים עליו?',
           'זו תזכורת בלבד, לא פסיקה הלכתית.',
-        ]);
+        ], detailsAction(r));
         break;
       case 'not_checked':
         show('muted', 'ההודעה לא נבדקה', ['אין חיבור לשרת הבדיקה כרגע. זה לא אומר שהיא תקינה.']);
@@ -265,6 +323,7 @@
     bindManualShortcut,
     bindCommandOpenPanel,
     ownsCommand,
+    detailLines,
     isVisible: () => visible,
   };
 })();

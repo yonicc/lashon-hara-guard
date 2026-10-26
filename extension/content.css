@@ -46,3 +46,6 @@
 .lhg-tag-checking { background: #eef6ff; border: 1px solid #a8c8ec; color: #2a4a6a; }
 
 #lhg-panel .lhg-action { margin-top: 8px; padding: 4px 10px; border: 1px solid #999; border-radius: 6px; background: #fff; cursor: pointer; font: inherit; color: #333; }
+/* Who / about whom / why block; scrolls inside small Gmail chat windows. */
+#lhg-panel { max-height: calc(100vh - 100px); overflow-y: auto; }
+#lhg-panel .lhg-details { margin-top: 6px; padding-top: 6px; border-top: 1px dashed currentColor; font-size: 13px; }

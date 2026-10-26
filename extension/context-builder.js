@@ -149,6 +149,17 @@
       return out;
     }
 
+    // LOCAL ONLY: ref -> display name, for showing the proxy's analysis to the
+    // user in-page. Never put the result into a packet or a request.
+    function displayForRef(convId, ref) {
+      var m = parts.get(String(convId || ''));
+      if (!m || !ref) return '';
+      for (var e of m.values()) {
+        if (e.ref === ref) return e.display || '';
+      }
+      return '';
+    }
+
     function persist(op) {
       // Best-effort mirror into LHG_CONTEXT_STORE when it offers a matching method.
       try {
@@ -469,6 +480,7 @@
       deleteConversation: deleteConversation,
       buildPacket: buildPacket,
       readDomHints: readDomHints,
+      displayForRef: displayForRef,
       getContextVersion: function (convId) { return getVersion(String(convId)); },
       PACKET_VERSION: PACKET_VERSION,
       MAX_RECENT: MAX_RECENT

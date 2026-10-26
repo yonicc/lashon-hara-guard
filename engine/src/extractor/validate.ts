@@ -1,8 +1,11 @@
 import type { FactCatalogEntry } from '../types.js';
-import type { RawExtraction, ValidatedExtraction, ProposedFact } from './types.js';
+import type { RawExtraction, ValidatedExtraction, ProposedFact, ExtractionAnalysis } from './types.js';
 import { normalizeHebrewText } from './normalize.js';
 
 const MECHANISMS = new Set(['irony', 'praise', 'hint', 'mockery', 'omission', 'direct', 'other']);
+const AUDIENCES = new Set(['private', 'group', 'public', 'unknown']);
+/** Length caps for the user-facing explanation (characters). */
+export const ANALYSIS_LIMITS = { ref: 24, mention: 60, description: 80, claim: 160, why: 220, question: 140, questions: 3 };
 
 function isRecord(v: unknown): v is Record<string, unknown> {
   return typeof v === 'object' && v !== null;
@@ -11,6 +14,52 @@ function isRecord(v: unknown): v is Record<string, unknown> {
 function clampConfidence(v: unknown): number | null {
   if (typeof v !== 'number' || !Number.isFinite(v)) return null;
   return Math.min(1, Math.max(0, v));
+}
+
+function shortText(v: unknown, max: number): string | undefined {
+  if (typeof v !== 'string') return undefined;
+  const t = v.replace(/[\r\n\t]+/g, ' ').replace(/\s{2,}/g, ' ').trim();
+  if (!t) return undefined;
+  return t.length > max ? t.slice(0, max - 1) + '…' : t;
+}
+
+/**
+ * Validate the untrusted "analysis" (who/about whom/why). Refs survive only if
+ * they are 'self' or one of the request's participant refs; a mention only if
+ * it is a verbatim span of the message. Everything else is dropped silently.
+ */
+export function validateAnalysis(
+  raw: unknown,
+  normalizedMessage: string,
+  allowedRefs: ReadonlySet<string>,
+): ExtractionAnalysis | undefined {
+  if (!isRecord(raw)) return undefined;
+  const L = ANALYSIS_LIMITS;
+  const ref = (v: unknown) => {
+    const s = typeof v === 'string' ? v.trim() : '';
+    return s && s.length <= L.ref && (s === 'self' || allowedRefs.has(s)) ? s : undefined;
+  };
+  const mentionRaw = shortText(raw.subjectMention, 200);
+  const mention = mentionRaw && mentionRaw.length <= L.mention &&
+    normalizedMessage.includes(normalizeHebrewText(mentionRaw)) ? mentionRaw : undefined;
+  const questions = Array.isArray(raw.questionsHe)
+    ? raw.questionsHe.map((q) => shortText(q, L.question)).filter((q): q is string => !!q).slice(0, L.questions)
+    : [];
+  const out: ExtractionAnalysis = {};
+  const speakerRef = ref(raw.speakerRef);
+  const subjectRef = ref(raw.subjectRef);
+  const desc = shortText(raw.subjectDescriptionHe, L.description);
+  const claim = shortText(raw.claimHe, L.claim);
+  const why = shortText(raw.whyHe, L.why);
+  if (speakerRef) out.speakerRef = speakerRef;
+  if (subjectRef && subjectRef !== speakerRef) out.subjectRef = subjectRef;
+  if (mention) out.subjectMention = mention;
+  if (desc) out.subjectDescriptionHe = desc;
+  if (typeof raw.audience === 'string' && AUDIENCES.has(raw.audience)) out.audience = raw.audience as ExtractionAnalysis['audience'];
+  if (claim) out.claimHe = claim;
+  if (why) out.whyHe = why;
+  if (questions.length) out.questionsHe = questions;
+  return Object.keys(out).length ? out : undefined;
 }
 
 /**
@@ -26,6 +75,7 @@ export function validateExtraction(
   raw: unknown,
   catalog: FactCatalogEntry[],
   messageText: string,
+  opts: { participantRefs?: Iterable<string> } = {},
 ): ValidatedExtraction {
   const warnings: string[] = [];
   const droppedFacts: ValidatedExtraction['droppedFacts'] = [];
@@ -92,5 +142,10 @@ export function validateExtraction(
     warnings.push('direct_assessment_invalid_dropped');
   }
 
-  return { proposedFacts, ...(meaning ? { meaning } : {}), directAssessment, droppedFacts, warnings };
+  const analysis = validateAnalysis(raw.analysis, normalizedMessage, new Set(opts.participantRefs ?? []));
+
+  return {
+    proposedFacts, ...(meaning ? { meaning } : {}), directAssessment,
+    ...(analysis ? { analysis } : {}), droppedFacts, warnings,
+  };
 }

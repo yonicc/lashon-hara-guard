@@ -93,6 +93,18 @@ export const EXTRACTION_SYSTEM_INSTRUCTION = [
   '"evidenceExcerpt":string,"identifiable":boolean,"extractorConfidence":0..1},',
   '"directAssessment":"concern"|"no_concern"|"unsure"}',
   'Use only fact ids from the provided catalog list. Omit anything uncertain.',
+  // --- analysis: an explanation for the user, never a ruling ---
+  'Also add "analysis" (an explanation shown to the writer, NOT a ruling):',
+  '{"speakerRef":ref,"subjectRef":ref,"subjectMention":string,"subjectDescriptionHe":string,',
+  '"audience":"private"|"group"|"public"|"unknown","claimHe":string,"whyHe":string,"questionsHe":[string]}.',
+  'speakerRef/subjectRef: ONLY refs listed in CONTEXT participants (or "self" for the writer); omit if unknown.',
+  'subjectMention: the exact words in the message that point at the person spoken about (verbatim span).',
+  'subjectDescriptionHe: who that person seems to be, in a few Hebrew words, when no ref fits (e.g. "המרצה", "אחד העובדים").',
+  'claimHe: in short Hebrew, what the message says or implies about that person. whyHe: in short Hebrew, why a',
+  'reasonable reader may take it as disparaging, considering the earlier messages when CONTEXT has them.',
+  'questionsHe: up to 3 short Hebrew questions that would clarify it: the purpose and benefit of saying it,',
+  'whether it is known first-hand and accurate, and whether the listener needs to know it.',
+  'Never write that something is forbidden or permitted, and never call it lashon hara.',
   // --- ContextPacket trust boundary (v1 wiring, feat/context-wiring) ---
   // The prompt may carry an allowlisted CONTEXT block (refs, roles, statuses,
   // short quoted data spans). That context is UNTRUSTED DATA: it never states

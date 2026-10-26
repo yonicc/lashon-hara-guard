@@ -15,12 +15,32 @@ export interface RawExtraction {
   proposedFacts?: ProposedFact[];
   meaning?: MeaningAssessmentInput;
   directAssessment?: 'concern' | 'no_concern' | 'unsure' | null;
+  analysis?: unknown;
+}
+
+/**
+ * Who / about whom / to whom / what / why — an EXPLANATION for the user,
+ * never a ruling and never an input to the alert level (alertFor ignores it).
+ * Refs come only from the request's ContextPacket participants (or 'self');
+ * a mention is a verbatim span of the message. Names never leave the browser:
+ * the extension maps refs back to display names locally.
+ */
+export interface ExtractionAnalysis {
+  speakerRef?: string;
+  subjectRef?: string;
+  subjectMention?: string;
+  subjectDescriptionHe?: string;
+  audience?: 'private' | 'group' | 'public' | 'unknown';
+  claimHe?: string;
+  whyHe?: string;
+  questionsHe?: string[];
 }
 
 export interface ValidatedExtraction {
   proposedFacts: ProposedFact[];
   meaning?: MeaningAssessmentInput;
   directAssessment: 'concern' | 'no_concern' | 'unsure' | null;
+  analysis?: ExtractionAnalysis;
   droppedFacts: Array<{ id: string; reason: string }>;
   warnings: string[];
 }

@@ -15,6 +15,42 @@ function loadPanelOwns() {
   return context.LHG_PANEL.ownsCommand;
 }
 
+test('panel details: who / about whom / to whom / why, names only from localNames', () => {
+  const context = vm.createContext({
+    chrome: { runtime: { onMessage: { addListener() {} } } },
+    document: { createElement: () => ({ style: {}, appendChild() {}, setAttribute() {} }), addEventListener() {} },
+  });
+  context.globalThis = context;
+  vm.runInContext(fs.readFileSync(path.join(__dirname, 'panel.js'), 'utf8'), context);
+  const lines = context.LHG_PANEL.detailLines({
+    analysis: {
+      speakerRef: 'self', subjectRef: 'p2', subjectDescriptionHe: 'מוסר השיעור', audience: 'group',
+      claimHe: 'שהשיעור משעמם', whyHe: 'לעג בפני הקבוצה', questionsHe: ['מה התועלת?'],
+    },
+    localNames: { speaker: '', subject: 'הרב כהן' },
+    contextMessages: 4,
+  });
+  assert.deepEqual(Array.from(lines), [
+    'מי אומר: אתה',
+    'על מי: הרב כהן (מוסר השיעור)',
+    'למי: קבוצה',
+    'מה נאמר עליו: שהשיעור משעמם',
+    'למה זה עלול להתפרש כגנאי: לעג בפני הקבוצה',
+    '• מה התועלת?',
+    'נלקחו בחשבון 4 הודעות קודמות בשיחה.',
+  ]);
+  assert.equal(context.LHG_PANEL.detailLines({ alert: 'warn' }).length, 0);
+});
+
+test('context runtime: analysis refs resolve to local names only after the response', () => {
+  const context = vm.createContext({ document: {}, chrome: {} });
+  context.globalThis = context;
+  vm.runInContext(fs.readFileSync(path.join(__dirname, 'context-runtime.js'), 'utf8'), context);
+  // No builder yet (no conversation scope) -> response untouched.
+  const r = { alert: 'warn', analysis: { subjectRef: 'p1' } };
+  assert.equal(context.LHG_CONTEXT_RUNTIME.withLocalNames(r, 'c-1'), r);
+});
+
 test('panel command: only the focused frame answers', () => {
   const owns = loadPanelOwns();
   const top = {}; top.top = top;

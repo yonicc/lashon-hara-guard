@@ -65,7 +65,10 @@ export async function runExtraction(
     };
   }
 
-  const extraction = validateExtraction(raw, opts.catalog, message.text);
+  const participantRefs = (opts.context?.participants ?? [])
+    .map((p) => (p && typeof p.ref === 'string' ? p.ref : ''))
+    .filter((r) => r);
+  const extraction = validateExtraction(raw, opts.catalog, message.text, { participantRefs });
   if (extraction.warnings.length) limitationsHe.push(...extraction.warnings);
 
   const meaningFacts = extraction.meaning ? buildMeaningFacts(extraction.meaning) : undefined;

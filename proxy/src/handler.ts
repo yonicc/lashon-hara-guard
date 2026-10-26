@@ -5,6 +5,7 @@ import {
   FACT_CATALOG,
   runExtraction,
   sanitizeContextPacket,
+  type ExtractionAnalysis,
   type ExtractionOutcome,
   type ExtractorContextPacket,
   type ExtractorProvider,
@@ -77,6 +78,10 @@ export interface CheckResponse {
   ms: number;
   /** Gate probability when the gate answered, else null. */
   gate: number | null;
+  /** Who/about whom/why — explanation only; never changes `alert`. Refs, not names. */
+  analysis?: ExtractionAnalysis;
+  /** How many earlier conversation messages the check considered (0 = single message). */
+  contextMessages?: number;
 }
 
 /**
@@ -239,6 +244,8 @@ async function handleAuthorized(
     limitationsHe: outcome.limitationsHe,
     ms: Date.now() - started,
     gate,
+    ...(outcome.extraction?.analysis ? { analysis: outcome.extraction.analysis } : {}),
+    contextMessages: Array.isArray(context?.recentMessages) ? context.recentMessages.length : 0,
   };
   return json(res);
 }

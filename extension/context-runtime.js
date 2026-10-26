@@ -78,7 +78,23 @@
   }
 
   function send(payload, callback, el) {
-    prepare(payload, el).then(message => chrome.runtime.sendMessage(message, callback));
+    prepare(payload, el).then((message) => chrome.runtime.sendMessage(message, (r) => {
+      // lastError stays readable: the callback runs synchronously in here.
+      callback(withLocalNames(r, message && message.context && message.context.conversationRef));
+    }));
   }
-  globalThis.LHG_CONTEXT_RUNTIME = { prepare, send };
+
+  // Resolve the analysis refs back to display names IN THE PAGE only, so the
+  // panel can say who is speaking and about whom. Names never left the page.
+  function withLocalNames(r, convId) {
+    try {
+      const a = r && r.analysis;
+      if (!a || !builder || !convId) return r;
+      const name = (ref) => (ref && ref !== 'self' ? builder.displayForRef(convId, ref) : '');
+      return { ...r, localNames: { speaker: name(a.speakerRef), subject: name(a.subjectRef) } };
+    } catch (_) {
+      return r;
+    }
+  }
+  globalThis.LHG_CONTEXT_RUNTIME = { prepare, send, withLocalNames };
 })();
