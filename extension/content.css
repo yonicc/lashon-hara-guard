@@ -44,3 +44,5 @@
 .lhg-tag-unsure { background: #fffbe0; border: 1px solid #d8c040; color: #4a4300; }
 .lhg-tag-not_checked { background: #f2f2f2; border: 1px solid #c8c8c8; color: #666; }
 .lhg-tag-checking { background: #eef6ff; border: 1px solid #a8c8ec; color: #2a4a6a; }
+
+#lhg-panel .lhg-action { margin-top: 8px; padding: 4px 10px; border: 1px solid #999; border-radius: 6px; background: #fff; cursor: pointer; font: inherit; color: #333; }

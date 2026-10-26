@@ -40,7 +40,7 @@
     visible = false;
   }
 
-  function show(kind, title, lines) {
+  function show(kind, title, lines, actions) {
     const p = ensurePanel();
     p.className = 'lhg-' + kind;
     p.textContent = '';
@@ -59,6 +59,15 @@
       d.className = 'lhg-line';
       d.textContent = line; // never innerHTML: evidence is user/page text
       p.appendChild(d);
+    }
+    for (const a of actions || []) {
+      const b = document.createElement('button');
+      b.className = 'lhg-action';
+      b.textContent = a.label;
+      b.addEventListener('click', () => {
+        try { a.onClick(b); } catch (_e) { b.textContent = 'נכשל'; }
+      });
+      p.appendChild(b);
     }
     visible = true;
     return p;
@@ -137,11 +146,24 @@
     if (!text || text.length < 6) {
       const statusLines =
         typeof opts.getStatusLines === 'function' ? opts.getStatusLines() : [];
+      // Structure-only diagnostics (no message text) the user can paste to a
+      // developer when the page is not recognised.
+      const actions = typeof opts.getDiagnostics === 'function'
+        ? [{
+            label: 'העתק אבחון למפתח',
+            onClick: (btn) => {
+              const data = JSON.stringify(opts.getDiagnostics());
+              Promise.resolve(navigator.clipboard && navigator.clipboard.writeText(data))
+                .then(() => { btn.textContent = 'הועתק ✓ (מבנה הדף בלבד, בלי תוכן הודעות)'; })
+                .catch(() => { btn.textContent = 'ההעתקה נכשלה'; });
+            },
+          }]
+        : [];
       show('muted', 'Lashon Hara Guard פעיל בעמוד זה', [
         ...statusLines,
         'לבדיקה ידנית של טקסט: סמן אותו בעמוד ולחץ שוב על קיצור הפאנל.',
         'זו תזכורת בלבד, לא פסיקה הלכתית.',
-      ]);
+      ], actions);
       return;
     }
 

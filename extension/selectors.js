@@ -35,7 +35,13 @@
       '#main header [data-testid="conversation-info-header-chat-title"]',
       '#main header [data-testid="conversation-header-title"]',
       '#main header span[title]',
-      '#main header [title]',
+      // Current builds dropped most data-testid/title attributes: the chat
+      // name is the first dir="auto" text span in the conversation header.
+      // (A bare '#main header [title]' was removed: it can match an icon
+      // button such as "Search", giving every chat the same key and mixing
+      // their context.)
+      '#main header span[dir="auto"]',
+      '#main header div[role="button"] span',
     ],
     visibleParticipants: [
       '#main header [data-testid="conversation-info-header-chat-subtitle"]',

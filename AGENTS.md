@@ -27,7 +27,19 @@
 - Proxy = Cloudflare Worker `lhg-proxy` (`proxy/`), deployed from BI-1 with `npx wrangler deploy` (wrangler logged in as yonicc). The extension's alert level is defined only in `proxy/src/handler.ts` `alertFor`.
 - Worker secrets: use `npx wrangler secret bulk <json outside repo>`. Piping a value into `npx wrangler secret put` in PowerShell 5.1 reports Success but stores a wrong value (every call then 401).
 
+## Gate classifier on Modal (verified 2026-10-26, docs/12)
+- The proxy asks the Modal gate (`classifier/serve_modal.py`, model v2 fp32) first; `p < LHG_GATE_THRESHOLD` (0.2) skips the model. Gate failure/timeout must always escalate to the model, so the gate can only save a call, never hide a message. Disable by removing `LHG_GATE_URL` from `proxy/wrangler.toml`.
+- Modal CLI on BI-1: `py -m modal ...`, profile `yonicc` in `C:\Users\dev\.modal.toml`. Secret `lhg-gate` (GATE_KEY) == Worker secret `LHG_GATE_KEY`. Models live in Volume `lhg-models` (`/v1`, `/v2`). Do not set `min_containers` without the user's decision (always-on ≈ $2.6/day).
+- Judge a gate model only on an INDEPENDENT eval set (`classifier/gen_eval.py`, another vendor/prompt, never trained on). Same-generator test scores were optimistic (v1: 0.986 own test vs 0.906 on Codex eval). Once an eval set has guided data changes, generate a fresh one.
+- `serve_modal.py` must not use `from __future__ import annotations` (breaks `modal.parameter()`).
+- brain-mcp's `/api/v1/chat/completions` codex branch drops `system_prompt` (fix in progress, child chat 2026-10-26); until verified fixed, put instructions in the user turn for `agent_kind=codex`.
+
+## Concurrent agents
+- More than one agent edits this repo at the same time (e.g. context layer vs gate). Always `git pull --ff-only` before editing, re-read a file before patching it, and stage only your own paths.
+- Never edit a file containing Hebrew with `Set-Content -Encoding ascii` / raw PowerShell replace: it turns Hebrew into `?` (happened to `extension/manifest.json`, caught by `git diff`). Use `remote_edit_file`.
+
 ## Extension distribution
+- WhatsApp selectors live only in `extension/selectors.js`. Never add a bare `#main header [title]`-style selector for the conversation title: it can match an icon button and give every chat the same key, mixing conversation context. The manual panel (Ctrl+Shift+L) shows what was detected (chat, visible messages, compose) and has a "copy diagnostics" button that copies DOM structure only (no message text) — ask the user for it when selectors fail.
 - Source of truth is `extension/` in this repo (on BI-1). Every extension change must also be copied to the active unpacked copy on YONI-PC: `/home/yoni/lashon-hara-guard-gmail/extension` (Linux, user `yoni`; Chrome profile `Default`, extension id `naggldcglajoihfllgnboobgkfaknkoj`). Verify the copied files' SHA-256 match the repo's and that `manifest.json` parses.
 - Never copy secrets or the user's access key to YONI-PC; the options page stores it locally in that Chrome profile.
 - The manual panel shortcut is a native Chrome command `open-panel` (manifest `commands`, default `Ctrl+Shift+L`); Chromium's command parser has no valid `Equal`/`Plus` key name, so never reintroduce `Ctrl+Shift++` as a Chrome command — the old in-page handler is only a non-zoom-safe fallback.

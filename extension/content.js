@@ -59,6 +59,73 @@
     return box ? (box.innerText || '').trim() : '';
   }
 
+  // What the extension can currently see of the open conversation. Shown in
+  // the manual panel so "nothing detected" is visible instead of silent.
+  function conversationInfo() {
+    const root = S ? S.first(document, S.whatsapp.chatRoot) : null;
+    const titleEl = S ? S.first(document, S.whatsapp.conversationTitle) : null;
+    const title = titleEl ? (titleEl.getAttribute('title') || titleEl.textContent || '').trim() : '';
+    return {
+      chatOpen: !!root,
+      title,
+      incoming: root ? S.all(root, S.whatsapp.incomingMessage).length : 0,
+      outgoing: root ? S.all(root, S.whatsapp.outgoingMessage).length : 0,
+      bubbles: root ? S.all(root, S.whatsapp.messageBubble).length : 0,
+    };
+  }
+
+  function statusLines() {
+    const c = conversationInfo();
+    const lines = [];
+    if (!c.chatOpen) {
+      lines.push('לא זוהתה שיחה פתוחה. פתח שיחה ונסה שוב.');
+    } else if (!c.title) {
+      lines.push('יש שיחה פתוחה, אבל שם השיחה לא זוהה, ולכן הקשר השיחה לא נאסף.');
+    } else {
+      lines.push('שיחה פתוחה: ״' + c.title.slice(0, 40) + '״ (הקשר שיחה פעיל)');
+    }
+    if (c.chatOpen) {
+      lines.push('הודעות גלויות שזוהו: ' + c.incoming + ' נכנסות, ' + c.outgoing + ' יוצאות, ' +
+        c.bubbles + ' עם פרטי שולח.');
+    }
+    lines.push(findCompose()
+      ? 'שורת הכתיבה זוהתה; הקלדה חדשה תיבדק אוטומטית אחרי הפסקה קצרה.'
+      : 'שורת הכתיבה לא זוהתה; הבדיקה האוטומטית בזמן כתיבה אינה פעילה כעת.');
+    return lines;
+  }
+
+  // Structure only: tag names, attribute NAMES, counts and text LENGTHS.
+  // Never message text, names or titles.
+  function diagnostics() {
+    const describe = (el) => el ? {
+      tag: el.tagName.toLowerCase(),
+      attrs: Array.from(el.attributes).map((a) => a.name).filter((n) => n !== 'class').slice(0, 15),
+      role: el.getAttribute('role'), dir: el.getAttribute('dir'),
+      classes: el.classList.length, children: el.children.length, textLen: (el.textContent || '').length,
+    } : null;
+    const count = (sel) => { try { return document.querySelectorAll(sel).length; } catch (_e) { return -1; } };
+    const matches = {};
+    for (const [k, list] of Object.entries((S && S.whatsapp) || {})) {
+      if (Array.isArray(list)) matches[k] = list.map((sel) => [sel, count(sel)]);
+    }
+    const header = document.querySelector('#main header') || document.querySelector('header');
+    return {
+      version: chrome.runtime.getManifest().version,
+      host: location.host,
+      matches,
+      header: describe(header),
+      headerSpans: header ? Array.from(header.querySelectorAll('span, div[role]')).slice(0, 20).map(describe) : null,
+      main: describe(document.querySelector('#main')),
+      rows: count('#main [role="row"]'),
+      rowSample: describe(document.querySelector('#main [role="row"]')),
+      rowSampleChildren: Array.from((document.querySelector('#main [role="row"]') || { children: [] }).children).slice(0, 5).map(describe),
+      prePlain: count('[data-pre-plain-text]'),
+      contentEditables: Array.from(document.querySelectorAll('[contenteditable="true"]')).slice(0, 5).map((el) => ({
+        ...describe(el), inFooter: !!el.closest('footer'), inMain: !!el.closest('#main'),
+      })),
+    };
+  }
+
   function resolveDirection(node) {
     if (node && node.closest) {
       if (node.closest(S ? S.whatsapp.compose.join(',') : 'footer [contenteditable="true"]')) return 'outgoing';
@@ -152,14 +219,8 @@
       fallbackText: readComposeText,
       fallbackDirection: 'outgoing',
       resolveDirection,
-      getStatusLines: () => {
-        const compose = findCompose();
-        return [
-          compose
-            ? 'שורת הכתיבה זוהתה; הקלדה חדשה תיבדק אוטומטית אחרי הפסקה קצרה.'
-            : 'שורת הכתיבה לא זוהתה; הבדיקה האוטומטית בזמן כתיבה אינה פעילה כעת.',
-        ];
-      },
+      getStatusLines: statusLines,
+      getDiagnostics: diagnostics,
     });
   }
 
