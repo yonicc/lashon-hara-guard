@@ -54,6 +54,12 @@ identifiable) עוברת דרך `buildMeaningFacts` הקיים בשכבת המש
 
 ## מה פתוח לחיבור חי (שאלות פתוחות)
 
+> עדכון 2026-10-26: נבחר backend לפרוטוטייפ — צ׳אט ייעודי דרך
+> `POST /api/chat/send` של ה־Brain (`agent_kind:'muse'`). ראו
+> [10-brain-send-backend](10-brain-send-backend.md) לחוזה המלא, ההכרעה
+> (v1 אינו תומך ב־muse — מאומת מהקוד), והמגבלות. המימוש:
+> `engine/src/extractor/brainSend.ts` + `engine/test/brainSend.test.ts`.
+
 - הוכחת היתכנות DOM אמיתי לכל אתר (כולל מניעת הבזק תוכן להודעות נכנסות, E2/IN-01).
 - בחירת ספק AI ומודל בפועל (החלטה פתוחה ב־06) ומדיניות שליחה לענן/אישור משתמש.
 - מדידות p50/p95, שיעור `not_checked` ושיעור התראות שווא על סט מתויג (ספים טרם נקבעו).

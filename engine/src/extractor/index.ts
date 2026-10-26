@@ -10,6 +10,7 @@ export * from './normalize.js';
 export * from './localGate.js';
 export * from './validate.js';
 export * from './providers.js';
+export * from './brainSend.js';
 export * from './pipeline.js';
 
 export interface RunExtractionOptions {
