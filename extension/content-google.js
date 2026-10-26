@@ -51,7 +51,27 @@
     return [...gmailRows(root), ...chatRows(root)];
   }
 
-  const scanner = globalThis.LHG_INCOMING.createScanner({ platform: PLATFORM, findRows });
+  // Local-only context (checkpoint 3b): attach per-bubble metadata without
+  // touching the POST /check contract. Rows carry localContext only in-page;
+  // the scanner queue sends { text } alone, names never leave the browser.
+  function decorateRows(rows) {
+    try {
+      const api = globalThis.LHG_LOCAL_CONTEXT;
+      if (!api || typeof api.attach !== 'function') return rows;
+      return rows.map((row) => {
+        let localContext = null;
+        try { localContext = api.attach(row.el); } catch (_e) { localContext = null; }
+        return localContext ? { ...row, localContext } : row;
+      });
+    } catch (_e) {
+      return rows;
+    }
+  }
+
+  const scanner = globalThis.LHG_INCOMING.createScanner({
+    platform: PLATFORM,
+    findRows: (root) => decorateRows(findRows(root)),
+  });
   scanner.scan(); // baseline: history present at load is marked seen, never sent
 
   if (globalThis.LHG_PANEL) {

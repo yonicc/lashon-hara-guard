@@ -156,9 +156,22 @@
       platform: PLATFORM,
       findRows: (root) => {
         const rows = S.all(root, S.whatsapp.incomingMessage);
-        return rows
+        const mapped = rows
           .map((el) => ({ el, text: S.extractText(el, S.whatsapp.messageText) }))
           .filter((r) => r.text);
+        // Local-only context (checkpoint 3b): attach per-bubble, guarded.
+        // Names stay in-page; the queue still sends { text } only.
+        try {
+          const api = globalThis.LHG_LOCAL_CONTEXT;
+          if (api && typeof api.attach === 'function') {
+            return mapped.map((row) => {
+              let localContext = null;
+              try { localContext = api.attach(row.el); } catch (_e) { localContext = null; }
+              return localContext ? { ...row, localContext } : row;
+            });
+          }
+        } catch (_e) { /* fall through without localContext */ }
+        return mapped;
       },
     });
     let scanTimer = null;
