@@ -1,5 +1,30 @@
 # 18 — כללי התועלת כ־Rules שהמנוע מריץ (draft)
 
+## מצב: live_draft — החלטת הבעלים מ־2026-10-27
+הבעלים החליט שצריך מוצר חי עכשיו: כללי חבילת `CC_TOELET_DRAFT_PACK` פועלים בזרימה החיה
+של `POST /check` כאילו אדם אישר אותם. סקירה אנושית תגיע בסבב שיפורים אחר כך.
+- מנוע: `evaluate(..., ruleMode: 'live_draft')` — כלל `halacha_draft` במצב `draft` מפיק
+  `finding` עם `draft: true` ו־`source`. ברירת המחדל `approved_only` לא השתנתה (TOELET-05/07/09).
+- עובדות: `engine/src/liveFacts.ts` `factStoreFromExtraction` — הבית היחיד שממיר
+  `proposedFacts` + `meaning` + תשובות המשתמש ל־FactStore (גם `extractToFactStore` משתמש בו).
+- proxy: `proxy/src/rules.ts` מריץ את החבילה (שאלה אחת לכל היותר). רמת האזהרה נקבעת רק
+  ב־`alertFor` שב־`handler.ts`. מתג: `LHG_CC_RULES` = `live` (ברירת מחדל) / `off`.
+- בל יעבור: אין פסק ואין «מותר». כלל רק מעלה ל־`warn` או שואל, ולעולם לא מוריד ל־`none`.
+  עובדה חסרה = לא ידוע, לא false (תשובת «לא יודע» = `null` = unknown). הצהרה על תועלת לבדה
+  לא מתירה (LIVE-05). כשל במנוע = `rules.notChecked=true`, והאזהרה לא משתנה.
+
+### חוזה ה־API (קבוע — התוסף נבנה לפיו; שינוי רק באישור הבעלים)
+- בקשה: `confirmedFacts?: Record<factId, boolean|null>` — רק ids מ־`FACT_CATALOG`, עד 20,
+  כל ערך אחר נזרק בשקט.
+- תשובה: `rules?: { mode:'live_draft', notChecked?, findings: [{ruleId, code, messageHe, sourceRef, sourceUrl}],
+  question?: { factId, textHe, answers:[{value:true,'כן'},{false,'לא'},{null,'לא יודע'}] } }`.
+  `rules` חסר כש־`LHG_CC_RULES=off` או כשהמסווג המהיר דילג על המודל.
+- כשיש finding, נוסף ל־`limitationsHe`: «לפי כללי טיוטה מספר חפץ חיים — לא נבדקו בידי מומחה; אינו פסק הלכה.»
+- שאלה שהמשתמש כבר ענה עליה (גם «לא יודע») לא נשאלת שוב. לא נרשם ללוג טקסט של הודעות.
+- בדיקות: `engine/test/liveDraft.test.ts` (LIVE-01..05), `proxy/test/rules.test.ts`.
+
+הסעיפים שלהלן מתארים את מצב החבילה לפני ההחלטה.
+
 ## מה מומש
 - `engine/src/chafetzChaim/toeletPack.ts` — חבילת `cc-toelet-draft` (גרסה 0.1.0):
   12 כללים מביצים, כולם `domain='halacha_draft'`, `reviewStatus='draft'`.
@@ -66,7 +91,7 @@
 
 ## עוד פתוח
 - סקירה אנושית של הכרטיסים והכללים (docs/03: איתור מקור → סקירת מומחה → אישור).
-  כל עוד אין אישור, החבילה נשארת draft ואינה מחוברת למסלול המשתמש.
-- חיבור החבילה ל־extractor ב־proxy (הרחבת הקטלוג משנה את רשימת ה־fact ids
-  שנשלחת למודל החילוץ — נדרש תיאום ובדיקת brainSend לפני הפעלה).
+  הכללים נשארים `reviewStatus='draft'`, אבל מאז 2026-10-27 הם מחוברים למסלול המשתמש
+  במצב live_draft (ראו למעלה).
+- איכות חילוץ העובדות (precision/recall של `proposedFacts`) — צעד 2.
 - הערות באר מים חיים / ציורים של כלל י׳ טרם נכנסו לשכבת המקור (docs/17).

@@ -118,6 +118,14 @@ export interface EvaluationInput {
   /** Optional direct assessment from the extractor (never trusted alone). */
   directAssessment?: 'concern' | 'no_concern' | 'unsure' | null;
   maxQuestions?: number; // default 1
+  /**
+   * Which rules may produce user findings.
+   * - 'approved_only' (default): only approved rules; drafts stay internal draftObservations.
+   * - 'live_draft': owner's decision 2026-10-27 — 'halacha_draft' rules in 'draft' review
+   *   also produce findings, marked `draft: true`. Findings only raise attention or ask;
+   *   they never assert "permitted" and never lower an alert.
+   */
+  ruleMode?: 'approved_only' | 'live_draft';
   contextVersion: string;
   modelVersion: string;
 }
@@ -132,6 +140,9 @@ export interface Finding {
   code: string;
   messageHe: string;
   evidenceFactIds: string[];
+  /** True when the finding comes from an unreviewed draft rule (ruleMode 'live_draft'). */
+  draft?: true;
+  source?: SourceRef;
 }
 
 export interface DraftObservation {

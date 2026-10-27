@@ -1,5 +1,5 @@
 import { FactStore } from '../factStore.js';
-import { buildMeaningFacts } from '../meaning.js';
+import { factStoreFromExtraction } from '../liveFacts.js';
 import type { FactCatalogEntry, MessageEnvelope } from '../types.js';
 import type { ExtractorProvider } from './types.js';
 import { runExtraction, type ExtractionOutcome } from './index.js';
@@ -22,14 +22,6 @@ export async function extractToFactStore(
 ): Promise<PipelineResult> {
   const store = existingStore ?? new FactStore(catalog);
   const outcome = await runExtraction(message, { provider, catalog });
-  if (outcome.extraction) {
-    for (const f of outcome.extraction.proposedFacts) {
-      store.propose(f.id, f.value, 'model_extraction', { note: `confidence=${f.confidence}; evidence=${f.evidenceExcerpt}` });
-    }
-    if (outcome.extraction.meaning) {
-      const built = buildMeaningFacts(outcome.extraction.meaning);
-      for (const f of built.facts) store.propose(f.id, f.value, f.provenance, f.note ? { note: f.note } : {});
-    }
-  }
+  factStoreFromExtraction(outcome.extraction, catalog, { store });
   return { outcome, store };
 }

@@ -24,6 +24,9 @@ LHG_GATE_ORACLE_TIMEOUT_MS = "800"
 LHG_GATE_URL = "https://yonicc--lhg-gate-gate-check.us-east.modal.run"
 LHG_GATE_THRESHOLD = "0.2"
 LHG_GATE_TIMEOUT_MS = "1500"
+# Chafetz Chaim draft rules (docs/18, owner's decision 2026-10-27, mode live_draft):
+# "live" = run CC_TOELET_DRAFT_PACK on every extracted check; "off" = drop `rules`.
+LHG_CC_RULES = "live"
 
 [[ratelimits]]
 name = "LIMITER"

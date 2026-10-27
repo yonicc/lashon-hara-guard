@@ -33,10 +33,18 @@ function ruleMissingFacts(rule: Rule, facts: EvaluationInput['facts']): string[]
   return [...ids].filter((id) => !isFactKnown(facts, id));
 }
 
+/** The one home of "which rule may surface to the user" for a given ruleMode. */
+function mayProduceFinding(rule: Rule, mode: EvaluationInput['ruleMode']): boolean {
+  if (rule.reviewStatus === 'approved') return true;
+  return mode === 'live_draft' && rule.domain === 'halacha_draft' && rule.reviewStatus === 'draft';
+}
+
 /**
  * Deterministic three-valued evaluation.
- * - Only approved rules may produce findings.
- * - Unapproved matching rules produce internal draftObservations only.
+ * - Only approved rules may produce findings, except in ruleMode 'live_draft'
+ *   (owner's decision 2026-10-27), where 'halacha_draft' rules in 'draft' review
+ *   produce findings marked `draft: true`.
+ * - Other unapproved matching rules produce internal draftObservations only.
  * - Unknown facts never collapse to false; they drive clarification questions.
  * - The result never asserts that a message is permitted.
  */
@@ -84,7 +92,7 @@ export function evaluate(input: EvaluationInput): EvaluationResult {
     );
 
     if (applicability === true && conditions === true && !hasTrueException) {
-      if (rule.reviewStatus === 'approved') {
+      if (mayProduceFinding(rule, input.ruleMode)) {
         base.findings.push({
           ruleId: rule.id,
           ruleVersion: rule.version,
@@ -97,6 +105,8 @@ export function evaluate(input: EvaluationInput): EvaluationResult {
           evidenceFactIds: ruleMissingFacts(rule, input.facts).length
             ? []
             : [...exprFactIds(rule.conditions)],
+          ...(rule.reviewStatus !== 'approved' ? { draft: true as const } : {}),
+          ...(rule.source ? { source: rule.source } : {}),
         });
       } else {
         base.draftObservations.push({

@@ -1,5 +1,9 @@
 import { personalCheck } from './accountAccess.js';
 import {
+  DRAFT_RULES_LIMITATION_HE, notCheckedRules, pickConfirmedFacts, rulesModeFromEnv, runLiveRules,
+  type RulesResult,
+} from './rules.js';
+import {
   BrainSendExtractorProvider,
   brainSendOptionsFromEnv,
   FACT_CATALOG,
@@ -45,6 +49,8 @@ export interface Env {
   LHG_GATE_THRESHOLD?: string;
   /** Modal gate budget; on timeout the message goes to the model. Default 1500. */
   LHG_GATE_TIMEOUT_MS?: string;
+  /** Chafetz Chaim draft rules in /check: 'live' (default) | 'off' (docs/18, owner 2026-10-27). */
+  LHG_CC_RULES?: string;
   LIMITER?: { limit(o: { key: string }): Promise<{ success: boolean }> };
 }
 
@@ -89,14 +95,23 @@ export interface CheckResponse {
   analysis?: ExtractionAnalysis;
   /** How many earlier conversation messages the check considered (0 = single message). */
   contextMessages?: number;
+  /** Live draft Chafetz Chaim rules (absent when LHG_CC_RULES=off or the gate skipped the model). */
+  rules?: RulesResult;
 }
 
 /**
  * The one home of "should the extension show something".
  * Never a ruling: 'warn' means "may be understood as disparaging", and a
  * failed or skipped check is never reported as clean.
+ * Draft rule findings can only RAISE the level to 'warn'; they never lower it,
+ * and a rules failure (`rules.notChecked`) leaves it as it was.
  */
-export function alertFor(outcome: ExtractionOutcome): AlertLevel {
+export function alertFor(outcome: ExtractionOutcome, rules?: RulesResult): AlertLevel {
+  if (rules && rules.findings.length > 0) return 'warn';
+  return extractionAlert(outcome);
+}
+
+function extractionAlert(outcome: ExtractionOutcome): AlertLevel {
   if (outcome.status === 'not_checked') return 'not_checked';
   if (outcome.status === 'skipped_local_gate') return 'none';
   const ex = outcome.extraction;
@@ -248,6 +263,8 @@ async function handleAuthorized(
   // over-cap serialized size => ignore (documented above). Either way the
   // request stays a valid single-message check with identical shape.
   const context = pickContext(body['context']);
+  // Optional explicit answers to rule questions; invalid entries are dropped silently.
+  const confirmedFacts = pickConfirmedFacts(body['confirmedFacts']);
 
   const provider = makeProvider(env);
   if (!provider) return json({ error: 'proxy_not_configured' }, 503);
@@ -275,20 +292,29 @@ async function handleAuthorized(
     provider, catalog: FACT_CATALOG, alwaysCallProvider: (env.LHG_ALWAYS_EXTRACT ?? '1') === '1',
     ...(context ? { context } : {}),
   });
+  let rules: RulesResult | undefined;
+  if (rulesModeFromEnv(env) === 'live') {
+    rules = outcome.status === 'extracted' && outcome.extraction
+      ? runLiveRules(message, outcome.extraction, confirmedFacts, provider.modelVersion)
+      : notCheckedRules();
+  }
   const meaning = outcome.extraction?.meaning;
   const evidence =
     meaning?.evidenceExcerpt || outcome.extraction?.proposedFacts.find((f) => f.evidenceExcerpt)?.evidenceExcerpt || null;
   const res: CheckResponse = {
-    alert: alertFor(outcome),
+    alert: alertFor(outcome, rules),
     status: outcome.status,
     mechanism: meaning?.mechanism ?? null,
     evidence,
-    limitationsHe: outcome.limitationsHe,
+    limitationsHe: rules && rules.findings.length > 0
+      ? [...outcome.limitationsHe, DRAFT_RULES_LIMITATION_HE]
+      : outcome.limitationsHe,
     ms: Date.now() - started,
     gate,
     gateBy,
     ...(outcome.extraction?.analysis ? { analysis: outcome.extraction.analysis } : {}),
     contextMessages: Array.isArray(context?.recentMessages) ? context.recentMessages.length : 0,
+    ...(rules ? { rules } : {}),
   };
   return json(res);
 }
