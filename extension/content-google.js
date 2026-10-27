@@ -84,7 +84,7 @@
   if (onMailHost && IS_TOP && globalThis.LHG_COMPOSE) {
     mailCompose = globalThis.LHG_COMPOSE.createComposeWatcher({
       platform: 'gmail',
-      composeBox: gmailComposeBox,
+      composeBox: (el) => (active('gmail') ? gmailComposeBox(el) : null),
       findCompose: findGmailCompose,
       pauseMs: GMAIL_DRAFT_PAUSE_MS,
       textOf: gmailDraftText,
