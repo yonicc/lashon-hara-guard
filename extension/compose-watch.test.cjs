@@ -21,6 +21,9 @@ test('panel details: who / about whom / to whom / why, names only from localName
     document: { createElement: () => ({ style: {}, appendChild() {}, setAttribute() {} }), addEventListener() {} },
   });
   context.globalThis = context;
+  // Hebrew UI (the default is English): the expected lines are Hebrew.
+  vm.runInContext(fs.readFileSync(path.join(__dirname, 'i18n.js'), 'utf8'), context);
+  context.LHG_I18N.setLang('he', { persist: false });
   vm.runInContext(fs.readFileSync(path.join(__dirname, 'panel.js'), 'utf8'), context);
   const lines = context.LHG_PANEL.detailLines({
     analysis: {

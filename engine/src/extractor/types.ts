@@ -59,6 +59,15 @@ export interface ExtractorRequest {
    * renderer (brainSend.ts) copies only allowlisted fields, never raw keys.
    */
   context?: ExtractorContextPacket;
+  /**
+   * Optional free-text note the extension user wrote about this message
+   * (<= MAX_USER_NOTE_CHARS). Untrusted, quoted data for the explanation:
+   * never an instruction, never evidence for a proposed fact (evidence must
+   * stay a verbatim span of `text`) and never a confirmed fact.
+   */
+  userNote?: string;
+  /** Language of the user-facing analysis texts. Absent = Hebrew (unchanged). */
+  lang?: 'he' | 'en';
 }
 
 /** Canonical packet fields; partial input remains compatible with older callers.

@@ -1,38 +1,81 @@
 <!doctype html>
-<html lang="he" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title>Lashon Hara Guard — הגדרות</title>
-  <style>
-    body { font: 14px/1.5 system-ui, "Segoe UI", Arial, sans-serif; margin: 16px; min-width: 340px; }
-    label { display: block; margin-top: 10px; font-weight: 600; }
-    input { width: 100%; box-sizing: border-box; padding: 6px; direction: ltr; }
-    label.check { font-weight: normal; }
-    label.check input { width: auto; margin-left: 6px; vertical-align: middle; }
-    button { margin-top: 12px; margin-left: 8px; padding: 6px 14px; }
-    #status { margin-top: 12px; white-space: pre-wrap; }
-    .note { color: #666; font-size: 12px; margin-top: 14px; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lashon Hara Guard</title>
+  <link rel="stylesheet" href="ui.css">
 </head>
 <body>
-  <h3>Lashon Hara Guard (MVP)</h3>
-  <div>
-    <button id="openPanel">פתח את הפאנל בלשונית הנוכחית</button>
+  <div class="wrap">
+    <header class="top">
+      <div class="logo">☁️</div>
+      <div class="grow">
+        <h1 data-i18n="opt.pageTitle"></h1>
+        <p data-i18n="opt.tagline"></p>
+      </div>
+      <button class="btn soft" id="langToggle" type="button"></button>
+    </header>
+
+    <section class="card">
+      <h2 data-i18n="card.general"></h2>
+      <label class="toggle master"><span data-i18n="opt.enabled"></span><input type="checkbox" class="switch" id="enabled"></label>
+      <p class="hint" data-i18n="opt.enabledHint"></p>
+      <div class="status" id="generalStatus"></div>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="card.platforms"></h2>
+      <div class="platforms" id="platforms">
+        <label class="toggle"><span data-i18n="plat.whatsapp-web"></span><input type="checkbox" class="switch" data-platform="whatsapp-web"></label>
+        <label class="toggle"><span data-i18n="plat.gmail"></span><input type="checkbox" class="switch" data-platform="gmail"></label>
+        <label class="toggle"><span data-i18n="plat.google-chat"></span><input type="checkbox" class="switch" data-platform="google-chat"></label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="card.incoming"></h2>
+      <label class="toggle"><span data-i18n="opt.hideIncoming"></span><input type="checkbox" class="switch" id="hideIncoming"></label>
+      <p class="hint" data-i18n="opt.hideIncomingHint"></p>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="card.language"></h2>
+      <div class="seg" role="group">
+        <button type="button" data-lang="en">English</button>
+        <button type="button" data-lang="he">עברית</button>
+      </div>
+      <p class="hint" data-i18n="opt.langHint"></p>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="card.panel"></h2>
+      <div class="row">
+        <button class="btn primary" id="openPanel" type="button" data-i18n="opt.openPanel"></button>
+        <button class="btn soft" id="resetPanel" type="button" data-i18n="opt.resetPanel"></button>
+      </div>
+      <div class="status" id="tabStatus"></div>
+      <p class="hint" id="shortcut"></p>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="card.account"></h2>
+      <label class="field" for="accessKey" data-i18n="opt.accessKey"></label>
+      <input class="text" id="accessKey" type="password" autocomplete="off" placeholder="lap_... / lhg_...">
+      <label class="field" for="proxyUrl" data-i18n="opt.proxyUrl"></label>
+      <input class="text" id="proxyUrl" type="url" placeholder="https://lhg-proxy.yonicc.workers.dev">
+      <div class="row">
+        <button class="btn primary" id="save" type="button" data-i18n="opt.save"></button>
+        <button class="btn" id="test" type="button" data-i18n="opt.test"></button>
+      </div>
+      <div class="status" id="status"></div>
+      <p class="hint"><a href="https://lhg.ysho.uk" target="_blank" rel="noopener noreferrer" data-i18n="opt.accountLink"></a></p>
+    </section>
+
+    <footer class="note" data-i18n="opt.footer"></footer>
   </div>
-  <div id="tabStatus"></div>
-  <div id="shortcut" class="note"></div>
-  <label for="accessKey">מפתח גישה</label>
-  <input id="accessKey" type="password" autocomplete="off" placeholder="lhg_...">
-  <label for="proxyUrl">כתובת שרת הבדיקה</label>
-  <input id="proxyUrl" type="url" placeholder="https://lhg-proxy.yonicc.workers.dev">
-  <label class="check"><input id="hideIncoming" type="checkbox" checked> הסתר הודעות צ׳אט נכנסות עד שייבדקו</label>
-  <div class="note">הודעה שעלולה להתפרש כגנאי, או שלא נבדקה, נשארת מוסתרת עד שתלחץ ״הצג״. הודעות דוא״ל אינן מוסתרות.</div>
-  <div>
-    <button id="save">שמור</button>
-    <button id="test">בדיקת חיבור</button>
-  </div>
-  <div id="status"></div>
-  <div class="note">התוסף מציג תזכורת בלבד ואינו חוסם שליחה. אינו פסיקה הלכתית.</div>
+  <script src="i18n.js"></script>
+  <script src="settings.js"></script>
   <script src="options.js"></script>
 </body>
 </html>

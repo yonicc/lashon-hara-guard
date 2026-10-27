@@ -81,7 +81,8 @@ function setup(reply, { conv = 'whatsapp-web:שיחה סינתטית' } = {}) {
     conversationKey: () => conv,
     send: (msg, cb) => ctx.chrome.runtime.sendMessage(msg, cb),
   };
-  for (const f of ['rules.js', 'panel.js']) vm.runInContext(fs.readFileSync(path.join(__dirname, f), 'utf8'), ctx);
+  for (const f of ['i18n.js', 'rules.js', 'panel.js']) vm.runInContext(fs.readFileSync(path.join(__dirname, f), 'utf8'), ctx);
+  ctx.LHG_I18N.setLang('he', { persist: false }); // these assertions read Hebrew texts
   const panel = () => all(body).find((n) => n.id === 'lhg-panel') || body.children[0];
   return { ctx, body, store, calls, panel, P: ctx.LHG_PANEL, R: ctx.LHG_RULES };
 }

@@ -5,14 +5,18 @@ const DEFAULT_PROXY = 'https://lhg-proxy.yonicc.workers.dev';
 const TIMEOUT_MS = 25000;
 
 async function settings() {
-  const s = await chrome.storage.local.get(['proxyUrl', 'accessKey']);
-  return { proxyUrl: (s.proxyUrl || DEFAULT_PROXY).replace(/\/+$/, ''), accessKey: s.accessKey || '' };
+  const I = globalThis.LHG_I18N;
+  const s = await chrome.storage.local.get(['proxyUrl', 'accessKey', I ? I.STORE_KEY : 'lhgLang']);
+  // The explanation language follows the UI language (i18n.js is its one home).
+  const lang = I ? I.normalize(s[I.STORE_KEY]) || I.DEFAULT_LANG : 'en';
+  return { proxyUrl: (s.proxyUrl || DEFAULT_PROXY).replace(/\/+$/, ''), accessKey: s.accessKey || '', lang };
 }
 
 // Draft-rules answers (docs/18 wire contract): { factId: true|false|null },
 // at most 20 — one definition, LHG_RULES.sanitize in rules.js (shared with
 // the content scripts). The proxy validates again against its catalog.
 try { if (typeof importScripts === 'function') importScripts('rules.js'); } catch (_e) { /* tests */ }
+try { if (typeof importScripts === 'function') importScripts('i18n.js'); } catch (_e) { /* tests */ }
 function confirmedFactsOf(raw) {
   const R = globalThis.LHG_RULES;
   if (!R || !raw) return null;
@@ -20,8 +24,14 @@ function confirmedFactsOf(raw) {
   return Object.keys(out).length ? out : null;
 }
 
-async function check(text, platform, direction, context, confirmedFacts) {
-  const { proxyUrl, accessKey } = await settings();
+// Free-text note (POST /check `userNote`): one line, capped (LHG_RULES.userNote).
+function userNoteOf(raw) {
+  const R = globalThis.LHG_RULES;
+  return R && typeof R.userNote === 'function' ? R.userNote(raw) : null;
+}
+
+async function check(text, platform, direction, context, confirmedFacts, userNote) {
+  const { proxyUrl, accessKey, lang } = await settings();
   if (!accessKey) return { alert: 'not_configured' };
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), TIMEOUT_MS);
@@ -33,6 +43,8 @@ async function check(text, platform, direction, context, confirmedFacts) {
         text, platform, direction: direction === 'incoming' ? 'incoming' : 'outgoing',
         ...(context ? { context } : {}),
         ...(confirmedFacts ? { confirmedFacts } : {}),
+        ...(userNote ? { userNote } : {}),
+        lang,
       }),
       signal: ctrl.signal,
     });
@@ -70,7 +82,8 @@ if (chrome.commands && chrome.commands.onCommand) {
 
 chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
   if (msg && msg.type === 'lhg-check' && typeof msg.text === 'string') {
-    check(msg.text, msg.platform || 'unknown', msg.direction, msg.context, confirmedFactsOf(msg.confirmedFacts)).then(sendResponse);
+    check(msg.text, msg.platform || 'unknown', msg.direction, msg.context, confirmedFactsOf(msg.confirmedFacts), userNoteOf(msg.userNote))
+      .then(sendResponse);
     return true; // async response
   }
   if (msg && msg.type === 'lhg-warm') {

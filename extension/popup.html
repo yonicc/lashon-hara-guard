@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Lashon Hara Guard</title>
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body class="popup">
+  <header class="top">
+    <div class="logo">☁️</div>
+    <div class="grow"><h1 data-i18n="brand"></h1></div>
+    <button class="btn soft" id="langToggle" type="button"></button>
+  </header>
+
+  <section class="card">
+    <label class="toggle master"><span data-i18n="opt.enabled"></span><input type="checkbox" class="switch" id="enabled"></label>
+    <div class="status" id="generalStatus"></div>
+  </section>
+
+  <section class="card">
+    <div class="platforms" id="platforms">
+      <label class="toggle"><span>WhatsApp Web</span><input type="checkbox" class="switch" data-platform="whatsapp-web"></label>
+      <label class="toggle"><span>Gmail</span><input type="checkbox" class="switch" data-platform="gmail"></label>
+      <label class="toggle"><span>Google Chat</span><input type="checkbox" class="switch" data-platform="google-chat"></label>
+    </div>
+    <label class="toggle"><span data-i18n="opt.hideIncoming"></span><input type="checkbox" class="switch" id="hideIncoming"></label>
+  </section>
+
+  <div class="row">
+    <button class="btn primary" id="openPanel" type="button" data-i18n="opt.openPanel"></button>
+    <button class="btn soft" id="openOptions" type="button" data-i18n="opt.allSettings"></button>
+  </div>
+  <div class="status" id="tabStatus"></div>
+  <p class="hint" id="shortcut"></p>
+  <script src="i18n.js"></script>
+  <script src="settings.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>
