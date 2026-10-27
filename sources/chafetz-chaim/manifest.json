@@ -1,0 +1,1456 @@
+{
+ "source": "Sefaria (https://www.sefaria.org)",
+ "license": "CC-BY-SA",
+ "status": "source_text_only_no_rulings",
+ "principles": [
+  {
+   "key": "p1_prin1",
+   "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 1",
+   "heRef": "חפץ חיים, חלק ראשון: הלכות איסורי לשון הרע, כלל א",
+   "license": "CC-BY-SA",
+   "version": "Chofetz Chaim",
+   "raw_sha256": "3a027b88c19095950312b73012ec49bf6ba7f0cfa9d3a476d435200540567253",
+   "seif_count": 9,
+   "seifim": [
+    {
+     "n": 1,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 1:1",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_1:1",
+     "chars": 439,
+     "sha256": "b8cd2ecd25e112c0"
+    },
+    {
+     "n": 2,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 1:2",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_1:2",
+     "chars": 313,
+     "sha256": "f2d44cdc162f52a1"
+    },
+    {
+     "n": 3,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 1:3",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_1:3",
+     "chars": 695,
+     "sha256": "729d30686f6fb483"
+    },
+    {
+     "n": 4,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 1:4",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_1:4",
+     "chars": 459,
+     "sha256": "f1f15607167893e1"
+    },
+    {
+     "n": 5,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 1:5",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_1:5",
+     "chars": 512,
+     "sha256": "22ad5d73acb1adc1"
+    },
+    {
+     "n": 6,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 1:6",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_1:6",
+     "chars": 818,
+     "sha256": "4222d6798b360840"
+    },
+    {
+     "n": 7,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 1:7",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_1:7",
+     "chars": 1447,
+     "sha256": "1517848781ce44ef"
+    },
+    {
+     "n": 8,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 1:8",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_1:8",
+     "chars": 363,
+     "sha256": "5529b535b4f8a3d4"
+    },
+    {
+     "n": 9,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 1:9",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_1:9",
+     "chars": 261,
+     "sha256": "f3a37602687b060f"
+    }
+   ]
+  },
+  {
+   "key": "p1_prin2",
+   "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 2",
+   "heRef": "חפץ חיים, חלק ראשון: הלכות איסורי לשון הרע, כלל ב",
+   "license": "CC-BY-SA",
+   "version": "Chofetz Chaim",
+   "raw_sha256": "97fc021f85bb83f905a5180023821ce9fc3b8c1e7bb146dccfd1f87358803cea",
+   "seif_count": 13,
+   "seifim": [
+    {
+     "n": 1,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 2:1",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_2:1",
+     "chars": 401,
+     "sha256": "46524576164dc8ce"
+    },
+    {
+     "n": 2,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 2:2",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_2:2",
+     "chars": 1708,
+     "sha256": "312c2e3b332ec2d4"
+    },
+    {
+     "n": 3,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 2:3",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_2:3",
+     "chars": 918,
+     "sha256": "89a5a1bcdbdff2c8"
+    },
+    {
+     "n": 4,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 2:4",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_2:4",
+     "chars": 1228,
+     "sha256": "e96ba000a53a3927"
+    },
+    {
+     "n": 5,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 2:5",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_2:5",
+     "chars": 718,
+     "sha256": "f66aae2dd8e8ebe1"
+    },
+    {
+     "n": 6,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 2:6",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_2:6",
+     "chars": 237,
+     "sha256": "c275071b2cef931e"
+    },
+    {
+     "n": 7,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 2:7",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_2:7",
+     "chars": 433,
+     "sha256": "851f1735be770b27"
+    },
+    {
+     "n": 8,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 2:8",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_2:8",
+     "chars": 946,
+     "sha256": "ea6d186c204f01c7"
+    },
+    {
+     "n": 9,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 2:9",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_2:9",
+     "chars": 1756,
+     "sha256": "c33fabe8413fa4cf"
+    },
+    {
+     "n": 10,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 2:10",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_2:10",
+     "chars": 1174,
+     "sha256": "66ad8eb0cc8384a9"
+    },
+    {
+     "n": 11,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 2:11",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_2:11",
+     "chars": 1674,
+     "sha256": "b333568aa91915eb"
+    },
+    {
+     "n": 12,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 2:12",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_2:12",
+     "chars": 5579,
+     "sha256": "07e75b26700c672c"
+    },
+    {
+     "n": 13,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 2:13",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_2:13",
+     "chars": 639,
+     "sha256": "09990e09f1314936"
+    }
+   ]
+  },
+  {
+   "key": "p1_prin3",
+   "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 3",
+   "heRef": "חפץ חיים, חלק ראשון: הלכות איסורי לשון הרע, כלל ג",
+   "license": "CC-BY-SA",
+   "version": "Chofetz Chaim",
+   "raw_sha256": "f0cadff664d0358b82942e0601648a01ded7e61245ff77fde3eca6e970b93949",
+   "seif_count": 8,
+   "seifim": [
+    {
+     "n": 1,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 3:1",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_3:1",
+     "chars": 930,
+     "sha256": "d2d63acd8ba7bf68"
+    },
+    {
+     "n": 2,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 3:2",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_3:2",
+     "chars": 1300,
+     "sha256": "c500d49f977d2268"
+    },
+    {
+     "n": 3,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 3:3",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_3:3",
+     "chars": 282,
+     "sha256": "459aa6c1e27efbcd"
+    },
+    {
+     "n": 4,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 3:4",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_3:4",
+     "chars": 593,
+     "sha256": "035c92f04a7d32b4"
+    },
+    {
+     "n": 5,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 3:5",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_3:5",
+     "chars": 327,
+     "sha256": "0846da73194d12d6"
+    },
+    {
+     "n": 6,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 3:6",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_3:6",
+     "chars": 434,
+     "sha256": "58e5999b89981296"
+    },
+    {
+     "n": 7,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 3:7",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_3:7",
+     "chars": 1199,
+     "sha256": "86b93e573c2f55a8"
+    },
+    {
+     "n": 8,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 3:8",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_3:8",
+     "chars": 535,
+     "sha256": "fb720cd86ce85bf0"
+    }
+   ]
+  },
+  {
+   "key": "p1_prin4",
+   "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 4",
+   "heRef": "חפץ חיים, חלק ראשון: הלכות איסורי לשון הרע, כלל ד",
+   "license": "CC-BY-SA",
+   "version": "Chofetz Chaim",
+   "raw_sha256": "62359aebe8e0b63984f197bcec4f07c677237627e7166c66ab4c3f42cb6e7d64",
+   "seif_count": 12,
+   "seifim": [
+    {
+     "n": 1,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 4:1",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_4:1",
+     "chars": 1129,
+     "sha256": "69eabdbf6fe1f651"
+    },
+    {
+     "n": 2,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 4:2",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_4:2",
+     "chars": 1204,
+     "sha256": "8a7971a57257da75"
+    },
+    {
+     "n": 3,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 4:3",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_4:3",
+     "chars": 810,
+     "sha256": "490016f0dee74a43"
+    },
+    {
+     "n": 4,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 4:4",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_4:4",
+     "chars": 2804,
+     "sha256": "48b1f5d41288c745"
+    },
+    {
+     "n": 5,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 4:5",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_4:5",
+     "chars": 1790,
+     "sha256": "ac9c58b2cd32cc5f"
+    },
+    {
+     "n": 6,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 4:6",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_4:6",
+     "chars": 888,
+     "sha256": "16962343ce139d1a"
+    },
+    {
+     "n": 7,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 4:7",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_4:7",
+     "chars": 1741,
+     "sha256": "bd68e2c126047c8f"
+    },
+    {
+     "n": 8,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 4:8",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_4:8",
+     "chars": 702,
+     "sha256": "5721c6789841be4e"
+    },
+    {
+     "n": 9,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 4:9",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_4:9",
+     "chars": 1696,
+     "sha256": "6ab284f16a248e4e"
+    },
+    {
+     "n": 10,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 4:10",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_4:10",
+     "chars": 1256,
+     "sha256": "21af3b17904cb038"
+    },
+    {
+     "n": 11,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 4:11",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_4:11",
+     "chars": 5571,
+     "sha256": "2bee27311828bb3f"
+    },
+    {
+     "n": 12,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 4:12",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_4:12",
+     "chars": 2089,
+     "sha256": "4010714ae0ea9e68"
+    }
+   ]
+  },
+  {
+   "key": "p1_prin5",
+   "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 5",
+   "heRef": "חפץ חיים, חלק ראשון: הלכות איסורי לשון הרע, כלל ה",
+   "license": "CC-BY-SA",
+   "version": "Chofetz Chaim",
+   "raw_sha256": "dfe87c6e96eddd4d882bc4878056bdbcbdcd74aad246e76647bd0b1c5c03d2d2",
+   "seif_count": 8,
+   "seifim": [
+    {
+     "n": 1,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 5:1",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_5:1",
+     "chars": 2024,
+     "sha256": "5bcb6061c2921233"
+    },
+    {
+     "n": 2,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 5:2",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_5:2",
+     "chars": 3832,
+     "sha256": "b5b136417f7697ee"
+    },
+    {
+     "n": 3,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 5:3",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_5:3",
+     "chars": 2668,
+     "sha256": "ce98c1419297abfc"
+    },
+    {
+     "n": 4,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 5:4",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_5:4",
+     "chars": 1915,
+     "sha256": "965b60b7d16b57f7"
+    },
+    {
+     "n": 5,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 5:5",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_5:5",
+     "chars": 1354,
+     "sha256": "289b72c11703be31"
+    },
+    {
+     "n": 6,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 5:6",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_5:6",
+     "chars": 2783,
+     "sha256": "b658028627f58ce4"
+    },
+    {
+     "n": 7,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 5:7",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_5:7",
+     "chars": 343,
+     "sha256": "017ed0a2bc99a8fd"
+    },
+    {
+     "n": 8,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 5:8",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_5:8",
+     "chars": 514,
+     "sha256": "83f01e1670eadffa"
+    }
+   ]
+  },
+  {
+   "key": "p1_prin6",
+   "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 6",
+   "heRef": "חפץ חיים, חלק ראשון: הלכות איסורי לשון הרע, כלל ו",
+   "license": "CC-BY-SA",
+   "version": "Chofetz Chaim",
+   "raw_sha256": "0a1e4cdb290fe8856887aded11528af389a0e460c174003d6f18c2812e56ffa5",
+   "seif_count": 12,
+   "seifim": [
+    {
+     "n": 1,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 6:1",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_6:1",
+     "chars": 948,
+     "sha256": "b001c2cca92a87de"
+    },
+    {
+     "n": 2,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 6:2",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_6:2",
+     "chars": 1557,
+     "sha256": "91829e2e325781ca"
+    },
+    {
+     "n": 3,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 6:3",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_6:3",
+     "chars": 1639,
+     "sha256": "5d2b0e7a7b1f4f1f"
+    },
+    {
+     "n": 4,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 6:4",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_6:4",
+     "chars": 1604,
+     "sha256": "9cddf1a44c95f00b"
+    },
+    {
+     "n": 5,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 6:5",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_6:5",
+     "chars": 1688,
+     "sha256": "5e48404d93d09659"
+    },
+    {
+     "n": 6,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 6:6",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_6:6",
+     "chars": 1348,
+     "sha256": "269a8d840db76396"
+    },
+    {
+     "n": 7,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 6:7",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_6:7",
+     "chars": 844,
+     "sha256": "cdeedec0e2f8ea84"
+    },
+    {
+     "n": 8,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 6:8",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_6:8",
+     "chars": 4131,
+     "sha256": "1419a34cef8db562"
+    },
+    {
+     "n": 9,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 6:9",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_6:9",
+     "chars": 932,
+     "sha256": "93133af17bc02cbb"
+    },
+    {
+     "n": 10,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 6:10",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_6:10",
+     "chars": 1744,
+     "sha256": "17a602983663ed30"
+    },
+    {
+     "n": 11,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 6:11",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_6:11",
+     "chars": 1862,
+     "sha256": "ec5abaea5eb07cea"
+    },
+    {
+     "n": 12,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 6:12",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_6:12",
+     "chars": 521,
+     "sha256": "cba3d46eba9718e2"
+    }
+   ]
+  },
+  {
+   "key": "p1_prin7",
+   "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 7",
+   "heRef": "חפץ חיים, חלק ראשון: הלכות איסורי לשון הרע, כלל ז",
+   "license": "CC-BY-SA",
+   "version": "Chofetz Chaim",
+   "raw_sha256": "ff1a7405126112f8f0ee45659b7eb6bc2fd5babaca9cce908326e39a083e5e2d",
+   "seif_count": 14,
+   "seifim": [
+    {
+     "n": 1,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 7:1",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_7:1",
+     "chars": 318,
+     "sha256": "5e175f983a71ef71"
+    },
+    {
+     "n": 2,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 7:2",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_7:2",
+     "chars": 1257,
+     "sha256": "8106fabc072d6fc6"
+    },
+    {
+     "n": 3,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 7:3",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_7:3",
+     "chars": 1233,
+     "sha256": "a977b5d97c84cd9a"
+    },
+    {
+     "n": 4,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 7:4",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_7:4",
+     "chars": 511,
+     "sha256": "c3b10bd4c3007889"
+    },
+    {
+     "n": 5,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 7:5",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_7:5",
+     "chars": 338,
+     "sha256": "7619d730e5199ab9"
+    },
+    {
+     "n": 6,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 7:6",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_7:6",
+     "chars": 210,
+     "sha256": "c3e7f340e7f7b574"
+    },
+    {
+     "n": 7,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 7:7",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_7:7",
+     "chars": 2775,
+     "sha256": "1518ccb913cb8fc1"
+    },
+    {
+     "n": 8,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 7:8",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_7:8",
+     "chars": 703,
+     "sha256": "1bff241b796d59a6"
+    },
+    {
+     "n": 9,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 7:9",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_7:9",
+     "chars": 1050,
+     "sha256": "d89db9344176fa6e"
+    },
+    {
+     "n": 10,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 7:10",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_7:10",
+     "chars": 889,
+     "sha256": "03a78daf65c9b826"
+    },
+    {
+     "n": 11,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 7:11",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_7:11",
+     "chars": 348,
+     "sha256": "bb2aefae4a775cd6"
+    },
+    {
+     "n": 12,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 7:12",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_7:12",
+     "chars": 594,
+     "sha256": "1fbf669275cd3616"
+    },
+    {
+     "n": 13,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 7:13",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_7:13",
+     "chars": 585,
+     "sha256": "4de0446b1928ceee"
+    },
+    {
+     "n": 14,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 7:14",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_7:14",
+     "chars": 911,
+     "sha256": "f51386ca7abcd191"
+    }
+   ]
+  },
+  {
+   "key": "p1_prin8",
+   "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 8",
+   "heRef": "חפץ חיים, חלק ראשון: הלכות איסורי לשון הרע, כלל ח",
+   "license": "CC-BY-SA",
+   "version": "Chofetz Chaim",
+   "raw_sha256": "632106b9c2851ac966efa506a993f150c61c51c357559889ba4b5ac671d3d7b3",
+   "seif_count": 14,
+   "seifim": [
+    {
+     "n": 1,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 8:1",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_8:1",
+     "chars": 689,
+     "sha256": "4150360859be8e9c"
+    },
+    {
+     "n": 2,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 8:2",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_8:2",
+     "chars": 610,
+     "sha256": "3d6ceceb00cb79ac"
+    },
+    {
+     "n": 3,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 8:3",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_8:3",
+     "chars": 939,
+     "sha256": "c85552d4b4eef3f3"
+    },
+    {
+     "n": 4,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 8:4",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_8:4",
+     "chars": 1910,
+     "sha256": "a687cfd2c3256fe4"
+    },
+    {
+     "n": 5,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 8:5",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_8:5",
+     "chars": 962,
+     "sha256": "5244a0ca02f89c21"
+    },
+    {
+     "n": 6,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 8:6",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_8:6",
+     "chars": 587,
+     "sha256": "77e497dda4d1e07f"
+    },
+    {
+     "n": 7,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 8:7",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_8:7",
+     "chars": 1154,
+     "sha256": "619e5525d4ff040b"
+    },
+    {
+     "n": 8,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 8:8",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_8:8",
+     "chars": 1376,
+     "sha256": "4bf4cbf93a5c6530"
+    },
+    {
+     "n": 9,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 8:9",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_8:9",
+     "chars": 568,
+     "sha256": "f3aba0a23a029d8f"
+    },
+    {
+     "n": 10,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 8:10",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_8:10",
+     "chars": 1889,
+     "sha256": "b2a27f6623525492"
+    },
+    {
+     "n": 11,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 8:11",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_8:11",
+     "chars": 517,
+     "sha256": "e8f316708c851c7c"
+    },
+    {
+     "n": 12,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 8:12",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_8:12",
+     "chars": 1574,
+     "sha256": "fe7d956ed254528d"
+    },
+    {
+     "n": 13,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 8:13",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_8:13",
+     "chars": 1754,
+     "sha256": "5ac25389f9dbcf94"
+    },
+    {
+     "n": 14,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 8:14",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_8:14",
+     "chars": 1451,
+     "sha256": "d1ee6055e708d149"
+    }
+   ]
+  },
+  {
+   "key": "p1_prin9",
+   "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 9",
+   "heRef": "חפץ חיים, חלק ראשון: הלכות איסורי לשון הרע, כלל ט",
+   "license": "CC-BY-SA",
+   "version": "Chofetz Chaim",
+   "raw_sha256": "01190bfc9dad52fb5da6a10534275b79326579fa3ed2a3cb0f5f8e443ccfef9a",
+   "seif_count": 6,
+   "seifim": [
+    {
+     "n": 1,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 9:1",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_9:1",
+     "chars": 896,
+     "sha256": "5b1257f3b32aa207"
+    },
+    {
+     "n": 2,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 9:2",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_9:2",
+     "chars": 673,
+     "sha256": "5db48193a9abd632"
+    },
+    {
+     "n": 3,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 9:3",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_9:3",
+     "chars": 1209,
+     "sha256": "575c20b57a811bc2"
+    },
+    {
+     "n": 4,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 9:4",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_9:4",
+     "chars": 1822,
+     "sha256": "04ccbdf2cd3088da"
+    },
+    {
+     "n": 5,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 9:5",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_9:5",
+     "chars": 1038,
+     "sha256": "5ef9d57630d91a3f"
+    },
+    {
+     "n": 6,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 9:6",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_9:6",
+     "chars": 203,
+     "sha256": "2f300c0b3b4c41a8"
+    }
+   ]
+  },
+  {
+   "key": "p1_prin10",
+   "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10",
+   "heRef": "חפץ חיים, חלק ראשון: הלכות איסורי לשון הרע, כלל י",
+   "license": "CC-BY-SA",
+   "version": "Chofetz Chaim",
+   "raw_sha256": "a20320aced525d7ff6ff4c24df435a9ae5aaed4c4fea738b33c3ac086ebb555d",
+   "seif_count": 17,
+   "seifim": [
+    {
+     "n": 1,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:1",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:1",
+     "chars": 638,
+     "sha256": "65a0504cb82a9d76"
+    },
+    {
+     "n": 2,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:2",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:2",
+     "chars": 1433,
+     "sha256": "9ca01362d129d1d8"
+    },
+    {
+     "n": 3,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:3",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:3",
+     "chars": 820,
+     "sha256": "216b92838b13586d"
+    },
+    {
+     "n": 4,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:4",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:4",
+     "chars": 3013,
+     "sha256": "36210c0be6c698b7"
+    },
+    {
+     "n": 5,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:5",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:5",
+     "chars": 882,
+     "sha256": "2a4202b9407ad273"
+    },
+    {
+     "n": 6,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:6",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:6",
+     "chars": 1723,
+     "sha256": "fef2ee72defafb1c"
+    },
+    {
+     "n": 7,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:7",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:7",
+     "chars": 1933,
+     "sha256": "0ce597458334976c"
+    },
+    {
+     "n": 8,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:8",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:8",
+     "chars": 258,
+     "sha256": "ce0baee22f929211"
+    },
+    {
+     "n": 9,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:9",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:9",
+     "chars": 821,
+     "sha256": "98cfbd32f04ff27b"
+    },
+    {
+     "n": 10,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:10",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:10",
+     "chars": 534,
+     "sha256": "f951210804a5549c"
+    },
+    {
+     "n": 11,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:11",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:11",
+     "chars": 1160,
+     "sha256": "14c7c9bb9f8badca"
+    },
+    {
+     "n": 12,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:12",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:12",
+     "chars": 1150,
+     "sha256": "f2b79594029e3109"
+    },
+    {
+     "n": 13,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:13",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:13",
+     "chars": 1514,
+     "sha256": "a54ab64928668b8d"
+    },
+    {
+     "n": 14,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:14",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:14",
+     "chars": 3408,
+     "sha256": "1117b5241e74ff3c"
+    },
+    {
+     "n": 15,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:15",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:15",
+     "chars": 849,
+     "sha256": "0ed7879c5e8ec242"
+    },
+    {
+     "n": 16,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:16",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:16",
+     "chars": 816,
+     "sha256": "a38cb214257330de"
+    },
+    {
+     "n": 17,
+     "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:17",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:17",
+     "chars": 1383,
+     "sha256": "257e25ec37d6258b"
+    }
+   ]
+  },
+  {
+   "key": "p2_prin1",
+   "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 1",
+   "heRef": "חפץ חיים, חלק שני: הלכות איסורי רכילות, כלל א",
+   "license": "CC-BY-SA",
+   "version": "Chofetz Chaim",
+   "raw_sha256": "9a47bf6241ee1700a466a5b38dfc2bd50747c25e401528822ef85ddb1b1280e1",
+   "seif_count": 11,
+   "seifim": [
+    {
+     "n": 1,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 1:1",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_1:1",
+     "chars": 552,
+     "sha256": "9bb67dfda4405073"
+    },
+    {
+     "n": 2,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 1:2",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_1:2",
+     "chars": 572,
+     "sha256": "5f4ee5bf16a652d8"
+    },
+    {
+     "n": 3,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 1:3",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_1:3",
+     "chars": 594,
+     "sha256": "832a3ea4c920ff65"
+    },
+    {
+     "n": 4,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 1:4",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_1:4",
+     "chars": 672,
+     "sha256": "1e628b1e6f193776"
+    },
+    {
+     "n": 5,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 1:5",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_1:5",
+     "chars": 455,
+     "sha256": "2c2714cfe21ba6e6"
+    },
+    {
+     "n": 6,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 1:6",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_1:6",
+     "chars": 842,
+     "sha256": "e57ff9885cab2c1c"
+    },
+    {
+     "n": 7,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 1:7",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_1:7",
+     "chars": 696,
+     "sha256": "2eafbbd1b628cb0a"
+    },
+    {
+     "n": 8,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 1:8",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_1:8",
+     "chars": 467,
+     "sha256": "7afdf3b41d434d44"
+    },
+    {
+     "n": 9,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 1:9",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_1:9",
+     "chars": 451,
+     "sha256": "21aee79c02cb7d35"
+    },
+    {
+     "n": 10,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 1:10",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_1:10",
+     "chars": 661,
+     "sha256": "281a5eed22af3c18"
+    },
+    {
+     "n": 11,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 1:11",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_1:11",
+     "chars": 445,
+     "sha256": "c94cba49e338eba5"
+    }
+   ]
+  },
+  {
+   "key": "p2_prin2",
+   "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 2",
+   "heRef": "חפץ חיים, חלק שני: הלכות איסורי רכילות, כלל ב",
+   "license": "CC-BY-SA",
+   "version": "Chofetz Chaim",
+   "raw_sha256": "25505608d9ffa0e203eb01e59b3106452a8bf7bbc8481bc13eebebfd674385ff",
+   "seif_count": 4,
+   "seifim": [
+    {
+     "n": 1,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 2:1",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_2:1",
+     "chars": 88,
+     "sha256": "72818d1ce85c3c39"
+    },
+    {
+     "n": 2,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 2:2",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_2:2",
+     "chars": 967,
+     "sha256": "ab9d1fe6946e0624"
+    },
+    {
+     "n": 3,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 2:3",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_2:3",
+     "chars": 829,
+     "sha256": "dda087ba1a1b2c25"
+    },
+    {
+     "n": 4,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 2:4",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_2:4",
+     "chars": 909,
+     "sha256": "cee599494749c59a"
+    }
+   ]
+  },
+  {
+   "key": "p2_prin3",
+   "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 3",
+   "heRef": "חפץ חיים, חלק שני: הלכות איסורי רכילות, כלל ג",
+   "license": "CC-BY-SA",
+   "version": "Chofetz Chaim",
+   "raw_sha256": "bec4fc7b7bd6353c903082d9e0d452fe051da9407ae2850f50d8da1fe0d5fa5f",
+   "seif_count": 4,
+   "seifim": [
+    {
+     "n": 1,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 3:1",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_3:1",
+     "chars": 968,
+     "sha256": "612d2557fa8e595e"
+    },
+    {
+     "n": 2,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 3:2",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_3:2",
+     "chars": 547,
+     "sha256": "03965173a6407a51"
+    },
+    {
+     "n": 3,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 3:3",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_3:3",
+     "chars": 833,
+     "sha256": "872cc5fc6241fa95"
+    },
+    {
+     "n": 4,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 3:4",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_3:4",
+     "chars": 179,
+     "sha256": "fb1a4033f30b4230"
+    }
+   ]
+  },
+  {
+   "key": "p2_prin4",
+   "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 4",
+   "heRef": "חפץ חיים, חלק שני: הלכות איסורי רכילות, כלל ד",
+   "license": "CC-BY-SA",
+   "version": "Chofetz Chaim",
+   "raw_sha256": "1514ecd65fe050f932112201820e6837645b5bc50a7bd0ccef53298210a2a573",
+   "seif_count": 3,
+   "seifim": [
+    {
+     "n": 1,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 4:1",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_4:1",
+     "chars": 736,
+     "sha256": "075b795acd83ea4d"
+    },
+    {
+     "n": 2,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 4:2",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_4:2",
+     "chars": 891,
+     "sha256": "7b2d98ab368cd474"
+    },
+    {
+     "n": 3,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 4:3",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_4:3",
+     "chars": 392,
+     "sha256": "3ef1b3480b49b6e1"
+    }
+   ]
+  },
+  {
+   "key": "p2_prin5",
+   "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 5",
+   "heRef": "חפץ חיים, חלק שני: הלכות איסורי רכילות, כלל ה",
+   "license": "CC-BY-SA",
+   "version": "Chofetz Chaim",
+   "raw_sha256": "1c27a6a57c7aa4220015faf967672fd3fc9f4966b89ec9e20b9be5e62bdba763",
+   "seif_count": 7,
+   "seifim": [
+    {
+     "n": 1,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 5:1",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_5:1",
+     "chars": 1034,
+     "sha256": "f286011171686e06"
+    },
+    {
+     "n": 2,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 5:2",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_5:2",
+     "chars": 1123,
+     "sha256": "ca4dd67205be6d1e"
+    },
+    {
+     "n": 3,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 5:3",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_5:3",
+     "chars": 438,
+     "sha256": "404a1ff4ef42636f"
+    },
+    {
+     "n": 4,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 5:4",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_5:4",
+     "chars": 1242,
+     "sha256": "6c65206aa4385879"
+    },
+    {
+     "n": 5,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 5:5",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_5:5",
+     "chars": 1442,
+     "sha256": "8d3045378d1b7684"
+    },
+    {
+     "n": 6,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 5:6",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_5:6",
+     "chars": 914,
+     "sha256": "41f5a474181772f5"
+    },
+    {
+     "n": 7,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 5:7",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_5:7",
+     "chars": 647,
+     "sha256": "e60a401a318f3fbd"
+    }
+   ]
+  },
+  {
+   "key": "p2_prin6",
+   "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 6",
+   "heRef": "חפץ חיים, חלק שני: הלכות איסורי רכילות, כלל ו",
+   "license": "CC-BY-SA",
+   "version": "Chofetz Chaim",
+   "raw_sha256": "1a5017848b2f821418061988dcd5de9e181f832f05c3dca662b3593abf4e661c",
+   "seif_count": 10,
+   "seifim": [
+    {
+     "n": 1,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 6:1",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_6:1",
+     "chars": 266,
+     "sha256": "038e1f258f452d60"
+    },
+    {
+     "n": 2,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 6:2",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_6:2",
+     "chars": 1702,
+     "sha256": "018e46d8370c41f7"
+    },
+    {
+     "n": 3,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 6:3",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_6:3",
+     "chars": 4518,
+     "sha256": "dca3218c48c85632"
+    },
+    {
+     "n": 4,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 6:4",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_6:4",
+     "chars": 434,
+     "sha256": "9a16df392f5c5256"
+    },
+    {
+     "n": 5,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 6:5",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_6:5",
+     "chars": 822,
+     "sha256": "c8c22bf372f831f9"
+    },
+    {
+     "n": 6,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 6:6",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_6:6",
+     "chars": 1052,
+     "sha256": "c4b55618fa2728ad"
+    },
+    {
+     "n": 7,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 6:7",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_6:7",
+     "chars": 792,
+     "sha256": "0e510bb0d62be367"
+    },
+    {
+     "n": 8,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 6:8",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_6:8",
+     "chars": 345,
+     "sha256": "01794a8414cddfc4"
+    },
+    {
+     "n": 9,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 6:9",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_6:9",
+     "chars": 1618,
+     "sha256": "b58f13c1320354b7"
+    },
+    {
+     "n": 10,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 6:10",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_6:10",
+     "chars": 1519,
+     "sha256": "2e04ed78d75bf676"
+    }
+   ]
+  },
+  {
+   "key": "p2_prin7",
+   "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 7",
+   "heRef": "חפץ חיים, חלק שני: הלכות איסורי רכילות, כלל ז",
+   "license": "CC-BY-SA",
+   "version": "Chofetz Chaim",
+   "raw_sha256": "17adf5043114b02897b8f36a583269191b61b91356c922e731078390baf3f66f",
+   "seif_count": 5,
+   "seifim": [
+    {
+     "n": 1,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 7:1",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_7:1",
+     "chars": 1842,
+     "sha256": "bbf0f033ec5ebd95"
+    },
+    {
+     "n": 2,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 7:2",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_7:2",
+     "chars": 1853,
+     "sha256": "e612d5c71407dbe4"
+    },
+    {
+     "n": 3,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 7:3",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_7:3",
+     "chars": 382,
+     "sha256": "490a445c1eb53c31"
+    },
+    {
+     "n": 4,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 7:4",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_7:4",
+     "chars": 946,
+     "sha256": "b7844d65cb189b6a"
+    },
+    {
+     "n": 5,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 7:5",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_7:5",
+     "chars": 798,
+     "sha256": "8aeca75d40053570"
+    }
+   ]
+  },
+  {
+   "key": "p2_prin8",
+   "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 8",
+   "heRef": "חפץ חיים, חלק שני: הלכות איסורי רכילות, כלל ח",
+   "license": "CC-BY-SA",
+   "version": "Chofetz Chaim",
+   "raw_sha256": "6757cf6a267cd8350e1c4ee96bc319d091d89066d93369371c3181fadcb93bfb",
+   "seif_count": 5,
+   "seifim": [
+    {
+     "n": 1,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 8:1",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_8:1",
+     "chars": 452,
+     "sha256": "ea102220c54740f7"
+    },
+    {
+     "n": 2,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 8:2",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_8:2",
+     "chars": 800,
+     "sha256": "092a843d0ddf78fb"
+    },
+    {
+     "n": 3,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 8:3",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_8:3",
+     "chars": 467,
+     "sha256": "9fc3b757f1cb3eb1"
+    },
+    {
+     "n": 4,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 8:4",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_8:4",
+     "chars": 246,
+     "sha256": "8a5032f0c7e71ce1"
+    },
+    {
+     "n": 5,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 8:5",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_8:5",
+     "chars": 314,
+     "sha256": "4b62835b89e13aec"
+    }
+   ]
+  },
+  {
+   "key": "p2_prin9",
+   "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9",
+   "heRef": "חפץ חיים, חלק שני: הלכות איסורי רכילות, כלל ט",
+   "license": "CC-BY-SA",
+   "version": "Chofetz Chaim",
+   "raw_sha256": "f8c24b9ae7ef54736c48e8d910d07c230fd91e6db61097851fffa3740bb580b4",
+   "seif_count": 15,
+   "seifim": [
+    {
+     "n": 1,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:1",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:1",
+     "chars": 286,
+     "sha256": "d54507c7de04df47"
+    },
+    {
+     "n": 2,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:2",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:2",
+     "chars": 1862,
+     "sha256": "fef8c12c5ed707e3"
+    },
+    {
+     "n": 3,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:3",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:3",
+     "chars": 1070,
+     "sha256": "4b47cd1d091c76eb"
+    },
+    {
+     "n": 4,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:4",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:4",
+     "chars": 782,
+     "sha256": "db7ce768143cbbd6"
+    },
+    {
+     "n": 5,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:5",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:5",
+     "chars": 2520,
+     "sha256": "662b66c4a5c757a1"
+    },
+    {
+     "n": 6,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:6",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:6",
+     "chars": 1266,
+     "sha256": "0c97437a63b21d2c"
+    },
+    {
+     "n": 7,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:7",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:7",
+     "chars": 589,
+     "sha256": "08fd9aa9bbfcddd5"
+    },
+    {
+     "n": 8,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:8",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:8",
+     "chars": 359,
+     "sha256": "ef3719ca47ffc921"
+    },
+    {
+     "n": 9,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:9",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:9",
+     "chars": 243,
+     "sha256": "97635954af2ebee1"
+    },
+    {
+     "n": 10,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:10",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:10",
+     "chars": 1620,
+     "sha256": "f46b183de60588eb"
+    },
+    {
+     "n": 11,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:11",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:11",
+     "chars": 1688,
+     "sha256": "d372f39880b61eed"
+    },
+    {
+     "n": 12,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:12",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:12",
+     "chars": 1968,
+     "sha256": "3e1a4af365e16a39"
+    },
+    {
+     "n": 13,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:13",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:13",
+     "chars": 4202,
+     "sha256": "93691663f4d21621"
+    },
+    {
+     "n": 14,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:14",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:14",
+     "chars": 1433,
+     "sha256": "8cbd65b7267aaf9b"
+    },
+    {
+     "n": 15,
+     "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:15",
+     "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:15",
+     "chars": 2957,
+     "sha256": "134da82782b38a68"
+    }
+   ]
+  }
+ ],
+ "seif_total": 177
+}
