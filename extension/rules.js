@@ -10,6 +10,10 @@
 (() => {
   const R = (globalThis.LHG_RULES = globalThis.LHG_RULES || {});
   const MAX_FACTS = 20;
+  // Free-text note sent beside the checked text (POST /check `userNote`).
+  // The proxy enforces the same cap (proxy/src/limits.ts MAX_USER_NOTE_CHARS).
+  // A note is context for the explanation only: it is never a confirmedFact.
+  const USER_NOTE_MAX = 500;
   const MAX_CONVERSATIONS = 200;
   const STORE_KEY = 'lhgConfirmedFacts';
   const FACT_ID = /^[A-Za-z0-9_.:-]{1,80}$/;
@@ -129,5 +133,12 @@
     return Array.isArray(l) ? l.filter((x) => typeof x === 'string' && x.trim()) : [];
   }
 
-  Object.assign(R, { MAX_FACTS, STORE_KEY, conversationKey, sanitize, loadAnswers, saveAnswer, withAnswers, readRules, limitations });
+  // Untrusted -> one-line note of <= USER_NOTE_MAX chars, or null.
+  function userNote(raw) {
+    if (typeof raw !== 'string') return null;
+    const s = raw.replace(/[\u0000-\u001f\u007f]+/g, ' ').replace(/\s+/g, ' ').trim().slice(0, USER_NOTE_MAX);
+    return s || null;
+  }
+
+  Object.assign(R, { MAX_FACTS, USER_NOTE_MAX, STORE_KEY, conversationKey, sanitize, userNote, loadAnswers, saveAnswer, withAnswers, readRules, limitations });
 })();

@@ -24,6 +24,10 @@ export interface RunExtractionOptions {
    * Absent = single-message behavior, unchanged.
    */
   context?: ExtractorContextPacket;
+  /** Optional user note (see ExtractorRequest.userNote). Absent = unchanged. */
+  userNote?: string;
+  /** Analysis language; only 'en' changes the prompt (default Hebrew). */
+  lang?: 'he' | 'en';
 }
 
 /**
@@ -56,6 +60,8 @@ export async function runExtraction(
       gateCues: gate.cues,
       catalogFactIds: opts.catalog.map((c) => c.id),
       ...(opts.context ? { context: opts.context } : {}),
+      ...(opts.userNote ? { userNote: opts.userNote } : {}),
+      ...(opts.lang === 'en' ? { lang: 'en' as const } : {}),
     });
   } catch (e) {
     return {

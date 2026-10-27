@@ -18,6 +18,11 @@
   const PLATFORM = onChat ? 'google-chat' : 'gmail';
   const MIN_CHARS = 6;
   const IS_TOP = window.top === window;
+  const t = (k, v) => (globalThis.LHG_I18N ? globalThis.LHG_I18N.t(k, v) : k);
+  // On/off switches (settings.js), asked before every watcher action. The
+  // Gmail top frame (mail + embedded Chat panel rows) follows "gmail"; a
+  // chat.google.com frame (standalone or inside Gmail) follows "google-chat".
+  const active = (p = PLATFORM) => !globalThis.LHG_SETTINGS || globalThis.LHG_SETTINGS.isActive(p);
 
   // Gmail renders its Chat windows (the floating DM popups and the Chat
   // panel) inside IFRAMES. The manifest injects this script into every frame
@@ -51,7 +56,7 @@
   if (chatFrame && globalThis.LHG_COMPOSE) {
     compose = globalThis.LHG_COMPOSE.createComposeWatcher({
       platform: 'google-chat',
-      composeBox: chatComposeBox,
+      composeBox: (el) => (active('google-chat') ? chatComposeBox(el) : null),
       findCompose: findChatCompose,
     });
   }
@@ -190,28 +195,17 @@
         const rows = findRows(document);
         const inChat = !onChat && rows.some((r) => S.closestMatch(r.el, S.googleChat.area));
         const lines = [
-          rows.length
-            ? 'התוסף פעיל ומזהה הודעות בעמוד. הודעות חדשות ייבדקו אוטומטית ויתווספו לידן תגיות.'
-            : 'התוסף פעיל, אך כרגע לא זוהתה הודעת דוא״ל/צ׳אט פתוחה. פתח הודעה או שיחה ונסה שוב. מצב זה אינו מוצג כבדיקה תקינה.',
-          inChat
-            ? 'שיחת צ׳אט בתוך ג׳ימייל זוהתה; רק הודעות חדשות בשיחה ייבדקו, שורות תיקייה לא ייסרקו.'
-            : 'לבדיקה ידנית: סמן את טקסט ההודעה בעמוד ולחץ על קיצור הפאנל (Ctrl+Shift+L).',
+          rows.length ? t('g.rows') : t('g.noRows'),
+          inChat ? t('g.inChat') : t('g.manual'),
         ];
         if (chatFrame) {
-          lines.push(findChatCompose()
-            ? 'שורת הכתיבה של הצ׳אט זוהתה; הקלדה תיבדק אוטומטית אחרי הפסקה קצרה.'
-            : 'שורת הכתיבה של הצ׳אט לא זוהתה; הבדיקה בזמן כתיבה אינה פעילה כעת.');
+          lines.push(findChatCompose() ? t('g.compose') : t('g.noCompose'));
           const ids = new Set(Array.from(document.querySelectorAll('[data-group-id], [data-space-id]'),
             (n) => n.getAttribute('data-group-id') || n.getAttribute('data-space-id')));
-          lines.push(ids.size === 1
-            ? 'מזהה השיחה זוהה: הקשר השיחה (הודעות קודמות, משתתפים) נאסף מקומית ונשלח מוסתר.'
-            : 'מזהה השיחה לא זוהה (' + ids.size + ' מועמדים), ולכן כל הודעה נבדקת לבדה, בלי הקשר השיחה.');
+          lines.push(ids.size === 1 ? t('g.convId') : t('g.noConvId', { n: ids.size }));
         } else {
           const frames = chatIframes().filter((f) => f.visible).length;
-          if (frames) {
-            lines.push('חלונות צ׳אט פתוחים בעמוד: ' + frames +
-              '. הם נטענים במסגרת נפרדת — כדי לראות את מצב השיחה, לחץ בתוך חלון הצ׳אט ואז על קיצור הפאנל.');
-          }
+          if (frames) lines.push(t('g.frames', { n: frames }));
         }
         return lines;
       },

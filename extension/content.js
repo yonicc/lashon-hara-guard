@@ -6,6 +6,9 @@
   const S = globalThis.LHG_SELECTORS;
   const PLATFORM = 'whatsapp-web';
   const COMPOSE_WATCH_MS = 4000;
+  const t = (k, v) => (globalThis.LHG_I18N ? globalThis.LHG_I18N.t(k, v) : k);
+  // On/off switches (settings.js), asked before every watcher action.
+  const active = () => !globalThis.LHG_SETTINGS || globalThis.LHG_SETTINGS.isActive(PLATFORM);
 
   let composeMissingSince = 0;
   const P = globalThis.LHG_PANEL;
@@ -53,19 +56,16 @@
     const c = conversationInfo();
     const lines = [];
     if (!c.chatOpen) {
-      lines.push('לא זוהתה שיחה פתוחה. פתח שיחה ונסה שוב.');
+      lines.push(t('wa.noChat'));
     } else if (!c.title) {
-      lines.push('יש שיחה פתוחה, אבל שם השיחה לא זוהה, ולכן הקשר השיחה לא נאסף.');
+      lines.push(t('wa.noTitle'));
     } else {
-      lines.push('שיחה פתוחה: ״' + c.title.slice(0, 40) + '״ (הקשר שיחה פעיל)');
+      lines.push(t('wa.chat', { title: c.title.slice(0, 40) }));
     }
     if (c.chatOpen) {
-      lines.push('הודעות גלויות שזוהו: ' + c.incoming + ' נכנסות, ' + c.outgoing + ' יוצאות, ' +
-        c.bubbles + ' עם פרטי שולח.');
+      lines.push(t('wa.visible', { in: c.incoming, out: c.outgoing, b: c.bubbles }));
     }
-    lines.push(findCompose()
-      ? 'שורת הכתיבה זוהתה; הקלדה חדשה תיבדק אוטומטית אחרי הפסקה קצרה.'
-      : 'שורת הכתיבה לא זוהתה; הבדיקה האוטומטית בזמן כתיבה אינה פעילה כעת.');
+    lines.push(findCompose() ? t('wa.compose') : t('wa.noCompose'));
     return lines;
   }
 
@@ -112,13 +112,18 @@
 
   // Outgoing check while typing: shared watcher (compose-watch.js).
   if (globalThis.LHG_COMPOSE) {
-    globalThis.LHG_COMPOSE.createComposeWatcher({ platform: PLATFORM, composeBox, findCompose });
+    globalThis.LHG_COMPOSE.createComposeWatcher({
+      platform: PLATFORM,
+      composeBox: (el) => (active() ? composeBox(el) : null),
+      findCompose,
+    });
   }
 
   // --- "compose box not recognized" instead of silently failing -------------
   // Only relevant once a conversation view exists; the chat list legitimately
   // has no compose box, so require a chat-root element first.
   function watchComposePresence() {
+    if (!active()) { composeMissingSince = 0; return; }
     const chatOpen = S && !!S.first(document, S.whatsapp.chatRoot);
     const compose = findCompose();
     if (compose) {
@@ -129,9 +134,7 @@
     if (!composeMissingSince) composeMissingSince = Date.now();
     if (!P) return;
     if (Date.now() - composeMissingSince > COMPOSE_WATCH_MS) {
-      show('muted', 'התוסף לא מזהה את שורת הכתיבה', [
-        'מבנה העמוד השתנה, לכן הבדיקה בזמן כתיבה מושהית. ההודעה לא נבדקה.',
-      ]);
+      show('muted', t('wa.composeLost.title'), [t('wa.composeLost.body')]);
     }
   }
   setInterval(watchComposePresence, 2000);

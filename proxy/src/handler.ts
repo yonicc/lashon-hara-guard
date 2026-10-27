@@ -73,7 +73,7 @@ export async function handle(
 }
 
 export { MAX_TEXT_CHARS } from './limits.js';
-import { MAX_TEXT_CHARS } from './limits.js';
+import { MAX_TEXT_CHARS, MAX_USER_NOTE_CHARS } from './limits.js';
 
 /**
  * Cap on the SERIALIZED `context` field of POST /check (ContextPacket v1).
@@ -162,6 +162,23 @@ function pickContext(raw: unknown): ExtractorContextPacket | undefined {
   }
   if (size > MAX_CONTEXT_JSON_CHARS) return undefined;
   return sanitizeContextPacket(raw) ?? undefined;
+}
+
+/**
+ * Optional free-text note from the extension user (0.9). Non-string or blank
+ * => absent; control characters folded to spaces; clipped (never rejected) to
+ * MAX_USER_NOTE_CHARS. It only reaches the prompt as quoted data: it is never
+ * a confirmedFact and adds no extra model call (one /check, one charge).
+ */
+export function pickUserNote(raw: unknown): string | undefined {
+  if (typeof raw !== 'string') return undefined;
+  const t = raw.replace(/[\u0000-\u001f\u007f]+/g, ' ').replace(/\s+/g, ' ').trim().slice(0, MAX_USER_NOTE_CHARS);
+  return t || undefined;
+}
+
+/** UI language of the extension: 'en' or 'he'. Absent/unknown = 'he' (pre-0.9 clients). */
+export function pickLang(raw: unknown): 'he' | 'en' {
+  return raw === 'en' ? 'en' : 'he';
 }
 
 export function providerFromEnv(env: Env): ExtractorProvider | null {
@@ -273,6 +290,8 @@ async function handleAuthorized(
   const context = pickContext(body['context']);
   // Optional explicit answers to rule questions; invalid entries are dropped silently.
   const confirmedFacts = pickConfirmedFacts(body['confirmedFacts']);
+  const userNote = pickUserNote(body['userNote']);
+  const lang = pickLang(body['lang']);
 
   const provider = makeProvider(env);
   if (!provider) return json({ error: 'proxy_not_configured' }, 503);
@@ -299,6 +318,8 @@ async function handleAuthorized(
   const outcome = await runExtraction(message, {
     provider, catalog: FACT_CATALOG, alwaysCallProvider: (env.LHG_ALWAYS_EXTRACT ?? '1') === '1',
     ...(context ? { context } : {}),
+    ...(userNote ? { userNote } : {}),
+    ...(lang === 'en' ? { lang } : {}),
   });
   let rules: RulesResult | undefined;
   if (rulesModeFromEnv(env) === 'live') {

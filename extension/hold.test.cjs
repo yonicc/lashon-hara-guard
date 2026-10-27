@@ -55,6 +55,9 @@ function setup(reply) {
     addEventListener: (t, fn) => { if (t === 'click') winClick.push(fn); },
   });
   ctx.globalThis = ctx;
+  // Hebrew UI (the default is English): these assertions read Hebrew texts.
+  vm.runInContext(fs.readFileSync(path.join(__dirname, 'i18n.js'), 'utf8'), ctx);
+  ctx.LHG_I18N.setLang('he', { persist: false });
   vm.runInContext(fs.readFileSync(path.join(__dirname, 'incoming.js'), 'utf8'), ctx);
   return { G: ctx.LHG_INCOMING, sent };
 }

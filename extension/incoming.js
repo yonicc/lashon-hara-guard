@@ -16,37 +16,31 @@
 //   - Without hold: a subtle tag next to the message, as before.
 //   - Never a ruling: "עלולה להתפרש כגנאי" / "ייתכן ש..." / "לא נבדק".
 //   - Nothing is deleted or rewritten; revealing is always one click away.
+//   - Strings come from i18n.js (t), the on/off switches from settings.js:
+//     a scanner whose platform is switched off sends nothing, releases what
+//     it holds, and baselines again when switched back on (history is never
+//     sent in a burst after re-enabling). "hideIncoming" is still read here
+//     directly (same key and default as settings.js).
 (() => {
   const G = (globalThis.LHG_INCOMING = globalThis.LHG_INCOMING || {});
+  const t = (k, v) => (globalThis.LHG_I18N ? globalThis.LHG_I18N.t(k, v) : k);
+  const uiDir = () => (globalThis.LHG_I18N ? globalThis.LHG_I18N.dir() : 'rtl');
+  const uiLang = () => (globalThis.LHG_I18N ? globalThis.LHG_I18N.lang() : '');
+  const mechText = (m) => (m && globalThis.LHG_I18N ? globalThis.LHG_I18N.mechanism(m) : '');
 
   const MIN_CHARS = 6;
   const MAX_QUEUE = 12;
   const PACE_MS = 2100; // 30/min server cap, with margin
   const BURST_LIMIT = 3; // more new rows than this in one scan = history
 
-  const TAG_TEXT = {
-    // Was missing: "checking" fell back to "לא נבדק" while a check was still
-    // running (the "לא נבדק" chip seen in Google Chat 2026-10-27).
-    checking: '…נבדקת',
-    warn: '⚠️ עלולה להתפרש כגנאי — אינה פסיקה',
-    unsure: 'ℹ️ ייתכן שיש כאן משמעות לא מכוונת',
-    not_checked: 'לא נבדק',
-    unchecked_overflow: 'לא נבדק (עומס בדיקות)',
-  };
-
-  const MECHANISM_HE = {
-    irony: 'אירוניה', praise: 'שבח שעלול להישמע כלעג', hint: 'רמז שמזהה אדם',
-    mockery: 'לעג', omission: 'השמטה שמרמזת', direct: 'ביקורת ישירה', other: 'משמעות שלילית אפשרית',
-  };
-
-  // Placeholder text per phase (shown INSTEAD of the message while held).
-  const HOLD_TEXT = {
-    pending: '⏳ הודעה נכנסת נבדקת לפני הצגה…',
-    warn: '⚠️ ההודעה הוסתרה: היא עלולה להתפרש כגנאי',
-    unsure: 'ℹ️ ההודעה הוסתרה: ייתכן שיש בה משמעות לא מכוונת',
-    not_checked: 'ההודעה לא נבדקה (אין חיבור או עומס בדיקות), ולכן היא מוסתרת',
-  };
-  const REVEAL_LABEL = { warn: 'הצג בכל זאת', unsure: 'הצג בכל זאת', not_checked: 'הצג בלי בדיקה' };
+  // Tag kinds (i18n "tag.<kind>"). "checking" was once missing and fell back
+  // to "not checked" while a check was still running (Google Chat 2026-10-27).
+  const TAG_KINDS = ['checking', 'warn', 'unsure', 'not_checked', 'unchecked_overflow'];
+  // Placeholder per phase (i18n "hold.<phase>"), shown INSTEAD of the message.
+  const HOLD_PHASES = ['pending', 'warn', 'unsure', 'not_checked'];
+  // Phases with a "show" button (i18n "reveal.<phase>").
+  const REVEAL_PHASES = ['warn', 'unsure', 'not_checked'];
+  const tagText = (kind) => t('tag.' + (TAG_KINDS.includes(kind) ? kind : 'not_checked'));
 
   // Setting: hide incoming chat messages until checked. Default ON.
   G.holdEnabled = true;
@@ -108,12 +102,12 @@
     const old = el.querySelector(':scope > .lhg-tag');
     if (old) old.remove();
     if (kind === 'none' || kind === 'hidden') return;
-    const t = document.createElement('div');
-    t.className = 'lhg-tag lhg-tag-' + kind;
-    t.setAttribute('dir', 'rtl');
-    t.textContent = TAG_TEXT[kind] || TAG_TEXT.not_checked;
-    t.title = 'Lashon Hara Guard: תזכורת בלבד, אינה פסיקה הלכתית.';
-    el.appendChild(t);
+    const chip = document.createElement('div');
+    chip.className = 'lhg-tag lhg-tag-' + kind;
+    chip.setAttribute('dir', uiDir());
+    chip.textContent = tagText(kind);
+    chip.title = t('tag.title');
+    el.appendChild(chip);
   }
 
   function isEditable(el) {
@@ -244,11 +238,11 @@
     el.classList.remove('lhg-held-warn', 'lhg-held-unsure', 'lhg-held-not_checked', 'lhg-held-pending');
     el.classList.add('lhg-held', 'lhg-held-' + st.phase);
     let h = el.querySelector(':scope > .lhg-hold');
-    if (h && h.getAttribute('data-phase') === st.phase) return; // already showing this phase
+    // Already showing this phase in this language.
+    if (h && h.getAttribute('data-phase') === st.phase && h.getAttribute('data-lang') === uiLang()) return;
     if (!h) {
       h = document.createElement('div');
       h.className = 'lhg-hold';
-      h.setAttribute('dir', 'rtl');
       // Clicks on the placeholder must not open/quote/react to the message:
       // the window-level capture listener (above) stops them. Never stop them
       // in a capture listener HERE: that also kills the buttons inside.
@@ -256,20 +250,22 @@
     }
     dropActions(h);
     h.setAttribute('data-phase', st.phase);
+    h.setAttribute('data-lang', uiLang());
+    h.setAttribute('dir', uiDir());
     h.textContent = '';
     const label = document.createElement('span');
-    const mech = st.result && st.result.mechanism ? MECHANISM_HE[st.result.mechanism] : '';
-    label.textContent = HOLD_TEXT[st.phase] + (mech ? ' (' + mech + ')' : '');
+    const mech = st.result && st.result.mechanism ? mechText(st.result.mechanism) : '';
+    label.textContent = t('hold.' + st.phase) + (mech ? ' (' + mech + ')' : '');
     h.appendChild(label);
-    if (REVEAL_LABEL[st.phase]) holdButton(h, REVEAL_LABEL[st.phase], onReveal);
+    if (REVEAL_PHASES.includes(st.phase)) holdButton(h, t('reveal.' + st.phase), onReveal);
     if ((st.phase === 'warn' || st.phase === 'unsure') && globalThis.LHG_PANEL) {
-      holdButton(h, 'למה?', () => {
+      holdButton(h, t('hold.why'), () => {
         try { globalThis.LHG_PANEL.renderResult(st.result, { manual: true }); } catch (_e) { /* panel absent */ }
       });
     }
     const note = document.createElement('span');
     note.className = 'lhg-hold-note';
-    note.textContent = 'תזכורת בלבד, לא פסיקה הלכתית.';
+    note.textContent = t('hold.note');
     if (st.phase !== 'pending') h.appendChild(note);
   }
 
@@ -316,6 +312,8 @@
     // The queue receives a separate, redacted packet, never this local object.
     const localByEl = new WeakMap();
     let baselined = false;
+    // On/off switches (settings.js). Absent module = on (tests, old builds).
+    const active = () => !globalThis.LHG_SETTINGS || globalThis.LHG_SETTINGS.isActive(platform);
     const queue = makeQueue(
       (job) =>
         Promise.resolve(job.message).then((message) => new Promise((resolve) => {
@@ -334,6 +332,12 @@
       if (!st || !st.el) return;
       const els = st.els || [st.el];
       st.els = els.filter((e) => e === st.el || e.isConnected !== false);
+      if (!active()) {
+        // Switched off: nothing stays covered or tagged by a guard that is off.
+        st.revealed = true;
+        for (const el of st.els) { unhold(el); tag(el, 'none'); }
+        return;
+      }
       for (const el of st.els) {
         if (st.held && !st.revealed && st.phase !== 'clear') {
           renderHold(el, st, () => { st.revealed = true; apply(id); });
@@ -355,6 +359,10 @@
     }
 
     function scan() {
+      if (!active()) {
+        baselined = false; // re-enabled later: what is on screen then is history
+        return;
+      }
       let rows;
       try {
         rows = findRows(root) || [];
@@ -423,8 +431,15 @@
       }
     }
 
+    // Live: a switch turned off releases everything at once; a language
+    // change repaints the placeholders and tags in the new language.
+    const repaintAll = () => { for (const id of state.keys()) apply(id); };
+    try { if (globalThis.LHG_SETTINGS) globalThis.LHG_SETTINGS.onChange(() => { if (!active()) repaintAll(); }); } catch (_e) { /* ignore */ }
+    try { if (globalThis.LHG_I18N) globalThis.LHG_I18N.onChange(repaintAll); } catch (_e) { /* ignore */ }
+
     return {
       scan,
+      isActive: active,
       queueSize: queue.size,
       seenCount: () => seen.size,
       stateOf: (id) => state.get(id) || null,
@@ -484,6 +499,7 @@
   G.textOf = textOf;
   G.textRunRoot = textRunRoot;
   G.phaseOf = phaseOf;
-  G.TAG_TEXT = TAG_TEXT;
-  G.HOLD_TEXT = HOLD_TEXT;
+  // Current-language texts (read-only views over i18n.js).
+  Object.defineProperty(G, 'TAG_TEXT', { configurable: true, get: () => Object.fromEntries(TAG_KINDS.map((k) => [k, tagText(k)])) });
+  Object.defineProperty(G, 'HOLD_TEXT', { configurable: true, get: () => Object.fromEntries(HOLD_PHASES.map((k) => [k, t('hold.' + k)])) });
 })();

@@ -88,6 +88,9 @@ function setup(reply, extra = {}) {
     ...extra,
   });
   ctx.globalThis = ctx;
+  // Hebrew UI (the default is English): the buttons are found by Hebrew label.
+  vm.runInContext(fs.readFileSync(path.join(__dirname, 'i18n.js'), 'utf8'), ctx);
+  ctx.LHG_I18N.setLang('he', { persist: false });
   const file = process.env.LHG_INCOMING_JS || path.join(__dirname, 'incoming.js');
   vm.runInContext(fs.readFileSync(file, 'utf8'), ctx);
   return { G: ctx.LHG_INCOMING, sent, win };
