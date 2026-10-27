@@ -9,7 +9,7 @@
    `factsNeeded` (ids from `rules/chafetz-chaim/facts.json`), `proposedNewFacts`, `relevanceToChat`,
    `uncertainHe`, `reviewIssues`, `reviewStatus`.
 3. **Engine rules** — `engine/src/chafetzChaim/allPacks.ts` exports `CC_ALL_DRAFT_PACK`:
-   113 executable draft reminders in eight packs, connected to `/check` in `live_draft` mode.
+   120 executable draft reminders in eight packs, connected to `/check` in `live_draft` mode.
    These source-linked conditions are warnings/clarifications, never approved religious rulings.
    Cards remain draft study material; linking a reminder does not implement every branch of its section.
    Per-section implementation limits and documentary branches: docs/22 and `sourceCoverage.json`.
@@ -44,6 +44,6 @@ python -I rules\chafetz-chaim\gen_cards.py --only p1_prin10:2   # redraft one se
 ## Not included / open
 - Petichah (lavin/asin/arurin), Be'er Mayim Chaim, Tziyurim — not in the source layer yet.
 - Human review of cards and executable reminders. Vocabulary consolidation is implemented:
-  79 canonical facts plus five lesson facts (docs/19); facts outside the catalog remain unknown.
+  83 canonical facts plus five lesson facts (docs/19); facts outside the catalog remain unknown.
 - Documentary branches are tracked section by section in docs/22; legal/court classifications,
   source-specific missing predicates and post-event duties do not become automatic permits.

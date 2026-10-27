@@ -178,6 +178,11 @@
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
   "target": "message.was_told_in_confidence"
  },
+ "context.parent_or_rabbi_requested_disclosure": {
+  "action": "new",
+  "reason": "p1_prin1:5,p2_prin1:5 — הבחנת מקור ממוקדת שאינה נלמדת מלחץ כללי או מקשר משפחתי; אישור משתמש בלבד, תזכורת ולא היתר",
+  "target": "context.parent_or_rabbi_requested_disclosure"
+ },
  "context.place_time_norm": {
   "action": "reject",
   "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
@@ -874,6 +879,11 @@
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
   "target": "message.has_favorable_interpretation"
  },
+ "message.includes_same_self_disparagement": {
+  "action": "new",
+  "reason": "p1_prin1:9 — הבחנת מקור ממוקדת שאינה נלמדת מלחץ כללי או מקשר משפחתי; אישור משתמש בלבד, תזכורת ולא היתר",
+  "target": "message.includes_same_self_disparagement"
+ },
  "message.includes_self_and_other_disparagement": {
   "action": "merge",
   "reason": "מיזוג לפי משמעות",
@@ -1226,6 +1236,11 @@
   "reason": "א י:ח — פחד ממי שבידו להרע, אפשרות להקלה בלבד; אישור משתמש ובירור מומחה, לא היתר",
   "target": "speaker.fears_retaliation_from_subject"
  },
+ "speaker.fears_ridicule_for_refusing_disclosure": {
+  "action": "new",
+  "reason": "p1_prin1:7,p2_prin1:7 — הבחנת מקור ממוקדת שאינה נלמדת מלחץ כללי או מקשר משפחתי; אישור משתמש בלבד, תזכורת ולא היתר",
+  "target": "speaker.fears_ridicule_for_refusing_disclosure"
+ },
  "speaker.has_deliberated_how_to_fix": {
   "action": "reject",
   "reason": "כוונה/הערכה פנימית או הכרעה הלכתית פרטנית שאין דרך אמינה לברר בצ'אט"
@@ -1412,6 +1427,11 @@
   "action": "new",
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
   "target": "speaker.was_pressured_to_tell"
+ },
+ "speaker.risks_livelihood_for_refusing_disclosure": {
+  "action": "new",
+  "reason": "p1_prin1:6,p2_prin1:6 — הבחנת מקור ממוקדת שאינה נלמדת מלחץ כללי או מקשר משפחתי; אישור משתמש בלבד, תזכורת ולא היתר",
+  "target": "speaker.risks_livelihood_for_refusing_disclosure"
  },
  "speaker.trusted_as_two_witnesses": {
   "action": "new",

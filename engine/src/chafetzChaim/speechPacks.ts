@@ -3,6 +3,14 @@ import { all, any, yes, no, ccRule as rule, ccSource as src, pack, SPEECH, IDENT
 // These reminders identify a source-relevant concern. They do not decide that an
 // exception is absent, or that a message is prohibited, even when a purpose is declared.
 export const CC_SPEECH_DRAFT_PACK = pack('cc-speech-draft', [
+  rule('cc-speech.1-05.authority-request', src(1,1,5), 'בקשת אב או רב', SPEECH,
+    yes('context.parent_or_rabbi_requested_disclosure'), 'בקשת אב או רב אינה לבדה בסיס למסירת הדברים; אין להסיק ממנה הסרת חשש'),
+  rule('cc-speech.1-06.livelihood-pressure', src(1,1,6), 'לחץ פרנסה', SPEECH,
+    yes('speaker.risks_livelihood_for_refusing_disclosure'), 'חשש הפסד פרנסה בשל אי־מסירה אינו לבדו בסיס לסיפור; מסלול תועלת דורש בירור עצמאי'),
+  rule('cc-speech.1-07.social-pressure', src(1,1,7), 'לחץ לעג ועלבון', SPEECH,
+    yes('speaker.fears_ridicule_for_refusing_disclosure'), 'חשש לעג או עלבון בשל אי־השתתפות אינו לבדו בסיס לסיפור; אין כאן הכרעת חובת מחאה או גמול'),
+  rule('cc-speech.1-09.self-disparagement', src(1,1,9), 'גנאי עצמי אינו מבטל גנאי אחר', SPEECH,
+    yes('message.includes_same_self_disparagement'), 'שילוב גנאי הכותב באותו סיפור, גם לפני גנאי חברו, אינו לבדו מסיר את הצורך בבדיקה'),
   rule('cc-speech.1-01.truth', src(1,1,1), 'אמת אינה מספיקה', SPEECH,
     yes('message.content_is_true'), 'אמת לבדה אינה מסירה חשש בגנות אדם'),
   rule('cc-speech.1-01.falsehood', src(1,1,1), 'תוספת שקר', SPEECH,

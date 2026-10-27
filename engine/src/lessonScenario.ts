@@ -119,6 +119,10 @@ export const FACT_CATALOG: FactCatalogEntry[] = [
   {"id": "speaker.publicly_known_says_in_presence", "questionHe": "האם הכותב מוחזק לרבים כמי שאומר בפני המדובר כל מה שיאמר שלא בפניו?", "priority": 48, "sensitivity": "high", "persistent": false, "confirmedByUserOnly": true},
   {"id": "speaker.publicly_known_fearless", "questionHe": "האם הכותב מוחזק לרבים כמי שאינו ירא מאיש בדבריו?", "priority": 48, "sensitivity": "high", "persistent": false, "confirmedByUserOnly": true},
   {"id": "speaker.publicly_known_truthful", "questionHe": "האם הכותב מוחזק בתוך עמו כמי שמדבר רק אמת? (נפרד מאמיתות ההודעה המסוימת)", "priority": 48, "sensitivity": "high", "persistent": false, "confirmedByUserOnly": true},
+  {"id": "speaker.risks_livelihood_for_refusing_disclosure", "questionHe": "האם הכותב חושש להפסד משמעותי בפרנסתו אם יסרב למסור את הדברים?", "priority": 55, "sensitivity": "medium", "persistent": false, "confirmedByUserOnly": true},
+  {"id": "speaker.fears_ridicule_for_refusing_disclosure", "questionHe": "האם הכותב חושש ללעג או עלבון אם לא ישתתף בסיפור?", "priority": 55, "sensitivity": "medium", "persistent": false, "confirmedByUserOnly": true},
+  {"id": "context.parent_or_rabbi_requested_disclosure", "questionHe": "האם אביו או רבו של הכותב ביקשו שימסור את הדברים?", "priority": 55, "sensitivity": "medium", "persistent": false, "confirmedByUserOnly": true},
+  {"id": "message.includes_same_self_disparagement", "questionHe": "האם הכותב מספר באותה הודעה את אותו גנאי גם על עצמו וגם על אדם אחר?", "priority": 55, "sensitivity": "medium", "persistent": false, "confirmedByUserOnly": true},
   // END GENERATED CHAFETZ CHAIM FACTS
 ];
 

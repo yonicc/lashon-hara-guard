@@ -1,6 +1,12 @@
 import { all, any, yes, no, ccRule as rule, ccSource as src, pack, RECHILUT, IDENTIFIED, PURPOSE, SPEECH, UNVERIFIED } from './shared.js';
 
 export const CC_RECHILUT_DRAFT_PACK = pack('cc-rechilut-draft', [
+  rule('cc-rechilut.1-05.authority-request', src(2,1,5), 'בקשת אב או רב', RECHILUT,
+    yes('context.parent_or_rabbi_requested_disclosure'), 'בקשת אב או רב אינה לבדה בסיס למסירת הדברים; אין להסיק ממנה הסרת חשש'),
+  rule('cc-rechilut.1-06.livelihood-pressure', src(2,1,6), 'לחץ פרנסה', RECHILUT,
+    yes('speaker.risks_livelihood_for_refusing_disclosure'), 'חשש הפסד פרנסה בשל אי־מסירה אינו לבדו בסיס לסיפור; מסלול תועלת דורש בירור עצמאי'),
+  rule('cc-rechilut.1-07.social-pressure', src(2,1,7), 'לחץ לעג ועלבון', RECHILUT,
+    yes('speaker.fears_ridicule_for_refusing_disclosure'), 'חשש לעג או עלבון בשל אי־השתתפות אינו לבדו בסיס לסיפור; אין כאן הכרעת חובת מחאה או גמול'),
   rule('cc-rechilut.1-02.report', src(2,1,2), 'העברת דברים מזה לזה', RECHILUT,
     yes('subject.is_fellow'), 'דיווח מה פלוני אמר או עשה נגד השומע דורש בדיקת רכילות גם בלי גנאי מפורש'),
   rule('cc-rechilut.1-03.no-intent', src(2,1,3), 'אין כוונת גנאי', RECHILUT,
