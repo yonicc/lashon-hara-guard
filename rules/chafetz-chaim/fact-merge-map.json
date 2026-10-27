@@ -29,6 +29,14 @@
   "reason": "עובדה נפרדת לפי מקור כלל י׳; אין להסיק ממנה פסק או עובדה אחרת",
   "target": "audience.can_influence_subject"
  },
+ "audience.has_prior_conflict_with_reported_actor": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד; אינה נלמדת מעובדות כלליות ואינה היתר. ראו docs/24.",
+  "sourceRefs": [
+   "p2_prin2:2"
+  ],
+  "target": "audience.has_prior_conflict_with_reported_actor"
+ },
  "audience.includes_detractors": {
   "action": "reject",
   "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
@@ -163,6 +171,22 @@
   "action": "reject",
   "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
  },
+ "context.inquiry_purpose_disclosed_to_source": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד; אינה נלמדת מעובדות כלליות ואינה היתר. ראו docs/24.",
+  "sourceRefs": [
+   "p1_prin4:11"
+  ],
+  "target": "context.inquiry_purpose_disclosed_to_source"
+ },
+ "context.inquiry_source_has_conflict_of_interest": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד; אינה נלמדת מעובדות כלליות ואינה היתר. ראו docs/24.",
+  "sourceRefs": [
+   "p1_prin4:11"
+  ],
+  "target": "context.inquiry_source_has_conflict_of_interest"
+ },
  "context.listener_asked_who_harmed_him": {
   "action": "new",
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
@@ -282,6 +306,15 @@
   "action": "new",
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
   "target": "evidence.has_recognizable_signs"
+ },
+ "evidence.signs_directly_relate_to_report": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד; אינה נלמדת מעובדות כלליות ואינה היתר. ראו docs/24.",
+  "sourceRefs": [
+   "p1_prin7:11",
+   "p2_prin6:9"
+  ],
+  "target": "evidence.signs_directly_relate_to_report"
  },
  "evidence.testified_in_court_or_clarified": {
   "action": "new",
@@ -478,6 +511,25 @@
   "action": "merge",
   "reason": "מיזוג לפי משמעות",
   "target": "listener.needs_info_for_protection"
+ },
+ "listener.personally_observed_signs": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד; אינה נלמדת מעובדות כלליות ואינה היתר. ראו docs/24.",
+  "sourceRefs": [
+   "p1_prin7:11",
+   "p2_prin6:9"
+  ],
+  "target": "listener.personally_observed_signs"
+ },
+ "listener.plans_to_relay_report": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד; אינה נלמדת מעובדות כלליות ואינה היתר. ראו docs/24.",
+  "sourceRefs": [
+   "p1_prin7:8",
+   "p1_prin7:12",
+   "p2_prin6:9"
+  ],
+  "target": "listener.plans_to_relay_report"
  },
  "listener.pressured_speaker_to_tell": {
   "action": "new",
@@ -815,6 +867,15 @@
   "reason": "מיזוג לפי משמעות",
   "target": "message.is_hint_or_implied"
  },
+ "message.delivery_conveys_disparaging_interpretation": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד; אינה נלמדת מעובדות כלליות ואינה היתר. ראו docs/24.",
+  "sourceRefs": [
+   "p1_prin3:2",
+   "p2_prin2:2"
+  ],
+  "target": "message.delivery_conveys_disparaging_interpretation"
+ },
  "message.denies_virtue_or_talent": {
   "action": "new",
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
@@ -876,8 +937,20 @@
  },
  "message.has_two_interpretations": {
   "action": "new",
-  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
-  "target": "message.has_favorable_interpretation"
+  "reason": "דו־משמעות לשונית שאחד מפירושיה ללא גנאי נבדלת מצד זכות למעשה; הכרעת האיחוד הישנה הוחלפה אחרי קריאת א ג:ב וב ב:ב. docs/24.",
+  "sourceRefs": [
+   "p1_prin3:2",
+   "p2_prin2:2"
+  ],
+  "target": "message.has_two_interpretations"
+ },
+ "message.identifies_informant_to_original_speaker": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד; אינה נלמדת מעובדות כלליות ואינה היתר. ראו docs/24.",
+  "sourceRefs": [
+   "p2_prin3:2"
+  ],
+  "target": "message.identifies_informant_to_original_speaker"
  },
  "message.includes_same_self_disparagement": {
   "action": "new",
@@ -1033,6 +1106,15 @@
  "message.questions_unequal_treatment": {
   "action": "reject",
   "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "message.reports_action_against_third_party": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד; אינה נלמדת מעובדות כלליות ואינה היתר. ראו docs/24.",
+  "sourceRefs": [
+   "p2_prin3:3",
+   "p2_prin9:9"
+  ],
+  "target": "message.reports_action_against_third_party"
  },
  "message.reports_what_someone_said_about_third_party": {
   "action": "merge",

@@ -123,6 +123,16 @@ export const FACT_CATALOG: FactCatalogEntry[] = [
   {"id": "speaker.fears_ridicule_for_refusing_disclosure", "questionHe": "האם הכותב חושש ללעג או עלבון אם לא ישתתף בסיפור?", "priority": 55, "sensitivity": "medium", "persistent": false, "confirmedByUserOnly": true},
   {"id": "context.parent_or_rabbi_requested_disclosure", "questionHe": "האם אביו או רבו של הכותב ביקשו שימסור את הדברים?", "priority": 55, "sensitivity": "medium", "persistent": false, "confirmedByUserOnly": true},
   {"id": "message.includes_same_self_disparagement", "questionHe": "האם הכותב מספר באותה הודעה את אותו גנאי גם על עצמו וגם על אדם אחר?", "priority": 55, "sensitivity": "medium", "persistent": false, "confirmedByUserOnly": true},
+  {"id": "message.reports_action_against_third_party", "questionHe": "האם ההודעה מספרת מה אדם מזוהה אמר או עשה נגד אדם אחר, שאינו הנמען הנוכחי?", "priority": 53, "sensitivity": "medium", "persistent": false, "confirmedByUserOnly": true},
+  {"id": "message.identifies_informant_to_original_speaker", "questionHe": "האם ההודעה הנוכחית לדובר המקורי מגלה לו, במפורש או מההקשר, מי העביר את דבריו לנפגע?", "priority": 53, "sensitivity": "medium", "persistent": false, "confirmedByUserOnly": true},
+  {"id": "message.has_two_interpretations", "questionHe": "האם לאמירה המסוימת יש שני פירושים, ואחד מהם אינו גנאי כלל?", "priority": 53, "sensitivity": "medium", "persistent": false, "confirmedByUserOnly": true},
+  {"id": "message.delivery_conveys_disparaging_interpretation", "questionHe": "האם אופן מסירת הדברים כעת מבהיר לנמען שהכוונה לפירוש המגנה, גם אם המילים עצמן דו־משמעיות?", "priority": 53, "sensitivity": "medium", "persistent": false, "confirmedByUserOnly": true},
+  {"id": "audience.has_prior_conflict_with_reported_actor", "questionHe": "האם כבר לפני ההודעה שררה שנאה בין נמען הדיווח לבין האדם שעל אמירתו או מעשיו מדווחים?", "priority": 53, "sensitivity": "medium", "persistent": false, "confirmedByUserOnly": true},
+  {"id": "evidence.signs_directly_relate_to_report", "questionHe": "האם הסימנים שעליהם מסתמך המקבל קשורים ממש לפרטי הסיפור המסוים, ולא רק חשד רחוק או סימן חלקי?", "priority": 53, "sensitivity": "medium", "persistent": false, "confirmedByUserOnly": true},
+  {"id": "listener.personally_observed_signs", "questionHe": "האם המקבל עצמו ראה את הסימנים שעליהם הוא מסתמך, ולא שמע מאחרים שיש סימנים?", "priority": 53, "sensitivity": "medium", "persistent": false, "confirmedByUserOnly": true},
+  {"id": "listener.plans_to_relay_report", "questionHe": "האם המקבל מתכוון להעביר את הדיווח לאחרים, מעבר לחשש ולבירור לעצמו?", "priority": 53, "sensitivity": "medium", "persistent": false, "confirmedByUserOnly": true},
+  {"id": "context.inquiry_purpose_disclosed_to_source", "questionHe": "האם השואל הסביר לנשאל את מטרת הבירור המעשית לקראת ההתקשרות המסוימת?", "priority": 53, "sensitivity": "medium", "persistent": false, "confirmedByUserOnly": true},
+  {"id": "context.inquiry_source_has_conflict_of_interest", "questionHe": "האם הנשאל הוא שונא או מתחרה עסקי של האדם שעליו מבררים?", "priority": 53, "sensitivity": "medium", "persistent": false, "confirmedByUserOnly": true},
   // END GENERATED CHAFETZ CHAIM FACTS
 ];
 

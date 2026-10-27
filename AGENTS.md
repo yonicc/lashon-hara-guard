@@ -16,6 +16,7 @@
 - Missing context is unknown, never false. Store provenance, scope, and validity for facts.
 - Use synthetic examples only. Do not commit messages, identities, tokens, or real relationship graphs.
 - One rule has one canonical definition; adapters and UI consume it.
+- After changing CC_ALL predicates, run from engine/: `node --import tsx ../scripts/refresh-coverage.mts`, then `--check`; it regenerates runtime bindings and docs22 from reviewed semantic notes. Edit limitations in sourceCoverage first; the generator cannot validate interpretation.
 - The one-question budget covers the complete display: a catalog-backed `rules.question` consumes it, so suppress `analysis.questionsHe`; otherwise retain at most one analysis question. Keep the proxy arbitration and the panel's compatibility guard covered by regression tests.
 - Exceptions use the same three-valued semantics as conditions: an unknown/disputed exception blocks that rule's finding and can require clarification; it is never an absent exception.
 - Confidence admission lives in `extractor/factPolicy.ts`; both proposals and meaning must reject non-finite/out-of-range scores before conversion. Never clip provider scores into 0..1: clipping 2 to 1 promoted malformed meaning to known facts. Source integrity tests recompute hashes from section text, independently of card/manifest agreement.

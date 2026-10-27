@@ -58,3 +58,34 @@ test('deployed worker entrypoint identifies the exact build and rejects malforme
  const malformed=await worker.fetch(new Request('https://synthetic.test/health'),{...env,LHG_BUILD_SHA:'bad\r\nheader'});
  assert.equal(malformed.headers.get('x-lhg-build-sha'),null);
 });
+
+test('handler reaches indirect report and informant branches without disparagement or direct rechilut',async()=>{
+ const result=await check({'subject.identifiable':true,
+ 'message.content_is_disparaging':false,'message.may_be_understood_as_disparagement':false,
+ 'message.reports_what_someone_said_or_did_against_listener':false,
+ 'message.reports_action_against_third_party':true,
+ 'message.identifies_informant_to_original_speaker':true});
+ assert.ok(!result.rules.notChecked);
+ for(const id of ['cc-clarification.r3-03.chain','cc-clarification.r3-02.informant'])
+  assert.ok(result.rules.findings.some(f=>f.ruleId===id),id);
+ assert.equal(result.alert,'warn');
+ assert.ok(Number(!!result.rules.question)+(result.analysis?.questionsHe?.length??0)<=1);
+});
+test('handler separates actual delivery and receiver signs from speaker first-hand knowledge',async()=>{
+ const result=await check({'subject.identifiable':true,'message.has_two_interpretations':true,
+ 'message.delivery_conveys_disparaging_interpretation':true,
+ 'speaker.would_say_in_subjects_presence':true,'speaker.knows_first_hand':true,
+ 'listener.role_is_receiving':true,'evidence.has_recognizable_signs':true,
+ 'listener.personally_observed_signs':false,'evidence.signs_directly_relate_to_report':false});
+ for(const id of ['cc-clarification.3-02.delivery','cc-clarification.7-11.personal-signs','cc-clarification.7-11.direct-signs'])
+  assert.ok(result.rules.findings.some(f=>f.ruleId===id),id);
+ assert.ok(Number(!!result.rules.question)+(result.analysis?.questionsHe?.length??0)<=1);
+});
+test('handler checks inquiry source independently of constructive purpose',async()=>{
+ const result=await check({'subject.identifiable':true,'context.inquiry_has_future_purpose':true,
+ 'toelet.purpose_is_constructive':true,'context.inquiry_purpose_disclosed_to_source':false,
+ 'context.inquiry_source_has_conflict_of_interest':true});
+ for(const id of ['cc-clarification.4-11.disclose-purpose','cc-clarification.4-11.source-conflict'])
+  assert.ok(result.rules.findings.some(f=>f.ruleId===id),id);
+ assert.equal(result.alert,'warn');
+});
