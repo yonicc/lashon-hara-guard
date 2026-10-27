@@ -1,0 +1,674 @@
+[
+ {
+  "id": "cc.p1_prin2.1",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 2:1",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_2:1",
+  "textSha256": "46524576164dc8ce",
+  "kind": "prohibition",
+  "titleHe": "איסור לשון הרע אמת בפני יחיד ורבים",
+  "summaryHe": "לפי הסעיף אסור לספר לשון הרע על חברו אף כשהדברים אמת, אפילו בפני יחיד וכל שכן בפני רבים.",
+  "quotesHe": [
+   "אסור לספר לשון הרע על חברו, אף שהוא אמת, אפלו בפני יחיד",
+   "וכל שכן בפני רבים",
+   "וכל שיתרבו השומעים, יתרבה עון המספר"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהדברים הם לשון הרע הגורם לגנות חברו",
+   "שהדברים אמת – ואף אז האיסור חל",
+   "שהסיפור נאמר אפילו בפני יחיד, וכל שכן בפני רבים"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_fellow",
+   "message.content_is_disparaging",
+   "message.content_is_true",
+   "audience.size_at_least_three"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "audience.listener_count",
+    "questionHe": "בפני כמה אנשים בדיוק נאמרו הדברים?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהו גדר 'רבים' להחמרת העוון – שניים או שלושה ויותר – אינו מבואר בסעיף זה",
+   "כיצד נמדד ריבוי העוון עם ריבוי השומעים",
+   "גדר 'חברו' ו'עמיתך' למי חל האיסור – מתבאר בכלל ג ובבאר מים חיים"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin2.2",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 2:2",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_2:2",
+  "textSha256": "312c2e3b332ec2d4",
+  "kind": "condition",
+  "titleHe": "היתר אמירה בפני שלושה",
+  "summaryHe": "לפי הסעיף היתר אמירה בפני שלושה נאמר רק בדבר שאינו גנאי גמור ויש לו שני פנים, והאומר שומר עצמו שלא יינכר גנאי מלשונו כי יודע שהדברים יגיעו למדובר. אם מוציאו בקולו ובתנועותיו שניכרת כוונת הגנאי הרי זה אבק לשון הרע ואסור אף בפני שלושה.",
+  "quotesHe": [
+   "ומה שנמצא התר בדברי חז\"ל לומר בפני שלשה, הינו (ב) בדבר שאיננו גנאי גמור והדבור שלו יש לו שני פנים.",
+   "כיון שאומר הדברים בפני שלשה, יודע בודאי שיבואו הדברים לאזניו, דחברך חברא אית לה",
+   "אפלו הכי {אף על פי כן} קראוהו חז\"ל אבק לשון הרע, ואסור לומר אפלו בפני שלשה"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "הדבר אינו גנאי גמור ודבורו יש לו שני פנים ויכול להיאמר בלשון שאין בה גנאי",
+   "האמירה נעשית בפני שלושה, ולכן המספר יודע בודאי שיבואו הדברים לאזני המדובר דחברך חברא אית לה",
+   "המספר שומר עצמו בעת האמירה לומר באופן שלא יהיה ניכר מלשונו, מקולו ומתנועותיו לשון גנאי"
+  ],
+  "exceptionsHe": [
+   "אם מוציא הדברים בקולו ובתנועותיו באופן שניכר שכוונתו לגנאי, כגון שהוא מרבה בסעודת מרעות תמיד, אף שאינו גנאי גמור קראוהו חז\"ל אבק לשון הרע ואסור אפילו בפני שלושה"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "message.is_hint_or_implied",
+   "speaker.intent_to_disparage",
+   "audience.size_at_least_three",
+   "audience.listener_will_spread",
+   "matter.already_known_to_many"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.has_two_interpretations",
+    "questionHe": "האם לניסוח יש שני פנים - פירוש ניטרלי ללא גנאי ופירוש מגנה - התלוי באופן האמירה?"
+   },
+   {
+    "id": "message.disparagement_recognizable_in_tone",
+    "questionHe": "האם הגנאי ניכר בקולו, בתנועותיו או בנימת הכתיבה של המספר?"
+   }
+  ],
+  "relevanceToChat": "medium",
+  "uncertainHe": [
+   "גבול ההבחנה בין גנאי גמור לבין אינו גנאי גמור ומתי דיבור נחשב שיש לו שני פנים",
+   "כיצד קובעים בצ'אט כתוב אם הגנאי ניכר - האם די בלשון נקייה או שצריך לבחון נימה, הדגשות ואימוג'ים, ותלות בביאור באר מים חיים אות ב ו-ג",
+   "האם היתר בפני שלושה חל בצ'אט קבוצתי שבו ההפצה וההקלטה ודאית ומתועדת"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin2.3",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 2:3",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_2:3",
+  "textSha256": "89a5a1bcdbdff2c8",
+  "kind": "exception",
+  "titleHe": "היתר חזרה על לשון הרע שנאמר בפני שלושה",
+  "summaryHe": "לפי הסעיף יש אומרים שאם לשון הרע נאמר בפני שלושה, אחד מן השומעים שיחזור ויספרנו לאחרים בדרך אקראי לא יעבור באיסור לשון הרע משום שהדבר נחשב כמפורסם. לפי דעה נוספת ההיתר הוא רק אם הדבר נתגלגל דרך אגב בתוך דיבור אחר, ולא כשמתכוון לספר עניין זה לבדו.",
+  "quotesHe": [
+   "אף דהוא עבר בודאי על אסור לשון הרע",
+   "לא עבר בזה על אסור לשון הרע",
+   "בדרך אקראי, אבל לא שיתכון להעביר הקול ולגלותו יותר"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהסיפור המקורי נאמר בפני שלושה",
+   "שהמספר החוזר הוא אחד מן השלושה ששמעו את הדבר",
+   "שהסיפור החוזר נעשה בדרך אקראי",
+   "שאינו מתכוון להעביר הקול ולגלותו יותר",
+   "לפי הדעה השנייה - שהדבר נתגלגל דרך אגב בתוך דיבורה ולא שכיוון לספר עניין זה לבד"
+  ],
+  "exceptionsHe": [
+   "המתכוון להעביר הקול ולגלותו יותר אינו בכלל ההיתר",
+   "לפי הדעה השנייה אף סיפור בדרך אקראי אסור אם כיוון לספר עניין זה לבד ולא דרך אגב",
+   "אמירת הדברים סתם בלא הזכרת שם המספר הראשון אינה פוטרת מאיסור לשון הרע"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "matter.already_known_to_many",
+   "audience.size_at_least_three",
+   "speaker.intent_to_disparage",
+   "message.purpose"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "retelling.is_incidental",
+    "questionHe": "האם הסיפור החוזר נאמר בדרך אקראי ולא בכוונה להפיץ את הקול הלאה?"
+   },
+   {
+    "id": "retelling.is_within_other_discourse",
+    "questionHe": "האם הדבר הוזכר דרך אגב בתוך דיבור אחר ולא כסיפור מכוון בפני עצמו?"
+   },
+   {
+    "id": "original.told_before_three",
+    "questionHe": "האם הסיפור המקורי נאמר בפני שלושה אנשים?"
+   },
+   {
+    "id": "retelling.intent_to_further_spread",
+    "questionHe": "האם המספר מתכוון להעביר את הקול ולגלותו יותר?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "האם ההיתר של 'בפני שלושה' הוא להלכה, שהרי נאמר בלשון 'יש אומרים'",
+   "מהו גדר 'בפני שלושה' ו'דבר העשוי להתגלות' לפי הבאר מים חיים",
+   "מהו הגבול המדויק בין 'דרך אקראי' לבין 'מתכוון להעביר הקול'",
+   "האם ההיתר תלוי בכך שהשלושה אינם קרובים או שאינם נוגעים בדבר, כמבואר בבאר מים חיים"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin2.4",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 2:4",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_2:4",
+  "textSha256": "e96ba000a53a3927",
+  "kind": "prohibition",
+  "titleHe": "איסור לספר מפי שומע באפי תלתא",
+  "summaryHe": "לפי הסעיף מה שהותר לספר דבר שנאמר באפי תלתא כשאינו מתכוון לגלות הותר רק לשומע הראשון ששמע בעצמו מהמספר, ואסור לשומע שני ששמע מפיו לסמוך על טענתו שהיה באפי תלתא ולספר הלאה את הגנות על שמעון, אלא אם הדבר כבר נתפרסם ונודע לכל.",
+  "quotesHe": [
+   "דוקא השומע הראשון, ששמע בעצמו מה שראובן ספר על שמעון באפי תלתא",
+   "אבל מי ששמע ממנו, אסור לילך אחר כך על סמך הזה, שאמר לו המספר לו, ששמע דבר זה באפי תלתא, ולספר לאחר",
+   "שכבר נתפרסם הדבר ונודע לכל"
+  ],
+  "appliesTo": "both",
+  "conditionsHe": [
+   "הגנות על שמעון נאמרה במקור באפי תלתא והשומע הראשון שמעה בעצמו מהמספר",
+   "השומע השני לא שמע בעצמו את המעשה אלא שמע את סיפור הגנות רק מפי השומע הראשון",
+   "השומע השני רוצה לספר את הגנות הלאה לאחרים על סמך דברי השומע הראשון שהיה באפי תלתא, אף בלי להזכיר מי המוציא לעז"
+  ],
+  "exceptionsHe": [
+   "אם כבר נתפרסם הדבר ונודע לכל - לפי הסעיף מותר לספר הלאה"
+  ],
+  "factsNeeded": [
+   "matter.already_known_to_many",
+   "audience.size_at_least_three",
+   "speaker.knows_first_hand",
+   "listener.role_is_receiving",
+   "listener.believes_report",
+   "message.content_is_disparaging",
+   "subject.identifiable"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "speaker.heard_via_intermediary_claiming_afei_tlasa",
+    "questionHe": "האם הכותב מספר גנות ששמע רק מפי שומע ראשון שטען שהדברים נאמרו במקור באפי תלתא, ולא שמע בעצמו את הדברים במקור?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהי הגדרת 'נתפרסם הדבר ונודע לכל' - האם הכוונה לכל בני העיר או לרבים, ומה שיעור הפרסום לפי באר מים חיים אות י",
+   "האם איסור האמונה והסיפור לשומע שני חל גם כשהוא יודע בוודאות שראובן ספר גנות על שמעון אך אינו יודע אם היה באפי תלתא, וחוששים שמא לא היה באפי תלתא ואינו עשוי להתגלות",
+   "פרטי הדין תלויים בהערות באר מים חיים ט, י, יא שלא הובאו כאן במלואן"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin2.5",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 2:5",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_2:5",
+  "textSha256": "f66aae2dd8e8ebe1",
+  "kind": "condition",
+  "titleHe": "אפי תלתא בפני יראי אלוקים",
+  "summaryHe": "לפי הסעיף, אם סיפור באפי תלתא היה בפני אנשים יראי אלקים הנזהרים מלשון הרע – ואפילו רק אחד מהשלושה – אין הדבר נחשב עשוי להתגלות ולכן אסור מן התורה לספרו לאחר. ואפשר שכן הדין גם אם אחד מהשלושה היה קרובו או אוהבו של מי שנאמר עליו הגנות, שגם הוא בודאי לא יגלה.",
+  "quotesHe": [
+   "בפני אנשים יראי אלקים שנזהרים מאסורי לשון הרע",
+   "ממילא אין דבר זה עשוי להתגלות ואם כן אסור מן התורה לספר אחר כך דבר זה לאחר",
+   "ואפלו אם רק אחד מהשלושה היה איש ירא אלקים, שנזהר מאסור לשון הרע, גם כן דינא הכי"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "הסיפור המקורי נאמר באפי תלתא בפני שלושה",
+   "לפחות אחד מהשלושה הוא ירא אלקים שנזהר מאיסור לשון הרע ולכן אינו עתיד לפרסם את הגנות",
+   "לפי צד של 'אפשר' גם אם אחד מהשלושה הוא קרובו או אוהבו של בעל הגנות נחשב שלא ילך ויגלה גנות קרובו ולכן ליכא תלתא מפרסמים"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "matter.already_known_to_many",
+   "audience.size_at_least_three",
+   "audience.listener_will_spread"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "audience.includes_yarei_elokim",
+    "questionHe": "האם בין השומעים המקוריים היה לפחות אדם אחד ירא אלקים הנזהר מאיסור לשון הרע שאינו עתיד להפיץ את הדברים?"
+   },
+   {
+    "id": "audience.includes_relative_or_friend_of_subject",
+    "questionHe": "האם אחד מהשומעים המקוריים הוא קרוב משפחה או אוהב של האדם שעליו נאמרה הגנות, שאינו צפוי לגלותה לאחרים?"
+   }
+  ],
+  "relevanceToChat": "medium",
+  "uncertainHe": [
+   "הסעיף נפתח בלשון 'נראה לי' ולגבי קרוב/אוהב בלשון 'ואפשר' – האם זו הכרעה ודאית או ספק",
+   "מהו הגדר המדויק של 'ירא אלקים שנזהר מאסור לשון הרע' – האם די בחזקה כללית או צריך ידיעה ברורה",
+   "היקף דין קרוב/אוהב – האם כל קרבה או רק מי שבודאי לא יגלה, ופרטי הביאור בבאר מים חיים (יב) (יג)"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin2.6",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 2:6",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_2:6",
+  "textSha256": "c275071b2cef931e",
+  "kind": "condition",
+  "titleHe": "היתר אפי תלתא רק באותה העיר",
+  "summaryHe": "לפי הסעיף, ההיתר לגלות דבר שנשמע באפי תלתא מטעם דחברך חברא וכו׳ מוגבל דווקא לאותה העיר שבה נשמע, ואינו מתיר לגלות בעיר אחרת אף אם שירות מצויות מזו לזו, ועיין בבאר מים חיים.",
+  "quotesHe": [
+   "באותה העיר, ששמע באפי תלתא, מתר לגלות משום דחברך חברא וכו'",
+   "אבל לא בעיר אחרת, אף דשירות מצויות מזו לזו"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהדברים נשמעו באפי תלתא",
+   "שהגילוי נעשה באותה העיר עצמה שבה נשמעו הדברים",
+   "שההיתר הוא מטעם דחברך חברא אית ליה וכו'"
+  ],
+  "exceptionsHe": [
+   "בעיר אחרת אסור לגלות, אף אם שירות מצויות בין הערים"
+  ],
+  "factsNeeded": [
+   "matter.already_known_to_many",
+   "audience.size_at_least_three",
+   "audience.listener_will_spread"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "context.same_city_as_hearing",
+    "questionHe": "האם הגילוי נעשה באותה העיר שבה נשמעו הדברים המקוריים באפי תלתא?"
+   },
+   {
+    "id": "context.frequent_communication_between_cities",
+    "questionHe": "האם יש שירות מצויים ותקשורת תדירה בין העיר שבה נשמעו הדברים לעיר שבה רוצים לגלותם?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "הגדרת גבולות \"אותה העיר\" לעומת \"עיר אחרת\" אינה מבוארת בסעיף ומופנית לבאר מים חיים",
+   "משמעות \"שירות מצויות מזו לזו\" - מהי תדירות ואופי השירות הנחשב",
+   "היקף ומקור דין \"חברך חברא אית ליה\" המופנה לבאר מים חיים",
+   "לשון \"נראה לי דדוקא\" מלמדת שזו הכרעה מסברת המחבר ולא מקור מפורש"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin2.7",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 2:7",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_2:7",
+  "textSha256": "851f1735be770b27",
+  "kind": "prohibition",
+  "titleHe": "איסור גילוי כשיש אזהרה שלא לגלות",
+  "summaryHe": "לפי הסעיף, אם המספר הזהיר שלא לגלות את דבריו יש בו משום לשון הרע למי שיגלה אחר כך אפילו במקרה אף שנאמר בפני רבים. ואפילו אם אחד או שניים מהשומעים כבר הפרו את האזהרה וגילו, השלישי עדיין אסור לגלות את הדבר לאחרים אפילו במקרה.",
+  "quotesHe": [
+   "ואם האומר הזהיר שלא לגלותו, אפלו אמר (טו) בפני רבים, יש בו משום לשון הרע",
+   "למי שיגלה אחר כך אפלו במקרה",
+   "אף על פי כן (טז) השלישי הזה אין לו לגלות את הדבר לאחרים אפלו במקרה"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "המספר המקורי הזהיר את שומעיו שלא לגלות את דבריו",
+   "הדברים נאמרו אפילו בפני רבים",
+   "השומע מגלה את הדבר הלאה לאחרים, אפילו במקרה ולא בכוונה תחילה להפיץ"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "audience.size_at_least_three",
+   "matter.already_known_to_many",
+   "listener.role_is_receiving",
+   "audience.listener_will_spread"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.speaker_warned_not_to_reveal",
+    "questionHe": "האם מי שאמר את הדברים הזהיר במפורש שלא לגלותם לאחרים?"
+   },
+   {
+    "id": "listener.saw_others_violate_warning",
+    "questionHe": "האם המשתמש ראה ששומע אחר כבר הפר את האזהרה וגילה את הדבר לאחרים?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "גדר האזהרה שיוצרת איסור - לשונה, תוקפה והיקפה - תלוי בביאור הבאר מים חיים בהערות טו וטז",
+   "מהו בדיוק גילוי 'אפילו במקרה' לעומת גילוי מכוון ומה גבולותיו",
+   "האם אזהרה לחלק מהשומעים או אזהרה משתמעת ולא מפורשת נחשבת אזהרה לעניין סעיף זה"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin2.8",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 2:8",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_2:8",
+  "textSha256": "ea6d186c204f01c7",
+  "kind": "prohibition",
+  "titleHe": "אזהרה שלא לגלות אוסרת להפיץ הלאה",
+  "summaryHe": "לפי הסעיף אין חילוק בלשון האזהרה - בין שאמר שלא ידברו עוד מזה העניין כלל ובין שאמר שאל ייוודע מכם דבר, בכל גוני אסור לשומעים לגלות מהגנות של פלוני אפילו לאחר וכל שכן למי שנאמר עליו משום דחברך חברא אית ליה. עוד מבאר הסעיף שדין זה הוא דווקא כשנאמר בפני שלושה, ולכן אם שניים סיפרו בפני שניים לא שייך האי התרא כלל.",
+  "quotesHe": [
+   "אין חלוק בלשון האזהרה, בין שצום (יז) שלא ידברו עוד מזה הענין כלל",
+   "בכל גוני {בכל האפנים} אסור לגלות מהגנות של פלוני אפלו לאחר, וכל שכן למי שנאמר עליו",
+   "דדוקא אם השומעים היו שלשה, לאפוקי {להוציא} אם שנים ספרו בפני שנים לא שיך האי התרא כלל"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "הסיפור המקורי נאמר בפני שלושה שומעים",
+   "המספר הזהיר את שומעיו שלא לגלות, בכל לשון שהיא - בין \"שלא ידברו עוד מזה הענין כלל\" ובין \"שאל יודע מכם דבר\"",
+   "הגילוי הוא של הגנות על פלוני שנאמרה בפניהם"
+  ],
+  "exceptionsHe": [
+   "אם ציוה רק שלא יגלו לאותו פלוני מסוים, אפשר דמותר לגלות במקרה לאחר",
+   "אם שניים ספרו בפני שניים - לא שייך דין התראה זו כלל",
+   "לפי ההגהה - אם לשון אזהרתו אינה כוללת גילוי לאחר, והדבר עשוי להתגלות לבסוף ממילא, יתכן שלא אסרה התורה בזה משום לשון הרע כשאינו מתכוון לגלות, וצריך עיון"
+  ],
+  "factsNeeded": [
+   "audience.size_at_least_three",
+   "matter.already_known_to_many",
+   "subject.identifiable",
+   "message.content_is_disparaging"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "context.original_warning_given",
+    "questionHe": "האם המספר המקורי הזהיר את שומעיו שלא לגלות את הדברים?"
+   },
+   {
+    "id": "context.warning_scope_general",
+    "questionHe": "האם לשון האזהרה היתה כללית שלא לגלות כלל, או רק שלא לגלות לפלוני מסוים?"
+   },
+   {
+    "id": "context.original_audience_size",
+    "questionHe": "האם המסירה המקורית היתה בפני שלושה שומעים או רק בפני שניים?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "גבול בין לשון אזהרה כללית האוסרת כל גילוי לבין אזהרה מצומצמת רק שלא לגלות לפלוני מסוים",
+   "מדוע בשניים שסיפרו בפני שניים לא שייך דין התראה זו כלל, וההפניה לבאר מים חיים",
+   "ספק ההגהה אם דבר שעשוי להתגלות לבסוף ממילא מותר כשאינו מתכוון לגלות - וצריך עיון"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin2.9",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 2:9",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_2:9",
+  "textSha256": "c33fabe8413fa4cf",
+  "kind": "prohibition",
+  "titleHe": "איסור הוספה והטעמה וגנאי בעבר",
+  "summaryHe": "לפי הסעיף אסור בכל גווני להוסיף אפילו תיבה אחת או להטעים בפני השומע שהשמועה הרעה יפה נשמעת על פלוני, כי בזה מקלקלו יותר ומוכח שמקבלה לאמת. ולפי הסעיף אסור גם לפרסם כדי לבזותו עוון מנעוריו שתיקן או עוון אבותיו שאינו הולך בדרכיהם, ואין בזה היתר אפי תלתא אף אם מפורסם בפי כל כשעל פי אמת אין עליו גנאי.",
+  "quotesHe": [
+   "להוסיף אפלו תבה אחת או להטעים את הדבר בפני השומע",
+   "אסור לגנותו ולבזותו אצל חבריו בזה",
+   "ולא שיך על זה כלל התרא דאפי תלתא"
+  ],
+  "appliesTo": "both",
+  "conditionsHe": [
+   "הוספת אפילו תיבה אחת או הטעמת הדבר בפני השומע לומר שהמעשה שנשמע על שמעון יפה נשמע עליו וכיוצא בזה",
+   "קבלת הדבר לאמת על ידי השומע",
+   "פרסום על אדם עניין רע שעשה בנערותו אך מאז ועד עתה מתנהג כשורה, או פרסום על אבותיו שלא נהגו כשורה והוא אינו אוחז בדרכיהם וכל כיוצא בזה",
+   "דבר שעל פי אמת אין עולה עליו שום גנאי בזה כיום",
+   "פרסום כדי לבזותו בעיני עמו ולעשותו ללעג בפי הבריות, אפילו שלא בפניו ואפילו בלי להוסיף על האמת"
+  ],
+  "exceptionsHe": [
+   "אין היתר אפי תלתא אף שהדבר מפורסם בפי כל, כשעל פי אמת אין עליו גנאי"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.contains_falsehood_or_exaggeration",
+   "message.content_is_true",
+   "message.may_be_understood_as_disparagement",
+   "speaker.intent_to_disparage",
+   "matter.already_known_to_many",
+   "listener.believes_report",
+   "audience.size_at_least_three"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.concerns_corrected_past_misconduct",
+    "questionHe": "האם ההודעה עוסקת במעשה רע שהמדובר עשה בעבר בנערותו אך מאז ועד עתה מתנהג כשורה?"
+   },
+   {
+    "id": "message.concerns_ancestors_misconduct",
+    "questionHe": "האם ההודעה עוסקת במעשי אבותיו או משפחתו של המדובר שלא נהגו כשורה, כשהוא עצמו אינו אוחז בדרכיהם?"
+   },
+   {
+    "id": "message.contains_endorsement_that_rumor_fits_subject",
+    "questionHe": "האם הכותב מוסיף הטעמה שהשמועה הרעה 'יפה נשמעת' על המדובר או מתאימה לו?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מה נחשב בדיוק 'תיבה אחת' או 'הטעמה' - האם כל ניסוח שמדגיש התאמה למדובר נכלל",
+   "מה הגדרת 'על פי אמת אין עולה עליו שום גנאי בזה' ומתי עוון עבר נחשב מכופר כיחזקאל י\"ח, ותלוי בבאר מים חיים הערה כ",
+   "היקף איסור קבלת הדברים לאמת 'לכל עלמא בכל גוני' המופנה לשומע ואיך לזהותו בצ'אט"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin2.10",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 2:10",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_2:10",
+  "textSha256": "66ad8eb0cc8384a9",
+  "kind": "prohibition",
+  "titleHe": "איסור סיפור לשומע שיאמין ויוסיף",
+  "summaryHe": "לפי הסעיף כל היתר דאפי תלתא הוא רק מצד האומר, אבל אם ידוע שטבע השומע לקבל את הדברים לאמת ואף להוסיף גנאי אסור לומר לו שום רמז של גנאי והמספר עובר ב'לפני עור לא תתן מכשול'. לפי הסעיף איסור זה חל אף אם אינו מזכיר שם המספר הראשון אלא מספר סתם שכך נשמע על פלוני, ולכן יש להתרחק מאוד מהיתר זה עד שאין לו מקום במציאות.",
+  "quotesHe": [
+   "דכל ההתר דאפי תלתא הוא מצד האומר, אבל מצד השומע",
+   "לאדם כזה אסור לומר שום רמז של גנאי על חברו בכל גוני",
+   "אפלו אם לא יזכיר המספר הזה שם המספר הראשון שספר באפי תלתא"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהמספר יודע את טבע השומע שתכף כשישמע יקבל את הדבר לאמת על פלוני",
+   "שקיים חשש שהשומע יוסיף עוד דברים לגנאי עליו"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "listener.believes_report",
+   "message.is_hint_or_implied",
+   "message.may_be_understood_as_disparagement",
+   "message.content_is_disparaging"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "listener.will_add_disparagement",
+    "questionHe": "האם ידוע שטבע השומע להוסיף עוד דברים לגנאי כשישמע את הדברים?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהי רמת הידיעה הנדרשת על טבע השומע - ידיעה ודאית או חשש סביר שיקבל לאמת",
+   "מהו היקף 'יוסיף עוד דברים לגנאי' - האם כל תוספת גנאי או דווקא הוספת שקר והגזמה",
+   "הספק אם הלכה כלל כדעת היתר דאפי תלתא, שכן לדעת הרבה פוסקים אין לו מקור מהש\"ס כמובא בבאר מים חיים סוף ס\"ק ד'"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin2.11",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 2:11",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_2:11",
+  "textSha256": "b333568aa91915eb",
+  "kind": "prohibition",
+  "titleHe": "איסור גילוי דעת היחיד בישיבת טובי העיר",
+  "summaryHe": "לפי הסעיף, כששבעה טובי העיר דנים בעניין שהוא חוב לזה וזכות לזה והוכרע ברוב, אסור לכל אחד לספר אחר כך שדעתו או דעת פלוני הייתה בתחילה להקל אילו חבריו רבו עליו והכריחוהו. לפי הסעיף איסור זה חל אף בסתמא וברמז, בין ביוזמתו ובין כמענה לחרופין, ואף שהדברים אמת, כי אסור להטיל העולה על חברו ולסלקה מעליו.",
+  "quotesHe": [
+   "צריכין לזהר מאד כל אחד ואחד, שלא לספר אחר כך דעתו או דעת פלוני",
+   "אסור להטיל את העולה על חברו ולסלקה מעליו, אף שהוא אמת",
+   "רק במקרה לספר לאחר בלשון שיראה מדבריו, שדעתו איננו נוטה לזה גם עתה"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שבעה טובי העיר יושבים לעיין בהנהגת אנשי העיר בענייני הערכות וכיוצא בזה",
+   "הדבר הנדון הוא חוב לזה וזכות לזה",
+   "נחלקו בדעות ועמדו למנין והלכו בתר רבא",
+   "הדובר מספר אחר היציאה מחדר הקהל מה הייתה דעתו או דעת פלוני בתחילה להקל ושהרוב כפהו ללכת בתר דעתם"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_group",
+   "message.content_is_true",
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.is_hint_or_implied",
+   "message.content_may_cause_harm",
+   "audience.includes_subject",
+   "matter.already_known_to_many"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "deliberation.was_by_majority_vote",
+    "questionHe": "האם ההחלטה המדוברת התקבלה לאחר מחלוקת והצבעה והליכה אחר הרוב?"
+   },
+   {
+    "id": "disclosure.reveals_minority_position",
+    "questionHe": "האם ההודעה מגלה שדעת הדובר או דעת פלוני הייתה בתחילה להקל והוכרעה ברוב?"
+   },
+   {
+    "id": "disclosure.shifts_blame_to_colleagues",
+    "questionHe": "האם ההודעה מטילה את האחריות להחלטה על חברי הישיבה ומסירה אותה מהדובר?"
+   }
+  ],
+  "relevanceToChat": "low",
+  "uncertainHe": [
+   "היקף כללי דאפי תלתא שהסעיף מפנה אליהם והבהרתם בבאר מים חיים",
+   "האם ההלכה כדעת היד הקטנה שאפילו סיפור סתם איך שדעתו הייתה בתחילה להקל גם כן אסור",
+   "הגבול בין סיפור סתם עובדתי לבין סיפור בלשון שיראה מדבריו שדעתו אינה נוטה לזה גם עתה"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin2.12",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 2:12",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_2:12",
+  "textSha256": "07e75b26700c672c",
+  "kind": "prohibition",
+  "titleHe": "איסור לעג על דרשן בבית המדרש",
+  "summaryHe": "לפי הסעיף אסור על פי הדין להלעיג על דורש בבית המדרש ולומר שאין בדרשותיו ממש, ואף אם הדברים אמת הרי זה לשון הרע גמורה העלולה לגרום נזק ממוני וצער וביוש ואין היתר אפי תלתא מועיל. בעל נפש צריך לייעץ לו בינו לבין עצמו כיצד לשפר את דרשתו ולא לעשותו ללעג בפי הבריות.",
+  "quotesHe": [
+   "כשדורש אחד בבית המדרש אסור על פי הדין להלעיג ממנו ולומר, שאין בדרשותיו ממש ושאין מה לשמע",
+   "הלא לשון הרע אסור אפלו על אמת",
+   "ולא מהני בזה התרא דאפי תלתא"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "הדברים נאמרים על דורש מסוים הניתן לזיהוי",
+   "הדיבור הוא לעג וגנאי שאין בדרשותיו ממש ואין מה לשמוע",
+   "אפילו אם תוכן הלעג אמת לפי דעת המדבר",
+   "הדיבור עלול לגרום נזק ממוני, צער וביוש לדרשן"
+  ],
+  "exceptionsHe": [
+   "ייעוץ פרטי לדרשן עצמו בינו לבין עצמו כיצד לומר באופן אחר שדבריו יישמעו - מותר ואף מקיים ואהבת לרעך כמוך",
+   "הסעיף מדגיש שאין כאן היתר של אפי תלתא"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "message.content_is_true",
+   "message.contains_falsehood_or_exaggeration",
+   "message.said_in_jest",
+   "message.content_may_cause_harm",
+   "matter.already_known_to_many",
+   "audience.size_at_least_three",
+   "speaker.intent_to_disparage"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "subject.is_torah_preacher",
+    "questionHe": "האם המדובר הוא דרשן, רב או מלמד תורה הדורש ברבים?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "פרטי דין אפי תלתא שאינו מועיל כאן תלויים בביאור בבאר מים חיים הערה כה שאינו מובא במלואו בסעיף",
+   "הגבול המדויק בין לעג אסור לבין עצה פרטית מותרת לשיפור הדרשה",
+   "היקף הנזק הממוני או הצער הנדרש - האם כל אמירת שאין ממש בדבריו נחשבת גורמת נזק כמתואר בסעיף"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin2.13",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 2:13",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_2:13",
+  "textSha256": "09990e09f1314936",
+  "kind": "exception",
+  "titleHe": "היתר לגלות ענין עסק שנאמר באפי תלתא",
+  "summaryHe": "לפי הסעיף, אם אדם גילה לחברו באפי תלתא ענין מעסקו ומסחרו וכיוצא בזה שסתם אסור לגלותו מחשש היזק או צער, רואים שאינו חושש שיתגלה. לכן מותר לשומע לגלותו לאחרים לכתחילה כל עוד לא גילה המגלה דעתו שהוא מקפיד וכל פרטי דין אפי תלתא המבוארים לעיל מתקיימים.",
+  "quotesHe": [
+   "גלה לחברו באפי תלתא ענין עסקו ומסחרו וכיוצא בזה",
+   "דברים אשר בסתמא אסור אחר כך לגלות לאחר, פן יוכל להגיע לו על ידי זה הזק או צער",
+   "מתר לזה השומע ממנו לכתחלה לגלות לאחרים, כל כמה שלא גלה דעתו שהוא מקפיד על זה"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "הדברים הם בענין עסקו ומסחרו וכיוצא בזה שבסתמא אסור לגלותם לאחר מחשש היזק או צער",
+   "המגלה הראשון גילה אותם לחברו באפי תלתא",
+   "המגלה לא גילה דעתו שהוא מקפיד שלא יגלו את הדברים",
+   "לא חסר אף אחד מהפרטים המבוארים לעיל בענינא דאפי תלתא"
+  ],
+  "exceptionsHe": [
+   "אם גילה המגלה דעתו שהוא מקפיד שלא יתגלה - אסור לשומע לגלות לאחרים",
+   "אם חסר אחד הפרטים המבוארים לעיל בדין אפי תלתא - אין היתר זה"
+  ],
+  "factsNeeded": [
+   "message.about_craft_or_goods",
+   "message.content_may_cause_harm",
+   "matter.already_known_to_many",
+   "audience.size_at_least_three",
+   "listener.role_is_receiving"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "original_disclosure.made_in_front_of_three",
+    "questionHe": "האם הגילוי המקורי של ענין העסק נעשה בפני שלושה אנשים (אפי תלתא)?"
+   },
+   {
+    "id": "original_disclosure.speaker_indicated_confidentiality",
+    "questionHe": "האם המגלה המקורי גילה דעתו שהוא מקפיד שלא יגלו את הדברים הלאה?"
+   },
+   {
+    "id": "original_disclosure.api_tlasa_details_fulfilled",
+    "questionHe": "האם התקיימו כל הפרטים המבוארים לעיל בדין אפי תלתא?"
+   }
+  ],
+  "relevanceToChat": "medium",
+  "uncertainHe": [
+   "מהם בדיוק הפרטים המבוארים לעיל בענינא דאפי תלתא שהסעיף מתנה שלא יחסרו, והסעיף עצמו מפנה לבאר מים חיים",
+   "מהו גדר וכיוצא בזה - אילו ענינים נוספים על עסק ומסחר נכללים בהיתר",
+   "מה נחשב גילוי דעת שהוא מקפיד על אי־גילוי"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ }
+]

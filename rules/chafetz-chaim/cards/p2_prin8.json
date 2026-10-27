@@ -1,0 +1,224 @@
+[
+ {
+  "id": "cc.p2_prin8.1",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 8:1",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_8:1",
+  "textSha256": "ea102220c54740f7",
+  "kind": "prohibition",
+  "titleHe": "אבק רכילות ברמיזה ושתיקה",
+  "summaryHe": "לפי הסעיף, המספר לחברו ששאלו את פלוני אודותיו והשיב 'שתקו איני רוצה להודיע מה ארע ומה יהיה' וכל כיוצא בזה שמשתמע מדברי פלוני שנאמר על השומע שלא כהוגן, הרי זה בכלל אבק רכילות ואסור.",
+  "quotesHe": [
+   "יש הרבה דברים, שאסורין מטעם אבק רכילות",
+   "המספר לחברו, איך ששאלו מאחד אודותיו, והשיב על זה: שתקו, איני רוצה להודיע מה ארע",
+   "שמספר לו, איך שמדברי פלוני נרמז עליו שלא כהגן, בכלל אבק רכילות הוא"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהדובר מספר לשומע מה שאמר או רמז פלוני עליו",
+   "שהדברים נמסרים בדרך רמז, שתיקה או סירוב לפרט כגון 'שתקו איני רוצה להודיע מה ארע ומה יהיה'",
+   "שמן הרמז משתמע שנאמר על השומע שלא כהוגן"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.is_hint_or_implied"
+  ],
+  "proposedNewFacts": [],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "היקף 'וכל כיוצא בזה' - אילו רמזים נוספים נחשבים אבק רכילות ברמז זה",
+   "האם די ברמז שעלול להתפרש כשלילי או שנדרש רמז מובהק שלא כהוגן",
+   "פרטי המקורות והגדרות נוספות תלויים בבאר מים חיים ובסעיפים הבאים"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin8.2",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 8:2",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_8:2",
+  "textSha256": "092a843d0ddf78fb",
+  "kind": "prohibition",
+  "titleHe": "שבח בפני שותף כאבק רכילות",
+  "summaryHe": "לפי הסעיף, המשבח אדם בפני חברו במקום שעל ידי זה יוכל להעלות בלב חברו תרעומות עליו ולהסב לו רעה הוא בכלל אבק רכילות. על כן יש להיזהר מלשבח את ראובן בפני שמעון שותפו או בפני בן/בת זוגו על הטבה כהלוואה, צדקה או תשלום שכר כראוי וכיוצא בזה.",
+  "quotesHe": [
+   "וכן המשבח את אחד בפני חברו",
+   "במקום שעל ידי זה יוכל להעלות בלב חברו תרעומות עליו",
+   "בכלל אבק רכילות הוא"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "הדברים הם שבח על אדם אחד הנאמר בפני חברו",
+   "השבח הוא במקום שעל ידי זה יוכל להעלות בלב החבר תרעומות על המשובח",
+   "על ידי התרעומת יוכל להסבב למשובח רעה, היזק או מחלוקת",
+   "לדוגמה שבח על שהיטיב עמו בהלוואה או בנתינת צדקה ובתשלום שכר שכיר כראוי וכל כיוצא בזה בפני שותפו או בפני אשה בפני בעלה ולהפך"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.content_may_cause_harm"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.is_praise_before_associate",
+    "questionHe": "האם ההודעה משבחת אדם בפני חברו, שותפו או בן/בת זוגו?"
+   },
+   {
+    "id": "context.subject_listener_joint_interest",
+    "questionHe": "האם בין המדובר לבין הנמען יש שותפות ממונית/עסקית או קשר נישואין שעלול לגרום לתרעומת על פיזור ממון?"
+   },
+   {
+    "id": "message.praise_may_cause_resentment",
+    "questionHe": "האם השבח עלול לעורר בלב הנמען תרעומת על המדובר ולהסב לו נזק או מחלוקת?"
+   }
+  ],
+  "relevanceToChat": "medium",
+  "uncertainHe": [
+   "מהו סף ההסתברות של 'יוכל להעלות תרעומות' ו'יוכל להסבב לו רעה' – האם די באפשרות רחוקה או שנדרש שמצוי הוא",
+   "האם האיסור מוגבל לשבח בענייני ממון (הלוואה, צדקה, שכר) או חל בכל שבח העלול לעורר תרעומת",
+   "משמעות ההפניה (ב) בבאר מים חיים והגדרת הגבול בין אבק רכילות לרכילות גמורה בסעיף זה"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin8.3",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 8:3",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_8:3",
+  "textSha256": "9fc3b757f1cb3eb1",
+  "kind": "prohibition",
+  "titleHe": "איסור לגלות שפלוני סיפר על טובה",
+  "summaryHe": "לפי הסעיף יש להיזהר שכאשר חבר משיב שאינו יכול למלא בקשת טובה, שלא לשאול אותו למה עשה אותה טובה לפלוני ולומר לו שפלוני עצמו סיפר זאת, כי מצוי שדבר כזה מעלה תרעומת בלב החבר על פלוני שגילה את הדבר.",
+  "quotesHe": [
+   "כשמבקש מאת חברו, שייטיב עמו באיזה דבר, והוא משיבו, שאינו יכול למלאות בקשתו בזה",
+   "שלא ישאלנו: למה עשית טובה זו לפלוני",
+   "שהוא בעצמו ספר לי את הדבר"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהאדם ביקש מחברו שייטיב עמו באיזה דבר והחבר השיב שאינו יכול למלאות בקשתו",
+   "שהמבקש שואל את חברו למה עשית טובה זו לפלוני ומציין שפלוני בעצמו סיפר לו על כך"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.content_may_cause_harm"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "request.favor_denied",
+    "questionHe": "האם ההודעה נאמרת לאחר שהנמען סירב לבקשת טובה מהכותב?"
+   },
+   {
+    "id": "message.exposes_informant",
+    "questionHe": "האם הכותב חושף שפלוני הוא שסיפר לו על הטובה שקיבל מהנמען?"
+   },
+   {
+    "id": "message.questions_unequal_treatment",
+    "questionHe": "האם הכותב שואל מדוע הנמען עשה טובה לפלוני ולא לו?"
+   }
+  ],
+  "relevanceToChat": "medium",
+  "uncertainHe": [
+   "תוכן הערות (ג) ו-(ד) בבאר מים חיים אינו מובא בטקסט הסעיף וייתכן שמבאר פרטים נוספים",
+   "האם האיסור הוא רק כשאומר במפורש שפלוני סיפר או גם ברמז המובן לנמען",
+   "האם די בחשש מצוי לתרעומת או שנדרש שהתרעומת תתרחש בפועל"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin8.4",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 8:4",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_8:4",
+  "textSha256": "8a5032f0c7e71ce1",
+  "kind": "prohibition",
+  "titleHe": "אבק רכילות בדבר שמקפידים עליו",
+  "summaryHe": "לפי הסעיף, גם אם מה שמספר לשומע על מה שאמר פלוני עליו אינו דבר גנאי אלא רק דבר שדרך בני אדם להקפיד קצת כשאומרים אותו בפניהם, הרי זה אסור מטעם אבק רכילות.",
+  "quotesHe": [
+   "עוד יש דברים, שהן אסורין מטעם אבק רכילות",
+   "אינו דבר גנאי, רק דבר",
+   "שדרך בני אדם להקפיד קצת, כשאומרים לו בפניו."
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "הכותב מספר לשומע מה שאמר פלוני עליו",
+   "הדבר המסופר אינו דבר גנאי",
+   "דרך בני אדם להקפיד קצת כשאומרים דבר כזה בפני השומע"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.content_is_disparaging",
+   "subject.identifiable"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.causes_mild_annoyance_if_said_in_presence",
+    "questionHe": "האם דרך בני אדם להקפיד קצת אם היו אומרים את הדבר הזה בפני השומע?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהו גדר 'להקפיד קצת' ומהם הדוגמאות לכך תלוי בביאור הערות (ה) ו-(ו) ובבאר מים חיים",
+   "הסעיף אינו מבאר אם האיסור תלוי בכוונת המספר או בהקשר ואם יש נפקות מינה לאמיתות הדברים"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin8.5",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 8:5",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_8:5",
+  "textSha256": "4b62835b89e13aec",
+  "kind": "prohibition",
+  "titleHe": "חיוב הסתרת סוד חברו",
+  "summaryHe": "לפי הסעיף חייב אדם להסתיר סוד שחברו גילה לו בדרך סתר, אף אם אין בגלוי הסוד עניין רכילות, כי גילויו גורם נזק לבעליו ומפר את מחשבתו והמגלה יוצא מדרך הצניעות ומעביר על דעת בעל הסוד.",
+  "quotesHe": [
+   "וחיב אדם להסתיר הסוד, אשר יגלה לו חברו דרך סתר",
+   "אף על פי שאין בגלוי הסוד ההוא ענין רכילות",
+   "כי יש בגלוי הסוד נזק לבעליו וסבה להפר מחשבתו"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהסוד נגלה לאדם על ידי חברו",
+   "שהגילוי נעשה דרך סתר",
+   "שיש בגלוי הסוד נזק לבעליו וסיבה להפר מחשבתו",
+   "שהאיסור חל גם כשאין בגלוי הסוד עניין רכילות"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "message.content_may_cause_harm"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.was_told_as_secret",
+    "questionHe": "האם הדברים נמסרו לכותב כסוד או בדרך סתר?"
+   },
+   {
+    "id": "message.disclosure_harms_owner_plan",
+    "questionHe": "האם גילוי הדברים עלול לגרום נזק לבעל הסוד או להפר את מחשבתו ותוכניתו?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "הסעיף אינו מגדיר מה נחשב 'סוד' ומה נחשב 'דרך סתר'",
+   "הסעיף אינו מפרט מהו סף ה'נזק' או 'הפרת מחשבה' הנדרש",
+   "הסעיף תולה את האיסור גם ביציאה מדרך הצניעות ובהעברה על דעת בעל הסוד בלי לפרט היקפם – ייתכן שתלוי בבאר מים חיים ומקורות נוספים"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ }
+]

@@ -1,0 +1,402 @@
+[
+ {
+  "id": "cc.p1_prin3.1",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 3:1",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_3:1",
+  "textSha256": "d2d63acd8ba7bf68",
+  "kind": "prohibition",
+  "titleHe": "איסור לשון הרע אף בפניו ובאמת",
+  "summaryHe": "לפי הסעיף אסרה התורה לשון הרע אפילו על אמת ובכל גוני, ואפילו אם המספר משער שהיה אומרו בפני המדובר או שמספרו בפניו ממש. לפי הסעיף סיפור בפניו חמור אף יותר מצד אחד משום עזות וחצפה, עירור מדנים וחשש הלבנת פנים.",
+  "quotesHe": [
+   "שאסרתו התורה אפלו על אמת ובכל גוני",
+   "או שהוא מספר לשון הרע על חברו בפניו ממש, גם כן אסור ולשון הרע מקרי",
+   "ובצד אחד גדול אסורו בפניו משלא בפניו"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "הדברים הם גנאי על אדם מזוהה (חברו/עמיתך) או עלולים להתפרש כגנאי",
+   "חל גם כשנאמר בסתר וגם כשנאמר בפניו ממש, וגם כשהתוכן אמת"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_fellow",
+   "message.may_be_understood_as_disparagement",
+   "message.content_is_true",
+   "speaker.would_say_in_subjects_presence",
+   "audience.includes_subject"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.told_in_secret_with_intent_to_conceal",
+    "questionHe": "האם הדברים נאמרו בסתר מתוך הקפדה שלא יתגלה למדובר?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "פירוש הביטוי 'בכל גוני' ופרטי החומרות הנוספות שבפניו (עזות, מדנים, הלבנת פנים) תלוי בבאר מים חיים ובהפניה לפתיחה בלאו דלא תשא עליו חטא",
+   "האם חיוב 'ארור מכה רעהו בסתר' מותנה דווקא בהקפדה שלא יתגלה למדובר או חל בכל סיפור שלא בפניו",
+   "מהו גדר 'משער בעצמו שהיה אומר בפניו' – האם די בהערכה סובייקטיבית של המספר"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin3.2",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 3:2",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_3:2",
+  "textSha256": "c500d49f977d2268",
+  "kind": "condition",
+  "titleHe": "היתר אמירה בפניו רק באבק דו משמעי",
+  "summaryHe": "לפי הסעיף ההיתר של \"היה אומרו בפניו\" נאמר בחז\"ל רק באבק לשון הרע בלשון דמשתמע לתרי אפי שאפשר לפרשה בלא גנאי, ורק כשאין ניכר מקולו ותנועותיו שכוונתו לגנות באופן שלא היה מתבייש לאומרה כך בפני חברו.",
+  "quotesHe": [
+   "הינו דוקא באבק לשון הרע, ודבר עליו לישנא דמשתמע לתרי אפי",
+   "דאם באפני תנועותיו, שהוא מוציא עתה דבר זה מפיו, אין אדם מתביש לומר אפלו בפני חברו",
+   "אף שכל הענין בעצמותו, אפלו אם נפרשו לגנאי, הוא רק אבק לשון הרע"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "הדברים הם רק בגדר אבק לשון הרע ולא לשון הרע גמורה",
+   "הלשון משתמעת לשני אופנים, שאם נבאר אותה באופן אחד אין בה שום גנאי",
+   "אין ניכר מקולו ותנועותיו בשעת האמירה שכוונתו לגנות, עד שאין אדם מתבייש לומר באותו אופן אפילו בפני חברו"
+  ],
+  "exceptionsHe": [
+   "אם ניכר מתנועותיו שכוונתו לגנות וטבע האדם להתבייש לאומרה כך בפני חברו - אסור אפילו אם בעצם הוא רק אבק לשון הרע והוא אמת והוא יודע בעצמו שהיה אומרו אף בפניו"
+  ],
+  "factsNeeded": [
+   "speaker.would_say_in_subjects_presence",
+   "speaker.intent_to_disparage",
+   "message.is_hint_or_implied",
+   "message.may_be_understood_as_disparagement",
+   "message.content_is_true",
+   "subject.identifiable",
+   "subject.is_fellow"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.is_only_avak_lashon_hara",
+    "questionHe": "האם הדברים הם רק אבק לשון הרע ולא לשון הרע גמור?"
+   },
+   {
+    "id": "message.is_ambiguous_two_ways",
+    "questionHe": "האם הלשון משתמעת לשני אופנים שאחד מהם אינו גנאי?"
+   },
+   {
+    "id": "message.tone_indicates_disparaging_intent",
+    "questionHe": "האם ניכר מקולו ותנועותיו של האומר בשעת האמירה שכוונתו לגנות?"
+   }
+  ],
+  "relevanceToChat": "medium",
+  "uncertainHe": [
+   "גבול ההבחנה בין לשון הרע גמורה לאבק לשון הרע בסעיף זה",
+   "כיצד נמדדת \"התביישות לומר בפניו באותו אופן\" כאשר בצ'אט אין קול ותנועות אלא ניסוח וסימני נימה",
+   "האם דרישת \"והוא אמת\" היא תנאי להיתר זה או רק תיאור המקרה האסור גם כשהוא אמת"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin3.3",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 3:3",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_3:3",
+  "textSha256": "459aa6c1e27efbcd",
+  "kind": "prohibition",
+  "titleHe": "איסור לשון הרע בדרך שחוק",
+  "summaryHe": "לפי הסעיף, גם אם האדם אינו מדבר מתוך שנאה ולא נתכוון לגנות, אלא אמר את הדברים דרך שחוק ודרך קלות ראש, כיון שעל פי אמת הם דברי גנאי – הדבר אסור מן התורה.",
+  "quotesHe": [
+   "שאפלו אינו מדבר מתוך השנאה ולא נתכון בהספור לגנותו",
+   "רק אמרו דרך שחוק ודרך קלות ראש",
+   "כיון שעל פי אמת דברי גנאי הוא, אסור מן התורה"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "הדברים הם דברי גנאי",
+   "הדברים הם על פי אמת",
+   "האמירה נעשתה דרך שחוק ודרך קלות ראש, גם בלא כוונה לגנות ומתוך שנאה"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.content_is_disparaging",
+   "message.content_is_true",
+   "message.said_in_jest",
+   "speaker.intent_to_disparage"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.said_with_lightheadedness",
+    "questionHe": "האם הדברים נאמרו בדרך קלות ראש (זלזול/קלילות) גם כשאינם בדיחה מובהקת?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "הסעיף מפנה להערה (ב) – יש לבדוק בבאר מים חיים אם יש הגדרות נוספות ל'דרך שחוק וקלות ראש'",
+   "הסעיף מדגיש 'על פי אמת' – לא מבואר כאן דין סיפור שקרי או מוגזם שנאמר בדרך שחוק"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin3.4",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 3:4",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_3:4",
+  "textSha256": "035c92f04a7d32b4",
+  "kind": "prohibition",
+  "titleHe": "לשון הרע ברמז וברמאות בצנעא",
+  "summaryHe": "לפי הסעיף אסור לספר לשון הרע גם כשאינו מבאר את שם האיש אם מתוך ענין הסיפור מובן לשומע במי מדובר. לפי הסעיף גם כשאין בדברים שום ענין גנאי כלל אך על ידיהם נסבבת רעה או גנות לחברו והמספר נתכוון לכך ברמאותו הרי זה בכלל לשון הרע הנקרא לשון הרע בצנעא.",
+  "quotesHe": [
+   "אסור ספור לשון הרע הוא אפלו אם אינו (ג) מבאר בעת הספור את האיש שהוא מדבר עליו",
+   "ומתוך ענין הספור נשמע להשומע על איזה איש כון המספר הזה, בכלל לשון הרע הוא",
+   "ודבר זה נקרא בפי חז\"ל בשם לשון הרע בצנעא"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהמספר אינו מבאר בפירוש את שם האיש אך מתוך ענין הסיפור נשמע לשומע על איזה איש כיוון",
+   "שאפילו אם בדברי סיפורו לא היה שום ענין גנאי כלל רק שעל ידי דבריו נסבב רעה או גנות לחברו והמספר נתכוון לזה ברמאותו"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.is_hint_or_implied",
+   "message.content_is_disparaging",
+   "message.content_may_cause_harm",
+   "message.may_be_understood_as_disparagement",
+   "speaker.intent_to_disparage"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.causes_harm_without_explicit_disparagement",
+    "questionHe": "האם הדברים גורמים לרעה או לגנות לחברו אף שאין בהם גנאי מפורש?"
+   },
+   {
+    "id": "speaker.intent_to_cause_harm_by_deceit",
+    "questionHe": "האם הכותב מתכוון ברמאות לגרום רעה או גנות גם בלי לומר גנאי מפורש?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "גבול הזיהוי הנדרש כדי שיחשב שמתוך ענין הסיפור נשמע במי מדובר",
+   "הגדרת רמאות וכוונה ברורה לגרימת רעה או גנות בלא גנאי מפורש ומה נחשב לשון הרע בצנעא",
+   "תוכן הערות (ג) ו-(ד) בבאר מים חיים המשפיע על פרטי הדין"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin3.5",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 3:5",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_3:5",
+  "textSha256": "0846da73194d12d6",
+  "kind": "prohibition",
+  "titleHe": "לשון הרע בדרך רמאות",
+  "summaryHe": "לפי הסעיף, גם מי שמספר לשון הרע בדרך רמאות - כאילו בתמימות שאינו יודע שזה לשון הרע או בתמיהה 'וכי אלו מעשיו של פלוני' - הרי זה בכלל לשון הרע.",
+  "quotesHe": [
+   "ויש עוד הרבה אפנים בבעלי לשון הרע המספרין דרך רמאות",
+   "כאלו אינם יודעין שדבר זה שדברו לשון הרע הוא",
+   "כל זה וכיוצא בזה בכלל לשון הרע הוא"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהסיפור נאמר בדרך רמאות כאילו בתמימות",
+   "שהמספר מציג עצמו כאילו אינו יודע שדבר זה לשון הרע הוא",
+   "שהמספר מתבטא בלשון תמיהה על מעשי פלוני - או שאלו מעשיו של פלוני"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "message.is_hint_or_implied"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.presented_as_innocent_or_unaware",
+    "questionHe": "האם ההודעה מנוסחת כאילו בתמימות, כמי שאינו יודע שזה לשון הרע, או כהתממות ותמיהה על מעשי פלוני?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "היקף 'הרבה אפנים' ו'כיוצא בזה' לא פורט בסעיף ומשמעות הביטוי 'לפי (ה) תמן' סתומה וצריכה ביאור בבאר מים חיים",
+   "האם נדרשת כוונת גנאי ברורה או שגם ניסוח תמים לכאורה בלא כוונה מפורשת נחשב לשון הרע לפי סעיף זה"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin3.6",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 3:6",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_3:6",
+  "textSha256": "58e5999b89981296",
+  "kind": "prohibition",
+  "titleHe": "איסור לשון הרע גם בלא נזק",
+  "summaryHe": "לפי הסעיף, גם אם לא בא שום רעה למדובר בפועל כגון שהשומעים לא קיבלו את דבריו, הדיבור לא יוצא מכלל לשון הרע וצריך כפרה, ואף המשער לכתחילה שלא יבוא נזק לנדון אסור לו לספר בגנותו.",
+  "quotesHe": [
+   "דאפלו אם לא בא על ידי הלשון הרע שלו שום רעה להאיש ההוא",
+   "אף על פי כן מכלל לשון הרע לא נפקא {לא יצא}, וצריך כפרה",
+   "אם הוא משער לכתחלה, שלא יבוא לנדון שום רעה על ידי דבורו, אף על פי כן אסור לו לספר בגנותו"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "הדיבור הוא בגנות המדובר",
+   "הדיבור נאמר כסיפור לשון הרע לאחרים"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "message.content_may_cause_harm",
+   "listener.believes_report",
+   "audience.listener_will_spread"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "outcome.harm_occurred",
+    "questionHe": "האם בפועל נגרם נזק למדובר בעקבות הדברים?"
+   },
+   {
+    "id": "speaker.expects_no_harm",
+    "questionHe": "האם הכותב משער מראש שלא ייגרם שום נזק למדובר על ידי דיבורו?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "פירוט המקורות והראיות בהערות (ו) ו-(ז) בבאר מים חיים אינו בסעיף עצמו",
+   "מה נחשב \"רעה\" – נזק ממוני, גופני, צער או פגיעה בשם בלבד",
+   "מהו גדר \"משער לכתחילה\" והאם נדרשת ודאות או הערכה גרידא"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin3.7",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 3:7",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_3:7",
+  "textSha256": "86b93e573c2f55a8",
+  "kind": "prohibition",
+  "titleHe": "חובת דין לכף זכות במעשה דו משמעי",
+  "summaryHe": "לפי הסעיף, הרואה מעשה או דיבור הניתן להתפרש לטוב ולרע חייב לדון ירא אלהים לזכות אף אם הדבר נוטה לחובה, ובבינוני חייב להכריע לזכות כששקול. ואם במקום שהדבר נוטה לזכות דן אותו לחובה והלך וגנהו עבר גם על \"בצדק תשפט עמיתך\" וגם על איסור סיפור לשון הרע.",
+  "quotesHe": [
+   "אם האיש ההוא ירא אלהים, נתחיב לדון אותו לכף זכות, אפלו אם הדבר קרוב ונוטה אצל הדעת יותר לכף חובה",
+   "בצדק תשפט עמיתך",
+   "ובמקום שהדבר נוטה לכף זכות, דבודאי אסור על פי הדין לדונו לכף חובה"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהרואה ראה בעצמו אדם שדיבר דבר או עשה מעשה, בין שבין אדם למקום ובין שבין אדם לחברו",
+   "שיש לשפוט את דברו ומעשהו גם לצד הטוב וגם לצד הזכות",
+   "שהמדובר הוא ירא אלהים או מן הבינונים הנזהרים מן החטא",
+   "שהדן הכריעו לכף חובה במקום שהיה צריך לדונו לזכות ואחר כך הלך וגנהו"
+  ],
+  "exceptionsHe": [
+   "ירא אלהים - חייב לדונו לזכות אפילו אם הדבר קרוב ונוטה יותר לכף חובה",
+   "בינוני - אם הספק שקול צריך להטות לזכות, ואפילו אם נוטה יותר לחובה רק נכון מאד שלא יכריעו לחובה",
+   "כשהמעשה אין לו כלל צד זכות הסעיף אינו עוסק בו"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_fellow",
+   "speaker.knows_first_hand",
+   "message.may_be_understood_as_disparagement",
+   "message.content_is_disparaging"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.has_favorable_interpretation",
+    "questionHe": "האם המעשה או הדיבור המתואר ניתן להתפרש גם לצד הטוב ולצד הזכות?"
+   },
+   {
+    "id": "subject.piety_level",
+    "questionHe": "האם המדובר ידוע כירא אלהים או כבינוני הנזהר מן החטא?"
+   },
+   {
+    "id": "speaker.judgment_balance",
+    "questionHe": "האם פרשנות הכותב נוטה לכף חובה, לכף זכות, או שהספק שקול אצלו?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "הגדרת ירא אלהים לעומת בינוני וכיצד נקבעת בצ'אט",
+   "מה נחשב ספק שקול לעומת נוטה יותר לכף חובה או נוטה לכף זכות",
+   "משמעות הביטוי נכון מאד אצל בינוני כשנוטה לחובה - האם חיוב גמור או מידת חסידות",
+   "תלות בהערות באר מים חיים ח, ט, י, יא למקורות וגדרי בצדק תשפט עמיתך"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin3.8",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 3:8",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_3:8",
+  "textSha256": "fb720cd86ce85bf0",
+  "kind": "prohibition",
+  "titleHe": "איסור לבזות אחרים אף בהכרעה לחובה",
+  "summaryHe": "לפי הסעיף, אפילו במקום שהכף חוב מכריע יותר ומותר להסכים בעיני עצמו שהפלוני עשה שלא כדין, אסור למהר לילך ולבזותו עבור זה אצל אחרים אלא אם ישלימו כל הפרטים המבוארים לקמן בכלל ד' וה' ובכלל י', כי יש הרבה דברים שאף אם אין הדין עמו אסור לבזותו.",
+  "quotesHe": [
+   "ואפלו במקום שהכף חוב מכריע יותר, דמצד הדין ליכא אסורא כל כך, אם יכריעהו לכף חובה",
+   "אבל אין למהר לילך ולבזותו עבור זה אצל אחרים, אם לא שישלימו כל הפרטים המבארים לקמן בכלל ד' וה' ובכלל י'"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהכף חוב מכריע יותר ומצד הדין ליכא אסורא כל כך להכריעו לכף חובה בדעתו",
+   "שההיתר הוא רק לענין שיסכם בעיני עצמו שעשה שלא כדין",
+   "שרוצה לילך ולבזותו עבור זה אצל אחרים"
+  ],
+  "exceptionsHe": [
+   "אם ישלימו כל הפרטים המבארים לקמן בכלל ד' וה' ובכלל י' - אז דין הביזוי אצל אחרים נידון שם"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "message.content_may_cause_harm",
+   "message.purpose",
+   "speaker.intent_to_disparage",
+   "audience.includes_subject",
+   "audience.listener_will_spread",
+   "toelet.purpose_is_constructive",
+   "toelet.facts_verified",
+   "toelet.no_other_way",
+   "toelet.no_excess_harm",
+   "toelet.rebuke_attempted"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "judgment.scale_tips_to_guilt",
+    "questionHe": "האם במצב הנידון הכף חוב מכריע יותר עד שמצד הדין ליכא איסורא כל כך להכריע בדעתו לכף חובה?"
+   },
+   {
+    "id": "judgment.is_internal_conclusion_only",
+    "questionHe": "האם מדובר רק בהסכמה פנימית בעיני עצמו שעשה שלא כדין, או בהליכה לבזותו אצל אחרים?"
+   },
+   {
+    "id": "toelet.all_details_klal_4_5_10_fulfilled",
+    "questionHe": "האם התקיימו כל הפרטים המבוארים בכלל ד' וה' ובכלל י' המתירים ביזוי אצל אחרים?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהי הגדרת 'הכף חוב מכריע יותר' ומתי נחשב שהתנאי התקיים",
+   "מהם בדיוק 'כל הפרטים המבארים לקמן בכלל ד' וה' ובכלל י'' הנדרשים להתיר ביזוי אצל אחרים",
+   "מה נחשב 'לבזותו אצל אחרים' בצ'אט לעומת הסכמה פנימית בלבד, ומה תוכן הערת באר מים חיים (יב)"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ }
+]

@@ -1,0 +1,320 @@
+[
+ {
+  "id": "cc.p1_prin9.1",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 9:1",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_9:1",
+  "textSha256": "5b1257f3b32aa207",
+  "kind": "prohibition",
+  "titleHe": "אבק לשון הרע ברמז ושבח",
+  "summaryHe": "לפי הסעיף יש דברים האסורים משום אבק לשון הרע, כגון רמזים עמומים לגנאי דוגמת מי היה אומר על פלוני כך או שתקו מפלוני, וכן סיפור שבח חברו בפני שונאיו הגורם להם לגנותו, ואף ריבוי שבח שלא בפני שונאיו ודיבור עם מי שאין לבו שלם עם המדובר וצפוי שיגנהו.",
+  "quotesHe": [
+   "יש דברים שאסורין מטעם אבק לשון הרע",
+   "בשבחו של חברו בפני שונאיו, גם כן בכלל אבק לשון הרע הוא",
+   "מי היה אומר על פלוני, שיהיה כמו שהוא עתה"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "אמירה ברמז עמום לגנאי כגון מי היה אומר על פלוני שיהיה כמו שהוא עתה או שתקו מפלוני איני רוצה להודיע מה ארע",
+   "סיפור בשבח חברו בפני שונאיו הגורם להם שיספרו בגנותו",
+   "ריבוי סיפור בשבחו אפילו שלא בפני שונאיו שרגיל להביא לגנותו בסוף או לתגובת השומעים בגנותו",
+   "רצון לדבר עם אדם אודות פלוני כשמשער שאין לבו שלם עמו ויבוא על ידי זה לגנותו"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_fellow",
+   "message.is_hint_or_implied",
+   "message.may_be_understood_as_disparagement"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "audience.is_hostile_to_subject",
+    "questionHe": "האם הנמען הוא שונאו של המדובר או שאין לבו שלם עמו?"
+   },
+   {
+    "id": "message.is_excessive_praise",
+    "questionHe": "האם ההודעה מרבה בשבח המדובר באופן חריג שעלול להביא לגנותו?"
+   },
+   {
+    "id": "message.is_vague_negative_allusion",
+    "questionHe": "האם ההודעה כוללת אמירה עמומה לגנאי כגון שתקו מפלוני או איני רוצה להודיע מה ארע?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהו שיעור ריבוי שבח שאסור אפילו שלא בפני שונאים",
+   "מיהו שונא ומהו אין לבו שלם ומהו שיעור החשש שיבוא לגנותו",
+   "פרטי הדוגמאות וגבולותיהן תלויים בביאור הבאר מים חיים סק\"א-ה\" המוזכרים בסעיף"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin9.2",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 9:2",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_9:2",
+  "textSha256": "5db48193a9abd632",
+  "kind": "prohibition",
+  "titleHe": "איסור שבח ברבים הגורר גנאי",
+  "summaryHe": "לפי הסעיף אסור לשבח אדם ברבים בכל אופן, כי במסיבת אנשים רבים רגיל להימצא מימינים ומשמאילים או מקנאים שעל ידי הזכרת שבחיו יבואו לספר בגנותו. לפי הסעיף אם המדובר כבר הוחזק לרבים ככשר וצדיק ולא נמצא בו רעה ואשמה מותר לשבחו אף בפני שונא ומקנא, וכן אם משער שהשומעים לא יגנוהו כגון שאינם מכירים אותו מותר לשבחו ברבים ובלבד שלא ישבחו יותר מדי.",
+  "quotesHe": [
+   "אבל ברבים אסור (ו) בכל גוני",
+   "יבואו לספר בגנותו",
+   "אשר כבר החזק לרבים ונודע לכשר וצדיק ואשר לא נמצא בו רעה ואשמה"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "השבח נאמר ברבים - במסיבת אנשים רבים",
+   "רגיל להימצא שם במעמד כזה מימינים ומשמאילים או מקנאים",
+   "קיים חשש שעל ידי שיזכיר בשבחיו יבואו השומעים לספר בגנותו"
+  ],
+  "exceptionsHe": [
+   "אדם שכבר הוחזק לרבים ונודע לכשר וצדיק ואשר לא נמצא בו רעה ואשמה - מותר לשבחו גם על פני שונא ומקנא",
+   "אם הוא משער שהשומעים לא יגנוהו כגון שאינם מכירים אותו - מותר לשבחו אפילו ברבים כל שאינו משבחו יותר מדי"
+  ],
+  "factsNeeded": [
+   "audience.size_at_least_three",
+   "subject.identifiable",
+   "matter.already_known_to_many",
+   "audience.listener_will_spread",
+   "message.contains_falsehood_or_exaggeration"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.is_praise",
+    "questionHe": "האם ההודעה היא שבח או הלל של אדם ולא גנאי?"
+   },
+   {
+    "id": "message.is_excessive_praise",
+    "questionHe": "האם השבח הוא מופרז ויותר מדי?"
+   },
+   {
+    "id": "subject.is_known_as_righteous",
+    "questionHe": "האם המדובר כבר מוחזק לרבים ונודע לכשר וצדיק ללא רעה ואשמה?"
+   },
+   {
+    "id": "audience.knows_subject",
+    "questionHe": "האם השומעים מכירים את המדובר?"
+   },
+   {
+    "id": "audience.includes_detractors",
+    "questionHe": "האם בין השומעים יש שונאים, מקנאים או חולקים על המדובר?"
+   }
+  ],
+  "relevanceToChat": "medium",
+  "uncertainHe": [
+   "מהי הגדרת ברבים לעניין זה - כמה משתתפים נחשבים רבים, תלוי בביאור (ו)",
+   "מהי הגדרת יותר מדי בשבח שגם בהיתר של אי-היכרות אסור",
+   "היקף היתר במוחזק לכשר וצדיק והאם תלוי בכך שברור לכל שפיו של המגנה דבר שווא, תלוי בביאור (ז) ובבאר מים חיים"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin9.3",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 9:3",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_9:3",
+  "textSha256": "575c20b57a811bc2",
+  "kind": "prohibition",
+  "titleHe": "שבח המביא לידי הפסד וחשד לשון הרע",
+  "summaryHe": "לפי הסעיף יש להיזהר מלשבח חבר ברבים באופן שיביא לו הפסד ממוני, כגון פרסום טובת המארח או המלווה שיגרום לאנשים ריקים להתקבץ אליו ולכלות ממונו. וכן לפי הסעיף חייב אדם לשמור פיו שלא יחשדו בו שהוא מספר לשון הרע, ואם הביא עצמו לידי חשד הרי זה בכלל אבק לשון הרע.",
+  "quotesHe": [
+   "גם יש לו לאדם לזהר מלשבח את חברו בשבח, הבא לידי הפסד",
+   "מברך רעהו בקול גדול בבקר השכם קללה תחשב לו",
+   "שלא יחשד בדבריו, ויתנו אותו כמספר לשון הרע"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "הדברים הם שבח על חברו (כגון בעל בית שהיטיב באכילה ושתיה או חבר שהלווה ממון)",
+   "השבח מתפרסם ברבים - ברחוב העיר ולכל",
+   "קיים חשש שהפרסום יגרום להתלקטות אנשים ריקים/רעים שיסורו אל ביתו ויכלו את ממונו או שיתקבצו לבקש הלוואה ולא יוכל להשמט מהם",
+   "לענין החשד: ניסוח הדברים עלול לגרום לשומעים לחשוד בכותב שהוא מספר לשון הרע"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.content_may_cause_harm",
+   "audience.size_at_least_three",
+   "audience.listener_will_spread"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.is_praise_leading_to_loss",
+    "questionHe": "האם ההודעה משבחת אדם באופן שעלול לגרום לו להפסד ממוני או להטרדה בבקשות מאחרים?"
+   },
+   {
+    "id": "message.creates_suspicion_of_lashon_hara",
+    "questionHe": "האם ניסוח ההודעה עלול לגרום לקוראים לחשוד בכותב שהוא מספר לשון הרע?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "היקף ההפסד וההטרדה הנחשב איסור – האם כל פרסום טובת מלווה אסור או רק כשצפויה התנפלות ממשית של מבקשים",
+   "האם המגבלה היא דווקא בפרסום ברבים לכל או גם בקבוצה קטנה שעלולה להתפשט",
+   "מעמד החשד כלשון הרע – בסעיף נכתב שהוא אבק לשון הרע, אך בהערה מצוין שלדעת הגהות מימוני והסמ\"ג הוא לשון הרע גמורה",
+   "פרטי באר מים חיים (ח) ו-(ט) והגדרת אנשים ריקים/רעים לא מבוארים בסעיף עצמו"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin9.4",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 9:4",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_9:4",
+  "textSha256": "04ccbdf2cd3088da",
+  "kind": "listener_duty",
+  "titleHe": "איסור לשבת עם בעלי לשון הרע",
+  "summaryHe": "לפי הסעיף אסור לדור בשכונת בעלי לשון הרע וכל שכן לשבת עמהם ולהטות אוזן לשמוע לשון הרע אף בלי כוונה לקבלו כאמת. ואם נלכד באונס בחבורתם חייב להוכיחם אם יש סיכוי שיועיל ואף אם לא יועיל אך לא יקלקל אסור לשתוק וצריך למחות לכבוד הנקי שמדברים בו, ומורה שיודע שתוכחה לא תועיל לתלמידו בעל הלשון צריך להרחיקו.",
+  "quotesHe": [
+   "וכל שכן לישב עמהם ולשמע דבריהם, ואפלו אין בדעתו לקבל את הדבר, כיון שמטה אזניו לשמע"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "האדם דר בשכונת בעלי לשון הרע או יושב עמהם",
+   "מטה אזניו לשמוע דברי לשון הרע אף שאין בדעתו לקבלם כאמת",
+   "המורה יודע באחד מתלמידיו שהוא מבעלי הלשון ויודע שלא תועיל לו הוכחה",
+   "נתפס באונס בחבורת בעלי לשון הרע ושומע אותם מדברים לשון הרע",
+   "משער שתוכחתו תועיל להפסיקם או שמשער שלא תועיל אך גם לא תקלקל"
+  ],
+  "exceptionsHe": [
+   "מי שנקלע באונס לחבורה אינו כמי שבחר לדור עמהם ודינו בחובת תוכחה ומחאה ולא רק בהתרחקות"
+  ],
+  "factsNeeded": [
+   "listener.role_is_receiving",
+   "listener.believes_report",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "subject.identifiable"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "listener.stays_voluntarily",
+    "questionHe": "האם המשתמש נשאר מרצון בקבוצה/שיחה שבה מדברים לשון הרע?"
+   },
+   {
+    "id": "environment.is_habitual_gossip_group",
+    "questionHe": "האם הקבוצה או השכונה ידועה כמקום קבוע של בעלי לשון הרע?"
+   },
+   {
+    "id": "listener.rebuke_may_help",
+    "questionHe": "האם המשתמש משער שתוכחתו או מחאתו עשויה להפסיק את הדיבור?"
+   },
+   {
+    "id": "listener.rebuke_will_worsen",
+    "questionHe": "האם מחאה עלולה לקלקל ולהחמיר את המצב?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "הגדרת 'שכונה' ו'קביעת מקום בבית הכנסת ובית המדרש' לעומת קבוצת צ'אט דיגיטלית תלויה בביאור באר מים חיים אות י",
+   "מהו שיעור 'מטה אזניו לשמע' בקריאת הודעות בצ'אט לעומת חשיפה פסיבית בלי כוונה",
+   "מתי נחשבת הוכחה כ'תועיל' או 'תקלקל' ומה דין ספק בהערכת התועלת תלוי בביאור אותיות יב-יג",
+   "היקף החובה 'לענות ולגער לכבוד נקי וצדיק' ויחסה לחובת המחאה הכללית תלוי בביאור אות יד"
+  ],
+  "reviewIssues": [
+   "quote_not_verbatim",
+   "quote_not_verbatim"
+  ],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin9.5",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 9:5",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_9:5",
+  "textSha256": "5ef9d57630d91a3f",
+  "kind": "listener_duty",
+  "titleHe": "מצוה לגעור בקטנים המדברים לשון הרע",
+  "summaryHe": "לפי הסעיף אפילו אם שמע את בנו ובתו הקטנים מדברים לשון הרע מצוה לגער בהם ולהפרישם מזה. לפי הסעיף על האב להרגילם מנעוריהם לשמירת הלשון כי הדיבור והמידות צריכים הרגל רב.",
+  "quotesHe": [
+   "דאפלו אם שמע לבנו ובתו הקטנים, שהם מדברים לשון הרע, מצוה לגער בהם ולהפרישם מזה",
+   "חנך לנער על פי דרכו",
+   "כי הדבור והמדות צריך הרגל רב, וההרגל על כל דבר שלטון"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "שהשומע שמע את בנו או בתו הקטנים מדברים לשון הרע",
+   "שהדיבור הוא לשון הרע או דיבורים אסורים כיוצא בו כמו מחלוקת ושקר"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "listener.role_is_receiving"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "speaker.is_minor",
+    "questionHe": "האם הדובר הוא קטין?"
+   },
+   {
+    "id": "speaker.is_child_of_listener",
+    "questionHe": "האם הדובר הוא בנו או בתו הקטנים של השומע?"
+   }
+  ],
+  "relevanceToChat": "low",
+  "uncertainHe": [
+   "מהו גדר קטנים לענין חובת החינוך כאן והאם המצוה מדאורייתא או מדין חינוך כמבואר באורח חיים סימן שמג",
+   "האם החובה חלה רק על האב או גם על האם ומחנכים אחרים",
+   "האם הכוונה לגערה מילולית בלבד או גם להפרשה בפועל ומה דינה כשאין תועלת"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin9.6",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 9:6",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_9:6",
+  "textSha256": "2f300c0b3b4c41a8",
+  "kind": "prohibition",
+  "titleHe": "איסור גילוי סוד ללא רשות",
+  "summaryHe": "לפי הסעיף, האומר לחברו איזה דבר אסור לו לספרו אחר כך לאחרים אלא אם כן נתן לו רשות לכך, ודווקא כשמדובר בדבר שאין בו לשון הרע.",
+  "quotesHe": [
+   "האומר לחברו (טו) איזה דבר, אסור לו לספר אחר כך לאחרים",
+   "אלא אם כן נתן לו רשות על זה",
+   "ודוקא אם הוא דבר דלית בה לישנא בישא {שאין בו לשון הרע}"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שחברו אמר לו איזה דבר",
+   "שלא נתן לו רשות לספר זאת לאחרים",
+   "שהדבר הנדון אינו מכיל לשון הרע"
+  ],
+  "exceptionsHe": [
+   "אם הדבר מכיל לשון הרע – אין היתר לספרו גם ברשות, כי הסעיף מתיר רק בדלית בה לישנא בישא"
+  ],
+  "factsNeeded": [
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.was_told_in_confidence",
+    "questionHe": "האם הדברים נאמרו לך באופן פרטי או כסוד שאינו מיועד להפצה?"
+   },
+   {
+    "id": "message.has_permission_to_share",
+    "questionHe": "האם מי שאמר לך את הדברים נתן לך רשות מפורשת לספרם לאחרים?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהו גדר \"איזה דבר\" – האם כל דיבור סתמי או רק דבר שדרכו להיות סוד, כמבואר בבאר מים חיים (טו)",
+   "מהי צורת הרשות הנדרשת – האם רשות מפורשת בלבד או גם רשות משתמעת מהקשר",
+   "האם האיסור חל גם כשברור שהדובר אינו מקפיד על פרסום הדבר"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ }
+]

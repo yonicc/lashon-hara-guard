@@ -1,0 +1,180 @@
+[
+ {
+  "id": "cc.p2_prin3.1",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 3:1",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_3:1",
+  "textSha256": "612d2557fa8e595e",
+  "kind": "prohibition",
+  "titleHe": "איסור סיפור רכילות אף באמת גמורה",
+  "summaryHe": "לפי הסעיף אסור לספר רכילות אף כשהיא אמת גמורה ללא תערובת שקר, אף שלא בפני המדובר ואף אם המספר יודע בעצמו שהיה אומרה גם בפניו ועדיין רכילות מקרי. ואם מעיז פניו לומר לו בפניו ממש אתה דברת עליו או עשית לו כך וכך עוונו גדול הרבה יותר.",
+  "quotesHe": [
+   "אסור לספר רכילות, אף שהוא אמת גמור, שאין בו שום תערובות שקר",
+   "אפלו שלא בפניו, ואפלו אם הוא יודע בעצמו, (א) שהיה אומר דבר זה אף בפניו, גם כן אסור, ורכילות מקרי",
+   "וכל שכן אם הוא מעיז פניו לומר לו (ב) בפניו ממש: אתה דברת עליו, או עשית לו כך וכך, דאסור, ועונו גדול הרבה יותר"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהדברים הם רכילות - סיפור לשומע מה שפלוני אמר או עשה נגדו",
+   "אף שהדברים אמת גמורה בלי שום תערובת שקר",
+   "אף אם הסיפור הוא שלא בפני המדובר",
+   "אף אם המספר יודע בעצמו שהיה אומר זאת גם בפני המדובר - עדיין אסור"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.content_is_true",
+   "message.contains_falsehood_or_exaggeration",
+   "speaker.would_say_in_subjects_presence",
+   "audience.includes_subject"
+  ],
+  "proposedNewFacts": [],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "פירוש מדויק של 'בפניו' לעומת 'בפניו ממש' ו'מעיז פניו' תלוי במראה מקום (א) ו-(ב) בבאר מים חיים",
+   "מהם הלאוין והעשין שהסעיף אומר שעוברים עליהם ברכילות כזו - מפנה לפתיחה בלאוין אות יד במקור החיים בהג\"ה",
+   "האם 'אמת גמור' בסעיף בא לשלול היתר כלשהו או רק להדגיש שגם בלא שקר אסור - ומה דין תערובת שקר שאינו בסעיף זה"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin3.2",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 3:2",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_3:2",
+  "textSha256": "03965173a6407a51",
+  "kind": "prohibition",
+  "titleHe": "איסור לגלות למדבר את מקור הרכילות",
+  "summaryHe": "לפי הסעיף אם ראובן דיבר על שמעון בפני לוי ולוי סיפר זאת לשמעון, אסור לשמעון לומר לראובן ששמע שדיבר עליו כי בכך גם הוא עובר על איסור רכילות כלפי לוי. לפי הסעיף איסור זה חל גם בלי הזכרת שם לוי בפירוש, אם על ידי הרמז ממילא יבין ראובן מי גילה לו.",
+  "quotesHe": [
+   "אם ראובן דבר על שמעון בפני לוי, והלך לוי וספר הדברים לשמעון, אסור לשמעון לומר אחר כך לראובן: איך דברת עלי בפני לוי?",
+   "גם הוא עובר על אסור רכילות מחמת לוי,",
+   "ואפלו אם לא יזכיר לו בפרוש את שם לוי, ויאמר לו סתם: ששמעתי שדברת עלי כך וכך,"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "ראובן דיבר על שמעון בפני לוי",
+   "לוי הלך וסיפר את הדברים לשמעון",
+   "שמעון אומר אחר כך לראובן ששמע שדיבר עליו",
+   "גם אם שמעון אינו מזכיר את שם לוי בפירוש, אם ראובן יבין ממילא מי היה המגלה לו"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "subject.identifiable",
+   "audience.includes_subject"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.reveals_source_of_report",
+    "questionHe": "האם ההודעה מגלה לנמען שמישהו אחר סיפר לך על מה שנאמר עליך?"
+   },
+   {
+    "id": "message.source_inferable_without_naming",
+    "questionHe": "האם הנמען יוכל להבין ממילא מי גילה את המידע גם בלי הזכרת שמו במפורש?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהו בדיוק גדר ממילא יבין ראובן מי היה המגלה לו והאם די באפשרות להבין או שנדרשת ודאות, תלוי בבאר מים חיים (ג) (ד) שאינו מצורף",
+   "האם האיסור חל גם כשאין כוונה לגנות את לוי אלא רק לברר עם ראובן, ומה דין רמז עקיף בלבד"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin3.3",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 3:3",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_3:3",
+  "textSha256": "872cc5fc6241fa95",
+  "kind": "definition",
+  "titleHe": "רכילות גם שלא בפני הנוגע",
+  "summaryHe": "לפי הסעיף, רכילות נקראת גם כשמספרים לחברו מה ששמע שראובן אמר על שמעון, כי דברים כאלו אם יתגלגלו איש מפי איש עלולים לעורר מדנים ביניהם. לפי הסעיף צריך להיזהר בכך אפילו אם מזהיר שלא לגלות, וכל שכן שאסור לספר לאדם מה שפלוני דיבר על בניו וקרוביו.",
+  "quotesHe": [
+   "כך וכך שמעתי על ראובן, שהיה אומר על שמעון",
+   "אם נשמעו איש מפי איש, לעורר מדנים בין ראובן האומר ובין פלוני הנאמר עליו",
+   "דטבע האדם להיות מצר בזה, ורכיל מקרי"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהמספר מספר לחברו מה ששמע שראובן אמר על שמעון",
+   "שהדברים עלולים אם יישמעו איש מפי איש לעורר מדנים בין ראובן האומר לבין מי שנאמר עליו",
+   "שהמספר מספר לשומע מה שפלוני אמר על בניו וקרוביו"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_fellow",
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.content_may_cause_harm",
+   "audience.listener_will_spread"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.reports_what_someone_said_about_third_party",
+    "questionHe": "האם הכותב מספר לשומע מה שפלוני אמר על אדם שלישי שאינו השומע, באופן שעלול לעורר מדנים ביניהם אם יתגלגל? "
+   },
+   {
+    "id": "message.concerns_listeners_relatives",
+    "questionHe": "האם הדברים שפלוני אמר נוגעים לבניו או לקרוביו של השומע?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "היקף 'לעורר מדנים' - האם כל סיפור על דיבור של ראובן על שמעון נחשב רכילות או רק כשיש חשש סביר להתגלגלות איש מפי איש, תלוי בבאר מים חיים אות ה",
+   "מהי ה'גנות' הנשמעת ממילא בעת הסיפור ומדוע אזהרה שלא לגלות אינה מועילה - תלוי בבאר מים חיים אות ו",
+   "הגדרת 'בניו וקרוביו' - איזו מידת קרבה נכללת - תלוי בבאר מים חיים אות ז"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin3.4",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 3:4",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_3:4",
+  "textSha256": "fb1a4033f30b4230",
+  "kind": "condition",
+  "titleHe": "כוונה להוכיח את המדבר לשון הרע",
+  "summaryHe": "לפי הסעיף, אם כוונת המספר בסיפור הרכילות לחברו היא כדי שחברו יוכיח את ראובן על שדיבר לשון הרע על שמעון, הדין תלוי במה שמבואר לעיל בחלק א' כלל י' סעיף ו'.",
+  "quotesHe": [
+   "ואם כונתו בספרו את הדבר לחברו,",
+   "כדי שיוכיח את ראובן על שדבר לשון הרע על שמעון,",
+   "עין לעיל בחלק א' בכלל י' סעיף ו'."
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "כונת המספר במסירת הדבר לחברו היא כדי שחברו יוכיח את ראובן",
+   "ראובן דיבר לשון הרע על שמעון"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.purpose",
+   "toelet.purpose_is_constructive",
+   "toelet.rebuke_attempted",
+   "subject.identifiable",
+   "subject.is_fellow"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "speaker.intent_to_cause_rebuke",
+    "questionHe": "האם כוונת הכותב היא שהנמען יוכיח את מי שדיבר לשון הרע?"
+   }
+  ],
+  "relevanceToChat": "medium",
+  "uncertainHe": [
+   "הסעיף עצמו אינו מפרט את הדין אלא מפנה לחלק א' כלל י' סעיף ו' ויש לעיין שם ובבאר מים חיים לפרטי התנאים",
+   "לא ברור מהסעיף לבדו מהם התנאים המתירים או האוסרים סיפור לצורך תוכחה"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ }
+]

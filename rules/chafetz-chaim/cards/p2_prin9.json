@@ -1,0 +1,825 @@
+[
+ {
+  "id": "cc.p2_prin9.1",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:1",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:1",
+  "textSha256": "d54507c7de04df47",
+  "kind": "exception",
+  "titleHe": "חובת הזהרה מפני שותפות מזיקה",
+  "summaryHe": "לפי הסעיף, אם אדם רואה שחברו רוצה להשתתף באיזה דבר עם אדם אחר והוא משער שבודאי יסבב לו על ידי זה ענין רע, צריך להגיד לו כדי להצילו מן הענין הרע ההוא, אלא שהדבר מותנה בחמשה פרטים שיבוארו בסמוך.",
+  "quotesHe": [
+   "אם אחד רואה, שחברו רוצה להשתתף באיזה דבר עם אחד, והוא משער, שבודאי יסבב לו על ידי זה ענין רע,",
+   "צריך להגיד לו כדי להצילו מן הענין הרע ההוא, אך צריך לזה חמשה פרטים שאבארם בסמוך"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהרואה משער שבודאי תסבב השתתפות חברו עם פלוני ענין רע לחברו",
+   "שכוונת ההגדה היא להציל את החבר מן הענין הרע ההוא",
+   "שיתקיימו חמשת הפרטים הנדרשים לכך שיבוארו בסמוך"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.content_may_cause_harm",
+   "message.purpose",
+   "toelet.purpose_is_constructive",
+   "listener.needs_info_for_protection",
+   "subject.identifiable"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "toelet.certainty_of_future_harm",
+    "questionHe": "האם הכותב משער בוודאות גמורה שההשתתפות תגרום לנזק?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהו היקף המושג \"ענין רע\" המחייב אזהרה",
+   "מהי רמת הוודאות הנדרשת ב\"משער שבודאי יסבב לו\"",
+   "מהם חמשת הפרטים שהסעיף מפנה לביאורם בסמוך ותוכנם המדויק"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin9.2",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:2",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:2",
+  "textSha256": "fef8c12c5ed707e3",
+  "kind": "condition",
+  "titleHe": "תנאים להתיר רכילות לתועלת",
+  "summaryHe": "לפי הסעיף רכילות לתועלת מותרת רק בחמישה תנאים מצטברים: בירור שהענין רע באמת, בלי הגדלה והגזמה, כוונה לתועלת בלבד ולא משנאה ותוחלת שהשומע ישמע, כשאין דרך אחרת להשיג התועלת, ורק כשלא תיגרם לנדון רעה ממש אלא רק מניעת טובה עתידית.",
+  "quotesHe": [
+   "יזהר מאד, שלא יחליט תכף את הענין בדעתו לענין רע",
+   "שלא יגדיל בספורו את הענין לרע יותר ממה שהוא"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שיתבונן היטב מתחילה אם המעשה הוא בעצם רע ולא יחליט מיד לרע",
+   "שלא יגדיל בסיפורו את הענין לרע יותר ממה שהוא",
+   "שיכוון רק לתועלת לסלק נזק ולא מצד שנאה",
+   "שיתבונן אם תבוא תועלת בפועל ושהשומע ישמע לו",
+   "שאין דרך אחרת להשיג התועלת בלי לגלות את הרכילות",
+   "שלא ייגרם לנדון על ידי הסיפור רעה ממש אלא רק הסרת טובה שהיה עושה עמו"
+  ],
+  "exceptionsHe": [
+   "אם השומע ידוע שלא ישמע וישתתף עמו בכל זאת ואחר כך ישתמש במידע לרכילות נוספת - אין היתר ומכשיל אותו בלֹא תעשה דרכילות",
+   "אם על ידי הסיפור תיגרם לנדון רעה ממש - אסור בסתם וצריך פרטים נוספים המבוארים בסעיף ה' ו'",
+   "כל שכן אם תיגרם רעה רבה יותר מכפי הדין - אסור לספר"
+  ],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "toelet.purpose_is_constructive",
+   "message.purpose",
+   "toelet.facts_verified",
+   "message.contains_falsehood_or_exaggeration",
+   "message.content_is_true",
+   "speaker.intent_to_disparage",
+   "speaker.knows_first_hand",
+   "toelet.no_other_way",
+   "toelet.no_excess_harm",
+   "message.content_may_cause_harm",
+   "audience.listener_will_spread",
+   "listener.needs_info_for_protection"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "toelet.listener_will_heed",
+    "questionHe": "האם צפוי שהשומע ישמע לתועלת ויימנע מהנזק או מהשותפות? "
+   },
+   {
+    "id": "listener.tendency_to_misuse_info",
+    "questionHe": "האם השומע ידוע כבעל מידה רעה לרכילות שישתמש במידע לנגח את המדובר? "
+   },
+   {
+    "id": "toelet.harm_is_only_withholding_benefit",
+    "questionHe": "האם התוצאה הצפויה היא רק מניעת טובה עתידית ולא גרימת רעה ממש לנדון?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "הגבול המדויק בין רעה ממש לבין הסרת טובה עתידית והאם מניעת טובה נחשבת רעה",
+   "מהו שיעור רעה רבה יותר מכפי הדין האוסר אף לתועלת",
+   "איך מעריכים מראש אם השומע ישמע או לא והגדרת אדם עם מידה רעה דרכילות",
+   "הפניית הסעיף לסעיף ה' ו' לעניין רעה ממש - פרטיו הנוספים לא נתבארו כאן ותלויים בבאר מים חיים אותיות ז, ח, ט"
+  ],
+  "reviewIssues": [
+   "quote_not_verbatim"
+  ],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin9.3",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:3",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:3",
+  "textSha256": "4b47cd1d091c76eb",
+  "kind": "exception",
+  "titleHe": "התראת הנפגע על כוונת פגיעה",
+  "summaryHe": "לפי הסעיף, השומע שאדם מתכנן להכות, לחרף ולגדף או להזיק בממון את פלוני, אם המאיים מוחזק בכך או שניכר שכוונתו רצינית ולא גיזום בעלמא - צריך לגלות זאת לנפגע הפוטנציאלי כדי שיוכל להיזהר. לפי ההגהה היתר זה מותנה בכך שהתקיימו כל פרטי היתר התועלת, ולאחר שניסה להוכיח את המאיים או שמשער שהתוכחה לא תועיל.",
+  "quotesHe": [
+   "שאין בו משום אסור רכילות",
+   "צריך לגלות דבר זה להשכנגדו, אולי יוכל להזהר ממנו",
+   "צריך להוכיחו מתחלה על זה שרוצה להרע לפלוני"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "השמיעה היא על כוונה עתידית לפגוע: אם אפגע לפלוני אכנו או אחרפנו ואגדפנו, או רצון להזיקו בענין ממון",
+   "המאיים הוא מחזק לענין זה מכבר שכמה פעמים עשה כן לאנשים אחרים, או שמכיר לפי הענין שלא יצא מפיו בדרך גזום בעלמא ובודאי יעשה כן",
+   "הגילוי נועד לאפשר לשכנגדו להיזהר שלא יגיעו לו בושת או היזק",
+   "לא יחסרו כל הפרטים הנ\"ל של היתר תועלת",
+   "הוכיח את המאיים ולא קיבל תוכחתו, או שמשער שתוכחתו לא תועיל לו"
+  ],
+  "exceptionsHe": [
+   "אם הדברים נאמרו בדרך גיזום בעלמא ואין חזקה ואין הכרה ברורה שיעשה כן - אין היתר לגלות",
+   "בסתמא חובה להקדים הוכחה או דברי ריצוי למאיים להסיר כעסו, ורק אם לא הועיל מותר ללכת ולספר לנפגע"
+  ],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.content_may_cause_harm",
+   "speaker.knows_first_hand",
+   "listener.needs_info_for_protection",
+   "toelet.purpose_is_constructive",
+   "toelet.facts_verified",
+   "toelet.no_other_way",
+   "toelet.no_excess_harm",
+   "toelet.rebuke_attempted"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "threat.planned_harm_type",
+    "questionHe": "האם התכנית ששמעת היא להכות, לחרף ולגדף, או להזיק בממון לפלוני?"
+   },
+   {
+    "id": "threat.is_habitual_offender",
+    "questionHe": "האם האדם המאיים מוחזק לענין זה מכבר שכמה פעמים עשה כן לאנשים אחרים?"
+   },
+   {
+    "id": "threat.is_serious_not_empty_boast",
+    "questionHe": "האם לפי הענין ניכר שדבריו רציניים ובודאי יעשה כן ולא יצאו בדרך גיזום בעלמא?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהי הגדרת מוחזק מכבר - כמה פעמים ולאיזה זמן נדרש כדי להיחשב חזקה",
+   "כיצד מכריעים בין גיזום בעלמא לבין כוונה ודאית לפי הענין",
+   "מהם בדיוק כל הפרטים הנ\"ל הנדרשים - הפניה לכללי התועלת בסעיפים הקודמים וביאורם בבאר מים חיים",
+   "מתי נחשב שמשער שתוכחתו לא תועיל ופטור מחובת הוכחה מקדימה"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin9.4",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:4",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:4",
+  "textSha256": "db7ce768143cbbd6",
+  "kind": "condition",
+  "titleHe": "זהירות בסיפור רכילות לתועלת והגנה",
+  "summaryHe": "לפי הסעיף אף שסיפור רכילות כדי להזהיר את השומע ולמנוע נזק הוא מצוה רבה ובכלל הבאת שלום, יש להזהר שלא למהר לספר אלא אחר התבוננות שהסיפור יביא לשמירה ולסילוק הקטטה. לפי הסעיף פעמים רבות סיפור כזה מגביר את כעס השומע וגורם למחלוקת גדולה יותר, ולכן צריך להתבונן היטב מתחלה איך לתקן את הדבר.",
+  "quotesHe": [
+   "ואף דדבר זה הוא מצוה רבה ובכלל הבאת שלום הוא",
+   "שלא למהר לספר ענין כזה כי אם אחר שיתבונן לפי הענין",
+   "כי פעמים הרבה מצוי כשיספר לו, איך שדעת פלוני לחרפו, יתגבר יותר כעסו של זה על אותו פלוני"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "הסיפור הוא רכילות על כוונת פלוני להכות או לחרף את השומע",
+   "התכלית היא שהשומע ישמור עצמו, כגון שלא ילך למקום פלוני ביחידי, או עצה אחרת כיוצא בזה",
+   "המספר התבונן מראש לפי הענין שעל ידי סיפורו תסלק הקטטה שביניהם ולא תתגבר"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "toelet.purpose_is_constructive",
+   "listener.needs_info_for_protection",
+   "message.purpose"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "listener.expected_reaction_protective_vs_retaliatory",
+    "questionHe": "האם צפוי שהשומע ישמור על עצמו ולא יתגבר כעסו ויקדים לריב עם פלוני ולגרום למחלוקת גדולה יותר?"
+   },
+   {
+    "id": "speaker.has_deliberated_how_to_fix",
+    "questionHe": "האם המספר התבונן היטב מתחלה איך לתקן את הדבר לפני שסיפר?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהי מידת ההתבוננות הנדרשת לפי הענין לפני שמותר לספר",
+   "אילו עצות נחשבות עצה אחרת כיוצא בזה שמביאה לסילוק הקטטה",
+   "כיצד להעריך מראש אם הסיפור יביא לשמירה או להגברת כעס ומחלוקת"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin9.5",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:5",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:5",
+  "textSha256": "662b66c4a5c757a1",
+  "kind": "condition",
+  "titleHe": "תנאי היתר רכילות אחר גמר קניין",
+  "summaryHe": "לפי הסעיף ההיתר לספר רכילות לתועלת שכתב בסעיף א' הוא דווקא כשעדיין לא נגמר הקניין בין השומע לשכנגדו אלא רק הסכימו לגמור, ואם כבר נגמר הקניין מותר רק אם השומע רק ישמור עצמו לעתיד בלי לגרום היזק לשכנגדו ומתקיימים שאר תנאי סעיף ב', ועד אחד הגורם היזק אסור אפילו שלא יחרוג מדין בית דין.",
+  "quotesHe": [
+   "דע, דכל עצם ההתר, שכתבנו בסעיף א', הינו, דוקא אם האיש, שהוא מספר לו, לא גמר עדין הענין עם",
+   "אם הוא יודע שמחמת דבורו, שיגלה לו, לא יעשה לשכנגדו שום הזק, רק שמעתה ישמר את עצמו",
+   "כי הוא עד אחד, ועתה הוא גורם לנדון הזק ממש על ידי דבורו"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שההיתר המקורי הוא רק כשלא נגמר עדיין העניין בקניינים האוסרים לחזור, אלא רק הסכימו לגמור את העניין",
+   "אם נגמר העניין בקניין - מותר רק אם המספר יודע שהשומע לא יעשה לשכנגדו שום היזק אלא רק ישמור עצמו שלא יבוא לו היזק ממנו",
+   "התקיימות כל שאר הפרטים המבוארים לעיל בסעיף ב'",
+   "שאין כוונת המספר לגרום יותר מכפי הדין שהיה יוצא בבית דין על פי שני עדים"
+  ],
+  "exceptionsHe": [
+   "אם המספרים הם שניים שראו בעצמם את העניין וכוונתם רק לסלק נזקים ולא יותר מכפי הדין - היה נראה להתיר גם אחר גמר",
+   "אם רואים שעל ידי סיפורם יעשה השומע יותר ממה שבית דין היו עושים - אין להם יתרון מיחיד ובוודאי אסור להם לספר"
+  ],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.content_may_cause_harm",
+   "listener.needs_info_for_protection",
+   "listener.believes_report",
+   "toelet.purpose_is_constructive",
+   "toelet.no_excess_harm",
+   "toelet.facts_verified",
+   "speaker.knows_first_hand"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "transaction.is_finalized",
+    "questionHe": "האם העניין בין השומע לשכנגדו כבר נגמר בקניין שאסור לחזור בו לפי דיני הקניינים?"
+   },
+   {
+    "id": "listener.will_cause_harm_on_report",
+    "questionHe": "האם צפוי שהשומע יאמין מיד כוודאי ויעשה מעשה היזק לשכנגדו (כגון לחזור מהעסק) על פי הדיבור?"
+   },
+   {
+    "id": "listener.only_self_protection",
+    "questionHe": "האם השומע יסתפק בכך שישמור עצמו לעתיד בלי לגרום שום היזק לשכנגדו?"
+   },
+   {
+    "id": "speaker.is_two_firsthand_witnesses",
+    "questionHe": "האם יש שני מספרים שראו בעצמם את העניין ולא משמועה?"
+   }
+  ],
+  "relevanceToChat": "medium",
+  "uncertainHe": [
+   "הגדרת 'גמר העניין' תלויה בכל מקרה לפי דרכי הקניין המבוארים בפוסקים (הערה טו)",
+   "גבול בין 'ישמור עצמו' המותר לבין 'יעשה היזק' האסור - מה נחשב היזק ומה נחשב שמירה עתידית",
+   "תנאי ההיתר בשני עדים שראו בעצמם ופרטי סעיף ב' - תלויים בביאור בבאר מים חיים"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin9.6",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:6",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:6",
+  "textSha256": "0c97437a63b21d2c",
+  "kind": "prohibition",
+  "titleHe": "איסור גילוי למי שיעשה מעשה בעצמו",
+  "summaryHe": "לפי הסעיף ההיתר לספר רכילות בפני שנים אינו מועיל כשמספרים לאיש שטבעו לעשות מעשה בעצמו, והמספרים נשארים בגדר מסייע ידי עוברי עבירה, כי אסור לשומע לקבל את הדברים ולהפסיד לחברו בלא עדות בבית דין והרשאת בית דין.",
+  "quotesHe": [
+   "אך כל זה ההתר דעל ידי שנים, לאיש שטבעו לעשות מעשה בעצמו, אינו מועיל",
+   "ממסיע ידי עוברי עברה לא נפקי {לא יצאו}, שעל ידם יעשה האיש, שמספרין לו, דבר אסור",
+   "כי על פי דין אסור לו לקבל דבריהן ולעשות מעשה בעצמו להפסיד לחברו"
+  ],
+  "appliesTo": "both",
+  "conditionsHe": [
+   "הסיפור הוא רכילות - מסירת מה שפלוני אמר או עשה נגד השומע",
+   "הסיפור נעשה בהסתמך על היתר של אמירה בפני שנים",
+   "השומע הוא איש שטבעו לעשות מעשה בעצמו",
+   "השומע עלול לעשות מעשה להפסיד לחברו על סמך הדברים"
+  ],
+  "exceptionsHe": [
+   "אם העידו עליו בבית דין והרשוהו בית דין לעשות כן - מותר לשומע לעשות מעשה",
+   "מעצם איסור הדיבורים האסורים ניצולים על ידי שנים, אך לא ממסייע ידי עוברי עבירה"
+  ],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.content_may_cause_harm",
+   "listener.believes_report",
+   "audience.size_at_least_three",
+   "toelet.no_excess_harm"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "listener.will_act_himself",
+    "questionHe": "האם השומע הוא אדם שטבעו לעשות מעשה בעצמו ולהפסיד לחברו בלי רשות בית דין?"
+   },
+   {
+    "id": "audience.told_before_two",
+    "questionHe": "האם הרכילות נאמרה בפני שני שומעים נוספים (היתר על ידי שנים)?"
+   },
+   {
+    "id": "listener.has_beit_din_authorization",
+    "questionHe": "האם נעשתה עדות בבית דין והתקבלה הרשאה מבית דין לעשות מעשה נגד המדובר?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהי הגדרת 'איש שטבעו לעשות מעשה בעצמו' וכיצד ניתן לזהות זאת מראש",
+   "מהם 'כל חלקי הדינין ששייך בענין זה' שהמספרים צריכים לדעת כדי לשער שהמעשה יהיה כדין תורה",
+   "פרטי האיסור לשומע לקבל ולהפסיד לחברו כמבואר בבאר מים חיים ס\"ק כב ובכלל ו' סעיפים ט' ו-י' שהסעיף מפנה אליהם"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin9.7",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:7",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:7",
+  "textSha256": "08fd9aa9bbfcddd5",
+  "kind": "condition",
+  "titleHe": "תנאים לגילוי גזילה ורעה לזולת",
+  "summaryHe": "לפי הסעיף, המגלה לאדם שפלוני גזלו או הזיקו או עשה לו רעה כיוצא בזה עובר בלאו גמור דרכילות, אלא אם כן נשלמו כל הפרטים הנ\"ל ובכללם שהוכיח את המזיק מתחילה ולא קיבל דבריו. לפיכך יש להיזהר מאוד שלא להתיר לעצמו לספר מיד עד שיתבונן היטב אם התקיימו כל הפרטים.",
+  "quotesHe": [
+   "מה שאחד גזלו או הזיקו, או שום רעה כיוצא בזה, אין מתר, עד שישלמו כל הפרטים הנל",
+   "וגם הוכיחו מתחלה, ולא קבל דבריו, אבל בלאו הכי {בלא זה} אסור",
+   "שיעבר על ידי זה לאו גמור דרכילות"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהתוכן הוא גילוי לאחר מה שפלוני גזלו או הזיקו או עשה לו שום רעה כיוצא בזה",
+   "שישלמו כל הפרטים הנ\"ל המבוארים לעיל ובכלל א' סעיף ג'",
+   "שהוכיח את העושה רעה מתחילה והלה לא קיבל דבריו"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.reports_what_someone_said_or_did_against_listener",
+   "toelet.purpose_is_constructive",
+   "toelet.facts_verified",
+   "toelet.rebuke_attempted",
+   "toelet.no_other_way",
+   "toelet.no_excess_harm"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.content_is_theft_or_damage",
+    "questionHe": "האם ההודעה עוסקת בכך שפלוני גזל, הזיק או עשה רעה אחרת לשומע?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהם בדיוק \"כל הפרטים הנ\"ל\" - הסעיף מפנה לסעיפים קודמים ולכלל א' סעיף ג' בלי לפרטם כאן",
+   "מה נחשב \"הוכיחו מתחלה\" ומה הגדרת \"לא קבל דבריו\"",
+   "היקף \"שום רעה כיוצא בזה\" ומשמעות ההפניה (כג) בבאר מים חיים"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin9.8",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:8",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:8",
+  "textSha256": "ef3719ca47ffc921",
+  "kind": "condition",
+  "titleHe": "אין חילוק אם נשאל או מעצמו",
+  "summaryHe": "לפי הסעיף אין שום חילוק בכל דיני כלל זה לרכילות לתועלת בין אם חברו שואל ודורש שיאמר לו ובין אם אומר מעצמו; אם ישלמו כל הפרטים שבכלל זה צריך להגיד אף בלא דרישה, ואם לא ישלמו הפרטים אסור בכל גווני.",
+  "quotesHe": [
+   "דאין שום חלוק בכל זה הכלל שכתבנו",
+   "בין אם חברו שואל ודורש מאתו שיאמר לו, ובין לומר לו מעצמו",
+   "ואם לא ישלמו הפרטים, אסור בכל גוני"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שיתקיימו כל הפרטים המבוארים בכלל זה להתרת רכילות לתועלת – אז צריך להגיד אף בלא דרישה",
+   "שאם לא נתמלאו כל הפרטים – אסור לספר בכל אופן, בין נשאל ובין מעצמו"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "toelet.purpose_is_constructive",
+   "toelet.facts_verified",
+   "toelet.no_other_way",
+   "toelet.no_excess_harm",
+   "toelet.rebuke_attempted"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "listener.requested_to_tell",
+    "questionHe": "האם השומע שאל או דרש מהכותב שיאמר לו את הדברים, או שהכותב אומר מעצמו בלא שאלה?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהם בדיוק ״כל הפרטים שבכלל זה״ – פירוטם בסעיפים הקודמים בכלל ט ובהערות בבאר מים חיים כד-כה",
+   "משמעות ״צריך להגיד״ בסעיף זה – האם חובה ממש או רשות, ותנאיה המדויקים תלויים בבאר מים חיים"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin9.9",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:9",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:9",
+  "textSha256": "97635954af2ebee1",
+  "kind": "definition",
+  "titleHe": "איסור רכילות גם בסיפור סתמי",
+  "summaryHe": "לפי הסעיף צריך לזהר בכל פרטי כלל זה של רכילות גם כשאין כוונה לעורר מדנים אלא רק רצון לספר את הענין לאחרים, כי גם סיפור סתמי כזה הוא בכלל רכילות, כמו שכתב לעיל בחלק זה כלל ג' סעיף ג'.",
+  "quotesHe": [
+   "דצריך לזהר בכל אלו הפרטים שבכלל זה, אפלו אם לא ירצה, רק לספר הענין לאחרים",
+   "דזה גם כן בכלל רכילות הוא",
+   "וכמו שכתבנו לעיל בחלק זה בכלל ג' סעיף ג'"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "הדברים הם רכילות הנידונית בפרטי כלל זה",
+   "הסיפור לאחרים נעשה אפילו בלי כוונה לעורר שנאה או מדנים אלא רק כדי לספר את הענין"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.purpose"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "speaker.intent_to_cause_hatred",
+    "questionHe": "האם הכותב מתכוון לעורר שנאה או מדנים בין השומע למדובר, או רק לספר את העניין סתם בלי כוונה כזו?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "היקף הביטוי \"כל אלו הפרטים שבכלל זה\" תלוי בפירוט שאר הסעיפים בכלל ט ובבאר מים חיים שם",
+   "תוכן ההפניה לכלל ג' סעיף ג' בחלק זה לא מבואר בסעיף עצמו ודורש עיון שם"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin9.10",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:10",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:10",
+  "textSha256": "f46b183de60588eb",
+  "kind": "exception",
+  "titleHe": "חובת אזהרה מפני רמאות במסחר",
+  "summaryHe": "לפי הסעיף הרואה אדם תם העומד לקנות בחנות שבעליה ידוע כרמאי בסחורה במידות או במקח חייב להזהירו שלא ייכנס בה אף אם כבר פסק לקנות שם. לפי הסעיף כל שכן כשרואה בפירוש ניסיון לרמות בפועל חייב לומר לו כדי שלא יבוא לידי נזק, ובלבד שלא יחסרו הפרטים הנדרשים לתועלת בסעיף ב'.",
+  "quotesHe": [
+   "צריך לספר לו את ענין החנות ההיא ולהזהירו, שלא יכנס בה",
+   "אם הוא רואה בפרוש, שאחד רוצה לרמות לחברו בסחורה",
+   "אך מאד צריך לזהר, שלא יחסרו בזה הפרטים הנל בסעיף ב'"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהקונה הוא איש תם שאינו חריף להבין ערמומיות בני אדם",
+   "שהמזהיר מכיר את טבע בעל החנות שכל תשוקתו להשיג איש כזה לרמותו בסחורה או במידות ומשקלות או במקח",
+   "או שרואה בפירוש שאחד רוצה לרמות את חברו בפועל בסחורה במדות ובמשקלות או בשווי המקח",
+   "שמתקיימים כל הפרטים הנדרשים לתועלת המבוארים בסעיף ב'"
+  ],
+  "exceptionsHe": [
+   "באונאת מחיר פחות משתות אפשר שאין לומר לו ועיין בבאר מים חיים",
+   "במידות ובמשקלות בכל גוני צריך לומר לו"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.content_may_cause_harm",
+   "message.about_craft_or_goods",
+   "message.purpose",
+   "speaker.knows_first_hand",
+   "toelet.purpose_is_constructive",
+   "toelet.facts_verified",
+   "toelet.no_other_way",
+   "toelet.no_excess_harm",
+   "listener.needs_info_for_protection"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "context.buyer_is_naive_tam",
+    "questionHe": "האם הקונה הוא איש תם שאינו מבין ערמומיות?"
+   },
+   {
+    "id": "context.deception_type",
+    "questionHe": "האם הרמאות היא במידות ומשקלות או רק באונאת מחיר?"
+   },
+   {
+    "id": "toelet.onaah_less_than_sixth",
+    "questionHe": "האם האונאה היא פחות משתות משווי החפץ?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהם בדיוק כל הפרטים הנדרשים בסעיף ב' המוזכרים כתנאי להיתר",
+   "האם אונאה פחות משתות מחייבת אזהרה אם לאו, והסעיף מפנה לבאר מים חיים כז",
+   "הגדרת איש תם ומידת ההיכרות הנדרשת עם טבע בעל החנות",
+   "היקף החובה בכל גוני במידות ומשקלות לעומת אונאת מקח"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin9.11",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:11",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:11",
+  "textSha256": "d372f39880b61eed",
+  "kind": "prohibition",
+  "titleHe": "איסור סיפור אונאה כשאין תביעה",
+  "summaryHe": "לפי הסעיף, אם הקונה כבר לקח ואין לו עתה תביעה לפי דין תורה על המאנה, המגלה לו שרימוהו עובר על איסור רכילות ואפילו אם נשאל לא יאמר לו, וכל שכן אם יבוא המוכר לידי הפסד שלא כדין. ואם יש לו דין להחזיר המקח או האונאה ואילו ידע לא היה מתרצה, צריך לומר לו האמת בזהירות האפנים המבוארים.",
+  "quotesHe": [
+   "בודאי מי שהולך ומעורר להמתאנה ומראהו, איך שפלוני רמהו, עובר על אסור רכילות",
+   "ואפלו אם המתאנה שואלו, גם כן (לא) לא יאמר לו האמת",
+   "צריך לומר לו האמת כאשר הוא, כדי שיוציא מחברו את אונאתו"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהמקח כבר נגמר והקונה לקח את הסחורה",
+   "שהמספר יודע שרימוהו או בשווי המקח או בשאר חסרונות",
+   "שעל פי דין תורה אין למתאנה עתה כלום על המאנה - כגון שהאונאה היתה בפחות משתות, או שעבר הזמן כדי שיראה לתגר או לקרובו, או שאר סבה שהפסיד דינו",
+   "שהסיפור הוא עירור והראיה למתאנה איך פלוני רמהו, שאין בו תועלת דינית אלא דברים בעלמא"
+  ],
+  "exceptionsHe": [
+   "אם עדיין רוצה להזהירו קודם הקניה כדי שלא יבוא לידי אונאה",
+   "אם על פי דין תורה יהיה הדין עמו ויכול לחזור בו מהמקח או להחזיר לו האונאה ואילו היה יודע לא היה מתרצה - צריך לומר לו האמת בזהירות האפנים שיכתב"
+  ],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.about_craft_or_goods",
+   "message.content_may_cause_harm",
+   "message.purpose",
+   "toelet.purpose_is_constructive",
+   "toelet.no_excess_harm",
+   "toelet.facts_verified",
+   "subject.identifiable",
+   "speaker.knows_first_hand"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "matter.torah_claim_exists",
+    "questionHe": "האם לפי דין תורה יש למתאנה עדיין תביעה להוציא אונאתו או לחזור בו מהמקח?"
+   },
+   {
+    "id": "matter.transaction_completed",
+    "questionHe": "האם המקח כבר הושלם והקונה כבר לקח את הסחורה לידיו?"
+   },
+   {
+    "id": "matter.risk_of_unlawful_loss",
+    "questionHe": "האם על ידי הסיפור עלול להיגרם למוכר הפסד שלא כדין כגון שיתפסנו או שלא ישלם לו יתרת המעות?"
+   }
+  ],
+  "relevanceToChat": "medium",
+  "uncertainHe": [
+   "מהם שיעור פחות משתות, שיעור הזמן כדי שיראה לתגר או לקרובו, ומהן שאר הסבות המפסידות את הדין (ס\"ק כט)",
+   "מהם האפנים שצריך להיזהר בהם כשיש תביעה והחובה לספר, שהסעיף מפנה לסוף ס\"ק לד",
+   "האם איסור לא יאמר לו האמת כשנשאל חל גם בשאלה ישירה ומה דין שתיקה, ומה גבול עון גדול כשעלול לבוא לידי תפיסה או אי תשלום שלא כדין"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin9.12",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:12",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:12",
+  "textSha256": "3e1a4af365e16a39",
+  "kind": "condition",
+  "titleHe": "תנאים לספר לנאנה על אונאתו",
+  "summaryHe": "לפי הסעיף מותר לספר לנאנה שהמוכר הונהו במקח רק בחמישה תנאים מצטברים המפורטים בסעיף, ולפי הסעיף אם אין תועלת ממשית או שאסור על פי דין לחזור מן המקח – אסור לספר ואף מצוה לשבח המקח בפניו.",
+  "quotesHe": [
+   "שלא יגדיל בספורו את העולה או החסרון יותר ממה שהוא",
+   "שתהיה עקר כונתו לקנא לאמת ולעזר לאשר אשם לו",
+   "שהאיש שהוא מספר לו, לא יהיה בטבעו הולך רכיל"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שלא יגדיל ויגזים בתיאור העוולה או החסרון יותר ממה שהוא באמת",
+   "שתהיה עיקר כוונתו לקנא לאמת ולעזור לנאנה לתועלתו, ולא לשמוח בקלון המאנה, אף שיודע בברור שהונהו",
+   "שישער שתוכל לבוא מזה תועלת ממשית לנאנה",
+   "אם משער שדבריו יהיו נשמעים למאנה בהוכחה להחזיר האונאה – יוכיח את המאנה בינו לבין עצמו ולא יגלה לנאנה",
+   "אם יכול לסבב את התועלת בעצה אחרת בלי לספר גנות – לא יספר",
+   "שהאיש שמספר לו לא יהיה מטבעו הולך רכיל שעתיד לספר למוכר"
+  ],
+  "exceptionsHe": [
+   "אם יודע שטבע המתאנה שאינו איש דברים לילך בדינא ודינא ולבקש עזרה, ורק יכאיב לבו ויכניס שנאה – אין לומר לו",
+   "במקום שעל פי דין אסור לחזור מזה המקח – מצוה לשבח המקח בפניו ואין בזה משום מדבר שקר תרחק, כמו שאמרו חז\"ל הרי שלקח מקח רע מן השוק הוי אומר ישבחנו בעיניו",
+   "אם האיש הולך רכיל – צריך עיון אם מותר לספר לו, ומכל מקום אם משער שאם יזהירו שלא יגלה שמו ישמע לו – יעשה כן"
+  ],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.about_craft_or_goods",
+   "message.content_is_true",
+   "message.contains_falsehood_or_exaggeration",
+   "speaker.knows_first_hand",
+   "speaker.intent_to_disparage",
+   "message.purpose",
+   "toelet.purpose_is_constructive",
+   "toelet.facts_verified",
+   "toelet.no_other_way",
+   "toelet.rebuke_attempted",
+   "toelet.no_excess_harm",
+   "audience.listener_will_spread"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "toelet.victim_will_act_for_remedy",
+    "questionHe": "האם המספר משער שהנאנה ילך בדינא ודינא ויבקש עזרה להשיב האונאה, או שרק יכאב לבו וישנא את שכנגדו?"
+   },
+   {
+    "id": "matter.halachic_return_permitted",
+    "questionHe": "האם על פי דין מותר לנאנה לחזור מן המקח ולתבוע החזר האונאה?"
+   },
+   {
+    "id": "speaker.rebuke_would_be_heeded",
+    "questionHe": "האם המספר משער שדברי תוכחתו למאנה ישמעו ויחזיר את האונאה אם יוכיחו בינו לבין עצמו?"
+   }
+  ],
+  "relevanceToChat": "medium",
+  "uncertainHe": [
+   "גבול \"יגדיל\" – מה נחשב הגזמה אסורה לעומת תיאור מדויק",
+   "כיצד משערים \"תוכל לבוא תועלת\" ומה הדין בספק תועלת – תלוי בבאר מים חיים לג-לד",
+   "מיהו \"הולך רכיל בטבעו\" והאם אזהרה שלא יגלה שמו מועילה תמיד – הסעיף כותב \"צריך עיון\"",
+   "היתר לשבח מקח רע כשאסור לחזור – גבולות \"מדבר שקר תרחק\" תלוי בבאר מים חיים לד",
+   "מה נחשב \"עצה אחרת\" הפוטרת מסיפור הגנות – תלוי בבאר מים חיים לה"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin9.13",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:13",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:13",
+  "textSha256": "93691663f4d21621",
+  "kind": "condition",
+  "titleHe": "תנאים לספר על אונאה כשיקח דין לעצמו",
+  "summaryHe": "לפי הסעיף אם המתאנה צפוי לעשות דין לעצמו בלי בית דין אסור לגלות לו על האונאה אלא אם מתקיימים עוד שלושה פרטים, וביחד עם חמשת הפרטים הראשונים הם שמונה פרטים שאינו מצוי שיתקבצו, וגם אז יש חשש מסייע ידי עוברי עבירה.",
+  "quotesHe": [
+   "אבל אם מכירו בטבעו, שכאשר יודע לו מזה, יעשה דין לעצמו ויתפסנו",
+   "כי כדי שינצל מעצם דבור האסור, צריך לזה עוד שלשה פרטים",
+   "ועם החמשה פרטים הראשונים יש בסך הכל שמונה פרטים, ואינו מצוי שיתקבצו כלם"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהמתאנה יעשה דין לעצמו ויתפוס או יחזיר סחורה או לא ישלים מעות בלי בית דין",
+   "שענין האונאה ידוע למספרים עצמם מראייתם ולא משמיעה מאחרים",
+   "שהמספרים הם שנים",
+   "שלא יסבבו למאנה היזק יותר מכפי הדין שהיה יוצא בבית דין"
+  ],
+  "exceptionsHe": [
+   "אם המתאנה יתבע רק לבית דין ויעשה על פי דין תורה דין זה אינו חל ודי בחמשת הפרטים הראשונים",
+   "אם מכירים שטבע המתאנה להפסיד למאנה יותר מכפי הדין ולא יציית לדין אחר כך אסור לגלות לו בכל גווני"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "speaker.knows_first_hand",
+   "toelet.facts_verified",
+   "toelet.no_excess_harm",
+   "message.about_craft_or_goods",
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.content_may_cause_harm"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "listener.will_act_without_beit_din",
+    "questionHe": "האם ידוע שטבעו של המתאנה לעשות דין לעצמו ולתפוס או להחזיר סחורה בלי רשות בית דין?"
+   },
+   {
+    "id": "tellers.count_is_two",
+    "questionHe": "האם המספרים הם שני אנשים שראו בעצמם את ענין האונאה?"
+   },
+   {
+    "id": "matter.onaah_details_verified",
+    "questionHe": "האם בורר היטב מחיר השוק עתה, שיעור האונאה על פי דין תורה, ומתי נעשתה האונאה?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מה נחשב ידוע למספרים עצמם לעומת שמעו מפי אחרים וכיצד מוכח בצ'אט",
+   "מהם בדיוק חמשת הפרטים הראשונים המשלימים לשמונה והפניות בבאר מים חיים לו לז לח",
+   "כיצד להעריך שטבע המתאנה להפסיד יותר מכפי הדין ולא לציית אחר כך והאם צ'אט קבוצתי נחשב שני מספרים"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin9.14",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:14",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:14",
+  "textSha256": "8cbd65b7267aaf9b",
+  "kind": "prohibition",
+  "titleHe": "איסור גילוי שם המזיק לשואל",
+  "summaryHe": "לפי הסעיף, כשנעשה לראובן דבר שלא כהוגן והוא שואל את שמעון מי עשהו אף ששמעון מבין שחושדו, אסור לשמעון לגלות את שם העושה אף אם ראה בעצמו אלא ישיב רק \"אני לא עשיתי את הדבר\". לפי הסעיף בהגהה, אם שמעון היה מן המנויים בהחלטה קולקטיבית נגד ראובן אף שלא הסכים ודעתו בטלה ברוב, אסור לו מן הדין אפילו לומר \"אני לא עשיתי\" וכל שכן לגלות שמות אחרים ורוכל נקרא על כך.",
+  "quotesHe": [
+   "אף שהוא מבין, שראובן חושדו בזה, אסור לגלות לו את שם העושה, אף שהוא ראה בעצמו",
+   "רק ישיב לו: אני לא עשיתי את הדבר",
+   "אסור לו מן הדין להשיב, אפלו בלשון: אני לא עשיתי את הדבר הזה, וכל שכן לגלות בפרוש את שמם, ורוכל מקרי עבור זה"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "נעשה דבר לראובן שלא כהגן",
+   "לא נודע לראובן מי עשה לו את הדבר",
+   "ראובן בא ושאל את שמעון מי עשה לו זאת ושמעון מבין שראובן חושדו",
+   "שמעון יודע מי העושה אף שראה בעצמו"
+  ],
+  "exceptionsHe": [
+   "אם הוא דבר אשר אפילו אם לא היה חושדו ולא היה שואלו היה צריך לספר לו מעצמו, כגון שנשלמו בו כל הפרטים הנזכרים בתחילת הסימן כמו שכתב בסעיף ז' – מותר וצריך לספר",
+   "אם שמעון היה גם כן מן המנויים בהחלטה קולקטיבית כגון טובי העיר שדנו בהנהגת אנשי העיר, אף שלא הסכים ודעתו בטלה ברוב – אסור לו מן הדין להשיב אפילו \"אני לא עשיתי את הדבר הזה\" וכל שכן לגלות בפירוש את שמם"
+  ],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "speaker.knows_first_hand",
+   "subject.is_group",
+   "toelet.purpose_is_constructive",
+   "toelet.facts_verified",
+   "toelet.no_other_way",
+   "toelet.no_excess_harm",
+   "message.purpose"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "context.listener_asked_who_harmed_him",
+    "questionHe": "האם הנפגע שאל במפורש מי פגע בו והאם הוא חושד בשואל עצמו?"
+   },
+   {
+    "id": "speaker.was_participant_in_collective_decision",
+    "questionHe": "האם הדובר היה שותף בהחלטה קולקטיבית נגד הנפגע אף שלא הסכים ודעתו בטלה ברוב?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "פירוט \"כל הפרטים הנ\"ל בתחלת הסימן\" המתירים גילוי לתועלת והפנייתו לסעיף ז' – תלוי בביאור באר מים חיים",
+   "גבולות איסור ההגהה לומר \"אני לא עשיתי\" כשהיה מן המנויים שלא הסכים – והפנייתו לחלק א' כלל ב' סעיף יא",
+   "הגדרת \"שלא כהגן\" ומשמעות ההבחנה בין דינא לבין לצאת ידי שמים המוזכרת בהפניה לחלק א' כלל י' סעיף יז"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin9.15",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 9:15",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_9:15",
+  "textSha256": "134da82782b38a68",
+  "kind": "prohibition",
+  "titleHe": "איסור רכילות בגילוי שם הקונה השני",
+  "summaryHe": "לפי הסעיף אסור למוכר לגלות לקונה ראשון מי לקח סחורה שברר, כיון שמכר לו וקבל המעות והמכירה גמורה ואין תועלת בגילוי אלא הכנסת שנאה בלבו עליו וזו רכילות גמורה. לפי הסעיף אפילו לומר 'אני שגגתי כי לא ידעתי שפסקת עמי' אסור אם יגרום שנאה, והצורה המותרת היא לומר סתם 'מכרתיה בשגגה לאחר'.",
+  "quotesHe": [
+   "כגון זה, עבר על לאו גמור ד\"לא תלך רכיל בעמיך\",",
+   "רק שיכניס לו שנאה בלבו עליו, וזו היא רכילות גמורה,",
+   "רק ישיב לו המוכר סתם: אני מכרתיה בשגגה לאחר."
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "המוכר כבר מכר וקבל המעות והמכירה גמורה",
+   "אין תועלת מעשית בגילוי שם המפציר/הלוקח השני להשבת הסחורה",
+   "הגילוי רק מכניס שנאה בלב הקונה הראשון על השני"
+  ],
+  "exceptionsHe": [
+   "מי שאינו בכלל 'עמיתך' - הכופרים בתורת ה' אפילו באות אחת והמלעיגים מדברי חז\"ל - מצוה לפרסם דעתם הכוזבת ולגנותם"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_fellow",
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.content_may_cause_harm",
+   "toelet.purpose_is_constructive"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "matter.sale_completed_no_benefit",
+    "questionHe": "האם המעשה (המכירה) כבר נגמר באופן סופי כך שאין תועלת מעשית בגילוי שם האחר?"
+   },
+   {
+    "id": "message.disclosure_only_deflects_blame",
+    "questionHe": "האם הגילוי נועד רק להסיר תרעומת מהמדבר ולהטיל האשמה על אחר?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "גבולות התועלת - מתי גילוי שם נחשב חסר תועלת גמור לעומת תועלת עתידית למניעת הישנות מקרה",
+   "היקף האיסור לומר 'אני שגגתי' - האם כל רמז שעלול לגרום לשומע לחשוב שהשני ירד לחייו אסור",
+   "הגדרת 'אינו בכלל עמיתך' ותחולתה בימינו תלויה בבאר מים חיים ומקורות נוספים"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ }
+]

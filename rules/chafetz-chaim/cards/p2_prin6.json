@@ -1,0 +1,516 @@
+[
+ {
+  "id": "cc.p2_prin6.1",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 6:1",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_6:1",
+  "textSha256": "038e1f258f452d60",
+  "kind": "listener_duty",
+  "titleHe": "איסור קבלת רכילות אפילו בפרסום",
+  "summaryHe": "לפי הסעיף אסור לקבל רכילות אפילו אם המספר סיפר אותה בפרסום לפני כמה אנשים, ואין להחליט שהיא אמת מחמת פרסומה. לפי הסעיף רק מותר לחוש אחר הדבר ולחקור אותו אם הוא נוגע לשומע על להבא.",
+  "quotesHe": [
+   "אסור לקבל רכילות, אפלו אם המספר ספר את הדבר בפרסום (א) לפני כמה אנשים",
+   "אין להחליט מחמת זה שהדבר אמת, רק יש לחוש אחר זה ולחקר את הדבר",
+   "אם נוגע לו זה על להבא"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "שהדברים הם רכילות - שהכותב מספר לשומע מה שפלוני אמר או עשה נגדו",
+   "אפילו אם המספר סיפר את הדבר בפרסום לפני כמה אנשים"
+  ],
+  "exceptionsHe": [
+   "מותר לחוש אחר הדבר ולחקור אותו אם הוא נוגע לשומע על להבא, ולא להחליט שהוא אמת"
+  ],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "listener.role_is_receiving",
+   "listener.believes_report",
+   "matter.already_known_to_many",
+   "audience.size_at_least_three",
+   "listener.needs_info_for_protection"
+  ],
+  "proposedNewFacts": [],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "גדר \"בפרסום לפני כמה אנשים\" - לפי ציון (א) לבאר מים חיים",
+   "גדר \"נוגע לו זה על להבא\" המתיר לחוש ולחקר - לפי ציון (ב) לבאר מים חיים",
+   "ההבחנה המעשית בין \"קבלת\" רכילות האסורה לבין \"חשש\" המותר"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin6.2",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 6:2",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_6:2",
+  "textSha256": "018e46d8370c41f7",
+  "kind": "listener_duty",
+  "titleHe": "איסור קבלת רכילות גם בפניו ושתיקתו",
+  "summaryHe": "לפי הסעיף אסור לקבל רכילות כאמת אף אם נאמרה בפני מי שעליו מסופר והוא שתק, ואף אם טבעו שלא לשתוק בדרך כלל. לפי הסעיף איסור זה חל גם כשהמספר טוען שכוונתו להזהיר את השומע מפני נזק, וכל שכן בסתם רכילות ולשון הרע, כי המספר נחשב רשע החשוד גם לשקר ולהוסיף.",
+  "quotesHe": [
+   "דלשון הרע אסור לקבל מן הדין, אפלו אם ספר עליו (ג) בפניו, כן הדין ברכילות",
+   "ואפלו אם שותק עתה, בשעה שספר עליו הרכילות בפניו, גם כן אסור לקבל",
+   "בודאי החשוד על לאו דרכילות ולשון הרע, חשוד גם כן לשקר ולהוסיף דברים ולהחליף מסופו לתחלתו"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "הדברים הם רכילות - סיפור מה שפלוני אמר או עשה נגד השומע",
+   "השומע מקבל את הסיפור כאמת",
+   "האיסור חל גם כשנאמר בפני מי שעליו מסופר",
+   "האיסור חל גם אם המדובר שתק בשעת הסיפור, ואף אם טבעו שלא לשתוק בשאר דברים",
+   "האיסור חל גם כשהמספר מציג את דבריו כאזהרה לשמירת השומע מנזק"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "listener.role_is_receiving",
+   "listener.believes_report",
+   "message.reports_what_someone_said_or_did_against_listener",
+   "audience.includes_subject",
+   "speaker.would_say_in_subjects_presence",
+   "toelet.purpose_is_constructive"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "audience.subject_was_silent",
+    "questionHe": "האם המדובר שתק בשעה שסיפרו את הרכילות בפניו?"
+   },
+   {
+    "id": "subject.habit_not_to_remain_silent",
+    "questionHe": "האם טבעו של המדובר שלא לשתוק כשמאשימים אותו בדברים אחרים?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "גבול איסור ה'קבלה' - האם הוא אמונה בלב בלבד או גם הנהגה מעשית, ומה דין חשש בעלמא - והסעיף מפנה לביאורו בחלק א' כלל ז' סעיף ב'",
+   "היחס בין איסור הקבלה גם במקרה של אזהרת-הגנה לבין היתר הסיפור לתועלת שיבואר לקמן - האם מותר להישמר וחושש",
+   "תוכן הערות באר מים חיים (ג) ו-(ד) המוזכרות בסעיף והשלכותיהן על פרטי הדין"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin6.3",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 6:3",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_6:3",
+  "textSha256": "dca3218c48c85632",
+  "kind": "listener_duty",
+  "titleHe": "איסור חשד וקבלת רכילות כאמת",
+  "summaryHe": "לפי הסעיף אסור לניזוק לחשוד בסתם ביהודי שגרם להיזק עסקו כשסיבת ההיזק לא נודעה, ואף אם שמע רכילות שפלוני גרם לו מותר לו רק לחוש ולא להחליט בלבו שהדבר אמת, ואף שתיקת הנחשד כשעימתו אותו אינה הוכחה.",
+  "quotesHe": [
+   "אסור לו לחשד לאחד מישראל,",
+   "אין מתר לו, רק לחוש, ולא להחליט הדבר בדעתו שהוא אמת,",
+   "דאחזוקי אנשי ברשיעי לא מחזקינן."
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "כשהיה לו היזק בעסקו ולא נודע אם פלוני גרמו או שהשר מעצמו העבירו",
+   "כששמע מאחר שהוא סבב לו את ההיזק",
+   "אפילו אם אנשים עשו מריבה עם הנחשד על כך והוא שתק ולא הצטדק"
+  ],
+  "exceptionsHe": [
+   "אם יש לו עליו דברים הנכרים כפי שיתבאר לקמן - מותר להחליט בלבו עליו שהוא עשה זאת, אבל אסור להפסידו על ידי זה"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_fellow",
+   "message.reports_what_someone_said_or_did_against_listener",
+   "listener.role_is_receiving",
+   "listener.believes_report"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "listener.has_recognizable_signs",
+    "questionHe": "האם יש לניזוק דברים הנכרים המוכיחים שהנחשד אכן גרם להיזק?"
+   },
+   {
+    "id": "message.suspect_remained_silent",
+    "questionHe": "האם הנחשד שתק כשעימתו אותו עם הרכילות ולא הצדיק עצמו?"
+   },
+   {
+    "id": "message.source_is_interested_party",
+    "questionHe": "האם מוסר הרכילות הוא נכרי או אדם הנוגע בדבר המבקש להסיר אשמה מעצמו?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מה נחשב דברים הנכרים המתירים להחליט בלב שהנחשד אשם, שהסעיף מפנה לביאורו לקמן",
+   "מהו הגבול המעשי בין היתר לחוש לבין איסור להחליט שהדבר אמת בלב",
+   "מתי שתיקת הנחשד נחשבת ראיה ומתי היא מוסברת כבחירה להיות מן הנעלבין ואינם עולבין"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin6.4",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 6:4",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_6:4",
+  "textSha256": "9a16df392f5c5256",
+  "kind": "listener_duty",
+  "titleHe": "איסור קבלת רכילות אף משניים וקול בעיר",
+  "summaryHe": "לפי הסעיף אסור לקבל רכילות ולהחליט בלב שהיא אמת אפילו אם שמעה משנים ויותר או שיצא קול בעיר שפלוני דיבר עליו או עשה לו כך וכך, ואפילו אם כוונת המספרים לטובתו להבא שאינם נעשים רשעים בכך.",
+  "quotesHe": [
+   "דאסור קבלת רכילות הוא אפלו אם שמע (ז) משנים ויותר",
+   "או שיצא קול בעיר, שפלוני דבר עליו",
+   "אסור לקבל ולהחליט הדבר בלבו שהוא אמת"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "שהדברים הם רכילות – שפלוני דבר על השומע או עשה לו כך וכך",
+   "שהשומע קיבל והחליט בלבו שהדבר אמת"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "listener.role_is_receiving",
+   "listener.believes_report",
+   "matter.already_known_to_many",
+   "toelet.purpose_is_constructive"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "matter.heard_from_two_or_more",
+    "questionHe": "האם הדברים נשמעו משני אנשים או יותר באופן בלתי תלוי?"
+   },
+   {
+    "id": "matter.is_city_rumor",
+    "questionHe": "האם יצא קול בעיר על הדברים?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "גדר המדויק של \"משנים ויותר\" ו\"קול בעיר\" תלוי בביאור בבאר מים חיים אות ז",
+   "משמעות ההפניה לסעיף ב' לעניין \"שאין נעשין רשעים\" וקשרה להיתר קבלה צריכה עיון במקור"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin6.5",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 6:5",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_6:5",
+  "textSha256": "c8c22bf372f831f9",
+  "kind": "listener_duty",
+  "titleHe": "איסור קבלת רכילות והיתר לתועלת",
+  "summaryHe": "לפי הסעיף אסור לקבל רכילות אף מאדם נאמן כשניים ואף כשאין בדברים שום צד זכות, כל עוד אין בהם תועלת על להבא. לפי הסעיף אם יש תועלת עתידית כגון להישמר ממי שרוצה להזיקו בגופו או בממונו מותר לקבל ולהאמין כדי להישמר, אך אסור לגלות זאת לאחרים אף לבני ביתו אלא לתועלת, וכל היתר זה רק כששמע זאת בעצמו מהמדובר ולא מפי אחר.",
+  "quotesHe": [
+   "אסור קבלת רכילות הוא אפלו מאיש דמהימן לה כשנים,",
+   "אם (ט) יש לו מזה תועלת על להבא, כגון, שספר לו, שפלוני רוצה להזיקו בגופו או בממונו",
+   "לא יגלה זה לאחרים, ואפלו לאנשי ביתו, אם לא שיש לו בהגלוי ההוא תועלת על להבא"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "המדובר הוא קבלת רכילות - סיפור מה פלוני אמר או עשה נגד השומע",
+   "הקבלה היא האמנה שהדברים אמת",
+   "איסור הקבלה חל אף אם המספר נאמן כשניים",
+   "איסור הקבלה חל אף אם אין בדברים שום צד זכות",
+   "היתר קבלה והאמנה מותנה בקיום תועלת על להבא",
+   "היתר הקבלה מותנה שהמספר שמע את הדברים בעצמו מפי המדובר"
+  ],
+  "exceptionsHe": [
+   "אם יש תועלת על להבא כגון שמירה מנזק בגוף או בממון - מותר לקבל ולהאמין כדי להישמר",
+   "גילוי לאחרים ואף לאנשי ביתו אסור אלא אם יש בהגלוי עצמו תועלת על להבא",
+   "אם המספר שמע מאיש אחר שאמר לו ששמע ממנו - אין לו שום יתרון משאר אדם ולא חל היתר הקבלה המיוחד"
+  ],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "listener.role_is_receiving",
+   "listener.believes_report",
+   "listener.needs_info_for_protection",
+   "toelet.purpose_is_constructive",
+   "speaker.knows_first_hand",
+   "message.purpose"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "report.heard_directly_from_subject",
+    "questionHe": "האם המספר שמע את הדברים ישירות מפי המדובר עצמו ולא דרך אדם אחר ששמע ממנו?"
+   },
+   {
+    "id": "listener.will_disclose_to_others",
+    "questionHe": "האם השומע מתכוון לגלות את הדברים שקיבל לאחרים או לבני ביתו?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "פירוש 'אין שום צד זכות עליו' והיקפו לפי באר מים חיים (ח)",
+   "גדר 'תועלת על להבא' המזכה היתר קבלה והאמנה לפי באר מים חיים (ט) ומה נחשב כגון רוצה להזיקו בגופו או בממונו",
+   "מתי גילוי לאחרים ואף לאנשי ביתו נחשב לתועלת על להבא לפי באר מים חיים (י)",
+   "הגדרת 'שמע מאיש אחר שאמר לו ששמע ממנו' - מה נחשב שמיעה עקיפה שאין בה יתרון לפי באר מים חיים (יא)"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin6.6",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 6:6",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_6:6",
+  "textSha256": "c4b55618fa2728ad",
+  "kind": "condition",
+  "titleHe": "תנאי נאמנות כבי תרי ברכילות לתועלת",
+  "summaryHe": "לפי הסעיף אפילו ברכילות באופן המועיל מותר לשומע להאמין בלבו רק אם מכיר היטב את המספר שאינו משקר בשום אופן ואינו מגזם ונאמן עליו תמיד כשני עדים, ולפי ההגהה אף אז ההיתר הוא רק להאמין בעצמו ולא להפסידו בממון או להכותו או לגנותו.",
+  "quotesHe": [
+   "שמכיר היטב את טבע האיש ההוא, שאינו משקר בשום אפן, ואינו מגזם בדבר",
+   "כשני עדים המעידים בבית דין, שאין אחריהם שום ספק",
+   "כל שיותר יאמין ויחליט הדבר שהוא אמת, יותר יכנס בכלל מקבל לשון הרע ורכילות"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "שהרכילות נאמרת באופן המועיל",
+   "שהשומע מכיר היטב את טבע המספר שאינו משקר בשום אופן ואינו מגזם בדבר",
+   "שדעת השומע סומכת עליו כל כך עד שנאמנים לו דבריו תמיד גם בשאר דברים כשני עדים שאין אחריהם ספק"
+  ],
+  "exceptionsHe": [
+   "אם בשאר דברים אינו מאמינו כל כך ורק ברכילות זו מאמינו משום שמתוק לו רגבי לשון הרע ורכילות - בודאי אסור",
+   "אפילו כשמתקיימים כל חלקי ההיתר של מהימן ליה כבי תרי אין היתר אלא להאמין בעצמו ולא להפסידו בממון או להכותו או לגנותו בדברים"
+  ],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "toelet.purpose_is_constructive",
+   "listener.believes_report",
+   "listener.role_is_receiving"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "listener.trusts_speaker_like_two_witnesses",
+    "questionHe": "האם השומע מכיר היטב את המספר כאדם שאינו משקר ואינו מגזם ונאמן עליו תמיד כשני עדים?"
+   },
+   {
+    "id": "listener.reason_for_belief_is_sweetness",
+    "questionHe": "האם האמונה ברכילות נובעת מהיכרות קבועה או רק משום שמתוק לו לשמוע לשון הרע ורכילות?"
+   },
+   {
+    "id": "listener.intends_to_cause_loss_or_disparagement",
+    "questionHe": "האם השומע מתכוון על סמך הרכילות להפסיד את המדובר בממון או להכותו או לגנותו בדברים?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "הגדרה מדויקת של קים לה בגוה טובא ומכיר היטב את טבעו וכמה היכרות נדרשת",
+   "היקף ההיתר רק להאמין בעצמו האם כולל גם להיזהר לעתיד או רק אמונה פנימית",
+   "פירוט גבולות האיסור להפסידו בממון או להכותו או לגנותו בדברים ומה נחשב הפסד וגנאי",
+   "הסעיף מפנה לבאר מים חיים יב יג יד לביאור תנאים אלו"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin6.7",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 6:7",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_6:7",
+  "textSha256": "0e510bb0d62be367",
+  "kind": "listener_duty",
+  "titleHe": "איסור קבלת רכילות גם מקרוב נאמן",
+  "summaryHe": "לפי הסעיף בזמן הזה אסור לשומע לקבל דברי רכילות כאמת בשום אופן אפילו אם שמעם מאביו אמו או אשתו שהוא מחשיב כנאמנים כבי תרי, ומותר רק לחוש לדברים, כי לפי הסכמת הפוסקים היום אין אומרים פלוני מהימן לי כבי תרי.",
+  "quotesHe": [
+   "שאין לו לאדם לומר, שפלוני מהימן לה כבי תרי דלא משקר",
+   "על כן אסור לו לקבל דבריו בשום אפן, רק לחוש בלבד",
+   "אין חלוק בזה"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "הדברים הם לשון הרע או רכילות שהשומע מתבקש לקבלם כאמת",
+   "השמיעה היא בזמן הזה לאחר שהסכימו הפוסקים שאין אומרים פלוני נאמן כבי תרי"
+  ],
+  "exceptionsHe": [
+   "בזמן התלמוד היה דין אחר אם אמר פלוני מהימן לי כבי תרי",
+   "מותר לחוש לדברים לצורך זהירות אף שאסור לקבלם כאמת"
+  ],
+  "factsNeeded": [
+   "listener.role_is_receiving",
+   "listener.believes_report",
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.may_be_understood_as_disparagement",
+   "message.content_is_disparaging"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "speaker.is_relative_of_listener",
+    "questionHe": "האם המספר הוא אביו, אמו, בן/בת זוגו או קרוב משפחה אחר של השומע?"
+   },
+   {
+    "id": "speaker.is_considered_trustworthy_like_two_witnesses",
+    "questionHe": "האם השומע מחשיב את המספר לנאמן לו כבי תרי שלא ישקר לו?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "גדר המדויק של היתר 'לחוש בלבד' לעומת איסור קבלה כאמת תלוי בסעיפים ה'-ו' ובבאר מים חיים אות טו",
+   "היקף הסכמת הפוסקים 'היום' ומקורה המדויק בהערה טו",
+   "האם 'אין חלוק בזה' כולל כל קרוב נאמן או רק אב אם ואשה, ופרטיו בהערה טז ובהפניות לחלק א כלל ח סעיף יד ולכלל ז סעיף ח"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin6.8",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 6:8",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_6:8",
+  "textSha256": "01794a8414cddfc4",
+  "kind": "listener_duty",
+  "titleHe": "איסור קבלת רכילות ממסיח לפי תומו",
+  "summaryHe": "לפי הסעיף איסור קבלת רכילות חל אפילו כשהדברים נאמרו כמסיח לפי תומו בלא כוונה לעורר מדנים, וכל שאר פרטי איסור קבלת לשון הרע המבוארים בחלק א' כלל ז' סעיף ט' חלים גם לעניין רכילות.",
+  "quotesHe": [
+   "דין אסור קבלת רכילות (יז) הוא אפלו ממסיח לפי תמו",
+   "שהמספר לא כון בזה לעורר מדנים על חברו",
+   "והוא הדין לענין רכילות"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "שהדברים הם רכילות",
+   "גם אם המספר אמר זאת כמסיח לפי תומו בלא כוונה לעורר מדנים – דהיינו שבמקרה יצא דבר זה מפיו"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "listener.role_is_receiving",
+   "listener.believes_report"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "speaker.is_mesiah_lefi_tumo",
+    "questionHe": "האם המספר אמר את הדברים כמסיח לפי תומו בלא כוונה לעורר מדנים אלא דרך אגב?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "גדר המדויק של מסיח לפי תומו ברכילות תלוי בביאור בבאר מים חיים אות יז",
+   "כל יתר פרטי וסייגי איסור הקבלה לא פורטו בסעיף זה אלא הופנו לחלק א' כלל ז' סעיף ט'"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin6.9",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 6:9",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_6:9",
+  "textSha256": "b58f13c1320354b7",
+  "kind": "condition",
+  "titleHe": "דברים ניכרים ברכילות – חמשת התנאים",
+  "summaryHe": "לפי הסעיף, אם השומע ראה בעצמו דברים ניכרים המורים שסיפור הרכילות אמת, מותר לו להאמין בלבו רק בהתקיים חמשת הפרטים המפורטים בסעיף בהפניה לחלק א' כלל ז' סעיפים י'–י\"ד. ואף לאחר כל זה ההיתר הוא רק להאמין ולקבל בלב לאמת, אבל אסור לספר לאחרים או לסמוך על כך להפסידו בממון או להכותו.",
+  "quotesHe": [
+   "ואם ראה עליו דברים הנכרים, שנראה על ידם שאמת הוא, מה שספרו לו עליו",
+   "דצריך לזה אלו החמשה פרטים",
+   "אבל לא לילך ולספר דבר זה לאחרים"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "שהעניין שהדברים הניכרים מורים שהוא אמת לא יהיה בו צד לשפוט את המדובר לזכות",
+   "שיהא הדבר הניכר ממש שיגיע לעניין הסיפור, לא דבר הניכר קצת",
+   "שיראה את הדברים הניכרים בעצמו ולא שישמע אותם מפי אחרים",
+   "שיוכל להיות לו תועלת להבא מידיעת הסיפור, שאם לא כן אסור להטות אוזנו ולשמוע את הסיפור",
+   "שגם בהתקיים כל התנאים ההיתר הוא רק להאמין ולקבל בלב לאמת"
+  ],
+  "exceptionsHe": [
+   "בכל אופן אסור לסמוך על דברים הניכרים ממש להפסידו על ידי זה בממון או להכותו",
+   "אסור לילך ולספר דבר זה לאחרים אף לאחר שהותר להאמין בלב"
+  ],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "listener.believes_report",
+   "toelet.purpose_is_constructive"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "listener.saw_dvarim_nikarim_himself",
+    "questionHe": "האם השומע ראה בעצמו דברים ניכרים המורים שהסיפור אמת, ולא שמע אותם מפי אחרים?"
+   },
+   {
+    "id": "evidence.is_conclusive_direct",
+    "questionHe": "האם הדבר הניכר הוא ממש ומגיע לעניין הסיפור ולא דבר ניכר קצת?"
+   },
+   {
+    "id": "evidence.no_possible_favorable_judgment",
+    "questionHe": "האם אין בעניין צד לשפוט את המדובר לכף זכות?"
+   }
+  ],
+  "relevanceToChat": "medium",
+  "uncertainHe": [
+   "מהו הגבול בין \"דבר הנכר ממש\" ל\"דבר הנכר קצת\" – הסעיף מפנה לביאור בחלק א' כלל ז' סעיפים י'–י\"ד ולבאר מים חיים יח-כ",
+   "מה נחשבת \"תועלת על להבא\" המתירה להטות אוזן ולהאמין, והיקפה",
+   "פרטי האיסור להפסידו בממון או להכותו על סמך דברים ניכרים שהסעיף מפנה לסעיף י\"ד שם"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin6.10",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 6:10",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_6:10",
+  "textSha256": "2e04ed78d75bf676",
+  "kind": "prohibition",
+  "titleHe": "איסור הלשנה כנקמה על סמך סימנים",
+  "summaryHe": "לפי הסעיף טעות לחשוב שמותר להלשין על מי שהלשין עליו, ואם הכוונה לנקמה הדבר אסור גמור. לפי הסעיף היתר קיים רק אם יש תועלת להבא למנוע הלשנה נוספת ואין דרך אחרת, ורק כשראה בעיניו ממש ולא על סמך דברים ניכרים או שמועה.",
+  "quotesHe": [
+   "שאם אחד הלשין על חברו, מתר הוא גם כן אחר כך להלשינו",
+   "אבל אם הוא מתכון רק לנקם נקם, בודאי אסור גמור הוא",
+   "אבל לא לסמך על דברים הנכרים, אפלו אם הם דברים נכרים ממש"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שעל ידי המלשינות השנייה תהיה תועלת על להבא שהשכנגדו לא יחזור וילשינו עוד",
+   "שאי אפשר להציל עצמו בדרך אחרת",
+   "שהכותב רואה בעיניו ממש שהלה הלשינו ולא סומך על סימנים או שמועה"
+  ],
+  "exceptionsHe": [
+   "אם הכוונה רק לנקם נקם אין היתר וזה אסור גמור",
+   "אפילו דברים ניכרים ממש שראה בעצמו אינם מספיקים להתיר",
+   "סיפור מאנשים אחרים שהלה הלשין אינו מספיק אפילו להחליט בלב שהדבר אמת כל זמן שלא העידו בבית דין או נתברר בברור שאין אחריו ספק"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_fellow",
+   "message.content_may_cause_harm",
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.purpose",
+   "speaker.knows_first_hand",
+   "toelet.purpose_is_constructive",
+   "toelet.no_other_way",
+   "toelet.facts_verified"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "speaker.motive_is_revenge",
+    "questionHe": "האם כוונת הכותב במסירה היא רק לנקמה ולא לתועלת להבא?"
+   },
+   {
+    "id": "evidence.saw_directly_vs_signs",
+    "questionHe": "האם הכותב ראה בעיניו שהלה הלשין או שנסמך רק על דברים ניכרים או שמועה מאחרים?"
+   },
+   {
+    "id": "evidence.testified_in_court_or_clarified",
+    "questionHe": "האם יש עדות בבית דין או בירור ברור ללא ספק שהלה הוא שהלשין?"
+   },
+   {
+    "id": "toelet.will_prevent_future_informing",
+    "questionHe": "האם המסירה השנייה תגרום שהלה לא יחזור וילשין שוב?"
+   }
+  ],
+  "relevanceToChat": "medium",
+  "uncertainHe": [
+   "גבולות תועלת על להבא ואי אפשר בדרך אחרת התלויים במבואר בחושן משפט סימן שפח סעיף ט בהגהה",
+   "מה נחשב ראייה בעיניו ממש לעומת דברים ניכרים אפילו ניכרים ממש",
+   "מהו בירור בברור שאין אחריו ספק חוץ לבית דין המספיק להתיר החלטה בלב והפסד כל שהוא לתועלת להבא"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ }
+]

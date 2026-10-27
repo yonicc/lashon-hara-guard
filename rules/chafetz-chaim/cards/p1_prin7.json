@@ -1,0 +1,715 @@
+[
+ {
+  "id": "cc.p1_prin7.1",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 7:1",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_7:1",
+  "textSha256": "5e175f983a71ef71",
+  "kind": "listener_duty",
+  "titleHe": "איסור קבלת לשון הרע בפרסום",
+  "summaryHe": "לפי הסעיף אסור לקבל לשון הרע כאמת גם אם המספר אמרו בפרסום לפני כמה אנשים, ואין להחליט שהדבר אמת מחמת הפרסום. לפי הסעיף על השומעים רק לחוש לזה ולחקר את הדבר, ואם יתברר כאמת יוכיחוהו על זה.",
+  "quotesHe": [
+   "אסור קבלת לשון הרע הוא אפלו אם המספר מספר את הדברים בפרסום",
+   "אף על פי כן אין להחליט מחמת זה, שהדבר אמת",
+   "רק יש להשומעים לחוש לזה ולחקר את הדבר"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "המספר מספר את הדברים בפרסום לפני כמה אנשים"
+  ],
+  "exceptionsHe": [
+   "מותר להשומעים לחוש לדבר ולחקר את הדבר",
+   "אם יתברר שהדבר אמת - יוכיחוהו על זה"
+  ],
+  "factsNeeded": [
+   "listener.role_is_receiving",
+   "listener.believes_report",
+   "audience.size_at_least_three",
+   "matter.already_known_to_many"
+  ],
+  "proposedNewFacts": [],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהו הגדר המדויק של בפרסום לפני כמה אנשים וכמה אנשים נחשבים פרסום - תלוי בבאר מים חיים אות א",
+   "מהי משמעות לחוש לזה ולחקר את הדבר בפועל וגבולות ההיתר לחשוש",
+   "מהם פרטי דין יוכיחוהו על זה ואופן קיומו"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin7.2",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 7:2",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_7:2",
+  "textSha256": "8106fabc072d6fc6",
+  "kind": "listener_duty",
+  "titleHe": "איסור להאמין ללשון הרע גם בפניו",
+  "summaryHe": "לפי הסעיף אין שום היתר להאמין ללשון הרע גם אם סופרה בפני הנידון וגם אם המספר אומר שהיה אומרה בפניו. עוד קובע הסעיף ששתיקת הנידון בשעת אמירת הגנאי בפניו אינה ראיה שהדבר אמת.",
+  "quotesHe": [
+   "אין שום התר להאמין בלשון הרע, אפלו אם המספר ספר עליו (ב) הלשון הרע בפניו",
+   "כיון שלא שמענו הודאה על זה מפי הנדון",
+   "אין לקח מזה שום ראיה להחליט, שהדבר אמת"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "המדובר הוא דברי גנות על הנידון בגדר לשון הרע",
+   "לא נשמעה הודאה מפורשת מפי הנידון שהדברים אמת",
+   "השומע בא להאמין ולהחליט בוודאות שהדבר אמת"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "listener.believes_report",
+   "listener.role_is_receiving",
+   "audience.includes_subject",
+   "speaker.would_say_in_subjects_presence",
+   "subject.identifiable",
+   "message.may_be_understood_as_disparagement",
+   "message.content_is_disparaging"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "subject.explicit_admission",
+    "questionHe": "האם הנידון הודה במפורש בפה מלא שהדברים אמת?"
+   },
+   {
+    "id": "subject.silent_in_presence",
+    "questionHe": "האם הנידון שתק כשאמרו עליו את דברי הגנאי בפניו ולא הכחיש?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהי הגדרת הודאה מפי הנידון המספיקה לפי באר מים חיים בהערה ב",
+   "האם שתיקה עשויה להיחשב כהודאה במקרים חריגים - תלוי בהערה ג ובאר מים חיים",
+   "האם הכלל חל גם כשיש ראיות חיצוניות נוספות מלבד האמירה בפניו - לא נדון בסעיף זה"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin7.3",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 7:3",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_7:3",
+  "textSha256": "a977b5d97c84cd9a",
+  "kind": "listener_duty",
+  "titleHe": "איסור קבלת לשון הרע משניים",
+  "summaryHe": "לפי הסעיף אסור לקבל לשון הרע ולהאמינו בהחלטה אפילו אם שמעו משניים או יותר, בין אם נעשו רשעים בסיפורם ובין אם לאו, כי חוץ לבית דין אין חל שם עדות וקשר רשעים אין מן המנין; וכל זה להחליט, אבל לחוש מותר אפילו משמיעה מאחד.",
+  "quotesHe": [
+   "כשם שאסור לקבל לשון הרע, אם שמע מאחד, כן הדין",
+   "קשר רשעים אין מן המנין",
+   "אסור לקבל דבריהם (ז) ולהאמינם בהחלטה"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "השמיעה היא חוץ לבית דין, שאין חל שם עדות אלא בבית דין",
+   "המדובר הוא ישראל בחזקת כשר גמור לעת עתה",
+   "הקבלה היא בדרך אמונה והחלטה גמורה, לא חשש בעלמא"
+  ],
+  "exceptionsHe": [
+   "לחוש מותר אפילו אם לא שמע רק מאחד",
+   "עדות כשרה בבית דין - שם כן חל שם עדות"
+  ],
+  "factsNeeded": [
+   "listener.role_is_receiving",
+   "listener.believes_report",
+   "subject.is_fellow",
+   "listener.needs_info_for_protection"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "report.num_tellers",
+    "questionHe": "האם הדברים נמסרו משני אנשים או יותר?"
+   },
+   {
+    "id": "hearing.is_outside_bet_din",
+    "questionHe": "האם הדברים נאמרו מחוץ לבית דין ולא כעדות כשרה בבית דין?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "גבול מדויק בין 'להאמין בהחלטה' האסור לבין 'לחוש' המותר ומה מותר לעשות מכוח החשש",
+   "פירוש וביאור סימוני הבאר מים חיים (ד)(ה)(ו)(ז) לגבי קשר רשעים ודין עדות חוץ לבית דין",
+   "האם דין זה נאמר דווקא בלשון הרע או גם ברכילות, ומה דין שמיעה מקבוצה גדולה"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin7.4",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 7:4",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_7:4",
+  "textSha256": "c3b10bd4c3007889",
+  "kind": "listener_duty",
+  "titleHe": "איסור קבלת קול על עבירה",
+  "summaryHe": "לפי הסעיף, אם יצא קול על אחד שעשה מעשה או שדיבר דבר שלא כראוי על פי התורה, בין באיסור חמור ובין באיסור קל, אסור לקבלו ולהאמינו בהחלטה אלא רק לחוש עד שיתברר הדבר, ועל אחת כמה וכמה שיש להיזהר שלא להעביר את הקול ולגלותו יותר לאחרים.",
+  "quotesHe": [
+   "שעשה מעשה או שדבר דבר, שלא כראוי על פי התורה",
+   "אסור לקבלו להאמינו בהחלטה, רק לחוש, עד שיתברר הדבר",
+   "שלא יכון להעביר הקול ולגלותו יותר"
+  ],
+  "appliesTo": "both",
+  "conditionsHe": [
+   "שיצא קול על אדם מסוים שעשה מעשה או שדיבר דבר שלא כראוי על פי התורה",
+   "בין אם מדובר באיסור חמור ובין אם באיסור קל",
+   "שהדבר עדיין לא התברר"
+  ],
+  "exceptionsHe": [
+   "מותר רק לחוש עד שיתברר, אך אסור להאמין בהחלטה"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.about_torah_or_piety",
+   "speaker.knows_first_hand",
+   "toelet.facts_verified",
+   "listener.role_is_receiving",
+   "listener.believes_report",
+   "audience.listener_will_spread"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.is_rumor_col",
+    "questionHe": "האם ההודעה מעבירה קול או שמועה לא מבוררת ולא ידיעה ממקור ראשון?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהו גדר המדויק של \"קול\" שיצא על אחד לעניין סעיף זה",
+   "מה הגבול בין \"לחוש\" המותר לבין \"להאמינו בהחלטה\" האסור ומה מותר לעשות מכוח החשש",
+   "מה נחשב \"עד שיתברר הדבר\" ואיזה בירור נדרש",
+   "פרטי הדין של \"שלא יכון להעביר הקול\" התלויים במה שביאר בכלל ב' סעיף ג' ובביאור ביאור מים חיים (ח) ו-(ט)"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin7.5",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 7:5",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_7:5",
+  "textSha256": "7619d730e5199ab9",
+  "kind": "exception",
+  "titleHe": "היתר קבלת לשון הרע על רשע מוחזק",
+  "summaryHe": "לפי הסעיף כל מה שנאמר לעיל בעניין איסור קבלת לשון הרע אמור בסתם איש ישראל, אבל אם האדם כבר הוחזק מכבר לאדם רשע בכך שנתפרסם עליו כמה פעמים שעבר בשאט נפש על איסורים הידועים לכל ישראל כניאוף וכיוצא בזה, על איש כזה מותר לקבל לשון הרע.",
+  "quotesHe": [
+   "וכל זה, שדברנו, הוא בסתם איש ישראל",
+   "מפני שנתפרסם עליו כמה פעמים, שעבר בשאט נפש על אסורין הידועין לכל ישראל",
+   "על איש כזה מתר לקבל לשון הרע"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "שהמדובר כבר הוחזק מכבר בלאו הכי לאדם רשע",
+   "שנתפרסם עליו כמה פעמים שעבר על איסורים",
+   "שהעבירה היתה בשאט נפש",
+   "שהאיסורים הם מן הידועים לכל ישראל שהוא אסור כגון ניאוף וכיוצא בזה"
+  ],
+  "exceptionsHe": [
+   "סתם איש ישראל שלא נתקיימו בו תנאים אלו נשאר בכלל איסור קבלת לשון הרע"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_fellow",
+   "matter.already_known_to_many",
+   "listener.role_is_receiving",
+   "listener.believes_report"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "subject.is_established_rasha",
+    "questionHe": "האם המדובר כבר הוחזק מכבר כאדם רשע בלי קשר לדברים הנוכחיים?"
+   },
+   {
+    "id": "subject.repeated_deliberate_violation_of_known_prohibitions",
+    "questionHe": "האם נתפרסם על המדובר כמה פעמים שעבר בשאט נפש על איסורים הידועים לכל ישראל כניאוף וכיוצא בזה?"
+   }
+  ],
+  "relevanceToChat": "medium",
+  "uncertainHe": [
+   "מהו שיעור \"כמה פעמים\" ומהו גדר \"נתחזק מכבר בלאו הכי\" ו\"נתפרסם\" הנדרש",
+   "מהם בדיוק \"אסורין הידועין לכל ישראל\" – האם רק חמורים כניאוף או כל איסור מפורסם",
+   "מהו גדר \"בשאט נפש\" לעומת תיאבון, הרגל או שוגג",
+   "האם ההיתר הוא רק לעניין קבלת הדברים כאמת בלב או גם השלכות אחרות, ותוכן ההפניה (י) בבאר מים חיים לא הובא בסעיף"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin7.6",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 7:6",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_7:6",
+  "textSha256": "c3e7f340e7f7b574",
+  "kind": "listener_duty",
+  "titleHe": "איסור להאמין גנות על חברו מתוך סיפור עצמי",
+  "summaryHe": "לפי הסעיף, אם אדם בא ומספר לשומע את ענייניו ובתוך סיפורו מספר דבר שהוא גנות לעצמו וגם לחברו, אסור לשומע להאמינו לגבי חברו ומותר להאמין לו רק לגבי עצמו.",
+  "quotesHe": [
+   "שהוא גנות לעצמו ולחברו",
+   "אינו מתר להאמינו, רק על עצמו (יא) ולא על חברו"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "אדם בא אצל השומע ומספר לו את ענייניו",
+   "בתוך סיפורו הוא מספר דבר שהוא גנות לעצמו וגם לחברו יחד"
+  ],
+  "exceptionsHe": [
+   "מותר להאמין למספר לגבי הגנות שהוא מספר על עצמו"
+  ],
+  "factsNeeded": [
+   "listener.role_is_receiving",
+   "listener.believes_report",
+   "message.content_is_disparaging",
+   "subject.identifiable"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.includes_self_and_other_disparagement",
+    "questionHe": "האם ההודעה כוללת בתוכה גנות של הכותב עצמו יחד עם גנות על אדם אחר באותו סיפור?"
+   }
+  ],
+  "relevanceToChat": "medium",
+  "uncertainHe": [
+   "מה נחשב בדיוק גנות לעצמו המזכה אמון חלקי ומה הגבול בינה לבין גנות על חברו",
+   "תוכן ביאור המים חיים בציון יא אינו מובא בסעיף ועשוי להשפיע על פרטי הדין"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin7.7",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 7:7",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_7:7",
+  "textSha256": "1518ccb913cb8fc1",
+  "kind": "listener_duty",
+  "titleHe": "איסור קבלת לשון הרע גם ממהימן כבי תרי",
+  "summaryHe": "לפי הסעיף אסור לקבל לשון הרע אף אם שמע מאיש שהשומע מחשיבו כמהימן כבי תרי. ומה שהותר בכלל ד' סעיף ה' לגלות בהצנע לרבו שיאמין כבי תרי ושהרב יקבל וישנא ויתרחק הוא רק בעון מפורסם בישראל שנעשה במזיד בלי שום זכות לתלות, אך בדבר שיש לתלות בו זכות כגון חסרון ידיעה או שגגה או שהוא גנאי בעלמא ושלילת מעלות אין נאמנות מועילה ואסור גם למקבל להחליט בלבו לגנות.",
+  "quotesHe": [
+   "אסור קבלת לשון הרע הוא אפלו אם שמע מאיש, שהוא מהימן לה כדברי שני עדים,",
+   "דמאי הוי {שמה יהיה}, אם הדבר הזה אינו שקר מעקרו, אף על פי כן אסרה התורה להמספר לספר בגנותו עבור זה,",
+   "ולהמקבל גם כן אסור להחליט בלבו את חברו לגנות עבור זה,"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "שמיעת לשון הרע או גנאי מאדם שהשומע מחשיבו כמהימן כבי תרי",
+   "התוכן הוא גנאי, לרבות חסרון ידיעת האיסור או שגגה שאפשר לתלות בה זכות, או דברי גנאי בעלמא, שלילת מעלות, אזכרת מעשי אבותיו וקרוביו או מעשיו הראשונים",
+   "אף שהדבר אמת מעיקרו אסרה התורה לספרו וממילא אסור לקבלו ולהחליט בלב לגנות, והשומע עובר גם ב\"לפני עור לא תתן מכשול\""
+  ],
+  "exceptionsHe": [
+   "דבר שהוא עון מפורסם בישראל שנעשה במזיד ואין לתלות בו שום זכות כגון מעשה דטוביה בפסחים קי\"ג שהוא ענין ניאוף וכיוצא בזה, ולא עשה תשובה - שם הותר בכלל ד' סעיף ה' לגלות בהצנע לרבו ולאיש סודו שיאמין כבי תרי ולרבו מותר לקבל ולשנוא ולהתרחק עד שיודע ששב מדרכו הרעה"
+  ],
+  "factsNeeded": [
+   "listener.role_is_receiving",
+   "listener.believes_report",
+   "subject.identifiable",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "message.content_is_true",
+   "toelet.purpose_is_constructive",
+   "toelet.facts_verified"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "speaker.trusted_as_two_witnesses",
+    "questionHe": "האם השומע מחשיב את המספר לנאמן כדברי שני עדים?"
+   },
+   {
+    "id": "message.has_possible_merit",
+    "questionHe": "האם יש צד לתלות זכות במעשה כגון חסרון ידיעת האיסור או שגגה?"
+   },
+   {
+    "id": "message.is_mere_disparagement_or_virtue_negation",
+    "questionHe": "האם הדברים הם גנאי בעלמא, שלילת מעלות, או אזכרת מעשי אבותיו וקרוביו או מעשיו הראשונים?"
+   },
+   {
+    "id": "message.is_publicly_known_intentional_sin",
+    "questionHe": "האם המדובר הוא עון מפורסם בישראל שנעשה במזיד בלי שום זכות לתלות בו?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "גדר המדויק של \"דבר המפורסם בישראל שהוא אסור\" ומתי נחשב שאין לתלות שום זכות, והדוגמה של מעשה דטוביה בפסחים קי\"ג",
+   "היקף איסור \"לפני עור\" למקבל המקשיב וכמה העשין והלאוין המבוארים בפתיחה חלים כאן, כמבואר בבאר מים חיים",
+   "פרטי דין מסיח לפי תמו ודברים הניכרים שהם אמת לא נתבארו בסעיף זה אלא יחולקו לסעיפים הבאים"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin7.8",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 7:8",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_7:8",
+  "textSha256": "1bff241b796d59a6",
+  "kind": "listener_duty",
+  "titleHe": "תנאי קבלה להיזהר ואיסור הפצה והזקה",
+  "summaryHe": "לפי הסעיף אפילו בכגון מעשה דטוביה אין היתר לקבל סתם אלא רק בהצטרף שני פרטים: שהמספר ראה בעצמו ולא שמע מפי אחרים. לפי הסעיף אף כשראה בעצמו מותר רק להאמינו ולהרחיק עצמו מחברתו עד שיודע ששב מדרכו הרעה, ואסור לספר לאחרים ומכל שכן להפסידו בממון או להכותו על ידי זה.",
+  "quotesHe": [
+   "ואפלו בכגון מעשה דטוביה הנ\"ל, אינו מתר לקבל סתם",
+   "דוקא אם ספר לו, שראה דבר זה בעצמו",
+   "אין מתר, רק להאמינו ולהרחיק את עצמו מחברתו"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "שהמספר סיפר שראה את הדבר בעצמו",
+   "הקבלה היא רק כדי להאמין ולהרחיק את עצמו מחברתו עד שיודע ששב מדרכו הרעה"
+  ],
+  "exceptionsHe": [
+   "אם המספר שמע מפי אחרים אין למספר שום יתרון כלל ואין היתר לקבל",
+   "אפילו כשראה בעצמו אסור ללכת ולספר דבר זה לאחרים",
+   "מכל שכן שאסור להפסידו בממון או להכותו על ידי זה"
+  ],
+  "factsNeeded": [
+   "listener.role_is_receiving",
+   "speaker.knows_first_hand",
+   "listener.believes_report",
+   "listener.needs_info_for_protection",
+   "audience.listener_will_spread",
+   "message.content_may_cause_harm"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "listener.will_cause_material_harm",
+    "questionHe": "האם השומע מתכוון לגרום למדובר הפסד בממון או להכותו על סמך הדברים שקיבל?"
+   },
+   {
+    "id": "listener.knows_subject_repentance",
+    "questionHe": "האם ידוע לשומע שהמדובר כבר שב מדרכו הרעה?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "פרטי מעשה דטוביה הנ\"ל אינם מבוארים בסעיף זה וצריכים עיון בסעיפים הקודמים ובהערה יד",
+   "מה נחשב ידיעה ששב מדרכו הרעה וכיצד בודקים זאת",
+   "גבולות האיסור לספר לאחרים ולהפסידו בממון או להכותו ויחסם לכלל ד' סוף סעיף ה' ולהערה טו"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin7.9",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 7:9",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_7:9",
+  "textSha256": "d89db9344176fa6e",
+  "kind": "listener_duty",
+  "titleHe": "איסור קבלת לשון הרע ממסיח לפי תומו",
+  "summaryHe": "לפי הסעיף, אם לשון הרע נאמר כמסיח לפי תומו ויש צד לדונו לזכות או שהוא שלילת מעלות או שמועה מפי אחרים – בודאי אסור לקבלו ולהחליט בלבו לגנאי על חברו. ואפילו בלא פרטים אלו יש להיזהר שלא לקבל, וכל שכן שאסור לספר הלאה, לבזות, להפסיד ממון או להכות על סמך זה, שהוא אסור מן התורה.",
+  "quotesHe": [
+   "בודאי אסור לקבל הימנו ולהחליט בלבו לגנאי על חברו",
+   "מכל מקום, גם כן יש לזהר, שלא לקבל מאיש זה, המסיח לפי תמו, דברי גנות על חברו",
+   "להפסידו עבור זה בממון או להכותו, חס ושלום, דודאי אסור מן התורה"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "שהדברים נאמרו בדרך מסיח לפי תמו",
+   "שיש בעניין צד לשפוט לזכות אפילו אם הוא אמת, או שהוא בענייני שלילת המעלות או אחד משאר הפרטים שבסעיף ז' - אז בודאי אסור לקבל ולהחליט לגנאי",
+   "שהמספר לא ראה בעצמו אלא שמע מפי אחרים - אז בודאי אסור לקבל",
+   "שגם אם אין בו אחד מהפרטים הנ\"ל - מכל מקום יש להיזהר שלא לקבל דברי גנות ממסיח לפי תמו"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "listener.role_is_receiving",
+   "listener.believes_report",
+   "speaker.knows_first_hand",
+   "message.may_be_understood_as_disparagement",
+   "message.about_torah_or_piety"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.said_as_mesich_lefi_tumo",
+    "questionHe": "האם הדברים נאמרו כמסיח לפי תומו בלי כוונה מכוונת לספר גנות?"
+   },
+   {
+    "id": "message.can_be_judged_favorably",
+    "questionHe": "האם יש בעניין צד לשפוט את המעשה או הדברים לזכות?"
+   },
+   {
+    "id": "listener.intends_to_act_on_report",
+    "questionHe": "האם השומע מתכוון לסמוך על הדברים כדי לספר הלאה, לבזות, להפסיד ממון או להכות?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מה נקרא מסיח לפי תמו - הסעיף עצמו מפנה לבאר מים חיים",
+   "מהם בדיוק שאר הפרטים שבסעיף ז' שהופכים את הקבלה לאיסור ודאי",
+   "האם הלשון מכל מקום גם כן יש לזהר כשאין אחד מהפרטים היא איסור גמור או זהירות, וגדר האיסור לסמוך על מסיח לפי תמו כדי לספר לאחרים או להפסיד ממון תלוי בבאר מים חיים ס\"ק יח-כא"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin7.10",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 7:10",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_7:10",
+  "textSha256": "03a78daf65c9b826",
+  "kind": "exception",
+  "titleHe": "דברים הניכרים להתיר קבלת לשון הרע",
+  "summaryHe": "לפי הסעיף, גם כשיש דברים הניכרים המראים שמה שמספרים אמת, אם אפשר אפילו בהנחת אמת לדון לכף זכות או שמדובר בשלילת מעלות וכיוצא בזה כמבואר בסעיף ז' – אין היתר להאמין וחובה לדונו לכף זכות כי הוא איש בינוני. רק בדבר שאין למצוא לו שום צד זכות מותר להאמין ולקבל, ובכל זאת צריך לחקור היטב בשבע חקירות ובכל התנאים כי היצר מטעה בזה מאוד.",
+  "quotesHe": [
+   "לא שיך בזה דברים הנכרים, דודאי אנו מחיבין לדונו לכף זכות"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "שיש על האדם דברים הניכרים המראים שמה שמספרים עליו הוא אמת",
+   "שהדבר הוא כזה שאין למצוא לו צד זכות גם אם הוא אמת",
+   "שהשומע חקר היטב בשבע חקירות שמדובר באמת בדברים הניכרים וקיים את כל התנאים הנדרשים לכך כדלקמן"
+  ],
+  "exceptionsHe": [
+   "אם יש בעניין אפילו אם הדבר אמת צד לשפטו לזכות - לא שייך בזה דברים הניכרים וחובה לדונו לכף זכות",
+   "וכן בענייני שלילת המעלות ובכל שאר הפרטים המבוארים לעיל בסעיף ז' - אין היתר דברים הניכרים כיון שהוא איש בינוני כדי שלא יתבזה בעינינו"
+  ],
+  "factsNeeded": [
+   "listener.role_is_receiving",
+   "listener.believes_report",
+   "message.content_is_true",
+   "toelet.facts_verified"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "evidence.dvarim_nikarim_present",
+    "questionHe": "האם יש דברים ניכרים חיצוניים המראים שמה שמספרים על האדם הוא אמת?"
+   },
+   {
+    "id": "matter.has_favorable_judgment_possibility",
+    "questionHe": "האם אפשר לדון את המעשה לכף זכות אפילו אם הדבר אמת?"
+   },
+   {
+    "id": "matter.is_denial_of_virtues",
+    "questionHe": "האם הדברים עוסקים בשלילת מעלות או בשאר הפרטים המבוארים בסעיף ז'?"
+   },
+   {
+    "id": "evidence.verified_by_seven_investigations",
+    "questionHe": "האם נחקרה אמיתות הדברים הניכרים בשבע חקירות ונתקיימו כל התנאים הנדרשים?"
+   }
+  ],
+  "relevanceToChat": "medium",
+  "uncertainHe": [
+   "מהי ההגדרה המדויקת של דברים הניכרים הנחשבים ראיה - תלוי בביאור באר מים חיים כב",
+   "מהם כל שאר הפרטים המבוארים בסעיף ז' שבהם לא שייך דברים הניכרים",
+   "מהם שבע החקירות ומהם כל התנאים שצריך לזה שהסעיף מפנה ל\"כדלקמן\"",
+   "מיהו איש בינוני שחובה לדונו לכף זכות ומתי אין למצוא צד זכות כלל - תלוי בבאר מים חיים כג-כה"
+  ],
+  "reviewIssues": [
+   "quote_not_verbatim",
+   "quote_not_verbatim"
+  ],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin7.11",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 7:11",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_7:11",
+  "textSha256": "bb2aefae4a775cd6",
+  "kind": "condition",
+  "titleHe": "תנאים ליתרון דברים ניכרים ממש",
+  "summaryHe": "לפי הסעיף, יתרון של דברים ניכרים לסיפור קיים רק אם הם ניכרים ממש ומגיעים לעניין הסיפור וגם המספר ראה אותם בעצמו. אם הם רחוקים או רק כעין דבר ניכר קצת או ששמעם מפי אחרים, אין לו בזה שום יתרון כלל.",
+  "quotesHe": [
+   "ודוקא אם הם נכרים ממש",
+   "שהם מגיעות לענין הספור, וגם ראה את הדברים הנכרים בעצמו",
+   "אין לו בזה שום יתרון כלל"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהדברים הניכרים הם ניכרים ממש",
+   "שהם מגיעות לענין הספור",
+   "שראה את הדברים הנכרים בעצמו"
+  ],
+  "exceptionsHe": [
+   "אם הם רחוקין מזה ורק כעין דבר הנכר קצת - אין יתרון",
+   "אם לא ראה בעצמו אלא שמען מפי אחרים - אין יתרון"
+  ],
+  "factsNeeded": [
+   "speaker.knows_first_hand"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "details.is_truly_recognizable",
+    "questionHe": "האם הדברים הניכרים ניכרים ממש ולא רק כעין דבר ניכר קצת?"
+   },
+   {
+    "id": "details.relevant_to_story",
+    "questionHe": "האם הדברים הניכרים מגיעים לעניין הסיפור עצמו?"
+   }
+  ],
+  "relevanceToChat": "medium",
+  "uncertainHe": [
+   "הגדרת הגבול בין 'ניכרים ממש' לבין 'כעין דבר הנכר קצת' תלויה בבאר מים חיים (כו)",
+   "מה נחשב 'מגיעות לענין הספור' ומה נחשב 'ראה בעצמו' לעומת שמיעה מפי אחרים תלוי בבאר מים חיים (כז)",
+   "מהות ה'יתרון' המוזכר בסעיף והקשרו לכלל ז לא מבוארת בסעיף עצמו"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin7.12",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 7:12",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_7:12",
+  "textSha256": "1fbf669275cd3616",
+  "kind": "condition",
+  "titleHe": "גבול היתר דברים הניכרים ממש",
+  "summaryHe": "לפי הסעיף, אפילו דברים הניכרים ממש מתירים רק להאמין בלב שהדבר שמספרים לו אמת. אבל אסור ללכת ולספר זאת לאחרים, ובכל אופן אסור להסתמך על היתר זה כדי להפסידו בממון או להכותו.",
+  "quotesHe": [
+   "אינו מועיל רק לענין, שעל ידי זה יהיה מתר להאמין בעצמו את הדבר שמספרין לו",
+   "אבל לענין לילך אחר כך ולספר דבר זה לאחרים, לא מהני",
+   "אסור לסמך על התר זה של דברים הנכרים ממש"
+  ],
+  "appliesTo": "both",
+  "conditionsHe": [
+   "שההיתר הנדון הוא היתר של דברים הניכרים ממש",
+   "שהשאלה היא אם מותר להאמין בלב שהדברים אמת",
+   "שהשאלה היא אם מותר לספר את הדברים הלאה לאחרים או להפסידו בממון או להכותו על סמך היתר זה"
+  ],
+  "exceptionsHe": [
+   "להאמין בעצמו שהדבר אמת - מותר על סמך דברים הניכרים ממש",
+   "לספר לאחרים - אינו בכלל ההיתר ואסור, כדין הרואה בעצמו דבר גנות",
+   "להפסידו בממון או להכותו - אסור בכל אופן להסתמך על היתר זה"
+  ],
+  "factsNeeded": [
+   "listener.role_is_receiving",
+   "listener.believes_report",
+   "audience.listener_will_spread",
+   "message.content_may_cause_harm"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "matter.is_devarim_nikarim_mamash",
+    "questionHe": "האם אמיתות הדברים ניכרת בבירור מסימנים גלויים ומוכחים (דברים הניכרים ממש)?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהי הגדרה המדויקת של דברים הניכרים ממש - תלויה בסעיפים הקודמים ובבאר מים חיים",
+   "האם האיסור לספר לאחרים חל גם כשיש תועלת - הסעיף מפנה לכלל ד' סעיף ג' וד' וצריך עיון שם",
+   "מהו גדר להפסידו בממון - האם כולל מניעת רווח עתידי או נקיטת אמצעי זהירות בלבד, כמבואר בבאר מים חיים אות ל ולא"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin7.13",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 7:13",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_7:13",
+  "textSha256": "4de0446b1928ceee",
+  "kind": "exception",
+  "titleHe": "רשות בית דין להכות על פי אומדנא",
+  "summaryHe": "לפי הסעיף לפעמים נתנה רשות לבית דין מפני צרך שעה להכות חשוד בגניבה כדי שיודה, כשהתובע משער בודאי בדברים הנכרים ממש שפלוני גנב וגם בית הדין רואה אותם או שעדים העידו עליהם. לפי הסעיף רשות זו לא ניתנה ליחיד ואף לא לבית דין שלא נתבררו לו הדברים הנכרים אלא מפי התובע בלבד.",
+  "quotesHe": [
+   "נתן רשות לבית דין מפני צרך שעה",
+   "והוא משער בודאי בדברים הנכרים ממש, שפלוני גנב ממנו החפץ",
+   "אבל ליחיד, או אפלו לבית דין, רק שלא נתברר להם הדברים הנכרים, כי אם על ידי התובע, לא נתן רשות הזה"
+  ],
+  "appliesTo": "general",
+  "conditionsHe": [
+   "קיים צרך שעה המצדיק הוראת שעה",
+   "התובע משער בודאי בדברים הנכרים ממש שפלוני גנב ממנו את החפץ",
+   "גם הבית דין רואין בעצמם את הדברים הנכרים או שעדים העידו לפניהם על הדברים הנכרים",
+   "ההכאה היא כדי שיודה"
+  ],
+  "exceptionsHe": [
+   "ליחיד לא נתנה רשות זו כלל",
+   "אפילו לבית דין לא נתנה הרשות אם הדברים הנכרים לא נתבררו להם אלא על ידי התובע בלבד"
+  ],
+  "factsNeeded": [],
+  "proposedNewFacts": [
+   {
+    "id": "actor.is_authorized_beit_din",
+    "questionHe": "האם הפועל הוא בית דין הפועל בהוראת שעה ולא אדם יחיד?"
+   },
+   {
+    "id": "evidence.circumstantial_signs_verified_by_court",
+    "questionHe": "האם בית הדין עצמו רואה את הדברים הנכרים או שעדים העידו עליהם בפניו?"
+   },
+   {
+    "id": "context.urgent_temporal_need",
+    "questionHe": "האם קיים צרך שעה מיוחד המצדיק סטייה מהדין הרגיל?"
+   }
+  ],
+  "relevanceToChat": "low",
+  "uncertainHe": [
+   "מהו הגדר המדויק של 'דברים הנכרים ממש' ומהי רמת הוודאות של 'משער בודאי'",
+   "מהם גבולות 'צרך שעה' ומתי הוא מתקיים",
+   "פרטי המקור, ההיקף והתחולה בזמן הזה תלויים בבאר מים חיים אות לב שלא הובא כאן"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin7.14",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 7:14",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_7:14",
+  "textSha256": "f51386ca7abcd191",
+  "kind": "prohibition",
+  "titleHe": "איסור להאמין לחשד ולהכות שלא כדין",
+  "summaryHe": "לפי הסעיף טעות היא למסור לטובי העיר חשד גניבה עם דברים הניכרים כדי שיכו את החשוד שלא כדין. לפי הסעיף אף להאמין בלב שהלה גנב אסור משום קבלת לשון הרע, והסומך על כך להכותו עובר על לאו דלא יוסיף.",
+  "quotesHe": [
+   "אומרים לטובי העיר, שיש להם על אחד דברים הנכרים, והם מכים ועונשין, שלא מן הדין, כדי שיודה",
+   "ואפלו רק להאמין לתובע בלב, שאיש זה גנב מאתו, אסור מפני קבלת לשון הרע",
+   "ועוברים על לאו ד\"לא יוסיף\""
+  ],
+  "appliesTo": "both",
+  "conditionsHe": [
+   "שהתובע טוען שנגנב ממנו חפץ ויש לו רק חשד על אדם מסוים עם דברים הניכרים",
+   "שטובי העיר או השומעים סומכים על דברי התובע בלבד ללא עדים שנגנב וללא עדים לדברים הנכרים וללא שראו בעצמם",
+   "שהשומע מאמין בלב שהחשוד גנב או אף מכה ומעניש אותו כדי שיודה"
+  ],
+  "exceptionsHe": [
+   "אם יש עדים שנגנב וגם עדים לדברים הנכרים",
+   "אם טובי העיר בעצמם ראו את הדברים הנכרים כמו במעשה דמר זוטרא"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_fellow",
+   "message.content_is_disparaging",
+   "message.content_may_cause_harm",
+   "speaker.knows_first_hand",
+   "toelet.facts_verified",
+   "toelet.no_excess_harm",
+   "listener.role_is_receiving",
+   "listener.believes_report"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "evidence.based_on_suspicion_only",
+    "questionHe": "האם ההאשמה מבוססת רק על חשד ודברים הניכרים ללא ראיה ישירה או עדים?"
+   },
+   {
+    "id": "verification.listener_has_independent_witnesses",
+    "questionHe": "האם לשומעים יש עדים שנגנב ועדות לדברים הניכרים או שראו זאת בעצמם?"
+   },
+   {
+    "id": "action.is_extrajudicial_punishment",
+    "questionHe": "האם הכוונה או התוצאה היא הכאה או ענישה גופנית שלא על פי דין?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהי הגדרת דברים הניכרים ומתי הם נחשבים כראיה לעצם המעשה",
+   "מה היקף סמכות טובי העיר והאם הם חשיבי כבית דין לעניין זה",
+   "האם צריך שני תנאים מצטברים - ידיעה שנגנב וגם עדים לדברים הנכרים - או אחד מהם",
+   "פרטי מעשה דמר זוטרא והשלכותיו התלויים בבאר מים חיים",
+   "האם איסור לא יוסיף חל בכל הכאה שלא כדין או רק בהוספה על מכסת מלקות"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ }
+]

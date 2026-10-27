@@ -1,0 +1,239 @@
+[
+ {
+  "id": "cc.p2_prin7.1",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 7:1",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_7:1",
+  "textSha256": "bbf0f033ec5ebd95",
+  "kind": "prohibition",
+  "titleHe": "איסור רכילות ללא חילוק בין אנשים",
+  "summaryHe": "לפי הסעיף אין חילוק באיסור סיפור רכילות בין אם המספר איש או אשה קרוב או רחוק, ואפילו המספר להוריו או לרבו שפלוני דיבר עליהם בגנאי הרי זה רכילות, וכן אין חילוק אם המדובר איש אשה או קטן. לפי הסעיף המספר לאב שפלוני הכה את בנו גורם למחלוקת ומכות ואסור אף אם יודע בברור שהדין עם המוכה, אלא אם כן נתקיימו כל הפרטים המותרים לקמן בכלל ט'.",
+  "quotesHe": [
+   "אין חלוק באסור ספור הרכילות, בין אם המספר (א) איש או אשה, קרוב או רחוק",
+   "גם אין חלוק אם על מי שמספרין עליו הוא איש או אשה, גדול או (ב) קטן",
+   "הולך ואומר לאביו של אחד מהם: היאך שנער פלוני הכה בנך"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהדברים הם רכילות - המספר מגלה לשומע מה פלוני אמר או עשה נגדו או נגד בנו",
+   "שהמדובר מזוהה לשומע ולו ברמז",
+   "שאין נפקא מינה אם המספר איש או אשה, קרוב או רחוק לשומע",
+   "שאין נפקא מינה אם המדובר איש או אשה, גדול או קטן"
+  ],
+  "exceptionsHe": [
+   "אם נשלמו כל הפרטים המבוארים לקמן בכלל ט' - מותר לספר לתועלת, עיין שם",
+   "הגהה: אין להקשות מקידושין ע. שהיה שם שלוחא דרב יהודה ונאמן כבי תרי למסור לבית דין מה שביזו אותו או את בית דין"
+  ],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "subject.identifiable",
+   "subject.is_minor",
+   "subject.is_relative_of_speaker",
+   "speaker.knows_first_hand",
+   "toelet.purpose_is_constructive",
+   "toelet.facts_verified"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "listener.is_parent_or_rabbi_of_speaker",
+    "questionHe": "האם השומע הוא אביו, אמו או רבו של הכותב שהכותב רוצה להגן על כבודם?"
+   },
+   {
+    "id": "listener.is_parent_of_victim",
+    "questionHe": "האם ההודעה נשלחת להורה של ילד כדי לספר לו שילד אחר הכה את בנו?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "פירוש המדויק של קרוב או רחוק - ביחס למי נמדדת הקרבה ומה גבולה",
+   "הגדרת קטן בסעיף זה והאם דינו שווה לגמרי לגדול לכל פרטי האיסור",
+   "מהם בדיוק הפרטים של היתר תועלת בכלל ט' המוזכרים כחריג - לא פורטו בסעיף זה",
+   "תחולת היתר שלוחא דרבנן ונאמן כבי תרי מהגהת קידושין ע. למסירת בזיון לבית דין בימינו"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin7.2",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 7:2",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_7:2",
+  "textSha256": "e612d5c71407dbe4",
+  "kind": "aggravation",
+  "titleHe": "איסור רכילות על עם הארץ ותלמיד חכם",
+  "summaryHe": "לפי הסעיף איסור רכילות חל אפילו על עם הארץ כי גם הוא בכלל עמיך ואפילו אם הדברים אמת, וכל שכן שסיפור רכילות על תלמיד חכם חמור הרבה יותר משלושה טעמים שהסעיף מפרט.",
+  "quotesHe": [
+   "אסור רכילות הוא אפלו על עם הארץ, כי גם הוא בכלל עמיך",
+   "דאסור רכילות הוא אפלו על אמת",
+   "וכל שכן לספר רכילות על תלמיד חכם, העון יותר גדול ויותר עצום מפני כמה טעמים"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהדברים הם בגדר רכילות - סיפור לשומע מה שאדם אחר אמר או עשה נגדו",
+   "שהמדובר הוא בכלל עמיך אף שהוא עם הארץ",
+   "שהאיסור חל אפילו כשהדברים אמת"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_fellow",
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.content_is_true",
+   "message.contains_falsehood_or_exaggeration"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "subject.is_talmid_chacham",
+    "questionHe": "האם המדובר הוא תלמיד חכם?"
+   },
+   {
+    "id": "subject.is_city_rabbi",
+    "questionHe": "האם המדובר הוא הרב שבעיר או דמות תורנית ציבורית שהרכילות עליה עלולה לגרום לקלקולים גדולים?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "גדר המדויק של עם הארץ ומי יוצא מכלל עמיך לעניין זה תלוי במקורות בביאור מים חיים ובכלל א",
+   "הגדרת תלמיד חכם והרב שבעיר לעניין החמרה זו",
+   "כיצד לקבוע שהרכילות על תלמיד חכם היא בחזקת שקר ומה משמעותה המעשית של חזקה זו"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin7.3",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 7:3",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_7:3",
+  "textSha256": "490a445c1eb53c31",
+  "kind": "prohibition",
+  "titleHe": "רכילות גם לאשת הנפגע וקרוביו",
+  "summaryHe": "לפי הסעיף אין שום חילוק באיסור רכילות בין אם מספר לראובן עצמו מה שפלוני דיבר עליו ובין אם מספר זאת לאשת ראובן וקרוביו, כי בודאי ירע בעיניהם וינטרו שנאה לפלוני, ולכן אפילו אם הזהירם שלא יגלו לו הדבר לא נפקא מכלל רכילות.",
+  "quotesHe": [
+   "דאין שום חלוק באסור רכילות, בין אם הוא מספר לראובן גופה, מה שפלוני דבר עליו",
+   "או מספר דבר זה (ג) לאשת ראובן וקרוביו",
+   "אפלו אם הזהירם, שאל יודע מהם דבר, לא נפקא דבר זה מכלל רכילות"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "הדברים הם רכילות - סיפור מה שפלוני אמר או עשה נגד ראובן",
+   "הסיפור נמסר לראובן עצמו או לאשתו וקרוביו",
+   "הדברים עלולים לגרום שירע בעיני השומעים וינקטו שנאה בליבם על פלוני"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "subject.identifiable",
+   "message.content_may_cause_harm"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "audience.is_spouse_or_relative_of_victim",
+    "questionHe": "האם הנמען הוא אשת הנפגע או קרוב משפחתו?"
+   },
+   {
+    "id": "audience.was_warned_not_to_relay",
+    "questionHe": "האם המספר הזהיר את הנמען שלא לגלות את הדברים לנפגע?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "היקף המושג קרוביו - אילו קרובים בכלל זה - תלוי בביאור בבאר מים חיים",
+   "משמעות ההערה (ג) בהפניה לבאר מים חיים לא הובאה בסעיף זה"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin7.4",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 7:4",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_7:4",
+  "textSha256": "b7844d65cb189b6a",
+  "kind": "aggravation",
+  "titleHe": "איסור רכילות גם בפני נכרי",
+  "summaryHe": "לפי הסעיף אין חילוק באיסור רכילות בין אם מרגיל על ישראל בפני ישראל ובין אם בפני נכרים, ואדרבה עוונו גדול בזה הרבה יותר מסתם רכילות כי בודאי יוכל לגרום לו נזק וצער. לפי הסעיף יש שנכשלים בזה עד מאוד בהטלת מום בסחורה שמכר לו ישראל או במלאכה שעשה לו בפני נכרי, שמצוי שגורם לו נזק ופעמים יורד לחייו ממש.",
+  "quotesHe": [
+   "גם אין חלוק באסור רכילות, בין אם הוא מרגיל על ישראל בפני ישראל, ובין אם הוא מרגיל על ישראל בפני נכרים,",
+   "דעונו גדול בזה הרבה יותר מסתם רכילות,",
+   "שמטילין מום* בפני נכרי בסחורות, שמכר לו ישראל, או במלאכה שעשה לו"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהדברים הם רכילות - מספר לשומע מה שפלוני עשה לו או דיבר עליו",
+   "שהאדם שמרגילים עליו הוא ישראל",
+   "שהסיפור עלול לסבב לו נזק וצער על ידי השומע",
+   "שאין חילוק אם השומע הוא ישראל או נכרי"
+  ],
+  "exceptionsHe": [
+   "הגהה המובאת בסעיף: דווקא בשקר בעלילה אסור להטיל מום בסחורה בפני נכרי, אבל באמת שרי כמו בישראל משום צדק צדק תרדף - אך הסעיף עצמו מעיר שהגהה זו כנראה מחמת הצנזורה"
+  ],
+  "factsNeeded": [
+   "subject.is_fellow",
+   "subject.identifiable",
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.content_may_cause_harm",
+   "message.about_craft_or_goods",
+   "message.content_is_true",
+   "message.contains_falsehood_or_exaggeration"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "audience.includes_non_fellow",
+    "questionHe": "האם בין הנמענים יש מי שאינו יהודי?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "האם היתר 'באמת שרי' שבהגהה הוא דין אמיתי או תוספת צנזורה שאינה להלכה, כפי שמעיר הסעיף",
+   "מהם 'עוד טעמים אחרים' לחומרה בפני נכרים שהסעיף מפנה אליהם בחלק א' כלל ח' סימן י\"ב ובבאר מים חיים שם",
+   "גדר 'יורד לחייו ממש' ומתי מתקיים שהנזק מגיע לכדי חומרה מיוחדת זו"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin7.5",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 7:5",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_7:5",
+  "textSha256": "8aeca75d40053570",
+  "kind": "listener_duty",
+  "titleHe": "איסור קבלת רכילות אפילו מאשתו",
+  "summaryHe": "לפי הסעיף דין קבלת רכילות הוא כדין קבלת לשון הרע המובא בחלק א' כלל ח' סעיפים יג-יד, ויש להיזהר מאוד שלא לקבלה משום אדם ואפילו מאשתו. עוד מוסיף הסעיף שהמקבל רכילות מאשתו מביא על עצמו צרות של כעס ומריבה ודאבון נפש, ולכן נכון מאוד לבעל נפש לגעור בה כשמספרת לו עניינים כאלו.",
+  "quotesHe": [
+   "ולענין אסור קבלת רכילות, דינו הוא כמו בלשון הרע, בחלק א' בכלל ח' בסעיף יג יד, עין שם.",
+   "על כן יש לזהר מאד, שלא לקבל רכילות משום אדם, ואפלו מאשתו.",
+   "על כן הנכון מאד לבעל נפש לגער באשתו, כשמספרת לו מענינים כאלו."
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "שהדברים הם רכילות - סיפור לשומע שפלוני דבר עליו כך וכך"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "listener.role_is_receiving",
+   "listener.believes_report",
+   "message.reports_what_someone_said_or_did_against_listener"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "source.is_spouse",
+    "questionHe": "האם המידע מגיע מבן/בת הזוג של השומע?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "פרטי דיני קבלת רכילות מופנים לסעיפים יג-יד בכלל ח' בחלק א' ולבאר מים חיים שם, ואינם מבוארים בסעיף זה",
+   "מהי הגדרת ״קבלה״ לעומת שמיעה בעלמא לא נתבארה בסעיף זה ותלויה במקור המופנה",
+   "אופן הגעירה הראויה באשתו וגבולותיה לא פורטו בסעיף"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ }
+]

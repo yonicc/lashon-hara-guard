@@ -1,0 +1,703 @@
+[
+ {
+  "id": "cc.p1_prin4.1",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 4:1",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_4:1",
+  "textSha256": "69eabdbf6fe1f651",
+  "kind": "prohibition",
+  "titleHe": "איסור גנאי אמת שלא בפניו",
+  "summaryHe": "לפי הסעיף אסור לספר על חברו דבר אמת שיתבזה בו אפילו שלא בפניו, וזה כולל הזכרת מעשה אבותיו וקרוביו או מעשיו הראשונים כשהוא מתנהג עתה כשורה, ואף אם ראהו מקרוב שעשה דבר שאינו ראוי בין אדם למקום.",
+  "quotesHe": [
+   "אסור לספר על חברו, אפלו שלא בפניו, והוא אמת, דבר שיתבזה על ידי זה",
+   "כיון שהוא מתנהג עתה כשורה, אסור לגנותו בזה ולשון הרע מקרי"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "הדברים נאמרים על חברו אפילו שלא בפניו",
+   "הדברים אמת",
+   "הדברים הם דבר שיתבזה על ידי זה / גנאי",
+   "לגבי מעשה אבותיו וקרוביו או מעשיו הראשונים – המדובר מתנהג עתה כשורה",
+   "לגבי ראיה מקרוב – המדובר הוא דבר שבין אדם למקום",
+   "המדובר הוא סתם איש ישראל שחל עליו דין עמיתך"
+  ],
+  "exceptionsHe": [
+   "אם מתקיימים הפרטים המבוארים לקמן בסעיף ז' - מותר",
+   "אם נתברר שסבת העון היא אפיקורסות חס ושלום - אינו בכלל עמיתך ולא נצטוינו עליו בלאו דלא תלך רכיל (פרטיו בכלל ח')",
+   "בדברים שבין אדם לחברו שראה מקרוב יש חלוקים רבים שיבוארו בכלל י' ואינו נכלל באיסור גורף זה"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_fellow",
+   "message.content_is_true",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "audience.includes_subject",
+   "speaker.knows_first_hand",
+   "toelet.purpose_is_constructive"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "subject.now_behaves_properly",
+    "questionHe": "האם המדובר מתנהג עתה כשורה למרות מעשיו הקודמים?"
+   },
+   {
+    "id": "message.is_about_ancestors_or_past_deeds",
+    "questionHe": "האם הדברים עוסקים במעשה אבותיו וקרוביו או במעשיו הראשונים של המדובר?"
+   },
+   {
+    "id": "matter.is_private_recent_sin_bein_adam_lamakom",
+    "questionHe": "האם מדובר במעשה שנראה מקרוב בינו לבין עצמו והוא בין אדם למקום?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהם הפרטים המתירים המבוארים בסעיף ז'",
+   "הגדרת אפיקורסות ו\"סבת העון מפני אפיקורסות\" וההבחנה מסתם איש ישראל - מופנה לכלל ח'",
+   "החילוקים בדברים שבין אדם לחברו שראה מקרוב - מופנה לכלל י'",
+   "פרטי הדינים המסומנים (א)(ב)(ג)(ד) התלויים בבאר מים חיים"
+  ],
+  "reviewIssues": [
+   "quote_not_verbatim"
+  ],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin4.2",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 4:2",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_4:2",
+  "textSha256": "8a7971a57257da75",
+  "kind": "prohibition",
+  "titleHe": "איסור לשון הרע על כל עבירה",
+  "summaryHe": "לפי הסעיף אין חילוק באיסור לשון הרע בין לאו גמור או עשה גמורה דאוריתא לבין דבר קל שאין המוני ישראל נזהרים בו ואין בו גנות גדולה, וכן אין חילוק בין עיקר מצווה לענפיה או למלתא דרבנן, ואפילו סיפור אמת שלא בפניו על מי שראהו עובר אסור כי הוא מוצג כמי שאינו מקיים התורה. הסעיף מחריג רק הודעה שיש בה תועלת לברר שהמעשה הוא שקר המכוונת רק לתועלת כמבואר לקמן בכלל י'.",
+  "quotesHe": [
+   "ואין חלוק בזה, בין אם הוא לאו גמור או עשה גמורה דאוריתא",
+   "שאין נזהרין בזה הרבה מהמוני ישראל, ואין לו בזה גנות גדול כל כך",
+   "אפלו שלא בפניו, והוא אמת, שראהו בעצמו שעשה הדבר הזה, (ח) גם כן אסור"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהמספר מספר על פלוני שחטא או ביטל מצווה והדברים אמת שראהו בעצמו",
+   "שהסיפור גורם למדובר להתבזות בעיני השומע כמי שאינו מקיים התורה",
+   "שהסיפור נאמר אפילו שלא בפני המדובר"
+  ],
+  "exceptionsHe": [
+   "אם יש תועלת להודיע לחברו שהמעשה שסופר הוא שקר והכוונה רק לתועלת, כעין שיבואר לקמן בכלל י'"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "message.about_torah_or_piety",
+   "message.content_is_true",
+   "speaker.knows_first_hand",
+   "audience.includes_subject",
+   "toelet.purpose_is_constructive",
+   "message.purpose"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.aveira_type",
+    "questionHe": "האם המעשה המסופר הוא לאו גמור, עשה דאורייתא, ענף מצווה, או איסור דרבנן?"
+   },
+   {
+    "id": "message.public_perception_of_aveira",
+    "questionHe": "האם מדובר בדבר שאין המוני ישראל נזהרים בו ואין בו גנות גדולה בעיני הציבור?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "הגבול המדויק בין עיקר מצווה דאורייתא לבין ענפי המצוות כגון עצרן בממון ואינו מכבד שבת כראוי הנכלל בזכור",
+   "מה נחשב מלתא דרבנן בעלמא שאמרו שאין ראוי לעשות לכתחילה",
+   "מהי תועלת המתירה לספר שהדבר שקר ותנאיה המפורטים בבאר מים חיים ובהפניות (ה)(ו)(ז)(ח) ובכלל י'"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin4.3",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 4:3",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_4:3",
+  "textSha256": "490016f0dee74a43",
+  "kind": "prohibition",
+  "titleHe": "איסור גילוי חטא בינוני ודינו לכף זכות",
+  "summaryHe": "לפי הסעיף, אם המדובר הוא איש בינוני כסתם איש ישראל שדרכו להישמר מחטא ויש לתלות שעבר שלא במתכוון או מחוסר ידיעה שחטא אסור או מסברה שהוא רק חומרא, אסורים לגלותו כדי שלא יתבזה ואסור לשנוא אותו, כי צריך לדונו לכף זכות ממצות עשה של \"בצדק תשפט עמיתך\" לכמה פוסקים.",
+  "quotesHe": [
+   "איש בינוני כסתם איש ישראל, שדרכו להשמר מחטא ונכשל בחטא רק לפעמים",
+   "ויש לתלות, שעשה דבר זה שלא במתכון",
+   "ואסורים לגלותו, כדי שלא יהיה לבוז בעיני עמו"
+  ],
+  "appliesTo": "general",
+  "conditionsHe": [
+   "שהמדובר הוא איש בינוני כסתם איש ישראל שדרכו להשמר מחטא ונכשל רק לפעמים",
+   "שיש לתלות שעשה את המעשה שלא במתכוון",
+   "או שלא ידע שהדבר אסור או שהיה סבור שהוא רק חומרא ומידה טובה בעלמא שהכשרים נזהרים בה"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_fellow",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "message.content_may_cause_harm",
+   "speaker.knows_first_hand"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "subject.is_beinoni",
+    "questionHe": "האם המדובר הוא איש בינוני כסתם איש ישראל שדרכו להשמר מחטא ונכשל רק לפעמים?"
+   },
+   {
+    "id": "subject.act_has_plausible_innocent_explanation",
+    "questionHe": "האם יש לתלות שהמעשה נעשה שלא במתכוון או מחוסר ידיעה שהוא אסור או מסברה שהוא רק חומרא ומידת חסידות?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "הגדרת 'איש בינוני' ו'סתם איש ישראל' והיקפה תלויה בבאר מים חיים אות ט",
+   "מה נחשב 'יש לתלות' - רמת הסבירות והדוגמאות לשוגג או טעות בדין תלויות בבאר מים חיים אותיות י-יא",
+   "האם חיוב 'בצדק תשפט עמיתך' הוא מצות עשה דאורייתא בכל מקרה או רק לכמה פוסקים כמוזכר בסעיף, ופרטי אות יב בבאר מים חיים"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin4.4",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 4:4",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_4:4",
+  "textSha256": "48b1f5d41288c745",
+  "kind": "prohibition",
+  "titleHe": "איסור פרסום חטא נסתר של בינוני",
+  "summaryHe": "לפי הסעיף אפילו הרואה אדם בינוני שדרכו להישמר מן החטא וכל שכן תלמיד חכם וירא חטא, שנכשל פעם אחת בסתר בעבירה שנתפשט איסורה בישראל, אסור לגלות חטאו לאחרים ואפילו לדיני העיר אלא צריך להוכיחו בינו לבין עצמו בלשון רכה כי אולי שב בתשובה ונסלח לו. ורק אם הגילוי מועיל ממש לאפרושי מאיסורא, כגון שראה בעצמו אשת איש שזנתה שנאסרה לבעלה ומשער שהבעל יאמין לו כבי תרי ויפרוש ממנה, צריך לגלות לבעל, אך אם שמע מאחרים או שאין הבעל יאמין אסור לגלות אפילו לבעל וכל שכן לאחרים.",
+  "quotesHe": [
+   "אסורין לגלות את חטאו לאחרים",
+   "והמגלה אותו, אשום אשם על זה כי אולי החוטא ההוא שב מדרכו הרעה",
+   "מועיל לאפרושי מאסורא, כגון, שראה לאשת איש שזנתה, דמן הדין נאסרה עבור זה להבעל"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהחטא הוא בדבר שנתפשט ידיעת איסורו בישראל והחוטא יודע איסורו ועושה במזיד כביאת עריות ואכילת דברים אסורים",
+   "שהחוטא הוא אדם בינוני בשאר דברים שדרכו להשתמר על פי הרב מן החטא",
+   "שלא ראוהו נכשל אלא פעם אחת ובסתר ולא בפרהסיה",
+   "שכל שכן אם הוא תלמיד חכם וירא חטא שגבר יצרו פעם אחת"
+  ],
+  "exceptionsHe": [
+   "אם הגילוי מועיל ממש לאפרושי מאיסורא כגון שראה בעצמו אשת איש שזנתה ומן הדין נאסרה לבעלה",
+   "ודווקא אם ראה בעצמו שזנתה, אבל אם שמע מאנשים אחרים שמן הדין לא נאסרה עדיין אסור לגלות",
+   "ודווקא אם משער שאפשר שהבעל יאמין לו כבי תרי ויפרוש ממנה, אבל בלא זה אסור לגלות אפילו לבעל וכל שכן לזולתו"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_fellow",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "message.content_may_cause_harm",
+   "message.content_is_true",
+   "speaker.knows_first_hand",
+   "matter.already_known_to_many",
+   "toelet.purpose_is_constructive",
+   "listener.believes_report",
+   "toelet.rebuke_attempted"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "subject.is_beinoni_or_scholar",
+    "questionHe": "האם המדובר הוא אדם בינוני שדרכו להישמר מן החטא או תלמיד חכם וירא חטא שגבר יצרו פעם אחת?"
+   },
+   {
+    "id": "matter.occured_once_secretly",
+    "questionHe": "האם המעשה אירע רק פעם אחת ובסתר ולא בפרהסיה או בדרך הרגל?"
+   },
+   {
+    "id": "matter.prohibition_widely_known",
+    "questionHe": "האם איסור המעשה נתפשט וידוע בישראל שהעושה יודע שהוא עושה במזיד?"
+   },
+   {
+    "id": "toelet.is_to_separate_from_prohibition",
+    "questionHe": "האם מטרת הגילוי היא להפריש מאיסור מתמשך כגון אשת איש שנאסרה לבעלה?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מה הגדר המדויק של אדם בינוני לעומת מי שאינו בכלל עמיתך ותלוי בבאר מים חיים (יג)-(יד)",
+   "מה נחשב נתפשט ידיעת איסורן בישראל ומתי נחשב במתכוון במזיד גמור",
+   "כיצד משערים שהבעל יאמין כבי תרי ומה דין שאר איסורי אפרושי מאיסורא",
+   "פרטי חיוב ההוכחה בינו לבין עצמו בלשון רכה וגדר הסיבות שלא יבוא עוד לידי חטא התלויים בבאר מים חיים (יז)-(יח)"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin4.5",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 4:5",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_4:5",
+  "textSha256": "ac9c58b2cd32cc5f",
+  "kind": "exception",
+  "titleHe": "היתר לספר לדייני העיר ולרב בהצנע",
+  "summaryHe": "לפי הסעיף אם החוטא הוא מן האוילים הלצים השונאים למוכיחם ולא יקבל תוכחה וחוששים שישנה באולתו, מותר לספר עליו לדייני העיר או לקרוביו כדי שייסרוהו בהצנע לשם שמים. אם הוא עד אחד בלבד לא יעיד ברבים אלא יכול לגלות בהצנע לרבו ולאיש סודו אם יאמין לו כבשני עדים.",
+  "quotesHe": [
+   "אל תוכח לץ פן ישנאך",
+   "שיגידו לדיני העיר, כדי שהם ייסרוהו על עונו ויפרישוהו מהאסור על להבא",
+   "וכל כונת המספר תהיה לשם שמים ובקנאת ה', לא בשנאתו לו על דבר אחר"
+  ],
+  "appliesTo": "both",
+  "conditionsHe": [
+   "שהחוטא נראה כאויל לץ השונא מוכיחים ובוודאי לא יתקבלו דברי תוכחה באוזניו",
+   "שיש חשש בנקל שישנה באולתו ויבוא שוב לידי חטא",
+   "שהסיפור הוא לדיני העיר או לקרוביו שדבריהם מתקבלים אצלו כדי שייסרוהו ויפרישוהו להבא",
+   "שכל כוונת המספר היא לשם שמים ובקנאת ה' ולא בשנאה אישית על דבר אחר",
+   "שהשופטים ייסרו את החוטא בהצנע ולא ילבינו פניו ברבים"
+  ],
+  "exceptionsHe": [
+   "אם הוא עד אחד לבדו לא יעיד על חברו ברבים כי עדותו חינם ומוציא שם רע יחשב",
+   "אך עד אחד יכול לגלות הדבר בהצנע לרבו ולאיש סודו אם יודע שיאמין דבריו כדברי שני עדים",
+   "לרב מותר לשנוא ולהתרחק מחברתו עד שישוב מדרכו הרעה אבל אסור לו לספר לאחרים"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.content_is_disparaging",
+   "message.purpose",
+   "speaker.knows_first_hand",
+   "speaker.intent_to_disparage",
+   "toelet.purpose_is_constructive",
+   "toelet.rebuke_attempted",
+   "toelet.no_excess_harm",
+   "listener.believes_report"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "subject.is_mocker_who_hates_rebuke",
+    "questionHe": "האם המדובר ידוע כאויל לץ השונא מוכיחים שבוודאי לא יקבל תוכחה?"
+   },
+   {
+    "id": "witnesses.are_two",
+    "questionHe": "האם המעשה נראה בשני עדים או שמדובר בעד אחד בלבד?"
+   },
+   {
+    "id": "audience.is_authority_for_discipline",
+    "questionHe": "האם הנמען הוא דייני העיר או קרוביו או רבו שיש בידם לייסר בהצנע?"
+   },
+   {
+    "id": "message.motive_is_heavenly_not_hatred",
+    "questionHe": "האם כוונת המספר היא לשם שמים וקנאת ה' ולא שנאה אישית על דבר אחר?"
+   }
+  ],
+  "relevanceToChat": "medium",
+  "uncertainHe": [
+   "הגדרה מדויקת של 'אוילים הלצים השונאים למוכיחם' ומתי נקבע שבוודאי לא יקבל תוכחה",
+   "מיהם 'דיני העיר' ו'קרוביו' בימינו ומה נחשב ייסור 'בהצנע' שלא ילבין פנים בצ'אט קבוצתי",
+   "מתי נחשב שרבו/איש סודו מאמין 'כדברי שני עדים' וגדר האיסור על הרב לספר הלאה – עיין בבאר מים חיים כג-כח"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin4.6",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 4:6",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_4:6",
+  "textSha256": "16962343ce139d1a",
+  "kind": "exception",
+  "titleHe": "היתר גילוי לרב לתוכחה לתועלת",
+  "summaryHe": "לפי הסעיף, באיש שמשפטו לשנות באולתו אפשר להתיר לגלות לרבו אף אם אינו צנוע כל כך ועלול שיתפרסם להמון, אם דבריו נשמעים להוכיחו שלא ישנה עוד כי הכוונה לתועלת החוטא ולא לגנותו. ואף אם ראוהו שנים בשעת החטא והוא נקל לשנות, אין היתר אלא לדייני העיר בלבד, כי בפעם אחת שמא גבר יצרו ושב בתשובה ועדיין הוא בכלל \"עמיתך\".",
+  "quotesHe": [
+   "אפשר גם כן שמתר לגלות לו, כיון שכונת המספר הוא לתועלת החוטא ולא לגנותו",
+   "אף על פי כן אין מתר רק לגלות לדיני העיר ולא לאחרים",
+   "על כן לא יצא החוטא עדין מכלל \"עמיתך\" בזה"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהמדובר הוא איש שמשפטו לשנות באולתו ונקל לו לשוב ולחטוא",
+   "שהשומע הוא רבו או איש שדבריו יהיו נשמעין בתוכחה להחוטא שלא ישנה עוד באולתו",
+   "שכוונת המספר היא לתועלת החוטא ולא לגנותו",
+   "שאפילו אם ראוהו שנים בעת עשיית החטא המדובר הוא רק בפעם אחת שראוהו עובר על איסור זה"
+  ],
+  "exceptionsHe": [
+   "אף אם רבו איננו צנוע כל כך ואפשר שיתודע ממנו להמון - אפשר להתיר לגלות לו אם דבריו נשמעים לתוכחה",
+   "אף אם ראוהו שנים והוא נקל לשנות באולתו - אין היתר לגלות לאחרים זולת דייני העיר"
+  ],
+  "factsNeeded": [
+   "subject.is_fellow",
+   "subject.identifiable",
+   "speaker.knows_first_hand",
+   "speaker.intent_to_disparage",
+   "message.purpose",
+   "toelet.purpose_is_constructive",
+   "audience.listener_will_spread",
+   "toelet.rebuke_attempted"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "subject.prone_to_repeat_offense",
+    "questionHe": "האם המדובר הוא אדם שמשפטו לשנות באולתו ונקל לו לחזור על אותו חטא?"
+   },
+   {
+    "id": "listener.is_effective_rebuker",
+    "questionHe": "האם השומע הוא אדם שדברי תוכחתו נשמעים לחוטא ויש בכוחו למנוע ממנו לשנות באולתו?"
+   },
+   {
+    "id": "audience.is_city_judges",
+    "questionHe": "האם הנמען הוא מדייני העיר המוסמכים לדון ולא אדם פרטי אחר?"
+   },
+   {
+    "id": "matter.observed_once_only",
+    "questionHe": "האם החטא נצפה רק פעם אחת ולא כהרגל קבוע?"
+   }
+  ],
+  "relevanceToChat": "medium",
+  "uncertainHe": [
+   "הגדרת \"משפטו לשנות באולתו\" / \"שנקל לו לשנות באולתו\" לא מבוארת בסעיף - מהו סף ההרגל הנדרש",
+   "ההיתר לגלות לרב שאינו צנוע נפתח ב\"ונראה לי עוד\" והוא חידוש מסברא שתוקפו תלוי בבאר מים חיים ומקורות",
+   "היחס בין שני הדינים לא מבואר עד הסוף - מתי די ברב מוכיח ומתי דווקא דייני העיר",
+   "משמעות \"רק פעם אחת\" וחזקת תשובה - האם כל חוטא חד-פעמי בחזקת שמא שב בתשובה ונאנח במרירות לב"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin4.7",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 4:7",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_4:7",
+  "textSha256": "bd68e2c126047c8f",
+  "kind": "exception",
+  "titleHe": "היתר לספר בגנות רשע מוחזק",
+  "summaryHe": "לפי הסעיף כל הדינים הקודמים שאוסרים לשון הרע הם דווקא באיש שמנהגו ודרכו להתחרט, אבל במי שנבחן שאין פחד אלהים לנגד עיניו ועבר כמה פעמים במזיד בשרירות לב מותר להכלימו ולספר בגנותו בין בפניו ובין שלא בפניו ולשפטו לחובה עד שיחזור למוטב.",
+  "quotesHe": [
+   "וכל אלו הדינין שכתבנו הוא דוקא באיש, אשר מנהגו ודרכו להתחרט על חטאיו",
+   "מפרסמין את החנפים מפני חלול ה'"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "המדובר נבחן ונמצא שאין פחד אלהים לנגד עיניו ותמיד יתיצב על דרך לא טוב",
+   "עבר במזיד כמה פעמים על אותה עבירה שרוצים לגלות, או על עבירה אחרת המפורסמת לכל שהיא עבירה",
+   "מוכח שאינו עובר מחמת שגבר יצרו אלא בשרירות לבו הולך"
+  ],
+  "exceptionsHe": [
+   "איש שמנהגו ודרכו להתחרט על חטאיו - עליו חלים כל איסורי לשון הרע הקודמים ואין היתר זה חל בו"
+  ],
+  "factsNeeded": [
+   "subject.is_fellow",
+   "subject.identifiable",
+   "message.content_is_disparaging",
+   "message.content_is_true",
+   "speaker.knows_first_hand",
+   "toelet.rebuke_attempted",
+   "audience.size_at_least_three"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "subject.habitually_sins_intentionally",
+    "questionHe": "האם המדובר עבר כמה פעמים במזיד על אותה עבירה או על עבירה מפורסמת אחרת?"
+   },
+   {
+    "id": "subject.aveira_publicly_known",
+    "questionHe": "האם כל שער עמו יודעים שאותה עבירה היא עבירה?"
+   },
+   {
+    "id": "subject.lacks_fear_of_god_and_unrepentant",
+    "questionHe": "האם נבחנה דרכו ונמצא שאין פחד אלהים לנגד עיניו ואינו מתחרט אלא הולך בשרירות לב?"
+   }
+  ],
+  "relevanceToChat": "medium",
+  "uncertainHe": [
+   "מהם הפרטים המצטרכים להיתר שהסעיף מפנה לבאר מים חיים ולא פירט כאן",
+   "מה הגדרת כמה פעמים ומה נחשב עבירה המפורסמת לכל שהיא עבירה",
+   "כיצד מוכח שהחטא הוא בשרירות לב ולא מחמת שגבר יצרו"
+  ],
+  "reviewIssues": [
+   "quote_not_verbatim"
+  ],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin4.8",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 4:8",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_4:8",
+  "textSha256": "5721c6789841be4e",
+  "kind": "exception",
+  "titleHe": "היתר לספר על מסרב לקיים דין בית דין",
+  "summaryHe": "לפי הסעיף, כשבית דין פסק לאדם דין בקום ועשה והוא מסרב לקיים בשום אופן ואין לו תשובה, מותר לספר גנותו ואף לרושמה לדורות. לפי הסעיף אם השיב באמתלאות, אם ברור שאינה אמת מותר לספר כנ\"ל, ואם הדבר ספק אסור.",
+  "quotesHe": [
+   "מתר לספר גנותו ואף לרשם את גנותו בספר הזכרונות לדור דורים",
+   "ואינו רוצה לקים בשום אפן, ואין לו תשובה במה שאינו מקים",
+   "אבל אם הדבר ספק, אסור לספר בגנותו"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שבית דין אומרים לאדם דין אחד במה שהוא בקום ועשה",
+   "בין שהוא דברים שבין אדם למקום ובין שהוא דברים שבין אדם לחברו",
+   "שאינו רוצה לקיים בשום אופן ואין לו תשובה במה שאינו מקיים",
+   "שאם השיב באמתלא התלויה בדבר המסור ללב - אנו מבינים שהתשובה אינה אמת רק להוציא מדעתנו"
+  ],
+  "exceptionsHe": [
+   "אם השיב תשובה באמתלא והדבר ספק אם היא אמת - אסור לספר בגנותו"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_fellow",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "message.content_may_cause_harm"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "matter.bet_din_ordered_kum_veaseh",
+    "questionHe": "האם בית דין ציווה על האדם דין בקום ועשה, בין בדברים שבין אדם למקום ובין בדברים שבין אדם לחברו?"
+   },
+   {
+    "id": "matter.subject_refuses_without_excuse",
+    "questionHe": "האם האדם אינו רוצה לקיים בשום אופן ואין לו תשובה במה שאינו מקיים?"
+   },
+   {
+    "id": "matter.excuse_is_known_false",
+    "questionHe": "אם נתן אמתלא, האם ברור שאינה אמת רק להוציא מדעתנו, או שהדבר ספק?"
+   }
+  ],
+  "relevanceToChat": "low",
+  "uncertainHe": [
+   "גדר המדויק של 'בקום ועשה' תלוי בביאור באר מים חיים (לג-לד)",
+   "כיצד מכריעים אם אמתלא היא שקר ודאי או ספק ב'דבר המסור ללב', כמבואר בבאר מים חיים (לה)",
+   "היקף ההיתר 'לרשום בספר הזכרונות לדור דורים' והשלכתו לפרסום בצ'אט"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin4.9",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 4:9",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_4:9",
+  "textSha256": "6ab284f16a248e4e",
+  "kind": "prohibition",
+  "titleHe": "איסור לספר מידות רעות של חבר",
+  "summaryHe": "לפי הסעיף אסור לגנות חבר ולספר על מידותיו המגונות כגון גאווה או כעס שלא כהוגן, כי זה גנאי גמור ואף שהוא אמת שמא עשה תשובה. ואף אם רגיל בהן ואין לבו מר עליהן אסור ללכת ולהלעיג עליו, אלא יש להוכיחו ולהציע לפניו חומר איסורן.",
+  "quotesHe": [
+   "דאסור לגנות את חברו לספר עליו מדות המגנות שיש לו",
+   "דזה ודאי גנאי גמור הוא, ואף שהוא אמת",
+   "אסור להחזיקו על ידי זה לרשע ולילך לספר עליו"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "המדובר הוא חברו - עמיתך",
+   "התוכן הוא סיפור על מידות מגונות שיש לו, כגון גאוה או כעס שלא כהוגן ושארי מידות מגונות",
+   "הדברים נחשבים גנאי גמור",
+   "האיסור חל ואף שהוא אמת",
+   "האיסור חל אפילו אם רואה שהורגל באותן מידות ואין לבו מר עליהן"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_fellow",
+   "message.content_is_disparaging",
+   "message.content_is_true",
+   "speaker.knows_first_hand",
+   "speaker.intent_to_disparage",
+   "toelet.rebuke_attempted"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.about_bad_middot",
+    "questionHe": "האם הדברים עוסקים במידות רעות של האדם כגון גאווה, כעס שלא כהוגן או שאר מידות מגונות?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "הגדרת גדרי \"מידות מגונות\" אילו מידות נכללות נותרה לביאור ההערות בבאר מים חיים (לו-לח)",
+   "השיעור של \"אינו יודע חומר איסורן\" והיחס לדין שגג בכרת והזיד בלאו שהובא מהשבת ס\"ט - מתי נחשב שוגג לענין זה",
+   "גבול החובה להוכיח לפני סיפור ומתי הרגילות במידות עושה אותו רשע - תלוי בביאור הערה (מ) בבאר מים חיים"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin4.10",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 4:10",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_4:10",
+  "textSha256": "21af3b17904cb038",
+  "kind": "exception",
+  "titleHe": "היתר סיפור גנות לבן ותלמיד לשמירה",
+  "summaryHe": "לפי הסעיף אם רואה באדם מידה מגונה כגון גאווה או כעס או שהוא בטלן מתורה, מותר ואף מצווה לספר זאת לבנו או לתלמידיו כדי להזהירם שלא יתחברו עמו ולא ילמדו ממעשיו, כי האיסור הוא כשכוונתו לבזות, וכשכוונתו לשמור מצווה לבאר לשומע את הטעם.",
+  "quotesHe": [
+   "נכון לו לספר דבר זה לבנו או לתלמידיו ולהזהירם, שלא יתחברו עמו, כדי שלא ילמדו ממעשיו",
+   "כי העקר מה שהזהירה התורה בלשון הרע, אפלו על אמת, הוא אם כונתו לבזות את חברו ולשמח לקלונו"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "רואה באדם מידה מגונה כגון גאווה או כעס או שאר מידות רעות או שהוא בטלן מתורה וכיוצא בזה",
+   "הסיפור הוא לבנו או לתלמידיו",
+   "מטרת הסיפור להזהירם שלא יתחברו עמו כדי שלא ילמדו ממעשיו",
+   "כוונתו לשמור את חברו שלא ילמד ממעשיו ולא לבזותו ולשמוח לקלונו"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "message.about_torah_or_piety",
+   "message.purpose",
+   "speaker.intent_to_disparage",
+   "toelet.purpose_is_constructive",
+   "listener.needs_info_for_protection"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "listener.is_son_or_student",
+    "questionHe": "האם השומע הוא בנו או תלמידו של המספר? "
+   },
+   {
+    "id": "message.concerns_bad_middot",
+    "questionHe": "האם הדברים עוסקים במידה מגונה כגון גאווה כעס או בטלה מתורה? "
+   },
+   {
+    "id": "speaker.explained_reason_for_telling",
+    "questionHe": "האם המספר ביאר לשומע מדוע הוא מספר בגנות חברו? "
+   }
+  ],
+  "relevanceToChat": "medium",
+  "uncertainHe": [
+   "גבול מה נחשב מדה מגנה ובטלן מתורה לצורך היתר זה תלוי בבאר מים חיים מב",
+   "האם ההיתר דווקא לבנו ותלמידיו או לכל מי שצריך שמירה לא יתואר בסעיף עצמו",
+   "מה כוללת חובת מצוה לבאר הטעם וכיצד לנסחה כדי שהשומע לא יטעה להתיר יותר",
+   "בירור כוונה לשמור לעומת לבזות וכיצד להבחין ביניהן תלוי בבאר מים חיים מא ומג"
+  ],
+  "reviewIssues": [
+   "quote_not_verbatim"
+  ],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin4.11",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 4:11",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_4:11",
+  "textSha256": "2bee27311828bb3f",
+  "kind": "exception",
+  "titleHe": "היתר לברר על שידוך ושותפות",
+  "summaryHe": "לפי הסעיף מותר לדרוש ולחקור על אדם שרוצים לשכרו או להשתתף עמו או לעשות עמו שידוך אף שעלול לשמוע גנותו, כי כוונתו לטובת עצמו למנוע היזק ומריבה, ובלבד שיודיע לנשאל את סיבת דרישתו ולא יאמין בתשובה בהחלטה אלא בדרך חשש.",
+  "quotesHe": [
+   "מתר לדרוש ולחקר אצל אנשים על מהותו וענינו, אף דיכול להיות, שיספרו לו גנותו",
+   "שצריך שיודיע למי ששואל מאתו עליו, שרוצה לעשות שדוך עמו או כל עניני השתתפות וכנ\"ל",
+   "שלא ידרש את מהותו וענינו אצל מי שהוא משער שהוא שונאו"
+  ],
+  "appliesTo": "both",
+  "conditionsHe": [
+   "כוונת השואל היא לטובת עצמו בלבד כדי שלא יבוא לידי היזק ומצה ומריבה וחילול ה'",
+   "השואל מודיע מראש לנשאל שרוצה לעשות שידוך עמו או להשתתף עמו או לשכרו וכיוצא בזה",
+   "הנשאל אומר אמת ואינו מכוון לגנות אלא להיטיב עם השואל, ואינו מגזם יותר מכפי שיודע בבירור",
+   "השואל נזהר שלא להאמין בתשובה בהחלטה מפני קבלת לשון הרע אלא רק דרך חשש בעלמא לשמור עצמו",
+   "הבירור אינו נעשה אצל מי שהוא שונאו ואפילו אינו שונא גמור רק שהוא באותו אומנות ובאותו עסק"
+  ],
+  "exceptionsHe": [
+   "אם לא יודיע לחברו את סיבת דרישתו ויעשה עצמו כמתנכר עובר על לפני עור לא תתן מכשול גם אם המסופר אמת",
+   "אין היתר לדרוש סתם אחר אנשי עירו הישנה ובפרט על תורתם ויראת שמים שלהם מסקרנות בלא כוונה להוכיחם על להבא",
+   "שאלה על בנו או קרובו הדר בעיר אחרת על תורתו מותרת רק אם דעתו לזרזו על להבא והודיע לנשאל שהוא קרובו"
+  ],
+  "factsNeeded": [
+   "toelet.purpose_is_constructive",
+   "listener.needs_info_for_protection",
+   "message.purpose",
+   "speaker.intent_to_disparage",
+   "toelet.facts_verified",
+   "message.contains_falsehood_or_exaggeration",
+   "listener.believes_report",
+   "message.about_torah_or_piety",
+   "subject.is_relative_of_speaker",
+   "message.content_is_true"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "inquiry.purpose_disclosed_to_responder",
+    "questionHe": "האם השואל הודיע לנשאל במפורש שהשאלה היא לצורך שידוך או שותפות או שכירות וכיוצא בזה?"
+   },
+   {
+    "id": "responder.is_enemy_or_competitor",
+    "questionHe": "האם הנשאל הוא שונא או מתחרה של המדובר באותו אמנות ועסק?"
+   },
+   {
+    "id": "inquiry.is_general_curiosity_without_future_toelet",
+    "questionHe": "האם השאלה היא סקרנות כללית על אנשי עיר ללא כוונה להוכיח או להיטיב על להבא?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "גדר המדויק של וכל כיוצא בזה - אילו ענייני השתתפות והתקשרות נכללים בהיתר",
+   "מהי צורת ההודעה הנדרשת לנשאל והאם צריך גם להתנות שלא יגזים ושהתשובה לתועלת בלבד",
+   "הגדרת שונא ומתחרה לעניין איסור לשאול אצלו - האם די בחשש קל לשנאה או תחרות",
+   "פירוט ועוד איזה פרטים הנצרכים לזה שהסעיף מפנה לכלל ט' בחלק ב' ולא פורטו כאן"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin4.12",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 4:12",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_4:12",
+  "textSha256": "4010714ae0ea9e68",
+  "kind": "repair",
+  "titleHe": "תיקון המספר לשון הרע ובקשת מחילה",
+  "summaryHe": "לפי הסעיף, אם השומעים דחו את דבריו ולא נתגנה חברו כלל נשאר רק עוון שבין אדם למקום ותיקונו בחרטה וידוי וקבלה לעתיד. ואם חברו נתגנה בעיני השומעים ונסבב לו היזק או צער הרי זה כעוון שבין אדם לחברו שאין יום הכיפורים ויום המיתה מכפרים עד שירצה את חברו ויבקש מחילה אף אם אינו יודע עדיין.",
+  "quotesHe": [
+   "ואם עבר וספר לשון הרע על חברו ובא לעשות תשובה, תלוי בזה",
+   "אם השומעים דחו את דבריו, ולא נתגנה חברו על ידי זה כלל בעיניהם",
+   "אבל אם חברו נתגנה על ידי זה בעיני השומעים ונסבב לו על ידי זה הזק בגופו או בממונו"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהשומעים דחו את דבריו ולא נתגנה חברו כלל בעיניהם - אז נשאר רק עוון שבין אדם למקום",
+   "שחברו נתגנה בעיני השומעים ונסבב לו על ידי זה היזק בגופו או בממונו או שהוצר על ידי זה - אז דינו כעוון שבין אדם לחברו",
+   "שהמספר יודע שעל ידו נסבב לחברו דבר זה, אף אם חברו אינו יודע עדיין כלל - צריך לגלות לו ולבקש מחילה"
+  ],
+  "exceptionsHe": [
+   "אם לא נתגנה חברו כלל בעיני השומעים - אין צורך בבקשת מחילה, די בתשובה שבין אדם למקום",
+   "המדבר בפגם משפחה ומזיק לדורות הבאים - לפי המובא בסעיף בשם חז\"ל אין לו כפרה עולמית"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.may_be_understood_as_disparagement",
+   "message.content_may_cause_harm",
+   "listener.believes_report"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "teshuva.listeners_rejected_words",
+    "questionHe": "האם השומעים דחו את דברי המספר ולא נתגנה המדובר בעיניהם כלל?"
+   },
+   {
+    "id": "teshuva.subject_was_harmed",
+    "questionHe": "האם נגרם למדובר נזק בגוף או בממון או צער עקב הדיבור?"
+   },
+   {
+    "id": "teshuva.subject_unaware_of_speech",
+    "questionHe": "האם המדובר אינו יודע כלל שדיברו עליו לשון הרע?"
+   }
+  ],
+  "relevanceToChat": "low",
+  "uncertainHe": [
+   "מהו הגדר המדויק של \"דחו את דבריו\" ו\"לא נתגנה כלל\" - האם נדרשת דחייה מוחלטת ומידית",
+   "פרטי החובה לגלות למי שאינו יודע ולבקש מחילה - היקפה וסייגיה לפי באר מים חיים הערות מז-מט",
+   "משמעות \"המדבר בפגם משפחה אין לו כפרה עולמית\" והשלכתו על אפשרות התשובה, התלויה בביאור הבאר מים חיים"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ }
+]

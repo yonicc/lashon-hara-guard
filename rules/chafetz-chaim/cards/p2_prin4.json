@@ -1,0 +1,131 @@
+[
+ {
+  "id": "cc.p2_prin4.1",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 4:1",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_4:1",
+  "textSha256": "075b795acd83ea4d",
+  "kind": "prohibition",
+  "titleHe": "רכילות גם בלא חידוש ידיעה",
+  "summaryHe": "לפי הסעיף, גם אם השומע כבר ידע מה פלוני אמר או עשה בעניינו אך לא התבונן שזו עוולה כלפיו, והמספר מעורר אותו לכך עד שנולד עניין חדש של שנאה בלבו על פלוני, הרי זה רכילות אסורה.",
+  "quotesHe": [
+   "אסור הרכילות הוא אפלו אם אין מגלה לו דבר חדש",
+   "אפלו הכי {אף על פי כן} רכילות מקרי",
+   "שגורם בזה להכניס שנאה בלבו על אותו פלוני"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "השומע כבר ידע בעצמו את הדבר שפלוני אמר או עשה בעניינו",
+   "השומע לא התבונן עדיין שפלוני עשה עולה בזה כלפיו",
+   "המספר מעורר את השומע להבחין בכך שמדובר בעוולה הנוגעת לו",
+   "על ידי הדיבור נולד עניין חדש הגורם להכנסת שנאה בלב השומע על פלוני"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "subject.identifiable"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "listener.already_knew_content",
+    "questionHe": "האם השומע כבר ידע את תוכן הדברים על פלוני לפני שסופר לו שוב?"
+   },
+   {
+    "id": "listener.realized_injustice_beforehand",
+    "questionHe": "האם השומע כבר התבונן לפני כן שמדובר בעוולה כלפיו, או שלא שם לב לכך?"
+   },
+   {
+    "id": "message.causes_hatred_in_listener",
+    "questionHe": "האם הדיבור מעורר בשומע שנאה כלפי פלוני שלא הייתה שם קודם לכן?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "הגדרת 'לא התבונן עדין' – האם די בחוסר תשומת לב רגעית או שנדרש היסח דעת גמור",
+   "מה נחשב 'נולד ענין חדש' ומהי מידת השנאה הנדרשת כדי לקיים את האיסור",
+   "פרטי הדוגמה והגבולות בבאר מים חיים אות א וב"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin4.2",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 4:2",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_4:2",
+  "textSha256": "7b2d98ab368cd474",
+  "kind": "prohibition",
+  "titleHe": "איסור רכילות גם כשאחר כבר גילה",
+  "summaryHe": "לפי הסעיף, אם ראובן גינה את שמעון בפני שניים ואחד מהם כבר עבר על איסור רכילות וגילה לשמעון, אסור לשני לגלות או לאשר זאת לשמעון אפילו בסתמא. הסעיף מוסיף שכל שכן אם מטעים ומוסיף אסור ורוכל נקרא, כי בכך מחזק שנאת שמעון לראובן ועלול לעורר מריבה מחדש.",
+  "quotesHe": [
+   "אם ראובן גנה את שמעון בפני שנים, ועבר אחד מהן על אסור רכילות וגלה את הדבר לשמעון",
+   "אף על פי כן יזהר השני, (ג) שלא לגלות דבר זה לשמעון",
+   "כי בדבריו הוא מחזיק יותר השנאה שבלבו על ראובן, שיתקבל אצלו יותר, כשישמע מפי שנים, משאם היה שומע רק מפי אחד"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שראובן גינה את שמעון בפני שנים",
+   "שאחד מהשניים כבר עבר על איסור רכילות וגילה את הדבר לשמעון",
+   "שהשני בא לגלות או לאשר את הדבר לשמעון - אפילו בסתמא בלא שאלה מפורשת, וכל שכן אם הוא מטעים את הדבר יותר"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.contains_falsehood_or_exaggeration",
+   "listener.believes_report"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.already_revealed_by_other",
+    "questionHe": "האם פרט הרכילות כבר נמסר לשומע על ידי אדם אחר לפני הודעה זו?"
+   },
+   {
+    "id": "message.confirms_prior_rechilus",
+    "questionHe": "האם ההודעה מאשרת או מחזקת לשומע דיווח רכילות קודם שקיבל מאחר?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מה נחשב בדיוק \"מטעים את הדבר יותר\" - האם כל ניסוח מחזק או תוספת נחשבת הטעמה",
+   "האם האיסור בסתמא חל גם כששמעון כבר מאמין בוודאות לראשון, או רק במצבי ספק/סתמא המפורטים בסעיף",
+   "תוכן ופרטי הערת באר מים חיים (ג) וכיצד הם מבארים את גבולות האיסור"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin4.3",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 4:3",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_4:3",
+  "textSha256": "3ef1b3480b49b6e1",
+  "kind": "repair",
+  "titleHe": "תשובה על עוון רכילות",
+  "summaryHe": "לפי הסעיף מי שעבר והרגיל על חברו ובא לעשות תשובה אין לו תקנה עד שיבקש מחילה ממנו ויפייס אותו וגם יעשה תשובה למקום על הלאו דלא תלך רכיל בעמיך. וכל פרטי דיניו הם כמו בלשון הרע לעיל בחלק א' כלל ד' סעיף י\"ד כמבואר שם ובבאר מים חיים.",
+  "quotesHe": [
+   "אין לו תקנה עד שיבקש מחילה ממנו ויפיס אותו",
+   "וגם יעשה תשובה למקום",
+   "וכל פרטי דיניו הוא כמו בלשון הרע לעיל בחלק א' בכלל ד' סעיף יד"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שעבר והרגיל על חברו בדיבור רכילות",
+   "שבא לעשות תשובה על עוונו"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [],
+  "proposedNewFacts": [],
+  "relevanceToChat": "low",
+  "uncertainHe": [
+   "מהם פרטי דיני התשובה והפיוס שהסעיף מפנה אליהם לחלק א' כלל ד' סעיף י\"ד",
+   "מה נחשב פיוס מספיק ומהי תשובה למקום לפי הבאר מים חיים",
+   "האם יש הבדלים בין סוגי רכילות לעניין חיוב בקשת מחילה"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ }
+]

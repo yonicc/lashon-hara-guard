@@ -1,0 +1,475 @@
+[
+ {
+  "id": "cc.p2_prin1.1",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 1:1",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_1:1",
+  "textSha256": "9bb67dfda4405073",
+  "kind": "prohibition",
+  "titleHe": "איסור רכילות וחומרת עונשה",
+  "summaryHe": "לפי הסעיף, המרגל בחברו עובר בלא תעשה של \"לא תלך רכיל בעמיך\" וזהו עוון גדול הגורם להרג נפשות רבות, כפי שלמדים ממעשה דואג האדומי שהביא להריגת נוב עיר הכהנים. הסעיף מוסיף כי מלבד לאו מפורש זה יש ברכילות עוד לאוין ועשין רבים המבוארים בפתיחה.",
+  "quotesHe": [
+   "המרגל בחברו עובר בלא תעשה, שנאמר: \"לא תלך רכיל בעמיך\"",
+   "ועון גדול הוא, וגורם להרג נפשות רבות מישראל",
+   "מה ארע מרכילותו של דואג האדומי, שנהרגה על ידי זה כל נוב עיר הכהנים"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהאדם מרגל ומספר לחברו מה שפלוני אמר או עשה נגדו"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "subject.identifiable",
+   "subject.is_fellow"
+  ],
+  "proposedNewFacts": [],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "הגדרת מעשה הרכילות המדויקת אינה מפורטת בסעיף זה ונסמכת על המבואר בפתיחה",
+   "פירוט שאר הלאוין והעשין הנוספים שברכילות מופנה לפתיחה ולבאר מים חיים"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin1.2",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 1:2",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_1:2",
+  "textSha256": "5f4ee5bf16a652d8",
+  "kind": "definition",
+  "titleHe": "הגדרת רכילות והעברת דברים",
+  "summaryHe": "לפי הסעיף רכיל הוא הטוען דברים מזה לזה והולך ואומר לשומע כך אמר פלוני עליך, כך עשה לך פלוני, כך שמעתי שעשה לך או שרוצה לעשות לך. לפי הסעיף גם אם אין בכך גנות על המספר עצמו לשיטתו וגם אם הנידון לא היה מכחיש אם היה נשאל, בין משום שהאמת והצדק אתו ובין משום שהתכוון באותם מעשים ודיבורים לכוונה אחרת, עדיין הוא נקרא רכיל.",
+  "quotesHe": [
+   "איזהו רכיל? זה (ב) שטוען דברים מזה לזה והולך ואומר: כך אמר פלוני (ג) עליך",
+   "אף על פי שאותו דבר אין גנות על מי שמספר, אף לפי דברי הרוכל,",
+   "אפלו הכי {אף על פי כן} רכיל מקרי {נקרא}."
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהכותב טוען דברים מזה לזה והולך ואומר לשומע בנוסח: כך אמר פלוני עליך, כך עשה לך פלוני, כך וכך שמעתי עליו שעשה לך או שרוצה לעשות לך"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "subject.identifiable"
+  ],
+  "proposedNewFacts": [],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "פירוש הסימונים (ב) (ג) (ד) (ה) (ו) תלוי בבאר מים חיים ובמקורות המצוינים שם",
+   "היקף הביטוי \"כך וכך שמעתי עליו\" – האם כולל שמועה מיד שנייה, ומה גבול \"רוצה לעשות לך\" לעתיד",
+   "בירור משמעות \"כונה אחרת\" של הנידון ומתי תחשב כוונה אחרת לעניין הגדרת רכילות"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin1.3",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 1:3",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_1:3",
+  "textSha256": "832a3ea4c920ff65",
+  "kind": "prohibition",
+  "titleHe": "איסור רכילות גם בלי כוונת שנאה",
+  "summaryHe": "לפי הסעיף, איסור רכילות חל גם כשאין למספר כוונה להכניס שנאה בלב השומע על פלוני, וגם כשהוא סבור שפלוני נהג כדין. אם הוא משער שסיפורו יגרום לשנאה, כגון שראובן מתנצל שגם יהודה אמר על שמעון כן, הרי זה רכיל.",
+  "quotesHe": [
+   "דאסור רכילות הוא (ז) אפלו אם אין מתכון ברכילותו להכניס שנאה בלבו על אותו פלוני",
+   "ואפלו אם גם לפי דעתו כדין עשה פלוני, שדבר עליו, או עשה לו המעשה הזה",
+   "אם הוא משער, שעל ידי זה תכנס שנאה בלב שמעון על יהודה, רכיל מקרי"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהכותב מספר לשומע מה פלוני אמר או עשה נגד השומע",
+   "שהכותב משער שעל ידי סיפורו תיכנס שנאה בלב השומע על אותו פלוני",
+   "שהאיסור קיים גם בלי כוונה להכעיס וגם כשהמספר סבור שפלוני נהג כדין"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "subject.identifiable"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.expected_to_cause_hatred_in_listener",
+    "questionHe": "האם הכותב משער שדבריו יגרמו לשומע לשנוא את פלוני או לכעוס עליו?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהו שיעור ה'משער' – האם די בחשש קל לשנאה או שנדרשת הסתברות גבוהה, ותלוי בביאור בבאר מים חיים אות ז",
+   "האם כשאין שום שיעור שתיכנס שנאה יש עדיין איסור רכילות בעצם הסיפור, או שהסעיף מתנה את האיסור דווקא בשיעור זה"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin1.4",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 1:4",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_1:4",
+  "textSha256": "1e628b1e6f193776",
+  "kind": "prohibition",
+  "titleHe": "איסור רכילות גם כשאמת גמורה",
+  "summaryHe": "לפי הסעיף, כל איסור הרכילות שכתבנו אסור אפילו כשהדברים הם אמת גמורה שאין בה תערובת שקר. ואם היו אוהבים והוא הולך ומרגל ביניהם הוא נקרא רשע ותועבה לפני ה', ואף אם היו שונאים מאד מראש הוא עדיין נקרא רכיל ואסור.",
+  "quotesHe": [
+   "הוא (ח) אמת גמור, שאין בו תערובת שקר",
+   "ושומע שאחד מדבר רעה על חברו, והוא הולך ומרגל, רכיל מקרי"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "הדברים המסופרים הם אמת גמורה בלא תערובת שקר",
+   "הכותב שומע שאחד מדבר רעה על חברו והולך ומרגל זאת לנמען",
+   "האיסור חל גם אם המדובר והנמען היו שונאים זה לזה מאד עוד לפני הסיפור"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.content_is_true",
+   "message.contains_falsehood_or_exaggeration",
+   "subject.identifiable"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "context.prior_relationship",
+    "questionHe": "האם המדובר והנמען היו אוהבים או שונאים זה לזה לפני ההודעה?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהי הגדרת 'אמת גמור' ו'תערובת שקר' תלויה בבאר מים חיים אות ח שאינו מפורט בסעיף עצמו",
+   "מהי הגדרת 'אוהבים' ו'שונאים מאד' וגבולות החומרה של 'רשע' ו'תועבה' תלויה בבאר מים חיים אות ט ובמקור בויקרא רבה המובא בסעיף"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin1.5",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 1:5",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_1:5",
+  "textSha256": "2c2714cfe21ba6e6",
+  "kind": "prohibition",
+  "titleHe": "איסור רכילות גם כשהופצר לספר",
+  "summaryHe": "לפי הסעיף אין חילוק באיסור סיפור רכילות בין אם סיפר מעצמו ברצונו ובין אם חברו הפציר בו לאחר שהבין קצת מעצמו, ואפילו אם המפציר הוא אביו או רבו ואפילו באבק רכילות אסור בכל אופן.",
+  "quotesHe": [
+   "אין חלוק באסור ספור רכילות, בין אם ספר לו מעצמו ברצונו",
+   "ועמד עליו והפצירו, שיספר לו מה שדבר פלוני לפניו על אודותיו",
+   "ואפלו אביו או רבו הפצירוהו שיספר להם, מה שדבר פלוני לפניו על אודותם"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "speaker.was_pressured_to_tell",
+    "questionHe": "האם המספר סיפר רק לאחר שהשומע הבין קצת ועמד עליו והפציר בו לספר?"
+   },
+   {
+    "id": "listener.is_parent_or_teacher",
+    "questionHe": "האם המבקש שהפציר לספר הוא אביו או רבו של המספר?"
+   },
+   {
+    "id": "message.is_avak_rechilut",
+    "questionHe": "האם הדברים הם אבק רכילות ולא רכילות גמורה?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "תוכן ההערות (י) ו-(יא) בבאר מים חיים אינו כלול בטקסט הסעיף ויכול לפרט את גדר ההפצרה",
+   "הגדרת אבק רכילות בסעיף זה וגבולותיו תלויים במקורות נוספים מחוץ לטקסט המובא"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin1.6",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 1:6",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_1:6",
+  "textSha256": "e57ff9885cab2c1c",
+  "kind": "prohibition",
+  "titleHe": "איסור רכילות גם במחיר הפסד גדול",
+  "summaryHe": "לפי הסעיף אסור לספר רכילות גם כשאי־הגילוי יגרום למספר הפסד גדול ואף אובדן פרנסת בני ביתו, כדין שאר חייבי לאוין שחייב ליתן כל אשר לו ולא לעבור עליהם. אם יש בגילוי תועלת ממשית לסלק הנזקין ולהשבית הריב הוא עשוי להיות מותר, אך אין למהר לסמוך על היתר זה כי נדרשים לו פרטים רבים שיבוארו בכלל ט'.",
+  "quotesHe": [
+   "אפלו אם הוא רואה, שעל ידי זה שלא יגלה, יסבב לו (יב) הפסד גדול בעניניו",
+   "אף על פי כן אסור, ככל שאר חיבי לאוין, שמחיב לתן כל אשר לו, ולא לעבר עליהן",
+   "אם לא במקום שבגלוי תהיה תועלת לסלק הנזקין ולהשבית הריב"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהימנעות מלספר את הרכילות צפויה לגרום למספר הפסד גדול בענייניו",
+   "כגון שהוא תחת רשות אחרים שיעמדו עליו לגלות להם, ואם לא יגלה יחשדוהו שידו עם פלוני ויסלקוהו ממשמרתו עד שלא יהיה לו במה לפרנס את בני ביתו"
+  ],
+  "exceptionsHe": [
+   "כשיש בגילוי תועלת לסלק הנזקין ולהשבית הריב – שאז הגילוי עשוי להיות מותר, בכפוף לפרטים רבים שיבוארו בכלל ט'"
+  ],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "toelet.purpose_is_constructive",
+   "subject.identifiable",
+   "message.purpose"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "speaker.risk_major_financial_loss",
+    "questionHe": "האם הימנעות מלספר את הדברים עלולה לגרום לכותב הפסד גדול או אובדן פרנסה ומשרה?"
+   },
+   {
+    "id": "speaker.under_pressure_from_authority",
+    "questionHe": "האם הכותב נתון ללחץ ממי שממונה עליו לגלות את הדברים ומאוים בסילוק אם לא יגלה?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהו הגדר המדויק של הפסד גדול המחייב ליתן כל אשר לו לעומת הפסדים פחותים",
+   "מהם הפרטים הרבים הנדרשים להיתר של תועלת לסלק הנזקין ולהשבית הריב שהסעיף מפנה לכלל ט'",
+   "היקף דין יורה דעה סימן קנז סעיף א' בהגהה בהקשר זה והערות באר מים חיים (יב) ו-(יג)"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin1.7",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 1:7",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_1:7",
+  "textSha256": "2eafbbd1b628cb0a",
+  "kind": "prohibition",
+  "titleHe": "איסור רכילות מחשש חרפה וגדופין",
+  "summaryHe": "לפי הסעיף, אם מניעת סיפור הרכילות תגרום למספר רק לחרופין וגדופין בעלמא ולא להיזק ממון, בודאי אסור לספר ואין לו לחוש לחרפה כלל. הסובל בזיון עבור מצות ה׳ ייחשב לעתיד מאוהבי ה׳ ופניו יאירו כאור השמש.",
+  "quotesHe": [
+   "ובפרט אם על ידי מניעת הספור לא יגיע לו הזק ממון, רק דברי חרופין וגדופין בעלמא, שיחרפוהו עבור זה, בודאי אסור",
+   "הנעלבין ואינם עולבין, שומעין חרפתן ואינם משיבין",
+   "ואהביו כצאת השמש בגברתו"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "על ידי מניעת הסיפור לא יגיע למספר היזק ממון אלא רק דברי חרופין וגדופין בעלמא שיחרפוהו עבור זה"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "subject.identifiable",
+   "message.content_may_cause_harm"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "speaker.fear_of_insults_if_refrains",
+    "questionHe": "האם ההימנעות מסיפור הרכילות תגרום לכותב רק לחרופין וגדופין ולא להיזק ממון?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "גבול ההבחנה בין היזק ממון לבין חרופין וגדופין בעלמא אינו מבואר בסעיף זה עצמו",
+   "הסעיף מפנה במפורש להרחבה בהלכות לשון הרע כלל א סעיף ו שיש לעיין שם לפרטי הדין"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin1.8",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 1:8",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_1:8",
+  "textSha256": "7afdf3b41d434d44",
+  "kind": "exception",
+  "titleHe": "השבה לשואל מה אמר פלוני עליו",
+  "summaryHe": "לפי הסעיף, כשנשאל מה אמר פלוני עליו עליו להשתדל תחילה להשיב באופן שאין בו שקר גמור ואין בו רכילות ולא יוציא שקר מפיו, ואם מבין שחברו לא יקבל תשובה כזו מותר לומר שקר גמור מפני השלום, אך אסור להישבע לשקר.",
+  "quotesHe": [
+   "אם יש לו עצה להשיבו, באפן שלא יהיה שקר גמור וגם לא יהיה רכילות, ישיבהו באפן זה",
+   "מתר לומר שקר גמור מפני השלום",
+   "אבל לא ישבע, חס ושלום, לשקר בשביל זה"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שנשאל על ידי חברו מה דבר פלוני אודותיו",
+   "שיש לו עצה להשיב באופן שלא יהיה שקר גמור וגם לא יהיה רכילות",
+   "שהוא מבין שחברו לא יקבל תשובה מתחמקת כזו"
+  ],
+  "exceptionsHe": [
+   "כשהשואל לא יקבל תשובה מתחמקת מותר לומר שקר גמור מפני השלום",
+   "אפילו מפני השלום אסור להישבע לשקר"
+  ],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.contains_falsehood_or_exaggeration",
+   "message.content_is_true",
+   "message.purpose"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "answer.possible_without_complete_lie_or_rechilut",
+    "questionHe": "האם אפשר להשיב באופן שאין בו שקר גמור וגם אין בו רכילות?"
+   },
+   {
+    "id": "listener.will_accept_evasive_answer",
+    "questionHe": "האם השואל יקבל תשובה מתחמקת שאינה שקר גמור?"
+   },
+   {
+    "id": "answer.contains_oath",
+    "questionHe": "האם התשובה כוללת שבועה לשקר?"
+   },
+   {
+    "id": "speaker.motive_is_peace",
+    "questionHe": "האם השקר נאמר מפני השלום?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מה נחשב בדיוק עצה להשיב באופן שאינו שקר גמור ואינו רכילות – הסעיף מפנה לבאר מים חיים יד",
+   "מתי נחשב שהשואל לא יקבל זה לתשובה והאם די בהערכת המשיב – תלוי בהבנתו הסובייקטיבית",
+   "גדר איסור שבועת שקר אפילו מפני השלום ופרטיו – הסעיף מפנה לבאר מים חיים טו"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin1.9",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 1:9",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_1:9",
+  "textSha256": "21aee79c02cb7d35",
+  "kind": "prohibition",
+  "titleHe": "איסור רכילות ברמז וזיהוי עקיף",
+  "summaryHe": "לפי הסעיף אסור לספר רכילות גם בלי לנקוב בשם מפורש, אם על ידי הסיפור הסתמי נודע לשומע אחר כך מי האיש, או אם השומע ידע את עצם העניין אך לא ידע מי עשהו והמספר רמז לו מי הוא.",
+  "quotesHe": [
+   "אינו אומר לו בפרוש שם האיש ההוא",
+   "מספר לו סתם, ועל ידי ספורו ממילא נתודע לו אחר כך שם האיש ההוא",
+   "בדרך רמז, שיבין מי הוא, גם כן אסור"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהמספר אינו אומר בפירוש את שם האיש שדיבר או פעל נגד השומע",
+   "שעל ידי סיפורו הסתמי ממילא נודע לשומע אחר כך מיהו",
+   "או שהשומע כבר ידע מעצמו את עצם העניין שדובר עליו או שנעשה לו אך לא ידע מי עשה זאת, והמרגל הראה לו בדרך רמז מי הוא"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.is_hint_or_implied",
+   "message.reports_what_someone_said_or_did_against_listener"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "listener.knew_matter_not_actor",
+    "questionHe": "האם השומע כבר ידע מה נאמר או נעשה נגדו אך לא ידע מי אמר או עשה זאת?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "גבולות 'סתם' ו'בדרך רמז' ומידת הזיהוי הנדרשת תלויים בביאור באר מים חיים על ציונים טז-יח שאינו בסעיף",
+   "הסעיף אינו מבאר אם די באפשרות שהשומע יבין או שצריך ודאות שיזהה, וכן אם רמז קל שאינו ודאי נחשב איסור גמור"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin1.10",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 1:10",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_1:10",
+  "textSha256": "281a5eed22af3c18",
+  "kind": "prohibition",
+  "titleHe": "איסור רכילות דרך רמאות",
+  "summaryHe": "לפי הסעיף אסור לספר רכילות בדרך רמאות, כאשר המספר יודע שפלוני גרם רעה לשומע בעבר והייתה ביניהם מריבה, והוא מזכיר את הרעה כאילו בתמימות כדי שהשומע ייזכר מעצמו שפלוני עשה זאת ותתעורר המחלוקת הישנה.",
+  "quotesHe": [
+   "וכן אסור לספר רכילות (יט) דרך רמאות",
+   "וכאלו מסיח לפי תמו ואינו יודע, מי עשה לו דבר זה,",
+   "כל זה וכיוצא בזה אסור גמור הוא"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהמספר יודע שעל ידי פלוני נסבב מכבר רעה או גנות לשומע והייתה ביניהם מריבה על כך",
+   "שהמספר רוצה לעורר מחדש את המחלוקת הישנה שהייתה ביניהם",
+   "שהוא עושה זאת בדרך רמאות בשפתיים חלקלקות ומזכיר את עניין הרעה כאילו מסיח לפי תמו ואינו יודע מי עשה זאת, כדי שהנדון ייזכר בעצמו שפלוני עשה לו זאת"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.is_hint_or_implied",
+   "subject.identifiable",
+   "speaker.knows_first_hand",
+   "speaker.intent_to_disparage",
+   "message.purpose"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "matter.had_previous_quarrel_over_this",
+    "questionHe": "האם הייתה בעבר מריבה בין השומע לבין פלוני על אותה רעה או גנות?"
+   },
+   {
+    "id": "speaker.intent_to_rekindle_old_quarrel",
+    "questionHe": "האם כוונת הכותב לעורר מחדש מחלוקת ישנה שהייתה בין השומע למדובר?"
+   },
+   {
+    "id": "message.uses_deceitful_innocence",
+    "questionHe": "האם הכותב מזכיר את הרעה בדרך רמאות כאילו בתמימות כדי שהשומע ייזכר בעצמו מי עשה זאת?"
+   }
+  ],
+  "relevanceToChat": "medium",
+  "uncertainHe": [
+   "גבולות \"דרך רמאות\" ו\"מסיח לפי תמו\" - אילו ניסוחים נחשבים רמאות לפי הסעיף",
+   "האם האיסור חל רק כשכבר הייתה מריבה קודמת, או גם בהזכרה העלולה ליצור מריבה חדשה",
+   "משמעות \"אסור גמור\" והיחס בין סוג זה לשאר איסורי רכילות - תלוי בביאור בבאר מים חיים (יט)"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin1.11",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 1:11",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_1:11",
+  "textSha256": "c94cba49e338eba5",
+  "kind": "prohibition",
+  "titleHe": "איסור רכילות בכתב ועל סחורה",
+  "summaryHe": "לפי הסעיף אין חילוק באיסור רכילות בין אמירה מפורשת לבין מסירה על ידי מכתב, וכן בין סיפור שפלוני גינה את השומע עצמו לבין שגינה את סחורתו. הטעם הוא שבשני האופנים הדבר מכניס שנאה בלב השומע על פלוני.",
+  "quotesHe": [
+   "דאין חלוק באסור רכילות, בין אם הוא מספר לו בפרוש, מה שאחד עשה לו, או דבר עליו, ובין על ידי (כ) מכתב",
+   "ואחת היא, אם הוא מספר לו, שפלוני גנה אותו בעצמו, או שמספר לו שפלוני גנה את סחורתו,",
+   "כיון שעל ידי זה מכניס שנאה בלבו עליו"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהכותב מספר לשומע מה שפלוני עשה לו או דיבר עליו",
+   "שהמסירה היא בין בפירוש בעל פה ובין על ידי מכתב",
+   "שהגנאי הוא בין על גופו של השומע עצמו ובין על סחורתו",
+   "שהסיפור מכניס שנאה בלב השומע על פלוני"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.about_craft_or_goods"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.medium_is_written",
+    "questionHe": "האם הדברים נמסרו בכתב (מכתב, הודעת צ'אט או מייל) ולא בדיבור בעל פה?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "היקף 'על ידי מכתב' בציון (כ) לבאר מים חיים – האם כל מסר כתוב דיגיטלי נכלל",
+   "גדר 'גנה את סחורתו' – האם כל ביקורת על טיב סחורה או שירות נחשבת רכילות או רק גנאי שמכניס שנאה",
+   "האם 'מכניס שנאה בלבו עליו' הוא תנאי הכרחי לאיסור או תיאור התוצאה המצויה"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ }
+]

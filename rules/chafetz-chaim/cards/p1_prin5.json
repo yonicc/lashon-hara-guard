@@ -1,0 +1,407 @@
+[
+ {
+  "id": "cc.p1_prin5.1",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 5:1",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_5:1",
+  "textSha256": "5bcb6061c2921233",
+  "kind": "prohibition",
+  "titleHe": "איסור גנאי בענייני בין אדם לחברו",
+  "summaryHe": "לפי הסעיף אסור לבזות חבר על ענייני בין אדם לחברו כגון שמנע הלוואה או טובה אחרת או שנהג נקימה ונטירה, גם אם הדברים אמת בלא תערובת שקר, והמגנהו לפני אנשים הוא לשון הרע; ואם כוונתו לנקום ולפרסם רוע לבו עובר גם בלאו דלא תקום ולא תטור.",
+  "quotesHe": [
+   "כשם שאסור לבזות את חברו בענינים דבין אדם למקום, כן אסור לבזותו בענינים דבין אדם לחברו",
+   "לכן ההולך ומגנה אותו בזה לפני אנשים, לשון הרע נקרא מן הדין"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "הגנאי הוא על ענייני בין אדם לחברו כגון בקשת הלוואת מעות או שאר טובות שלא היטיב, או הנהגת נקימה ונטירה",
+   "המדובר לא עשה רעה בפועל אלא רק נמנע מלהיטיב",
+   "אין שום תועלת לשומע בסיפור הדבר לבני אדם",
+   "המספר הולך ומגנה אותו בזה לפני אנשים",
+   "האיסור חל אפילו אם הדברים אמת בלא תערובת שקר, ואפילו אם ראה בעצמו ונתברר לו שהיה יכול להיטיב ולא היטיב מפני רע טבעו"
+  ],
+  "exceptionsHe": [
+   "הסעיף מציין שיש בזה שרשים וענפים רבים והרבה פעמים ישתנה הדין, ויבוארו בכלל י' בארוכה, ואינו דן בהם כאן אלא בפרט אחד שאין בו ספק"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_fellow",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "message.content_is_true",
+   "message.contains_falsehood_or_exaggeration",
+   "speaker.knows_first_hand",
+   "speaker.intent_to_disparage",
+   "toelet.purpose_is_constructive",
+   "audience.size_at_least_three"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.concerns_interpersonal_withholding",
+    "questionHe": "האם ההודעה עוסקת במניעת טובה שבין אדם לחברו כגון סירוב להלוות מעות או להיטיב טובה אחרת או הנהגת נקימה ונטירה?"
+   },
+   {
+    "id": "matter.no_active_harm_done",
+    "questionHe": "האם המדובר לא עשה רעה בפועל לשומע או לאחר אלא רק נמנע מלהיטיב עמו?"
+   },
+   {
+    "id": "speaker.intent_is_revenge_or_grudge",
+    "questionHe": "האם כוונת הכותב בסיפור היא לנקום או לטרות על שמנע ממנו טובה ולפרסם רוע לבבו?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "גדרי 'תועלת' שמוציאה מכלל איסור זה ומתי הדין משתנה כפי שיתבאר בכלל י'",
+   "הבחנה בין מניעה מחמת רע טבעו לבין אי-יכולת או אונס להיטיב",
+   "היקף הצטברות איסורי לא תיקום ולא תיטור כשכוונת הסיפור היא נקמה ופרסום"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin5.2",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 5:2",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_5:2",
+  "textSha256": "b5b136417f7697ee",
+  "kind": "prohibition",
+  "titleHe": "איסור לבזות חברו בשלילת מעלות",
+  "summaryHe": "לפי הסעיף אסור לבזות את חברו על ידי שלילת שלמות מעלותיו כגון חכמה גבורה או עושר, ואף אם הדברים אמת גמורה הרי זה לשון הרע גמורה מן התורה, ואם יש בהם שקר או הגזמה הרי זה חמור יותר ובכלל מוציא שם רע.",
+  "quotesHe": [
+   "אסור לבזות את חברו מצד חסרון שלמות המעלות שיש בו",
+   "ולשון הרע הוא ספור רעות האדם ומומיו ולגנותו באיזה צד שיהיה מן הגנות",
+   "והוא בכלל מוציא שם רע, כי הוא משפיל את חברו בשקריו"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "הדיבור שולל מהמדובר שלמות מעלה כגון חכמה גבורה עושר וכיוצא בזה",
+   "הדיבור נאמר דרך גנות וביזוי ללא כוונת תועלת",
+   "האיסור חל אף כשהדברים אמת גמורה",
+   "אם יש בדברים שקר או הגזמה מעבר לאמת הדין חמור יותר ונקרא מוציא שם רע"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.content_is_disparaging",
+   "message.content_is_true",
+   "message.contains_falsehood_or_exaggeration",
+   "message.content_may_cause_harm",
+   "speaker.intent_to_disparage",
+   "message.purpose",
+   "toelet.purpose_is_constructive"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.denies_virtue_or_talent",
+    "questionHe": "האם ההודעה שוללת מהמדובר מעלה כגון חכמה, גבורה, עושר, כישרון או שלמות אחרת?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "הגבול המדויק בין לשון הרע למוציא שם רע כשיש אמת במקצת והגזמה",
+   "אילו חסרונות נחשבים שלילת מעלות לעניין סעיף זה ומה דינם של חסרונות בתורה ויראה המוזכרים בהמשך",
+   "הערכת הנזק העתידי בממון, שידוכים או פרנסה התלויה בהתפשטות הדברים"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin5.3",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 5:3",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_5:3",
+  "textSha256": "ce98c1419297abfc",
+  "kind": "aggravation",
+  "titleHe": "גנאי בשלילת חכמה ומעלות",
+  "summaryHe": "לפי הסעיף, המפרסם על חברו שאינו חכם וכיוצא בזה בשלילת מעלות עובר בלשון הרע ואיסורו חמור יותר מחלקים אחרים כי כוונתו רק לגנות ולהשפיל והשומעים מקבלים זאת בנקל; ואם מכוון להשקיט מריבה מותר לומר לבעל השנאה שלא נתכוון להתריס נגדו רק סיבת שטותו גרמה לכך.",
+  "quotesHe": [
+   "שאחד פרסם עליך לאנשים שאינך חכם",
+   "שכונתו רק לגנות לחברו ולהשפילו והיא מדה רעה מאד",
+   "מתר לו לומר לראובן, שלא נתכון בכל זה להתריס נגדו, רק סבת שטותו גרמה לזה"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהדברים הם גנאי בדרך שלילת מעלה כגון שאינו חכם",
+   "שהפרסום נעשה לאחרים",
+   "שהכוונה היא לגנות ולהשפיל את המדובר"
+  ],
+  "exceptionsHe": [
+   "אם מכוון להשקיט מריבה ולהקל שנאה שבלב חברו על המדובר מותר לומר שלא נתכוון להתריס נגדו רק סיבת שטותו גרמה לכך"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_fellow",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "message.content_may_cause_harm",
+   "speaker.intent_to_disparage",
+   "message.purpose",
+   "toelet.purpose_is_constructive",
+   "listener.believes_report"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.is_negation_of_virtue",
+    "questionHe": "האם הגנאי הוא בשלילת מעלה (כגון שאינו חכם/פתי/שוטה) ולא בסיפור על עבירה מסוימת שעבר?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "האם ההיתר להשקיט מריבה מותנה בשאר תנאי התועלת המבוארים בכלל י׳ ובבאר מים חיים ס\"ק ז",
+   "מהו הגבול המדויק בין גנאי אסור לבין אמירת \"סבת שטותו גרמה לזה\" המותרת לצורך השקטת מריבה",
+   "כיצד לקבוע שהשומעים אכן יקבלו גנאי זה בנקל ולא ימחו כמתואר בסעיף"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin5.4",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 5:4",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_5:4",
+  "textSha256": "965b60b7d16b57f7",
+  "kind": "prohibition",
+  "titleHe": "איסור למעט מחכמתו בתורה או מאומנותו",
+  "summaryHe": "לפי הסעיף, האומר על אדם שסוברים שהוא חכם בתורה שאיננו חכם כל כך ורק מעט יודע, ועל ידי זה נתמעטה דרגתו בעיני השומעים, ואפילו הוא אמת וכוונתו ללא תועלת רק להשפילו – הרי זה לשון הרע גמורה מדאורייתא מפני שעלול לגרום לו היזק וצער, והוא הדין באומר על אמן שאיננו אמן כראוי.",
+  "quotesHe": [
+   "שאיננו חכם כל כך, רק מעט הוא יודע בתורה",
+   "אפלו הוא אמת, לשון הרע גמורה היא מדאוריתא",
+   "אם מספר על אמן לפני אנשים שאיננו אמן כראוי, גם זה לשון הרע גמורה הוא"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהמדובר הוא אדם שסוברים השומעים שהוא חכם בתורה והאמירה ממעטת דרגתו בעיניהם",
+   "שהדברים נאמרים אפילו אם הם אמת",
+   "שכוונת המספר היא ללא תועלת אלא רק להשפיל את חברו ממדרגתו לפני השומעים",
+   "שהאמירה עלולה לסבב לו לבסוף היזק או צער, כגון פגיעה בכבודו, במחייתו או בקיום התורה התלוי בו",
+   "הוא הדין באומר על אמן לפני אנשים שאיננו אמן כראוי"
+  ],
+  "exceptionsHe": [
+   "אם אינו מכוון לגנותו אלא לתועלת – הסעיף מפנה לדיני תועלת שיבוארו לקמן בכלל ט' בהלכות רכילות ואינו דן בהם כאן"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.about_torah_or_piety",
+   "message.about_craft_or_goods",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "message.content_is_true",
+   "message.content_may_cause_harm",
+   "speaker.intent_to_disparage",
+   "toelet.purpose_is_constructive"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "audience.perceived_standing_of_subject",
+    "questionHe": "האם השומעים סוברים שהמדובר הוא בעל דרגה גבוהה בתורה או במקצועו קודם האמירה?"
+   },
+   {
+    "id": "message.diminishes_standing_in_eyes_of_listeners",
+    "questionHe": "האם האמירה ממעטת את דרגתו וכבודו של המדובר בעיני השומעים?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "גבול 'ממעט דרגתו' – האם כל הפחתה קלה נחשבת לשון הרע גמורה מדאורייתא או רק המבטלת כבודו לגמרי ויורדת למחייתו",
+   "מהי הגדרת 'תועלת' המתירה אמירה כזו – הסעיף עצמו מפנה לכלל ט' ואינו מבאר כאן את התנאים",
+   "האם דין 'אינו אמן כראוי' חל בכל בעל מקצוע ונותן שירות מודרני או רק באומן מובהק"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin5.5",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 5:5",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_5:5",
+  "textSha256": "289b72c11703be31",
+  "kind": "prohibition",
+  "titleHe": "לספר על חולשה או עניות המזיקה",
+  "summaryHe": "לפי הסעיף, המספר לפני אנשי העיר שאדם הוא חלש בטבעו או שהוא עני וכל ממונו משועבד לחובות עובר בלשון הרע כשעלול להסב לו רעה כגון אובדן פרנסת שכיר יום/מלמד או מניעת אשראי וצער גדול. לפי הסעיף, אם אין כוונת תועלת יש להיזהר מאד שלא יצא קלקול, ואם יש הכרח לתועלת דיניו מבוארים רק בחלק ב' כלל ט' ואסור למהר להקל.",
+  "quotesHe": [
+   "הינו לספר על אחד לפני אנשי העיר שהוא בטבעו איש חלוש",
+   "אם הוא שכיר יום או מלמד וכיוצא באלו הרבה, אז בודאי בכלל עון לשון הרע הוא",
+   "כי בודאי אם יתפרסם זה בעיר, לא ימצא אחר כך, מי שיתן לו באשראי"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "הסיפור הוא לפני אנשי העיר או לפני אנשים אחרים",
+   "התוכן מתאר את המדובר כחלש בטבעו או כעני שאינו אמיד ושמה שיש לו חייב לאחרים",
+   "לפי ענייניו של המדובר עלול להיגרם לו מזה רעה ממשית – כגון אובדן פרנסה לשכיר יום/מלמד או אי מציאת אשראי והזק וצער גדול",
+   "הסיפור אינו מכוון לתועלת מותרת"
+  ],
+  "exceptionsHe": [
+   "אם יש הכרח לספר לשם תועלת – הדבר תלוי בפרטים ובאופן המבוארים בחלק ב' כלל ט'",
+   "אין להקל לעצמו בטענה שאינו מתכוון לגנות אלא לתועלת בלי לעיין היטב בפרטים שם"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.content_may_cause_harm",
+   "message.purpose",
+   "toelet.purpose_is_constructive"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.about_physical_weakness",
+    "questionHe": "האם ההודעה עוסקת בכך שהמדובר חלש בטבעו או בכושרו הגופני?"
+   },
+   {
+    "id": "message.about_financial_status",
+    "questionHe": "האם ההודעה עוסקת בכך שהמדובר עני, אינו אמיד או שממונו משועבד לחובות?"
+   },
+   {
+    "id": "subject.livelihood_depends_on_strength_or_credit",
+    "questionHe": "האם פרנסת המדובר תלויה בכוחו הגופני או באמינותו הכלכלית לקבלת אשראי (כגון שכיר יום, מלמד, סוחר)?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהו סף הרעה הנדרש – האם די בחשש כללי או שנדרש חשש קונקרטי לפי ענייניו של המדובר כפי שכתב 'אם לפי עניניו יוכל להסבב לו מזה רעה'",
+   "מהם גבולות ההיתר לתועלת – הסעיף מפנה במפורש לחלק ב' כלל ט' ומזהיר שיש בזה פרטים רבים",
+   "האם פרסום שכבר ידוע בעיר או שנאמר בפני רבים משנה את הדין – הסעיף אינו מבאר זאת כאן"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin5.6",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 5:6",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_5:6",
+  "textSha256": "b658028627f58ce4",
+  "kind": "definition",
+  "titleHe": "לשון הרע תלוי לפי ערך המדובר",
+  "summaryHe": "לפי הסעיף לשון הרע תלוי בערכו של המדובר לפי פניותו, ממונו וחשיבותו, כך שדיבור אחד יכול להיות שבח לאחד וגנאי לאחר. לפי הסעיף כל דבר שפרסומו עלול לגרום לחברו היזק בגוף או בממון או להצר לו או להפחידו הרי זה לשון הרע מן הדין, ואין להתירו בטענה שהדובר עצמו היה שמח שיאמרו כך עליו.",
+  "quotesHe": [
+   "שתלוי לפי האיש שהוא מדבר עליו",
+   "דכל דבר שאם יתפרסם, יוכל לגרם לחברו הזק בגופו או בממונו או להצר לו או להפחידו, הרי זה לשון הרע",
+   "אם לפי הענין יהיה זה לו לגנאי, בודאי לשון הרע הוא מן הדין"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "הדיבור מתייחס לאדם מסוים שמעמדו ידוע בהקשר - כגון שמזונותיו מצויים לו, עשיר, או חשוב",
+   "הדבר נחשב גנאי עבורו לפי ערכו ולפי המקום והזמן",
+   "הדבר עלול לגרום לו היזק בגוף או בממון או להצר לו או להפחידו אם יתפרסם"
+  ],
+  "exceptionsHe": [
+   "אם לפי ערכו של האיש הדבר נחשב שבח ולא גנאי - אינו נחשב לשון הרע לפי סעיף זה"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.may_be_understood_as_disparagement",
+   "message.content_is_disparaging",
+   "message.content_may_cause_harm",
+   "message.about_torah_or_piety"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "subject.status_level",
+    "questionHe": "מה מעמדו ומצבו של המדובר - האם פנוי מעול פרנסה, האם עשיר, האם חשוב - כדי להעריך אם הדברים הם גנאי עבורו?"
+   },
+   {
+    "id": "context.place_time_norm",
+    "questionHe": "האם לפי המקום והזמן הנוכחיים הדברים נחשבים גנאי עבור אותו אדם?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "כיצד לקבוע בדיוק מיהו נחשב פנוי, עשיר או חשוב לעניין הערכת גנאי",
+   "מהו סף ההיזק, הצער או הפחד לפי כלל הרמב\"ם שהסעיף מצטט",
+   "כיצד להעריך השפעת המקום והזמן על הגדרת גנאי ופרטי הערה (ט) בבאר מים חיים"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin5.7",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 5:7",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_5:7",
+  "textSha256": "017ed0a2bc99a8fd",
+  "kind": "prohibition",
+  "titleHe": "איסור הוצאת דיבה על חפצי חברו",
+  "summaryHe": "לפי הסעיף כשם שאסור להוציא דיבה על חברו כך אסור להוציא דיבה על חפציו, ודוגמתו המצויה היא חנווני המוציא דיבה על נכסי חנווני אחר מפני קנאה, והסעיף מגדיר זאת כלשון הרע גמורה מדאוריתא.",
+  "quotesHe": [
+   "ודע דכשם שאסור להוציא דבה על חברו כן על חפציו",
+   "שחנוני אחד מוציא דבה על נכסי חנוני אחר",
+   "וזו היא לשון הרע גמורה מדאוריתא"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "הדיבור הוא הוצאת דיבה וגנאי על חפציו או נכסיו של אדם אחר",
+   "החפץ שייך לאדם מסוים וניתן לייחס את הגנאי לבעליו"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_fellow",
+   "message.about_craft_or_goods",
+   "message.content_is_disparaging",
+   "message.content_may_cause_harm"
+  ],
+  "proposedNewFacts": [],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "האם \"חפציו\" כולל כל חפץ פרטי או רק סחורה ומלאכה המשמשת לפרנסה",
+   "מהי מידת הזיהוי הנדרשת של בעל החפץ כדי שהדיבור על סחורתו ייחשב לשון הרע עליו",
+   "פרטי המקור והיקף האיסור תלויים בעיון בבאר מים חיים אות י ובספר יראים המצוין בסעיף"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin5.8",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 5:8",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_5:8",
+  "textSha256": "83f01e1670eadffa",
+  "kind": "prohibition",
+  "titleHe": "איסור לשון הרע אפילו באמת וביחידי",
+  "summaryHe": "לפי הסעיף אסור לספר לשון הרע בגנות חברו אפילו כשהדברים אמת ואפילו ביחידות, וכל שכן ששניים המספרים יחד עוונם גדול יותר כי הציבור מאמין להם יותר והמדובר מתבזה יותר.",
+  "quotesHe": [
+   "אסור ספור לשון הרע, שאסרה התורה לספר בגנות חברו, אפלו על אמת הוא, אפלו ביחידי,",
+   "והעון הוא יותר גדול מן המספר ביחידי, כי יאמינו העם יותר, ויהיה לבוז בעיניהם בשמיעתם את הדברים מפי שנים"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "הדברים הם בגנות חברו",
+   "הדברים נאמרים אף אם הם אמת",
+   "הדברים נאמרים אף ביחידות בין המספר לשומע אחד",
+   "סיפור על ידי שניים יחד מחמיר את העוון"
+  ],
+  "exceptionsHe": [
+   "לבד אם נפרש בהדיא שהאיסור נאמר באופן מצומצם – אז הכוונה אינה בכל גוני"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_fellow",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "message.content_is_true",
+   "listener.believes_report",
+   "audience.listener_will_spread"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.told_jointly_with_another",
+    "questionHe": "האם הגנאי נמסר על ידי שני מספרים יחד או בצירוף אדם נוסף המספר אותו דבר באותו שיח?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהי ההגדרה המדויקת של 'לספר בשנים' – האם צריך סיפור משותף באותו מעמד או שני מקורות נפרדים",
+   "מהם בדיוק 'כל גוני' שבכלל סתם איסור לשון הרע המוזכר בסוף הסעיף",
+   "פרטי ביאור (יא) בבאר מים חיים לא הובאו בסעיף עצמו ודרושים להשלמת הגדרת היחידי והשנים"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ }
+]

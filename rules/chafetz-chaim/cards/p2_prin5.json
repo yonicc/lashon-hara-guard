@@ -1,0 +1,355 @@
+[
+ {
+  "id": "cc.p2_prin5.1",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 5:1",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_5:1",
+  "textSha256": "f286011171686e06",
+  "kind": "listener_duty",
+  "titleHe": "איסור קבלת רכילות",
+  "summaryHe": "לפי הסעיף אסור מן התורה לקבל רכילות שהיא בכלל לשון הרע, והאיסור הוא שלא יאמין בלבו שמה שסופר לו שפלוני עשה לו כך וכך או דיבר עליו הוא אמת, והמקבל עובר בלאו דלא תשא שמע שוא.",
+  "quotesHe": [
+   "כשם שאסור לקבל לשון הרע מן התורה, כך (א) אסור לקבל רכילות מן התורה, שגם היא בכלל לשון הרע.",
+   "שלא יאמין בלבו, שמה שספר לו, שכך וכך עשה לו פלוני, או דבר עליו פלוני, הוא אמת.",
+   "והמקבל עובר בלא תעשה שנאמר: לא תשא שמע שוא"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "שהדברים הם רכילות - סיפור שפלוני עשה כך וכך לשומע או דיבר עליו",
+   "שהשומע מאמין בלבו שהסיפור אמת"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "listener.role_is_receiving",
+   "listener.believes_report",
+   "subject.identifiable"
+  ],
+  "proposedNewFacts": [],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "תוכן הערת באר מים חיים (א) והמקורות בפתיחה לשאר הלאוין והעשין המצטרפים אינם מובאים בסעיף זה",
+   "גדר המדויק של \"קבלת\" רכילות - האם כל אמונה בלב או רק אמונה גמורה, והיחס בין שמיעה לאמונה"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin5.2",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 5:2",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_5:2",
+  "textSha256": "ca4dd67205be6d1e",
+  "kind": "listener_duty",
+  "titleHe": "איסור שמיעה וקבלה של רכילות",
+  "summaryHe": "לפי הסעיף אף שמיעת רכילות בלבד אסורה באיסור גדול כמו לשון הרע אף בלא גמירות דעת להאמין, וקבלתה בהחלטה חמורה ממנה ואסורה מן התורה בכל גווני.",
+  "quotesHe": [
+   "מתר לשמע לכתחלה כדי לידע איך לחוש ולהשמר ממנו",
+   "אבל לקבל בהחלטה אסור מן התורה בכל גוני"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "שהדברים הם רכילות – סיפור מה פלוני אמר או עשה נגד השומע",
+   "שהשמיעה היא אף בטרם גמר בדעתו אם יאמין או לא",
+   "היתר שמיעה לכתחילה מותנה בכך שהשומע מבין מתחילת הסיפור שידיעת הדבר נוגעת לו על להבא",
+   "שהנוגעות היא כגון שפלוני רוצה להזיקו בגופו או בממונו וכיוצא בזה"
+  ],
+  "exceptionsHe": [
+   "מותר לשמוע לכתחילה כשמבין מתחילה שנוגע לו להבא כדי לידע איך לחוש ולהשמר ממנו",
+   "אף אז מותר רק לחשוש ולחוש בלבד כדי להזהר, לא לקבל בהחלטה כאמת"
+  ],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "listener.role_is_receiving",
+   "listener.needs_info_for_protection",
+   "listener.believes_report",
+   "message.content_may_cause_harm"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "listener.understands_from_start_relevance",
+    "questionHe": "האם השומע הבין כבר מתחילת הסיפור שהמידע עשוי להיות נוגע לו על להבא לצורך הישמרות מנזק?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "גדר המדויק של 'נוגע לו על להבא' ו'כיוצא בזה' – האם רק נזק גוף או ממון או גם נזקים אחרים",
+   "ההבחנה המעשית בין 'קבלה בהחלטה' האסורה מן התורה לבין 'חשש בעלמא' המותרת לצורך זהירות",
+   "אופן ההתנהגות בשמיעה 'לצאת ידי שמים' שהסעיף מפנה לכלל ו' בחלק א' וביאורו בבאר מים חיים"
+  ],
+  "reviewIssues": [
+   "quote_not_verbatim"
+  ],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin5.3",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 5:3",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_5:3",
+  "textSha256": "404a1ff4ef42636f",
+  "kind": "exception",
+  "titleHe": "היתר לדרוש ולחקור מפני חשש נזק",
+  "summaryHe": "לפי הסעיף, הרואה בחברו דברים ניכרים שהוא רוצה להזיקו בגופו או בממונו מותר לו לדרוש ולחקור אצל אנשים אם מחשבתו להזיקו בעניין פלוני ופלוני כדי לידע איך להשמר ממנו, ואין לו לחוש שעל ידי זה יסבב שיספרו בני אדם בגנותו.",
+  "quotesHe": [
+   "ואם הוא רואה בחברו דברים הנכרים, שהוא רוצה להזיקו בגופו או בממונו",
+   "מתר לדרש ולחקר אחר זה אצל אנשים אם מחשבתו להזיקו בענין פלוני ופלוני",
+   "ואין לו לחוש, שעל ידי זה יסבב, שיספרו בני אדם בגנותו"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "רואה בחברו דברים הנכרים שהוא רוצה להזיקו בגופו או בממונו",
+   "הדרישה והחקירה היא אצל אנשים אם מחשבתו להזיקו בענין פלוני ופלוני",
+   "המטרה היא כדי לידע איך להשמר ממנו"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.content_may_cause_harm",
+   "message.purpose",
+   "toelet.purpose_is_constructive",
+   "listener.needs_info_for_protection"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "speaker.observed_suspicious_signs",
+    "questionHe": "האם הכותב ראה בחברו דברים ניכרים המעוררים חשש שהוא רוצה להזיקו בגופו או בממונו?"
+   },
+   {
+    "id": "message.inquiry_is_specific_matter",
+    "questionHe": "האם השאלה לאנשים ממוקדת בעניין פלוני ופלוני אם מחשבתו להזיקו בו?"
+   },
+   {
+    "id": "message.purpose_is_self_protection",
+    "questionHe": "האם מטרת הדרישה והחקירה היא לדעת איך להשמר ממנו?"
+   },
+   {
+    "id": "audience.will_speak_disparagingly_due_to_inquiry",
+    "questionHe": "האם צפוי שבעקבות השאלה יספרו בני אדם בגנותו של המדובר?"
+   }
+  ],
+  "relevanceToChat": "medium",
+  "uncertainHe": [
+   "מהי הגדרת דברים הנכרים המספיקה להתיר את הדרישה והחקירה",
+   "האם ההיתר מותנה בשאלה ממוקדת על ענין פלוני דווקא ולא בחקירה כללית",
+   "היקף ההיתר של אין לו לחוש שיספרו בגנותו וסייגיו תלויים בביאור באר מים חיים אות ד וה"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin5.4",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 5:4",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_5:4",
+  "textSha256": "6c65206aa4385879",
+  "kind": "listener_duty",
+  "titleHe": "איסור האמנת רכילות והיתר חשש לשמירה",
+  "summaryHe": "לפי הסעיף, השומע רכילות שפלוני דיבר עליו או עשה לו רעה או רוצה לעשות לו אסור לו להאמין לכך אלא לחשוש בעלמא כדי לשמור על עצמו להבא. לפיכך אסור לו לעשות למדובר שום מעשה נזק או ביוש ואפילו לשנוא אותו בלב או לפטור עצמו מחובותיו כלפיו, וחייב להיטיב עמו כבתחילה.",
+  "quotesHe": [
+   "שלא להאמין בדבר, רק בדרך חשש בעלמא, דהינו לשמר את עצמו ממנו",
+   "אסור לעשות לו שום מעשה או לגרם לו שום הזק או ביוש עבור זה",
+   "דאין מתר לחוש, רק לענין לשמר את עצמו על להבא, שלא יבוא לידי הזק ממנו"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "כששמע רכילות שאדם דיבר עליו או עשה לו כך וכך או רוצה לעשות לו כך וכך",
+   "המדובר עומד בחזקת כשרות שמסתמא לא עשה לו רעה ולא גנהו"
+  ],
+  "exceptionsHe": [
+   "מותר לחוש רק לענין לשמר את עצמו על להבא שלא יבוא לידי היזק ממנו",
+   "בכל ענין אחר אסור לחוש כלל, ואפילו בגדר ספק"
+  ],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "listener.role_is_receiving",
+   "listener.believes_report",
+   "listener.needs_info_for_protection",
+   "subject.identifiable",
+   "subject.is_fellow"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "listener.will_cause_harm_or_shame",
+    "questionHe": "האם השומע מתכוון לעשות מעשה או לגרום נזק או ביוש למדובר בגלל הרכילות?"
+   },
+   {
+    "id": "listener.will_hate_in_heart",
+    "questionHe": "האם השומע שונא את המדובר בלבו בגלל הרכילות?"
+   },
+   {
+    "id": "listener.will_exempt_self_from_obligation",
+    "questionHe": "האם השומע רוצה לפטור עצמו מחובה שהוא חייב למדובר בגלל הרכילות?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "פרטי דיני החשש לא מבוארים כאן אלא מופנים לכללים שכתב בחלק א' כלל ו' לענין לחוש, ויש לעיין שם ובבאר מים חיים אות ו'",
+   "ההבחנה בין חשש בעלמא המותר לבין העמדה בגדר ספק האסורה אינה מבוארת בסעיף עצמו",
+   "גבולות המותר ב\"לשמר עצמו על להבא\" לעומת \"ענין אחר\" שאסור אף לחוש בו, ויישומו למעשה, תלויים בביאור הפוסקים ובבאר מים חיים אות ז'"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin5.5",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 5:5",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_5:5",
+  "textSha256": "8d3045378d1b7684",
+  "kind": "prohibition",
+  "titleHe": "איסור הפצרה לשמוע רכילות",
+  "summaryHe": "לפי הסעיף אסור לעמוד על חברו ולהפציר בו שיגלה מה אמר פלוני עליו כשיש בדברים גנאי ואין בכך נפקא מינה להבא, והמפציר חוטא ומחטיא את חברו המספר. לפי הסעיף אף כשמספר מעצמו דבר הנוגע להבא אסור להאמין אלא רק לחוש, וכשאינו נוגע אסורה אף השמיעה לבד, ומותר לדרוש רק אם ברור שנוגע לו להבא לשמירת עצמו מפלוני.",
+  "quotesHe": [
+   "שטבעם תמיד לדרש מחבריהם, מה דבר פלוני אודותם",
+   "כי באמת אסור קבלת לשון הרע ורכילות הוא אפלו אם אחד ספר להם מעצמו דבר, שנוגע לו על להבא",
+   "אם לא שברור לו, שנוגע לו הדבר הזה על להבא לידע, היאך לשמר את עצמו מפלוני"
+  ],
+  "appliesTo": "both",
+  "conditionsHe": [
+   "שהבקשה היא לדעת מה אמר או עשה פלוני אודות השואל",
+   "שיש בדברים עניין גנאי על השואל",
+   "שאין בידיעת הדבר נפקא מינה להבא לשואל",
+   "שהשומע מפציר בחברו עד שהמספר בא לכלל סיפור רכילות",
+   "שהשומע מקבל את הדברים לאמת גמורה"
+  ],
+  "exceptionsHe": [
+   "אם ברור לו שנוגע לו הדבר על להבא לידע היאך לשמר עצמו מפלוני מותר לדרוש ולשמוע",
+   "אף כשנוגע לו על להבא אסור להאמין כאמת גמורה אלא רק לחוש"
+  ],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "listener.believes_report",
+   "listener.needs_info_for_protection",
+   "listener.role_is_receiving",
+   "subject.identifiable",
+   "message.may_be_understood_as_disparagement",
+   "toelet.purpose_is_constructive"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "listener.pressured_speaker_to_tell",
+    "questionHe": "האם השומע עמד על חברו והפציר בו שוב ושוב עד שסיפר לו מה אמר פלוני עליו?"
+   },
+   {
+    "id": "message.was_solicited_vs_volunteered",
+    "questionHe": "האם הדברים נאמרו מיוזמת המספר או רק לאחר דרישה והפצרה של השומע?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהו הגדר המדויק של נוגע לו על להבא המתיר לדרוש מידע",
+   "מהי רמת ה\"ברור לו\" הנדרשת כדי להתיר דרישה והפצרה",
+   "הגבול המעשי בין איסור קבלת רכילות כאמת לבין היתר לחוש בלבד",
+   "פירוט מניין הלאוין והעשין מופנה לפתיחה ולסעיף ב' ואינו מבואר בסעיף זה"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin5.6",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 5:6",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_5:6",
+  "textSha256": "41f5a474181772f5",
+  "kind": "listener_duty",
+  "titleHe": "קבלת רכילות כשיש לדון לכף זכות",
+  "summaryHe": "לפי הסעיף יש עוד חלק באיסור קבלת רכילות גם כשנתברר לשומע שאמת שפלוני דיבר עליו או עשה מעשה נגד רצונו. אם יש בדבר צד לשפטו לטוב שלא היתה כוונתו להקניטו והשומע לא דן אותו לכף זכות ונטר לו בלבו, הרי הוא נקרא מקבל רכילות.",
+  "quotesHe": [
+   "דיש עוד חלק באסור קבלת רכילות וכמו שאבאר",
+   "שאפלו אם נתברר לו שהוא אמת, מה שספרו לו, שאחד דבר עליו, או עשה מעשה נגד רצונו",
+   "וידוע דמצוה מן הדין לדון אותו לכף זכות"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "נתברר לשומע שאמת מה שספרו לו שאחד דבר עליו או עשה מעשה נגד רצונו",
+   "יש בדבר צד לשפטו לצד הטוב ולצד הזכות שלא היתה כוונתו להקניטו אלא ענין אחר המסיר ממנו את העולה",
+   "השומע לא רצה לדון אותו לכף זכות ונקט בלבו עליו ונשתרבב עליו הדבר לעולה"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "listener.role_is_receiving",
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.content_is_true",
+   "listener.believes_report",
+   "subject.identifiable"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.can_be_judged_favorably",
+    "questionHe": "האם יש בדבר צד לפרש לטובה שלא היתה כוונה להקניט את השומע?"
+   },
+   {
+    "id": "listener.judged_to_merit",
+    "questionHe": "האם השומע דן את המדובר לכף זכות או נטר לו בלבו על המעשה?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מה נחשב צד מספיק לדון לכף זכות, הסעיף מפנה לבאר מים חיים (ח) ולכלל ו' ס\"ג בהערה עם שני ציורים",
+   "גבול נקט לה בלבו והאם כל אי-דין לכף זכות נחשב קבלת רכילות גם בלי ביטוי חיצוני"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin5.7",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 5:7",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_5:7",
+  "textSha256": "e60a401a318f3fbd",
+  "kind": "repair",
+  "titleHe": "תיקון למי שקיבל רכילות",
+  "summaryHe": "לפי הסעיף, מי שכבר עבר וקיבל רכילות תיקונו שיתחזק להוציא את הדבר מלבו שלא להאמינו, ואף אם קשה לו לומר שהמספר בדה הכול יחשוב שאולי הוסיף או גרע פרט או אמר בניגון אחר עד שנשתנה העניין מטוב לרע. לפי הסעיף עליו גם לקבל על עצמו להבא שלא לקבל עוד לשון הרע ורכילות על אדם מישראל ולהתוודות, ובזה יתוקן האיסור אם עדיין לא סיפר את הדבר לאחרים.",
+  "quotesHe": [
+   "תקונו, שיתחזק להוציא הדבר מלבו שלא להאמינם",
+   "ויקבל על עצמו על להבא, שלא לקבל עוד לשון הרע ורכילות על אדם מישראל, ויתודה על זה",
+   "ובזה יתקן האסור שעבר, אם לא ספר הדבר עדין לאחרים"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "שכבר עבר וקיבל רכילות",
+   "שיתחזק להוציא הדבר מלבו שלא להאמינו, ואף ישער שאולי המספר הוסיף או גרע פרט או שינה נגון עד שנשתנה העניין מטוב לרע",
+   "שיקבל על עצמו להבא שלא לקבל עוד לשון הרע ורכילות ויתוודה, ועדיין לא סיפר את הדבר לאחרים"
+  ],
+  "exceptionsHe": [
+   "אם כבר סיפר את הדבר לאחרים - תיקון זה לבדו אינו מועיל לפי הסעיף"
+  ],
+  "factsNeeded": [
+   "listener.role_is_receiving",
+   "listener.believes_report",
+   "message.reports_what_someone_said_or_did_against_listener",
+   "subject.is_fellow"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "listener.removed_belief_from_heart",
+    "questionHe": "האם השומע הוציא את הדבר מלבו והפסיק להאמין לרכילות שקיבל?"
+   },
+   {
+    "id": "listener.already_spread_report_to_others",
+    "questionHe": "האם השומע כבר סיפר את הרכילות שקיבל לאדם אחר?"
+   },
+   {
+    "id": "listener.accepted_not_to_accept_again_and_confessed",
+    "questionHe": "האם השומע קיבל על עצמו להבא שלא לקבל עוד לשון הרע ורכילות והתוודה על כך?"
+   }
+  ],
+  "relevanceToChat": "medium",
+  "uncertainHe": [
+   "גדר המדויק של 'להוציא הדבר מלבו' ומה נחשב להרהר שאולי המספר הוסיף או גרע פרט או תיבה או אמר בנגון אחר",
+   "מה דינו אם כן סיפר את הדבר לאחרים - האם צריך תיקון נוסף ומהו, התלוי בבאר מים חיים אות ט",
+   "פרטי נוסח הוידוי והקבלה להבא - האם יש תנאים או נוסח מסוים, כמבואר במקורות"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ }
+]

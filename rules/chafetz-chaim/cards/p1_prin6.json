@@ -1,0 +1,628 @@
+[
+ {
+  "id": "cc.p1_prin6.1",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 6:1",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_6:1",
+  "textSha256": "b001c2cca92a87de",
+  "kind": "prohibition",
+  "titleHe": "איסור קבלת לשון הרע",
+  "summaryHe": "לפי הסעיף אסור מן התורה לקבל לשון הרע, בין בדברים שבין אדם למקום ובין בדברים שבין אדם לחברו. לפי הסעיף גדר הקבלה הוא שמאמין בלבו שהסיפור אמת עד שהמדובר יתבזה בעיניו, והמקבל עובר בלאו של לא תשא שמע שוא.",
+  "quotesHe": [
+   "אסור לקבל לשון הרע מן התורה",
+   "שלא נאמין בלבנו שהספור הוא אמת",
+   "לא תשא שמע שוא"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "שהדברים הנשמעים הם לשון הרע, בין בדברים שבין אדם למקום ובין בדברים שבין אדם לחברו",
+   "שהשומע מאמין בלבו שהסיפור הוא אמת",
+   "שעל ידי האמונה המדובר מתבזה בעיני השומע"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "listener.role_is_receiving",
+   "listener.believes_report",
+   "subject.identifiable",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement"
+  ],
+  "proposedNewFacts": [],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "האם די באמונה בלב בלבד כדי להיחשב מקבל גם בלא הסכמה בפירוש לסיפור, כפי שמדייק הסעיף",
+   "מהם שאר הלאוין והעשין המצטרפים לאיסור מלבד לא תשא שמע שוא שהסעיף מפנה לעיין בפתיחה",
+   "משמעות דברי חז\"ל ראוי להשליכו לכלבים וגדול עונש המקבלו יותר מן האומרו אם כפשוטם או כהפלגה"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin6.2",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 6:2",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_6:2",
+  "textSha256": "91829e2e325781ca",
+  "kind": "listener_duty",
+  "titleHe": "איסור שמיעת לשון הרע והיתר לצורך",
+  "summaryHe": "לפי הסעיף שמיעת לשון הרע אסורה מן התורה אף בלי כוונה לקבל כאמת כיון שמטה אוזניו לשמוע, אך מותר לכתחילה לשמוע אם הדבר נוגע לו לעתיד כדי להישמר או כדי לסבב טובה לאחרים על ידי חקירה והוכחה, ואילו לקבל ולהחליט בלב שהדבר אמת אסור בכל גווני.",
+  "quotesHe": [
+   "שמיעת לשון הרע לבד גם כן יש אסור מן התורה",
+   "מתר לכתחלה לשמע כדי לחוש לזה ולהשמר ממנו"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "שהאדם מטה אוזניו לשמוע לשון הרע אף שאין בדעתו לקבל כאמת",
+   "שהדבר אינו נוגע לו על להבא - אז השמיעה אסורה"
+  ],
+  "exceptionsHe": [
+   "אם הדבר נוגע לו על להבא ואם אמת הוא, כגון שמראה שפלוני אינו איש מהימן והיה בדעתו להכניסו בעסקו או להשתתף עמו או לעשות שידוך עמו - מותר לשמוע כדי לחוש ולהישמר מנזק או מריבה",
+   "אם אין לו טובה ישירה מהשמיעה אך על ידי שמיעתו יסבב טובה לאחרים, כגון לחקור אם אמת ולהוכיח את החוטא שישוב מחטאו או ישיב גזלה או יפייס את מי שחרף - מותר לשמוע"
+  ],
+  "factsNeeded": [
+   "listener.role_is_receiving",
+   "listener.needs_info_for_protection",
+   "listener.believes_report",
+   "message.content_is_true",
+   "toelet.purpose_is_constructive",
+   "message.purpose"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "listener.hearing_to_cause_benefit_to_others",
+    "questionHe": "האם השמיעה נועדה לחקור אחר כך את האמת ולהוכיח את החוטא כדי שישוב או ישיב גזלה או יפייס?"
+   },
+   {
+    "id": "listener.future_business_or_match_with_subject",
+    "questionHe": "האם לשומע יש כוונה עתידית להתקשר עם המדובר בעסק, שותפות או שידוך שהמידע רלוונטי לו?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "גדר המדויק של 'נוגע לו על להבא' ומה נכלל ב'כל כהאי גונא' - תלוי בבאר מים חיים אות ג",
+   "האם היתר השמיעה לטובת אחרים מותנה בכוונה לחקור ולהוכיח בפועל - תלוי בבאר מים חיים אות ד",
+   "הגדרת 'קבלה' כהחלטה בלב שהוא אמת לעומת שמיעה עם חשש בלבד - תלוי בבאר מים חיים אות ה"
+  ],
+  "reviewIssues": [
+   "quote_not_verbatim"
+  ],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin6.3",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 6:3",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_6:3",
+  "textSha256": "5d2b0e7a7b1f4f1f",
+  "kind": "listener_duty",
+  "titleHe": "הנהגת השומע לשון הרע",
+  "summaryHe": "לפי הסעיף הרוצה לצאת ידי שמים בשמיעה יתנהג כך שישאל תחילה אם הסיפור נוגע לו לעתיד או שיוכל לתקן בהוכחה וכיוצא בזה, ואם יש בכך תועלת מותר לשמוע רק לחוש ולא להאמין עד שיתברר, ואם לאו אסור אפילו לשמוע.",
+  "quotesHe": [
+   "ישאלנו מתחלה, אם הענין שאתה רוצה לספר לי, יהיה נוגע לי על להבא",
+   "מתר לשמע, ולא יאמין לעת עתה, רק לחוש, עד שיתברר הדבר",
+   "אסור אפלו לשמע"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "שהשומע מבין שהבא לספר רוצה לספר על חברו דברי גנות",
+   "שהשומע שואל תחילה אם הענין נוגע לו על להבא או שיוכל לתקן את הדבר בהוכחה או כיוצא בזה"
+  ],
+  "exceptionsHe": [
+   "אם נוגע לו על להבא או שיכול לתקן בהוכחה וכיוצא בזה - מותר לשמוע אך רק לחוש ולא להאמין עד שיתברר",
+   "אם מתשובת המספר מובן שלא תהיה תועלת או שמדובר רק בחרופין וגדופין שהוא מעליל עליו מחמת שנאה - אסור אפילו לשמוע"
+  ],
+  "factsNeeded": [
+   "listener.role_is_receiving",
+   "listener.needs_info_for_protection",
+   "toelet.purpose_is_constructive",
+   "listener.believes_report",
+   "message.may_be_understood_as_disparagement",
+   "speaker.intent_to_disparage"
+  ],
+  "proposedNewFacts": [],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "גדר המדויק של \"נוגע לי על להבא\" לעומת סקרנות או ענין עסקי כללי",
+   "מה נכלל ב\"אוכל לתקן את הדבר בהוכחה או כיוצא בזה\" ביחס לשומע שאינו צד ישיר",
+   "ההבחנה המעשית בין \"לחוש\" המותר לבין \"להאמין\" האסור, והערת הבאר מים חיים על נתינת יד לפושעים והצורך להראות פנים זעומים"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin6.4",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 6:4",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_6:4",
+  "textSha256": "9cddf1a44c95f00b",
+  "kind": "exception",
+  "titleHe": "מתי מצוה לשמוע לשון הרע",
+  "summaryHe": "לפי הסעיף לפעמים מצוה לשמוע דברי גנות על חברו אם השומע משער שיוכל להפריך את המעשה או ללמד זכות, או אם על ידי שיתן אוזן למתלונן יוכל להשקיט כעסו ולמנוע הפצה נוספת ולהרבות שלום, אך גם בהיתרים אלו אסור להאמין בהחלט אלא רק לחוש.",
+  "quotesHe": [
+   "מצוה לשמע, מה שאחד מספר דברי גנות על חברו",
+   "יהיה יכלת בידו להשקיט את אפו מעליו",
+   "שלא יאמין בעת השמיעה בהחלט, רק לחוש לזה בלבד"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "שהשומע משער שעל ידי שמיעת הענין בשלמות יהיה בכוחו להראות לפני המספר או שאר השומעים שאין המעשה כן או ללמד שאר ענייני זכות",
+   "שבא אחד לקבול לפניו על חברו על דבר שעשה נגדו והשומע מכיר שבזה שיתן אוזן לדבריו יהיה בידו להשקיט כעסו ולא ישוב לספר לאחרים ובזה יתרבה השלום"
+  ],
+  "exceptionsHe": [
+   "אם מכיר את רע טבעו של המספר שכל מה שיכריעהו לכף זכות יגנהו יותר - השתיקה בשעת מעשה עדיפה ורק אחר כך כשילך המספר מצוה להסביר לשאר השומעים לזכות ולהוציא הגנות מלבם",
+   "גם בכל ההיתרים לשמיעה חייב להיזהר שלא להאמין בהחלט אלא לחוש בלבד כדי שלא ילכד בעוון קבלת לשון הרע"
+  ],
+  "factsNeeded": [
+   "listener.role_is_receiving",
+   "listener.believes_report",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "toelet.purpose_is_constructive",
+   "audience.listener_will_spread",
+   "subject.identifiable"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "listener.can_refute_or_defend",
+    "questionHe": "האם השומע מעריך שעל ידי שמיעת הענין בשלמות יהיה בכוחו להראות שאין המעשה כן או ללמד זכות בפני המספר או השומעים?"
+   },
+   {
+    "id": "listener.can_calm_speaker",
+    "questionHe": "האם השומע מכיר שהקשבה תאפשר לו להשקיט את כעס המספר ולמנוע שיספר שוב לאחרים?"
+   },
+   {
+    "id": "speaker.will_escalate_if_defended",
+    "questionHe": "האם המספר ידוע כבעל טבע רע שכל ניסיון להכריע לזכות יגרום לו לגנות עוד יותר?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "גדר \"משער שיהיה בכוחו\" - כמה ודאות או יכולת נדרשת כדי להתיר שמיעה",
+   "אופן היישום של \"יתרבה השלום\" והערכת יכולת ההשקטה והמניעה מהפצה",
+   "פרטי העצה והתיקון למי שנכשל בשמיעה או בקבלה וגבולות \"בסתמא\" מול מכיר טבעו הרע - תלויים בבאר מים חיים אותיות ו ו-ז"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin6.5",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 6:5",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_6:5",
+  "textSha256": "5e48404d93d09659",
+  "kind": "listener_duty",
+  "titleHe": "דין השומע בחבורת מספרי לשון הרע",
+  "summaryHe": "לפי הסעיף איסור תורה של שמיעת לשון הרע הוא בהולך ושומע במכוון. לפי הסעיף היושב בחבורה שנתקבצה לעניין מה והתחילה לדבר דברים אסורים ומשער שתוכחתו לא תועיל, אם יכול לפרוש או להניח אצבעו באוזניו מצוה רבה לעשות כן, ואם אי אפשר לו מחמת קושי ולעג עליו לקיים לפחות ג' פרטים כדי שלא ייכשל באיסור דאורייתא של שמיעה וקבלה.",
+  "quotesHe": [
+   "דאפלו שמיעת לשון הרע הוא אסור תורה, הינו לילך ולשמע",
+   "אם אפשר לו לילך ממסבתם, או להניח אצבעו באזניו, מצוה רבה הוא עושה בזה",
+   "שלא להאמין להדברי גנות, שמספרין על חבריהם"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "ישב בחבורת אנשים שנתקבצו לענין מה והתחילו לדבר דברים אסורים",
+   "משער שדברי תוכחתו לא יועילו להם מאומה",
+   "אי אפשר לו להשמט ממסבתם ולהניח אצבעו באזניו, או שקשה לו מאוד לעשות כן מפני שילעגו עליו"
+  ],
+  "exceptionsHe": [
+   "אם אפשר לו לילך ממסבתם או להניח אצבעו באזניו - מצוה רבה הוא עושה בזה ואין להסתפק בג' הפרטים",
+   "אם יכול להראות פנים נזעמים שהמספרים יבינו שאינו מסכים לדבריהם - בודאי טוב יותר מישיבה כאבן דומם"
+  ],
+  "factsNeeded": [
+   "listener.role_is_receiving",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "audience.size_at_least_three",
+   "listener.believes_report"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "listener.can_leave_or_mute",
+    "questionHe": "האם המשתמש יכול בקלות לעזוב את השיחה, להשתיק או לחסום את התוכן?"
+   },
+   {
+    "id": "listener.rebuke_would_help",
+    "questionHe": "האם המשתמש משער שתוכחתו לדוברים תועיל להפסיק את דיבור האיסור?"
+   },
+   {
+    "id": "listener.shows_agreement_or_enjoyment",
+    "questionHe": "האם המשתמש מראה בהודעותיו, בתגובות או בסימונים שהוא נהנה מהשמיעה או מסכים לדברי הגנאי?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהי הגדרת \"אפשר לו לילך ממסבתם\" ו\"הנחת אצבעו באזניו\" בצ'אט קבוצתי - יציאה, השתקה, חסימה או סגירת חלון",
+   "מה נחשב \"קשה לו מאוד מפני שילעגו עליו\" שפוטר מחובת פרישה או חסימה ומהם גבולותיו",
+   "מה נחשב \"ניחא ליה בשמיעה\", \"האמנה\" ו\"תנועת הסכמה\" בהתכתבות - לייק, תגובה, שתיקה מכוונת או פנים נזעמים, והדבר תלוי בביאורי באר מים חיים בהערות ח-טו"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin6.6",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 6:6",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_6:6",
+  "textSha256": "269a8d840db76396",
+  "kind": "listener_duty",
+  "titleHe": "איסור ישיבה בחבורת בעלי לשון",
+  "summaryHe": "לפי הסעיף, מי שיושב בין המדברים לשון הרע אף בלא לסייע ולא ניחא לו נחשב פושע כמותם אם כבר החלו לדבר כשבא, אם יכול להשתמט וללכת ומתעצל, או אם מכירם כבעלי לשון, וכל שכן אם מתכוון לשמוע.",
+  "quotesHe": [
+   "אף שלא יסיע לדבריהם כלל ולא ניחא לה בהם, אף על פי כן פושע מקרי כמותם",
+   "שעבר על דברי חז\"ל, שצוו להתרחק משמיעת דברים שאינם הגונים",
+   "אם הוא מכון לשמע את דבריהם גדול עונו מנשוא"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "בעת שבא לישב ביניהם כבר התחילו לדבר דבורים האסורים",
+   "יכול להשתמט ולילך מאתם והוא מתעצל ואינו הולך",
+   "מכיר מכבר שטבעם שהם מבעלי הלשון שתשוקתם תמיד לדבר מגנות חבריהם והולך ויושב ביניהם",
+   "אף שלא מסייע לדבריהם כלל ולא ניחא לו בהם - אף על פי כן נחשב פושע",
+   "מכוון לשמוע את דבריהם - עוונו גדול מנשוא"
+  ],
+  "exceptionsHe": [
+   "אם בעת שישב ביניהם לא דברו אז דבורים האסורים וגם עתה אינו יכול להשתמט מהם - אז אינו בכלל דין פושע כמותם שמבואר כאן"
+  ],
+  "factsNeeded": [
+   "listener.role_is_receiving",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "message.reports_what_someone_said_or_did_against_listener"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "listener.joined_after_prohibited_speech_began",
+    "questionHe": "האם כשהצטרף לשיחה/לקבוצה כבר התחילו לדבר דברים אסורים?"
+   },
+   {
+    "id": "listener.can_leave_or_avoid",
+    "questionHe": "האם יכול להשתמט ולעזוב את החבורה/השיחה עכשיו?"
+   },
+   {
+    "id": "listener.knows_group_as_habitual_speakers",
+    "questionHe": "האם ידוע לו מכבר שאנשים אלו הם בעלי לשון שתשוקתם לדבר גנאי?"
+   },
+   {
+    "id": "listener.intends_to_hear",
+    "questionHe": "האם הוא מכוון ורוצה לשמוע את דברי הגנאי?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "פירוש סימוני באר מים חיים טז יז יח יט אינו בגוף הסעיף ונדרש לעיון שם",
+   "מהי הגדרת יכול להשתמט - האם מדובר ביכולת פיזית בלבד או גם במבוכה חברתית",
+   "מהי מידת היכרות נדרשת כדי להיחשב מכיר מכבר שהם בעלי לשון",
+   "הגבול בין ישיבה פסיבית לבין מכון לשמוע"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin6.7",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 6:7",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_6:7",
+  "textSha256": "cdeedec0e2f8ea84",
+  "kind": "listener_duty",
+  "titleHe": "חובת השומע לדון לכף זכות",
+  "summaryHe": "לפי הסעיף, אף כשהשומע יודע שהעובדות שסופרו הן אמת אך ניתן לפרשן לכף זכות או לכף חובה והמספר דן לחובה ומגנה, מצוה על השומע לדון לכף זכות, ואם אינו דן לזכות ומסכים עם המגנה הוא עובר על 'בצדק תשפט עמיתך' ונחשב מקבל לשון הרע.",
+  "quotesHe": [
+   "דמן התורה אסור להאמין דברי גנות, שמספרים על חבריהם",
+   "אפלו אם יודע שהדברים שספר לו הוא אמת, אך יש בהם לצדד לכאן ולכאן",
+   "דמצוה להשומע לדון אותו לכף זכות"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "שהדברים הם דברי גנות על חברו/עמיתו",
+   "שהשומע יודע שהעובדות שסופרו הן אמת",
+   "שיש בדברים צדדים לכאן ולכאן – ניתן לדונם לכף זכות או לכף חובה",
+   "שהמספר דן את המדובר לכף חובה ועל ידי זה מגנה אותו",
+   "שהשומע אינו דן לכף זכות אלא מסכים עם המספר בגנותו"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_fellow",
+   "message.content_is_disparaging",
+   "message.content_is_true",
+   "speaker.intent_to_disparage",
+   "listener.role_is_receiving",
+   "listener.believes_report"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.has_ambiguous_interpretation",
+    "questionHe": "האם הדברים שנאמרו ניתנים להתפרש הן לכף זכות והן לכף חובה?"
+   },
+   {
+    "id": "speaker.judges_to_guilt",
+    "questionHe": "האם הכותב דן את המדובר לכף חובה ומגנה אותו על סמך פרשנותו?"
+   },
+   {
+    "id": "listener.judges_to_merit",
+    "questionHe": "האם השומע דן את המדובר לכף זכות או מסכים עם הגנאי של המספר?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהו בדיוק גדר 'יש בהם לצדד לכאן ולכאן' – האם כל אפשרות תיאורטית לזכות מחייבת בדין לכף זכות או רק פרשנות סבירה",
+   "מה נחשב 'מסכים להמספר בגנותו' – האם די בהסכמה בלב או בשתיקה או שנדרש ביטוי חיצוני והאמנה",
+   "האם החיוב הוא מצות עשה דאוריתא לכל הדעות או רק לכמה פוסקים כמוזכר בסעיף, ופרטי הדין תלויים בבאר מים חיים אות כ ובגמרא שבועות דף ל'"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin6.8",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 6:8",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_6:8",
+  "textSha256": "1419a34cef8db562",
+  "kind": "listener_duty",
+  "titleHe": "איסור קבלת לשון הרע ודין לכף זכות",
+  "summaryHe": "לפי הסעיף, השומע גנות על אדם ודן אותו לכף חובה ומסכים למספר בגנותו עובר בוודאי על איסור קבלת לשון הרע ועל עשה ד\"בצדק תשפט עמיתך\", ואפילו אם המדובר איש בינוני וכל שכן אם הוא ירא אלוקים או בית דין. לפי הסעיף על השומע שלא לקבל את הגנות, להשתדל להסיר תרעומת מלב המספר באמתלאות לזכות בית הדין, ואם אינו מועיל לכל הפחות שלא לקבל בלבו אלא ללכת לברר הטעם אצל בית הדין עצמם.",
+  "quotesHe": [
+   "אפלו אם הספור היה על איש בינוני, אשר דרכו לזהר מן החטא ופעמים יכשל בו",
+   "וכל שכן אם הספור היה על איש ירא אלהים, שעליו שיך יותר מצות עשה ד\"בצדק תשפט עמיתך\"",
+   "בודאי עובר על אסור קבלת לשון הרע"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "הסיפור הוא דבר גנאי על אדם מזוהה, בין איש בינוני ובין ירא אלוקים או בית דין",
+   "השומע דן את המדובר לכף חובה ומסכים בלבו לדברי הגנות של המספר",
+   "השומע מקבל את הדברים כאמת בלי ראות בעצמו ובלי בירור ודרישה אצל המדובר או בית הדין"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "listener.role_is_receiving",
+   "listener.believes_report",
+   "subject.identifiable",
+   "subject.is_fellow",
+   "subject.is_group",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "subject.is_yarei_elokim_or_bet_din",
+    "questionHe": "האם המדובר הוא איש ירא אלוקים, תלמיד חכם או בית דין שחלה עליו ביתר שאת מצוות בצדק תשפט עמיתך?"
+   },
+   {
+    "id": "listener.judged_lechaf_chovah",
+    "questionHe": "האם השומע דן את המדובר לכף חובה והסכים בלבו לגנות ששמע?"
+   },
+   {
+    "id": "listener.verified_with_subject",
+    "questionHe": "האם השומע הלך אל הרב או בית הדין ודרש מהם את טעם הפסק לפני שהחליט?"
+   },
+   {
+    "id": "listener.tried_to_remove_complaint",
+    "questionHe": "האם השומע ניסה להסיר את התרעומת מלב המספר ולהציע אמתלאות לזכות בית הדין?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "הגדרת 'איש בינוני' לעומת 'ירא אלהים' והיקף מצות 'בצדק תשפט' תלויים ברמב\"ם באבות ובשערי תשובה לרבנו יונה מאמר רי\"ח שהסעיף מפנה אליהם",
+   "מהו הגבול בין שמיעה לבין קבלת לשון הרע בלב, ומהי רמת הבירור הנדרשת של הליכה אל הרב או בית הדין לדרוש טעמם",
+   "היקף החובה להרחיב באמתלאות לזכות בית הדין ולהסיר תרעומת, ומתי נחשב ש\"דבריו לא יועילו\" ודי בכך שלא יקבל"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin6.9",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 6:9",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_6:9",
+  "textSha256": "93133af17bc02cbb",
+  "kind": "listener_duty",
+  "titleHe": "איסור קבלת לשון הרע בכל גנאי",
+  "summaryHe": "לפי הסעיף, כשם שאסור לקבל לשון הרע על מעשה שאינו הגון בהווה ולהחליט בלב שהדבר אמת, כך אסור לקבל כל שאר חלקי לשון הרע שהם גנות, כגון ביזוי במעשה אבותיו או מעשיו הראשונים אף שמתנהג עתה כשורה או בחסרון חכמה בתורה ובענייני עולם. כללו של דבר לפי הסעיף: כל דבר שיש על המספר איסור עבור דיבורו, יש על המקבל איסור עבור קבלתו.",
+  "quotesHe": [
+   "כשם ששיך אסור קבלת לשון הרע, באם המספר ספר לו על אחד, שעשה עתה דבר שאינו הגון",
+   "שלא להתקבל דברי המספר לפנינו להתבזות על ידי זה בעינינו, את מי שנאמרו עליו"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "המספר סיפר לשומע דבר על אדם אחר",
+   "הדבר הוא גנות עליו, אף שאינו מעשה לא הגון בהווה, כגון ביזוי במעשה אבותיו או במעשיו הראשונים כשמתנהג עתה כשורה, או בחסרון חכמה בתורה או בענייני עולם וכיוצא בזה",
+   "הקבלת הדברים גורמת שהמדובר מתבזה בעיני המקבל או שהמקבל מחליט בלבו שהדבר אמת"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "listener.role_is_receiving",
+   "listener.believes_report"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.is_via_ancestors_or_past_deeds",
+    "questionHe": "האם הגנאי הוא לבזותו במעשה אבותיו או במעשיו הראשונים אף שהוא מתנהג עתה כשורה?"
+   },
+   {
+    "id": "message.is_about_lack_of_wisdom",
+    "questionHe": "האם הגנאי הוא על חסרון חכמה בתורה או בענייני עולם?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "היקף 'שאר חלקי אסור לשון הרע' בסעיף זה תלוי בהגדרות בכלל ד' וה' ובסעיף א' המוזכרים בו, שלא צורפו",
+   "משמעות המדויקת של 'שלא להתקבל' ו'שלא להחליט בלבנו שהדבר אמת' ו'להתבזות בעינינו' והיחס ביניהם אינו מבואר בסעיף ללא באר מים חיים ס״ק כא-כד",
+   "האם הכלל 'כל דבר שיש על המספר אסור... יש על המקבל אסור' כולל גם אבק לשון הרע וסוגים קלים יותר או רק לשון הרע גמורה"
+  ],
+  "reviewIssues": [
+   "quote_not_verbatim"
+  ],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin6.10",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 6:10",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_6:10",
+  "textSha256": "17a602983663ed30",
+  "kind": "listener_duty",
+  "titleHe": "איסור קבלת לשון הרע והיתר לחשוש",
+  "summaryHe": "לפי הסעיף קבלת לשון הרע כאמת, דהיינו להחליט בלבו שהדבר אמת, אסורה מן התורה, אך אמרו חז\"ל דלחוש מיהו בעי. לפי הסעיף ההיתר הוא רק לחוש בדרך חשש בעלמא כדי לשמור עצמו או אחרים מנזק, תוך העמדת המדובר בחזקת כשרות וקיום כל הטובות כלפיו, ובעניין אחר אסור אף לחוש.",
+  "quotesHe": [
+   "דקבלת לשון הרע, דהינו להחליט בלבו שהדבר אמת, אסור מן התורה",
+   "רק כדי לשמר את עצמו ממנו שלא יגיע לו הזק על ידו",
+   "אבל בענין אחר אסור לחוש ללשון הרע ולהאמינו כלל"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "שהחשש הוא רק בדרך חשש בעלמא כדי לשמור עצמו שלא יגיע לו הזק על ידו",
+   "שהמדובר עדיין מועמד בחזקת כשרות ולא אפילו בגדר ספק",
+   "שיכול לבוא לידי הזק לו או לאחרים אם לא יחוש לדברים"
+  ],
+  "exceptionsHe": [
+   "בעניין אחר שאין בו חשש נזק עתידי אסור לחוש ללשון הרע ולהאמינו כלל",
+   "אף אם המדובר כבר נתחזק בעיר לרשע אך לא יצא לגמרי מכלל עמיתך, אין לקבל סיפור בעלמא שלא נתברר בבית דין כאמת כדי להימנע מהשבת אבדה, צדקה או פדיון"
+  ],
+  "factsNeeded": [
+   "listener.role_is_receiving",
+   "listener.believes_report",
+   "listener.needs_info_for_protection",
+   "subject.is_fellow",
+   "message.content_may_cause_harm",
+   "subject.identifiable"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "listener.level_of_acceptance",
+    "questionHe": "האם השומע מקבל את הדברים כאמת גמורה או רק כחשש בעלמא לשמירה?\""
+   },
+   {
+    "id": "message.verified_in_beis_din",
+    "questionHe": "האם הדברים נתבררו בבית דין או נאמרו רק בדרך סיפור בעלמא?\""
+   },
+   {
+    "id": "listener.maintains_positive_duties",
+    "questionHe": "האם השומע ממשיך להיטיב עם המדובר בכל הטובות שמצווה התורה לשאר ישראל?\""
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "גבול ההיתר לחוש עבור אחרים שהסעיף מפנה בו לבאר מים חיים ולחלק ב' כלל ט'",
+   "משמעות הביטוי דרך חשש בעלמא לעומת גדר ספק וחזקת כשרות",
+   "יישום הדוגמה של מי שמוחזק לרשע אך לא יצא מכלל עמיתך לעניין השבת אבדה ופדיון"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin6.11",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 6:11",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_6:11",
+  "textSha256": "ec5abaea5eb07cea",
+  "kind": "listener_duty",
+  "titleHe": "גבול החשש לשמירה עצמית בלבד",
+  "summaryHe": "לפי הסעיף מותר לחוש ללשון הרע רק כדי לשמור את עצמו מהנידון, אבל אסור לעשות על סמך השמועה שום מעשה, לגרום נזק או ביוש ואף לשנוא בלב או להיפטר מחיוב כלפיו. לפי הסעיף בהערה אסור להפסיק קצבת צדקה לעני המוחזק כעני רק משום דבה שהוא מתחזה, אלא צריך רק לחוש ולחקור עד שיתברר האמת.",
+  "quotesHe": [
+   "דצריך לחוש ללישנא בישא, הינו רק לענין לשמר את עצמו מהנדון",
+   "חס ושלום, (ל) לעשות לו שום מעשה או לגרם לו שום הזק או ביוש עבור זה",
+   "שאפלו רק לשנא אותו בלב עבור זה, אסור גם כן מן התורה"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "נשמעה שמועת לשון הרע על הנידון, אפילו מפי עד אחד כשר שהעיד כן בבית דין",
+   "השמועה מעוררת חשש שהשומע יינזק אם יסמוך על הנידון",
+   "השומע שוקל לעשות מעשה, לגרום נזק או ביוש, לשנוא בלב או להיפטר מחיוב קיים כלפי הנידון על סמך השמועה"
+  ],
+  "exceptionsHe": [
+   "מותר לחוש לדברי המספר כדי לשמור את עצמו מהנידון",
+   "מותר וצריך לדרוש ולחקור היטב אחר זה אם הדבר אמת",
+   "עדות עד אחד כשר מועילה רק לשבועה ולא לשאר מעשה או חיוב"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.content_is_disparaging",
+   "message.content_may_cause_harm",
+   "listener.role_is_receiving",
+   "listener.believes_report",
+   "listener.needs_info_for_protection"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "listener.will_act_or_cause_harm",
+    "questionHe": "האם השומע מתכוון לעשות מעשה נגד הנידון או לגרום לו נזק או ביוש על סמך השמועה?"
+   },
+   {
+    "id": "listener.will_hate_in_heart",
+    "questionHe": "האם השומע מתכוון לשנוא את הנידון בלבו בגלל השמועה?"
+   },
+   {
+    "id": "listener.has_existing_obligation_to_subject",
+    "questionHe": "האם לשומע יש חיוב קיים כלפי הנידון שהוא שוקל להפסיקו בגלל השמועה, כגון קצבת צדקה קבועה?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "גבול הדק בין מותר לחוש ולשמור עצמו לבין אסור לעשות מעשה או לגרום נזק אינו מפורט בסעיף ודורש באר מים חיים",
+   "הגדרת איסור שנאה בלב מן התורה על סמך שמועה ומקורותיו לא מבוארים בסעיף",
+   "יישום דיני חזקת עני ו\"אין בודקין אחריו\" לעניין חיוב צדקה והיתבטלות החזקה תלוי בפרטי ההערה ובמקורות"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin6.12",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 6:12",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_6:12",
+  "textSha256": "cba3d46eba9718e2",
+  "kind": "repair",
+  "titleHe": "תיקון למי שקיבל לשון הרע",
+  "summaryHe": "לפי הסעיף, מי שכבר עבר ושמע לשון הרע והאמין בלבו, בין בגנות שבין אדם למקום ובין בגנות שבין אדם לחברו, תקונו שיתחזק להוציא הדברים מלבו שלא להאמינם ויקבל על עצמו שלא לקבל עוד לשון הרע על אדם מישראל ויתודה. לפי הסעיף בכך יתקן הלאוין והעשין שעבר על ידי קבלת לשון הרע, אם עדיין לא סיפר לאחרים.",
+  "quotesHe": [
+   "ואם כבר עבר ושמע לשון הרע והאמין בלבו",
+   "תקונו, שיתחזק להוציא הדברים מלבו, שלא להאמינם",
+   "אם עדין לא ספר לאחרים"
+  ],
+  "appliesTo": "listener",
+  "conditionsHe": [
+   "שכבר שמע לשון הרע והאמין בלבו",
+   "שהדברים הם גנות בין אדם למקום או בין אדם לחברו",
+   "שעדיין לא סיפר את הדברים לאחרים"
+  ],
+  "exceptionsHe": [
+   "אם כבר סיפר לאחרים - הסעיף מציין \"אם עדין לא ספר לאחרים\" ומפנה לבאר מים חיים לד לדין אחר"
+  ],
+  "factsNeeded": [
+   "listener.role_is_receiving",
+   "listener.believes_report",
+   "subject.is_fellow",
+   "subject.identifiable",
+   "message.content_is_disparaging"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "listener.has_forwarded_to_others",
+    "questionHe": "האם השומע כבר סיפר או העביר את תוכן לשון הרע לאדם אחר?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "פרטי הלאוין והעשין והתיקון המבוארים בפתיחה המוזכרת בסעיף",
+   "משמעות המעשית של \"יתחזק להוציא הדברים מלבו\" ו\"ויתודה\" - תלוי בבאר מים חיים הערה לג",
+   "מה הדין והתיקון אם כבר סיפר לאחרים - תלוי בבאר מים חיים הערה לד"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ }
+]

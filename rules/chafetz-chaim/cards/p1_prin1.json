@@ -1,0 +1,388 @@
+[
+ {
+  "id": "cc.p1_prin1.1",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 1:1",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_1:1",
+  "textSha256": "b8cd2ecd25e112c0",
+  "kind": "prohibition",
+  "titleHe": "איסור סיפור גנות אף באמת",
+  "summaryHe": "לפי הסעיף אסור לספר בגנות חברו אפילו כשהדברים אמת גמורה וזהו לשון הרע בפי חז\"ל. ואם יש בסיפור תערובת של שקר שעל ידה נתגנה חברו יותר הרי זה בכלל מוציא שם רע שעונשו גדול הרבה יותר.",
+  "quotesHe": [
+   "אסור לספר בגנות חברו אפלו על (א) אמת גמור",
+   "וזה נקרא בפי חז\"ל בכל מקום לשון הרע",
+   "לא תלך רכיל בעמיך"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהדברים הם בגנות חברו",
+   "שהמדובר הוא בכלל חברו ועמיתך",
+   "שהאיסור חל אפילו אם הדברים אמת גמורה"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_fellow",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "message.content_is_true",
+   "message.contains_falsehood_or_exaggeration"
+  ],
+  "proposedNewFacts": [],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "גדר המדויק של בגנות תלוי בבאר מים חיים אות א",
+   "שיעור תערובת שקר לעבור למוציא שם רע תלוי בבאר מים חיים אות ב",
+   "מקור הלאו לא תלך רכיל וכן הכללת לשון הרע ברכילות תלויים בבאר מים חיים אות ג ו-ד"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin1.2",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 1:2",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_1:2",
+  "textSha256": "f2d44cdc162f52a1",
+  "kind": "aggravation",
+  "titleHe": "ריבוי לאוין ועשין בלשון הרע",
+  "summaryHe": "לפי הסעיף הלאו המפורש של לשון הרע ורכילות הוא רק איסור אחד מיוחד, אבל המספר סיפור רע עובר בנוסף על עוד הרבה לאוין ועשין אחרים כמבואר בפתיחה הקודמת.",
+  "quotesHe": [
+   "הלאו זה שכתבנו הוא מה שכתבתו התורה בפרוש מיחד לאסור זה של לשון הרע ורכילות",
+   "יש עוד הרבה לאוין ועשין אחרים, שהוא עובר עליהן על ידי ספור הרע הזה",
+   "כמבאר לעיל בפתיחה הקודמת, עין שם"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהדיבור הוא סיפור של לשון הרע או רכילות"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_fellow",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "message.reports_what_someone_said_or_did_against_listener"
+  ],
+  "proposedNewFacts": [],
+  "relevanceToChat": "low",
+  "uncertainHe": [
+   "פירוט איזה לאוין ועשין נוספים נמנים אינו בסעיף עצמו אלא תלוי במבואר בפתיחה הקודמת ובהערות באר מים חיים שם"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin1.3",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 1:3",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_1:3",
+  "textSha256": "729d30686f6fb483",
+  "kind": "aggravation",
+  "titleHe": "עונש בעל לשון הרע הקבוע",
+  "summaryHe": "לפי הסעיף, כל העונשים המבוארים לעיל הם אפילו על סיפור גנות במקרה אחד, אבל המורגל תמיד לספר גנות חברו נקרא בפי חז\"ל בעל לשון הרע וענשו גדול בהרבה כי עובר בשאט נפש וזדון לב ונעשה אצלו כהפקר.",
+  "quotesHe": [
+   "אפלו אם רק במקרה ספר גנות חברו",
+   "אנשים כאלו הם נקראין בפי חז\"ל בשם בעלי לשון הרע",
+   "יכרת ה' כל שפתי חלקות לשון מדברת גדלות"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שסיפר דברים של גנות על חברו",
+   "שהרגל בעוון זה בתמידות ורגיל תמיד לישב ולספר כך וכך מעשה פלוני וכו'"
+  ],
+  "exceptionsHe": [
+   "הסעיף מבחין בין המספר במקרה אחד שעונשו כמבואר לעיל, לבין המורגל בתמידות שענשו חמור בהרבה"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_fellow",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "speaker.is_habitual_speaker",
+    "questionHe": "האם הכותב רגיל ומורגל בתמידות לישב ולספר גנות על אחרים?"
+   }
+  ],
+  "relevanceToChat": "medium",
+  "uncertainHe": [
+   "מה הגדרת שיעור ההרגל בתמידות שמגדיר בעל לשון הרע",
+   "האם שאט נפש וזדון לב הם תנאי להגדרה או תיאור מצוי של המורגל",
+   "פירוט העונש החמור ומקורו תלוי בביאור לעיל בסוף הפתיחה ובבאר מים חיים"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin1.4",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 1:4",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_1:4",
+  "textSha256": "f1f15607167893e1",
+  "kind": "aggravation",
+  "titleHe": "לשון הרע שקול כנגד שלוש חמורות",
+  "summaryHe": "לפי הסעיף אמרו חז\"ל שלשון הרע שקול כנגד עבודה זרה וגילוי עריות ושפיכות דמים שנפרעים עליהן בעולם הזה ואין לו חלק לעולם הבא, ופרשו הראשונים שחומרה זו נאמרה רק על מי שהרגיל בעוון זה בתמידות ואינו מקבל על עצמו להישמר ממנו מפני שנעשה אצלו כהיתר.",
+  "quotesHe": [
+   "על שלש עברות נפרעין מן האדם בעולם הזה, ואין לו חלק לעולם הבא",
+   "ולשון הרע נגד כלן",
+   "דהכונה על אלו שהרגלו בעון זה בתמידות, ואין מקבלים על עצמם להשמר ממנו"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהרגיל בעוון לשון הרע בתמידות",
+   "שאינו מקבל על עצמו להשמר מן העוון",
+   "שנעשה הדבר אצלו כהיתר"
+  ],
+  "exceptionsHe": [
+   "מי שאינו רגיל בתמידות אלא נכשל באקראי, ומקבל על עצמו להישמר, אינו בכלל חומרה זו לפי פירוש הראשונים שהביא הסעיף"
+  ],
+  "factsNeeded": [],
+  "proposedNewFacts": [
+   {
+    "id": "speaker.is_habitual_lashon_hara",
+    "questionHe": "האם הכותב רגיל לדבר לשון הרע בתמידות ואינו מקבל על עצמו להישמר ממנו?"
+   },
+   {
+    "id": "speaker.regards_as_permitted",
+    "questionHe": "האם הדיבור נעשה אצל הכותב כהיתר והוא אינו רואה בו איסור?"
+   }
+  ],
+  "relevanceToChat": "low",
+  "uncertainHe": [
+   "מהי הגדרת המדויקת של \"הרגלו בתמידות\" - כמה פעמים ותדירות נחשבת התמדה",
+   "מה משמעות \"אין מקבלים על עצמם להשמר\" - האם נדרשת החלטה מפורשת או די בהמשך הדיבור בפועל",
+   "פירוש הראשונים שציין הסעיף - פרטיו ומקורותיו יתבארו בבאר מים חיים"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin1.5",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 1:5",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_1:5",
+  "textSha256": "22ad5d73acb1adc1",
+  "kind": "prohibition",
+  "titleHe": "איסור לספר גם בהפצרה ובכבוד הורים",
+  "summaryHe": "לפי הסעיף אין חילוק באיסור סיפור לשון הרע בין מספר מרצונו לבין מי שהופצר על ידי חברו, ובכל אופן אסור. ואף אם אביו או רבו ביקשו ממנו לספר והוא יודע שייכשל בלשון הרע או אפילו באבק לשון הרע, אסור לו לשמוע להם.",
+  "quotesHe": [
+   "אין חלוק באסור הספור, בין אם ספר מעצמו ברצונו ובין אם (ז) עמד עליו חברו בדברים והפצירו עד שיספר לו, מכל מקום אסור",
+   "ואפלו (ח) אביו או רבו, שמחיב בכבודם ובמוראם, שלא לסתר דבריהם",
+   "והוא יודע, שבתוך הספור יכרח לבוא לידי לשון הרע או אפלו רק לאבק של לשון הרע, אסור לו לשמע להם"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "חברו עמד עליו בדברים והפציר בו עד שיספר לו",
+   "אביו או רבו ביקשו ממנו שיספר להם עניין פלוני ופלוני",
+   "המספר יודע שבתוך הסיפור יוכרח לבוא לידי לשון הרע או אפילו רק לאבק של לשון הרע"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "message.content_may_cause_harm"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "speaker.was_urged_by_other",
+    "questionHe": "האם הופצרת או נלחצת על ידי אחר לספר את הדברים?"
+   },
+   {
+    "id": "speaker.requested_by_parent_or_teacher",
+    "questionHe": "האם הבקשה לספר הגיעה מאביך או מרבך שאתה חייב בכבודם ובמוראם?"
+   },
+   {
+    "id": "speaker.knows_will_lead_to_lashon_hara",
+    "questionHe": "האם ידוע לך שתוך כדי הסיפור תיאלץ להגיע ללשון הרע או אפילו לאבק לשון הרע?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "הגדרת 'אבק לשון הרע' המדויקת בסעיף זה תלויה בביאור בבאר מים חיים",
+   "משמעות הסימונים (ז) (ח) (ט) והסייגים האפשריים שם אינם מבוארים בסעיף עצמו",
+   "הסעיף אינו מפרט כיצד לסרב לבקשת אב או רב בלי לפגוע בכבודם ובמוראם"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin1.6",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 1:6",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_1:6",
+  "textSha256": "4222d6798b360840",
+  "kind": "prohibition",
+  "titleHe": "איסור לשון הרע גם בהפסד פרנסה",
+  "summaryHe": "לפי הסעיף אסור לספר בגנות ישראל וכדומה מדיבורים האסורים אף אם הרגלו שלא לספרם יסבב לו הפסד גדול בפרנסה עד כדי סילוק ממשמרתו, כדין כל שאר לאווין שחייב לתת כל אשר לו ולא לעבור עליהם.",
+  "quotesHe": [
+   "שלא לספר לעולם בגנותו של ישראל, וכדומה מדבורים האסורים, יסבב לו הפסד גדול בענין פרנסתו",
+   "יחזיקו אותו לשוטה ופתי, ועל ידי זה יסלקוהו ממשמרתו ולא יהיה לו במה לפרנס את בני ביתו",
+   "אף על פי כן אסור, (י) ככל שאר לאוין, שמחיב לתן כל אשר לו ולא לעבר עליהן"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהדיבור הוא בגנות ישראל וכדומה מדיבורים האסורים",
+   "שהימנעות קבועה מדיבורים אלו צפויה לגרום הפסד גדול בענין פרנסתו, כגון שהוא תחת רשות אחרים שאין בהם ריח תורה ופרוצים בעוון זה עד שיסלקוהו ממשמרתו"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_fellow",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "message.purpose"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "speaker.risk_of_job_loss_if_abstains",
+    "questionHe": "האם הימנעות הכותב מלספר את הדברים עלולה לגרום לו הפסד פרנסה גדול או אובדן משרה?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "היקף הביטוי \"כדומה מדבורים האסורים\" - אילו דיבורים אסורים נכללים מעבר לגנות ישראל",
+   "גדר החיוב \"לתן כל אשר לו\" והפנייתו ליורה דעה סימן קנ\"ז סעיף א' בהג\"ה - פרטיו מבוארים בבאר מים חיים אות י",
+   "האם הדוגמה של \"תחת רשות אחרים\" היא דוגמה בלבד או תנאי, ומה נחשב \"הפסד גדול\" לעניין זה"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin1.7",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 1:7",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_1:7",
+  "textSha256": "1517848781ce44ef",
+  "kind": "prohibition",
+  "titleHe": "איסור לשון הרע אף משום כבוד",
+  "summaryHe": "לפי הסעיף, אפילו כשנוגע לדובר רק כבוד בעלמא — כגון שיושב בין חבורת אנשים המדברים דברים האסורים ואם ישתוק ולא יסייע בסיפוריהם יחשב בעיניהם כמשתגע — בודאי אסור לסייע עמם. ועל זה אמרו חז\"ל מוטב שיקרא שוטה כל ימיו ואל יהיה רשע שעה אחת לפני המקום, ושכרו על הצער גדול עד אין קץ.",
+  "quotesHe": [
+   "דכל שכן אם נוגע לו רק בכבוד בעלמא",
+   "מוטב לאדם שיקרא שוטה כל ימיו, ואל יהיה רשע שעה אחת לפני המקום",
+   "כל רגע ורגע שאדם חוסם פיו, זוכה לאור הגנוז"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "הדברים המדוברים הם דברים האסורים על פי דין (לשון הרע)",
+   "הדובר יושב בין חבורת אנשים ואין לו עצה איך להשמט מהם",
+   "אם ישב ודומם ולא יסיע עמם בסיפוריהם כלל יחשב בעיניהם כמשתגע",
+   "החשש הוא רק לפגיעה בכבוד בעלמא"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_fellow",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "message.purpose",
+   "audience.size_at_least_three",
+   "toelet.purpose_is_constructive"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "speaker.motive_is_social_honor",
+    "questionHe": "האם הכותב אומר את הדברים מחשש לפגיעה בכבוד או כדי שלא להיחשב משתגע בעיני החבורה?"
+   },
+   {
+    "id": "speaker.ability_to_withdraw_silently",
+    "questionHe": "האם יש לכותב אפשרות להשמט מהחבורה או לשתוק בלי להשתתף בדיבור האסור?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "הגדר המדויק של 'כבוד בעלמא' וגבולותיו תלוי בבאר מים חיים אות יא",
+   "אופן ההתנהגות המעשית כשנתפס בחבורה רעה לעניין חובת הוכחה או עזיבה הותנה בהפניות הסעיף לכלל ו' סעיפים ד' ה' ו' ולפתיחה לאוין אות ט\"ז"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin1.8",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 1:8",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_1:8",
+  "textSha256": "5529b535b4f8a3d4",
+  "kind": "prohibition",
+  "titleHe": "איסור לשון הרע בכתב וברמז",
+  "summaryHe": "לפי הסעיף איסור לשון הרע חל בין אם המספר אומרו בפיו ממש ובין אם כותבו במכתבו, ובין אם אומרו במפורש ובין אם בדרך רמז, ובכל אופן הוא בכלל לשון הרע.",
+  "quotesHe": [
+   "אסור זה של לשון הרע הוא בין אם הוא מספר עליו בפיו ממש, או שהוא (יב) כותב עליו דבר זה במכתבו",
+   "בין אם הוא מספר עליו הלשון הרע שלו בפרוש ובין אם הוא מספר עליו הלשון הרע (יג) בדרך רמז",
+   "בכל גוני {בכל האפנים} (יד) בכלל לשון הרע הוא"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "message.is_hint_or_implied"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.medium_is_written",
+    "questionHe": "האם הדברים נכתבו במכתב, בהודעת צ'אט או בכל כתב אחר ולא נאמרו רק בעל פה?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "גדר המדויק של 'דרך רמז' ו'בכל גוני' תלוי בביאור באר מים חיים בהערות יג ו-יד",
+   "היקף דין 'כותב במכתבו' ויישומו לכתיבה דיגיטלית בצ'אט תלוי בביאור באר מים חיים בהערה יב"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin1.9",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 1:9",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_1:9",
+  "textSha256": "f3a37602687b060f",
+  "kind": "prohibition",
+  "titleHe": "גינוי עצמי אינו מתיר גנות חברו",
+  "summaryHe": "לפי הסעיף, גם אם המספר מגנה את עצמו יחד עם גנותו על חברו באותה גנות גופא, ואף אם הקדים להתרעם על עצמו תחילה, עדיין לא יצא מכלל דילטוריא ודינו כלשון הרע.",
+  "quotesHe": [
+   "ודע עוד, דאפלו אם בתוך הגנות, שגנה את חברו, גנה את עצמו (טו) גם כן בזה הגנות גופא,",
+   "ואפלו הקדים להתרעם על עצמו בזה,",
+   "אפלו הכי {אף על פי כן} מכלל דילטוריא לא נפקי {לא יצא}."
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "הדברים כוללים גנות על חברו",
+   "הגנות על עצמו נאמרת בתוך אותה גנות גופא על חברו",
+   "גם אם הקדים להתרעם על עצמו לפני הגנות על חברו"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_fellow",
+   "message.content_is_disparaging"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.includes_self_disparagement",
+    "questionHe": "האם ההודעה כוללת גם גנות על הכותב עצמו באותה גנות ממש שבה הוא מגנה את חברו, או שהקדים להתרעם על עצמו באותו עניין?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מה נחשב בדיוק 'בזה הגנות גופא' - האם כל גנאי עצמי סמוך נחשב אותו עניין ממש",
+   "מה מוסיף ציון (טו) בבאר מים חיים להגדרת המקרה וגבולותיו"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ }
+]

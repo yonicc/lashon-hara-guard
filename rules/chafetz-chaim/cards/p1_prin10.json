@@ -1,0 +1,935 @@
+[
+ {
+  "id": "cc.p1_prin10.1",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:1",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:1",
+  "textSha256": "65a0504cb82a9d76",
+  "kind": "exception",
+  "titleHe": "היתר לספר על עוולה לתועלת",
+  "summaryHe": "לפי הסעיף, מי שראה בעצמו אדם שעשה עוולה לחברו בגזל או היזק או ביזוי וצער, ויודע בברור שלא השיב גזלה ולא שילם נזק ולא ביקש מחילה, רשאי לספר זאת לאחרים כדי לעזור לנפגע ולגנות המעשים הרעים, ובלבד שלא יחסרו שבעת הפרטים שיבוארו בסמוך.",
+  "quotesHe": [
+   "אם אחד ראה אדם, שעשה עולה לחברו, כגון שגזלו או עשקו או הזיקו",
+   "יכול לספר הדברים לבני אדם כדי לעזר לאשר אשם לו ולגנות המעשים הרעים בפני הבריות"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהמספר ראה בעצמו את העוולה - גזל או עושק או היזק או בישו וציערו והונאת דברים",
+   "שנודע לו בברור שהמעוול לא השיב את הגזלה ולא שלם את הנזק ולא בקש פניו למחול",
+   "שמטרת הסיפור היא לעזור לנפגע ולגנות את המעשים הרעים בפני הבריות",
+   "שיתקיימו כל שבעת הפרטים שיבוארו בסמוך"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.content_is_disparaging",
+   "message.content_may_cause_harm",
+   "message.content_is_true",
+   "speaker.knows_first_hand",
+   "message.purpose",
+   "toelet.purpose_is_constructive",
+   "toelet.facts_verified"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "case.offender_not_rectified",
+    "questionHe": "האם ידוע בברור שהמעוול לא השיב את הגזלה ולא שילם את הנזק ולא ביקש מחילה מהנפגע?"
+   },
+   {
+    "id": "case.type_of_injustice",
+    "questionHe": "האם מדובר בגזל או עושק או היזק ממוני או בביזוי וצער והונאת דברים?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהם בדיוק שבעת הפרטים הנדרשים ומה משקלם המצטבר - הסעיף מפנה למה שיבואר בסמוך",
+   "מהו שיעור הידיעה הנדרש ל\"נודע לו בברור\" שלא השיב ולא פייס",
+   "פירוש ההערות (א) עד (ד) והבאר מים חיים על גדרי העוול ועל \"אפילו ראה דבר זה ביחידי\""
+  ],
+  "reviewIssues": [
+   "quote_not_verbatim"
+  ],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin10.2",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:2",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:2",
+  "textSha256": "9ca01362d129d1d8",
+  "kind": "condition",
+  "titleHe": "שבעה תנאים להתיר סיפור לתועלת",
+  "summaryHe": "לפי הסעיף, כדי להתיר סיפור לשון הרע לתועלת כנגד גזל ועושק או היזק וכיוצא בזה יש לקיים שבעה תנאים מצטברים המפורטים בסעיף.",
+  "quotesHe": [
+   "שיראה זה הדבר בעצמו, ולא על ידי שמיעה מאחרים, אם לא שנתברר לו אחר כך, שהדבר אמת",
+   "שיכון לתועלת, וכמו שנבאר לקמן בסעיף ד', ולא להנות, חס ושלום, מהפגם ההוא, שהוא נותן בחברו",
+   "שלא יסובב על ידי הספור הזק להנדון יותר מכפי הדין, שהיה יוצא, אלו הועד עליו באפן זה על דבר זה בבית דין"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שיראה הדבר בעצמו ולא משמיעה מאחרים, אלא אם כן נתברר לו אחר כך שהדבר אמת",
+   "שלא יחליט תיכף בדעתו שמדובר בגזל ועושק או היזק, אלא יתבונן היטב אם הוא על פי דין בכלל גזל או היזק",
+   "שיוכיח את החוטא מתחילה ובלשון רכה, ואם לא ישמע לו אז יודיע לרבים את אשמתו",
+   "שלא יגדיל העוולה יותר ממה שהיא",
+   "שיכוון לתועלת ולא להנאה מהפגם שנותן בחברו ולא מצד שנאה שיש לו עליו מכבר",
+   "שאין אפשרות להשיג את אותה תועלת בעצה אחרת בלי לספר לשון הרע",
+   "שלא יגרום לנדון נזק יותר מכפי הדין שהיה יוצא אילו הועד עליו בבית דין באופן זה"
+  ],
+  "exceptionsHe": [
+   "אם שמע מאחרים ונתברר לו אחר כך שהדבר אמת - מותר כרואה בעצמו",
+   "אם יודע שהחוטא לא יקבל תוכחתו - דינו יבואר לקמן בסעיף ז'"
+  ],
+  "factsNeeded": [
+   "speaker.knows_first_hand",
+   "toelet.facts_verified",
+   "message.content_is_true",
+   "toelet.rebuke_attempted",
+   "message.contains_falsehood_or_exaggeration",
+   "toelet.purpose_is_constructive",
+   "toelet.no_other_way",
+   "toelet.no_excess_harm",
+   "speaker.intent_to_disparage"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "speaker.checked_halachic_classification",
+    "questionHe": "האם הכותב התבונן היטב אם המעשה נחשב על פי דין גזל או היזק ולא החליט מיד שמדובר בגזל ועושק?"
+   },
+   {
+    "id": "speaker.motive_is_hatred_or_enjoyment",
+    "questionHe": "האם הכוונה בסיפור היא הנאה מהפגם שנותן בחברו או שנאה קודמת ולא תועלת?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מה נחשב בירור מספיק לכך שנתברר לו אחר כך שהדבר אמת לאחר שמיעה מאחרים",
+   "מהי מידת ההתבוננות הנדרשת לקבוע אם המעשה הוא גזל או היזק על פי דין",
+   "מתי נחשב שניסה להוכיח בלשון רכה ומתי פטור מכך אם יודע שלא יקבל תוכחתו כמופנה לסעיף ז'",
+   "כיצד מודדים שלא יסובב נזק יותר מכפי הדין שהיה יוצא בבית דין"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin10.3",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:3",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:3",
+  "textSha256": "216b92838b13586d",
+  "kind": "prohibition",
+  "titleHe": "איסור פרסום חטא כשמספר חוטא כמוהו",
+  "summaryHe": "לפי הסעיף, מה שהותר לפרסם עוונות הזולת כדי לקנא לאמת וליראה הוא רק כשהרואה טוב ממנו; אבל אם המפרסם עצמו חוטא וחולה באותן עברות כמוהו אסור לו לפרסמו, כי אין כוונתו לטובה אלא לשמח לאיד ולבזותו.",
+  "quotesHe": [
+   "וכל זה אם הרואה טוב ממנו,",
+   "וגם הוא חולה בעברות האלה כמוהו, הרי זה אסור לפרסמו",
+   "אין כונתו בגלותו מסתריו לטובה וליראה, כי אם לשמח לאיד ולבזותו בזה"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "המדובר עבר עברה שהרואה רוצה לפרסמה",
+   "המפרסם עצמו חוטא כמותו וחולה באותן העברות כמוהו"
+  ],
+  "exceptionsHe": [
+   "כשהרואה טוב ממנו - אין עליו איסור זה לפי סעיף זה, ודינו לפי הסעיפים הקודמים"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.content_is_disparaging",
+   "message.about_torah_or_piety",
+   "speaker.intent_to_disparage",
+   "toelet.purpose_is_constructive"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "speaker.is_sinner_like_subject",
+    "questionHe": "האם הכותב עצמו חוטא וחולה באותן עברות כמו האדם שעליו הוא מפרסם?"
+   }
+  ],
+  "relevanceToChat": "medium",
+  "uncertainHe": [
+   "מהי הגדרת 'טוב ממנו' לעומת 'חוטא כמותו וחולה בעברות האלה כמוהו' - האם נדרשת זהות בעברות או דמיון כללי ומה סף החומרה",
+   "האם האיסור תלוי בהוכחת כוונה בפועל לשמח לאיד ולבזות או שחזקה שכל חוטא כמוהו כוונתו כזו",
+   "פרטי הראיה מיהוא ויישומה - תלוי בבאר מים חיים אות יג"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin10.4",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:4",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:4",
+  "textSha256": "36210c0be6c698b7",
+  "kind": "condition",
+  "titleHe": "תנאי כוונה לתועלת בלשון הרע",
+  "summaryHe": "לפי הסעיף הפרט החמישי להיתר הוא שיכוון לתועלת - בין שהשומעים יכולים לעזור לנגזל ובין כדי להרחיק בני אדם מדרך רשע ואולי ישוב החוטא כשישמע שמגנים מעשיו. אם משער שבוודאי לא תהיה תועלת או שהסיפור יגרום להפצת רכילות מחלוקת ומלשינות אסור לספר אף אם הנגזל ביקש ואף בקרובו.",
+  "quotesHe": [
+   "שיכון לתועלת, הוא כמו שנבאר,",
+   "גם זה איננו בכלל לשון הרע, ולתועלת יחשב,",
+   "לאנשים כאלו יזהר שלא לספר כלל ענין כזה."
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שכוונת המספר היא לתועלת לקנא לאמת ולא להנות מפגם חברו",
+   "שהשומעים יכולים לעזור לנגזל והנעשק והניזק והמתביש או לפחות שהסיפור יגרום להתרחקות מדרך רשע ואפשרות שישוב החוטא",
+   "שיש צפי לתועלת עתידית כלשהי על ידי הסיפור",
+   "לפי הערת הסעיף באופן של תועלת להרחקה מדרך רשע מותר רק אם הדבר כבר נתגלה לנגזל עצמו"
+  ],
+  "exceptionsHe": [
+   "אם השומעים הם בעלי רשע שעושים כמעשה הזה ולא נחשב בעיניהם לעוון לא תהיה תועלת ואסור לספר להם",
+   "אם הסיפור יגרום שהשומעים ילכו ויספרו לגזלן ויעברו על לא תלך רכיל ויבואו מחלוקות אסור",
+   "אם יש חשש שיבוא לידי מלשינות אפילו אם נשלמו כל הפרטים אסור לספר שום דבר",
+   "אין חילוק אם הנגזל ביקש שידרוש עלבונו או לא ביקש",
+   "אין חילוק בין קרוב לרחוק"
+  ],
+  "factsNeeded": [
+   "toelet.purpose_is_constructive",
+   "speaker.intent_to_disparage",
+   "subject.is_relative_of_speaker",
+   "audience.listener_will_spread",
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.purpose"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "audience.can_help_victim",
+    "questionHe": "האם השומעים יכולים לעזור לנגזל או לניזק בעניינו?"
+   },
+   {
+    "id": "audience.are_wicked_like_subject",
+    "questionHe": "האם השומעים הם בעצמם בעלי רשע העושים מעשים דומים ולא רואים בכך עוון?"
+   },
+   {
+    "id": "toelet.deterrence_expected",
+    "questionHe": "האם צפוי שהסיפור יגרום להתרחקות מדרך רשע או לחזרת העושה בתשובה?"
+   },
+   {
+    "id": "matter.known_to_victim",
+    "questionHe": "האם הדבר כבר נתגלה לנגזל או לנעשק עצמו?"
+   },
+   {
+    "id": "matter.risk_of_malshinut",
+    "questionHe": "האם יש חשש שהסיפור יגיע לידי מלשינות לשלטונות?"
+   },
+   {
+    "id": "toelet.requested_by_victim",
+    "questionHe": "האם הנגזל או הניזק ביקש לספר את הדבר לאחרים?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהו שיעור תועלת מספיק של \"שיתרחקו בני אדם מדרך רשע\" ו-\"אולי ישוב\"",
+   "מיהו \"בעלי הרשע\" ששומעיהם פסולים לספר להם",
+   "מהו גדר \"מלשינות\" שאוסר אפילו כשנשלמו כל הפרטים",
+   "היקף דין הערת הסעיף שצריך שהדבר נתגלה לנגזל ותלותו בהלכות רכילות ובבאר מים חיים"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin10.5",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:5",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:5",
+  "textSha256": "2a4202b9407ad273",
+  "kind": "condition",
+  "titleHe": "הגבלת פרסום מספר לשון הרע משום רכילות",
+  "summaryHe": "לפי הסעיף, אף אם נתקיימו כל הפרטים להתיר פרסום גנותו של מי שסיפר לשון הרע על חברו, ההיתר מותנה בכך שהדבר כבר נתגלה ממילא לנפגע; אם עדיין לא נתגלה אסור לספר אף לאחרים משום רכילות שחברך חברא אית לה, וכל שכן שאסור לגלות לנפגע עצמו אף לקנא לאמת.",
+  "quotesHe": [
+   "אם ישלמו בו כל הפרטים הנ\"ל, מתר לפרסם גדל גנות המספר הזה לבני אדם",
+   "אבל אם עדין לא נתגלה הדבר, אסור לספר הדבר, אף לאחרים, דחברך חברא אית לה",
+   "וכל שכן, שאסור לגלות הדבר לאותו פלוני גופא, שדבר עליו, אף שכונתו לקנא לאמת, דזה הוא רכילות גמורה"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהדברים הם פרסום גנותו של מי שסיפר לשון הרע על חברו",
+   "שלטענת המספר נתקיימו כל הפרטים הנ\"ל שהוזכרו בסעיפים הקודמים להתרת הפרסום",
+   "לפי הסעיף ההיתר קיים רק אם הדבר כבר נתגלה ממילא לאיש שסופר עליו; אם לא נתגלה - חל איסור"
+  ],
+  "exceptionsHe": [
+   "לפי הסעיף אין היתר לגלות לנפגע עצמו גם אם כוונת המגלה לקנא לאמת, וגם אם המספר הוא מן הפחותים והנפגע הוא חשוב שבישראל ואפילו אביו או רבו"
+  ],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "audience.includes_subject",
+   "audience.listener_will_spread",
+   "subject.identifiable"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "matter.known_to_victim",
+    "questionHe": "האם הדבר שסופר עליו כבר ידוע וגלוי לנפגע עצמו שהלשון הרע נאמר עליו?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהם בדיוק כל הפרטים הנ\"ל הנדרשים להיתר הפרסום - הסעיף מפנה לסעיפים הקודמים ולבאר מים חיים (כ) ולא מפרטם כאן",
+   "מה נחשב כבר נתגלה הדבר להאיש שספר עליו - האם די בידיעה חלקית או שמועה, והסעיף אינו מגדיר",
+   "היקף הכלל דחברך חברא אית לה - האם כל מסירה לאחרים נחשבת כהגעה ודאית לנפגע, והסעיף מפנה להלכות רכילות לקמן"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin10.6",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:6",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:6",
+  "textSha256": "fef2ee72defafb1c",
+  "kind": "exception",
+  "titleHe": "היתר לספר לאחרים לתועלת למנוע רכילות",
+  "summaryHe": "לפי הסעיף פעמים מותר לספר הדבר לאחרים אף אם עדיין לא נודע לנידון אם רואה שיגיע לנידון מזה תועלת ממש ולא יחסרו הפרטים הנ\"ל. הסעיף מבאר שהכוונה למי שמכיר בטבע האיש הרוכל שיגנהו גם בפני אחרים והוכיחו ולא קיבל, ולכן מותר להקדים ולספר לאחרים שהוא מגנהו בחינם כדי שלא יתקבלו דברי המרגל ויוכיחוהו.",
+  "quotesHe": [
+   "ופעמים דמתר לספר הדבר לאחרים, אף אם עדין לא נודע להנדון",
+   "כי בזה יציל את נפש הנדון מצער וכלמה, וגם את נפש המספר והמקבל מדינה של גיהנם"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שיגיע לנידון מזה תועלת ממש",
+   "שלא יחסרו בזה גם כן הפרטים הנ\"ל",
+   "שהמספר מכיר בטבע האיש הרוכל ולפי עניין הסיפור שכן ילך ממנו ויגנה אותו עוד בפני אנשים אחרים",
+   "שהוכיח את הרוכל מקודם והוכיחו ולא קיבל דבריו",
+   "שקרוב שתתקבל הלשון הרע ויהיה קשה להוציא הדברים מלבם כי צדיק הראשון בריבו"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.content_may_cause_harm",
+   "speaker.knows_first_hand",
+   "audience.listener_will_spread",
+   "toelet.purpose_is_constructive",
+   "toelet.facts_verified",
+   "toelet.rebuke_attempted",
+   "toelet.no_other_way",
+   "toelet.no_excess_harm"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "speaker.predicts_future_gossip",
+    "questionHe": "האם הכותב מכיר בטבע האיש וצופה שילך ויגנה את הנידון גם בפני אנשים אחרים?"
+   },
+   {
+    "id": "toelet.preemptive_warning_effect",
+    "questionHe": "האם ההקדמה נועדה לכך שכשיבוא המרגל לא יתקבלו דבריו ואדרבה יוכיחוהו וישמור עצמו להבא?"
+   },
+   {
+    "id": "toelet.saving_from_shame",
+    "questionHe": "האם הסיפור לאחרים מציל את נפש הנידון מצער וכלמה עתידיים?"
+   }
+  ],
+  "relevanceToChat": "medium",
+  "uncertainHe": [
+   "מהם בדיוק \"הפרטים הנ\"ל\" שלא יחסרו ותוכן ההפניות (כא) (כב) בבאר מים חיים",
+   "מהי הגדרת \"תועלת ממש\" המצדיקה היתר אף אם עדיין לא נודע לנידון",
+   "האם ההיתר מותנה בהוכחה מוקדמת שלא נתקבלה ומה הדין בלי הוכחה",
+   "היקף ההיתר להקדים ולספר \"איך שהוא מגנה לאותו פלוני בחנם על לא חמס בכפו\" והאם מותר רק לשלול את הגנות ולא לספר גנות אחרת"
+  ],
+  "reviewIssues": [
+   "quote_not_verbatim"
+  ],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin10.7",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:7",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:7",
+  "textSha256": "0ce597458334976c",
+  "kind": "condition",
+  "titleHe": "תוכחה לפני סיפור בפני שלשה",
+  "summaryHe": "לפי הסעיף, בסתמא צריך להוכיח את הנדון תחילה, אך אם יודע ומכיר שלא יקבל תוכחתו פטור מהוכחה ובלבד שיספר בפרסום בפני שלשה כדי שלא ייראה כמחניף וכבדאי שקר ותתבטל התועלת. ואף אז לפי הסעיף אסור לשומעים לקבל הדבר בהחלטה לגנאי אלא רק לחקור ולהוכיח את הנדון.",
+  "quotesHe": [
+   "אם הוא יודע ומכיר בו, שלא יוסר בדבריו ולא יקבל תוכחתו אין צריך להוכיחו",
+   "רק שיזהר לספר דבר זה בפני שלשה",
+   "אסורים השומעים לקבל דבר זה בהחלטה, שיתגנה על ידי זה הנדון בלבם"
+  ],
+  "appliesTo": "both",
+  "conditionsHe": [
+   "הסיפור הוא לתועלת המותרת המבוארת לעיל בסעיף ד'",
+   "המספר יודע ומכיר שהנדון לא יוסר בדבריו ולא יקבל תוכחתו",
+   "הסיפור נעשה בפרסום בפני שלשה שנחשב כאילו אמרו בפניו"
+  ],
+  "exceptionsHe": [
+   "בסתמא שאינו יודע זאת – חייב להוכיחו תחילה לפני הסיפור",
+   "אף כשסיפר בפני שלשה אסורים השומעים לקבלו בהחלטה לגנאי שמא חסר פרט המשנה את הענין מסופו לתחילתו"
+  ],
+  "factsNeeded": [
+   "toelet.purpose_is_constructive",
+   "toelet.rebuke_attempted",
+   "audience.size_at_least_three",
+   "speaker.would_say_in_subjects_presence",
+   "listener.believes_report"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "toelet.knows_subject_will_not_accept_rebuke",
+    "questionHe": "האם הכותב יודע ומכיר שהמדובר לא יוסר בדבריו ולא יקבל תוכחה?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהו שיעור הידיעה הנדרש ל'יודע ומכיר בו שלא יקבל תוכחתו' – תלוי בבאר מים חיים כג",
+   "מה נחשב 'בפני שלשה' בצ'אט – האם קבוצת צ'אט של שלשה נחשבת פרסום כאילו בפניו",
+   "היקף איסור הקבלה בהחלטה לשומעים גם אחרי פרסום ברבים – ראה באר מים חיים כד וכלל ו' סעיף א'"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin10.8",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:8",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:8",
+  "textSha256": "ce0baee22f929211",
+  "kind": "exception",
+  "titleHe": "הקלה מחמת אימה לספר שלא באפי תלתא",
+  "summaryHe": "לפי הסעיף, הדין שצריך לספר דווקא באפי תלתא הוא כשאין אימה מן המדובר, אבל אם יש על המספר אימה שיש לאל ידו של המדובר להרע עמו אפשר שיש להקל לספר על העוולה שעשה לחברו אפילו שלא באפי תלתא.",
+  "quotesHe": [
+   "כשאין עליו אימה מן האיש ההוא, שמדבר עליו",
+   "שיש לאל ידו להרע עמו",
+   "אפשר שיש להקל לספר עליו העולה, שעשה לחברו, אפלו שלא באפי תלתא"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "יש על המספר אימה מן האיש שמדבר עליו",
+   "שיש לאל ידו של המדובר להרע עמו",
+   "הסיפור הוא על העוולה שעשה המדובר לחברו"
+  ],
+  "exceptionsHe": [
+   "כשאין אימה אין הקלה ונשאר הדין הקודם שצריך באפי תלתא"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.may_be_understood_as_disparagement",
+   "audience.size_at_least_three",
+   "matter.already_known_to_many"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "speaker.has_fear_of_subject",
+    "questionHe": "האם יש על הכותב אימה מפני האיש שמדבר עליו? "
+   },
+   {
+    "id": "subject.can_harm_speaker",
+    "questionHe": "האם יש לאל ידו של המדובר להרע עם הכותב אם ייוודע שסיפר עליו?"
+   }
+  ],
+  "relevanceToChat": "medium",
+  "uncertainHe": [
+   "מהי רמת האימה הנדרשת ומה נחשב שיש לאל ידו להרע עמו",
+   "משמעות הלשון אפשר שיש להקל האם היתר גמור או ספק הקלה ותנאיה",
+   "למה מכוון וכל זה ואיזה פרטים מהסעיפים הקודמים מותנים בכך, כמבואר בבאר מים חיים אות כה"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin10.9",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:9",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:9",
+  "textSha256": "98cfbd32f04ff27b",
+  "kind": "exception",
+  "titleHe": "היתר למוחזק כאיש אמת שלא באפי תלתא",
+  "summaryHe": "לפי הסעיף, אם המספר מוחזק לרבים כאדם שאינו נושא פנים ואומר בפניו כבשלא בפניו ואינו ירא מאיש ומדבר רק אמת, מותר לו לספר לרבים על עוולה שאדם עושה לחברו אף שלא באפי תלתא כשידוע שלא יקבל תוכחה. לפי הסעיף היתר זה מותנה בכך שיתקיימו כל שאר הפרטים שבתחילת הסימן, ורק דין אפי תלתא נמחל.",
+  "quotesHe": [
+   "מחזק לרבים, כי לא ישא פני איש, ואת כל אשר יאמר, שלא בפני חברו, אותו ידבר בפניו",
+   "כי לא חסרנו מהם, רק הפרט דאפי תלתא"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "המספר מוחזק לרבים שלא ישא פני איש",
+   "כל מה שאומר שלא בפני חברו אותו ידבר גם בפניו",
+   "אינו יגור מפני איש",
+   "מוחזק בתוך עמו שאינו מדבר רק אמת",
+   "הסיפור הוא על דבר עוולה שעושה אדם לחברו",
+   "המספר יודע שהעושה לא יקבל תוכחתו",
+   "מתקיימים כל שאר הפרטים הנדרשים בתחילת הסימן"
+  ],
+  "exceptionsHe": [
+   "לא הותר לוותר על שום פרט משאר הפרטים שבתחילת הסימן, רק הפרט של אפי תלתא לבדו נמחל לאיש כזה"
+  ],
+  "factsNeeded": [
+   "speaker.would_say_in_subjects_presence",
+   "message.content_is_true",
+   "toelet.facts_verified",
+   "toelet.rebuke_attempted",
+   "audience.size_at_least_three",
+   "subject.identifiable",
+   "message.may_be_understood_as_disparagement",
+   "message.content_is_disparaging"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "speaker.established_as_impartial_truthful",
+    "questionHe": "האם המספר מוחזק לרבים כאדם שאינו נושא פנים, אומר בפניו כבשלא בפניו, אינו יגור מפני איש ומדבר רק אמת?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהו הגדר המדויק של 'מוחזק לרבים' וכמה זמן ופרסום נדרש להחזקה זו",
+   "מהם בדיוק 'כל הפרטים הנ\"ל בתחלת הסימן' שצריכים להתקיים גם כאן, ופירוטם תלוי בבאר מים חיים",
+   "האם 'ולא יגור מפני איש' הוא תנאי נוסף או הסבר ל'לא ישא פני איש'"
+  ],
+  "reviewIssues": [
+   "quote_not_verbatim"
+  ],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin10.10",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:10",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:10",
+  "textSha256": "f951210804a5549c",
+  "kind": "condition",
+  "titleHe": "לשון הרע על עבירות שבין אדם למקום",
+  "summaryHe": "לפי הסעיף דין סיפור לשון הרע על עוון שבין אדם לחברו וסיפור לשון הרע על עוון שבין אדם למקום שווים, אך בעבירה שבין אדם למקום אין מותר לספר אפילו אם ישתלמו כל הפרטים הנ\"ל שבסעיף ב', אלא אם כן ראה עליו שאוחז בה ועושה אותה כמה פעמים במזיד והוא דבר המפורסם לכל שהוא אסור, כמבואר בכלל ד' סעיף ז'.",
+  "quotesHe": [
+   "דשוין יחד דין ספור לשון הרע על דבר עון, שבין אדם לחברו, וספור לשון הרע על דבר עון, שבין אדם למקום",
+   "אין מתר לספר עליו, אפלו ישלמו כל הפרטים הנ\"ל שבסעיף ב'",
+   "אלא אם כן ראה עליו, שאוחז בה ועושה אותה כמה פעמים במזיד, והוא דבר המפרסם לכל, שהוא אסור"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "הדיבור הוא על עבירה שבין אדם למקום"
+  ],
+  "exceptionsHe": [
+   "אם ראה עליו שאוחז בה ועושה אותה כמה פעמים במזיד והיא דבר המפורסם לכל שהוא אסור – אז מותר אם נתקיימו גם כל הפרטים שבסעיף ב' וכלל ד' סעיף ז'"
+  ],
+  "factsNeeded": [
+   "speaker.knows_first_hand"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "matter.is_bein_adam_lamakom",
+    "questionHe": "האם העבירה המדוברת היא עבירה שבין אדם למקום ולא שבין אדם לחברו?"
+   },
+   {
+    "id": "matter.is_repeated_intentional_violation",
+    "questionHe": "האם הכותב ראה בעצמו שהמדובר אוחז בעבירה ועושה אותה כמה פעמים במזיד?"
+   },
+   {
+    "id": "matter.is_prohibition_publicly_known",
+    "questionHe": "האם האיסור הוא דבר המפורסם לכל שהוא אסור?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מה הגדר המדויק של 'אוחז בה ועושה אותה כמה פעמים במזיד' – כמה פעמים ומה מוכיח מזיד",
+   "מה נחשב 'דבר המפורסם לכל שהוא אסור'",
+   "פירוט כל הפרטים הנדרשים שבסעיף ב' וכלל ד' סעיף ז' המוזכרים בהערות כט-ל טעון עיון בבאר מים חיים"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin10.11",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:11",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:11",
+  "textSha256": "14c7c9bb9f8badca",
+  "kind": "prohibition",
+  "titleHe": "איסור סיפור עוול אישי לנקמה",
+  "summaryHe": "לפי הסעיף יש להיזהר מאוד שלא לספר לאחרים שפלוני גזלו או עשקו או חרפו וצערו ובישהו. ואף אם המספר יודע שהסיפור אמת ומתקיימים כל שאר פרטי ההיתר, הדבר אסור כי כוונתו אינה לתועלת אלא לבזותו על שנגע בממונו או בכבודו.",
+  "quotesHe": [
+   "ומה מאד יש לזהר, (לא) שלא להתיר לעצמו לספר לאחרים",
+   "ואפלו אם הוא יודע בעצמו, שאינו משקר בספור הזה",
+   "רק כונתו כדי לבזותו בעיני בני אדם"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "המספר מספר לאחרים על עסק שהיה לו עם פלוני",
+   "פלוני גזלו או עשקו או חרפו או צערו ובישהו וכל כיוצא בזה",
+   "אפילו אם המספר יודע בעצמו שאינו משקר בסיפור הזה",
+   "אפילו אם יצטרפו לכך כל שאר פרטי ההיתר הנל",
+   "כוונת המספר אינה לתועלת לפרסם גנותו כדי שיבוזו עושי רשעה ויזהרו או שישוב מדרכיו, אלא לבזותו ולפרסמו לחרפה ולקלון על שנגע בממונו או בכבודו"
+  ],
+  "exceptionsHe": [
+   "אם לא באופן שנבאר לקמן בסעיף יג"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "message.content_is_true",
+   "message.content_may_cause_harm",
+   "speaker.knows_first_hand",
+   "speaker.intent_to_disparage",
+   "toelet.purpose_is_constructive",
+   "message.purpose",
+   "audience.listener_will_spread"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "speaker.is_telling_personal_grievance",
+    "questionHe": "האם הכותב מספר על עוול שנעשה לו עצמו על ידי המדובר כגון גזילה, עושק, חירוף, צער או ביזוי?"
+   },
+   {
+    "id": "speaker.enjoys_spread_of_disparagement",
+    "questionHe": "האם הכותב שמח ונהנה מכך שדבריו מתקבלים ומתפרסמים לגנות ולביזיון של המדובר?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "כיצד להבחין בין כוונה לתועלת אמיתית להשפיע לטובה לבין כוונה לנקמה וביזוי על פגיעה אישית",
+   "מהו בדיוק האופן המותר שיתבאר בסעיף יג ומה תנאיו",
+   "האם מידת השמחה וההנאה מהתפרסמות הגנות היא סימן מכריע לכוונת הביזוי"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin10.12",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:12",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:12",
+  "textSha256": "f2b79594029e3109",
+  "kind": "prohibition",
+  "titleHe": "גנאי על מניעת טובה וחסד",
+  "summaryHe": "לפי הסעיף, ההולך ומגלה לאנשים לגנות פלוני על שלא היטיב עמו בטובות שהיה ראוי להיטיבו כגון הלוואה וצדקה והכנסת אורחים וכיוצא בזה הרי זו לשון הרע גמורה מן הדין ועובר עוד בכמה לאוין, וכל שכן אם מבזה עבור זה סתם עיר שלמה שבישראל שזה בודאי עון פלילי וגדול מאוד.",
+  "quotesHe": [
+   "אם הוא הולך ומגלה אחר כך דבר זה לאנשים לגנות פלוני בזה, לשון הרע גמורה היא מן הדין",
+   "וכל שכן אם מבזה עבור זה סתם לכל העיר, (לב) בודאי עון פלילי הוא",
+   "כי אסור לשון הרע, אפלו על אמת, שכתבנו למעלה, הוא אפלו אם מספר על איש פרטי"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שלא הרע לו המדובר אלא רק לא היטיב עמו בטובות שהיה ראוי להיטיב עמו בעניני הלואה וצדקה והכנסת אורחים וכיוצא בזה",
+   "שהמספר הולך ומגלה דבר זה אחר כך לאנשים אחרים",
+   "שכוונת הגילוי היא לגנות את פלוני על כך"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_fellow",
+   "subject.is_group",
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "message.content_is_true",
+   "speaker.intent_to_disparage",
+   "message.purpose",
+   "toelet.purpose_is_constructive"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.is_complaint_about_withheld_benefit",
+    "questionHe": "האם ההודעה היא תלונה וגנאי על כך שפלוני לא היטיב עמו בהלוואה, צדקה, הכנסת אורחים או טובה דומה שהיה ראוי להיטיבו?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהי הגדרת 'אשר היה ראוי להיטיב עמו' - האם לפי דין, מנהג או ציפייה סובייקטיבית של המבקש",
+   "מהם 'כמה לאוין אחרים' הנוספים שעליהם עובר מלבד לשון הרע שהסעיף מפנה לביאורם בכלל ה' סעיף א'",
+   "מהו תוכן ביאור באר מים חיים (לב) לגבי המבזה עיר שלמה והגדרת 'עיר שלמה שבישראל המחזיקים באמונת ה''"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin10.13",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:13",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:13",
+  "textSha256": "a54ab64928668b8d",
+  "kind": "exception",
+  "titleHe": "היתר סיפור לשם תועלת עתידית",
+  "summaryHe": "לפי הסעיף מותר לספר לאחרים כיצד פלוני עשה לו עוולה בממון או בצער ובושת אם הוא משער שתבוא מזה תועלת להבא, כגון השבת גזלה או מניעת חירוף וגידוף נוסף. ההיתר קיים אף שהמדובר יתבזה בפני השומעים, כיון שאין כוונת המספר לבזות אלא לשמור עצמו מנזק ממון או צער וביוש.",
+  "quotesHe": [
+   "שעל ידי זה, שיספר לאנשים, האיך שפלוני (לג) עשה לו עולה בענין ממון וכיוצא בזה, תוכל לבוא לו מזה תועלת על להבא",
+   "מתר לו לספר להם ולבקש מאתם, שיסיעוהו בזה",
+   "כיון דאין כונת המספר לזה, רק הוא רוצה לשמר את עצמו, שלא יהיה לו ממנו נזק בענין ממון או צער וביוש"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהמספר משער שתבוא תועלת לעתיד מן הסיפור",
+   "שהסיפור הוא לאנשים שדבריהם נשמעים למדובר ואם יוכיחוהו אולי ישיב הגזלה וההזק או יימנע מלהזיק",
+   "שלפעמים התועלת היא אף שלא בענין ממון אלא בענין צער ובושת ואונאת דברים",
+   "שנודע לו בברור שפלוני רוצה לחרפו ולגדפו, או שכבר חרפו ומשער שאם לא יספר לקרוביו או לאנשים חשובים יבוא עוד לחרפו",
+   "שאין כוונת המספר לבזות את חברו אלא לשמור עצמו מנזק ממון או צער וביוש"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.content_is_disparaging",
+   "message.content_may_cause_harm",
+   "message.may_be_understood_as_disparagement",
+   "message.purpose",
+   "speaker.intent_to_disparage",
+   "speaker.knows_first_hand",
+   "toelet.purpose_is_constructive",
+   "toelet.facts_verified"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "toelet.future_benefit_expected",
+    "questionHe": "האם הכותב משער שעל ידי הסיפור תבוא לו תועלת על להבא כגון השבת הגזלה או מניעת חירוף וגידוף נוסף?"
+   },
+   {
+    "id": "audience.can_influence_subject",
+    "questionHe": "האם הנמענים הם אנשים שדבריהם נשמעים למדובר, או אנשים חשובים או קרוביו שיכולים להוכיחו ולמנעו?"
+   },
+   {
+    "id": "speaker.intent_is_self_protection",
+    "questionHe": "האם כוונת הכותב היא לשמור את עצמו מנזק ממון או צער וביוש ולא לבזות את המדובר?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהו סף השיעור של \"משער\" ו\"אולי\" ו\"אפשר\" המספיק להתיר",
+   "מיהו המוגדר \"אנשים שדבריהם נשמעים לו\" ו\"אנשים חשובים או קרוביו\"",
+   "מה נחשב \"נודע לו בברור\" שפלוני רוצה לחרפו",
+   "האם ההיתר כפוף ליתר תנאי התועלת המבוארים בכלל י ובבאר מים חיים (לג) (לד) (לה) כגון אמת מבוררת וללא תוספת והגזמה"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin10.14",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:14",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:14",
+  "textSha256": "1117b5241e74ff3c",
+  "kind": "condition",
+  "titleHe": "שבעה תנאים להיתר סיפור לתועלת",
+  "summaryHe": "לפי הסעיף, ההיתר לספר לשון הרע לתועלת קיים רק אחרי שידע שחברו לא שב מהמעשה והוא מכוון לתועלת, ובתנאי שלא יחסר אף אחד משבעת הפרטים המפורטים בסעיף, שאם לא כן ילכד בפח היצר ויהיה מבעלי לשון הרע דאורייתא.",
+  "quotesHe": [
+   "שיראה זה הדבר בעצמו, ולא על ידי שמיעה מאחרים",
+   "שיהיה כל הספור אמת, בלי תערובת שקר, ושלא לגזם הענין יותר ממה שהוא",
+   "שלא יסבב לו הזק על ידי ספורו יותר מכפי הדין, שהיה יוצא, אלו העידו עליו באפן זה בבית דין"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שידע שחברו לא שב עדיין מאותו ענין",
+   "שכוונתו לתועלת – והוא העיקר שעליו סובב ההיתר",
+   "שראה הדבר בעצמו ולא על ידי שמיעה מאחרים",
+   "שלא יחליט מיד שמדובר בגזל או היזק וכיוצא בזה אלא יתבונן היטב על פי דרכי התורה אם הדין עמו",
+   "שאם משער שאם יתוכח עמו בעצמו יהיה לתועלת – ידבר עמו קודם שיפרסם לאחרים",
+   "שכל הסיפור אמת בלי תערובת שקר והגזמה ולא יחסיר שום פרט קטן שהוא צד זכות לחברו, ולא יגדיל העוולה יותר ממה שהיא",
+   "שאם אפשר להשיג התועלת בעצה אחרת בלי לספר – אסור לספר, ואף אם מוכרח לספר – מצוה להקטין הגנות ככל שאפשר בלי לפגוע בתועלת",
+   "שלא יסבב לו היזק יותר מכפי הדין שהיה יוצא אילו העידו עליו בבית דין"
+  ],
+  "exceptionsHe": [
+   "הסעיף מציין בלשון \"ואפשר\" שאם כוונתו בסיפור להפיג דאגתו מלבו הוי כמכוון לתועלת על להבא, אך בתנאי שלא יחסרו שאר הפרטים"
+  ],
+  "factsNeeded": [
+   "speaker.knows_first_hand",
+   "toelet.facts_verified",
+   "toelet.rebuke_attempted",
+   "message.content_is_true",
+   "message.contains_falsehood_or_exaggeration",
+   "toelet.purpose_is_constructive",
+   "toelet.no_other_way",
+   "toelet.no_excess_harm",
+   "message.content_may_cause_harm",
+   "message.purpose",
+   "speaker.intent_to_disparage"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "toelet.subject_has_not_repent",
+    "questionHe": "האם ידוע לך שחברך לא שב עדיין מאותו מעשה?"
+   },
+   {
+    "id": "message.omits_mitigating_detail",
+    "questionHe": "האם ההודעה משמיטה פרט כלשהו שהוא צד זכות למדובר, שידיעתו תפחית את הגנות בעיני השומעים?"
+   },
+   {
+    "id": "toelet.purpose_is_anxiety_relief",
+    "questionHe": "האם מטרת הסיפור היא להפיג דאגה מלבך (ישיחנה לאחרים) ולא תועלת מעשית אחרת?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מה נחשב \"ראה בעצמו\" מול \"שמיעה מאחרים\" בצ'אט – האם העברת הודעות/צילומי מסך נחשבת ראייה",
+   "מהו רף \"יתבונן היטב על פי דרכי התורה אם הדין עמו\" והאם נדרש בירור אצל מורה הוראה – \"קשה לצייר מן הכל\"",
+   "מהו שיעור \"משער שאפשר שאם יתוכח עמו יהיה לתועלת\" המחייב תוכחה מקדימה",
+   "היקף החובה \"לא לחסר שום פרט קטן שהוא צד זכות\" אף כשאינו מועיל להצדיקו",
+   "כיצד לשער \"יותר מכפי הדין שהיה יוצא בבית דין\" במקרה של נזק בצ'אט",
+   "האם \"הפגת דאגה\" אכן נחשבת תועלת – הסעיף כותב \"ואפשר דהוא הדין\" ומפנה לבאר מים חיים"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin10.15",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:15",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:15",
+  "textSha256": "0ed7879c5e8ec242",
+  "kind": "condition",
+  "titleHe": "שקול גדול ותכנון לפני סיפור לתועלת",
+  "summaryHe": "לפי הסעיף, המספר ענין לתועלת עומד בסכנה עצומה של איסור לשון הרע אם לא ישמור על כל הפרטים וביותר בפרט הב' והד', ולכן עליו לשקול ולתכנן היטב לפני הדיבור שלא להגדיל את העוולה וכדי לכוון לתועלת.",
+  "quotesHe": [
+   "כי בעת הספור הוא עומד בסכנה עצומה של אסור ספור לשון הרע",
+   "מות וחיים ביד הלשון",
+   "שלא להגדיל את העולה יותר ממה שהיא, ויכון לתועלת"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שמירה על כל הפרטים הנדרשים להיתר סיפור לתועלת",
+   "הקפדה יתרה על פרט ב' ופרט ד'",
+   "תכנון וחשיבה מראש באיזה אופן להוציא את הדבר מפיו קודם שמתחיל לדבר",
+   "שלא להגדיל את העוולה יותר ממה שהיא וכיוון הדברים לתועלת"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "toelet.purpose_is_constructive",
+   "message.contains_falsehood_or_exaggeration",
+   "toelet.facts_verified",
+   "toelet.no_excess_harm",
+   "message.purpose",
+   "message.content_is_true"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "speaker.planned_phrasing_beforehand",
+    "questionHe": "האם הכותב תכנן מראש כיצד לנסח את הדברים בלי להגזים?"
+   },
+   {
+    "id": "speaker.is_angry_while_writing",
+    "questionHe": "האם ההודעה נכתבה מתוך כעס שעלול לגרום לאיבוד זהירות והגזמה?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהו תוכנם המדויק של פרט הב' ופרט הד' שהסעיף מדגיש, התלוי בסעיפים הקודמים ובבאר מים חיים",
+   "מהי המשמעות המעשית של שקול גדול וישית עצות בנפשו קודם שמתחיל לספר ומה נחשב תכנון מספיק",
+   "היקף הקביעה כי בעת מעשה מתגבר כח הכעס ואי אפשר להזהר - האם זה תיאור מציאות כללי או תנאי הלכתי התלוי בבאר מים חיים"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin10.16",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:16",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:16",
+  "textSha256": "a38cb214257330de",
+  "kind": "prohibition",
+  "titleHe": "איסור דיבור לשון הרע כנקמה",
+  "summaryHe": "לפי הסעיף אסור לדבר לשון הרע על חברו שלא בפניו כנקמה על ששמע מאחר כי הוא דיבר עליו, כי אסור מן התורה להאמין לרכילות, ואף לו יהא שהדבר אמת גם כן אסור לדבר עליו לשון הרע כמו שכתב בסעיף י\"ד.",
+  "quotesHe": [
+   "ומכל מה שכתבנו נוכל לראות את גדל הטעות, שמשתבשין בו בני אדם תמיד",
+   "שמי שספר לך זה, אסור מן התורה להאמינו מפני קבלת רכילות",
+   "גם כן אסור מחמת זה לילך ולדבר עליו לשון הרע"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "הדובר מדבר לשון הרע על חברו שלא בפניו ומגנה אותו",
+   "טענת הדובר להיתר היא שהמדובר גם הוא דבר עליו בפני פלוני ופלוני",
+   "ידיעת הדובר מבוססת על מה שסיפר לו אדם אחר"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "message.content_is_disparaging",
+   "message.may_be_understood_as_disparagement",
+   "message.content_is_true",
+   "message.reports_what_someone_said_or_did_against_listener",
+   "speaker.knows_first_hand",
+   "listener.believes_report",
+   "message.purpose",
+   "speaker.intent_to_disparage",
+   "toelet.purpose_is_constructive"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "speaker.motive_is_revenge",
+    "questionHe": "האם ההודעה נכתבת כנקמה על ששמע שהמדובר דיבר על הכותב?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "הסעיף מפנה לסעיף י\"ד הנ\"ל לעניין איסור אפילו אם הדבר אמת ותוכן ההפניה לא מבואר כאן",
+   "משמעות ציוני באר מים חיים (מ) ו-(מא) אינה מבוארת בגוף הסעיף"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p1_prin10.17",
+  "ref": "Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:17",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:17",
+  "textSha256": "257e25ec37d6258b",
+  "kind": "prohibition",
+  "titleHe": "איסור גילוי זהות החוטא כשנשאל",
+  "summaryHe": "לפי הסעיף, כשנעשה דבר שלא כהוגן וראובן שואל את שמעון מי עשהו אסור לו לגלות מי עשהו אפילו אם חושדים בו ואפילו אם ראה בעצמו, אלא ישיב 'אני לא עשיתי את הדבר'. הסעיף מחריג זאת רק אם מתקיימים כל פרטי התועלת לענייני בין אדם לחברו שבכלל זה או לענייני בין אדם למקום שבכלל ד' סעיפים ה' ז' ח', ומוסיף שלפנים משורת הדין ראוי לבעל נפש אף שלא ישמיט את עצמו אם יתבייש החוטא על ידי זה.",
+  "quotesHe": [
+   "אסור לו לגלות, מי שעשה את הדבר, אפלו אם ראה בעצמו, רק (מג) ישיב: אני לא עשיתי את הדבר",
+   "אם לא שהוא דבר, אשר אפלו אם לא היה שואלו ולא היה חושדו כלל בזה, היה גם כן צריך לספר לו",
+   "ראוי לבעל נפש, שיעשה לפנים משורת הדין, ולא ישמיט את עצמו מזה"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "נעשה דבר שלא כהוגן וראובן שואל את שמעון מי עשה את הדבר",
+   "השואל חושד בנשאל עצמו בביצוע המעשה",
+   "הנשאל יודע מי עשה, אפילו מראייתו בעצמו",
+   "גילוי הזהות עלול לגרום גנאי או בושה למדובר"
+  ],
+  "exceptionsHe": [
+   "אם הוא דבר שבין אדם לחברו ונשלמו בו כל הפרטים שבכלל זה להתיר לספר לתועלת",
+   "אם הוא דבר שבין אדם למקום ונשלמו בו הדברים שכתב בכלל ד' סעיפים ה' ז' ח'"
+  ],
+  "factsNeeded": [
+   "subject.identifiable",
+   "subject.is_fellow",
+   "message.may_be_understood_as_disparagement",
+   "message.content_is_disparaging",
+   "message.content_may_cause_harm",
+   "speaker.knows_first_hand",
+   "toelet.purpose_is_constructive",
+   "toelet.facts_verified",
+   "toelet.no_other_way",
+   "toelet.no_excess_harm"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "context.asked_to_identify_sinner",
+    "questionHe": "האם ההודעה היא תשובה לשאלה מי עשה דבר שלא כהוגן?"
+   },
+   {
+    "id": "context.speaker_suspected_by_asker",
+    "questionHe": "האם השואל חושד בכותב עצמו שהוא עשה את המעשה?"
+   },
+   {
+    "id": "context.disclosure_would_shame_sinner",
+    "questionHe": "האם גילוי הזהות או אפילו אמירת 'לא אני עשיתי' תגרום לזיהוי החוטא ולבושתו?"
+   },
+   {
+    "id": "toelet.all_conditions_between_man_and_fellow_met",
+    "questionHe": "האם נשלמו כל הפרטים הנדרשים להתיר סיפור בין אדם לחברו לפי כלל י'?"
+   },
+   {
+    "id": "toelet.all_conditions_between_man_and_god_met",
+    "questionHe": "האם נשלמו התנאים הנדרשים להתיר סיפור בין אדם למקום לפי כלל ד' סעיפים ה' ז' ח'?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהם בדיוק כל הפרטים הנדרשים להתיר בין אדם לחברו שבכלל זה ובין אדם למקום שבכלל ד' ה' ז' ח' - הסעיף מפנה לעיון שם ובאר מים חיים",
+   "היקף החיוב לפנים משורת הדין שלא להשמיט עצמו והאם הוא כולל אמירת 'אני חטאתי' אף שלא חטא כמובא מספר חסידים",
+   "האם דין זה חל גם כשיש חשש שהשואל יעניש את כולם אם לא יגלה את החוטא"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ }
+]

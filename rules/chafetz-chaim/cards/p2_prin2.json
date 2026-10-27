@@ -1,0 +1,179 @@
+[
+ {
+  "id": "cc.p2_prin2.1",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 2:1",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_2:1",
+  "textSha256": "72818d1ce85c3c39",
+  "kind": "prohibition",
+  "titleHe": "איסור סיפור רכילות בפני יחיד ורבים",
+  "summaryHe": "לפי הסעיף אסור לספר רכילות אפילו בפני אדם אחד, וכל שכן שאסור לספרה בפני רבים.",
+  "quotesHe": [
+   "אסור לספר רכילות, אפלו בפני יחיד",
+   "וכל שכן בפני רבים"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהדברים הם בגדר רכילות"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "audience.size_at_least_three"
+  ],
+  "proposedNewFacts": [],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "הגדרת 'רכילות' המדויקת אינה מבוארת בסעיף זה עצמו ונסמכת על הכללים הקודמים",
+   "תוכן הפניה (א) לבאר מים חיים אינו כלול בנוסח הסעיף ויש לעיין שם לפרטים נוספים"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin2.2",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 2:2",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_2:2",
+  "textSha256": "ab9d1fe6946e0624",
+  "kind": "prohibition",
+  "titleHe": "איסור אבק רכילות ופירוש דו-משמעי",
+  "summaryHe": "לפי הסעיף אפילו אבק רכילות אסור לספר בכל גוני. ואפילו אם הדיבור שמספר מה שאמר פלוני על השומע הוא דו-משמעי ונוטה לפרש שכוונת הראשון לא הייתה לגנותו, אסור לספרו אם השומע הוא איש נרגן או שיש ביניהם שנאה מכבר.",
+  "quotesHe": [
+   "אפלו אבק רכילות (כפי מה שנבאר לקמן בכלל ח מה נקרא אבק רכילות) גם כן אסור לספר בכל גוני",
+   "אם הוא אומרה (ב) באפן דמוכח, שכונת הראשון היתה לגנותו, בודאי אסור בכל גוני",
+   "אם הוא מכיר את טבעו של זה השני, שהוא איש נרגן,"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שמדובר באבק רכילות כפי שיבואר בכלל ח",
+   "שהמספר מספר לשומע מה שאמר עליו פלוני ויש לדיבור שני פנים",
+   "כשמוכח שהכוונה הייתה לגנותו - אסור בוודאי בכל גוני",
+   "גם כשנוטה יותר לפירוש שאין בו גנאי - אסור אם השומע נרגן או שיש ביניהם שנאה קדומה"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.is_hint_or_implied",
+   "message.may_be_understood_as_disparagement",
+   "subject.identifiable",
+   "message.content_may_cause_harm"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "listener.is_quarrelsome",
+    "questionHe": "האם השומע ידוע כאיש נרגן שדן את חברו תמיד לכף חובה?"
+   },
+   {
+    "id": "relationship.prior_hatred_exists",
+    "questionHe": "האם יש שנאה קדומה בין השומע לבין מי שמדברים עליו?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהי הגדרת אבק רכילות המדויקת שהסעיף מפנה לכלל ח",
+   "מה נחשב אופן דמוכח שהכוונה לגנותו",
+   "הגדרת איש נרגן ומידת שנאה קדומה האוסרת גם בפרוש הנוטה לזכות תלויה בבאר מים חיים אות ב ו-ג"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin2.3",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 2:3",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_2:3",
+  "textSha256": "dda087ba1a1b2c25",
+  "kind": "prohibition",
+  "titleHe": "איסור רכילות גם כשנאמרה בפני שלושה",
+  "summaryHe": "לפי הסעיף יש אומרים שאם ספר גנות על חברו בפני שלשה אין בו משום רכילות כשיחזרו ויאמרו לו פלוני דבר עליך כך וכך משום דבר העשוי להתגלות, אך הסעיף מכריע שאין לסמוך על דעה זו למעשה כי המהרש\"ל כתב שרבים מהראשונים חולקים ואוסרים בכל גווני.",
+  "quotesHe": [
+   "יש אומרים, דאם אחד (ד) ספר (ה) גנות על חברו בפני שלשה",
+   "דחברך חברא אית לה, וזה מגלה לזה וזה לזה עד שיודע",
+   "אבל אין לסמך על דעה זו למעשה, כי המהרשל בבאורו על הסמג כתב"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שהדברים הם רכילות - סיפור גנות שפלוני אמר או עשה נגד השומע",
+   "שהגנות נאמרה תחילה בפני שלשה",
+   "שרוצים לחזור ולספר זאת למי שדובר עליו: פלוני דבר עליך כך וכך",
+   "שלפי טעם היש אומרים הוא דבר העשוי להתגלות דחברך חברא אית לה"
+  ],
+  "exceptionsHe": [
+   "לדעת היש אומרים היה היתר כשנאמר בפני שלשה עם הפרטים שבהלכות לשון הרע כלל ב' מסעיף ד' ואילך, אך הסעיף קובע שלמעשה אין לסמוך על היתר זה כלל"
+  ],
+  "factsNeeded": [
+   "message.reports_what_someone_said_or_did_against_listener",
+   "audience.size_at_least_three",
+   "matter.already_known_to_many",
+   "audience.listener_will_spread",
+   "message.content_is_disparaging"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "audience.is_original_target",
+    "questionHe": "האם הנמען הוא האדם עצמו שעליו נאמרה הגנות המקורית או אדם אחר המתכוון לגלות לו?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "מהם בדיוק הפרטים הנדרשים מהלכות לשון הרע כלל ב' מסעיף ד' ואילך שגם היש אומרים הצריכו",
+   "מה הגדרת בפני שלשה - האם צריך שלושה יחד בשעת הסיפור או די בשלושה ששמעו בנפרד",
+   "האם האיסור בכל גווני לפי המהרש\"ל כולל גם כשכבר התפרסם בפועל לרבים או רק כשעשוי להתגלות"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ },
+ {
+  "id": "cc.p2_prin2.4",
+  "ref": "Chafetz Chaim, Part Two, The Prohibition Against Rechilut, Principle 2:4",
+  "url": "https://www.sefaria.org/Chafetz_Chaim,_Part_Two,_The_Prohibition_Against_Rechilut,_Principle_2:4",
+  "textSha256": "cee599494749c59a",
+  "kind": "prohibition",
+  "titleHe": "איסור גילוי רצון להסתלק אף באפי תלתא",
+  "summaryHe": "לפי הסעיף אסור לגלות לשותף הראשון שחברו רצה להסתלק ממנו בעסק (וכן חתן מן השידוך) אף אם הדבר כבר נשמע באפי תלתא, כי בודאי ינטר לו בלבו ויגרם לו צער או ביטול השותפות, וזה נחשב לשון הרע לפי הרמב\"ם.",
+  "quotesHe": [
+   "אסור לגלות דבר זה להשתף הראשון שלו, אף דכבר נשמע דבר זה באפי תלתא או יותר",
+   "דבודאי ינקט לה בלבו על שתפו על דבר זה, שרצה להסתלק מאתו",
+   "והמספר לחברו דברים שגורמים וכו' להזיק חברו בגופו או בממונו או להצר לו או להפחידו, הרי זה לשון הרע"
+  ],
+  "appliesTo": "speaker",
+  "conditionsHe": [
+   "שאחד השותפים רצה להסתלק משותפו כי חשב שאחרים ישתתפו עמו, ולבסוף לא עלתה בידו, וכן בכהאי גוונא חתן מהשידוך",
+   "שהגילוי נעשה לשותף הראשון עצמו",
+   "שהגילוי עלול לגרום לשומע לנטור בלבו על חברו, להצטער או לבטל את השותפות",
+   "שהאיסור קיים אף אם הדבר כבר נשמע באפי תלתא או יותר"
+  ],
+  "exceptionsHe": [],
+  "factsNeeded": [
+   "subject.identifiable",
+   "message.reports_what_someone_said_or_did_against_listener",
+   "message.content_may_cause_harm",
+   "matter.already_known_to_many",
+   "audience.size_at_least_three"
+  ],
+  "proposedNewFacts": [
+   {
+    "id": "message.will_cause_grudge_in_listener",
+    "questionHe": "האם הגילוי יגרום לשומע לנטור טינה בלבו על המדובר?"
+   },
+   {
+    "id": "message.may_cause_cancellation_of_partnership",
+    "questionHe": "האם הגילוי עלול לגרום לביטול השותפות או השידוך?"
+   }
+  ],
+  "relevanceToChat": "high",
+  "uncertainHe": [
+   "האם האיסור חל גם כשיש לשותף תועלת ממשית לדעת על הרצון להסתלק, והסעיף לא דן בתועלת",
+   "מהו הגבול המדויק של \"להצר לו או להפחידו\" בהגדרת הרמב\"ם כלשון הרע",
+   "האם הדין דווקא כשהרצון לא עלה בידו כלל או גם כשנעשו מעשים חלקיים להסתלקות"
+  ],
+  "reviewIssues": [],
+  "reviewStatus": "draft",
+  "draftedBy": "baseten/meta-models/muse-spark-open-1026",
+  "draftedAt": "2026-10-27"
+ }
+]
