@@ -1,7 +1,7 @@
 import type { FactCatalogEntry } from '../types.js';
 import type { RawExtraction, ValidatedExtraction, ProposedFact, ExtractionAnalysis } from './types.js';
 import { normalizeHebrewText } from './normalize.js';
-import { proposalRejection } from './factPolicy.js';
+import { isBoundedConfidence, proposalRejection } from './factPolicy.js';
 
 const MECHANISMS = new Set(['irony', 'praise', 'hint', 'mockery', 'omission', 'direct', 'other']);
 const AUDIENCES = new Set(['private', 'group', 'public', 'unknown']);
@@ -10,11 +10,6 @@ export const ANALYSIS_LIMITS = { ref: 24, mention: 60, description: 80, claim: 1
 
 function isRecord(v: unknown): v is Record<string, unknown> {
   return typeof v === 'object' && v !== null;
-}
-
-function clampConfidence(v: unknown): number | null {
-  if (typeof v !== 'number' || !Number.isFinite(v)) return null;
-  return Math.min(1, Math.max(0, v));
 }
 
 function shortText(v: unknown, max: number): string | undefined {
@@ -120,7 +115,7 @@ export function validateExtraction(
     const mechanism = typeof m.mechanism === 'string' && MECHANISMS.has(m.mechanism)
       ? (m.mechanism as NonNullable<ValidatedExtraction['meaning']>['mechanism'])
       : undefined;
-    const conf = clampConfidence(m.extractorConfidence ?? m.confidence);
+    const conf = m.extractorConfidence ?? m.confidence;
     meaning = {
       ...(typeof m.mayBeUnderstoodAsDisparagement === 'boolean' ? { mayBeUnderstoodAsDisparagement: m.mayBeUnderstoodAsDisparagement } : {}),
       ...(typeof m.interpretationUncertain === 'boolean' ? { interpretationUncertain: m.interpretationUncertain } : {}),
@@ -129,7 +124,7 @@ export function validateExtraction(
         normalizedMessage.includes(normalizeHebrewText(m.evidenceExcerpt))
         ? { evidenceExcerpt: m.evidenceExcerpt.trim() } : {}),
       ...(m.identifiable === true || m.identifiable === false || m.identifiable === 'unknown' ? { identifiable: m.identifiable } : {}),
-      ...(conf !== null ? { extractorConfidence: conf } : {}),
+      ...(isBoundedConfidence(conf) ? { extractorConfidence: conf } : {}),
     };
     if (m.evidenceExcerpt && !meaning.evidenceExcerpt) warnings.push('meaning_evidence_not_in_message_dropped');
     if (m.mechanism && !mechanism) warnings.push('meaning_mechanism_unknown_dropped');

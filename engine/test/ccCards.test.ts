@@ -3,6 +3,7 @@
 // verbatim, use only known fact ids, and never be anything but draft.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -33,7 +34,7 @@ const factIds = new Set(
 
 function seifText(key: string): Map<number, string> {
   const out = new Map<number, string>();
-  for (const line of readFileSync(join(SRC, 'text', `${key}.txt`), 'utf8').split('\n')) {
+  for (const line of readFileSync(join(SRC, 'text', `${key}.txt`), 'utf8').split(/\r?\n/)) {
     const m = /^\[(\d+)\] (.*)$/.exec(line);
     if (m) out.set(Number(m[1]), m[2] ?? '');
   }
@@ -41,6 +42,12 @@ function seifText(key: string): Map<number, string> {
 }
 
 const cardFiles = readdirSync(join(RULES, 'cards')).filter((f) => f.endsWith('.json'));
+
+function assertSourceHash(text: string | undefined, expected: string, label: string): void {
+  assert.ok(text, `${label}: source section missing`);
+  const actual = createHash('sha256').update(text, 'utf8').digest('hex').slice(0, 16);
+  assert.equal(actual, expected, `${label}: actual source text differs from manifest`);
+}
 const cards = new Map<string, Card>();
 for (const f of cardFiles) {
   for (const c of JSON.parse(readFileSync(join(RULES, 'cards', f), 'utf8')) as Card[]) {
@@ -60,7 +67,9 @@ test('CC-01 every se\'if in the source manifest has exactly one card, and no car
 
 test('CC-02 each card cites the exact Sefaria ref/url and the current text hash', () => {
   for (const p of manifest.principles) {
+    const texts = seifText(p.key);
     for (const s of p.seifim) {
+      assertSourceHash(texts.get(s.n), s.sha256, `${p.key}:${s.n}`);
       const c = cards.get(`cc.${p.key}.${s.n}`);
       if (!c) continue;
       assert.equal(c.ref, s.ref, c.id);
@@ -96,10 +105,18 @@ test('CC-05 cards use only vocabulary fact ids and a known kind, and are not emp
 
 test('CC-06 fact-merge-map targets exist in facts.json and vocabulary stays small', () => {
   const map = JSON.parse(readFileSync(join(RULES, 'fact-merge-map.json'), 'utf8')) as Record<string, { action: string; target?: string }>;
-  // 60 consolidated + toelet.knows_subject_will_not_accept_rebuke (owner's step 2, 2026-10-27, docs/18).
-  assert.ok(factIds.size <= 61, `vocabulary too large: ${factIds.size}`);
+  // 61 preserved ids plus 11 source-specific distinctions (docs/19).
+  assert.ok(factIds.size <= 72, `vocabulary too large: ${factIds.size}`);
   for (const [pid, d] of Object.entries(map)) {
     if (d.action === 'merge' || d.action === 'new') assert.ok(d.target && factIds.has(d.target), `${pid}: target ${d.target} not in facts.json`);
     else assert.equal(d.action, 'reject', `${pid}: unknown action ${d.action}`);
   }
+});
+
+test('CC-07 source mutation fails independently of unchanged manifest and card hashes', () => {
+  const p = manifest.principles[0]!;
+  const s = p.seifim[0]!;
+  const text = seifText(p.key).get(s.n)!;
+  assertSourceHash(text, s.sha256, 'original');
+  assert.throws(() => assertSourceHash(text + ' changed', s.sha256, 'mutated'), /actual source text differs/);
 });

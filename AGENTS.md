@@ -18,6 +18,7 @@
 - One rule has one canonical definition; adapters and UI consume it.
 - The one-question budget covers the complete display: a catalog-backed `rules.question` consumes it, so suppress `analysis.questionsHe`; otherwise retain at most one analysis question. Keep the proxy arbitration and the panel's compatibility guard covered by regression tests.
 - Exceptions use the same three-valued semantics as conditions: an unknown/disputed exception blocks that rule's finding and can require clarification; it is never an absent exception.
+- Confidence admission lives in `extractor/factPolicy.ts`; both proposals and meaning must reject non-finite/out-of-range scores before conversion. Never clip provider scores into 0..1: clipping 2 to 1 promoted malformed meaning to known facts. Source integrity tests recompute hashes from section text, independently of card/manifest agreement.
 
 ## Context integration
 - Canonical packet types/sanitizer: `engine/src/contextPacket.ts`; extractor types reference it. The proxy sanitizes before extraction. `user_confirmed` is the builder's explicit confirmation provenance; candidate/unknown never become false.

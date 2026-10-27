@@ -46,3 +46,20 @@ test('FACT-ADMISSION validateAnalysis allows only one nonempty question', () => 
   assert.equal(ANALYSIS_LIMITS.questions, 1);
   assert.deepEqual(validateAnalysis({ questionsHe: ['', 'first?', 'second?', 'third?'] }, text, new Set())?.questionsHe, ['first?']);
 });
+
+test('FACT-ADMISSION invalid meaning confidence is rejected through provider validation and store, never clipped', () => {
+  for (const confidence of [-1, 2, NaN, Infinity, -Infinity, undefined, '1', 0, 0.599]) {
+    const raw = { meaning: { mayBeUnderstoodAsDisparagement: true, identifiable: true,
+      extractorConfidence: confidence, evidenceExcerpt: text }, proposedFacts: [] };
+    const validated = validateExtraction(raw, catalog, text);
+    const store = factStoreFromExtraction(validated, catalog);
+    assert.equal(store.facts.size, 0, String(confidence));
+  }
+  for (const confidence of [0.6, 1]) {
+    const validated = validateExtraction({ meaning: { mayBeUnderstoodAsDisparagement: true,
+      identifiable: true, extractorConfidence: confidence, evidenceExcerpt: text } }, catalog, text);
+    const store = factStoreFromExtraction(validated, catalog);
+    assert.equal(store.facts.get('subject.identifiable')?.value, true);
+    assert.equal(store.facts.get('message.may_be_understood_as_disparagement')?.value, true);
+  }
+});

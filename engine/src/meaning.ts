@@ -1,5 +1,6 @@
 import type { FactRecord, FactValue, ProvenanceKind } from './types.js';
 import { FACT_BY_ID } from './lessonScenario.js';
+import { EXTRACTION_CONFIDENCE_MIN, isBoundedConfidence } from './extractor/factPolicy.js';
 
 export const MEANING_FACT_IDS = [
   'message.may_be_understood_as_disparagement',
@@ -35,11 +36,9 @@ export interface MeaningAssessmentFacts {
   reasonsHe: string[];
 }
 
-const CONFIDENCE_MIN = 0.6;
-
 function confidenceNote(confidence?: number): string | undefined {
   if (confidence === undefined) return 'extractor confidence not provided; cue stays unconfirmed';
-  if (confidence >= CONFIDENCE_MIN) return undefined;
+  if (isBoundedConfidence(confidence) && confidence >= EXTRACTION_CONFIDENCE_MIN) return undefined;
   return 'extractor confidence below the local routing threshold; cue stays unconfirmed';
 }
 
