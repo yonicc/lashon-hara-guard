@@ -21,6 +21,7 @@ import modal
 app = modal.App("lhg-gate-train")
 image = modal.Image.debian_slim(python_version="3.11").pip_install(
     "torch==2.4.1", "transformers==4.46.3", "scikit-learn==1.5.2", "numpy<2",
+    "sentencepiece==0.2.0", "protobuf==5.29.3",
 )
 vol = modal.Volume.from_name("lhg-models", create_if_missing=True)
 
