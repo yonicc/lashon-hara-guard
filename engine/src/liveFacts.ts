@@ -20,18 +20,26 @@ export function factStoreFromExtraction(
   opts: { confirmed?: ConfirmedFacts; store?: FactStore } = {},
 ): FactStore {
   const store = opts.store ?? new FactStore(catalog);
+  const allowed = new Set(catalog.map((entry) => entry.id));
+  const propose: FactStore['propose'] = (id, value, provenance, options) => {
+    // Once sources conflict, further model repetitions cannot resolve the dispute.
+    const existing = store.facts.get(id);
+    if (existing?.status === 'disputed') return existing;
+    return store.propose(id, value, provenance, options);
+  };
   if (extraction) {
     for (const f of extraction.proposedFacts) {
-      store.propose(f.id, f.value, 'model_extraction', { note: `confidence=${f.confidence}; evidence=${f.evidenceExcerpt}` });
+      if (allowed.has(f.id)) propose(f.id, f.value, 'model_extraction', { note: `confidence=${f.confidence}; evidence=${f.evidenceExcerpt}` });
     }
     if (extraction.meaning) {
       const built = buildMeaningFacts(extraction.meaning);
-      for (const f of built.facts) store.propose(f.id, f.value, f.provenance, f.note ? { note: f.note } : {});
+      for (const f of built.facts) if (allowed.has(f.id)) propose(f.id, f.value, f.provenance, f.note ? { note: f.note } : {});
     }
   }
   for (const [id, value] of Object.entries(opts.confirmed ?? {})) {
+    if (!allowed.has(id)) continue;
     if (value === null) store.markUnknown(id);
-    else store.confirmByUser(id, value);
+    else if (typeof value === 'boolean') store.confirmByUser(id, value);
   }
   return store;
 }

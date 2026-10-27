@@ -21,13 +21,13 @@
  },
  "audience.can_help_victim": {
   "action": "new",
-  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
-  "target": "audience.can_help_or_influence"
+  "reason": "עובדה נפרדת לפי מקור כלל י׳; אין להסיק ממנה פסק או עובדה אחרת",
+  "target": "audience.can_help_victim"
  },
  "audience.can_influence_subject": {
   "action": "new",
-  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
-  "target": "audience.can_help_or_influence"
+  "reason": "עובדה נפרדת לפי מקור כלל י׳; אין להסיק ממנה פסק או עובדה אחרת",
+  "target": "audience.can_influence_subject"
  },
  "audience.includes_detractors": {
   "action": "reject",
@@ -139,8 +139,8 @@
  },
  "context.asked_to_identify_sinner": {
   "action": "new",
-  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
-  "target": "context.inquiry_has_future_purpose"
+  "reason": "עובדה נפרדת לפי מקור כלל י׳; אין להסיק ממנה פסק או עובדה אחרת",
+  "target": "context.asked_to_identify_sinner"
  },
  "context.buyer_is_naive_tam": {
   "action": "reject",
@@ -661,8 +661,9 @@
   "target": "subject.repeated_intentional_sin"
  },
  "matter.known_to_victim": {
-  "action": "reject",
-  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+  "action": "new",
+  "reason": "עובדה נפרדת לפי מקור כלל י׳; אין להסיק ממנה פסק או עובדה אחרת",
+  "target": "matter.known_to_victim"
  },
  "matter.no_active_harm_done": {
   "action": "reject",
@@ -1167,9 +1168,9 @@
   "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
  },
  "speaker.checked_halachic_classification": {
-  "action": "merge",
-  "reason": "מיזוג לפי משמעות",
-  "target": "toelet.facts_verified"
+  "action": "new",
+  "reason": "עובדה נפרדת לפי מקור כלל י׳; אין להסיק ממנה פסק או עובדה אחרת",
+  "target": "speaker.checked_halachic_classification"
  },
  "speaker.enjoys_spread_of_disparagement": {
   "action": "new",
@@ -1284,8 +1285,9 @@
   "target": "audience.is_close_to_speaker_or_subject"
  },
  "speaker.is_sinner_like_subject": {
-  "action": "reject",
-  "reason": "כוונה/הערכה פנימית או הכרעה הלכתית פרטנית שאין דרך אמינה לברר בצ'אט"
+  "action": "new",
+  "reason": "עובדה נפרדת לפי מקור כלל י׳; אין להסיק ממנה פסק או עובדה אחרת",
+  "target": "speaker.is_sinner_like_subject"
  },
  "speaker.is_telling_personal_grievance": {
   "action": "reject",
@@ -1590,9 +1592,9 @@
   "target": "audience.can_help_or_influence"
  },
  "toelet.future_benefit_expected": {
-  "action": "merge",
-  "reason": "מיזוג לפי משמעות",
-  "target": "toelet.purpose_is_constructive"
+  "action": "new",
+  "reason": "עובדה נפרדת לפי מקור כלל י׳; אין להסיק ממנה פסק או עובדה אחרת",
+  "target": "toelet.future_benefit_expected"
  },
  "toelet.harm_is_only_withholding_benefit": {
   "action": "merge",
@@ -1638,8 +1640,9 @@
   "target": "toelet.purpose_is_constructive"
  },
  "toelet.subject_has_not_repent": {
-  "action": "new",
-  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "action": "merge",
+  "negate": true,
+  "reason": "קוטביות הפוכה; הופכים רק ערך בוליאני ידוע, unknown/disputed נשארים לא ידועים",
   "target": "subject.has_repented_or_reformed"
  },
  "toelet.victim_will_act_for_remedy": {

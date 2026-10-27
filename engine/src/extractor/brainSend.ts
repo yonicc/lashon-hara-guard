@@ -1,4 +1,5 @@
 import type { ExtractorProvider, ExtractorRequest, ExtractorContextPacket } from './types.js';
+import { FACT_BY_ID } from '../lessonScenario.js';
 
 /**
  * Brain-backed extractor provider.
@@ -101,7 +102,12 @@ export const EXTRACTION_SYSTEM_INSTRUCTION = [
   'speaker.motive_is_revenge_or_hatred = revenge/grudge stated (true) or denied (false);',
   'speaker.knows_first_hand = saw/experienced it (true) or heard/read it (false); toelet.facts_verified = checked/confirmed (true) or says not checked (false);',
   'toelet.rebuke_attempted = already spoke to the person (true) or says not (false); toelet.knows_subject_will_not_accept_rebuke = says the person will not accept a remark (true) or will listen (false);',
-  'toelet.no_other_way = says there is no other way (true) or that another way exists (false); toelet.no_excess_harm = says the consequence would exceed what is due (false);',
+  'toelet.no_other_way = says there is no other way (true) or that another way exists (false).',
+  'Never establish legal or halachic status from allegations, confidence, or a statement that something is theft, damage, deserved or permitted.',
+  'Facts requiring user confirmation are excluded from the provided catalog; never propose them.',
+  'For additional catalog facts, use the canonical question as the definition. Propose true or false only when directly stated with a verbatim evidence span.',
+  'A constructive intention differs from expected practical benefit. Ability to help the victim differs from ability to influence the subject.',
+  'Missing information, uncertainty and disputed reports must be omitted; never turn them into false.',
   'audience.size_at_least_three = 3+ recipients (true), "only to you"/one person (false); audience.includes_subject, speaker.would_say_in_subjects_presence,',
   'audience.can_help_or_influence, audience.listener_will_spread: only when stated. audience.includes_authorities_or_non_fellow = police, court,',
   'government, press or outsiders only (a manager, committee or rabbi is not). A declared benefit never implies any other fact.',
@@ -259,7 +265,8 @@ function renderContextEvent(event: unknown): string {
 
 /** The user turn: catalog, cues, always platform+direction, optional allowlisted context, and the message. */
 export function buildUserContent(req: ExtractorRequest): string {
-  const catalog = req.catalogFactIds.map((id) => `- ${id}`).join('\n');
+  const catalog = req.catalogFactIds.filter((id) => !FACT_BY_ID.get(id)?.confirmedByUserOnly)
+    .map((id) => `- ${id}${FACT_BY_ID.get(id) ? `: ${FACT_BY_ID.get(id)!.questionHe}` : ''}`).join('\n');
   const parts = [
     `Fact catalog ids:\n${catalog}`,
     '',
