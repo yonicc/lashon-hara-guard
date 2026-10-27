@@ -93,6 +93,23 @@
   "action": "reject",
   "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
  },
+ "audience.is_speakers_child_or_student": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin4:10"
+  ],
+  "target": "audience.is_speakers_child_or_student"
+ },
+ "audience.is_speakers_trusted_rabbi": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin4:5",
+   "p1_prin4:6"
+  ],
+  "target": "audience.is_speakers_trusted_rabbi"
+ },
  "audience.is_spouse_or_close_relative": {
   "action": "new",
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
@@ -103,6 +120,14 @@
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
   "target": "audience.is_close_to_speaker_or_subject"
  },
+ "audience.is_subjects_relative": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin8:11"
+  ],
+  "target": "audience.is_subjects_relative"
+ },
  "audience.knows_subject": {
   "action": "reject",
   "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
@@ -112,9 +137,25 @@
   "reason": "מיזוג לפי משמעות",
   "target": "audience.size_at_least_three"
  },
+ "audience.original_listener_withholds_report": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin2:5"
+  ],
+  "target": "audience.original_listener_withholds_report"
+ },
  "audience.perceived_standing_of_subject": {
   "action": "reject",
   "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "audience.previously_regarded_subject_as_torah_scholar": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin5:4"
+  ],
+  "target": "audience.previously_regarded_subject_as_torah_scholar"
  },
  "audience.subject_was_silent": {
   "action": "merge",
@@ -150,26 +191,82 @@
   "reason": "מיזוג לפי משמעות",
   "target": "message.content_may_cause_harm"
  },
+ "context.all_listeners_rejected_without_disparagement": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin4:12"
+  ],
+  "target": "context.all_listeners_rejected_without_disparagement"
+ },
  "context.asked_to_identify_sinner": {
   "action": "new",
   "reason": "עובדה נפרדת לפי מקור כלל י׳; אין להסיק ממנה פסק או עובדה אחרת",
   "target": "context.asked_to_identify_sinner"
  },
+ "context.asked_to_report_others_words": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p2_prin1:8"
+  ],
+  "target": "context.asked_to_report_others_words"
+ },
  "context.buyer_is_naive_tam": {
   "action": "reject",
   "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "context.court_order_to_act_reported": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin4:8"
+  ],
+  "target": "context.court_order_to_act_reported"
  },
  "context.deception_type": {
   "action": "reject",
   "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
  },
+ "context.discloses_committee_dissent_to_shift_blame": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin2:11"
+  ],
+  "target": "context.discloses_committee_dissent_to_shift_blame"
+ },
+ "context.disclosure_to_prevent_current_prohibition": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin4:4"
+  ],
+  "target": "context.disclosure_to_prevent_current_prohibition"
+ },
  "context.disclosure_would_shame_sinner": {
   "action": "reject",
   "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
  },
+ "context.educational_purpose_explained_to_listener": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin4:10"
+  ],
+  "target": "context.educational_purpose_explained_to_listener"
+ },
  "context.frequent_communication_between_cities": {
   "action": "reject",
   "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "context.inquiry_includes_unrelated_people": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin4:11"
+  ],
+  "target": "context.inquiry_includes_unrelated_people"
  },
  "context.inquiry_purpose_disclosed_to_source": {
   "action": "new",
@@ -197,6 +294,14 @@
   "reason": "מיזוג לפי משמעות",
   "target": "audience.size_at_least_three"
  },
+ "context.original_report_had_only_two_listeners": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin2:8"
+  ],
+  "target": "context.original_report_had_only_two_listeners"
+ },
  "context.original_warning_given": {
   "action": "new",
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
@@ -215,6 +320,61 @@
   "action": "reject",
   "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
  },
+ "context.refusal_excuse_unresolved": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin4:8"
+  ],
+  "target": "context.refusal_excuse_unresolved"
+ },
+ "context.regularly_sits_with_gossiping_group": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin9:4"
+  ],
+  "target": "context.regularly_sits_with_gossiping_group"
+ },
+ "context.repeats_prior_report": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin2:3",
+   "p1_prin2:4",
+   "p1_prin2:5",
+   "p1_prin2:6",
+   "p1_prin2:8",
+   "p1_prin2:9",
+   "p1_prin2:10"
+  ],
+  "target": "context.repeats_prior_report"
+ },
+ "context.report_crosses_locality": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin2:6"
+  ],
+  "target": "context.report_crosses_locality"
+ },
+ "context.reports_historical_committee_minority": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin2:11"
+  ],
+  "target": "context.reports_historical_committee_minority"
+ },
+ "context.reviewing_already_sent_report": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin3:6",
+   "p1_prin4:12"
+  ],
+  "target": "context.reviewing_already_sent_report"
+ },
  "context.same_city_as_hearing": {
   "action": "reject",
   "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
@@ -223,10 +383,26 @@
   "action": "reject",
   "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
  },
+ "context.subject_disclosed_own_business_before_three": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin2:13"
+  ],
+  "target": "context.subject_disclosed_own_business_before_three"
+ },
  "context.subject_listener_joint_interest": {
   "action": "new",
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
   "target": "audience.is_close_to_speaker_or_subject"
+ },
+ "context.two_speakers_jointly_report": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin5:8"
+  ],
+  "target": "context.two_speakers_jointly_report"
  },
  "context.urgent_temporal_need": {
   "action": "reject",
@@ -316,6 +492,14 @@
   ],
   "target": "evidence.signs_directly_relate_to_report"
  },
+ "evidence.signs_of_specific_planned_harm": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p2_prin5:3"
+  ],
+  "target": "evidence.signs_of_specific_planned_harm"
+ },
  "evidence.testified_in_court_or_clarified": {
   "action": "new",
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
@@ -369,6 +553,22 @@
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
   "target": "listener.already_knew"
  },
+ "listener.attempts_to_calm_complainant": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin6:4"
+  ],
+  "target": "listener.attempts_to_calm_complainant"
+ },
+ "listener.attributes_business_loss_without_verified_cause": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p2_prin6:3"
+  ],
+  "target": "listener.attributes_business_loss_without_verified_cause"
+ },
  "listener.can_calm_speaker": {
   "action": "new",
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
@@ -392,6 +592,14 @@
  "listener.expected_reaction_protective_vs_retaliatory": {
   "action": "reject",
   "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "listener.expected_to_accept_report_as_fact": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin2:10"
+  ],
+  "target": "listener.expected_to_accept_report_as_fact"
  },
  "listener.future_business_or_match_with_subject": {
   "action": "new",
@@ -440,6 +648,14 @@
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
   "target": "audience.can_help_or_influence"
  },
+ "listener.is_parent_of_minor_speaker": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin9:5"
+  ],
+  "target": "listener.is_parent_of_minor_speaker"
+ },
  "listener.is_parent_of_victim": {
   "action": "new",
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
@@ -463,6 +679,14 @@
   "action": "new",
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
   "target": "audience.is_close_to_speaker_or_subject"
+ },
+ "listener.joined_after_disparagement_began": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin6:6"
+  ],
+  "target": "listener.joined_after_disparagement_began"
  },
  "listener.joined_after_prohibited_speech_began": {
   "action": "new",
@@ -521,6 +745,14 @@
   ],
   "target": "listener.personally_observed_signs"
  },
+ "listener.plans_retaliatory_report": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p2_prin6:10"
+  ],
+  "target": "listener.plans_retaliatory_report"
+ },
  "listener.plans_to_relay_report": {
   "action": "new",
   "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד; אינה נלמדת מעובדות כלליות ואינה היתר. ראו docs/24.",
@@ -531,10 +763,26 @@
   ],
   "target": "listener.plans_to_relay_report"
  },
+ "listener.plans_to_withhold_required_help_due_to_report": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin6:10"
+  ],
+  "target": "listener.plans_to_withhold_required_help_due_to_report"
+ },
  "listener.pressured_speaker_to_tell": {
   "action": "new",
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
   "target": "speaker.was_pressured_to_tell"
+ },
+ "listener.pressures_source_for_gossip": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p2_prin5:5"
+  ],
+  "target": "listener.pressures_source_for_gossip"
  },
  "listener.realized_injustice_beforehand": {
   "action": "new",
@@ -557,6 +805,14 @@
  "listener.rebuke_would_help": {
   "action": "reject",
   "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "listener.relies_on_special_personal_trust": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin7:7"
+  ],
+  "target": "listener.relies_on_special_personal_trust"
  },
  "listener.removed_belief_from_heart": {
   "action": "new",
@@ -667,6 +923,14 @@
   "action": "reject",
   "reason": "פרט הלכתי/משפטי ספציפי (בית דין/קניינים/שיעורי אונאה) שאינו נחוץ בצ'אט"
  },
+ "matter.circumstances_favor_adverse_reading": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin3:7"
+  ],
+  "target": "matter.circumstances_favor_adverse_reading"
+ },
  "matter.excuse_is_known_false": {
   "action": "reject",
   "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
@@ -688,6 +952,14 @@
   "action": "new",
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
   "target": "evidence.multiple_firsthand_witnesses"
+ },
+ "matter.interpretations_are_balanced": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin3:7"
+  ],
+  "target": "matter.interpretations_are_balanced"
  },
  "matter.is_bein_adam_lamakom": {
   "action": "new",
@@ -763,6 +1035,15 @@
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
   "target": "matter.involves_money_dispute"
  },
+ "matter.single_private_lapse": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin4:4",
+   "p1_prin4:6"
+  ],
+  "target": "matter.single_private_lapse"
+ },
  "matter.subject_refuses_without_excuse": {
   "action": "reject",
   "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
@@ -781,6 +1062,14 @@
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
   "target": "message.about_character_traits"
  },
+ "message.about_financial_means_or_debt": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin5:5"
+  ],
+  "target": "message.about_financial_means_or_debt"
+ },
  "message.about_financial_status": {
   "action": "new",
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
@@ -788,13 +1077,40 @@
  },
  "message.about_physical_weakness": {
   "action": "new",
-  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
-  "target": "message.denies_virtue_or_status"
+  "reason": "חולשה גופנית ביחס לעיסוק נפרדת משלילת מעלות; א ה:ה. הכרעת האיחוד הישנה הוחלפה. docs/25",
+  "sourceRefs": [
+   "p1_prin5:5"
+  ],
+  "target": "message.about_physical_weakness"
  },
  "message.already_revealed_by_other": {
   "action": "new",
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
   "target": "listener.already_knew"
+ },
+ "message.amplifies_prior_disparagement": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin2:9"
+  ],
+  "target": "message.amplifies_prior_disparagement"
+ },
+ "message.attacks_court_based_on_one_party": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin6:8"
+  ],
+  "target": "message.attacks_court_based_on_one_party"
+ },
+ "message.attributes_exclusively_self_serving_motive": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin2:12"
+  ],
+  "target": "message.attributes_exclusively_self_serving_motive"
  },
  "message.aveira_type": {
   "action": "reject",
@@ -849,9 +1165,25 @@
   "action": "reject",
   "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
  },
+ "message.confidentiality_warning_is_general": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin2:8"
+  ],
+  "target": "message.confidentiality_warning_is_general"
+ },
  "message.confirms_prior_rechilus": {
   "action": "reject",
   "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "message.confirms_prior_report_from_second_source": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p2_prin4:2"
+  ],
+  "target": "message.confirms_prior_report_from_second_source"
  },
  "message.contains_endorsement_that_rumor_fits_subject": {
   "action": "reject",
@@ -866,6 +1198,14 @@
   "action": "merge",
   "reason": "מיזוג לפי משמעות",
   "target": "message.is_hint_or_implied"
+ },
+ "message.critiques_torah_lecture": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin2:12"
+  ],
+  "target": "message.critiques_torah_lecture"
  },
  "message.delivery_conveys_disparaging_interpretation": {
   "action": "new",
@@ -920,6 +1260,16 @@
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
   "target": "message.has_favorable_interpretation"
  },
+ "message.has_benign_and_disparaging_readings": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin1:5",
+   "p1_prin2:2",
+   "p1_prin3:2"
+  ],
+  "target": "message.has_benign_and_disparaging_readings"
+ },
  "message.has_favorable_interpretation": {
   "action": "new",
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
@@ -943,6 +1293,14 @@
    "p2_prin2:2"
   ],
   "target": "message.has_two_interpretations"
+ },
+ "message.identifies_actor_by_hint": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p2_prin1:9"
+  ],
+  "target": "message.identifies_actor_by_hint"
  },
  "message.identifies_informant_to_original_speaker": {
   "action": "new",
@@ -1051,6 +1409,14 @@
   "reason": "מיזוג לפי משמעות",
   "target": "speaker.knows_first_hand"
  },
+ "message.is_unverified_rumor": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin7:4"
+  ],
+  "target": "message.is_unverified_rumor"
+ },
  "message.is_vague_negative_allusion": {
   "action": "merge",
   "reason": "מיזוג לפי משמעות",
@@ -1073,6 +1439,22 @@
  "message.motive_is_heavenly_not_hatred": {
   "action": "reject",
   "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "message.names_later_buyer_to_shift_blame": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p2_prin9:15"
+  ],
+  "target": "message.names_later_buyer_to_shift_blame"
+ },
+ "message.names_previous_favor_recipient_after_refusal": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p2_prin8:3"
+  ],
+  "target": "message.names_previous_favor_recipient_after_refusal"
  },
  "message.omits_mitigating_detail": {
   "action": "merge",
@@ -1107,6 +1489,22 @@
   "action": "reject",
   "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
  },
+ "message.relay_likely_causes_minor_resentment": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p2_prin8:4"
+  ],
+  "target": "message.relay_likely_causes_minor_resentment"
+ },
+ "message.reports_abandoned_plan_to_leave_partner": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p2_prin2:4"
+  ],
+  "target": "message.reports_abandoned_plan_to_leave_partner"
+ },
  "message.reports_action_against_third_party": {
   "action": "new",
   "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד; אינה נלמדת מעובדות כלליות ואינה היתר. ראו docs/24.",
@@ -1116,10 +1514,31 @@
   ],
   "target": "message.reports_action_against_third_party"
  },
+ "message.reports_religious_noncompliance": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin4:1",
+   "p1_prin4:2",
+   "p1_prin4:3",
+   "p1_prin4:4",
+   "p1_prin4:5",
+   "p1_prin4:6"
+  ],
+  "target": "message.reports_religious_noncompliance"
+ },
  "message.reports_what_someone_said_about_third_party": {
   "action": "merge",
   "reason": "מיזוג לפי משמעות",
   "target": "message.reports_what_someone_said_or_did_against_listener"
+ },
+ "message.reports_withheld_favor_without_active_harm": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin5:1"
+  ],
+  "target": "message.reports_withheld_favor_without_active_harm"
  },
  "message.reveals_source_of_report": {
   "action": "merge",
@@ -1179,6 +1598,14 @@
   "action": "new",
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
   "target": "message.said_incidentally_without_intent"
+ },
+ "message.uses_delayed_understanding_mockery": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin8:13"
+  ],
+  "target": "message.uses_delayed_understanding_mockery"
  },
  "message.verified_in_beis_din": {
   "action": "merge",
@@ -1279,6 +1706,14 @@
   "reason": "עובדה נפרדת לפי מקור כלל י׳; אין להסיק ממנה פסק או עובדה אחרת",
   "target": "speaker.checked_halachic_classification"
  },
+ "speaker.discloses_so_listener_rebukes_informant": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p2_prin3:4"
+  ],
+  "target": "speaker.discloses_so_listener_rebukes_informant"
+ },
  "speaker.enjoys_spread_of_disparagement": {
   "action": "new",
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
@@ -1308,6 +1743,14 @@
   "action": "reject",
   "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
  },
+ "speaker.explains_conduct_to_reduce_listener_hatred": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin5:3"
+  ],
+  "target": "speaker.explains_conduct_to_reduce_listener_hatred"
+ },
  "speaker.fear_of_insults_if_refrains": {
   "action": "new",
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
@@ -1323,6 +1766,14 @@
   "reason": "p1_prin1:7,p2_prin1:7 — הבחנת מקור ממוקדת שאינה נלמדת מלחץ כללי או מקשר משפחתי; אישור משתמש בלבד, תזכורת ולא היתר",
   "target": "speaker.fears_ridicule_for_refusing_disclosure"
  },
+ "speaker.feigns_innocence_while_disparaging": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin3:5"
+  ],
+  "target": "speaker.feigns_innocence_while_disparaging"
+ },
  "speaker.has_deliberated_how_to_fix": {
   "action": "reject",
   "reason": "כוונה/הערכה פנימית או הכרעה הלכתית פרטנית שאין דרך אמינה לברר בצ'אט"
@@ -1332,10 +1783,34 @@
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
   "target": "speaker.was_pressured_to_tell"
  },
+ "speaker.heard_original_report_before_three": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin2:4",
+   "p1_prin2:10"
+  ],
+  "target": "speaker.heard_original_report_before_three"
+ },
  "speaker.heard_via_intermediary_claiming_afei_tlasa": {
-  "action": "merge",
-  "reason": "מיזוג לפי משמעות",
-  "target": "speaker.knows_first_hand"
+  "action": "reject",
+  "reason": "א ב:ד — שמיעה ממוסר הטוען לפרסום בשלושה אינה ידיעה ממקור ראשון של המעשה ולא נוכחות באמירה המקורית. מבררים speaker.heard_original_report_before_three בנפרד, בלי המרה אוטומטית. docs/25"
+ },
+ "speaker.intends_indirect_harm_by_neutral_report": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin3:4"
+  ],
+  "target": "speaker.intends_indirect_harm_by_neutral_report"
+ },
+ "speaker.intends_to_spread_report": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin2:3"
+  ],
+  "target": "speaker.intends_to_spread_report"
  },
  "speaker.intent_is_revenge_or_grudge": {
   "action": "new",
@@ -1458,6 +1933,14 @@
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
   "target": "evidence.has_recognizable_signs"
  },
+ "speaker.personally_concludes_wrongdoing": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin3:8"
+  ],
+  "target": "speaker.personally_concludes_wrongdoing"
+ },
  "speaker.planned_phrasing_beforehand": {
   "action": "reject",
   "reason": "כוונה/הערכה פנימית או הכרעה הלכתית פרטנית שאין דרך אמינה לברר בצ'אט"
@@ -1495,6 +1978,23 @@
   "action": "reject",
   "reason": "כוונה/הערכה פנימית או הכרעה הלכתית פרטנית שאין דרך אמינה לברר בצ'אט"
  },
+ "speaker.reopens_old_conflict_by_apparent_innocence": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p2_prin1:10"
+  ],
+  "target": "speaker.reopens_old_conflict_by_apparent_innocence"
+ },
+ "speaker.reports_habitual_disparaging_speech": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin1:3",
+   "p1_prin1:4"
+  ],
+  "target": "speaker.reports_habitual_disparaging_speech"
+ },
  "speaker.requested_by_parent_or_teacher": {
   "action": "new",
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
@@ -1514,6 +2014,14 @@
   "action": "new",
   "reason": "p1_prin1:6,p2_prin1:6 — הבחנת מקור ממוקדת שאינה נלמדת מלחץ כללי או מקשר משפחתי; אישור משתמש בלבד, תזכורת ולא היתר",
   "target": "speaker.risks_livelihood_for_refusing_disclosure"
+ },
+ "speaker.seeks_to_end_dispute_by_disclosure": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin8:8"
+  ],
+  "target": "speaker.seeks_to_end_dispute_by_disclosure"
  },
  "speaker.trusted_as_two_witnesses": {
   "action": "new",
@@ -1567,6 +2075,16 @@
   "reason": "מיזוג לפי משמעות",
   "target": "audience.includes_subject"
  },
+ "subject.generally_observant_with_occasional_lapses": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin3:7",
+   "p1_prin4:3",
+   "p1_prin4:4"
+  ],
+  "target": "subject.generally_observant_with_occasional_lapses"
+ },
  "subject.habit_not_to_remain_silent": {
   "action": "reject",
   "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
@@ -1595,8 +2113,12 @@
   "target": "subject.is_public_torah_figure"
  },
  "subject.is_deceased": {
-  "action": "reject",
-  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+  "action": "new",
+  "reason": "הכרעת דחייה ישנה הוחלפה: פטירה ניתנת לאישור משתמש לצורך תזכורת כבוד נפטר בלבד; אין הטלת נידוי או היתר. docs/25",
+  "sourceRefs": [
+   "p1_prin8:9"
+  ],
+  "target": "subject.is_deceased"
  },
  "subject.is_established_rasha": {
   "action": "new",
@@ -1626,6 +2148,14 @@
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
   "target": "subject.is_established_wicked"
  },
+ "subject.is_spouse_or_in_laws": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin8:2"
+  ],
+  "target": "subject.is_spouse_or_in_laws"
+ },
  "subject.is_talmid_chacham": {
   "action": "new",
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
@@ -1640,6 +2170,14 @@
   "action": "reject",
   "reason": "פרט הלכתי/משפטי ספציפי (בית דין/קניינים/שיעורי אונאה) שאינו נחוץ בצ'אט"
  },
+ "subject.known_as_god_fearing": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin3:7"
+  ],
+  "target": "subject.known_as_god_fearing"
+ },
  "subject.known_to_speaker_as_apikores": {
   "action": "new",
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
@@ -1652,6 +2190,15 @@
  "subject.livelihood_depends_on_strength_or_credit": {
   "action": "reject",
   "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "subject.may_not_know_prohibition_or_severity": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin4:3",
+   "p1_prin4:9"
+  ],
+  "target": "subject.may_not_know_prohibition_or_severity"
  },
  "subject.now_behaves_properly": {
   "action": "new",
@@ -1790,6 +2337,14 @@
  "toelet.requested_by_victim": {
   "action": "reject",
   "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "toelet.risk_of_learning_bad_conduct": {
+  "action": "new",
+  "reason": "הבחנת מקור ממוקדת באישור משתמש בלבד, תזכורת ולא היתר; docs/25",
+  "sourceRefs": [
+   "p1_prin4:10"
+  ],
+  "target": "toelet.risk_of_learning_bad_conduct"
  },
  "toelet.saving_from_shame": {
   "action": "merge",

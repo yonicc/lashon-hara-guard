@@ -16,6 +16,9 @@ coverage.snapshot={...coverage.snapshot,
 for(const s of coverage.sections) {
  const rules=CC_ALL_DRAFT_PACK.rules.filter(r=>r.source?.url===s.url);
  s.status=rules.length?'partial_semantic':'documentary';
+ s.disposition=rules.length?'partial':'blocked';
+ if(!rules.length && (!s.blocker || !['expert_ruling','external_evidence','not_representable'].includes(s.blocker.category) || s.blocker.sourceUrl!==s.url || !s.blocker.reasonHe)) throw new Error('missing sourced blocker: '+s.key);
+ if(rules.length && s.blocker)throw new Error('partial section cannot be counted blocked: '+s.key);
  s.ruleIds=rules.map(r=>r.id);
  s.runtimeBindings=rules.map(r=>({id:r.id,source:r.source,titleHe:r.titleHe,
  applicability:r.applicability,conditions:r.conditions,requiredFacts:r.requiredFacts??[],
@@ -41,14 +44,15 @@ const at=oldDoc.indexOf(marker);
 if(at<0)throw new Error('coverage table marker missing');
 const lines=oldDoc.slice(0,at).trimEnd().split('\n');
 const partial=coverage.sections.filter((s:any)=>s.status==='partial_semantic').length;
-lines[2]='מיפוי לביקורת; בסיס המקורות וההרחבה: `'+coverage.snapshot.revision+'`: 19 כללים, 177 סעיפים, '+coverage.snapshot.ruleCount+' תזכורות טיוטה, '+coverage.snapshot.vocabularyFactCount+' עובדות מקור ו־'+coverage.snapshot.catalogCount+' פריטי קטלוג. '+partial+' סעיפים מסומנים `partial_semantic` ו־'+(177-partial)+' `documentary`. אין סעיף שמסומן כמימוש הלכתי מלא, ואין פסק או היתר.';
+const blocked=Object.fromEntries(['expert_ruling','external_evidence','not_representable'].map(category=>[category,coverage.sections.filter((s:any)=>s.disposition==='blocked'&&s.blocker.category===category).length]));
+lines[2]='מיפוי לביקורת; בסיס המקורות וההרחבה: `'+coverage.snapshot.revision+'`: 19 כללים, 177 סעיפים, '+coverage.snapshot.ruleCount+' תזכורות טיוטה, '+coverage.snapshot.vocabularyFactCount+' עובדות מקור ו־'+coverage.snapshot.catalogCount+' פריטי קטלוג. implemented=0; partial='+partial+'; blocked: '+JSON.stringify(blocked)+'. הסכום 177. documentary נשמר כשדה תאימות בלבד: לכל אחד יש חסם מפורש. אין סעיף שמסומן כמימוש הלכתי מלא, ואין פסק או היתר.';
 const safe=(s:string)=>s.replace(/\|/g,'&#124;').replace(/\r?\n/g,' ');
 const table=[marker+' מימוש ראשי | ענפים סמנטיים | מגבלה שנותרה | ישימות |','|---|---|---|---|---|',
- ...coverage.sections.map((s:any)=>'| ['+s.key+']('+s.url+') | '+(s.ruleIds.length?s.ruleIds.map((id:string)=>'`'+id+'`').join('<br>'):'documentary — ללא כלל ראשי')+' | '+safe(s.semanticBranchesHe)+' | '+safe(s.unimplementedHe)+' | `'+s.chatFeasibility+'` |')].join('\n');
+ ...coverage.sections.map((s:any)=>'| ['+s.key+']('+s.url+') | '+(s.ruleIds.length?s.ruleIds.map((id:string)=>'`'+id+'`').join('<br>'):'blocked: '+s.blocker.category)+' | '+safe(s.semanticBranchesHe)+' | '+safe(s.unimplementedHe)+' | `'+(s.blocker?.category??s.chatFeasibility)+'` |')].join('\n');
 const docText=lines.join('\n')+'\n\n'+table+'\n';
 for(const [file,old,text] of [[mapFile,original,mapText],[docFile,oldDoc,docText]] as const) {
  if(old===text)continue;
  if(process.argv.includes('--check'))throw new Error('coverage drift: '+file.pathname);
  writeFileSync(file,text,'utf8');
 }
-console.log(JSON.stringify({rules:coverage.snapshot.ruleCount,facts:coverage.snapshot.vocabularyFactCount,catalog:coverage.snapshot.catalogCount,partial,documentary:177-partial}));
+console.log(JSON.stringify({rules:coverage.snapshot.ruleCount,facts:coverage.snapshot.vocabularyFactCount,catalog:coverage.snapshot.catalogCount,implemented:0,partial,blocked}));

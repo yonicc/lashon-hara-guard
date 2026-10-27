@@ -1,5 +1,7 @@
 {
   "schemaVersion": 1,
+  "archivalInventory": true,
+  "currentIntegration": "docs/25-final-disposition.md; canonical runtime facts.json and CC_ALL_DRAFT_PACK",
   "status": "partial_draft_expansion_not_full_coverage",
   "baseRevision": "e9702c6bd8b19e52eae5acf6df214b647459c11e",
   "scopeHe": "חלק א׳ כללים א׳–ה׳ בלבד. Sefaria / Chofetz Chaim, CC-BY-SA. המקור המדויק גובר על כרטיס טיוטה. אין פסק, היתר, סיווג אדם או אימות הליך.",

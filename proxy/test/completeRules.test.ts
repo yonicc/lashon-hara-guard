@@ -4,6 +4,34 @@ import { handle, type Env } from '../src/handler.js';
 import worker from '../src/index.js';
 import type { ExtractorProvider } from '../../engine/src/index.js';
 const env:Env={LHG_BRAIN_BASE_URL:'https://synthetic.test',LHG_BRAIN_TOKEN:'synthetic',LHG_ACCESS_KEY:'synthetic-key'};
+test('final pack reaches real handler without disparagement or direct-against-listener classification',async()=>{
+ const result=await check({'subject.identifiable':true,'message.content_is_disparaging':false,
+ 'message.may_be_understood_as_disparagement':false,
+ 'message.reports_what_someone_said_or_did_against_listener':false,
+ 'message.confirms_prior_report_from_second_source':true});
+ assert.ok(!result.rules.notChecked);
+ assert.ok(result.rules.findings.some(f=>f.ruleId==='cc-final.p2_prin4-2'));
+ assert.equal(result.alert,'warn');
+ assert.ok(Number(!!result.rules.question)+(result.analysis?.questionsHe?.length??0)<=1);
+});
+test('integrated child chain distinguishes event knowledge from original publication',async()=>{
+ const result=await check({'subject.identifiable':true,'message.content_is_disparaging':true,
+ 'context.repeats_prior_report':true,'speaker.knows_first_hand':true,
+ 'speaker.heard_original_report_before_three':false,'matter.already_known_to_many':false});
+ assert.ok(!result.rules.notChecked);
+ assert.ok(result.rules.findings.some(f=>f.ruleId==='cc-speech-expansion.2-04.transmission-chain'));
+ assert.ok(Number(!!result.rules.question)+(result.analysis?.questionsHe?.length??0)<=1);
+});
+test('new source-specific context remains unknown rather than inferred false or a permit',async()=>{
+ for(const value of [false,null]){
+  const result=await check({'subject.identifiable':true,'message.content_is_disparaging':false,
+  'message.may_be_understood_as_disparagement':false,
+  'message.reports_what_someone_said_or_did_against_listener':false,
+  'message.confirms_prior_report_from_second_source':value});
+  assert.ok(!result.rules.findings.some(f=>f.ruleId==='cc-final.p2_prin4-2'));
+  assert.ok(Number(!!result.rules.question)+(result.analysis?.questionsHe?.length??0)<=1);
+ }
+});
 const provider=():ExtractorProvider=>({id:'synthetic',modelVersion:'synthetic',async extract(){return {
  directAssessment:'no_concern', proposedFacts:[],analysis:{questionsHe:['one?','two?','three?']}};}});
 async function check(confirmedFacts:Record<string,boolean|null>){
