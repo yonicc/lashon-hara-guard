@@ -120,11 +120,14 @@ export const CC_TOELET_DRAFT_PACK: RulePack = {
       requiredFacts: ['toelet.rebuke_attempted'],
       applicability: ABOUT_IDENTIFIABLE_SUBJECT,
       conditions: { eq: ['toelet.rebuke_attempted', false] },
+      // Se'if 7: one who knows the subject will not accept rebuke need not rebuke
+      // first. A true exception only blocks THIS draft note; it never permits.
+      exceptions: [{ eq: ['toelet.knows_subject_will_not_accept_rebuke', true] }],
       outcome: {
         severity: 'medium',
         code: 'CC_TOELET_10_2_COND3_UNMET_DRAFT',
         messageHe:
-          'לפי חפץ חיים כלל י׳ סעיף ב׳ (פרט ג׳) יש לבדוק שקודם הוכיחו את החוטא בלשון רכה; לפי המידע הידוע לא נעשה ניסיון תוכחה, ולכן זו הערת טיוטה לבדיקה ולא פסק (החריג למי שיודע שלא יקבל תוכחה נדון בסעיף ז׳ ואינו בקטלוג עדיין).',
+          'לפי חפץ חיים כלל י׳ סעיף ב׳ (פרט ג׳) יש לבדוק שקודם הוכיחו את החוטא בלשון רכה; לפי המידע הידוע לא נעשה ניסיון תוכחה, ולכן זו הערת טיוטה לבדיקה ולא פסק (החריג למי שיודע שלא יקבל תוכחה נדון בסעיף ז׳).',
       },
     },
     {

@@ -96,7 +96,8 @@ test('CC-05 cards use only vocabulary fact ids and a known kind, and are not emp
 
 test('CC-06 fact-merge-map targets exist in facts.json and vocabulary stays small', () => {
   const map = JSON.parse(readFileSync(join(RULES, 'fact-merge-map.json'), 'utf8')) as Record<string, { action: string; target?: string }>;
-  assert.ok(factIds.size <= 60, `vocabulary too large: ${factIds.size}`);
+  // 60 consolidated + toelet.knows_subject_will_not_accept_rebuke (owner's step 2, 2026-10-27, docs/18).
+  assert.ok(factIds.size <= 61, `vocabulary too large: ${factIds.size}`);
   for (const [pid, d] of Object.entries(map)) {
     if (d.action === 'merge' || d.action === 'new') assert.ok(d.target && factIds.has(d.target), `${pid}: target ${d.target} not in facts.json`);
     else assert.equal(d.action, 'reject', `${pid}: unknown action ${d.action}`);

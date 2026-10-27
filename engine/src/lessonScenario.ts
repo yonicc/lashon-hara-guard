@@ -92,6 +92,14 @@ export const FACT_CATALOG: FactCatalogEntry[] = [
     persistent: false,
   },
   {
+    // Exception of Chafetz Chaim 10:7 to the rebuke-first condition (docs/18).
+    id: 'toelet.knows_subject_will_not_accept_rebuke',
+    questionHe: 'האם ידוע לכותב שהמדובר לא יקבל תוכחה?',
+    priority: 48,
+    sensitivity: 'low',
+    persistent: false,
+  },
+  {
     id: 'toelet.no_other_way',
     questionHe: 'האם אין דרך להשיג את התועלת בלי לספר?',
     priority: 48,

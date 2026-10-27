@@ -30,6 +30,7 @@
   {"id": "toelet.no_other_way", "questionHe": "האם אין דרך להשיג את התועלת בלי לספר?"},
   {"id": "toelet.no_excess_harm", "questionHe": "האם הנזק למדובר לא יעלה על מה שמגיע לו לפי הדין?"},
   {"id": "toelet.rebuke_attempted", "questionHe": "האם קודם ניסו להוכיח את המדובר בעצמו?"},
+  {"id": "toelet.knows_subject_will_not_accept_rebuke", "questionHe": "האם ידוע לכותב שהמדובר לא יקבל תוכחה?"},
   {"id": "listener.role_is_receiving", "questionHe": "האם המשתמש הוא השומע/המקבל של הדברים (הודעה נכנסת)?"},
   {"id": "listener.needs_info_for_protection", "questionHe": "האם השומע צריך את המידע כדי להיזהר או להינצל מנזק?"},
   {"id": "listener.believes_report", "questionHe": "האם השומע מקבל את הדברים כאמת?"},

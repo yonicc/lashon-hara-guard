@@ -1,0 +1,844 @@
+{
+ "summary": {
+  "label": "v1_baseline",
+  "items": 72,
+  "errors": 0,
+  "not_checked": 0,
+  "sentIdCounts": [
+   65
+  ],
+  "tp": 47,
+  "unsupported": 5,
+  "wrong_value": 0,
+  "missed": 25,
+  "precision": 0.904,
+  "recall": 0.653,
+  "latency_ms": {
+   "median": 3512,
+   "p90": 4156,
+   "mean": 3482
+  },
+  "dropped_reasons": {
+   "confirmed_by_user_only": 3
+  }
+ },
+ "per_id": {
+  "speaker.knows_first_hand": {
+   "tp": 9,
+   "fp_unsupported": 0,
+   "wrong_value": 0,
+   "fn": 0
+  },
+  "toelet.facts_verified": {
+   "tp": 3,
+   "fp_unsupported": 0,
+   "wrong_value": 0,
+   "fn": 2
+  },
+  "toelet.purpose_is_constructive": {
+   "tp": 9,
+   "fp_unsupported": 0,
+   "wrong_value": 0,
+   "fn": 8
+  },
+  "toelet.rebuke_attempted": {
+   "tp": 3,
+   "fp_unsupported": 0,
+   "wrong_value": 0,
+   "fn": 2
+  },
+  "message.purpose": {
+   "tp": 4,
+   "fp_unsupported": 4,
+   "wrong_value": 0,
+   "fn": 0
+  },
+  "speaker.intent_to_disparage": {
+   "tp": 1,
+   "fp_unsupported": 0,
+   "wrong_value": 0,
+   "fn": 4
+  },
+  "speaker.motive_is_revenge_or_hatred": {
+   "tp": 3,
+   "fp_unsupported": 0,
+   "wrong_value": 0,
+   "fn": 1
+  },
+  "toelet.no_other_way": {
+   "tp": 2,
+   "fp_unsupported": 0,
+   "wrong_value": 0,
+   "fn": 2
+  },
+  "audience.size_at_least_three": {
+   "tp": 3,
+   "fp_unsupported": 0,
+   "wrong_value": 0,
+   "fn": 2
+  },
+  "toelet.no_excess_harm": {
+   "tp": 1,
+   "fp_unsupported": 0,
+   "wrong_value": 0,
+   "fn": 1
+  },
+  "audience.includes_subject": {
+   "tp": 2,
+   "fp_unsupported": 0,
+   "wrong_value": 0,
+   "fn": 0
+  },
+  "speaker.would_say_in_subjects_presence": {
+   "tp": 2,
+   "fp_unsupported": 0,
+   "wrong_value": 0,
+   "fn": 1
+  },
+  "audience.listener_will_spread": {
+   "tp": 1,
+   "fp_unsupported": 0,
+   "wrong_value": 0,
+   "fn": 0
+  },
+  "audience.can_help_or_influence": {
+   "tp": 2,
+   "fp_unsupported": 0,
+   "wrong_value": 0,
+   "fn": 1
+  },
+  "audience.includes_authorities_or_non_fellow": {
+   "tp": 0,
+   "fp_unsupported": 1,
+   "wrong_value": 0,
+   "fn": 1
+  },
+  "speaker.was_pressured_to_tell": {
+   "tp": 2,
+   "fp_unsupported": 0,
+   "wrong_value": 0,
+   "fn": 0
+  }
+ },
+ "rows": [
+  {
+   "id": "t01",
+   "ms": 4243,
+   "tp": [
+    "speaker.knows_first_hand"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": [
+    "toelet.facts_verified",
+    "toelet.purpose_is_constructive"
+   ]
+  },
+  {
+   "id": "t02",
+   "ms": 3910,
+   "tp": [
+    "speaker.knows_first_hand",
+    "toelet.rebuke_attempted",
+    "toelet.purpose_is_constructive"
+   ],
+   "unsupported": [
+    "message.purpose=update parents committee to replace driver who speeds"
+   ],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "t03",
+   "ms": 3548,
+   "tp": [
+    "speaker.intent_to_disparage"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": [
+    "toelet.purpose_is_constructive"
+   ]
+  },
+  {
+   "id": "t04",
+   "ms": 4523,
+   "tp": [
+    "speaker.motive_is_revenge_or_hatred"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": [
+    "speaker.intent_to_disparage",
+    "toelet.purpose_is_constructive"
+   ]
+  },
+  {
+   "id": "t05",
+   "ms": 3819,
+   "tp": [
+    "toelet.rebuke_attempted"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "t06",
+   "ms": 4413,
+   "tp": [
+    "toelet.purpose_is_constructive"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": [
+    "toelet.facts_verified"
+   ]
+  },
+  {
+   "id": "t07",
+   "ms": 3352,
+   "tp": [
+    "toelet.purpose_is_constructive"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": [
+    "speaker.intent_to_disparage"
+   ]
+  },
+  {
+   "id": "t08",
+   "ms": 4032,
+   "tp": [
+    "toelet.purpose_is_constructive",
+    "toelet.no_other_way"
+   ],
+   "unsupported": [
+    "message.purpose=להזהיר אתכם"
+   ],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "t09",
+   "ms": 2962,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": [
+    "toelet.no_other_way"
+   ]
+  },
+  {
+   "id": "t10",
+   "ms": 2613,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "t11",
+   "ms": 3575,
+   "tp": [
+    "toelet.purpose_is_constructive"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": [
+    "audience.size_at_least_three"
+   ]
+  },
+  {
+   "id": "t12",
+   "ms": 3807,
+   "tp": [
+    "toelet.no_excess_harm"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "t13",
+   "ms": 3469,
+   "tp": [
+    "audience.includes_subject"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": [
+    "speaker.would_say_in_subjects_presence"
+   ]
+  },
+  {
+   "id": "t14",
+   "ms": 3601,
+   "tp": [
+    "audience.includes_subject"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "t15",
+   "ms": 4690,
+   "tp": [
+    "audience.size_at_least_three"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "t16",
+   "ms": 3708,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "t17",
+   "ms": 3338,
+   "tp": [
+    "audience.listener_will_spread"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "t18",
+   "ms": 3613,
+   "tp": [
+    "audience.can_help_or_influence"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": [
+    "toelet.purpose_is_constructive"
+   ]
+  },
+  {
+   "id": "t19",
+   "ms": 4148,
+   "tp": [
+    "speaker.knows_first_hand"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": [
+    "audience.includes_authorities_or_non_fellow"
+   ]
+  },
+  {
+   "id": "t20",
+   "ms": 3728,
+   "tp": [
+    "speaker.was_pressured_to_tell"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "t21",
+   "ms": 3474,
+   "tp": [
+    "speaker.knows_first_hand"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "t22",
+   "ms": 3745,
+   "tp": [
+    "speaker.knows_first_hand"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "t23",
+   "ms": 4168,
+   "tp": [
+    "toelet.purpose_is_constructive",
+    "toelet.facts_verified"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "t24",
+   "ms": 3945,
+   "tp": [
+    "speaker.knows_first_hand",
+    "toelet.facts_verified"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "t25",
+   "ms": 3899,
+   "tp": [
+    "toelet.rebuke_attempted",
+    "toelet.purpose_is_constructive"
+   ],
+   "unsupported": [
+    "audience.includes_authorities_or_non_fellow=True"
+   ],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "t26",
+   "ms": 3512,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": [
+    "toelet.rebuke_attempted"
+   ]
+  },
+  {
+   "id": "t27",
+   "ms": 4156,
+   "tp": [
+    "message.purpose"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": [
+    "speaker.intent_to_disparage",
+    "toelet.purpose_is_constructive"
+   ]
+  },
+  {
+   "id": "t28",
+   "ms": 3666,
+   "tp": [
+    "message.purpose",
+    "toelet.purpose_is_constructive"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": [
+    "speaker.intent_to_disparage"
+   ]
+  },
+  {
+   "id": "t29",
+   "ms": 3184,
+   "tp": [
+    "speaker.motive_is_revenge_or_hatred"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "t30",
+   "ms": 3774,
+   "tp": [
+    "speaker.would_say_in_subjects_presence"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "t31",
+   "ms": 3747,
+   "tp": [
+    "speaker.would_say_in_subjects_presence"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "t32",
+   "ms": 3432,
+   "tp": [
+    "audience.size_at_least_three"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "t33",
+   "ms": 3282,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": [
+    "audience.size_at_least_three"
+   ]
+  },
+  {
+   "id": "t34",
+   "ms": 3521,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "t35",
+   "ms": 3076,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": [
+    "audience.can_help_or_influence"
+   ]
+  },
+  {
+   "id": "t36",
+   "ms": 3302,
+   "tp": [
+    "audience.can_help_or_influence"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "t37",
+   "ms": 3964,
+   "tp": [
+    "audience.size_at_least_three"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "t38",
+   "ms": 3319,
+   "tp": [
+    "toelet.no_other_way"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": [
+    "toelet.rebuke_attempted"
+   ]
+  },
+  {
+   "id": "t39",
+   "ms": 3366,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": [
+    "toelet.no_other_way"
+   ]
+  },
+  {
+   "id": "t40",
+   "ms": 3516,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "t41",
+   "ms": 5271,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": [
+    "toelet.no_excess_harm"
+   ]
+  },
+  {
+   "id": "t42",
+   "ms": 4334,
+   "tp": [
+    "speaker.knows_first_hand"
+   ],
+   "unsupported": [
+    "message.purpose=warning"
+   ],
+   "wrong": [],
+   "missed": [
+    "toelet.purpose_is_constructive"
+   ]
+  },
+  {
+   "id": "t43",
+   "ms": 3775,
+   "tp": [
+    "speaker.knows_first_hand",
+    "toelet.facts_verified"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "t44",
+   "ms": 2989,
+   "tp": [
+    "speaker.was_pressured_to_tell"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "t45",
+   "ms": 3692,
+   "tp": [
+    "speaker.motive_is_revenge_or_hatred"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "t46",
+   "ms": 3637,
+   "tp": [
+    "toelet.purpose_is_constructive"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": [
+    "speaker.motive_is_revenge_or_hatred"
+   ]
+  },
+  {
+   "id": "t47",
+   "ms": 3933,
+   "tp": [
+    "speaker.knows_first_hand"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": [
+    "toelet.purpose_is_constructive"
+   ]
+  },
+  {
+   "id": "t48",
+   "ms": 2798,
+   "tp": [
+    "message.purpose"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "t49",
+   "ms": 3517,
+   "tp": [
+    "message.purpose"
+   ],
+   "unsupported": [],
+   "wrong": [],
+   "missed": [
+    "toelet.purpose_is_constructive"
+   ]
+  },
+  {
+   "id": "t50",
+   "ms": 2993,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "c01",
+   "ms": 2996,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "c02",
+   "ms": 3111,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "c03",
+   "ms": 2435,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "c04",
+   "ms": 3758,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "c05",
+   "ms": 3477,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "c06",
+   "ms": 2631,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "c07",
+   "ms": 2458,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "c08",
+   "ms": 2438,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "c09",
+   "ms": 2622,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "c10",
+   "ms": 2245,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "c11",
+   "ms": 3275,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "c12",
+   "ms": 2463,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "d01",
+   "ms": 3367,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "d02",
+   "ms": 3487,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "d03",
+   "ms": 2961,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "d04",
+   "ms": 3603,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "d05",
+   "ms": 2969,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "d06",
+   "ms": 3274,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "d07",
+   "ms": 3206,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "d08",
+   "ms": 3476,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "b01",
+   "ms": 3477,
+   "tp": [],
+   "unsupported": [],
+   "wrong": [],
+   "missed": []
+  },
+  {
+   "id": "b02",
+   "ms": 2893,
+   "tp": [],
+   "unsupported": [
+    "message.purpose=לתועלת בלבד"
+   ],
+   "wrong": [],
+   "missed": []
+  }
+ ]
+}

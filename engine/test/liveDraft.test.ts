@@ -78,3 +78,14 @@ test('LIVE-05 a declared benefit alone produces no finding and no "clean" status
   assert.equal(r.status, 'needs_clarification');
   assert.equal(r.questions.length, 1);
 });
+
+test('LIVE-06 10:7 exception: knowing rebuke will not be accepted blocks only the rebuke note', () => {
+  const s = rebukeMissingStore();
+  s.propose('toelet.knows_subject_will_not_accept_rebuke', true, 'model_extraction');
+  const r = evaluate(input(s, 'live_draft'));
+  assert.ok(!r.findings.some((f) => f.ruleId === 'cc-toelet.10-02c.rebuke-first'));
+  assert.notEqual(r.status, 'evaluated', 'an exception is not a permit: other conditions stay open');
+  // unknown exception => the note still fires (unknown never acts as true)
+  const r2 = evaluate(input(rebukeMissingStore(), 'live_draft'));
+  assert.ok(r2.findings.some((f) => f.ruleId === 'cc-toelet.10-02c.rebuke-first'));
+});

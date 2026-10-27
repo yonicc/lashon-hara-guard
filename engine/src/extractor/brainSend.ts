@@ -93,6 +93,18 @@ export const EXTRACTION_SYSTEM_INSTRUCTION = [
   '"evidenceExcerpt":string,"identifiable":boolean,"extractorConfidence":0..1},',
   '"directAssessment":"concern"|"no_concern"|"unsure"}',
   'Use only fact ids from the provided catalog list. Omit anything uncertain.',
+  // --- rule facts (CC_TOELET_DRAFT_PACK, docs/18 step 2): stated => propose, never guess ---
+  'Rule facts: when the message ITSELF states one, propose it with value true OR false and quote the stating words',
+  'as evidenceExcerpt; a stated "no" is false, not omitted. Never infer them from tone alone:',
+  'toelet.purpose_is_constructive = writer says the aim is to warn/protect/fix/help (true) or to vent/mock/amuse/shame (false);',
+  'speaker.intent_to_disparage = writer says or shows wanting to shame/mock the person (true) or says it is not to hurt (false);',
+  'speaker.motive_is_revenge_or_hatred = revenge/grudge stated (true) or denied (false);',
+  'speaker.knows_first_hand = saw/experienced it (true) or heard/read it (false); toelet.facts_verified = checked/confirmed (true) or says not checked (false);',
+  'toelet.rebuke_attempted = already spoke to the person (true) or says not (false); toelet.knows_subject_will_not_accept_rebuke = says the person will not accept a remark (true) or will listen (false);',
+  'toelet.no_other_way = says there is no other way (true) or that another way exists (false); toelet.no_excess_harm = says the consequence would exceed what is due (false);',
+  'audience.size_at_least_three = 3+ recipients (true), "only to you"/one person (false); audience.includes_subject, speaker.would_say_in_subjects_presence,',
+  'audience.can_help_or_influence, audience.listener_will_spread: only when stated. audience.includes_authorities_or_non_fellow = police, court,',
+  'government, press or outsiders only (a manager, committee or rabbi is not). A declared benefit never implies any other fact.',
   // --- analysis: an explanation for the user, never a ruling ---
   'Also add "analysis" (an explanation shown to the writer, NOT a ruling):',
   '{"speakerRef":ref,"subjectRef":ref,"subjectMention":string,"subjectDescriptionHe":string,',

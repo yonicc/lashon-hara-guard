@@ -36,6 +36,7 @@
   centrally. Failed settlement returns 503 and leaves a hold for admin recovery.
 - Brain machine API base is `https://br.ysho.uk/dash` (without `/dash`: 401). Model call: `agent_kind=meta_api`, `muse-spark-1.3`, `reasoning_effort=minimal` (docs/10 §0).
 - Proxy = Cloudflare Worker `lhg-proxy` (`proxy/`), deployed from BI-1 with `npx wrangler deploy` (wrangler logged in as yonicc). The extension's alert level is defined only in `proxy/src/handler.ts` `alertFor`.
+- Measuring extraction (`proposedFacts` are not in the /check response): run a temporary eval worker with `wrangler dev --remote -c <toml OUTSIDE the repo, name = "lhg-proxy">` — it gets the Worker's secrets; never `wrangler deploy` it. Harness and results: docs/20, `classifier/eval_facts.py`. Cloudflare answers a Python default User-Agent with 403/1010: always send `user-agent`.
 - Worker secrets: use `npx wrangler secret bulk <json outside repo>`. Piping a value into `npx wrangler secret put` in PowerShell 5.1 reports Success but stores a wrong value (every call then 401).
 
 ## Gate classifier on Modal (verified 2026-10-26, docs/12)

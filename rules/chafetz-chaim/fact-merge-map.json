@@ -1605,9 +1605,9 @@
   "target": "audience.can_help_or_influence"
  },
  "toelet.knows_subject_will_not_accept_rebuke": {
-  "action": "merge",
-  "reason": "מיזוג לפי משמעות",
-  "target": "toelet.rebuke_attempted"
+  "action": "new",
+  "reason": "חריג סעיף ז׳ לתנאי התוכחה — אינו זהה לניסיון תוכחה (הוסף 2026-10-27 לפי הנחיית הבעלים, docs/18)",
+  "target": "toelet.knows_subject_will_not_accept_rebuke"
  },
  "toelet.listener_will_heed": {
   "action": "new",

@@ -22,6 +22,9 @@
 - כשיש finding, נוסף ל־`limitationsHe`: «לפי כללי טיוטה מספר חפץ חיים — לא נבדקו בידי מומחה; אינו פסק הלכה.»
 - שאלה שהמשתמש כבר ענה עליה (גם «לא יודע») לא נשאלת שוב. לא נרשם ללוג טקסט של הודעות.
 - בדיקות: `engine/test/liveDraft.test.ts` (LIVE-01..05), `proxy/test/rules.test.ts`.
+- צעד 2 (2026-10-27): נוספה `toelet.knows_subject_will_not_accept_rebuke` (facts.json + FACT_CATALOG,
+  61 עובדות; ב־fact-merge-map שונתה מ־merge ל־new) כ־exception של `10-02c` — היא חוסמת רק את הערת
+  התוכחה, אף פעם לא מתירה (LIVE-06). מדידת החילוץ: docs/20.
 
 הסעיפים שלהלן מתארים את מצב החבילה לפני ההחלטה.
 
