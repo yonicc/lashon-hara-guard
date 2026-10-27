@@ -15,7 +15,6 @@
   if (!S || !globalThis.LHG_INCOMING) return;
 
   const onChat = location.hostname === 'chat.google.com';
-  const MAP = onChat ? S.googleChat : S.gmail;
   const PLATFORM = onChat ? 'google-chat' : 'gmail';
   const MIN_CHARS = 6;
   const IS_TOP = window.top === window;
@@ -57,6 +56,36 @@
     });
   }
 
+  // Outgoing check of an e-mail DRAFT (new message, reply, forward) in the
+  // Gmail mailbox frame. Previously the only watcher was the Chat one, and
+  // it explicitly rejects Gmail's compose body, so drafts were never checked
+  // (bug 2026-10-27). E-mails are longer and typed in bursts: a longer pause.
+  // The quoted history and signature under a reply are not the user's text.
+  const GMAIL_DRAFT_PAUSE_MS = 2500;
+  function gmailComposeBox(el) {
+    if (!el || !el.isContentEditable) return null;
+    const box = S.closestMatch(el, S.gmail.compose);
+    if (!box || !S.gmailIsDraftBox(box)) return null;
+    if (chatFrame && chatComposeBox(el)) return null; // a Chat box is the Chat watcher's
+    return box;
+  }
+  function findGmailCompose() {
+    const boxes = S.all(document, S.gmail.compose).map(gmailComposeBox).filter(Boolean);
+    const active = document.activeElement;
+    return boxes.find((b) => active && (b === active || (b.contains && b.contains(active)))) || boxes[0] || null;
+  }
+  const gmailDraftText = (box) => S.textWithout(box, S.gmail.quotedPart);
+  let mailCompose = null;
+  if (onMailHost && IS_TOP && globalThis.LHG_COMPOSE) {
+    mailCompose = globalThis.LHG_COMPOSE.createComposeWatcher({
+      platform: 'gmail',
+      composeBox: gmailComposeBox,
+      findCompose: findGmailCompose,
+      pauseMs: GMAIL_DRAFT_PAUSE_MS,
+      textOf: gmailDraftText,
+    });
+  }
+
   // Chat frames embedded in the Gmail top frame (origin + path only, no query).
   function chatIframes() {
     return Array.from(document.querySelectorAll('iframe')).map((f) => {
@@ -71,11 +100,17 @@
 
   // Gmail: only bodies inside a real opened-message container count. A
   // folder preview row (tr.zA / [role="row"]) is never a message.
+  // The text is the WHOLE body minus quoted history/signature. It used to be
+  // the body's first <div> (messageText ['.a3s', 'div']), which in many
+  // mails is an empty spacer or only the first line, so the row was dropped
+  // as "too short" and opened mail looked undetected (bug 2026-10-27).
+  // Nested matches (.a3s inside .a3s.aiL) keep only the outermost body.
   function gmailRows(root) {
-    return S.all(root, MAP.messageBody)
-      .filter((el) => S.gmailIsMessageBody(el))
+    const bodies = S.all(root, S.gmail.messageBody).filter((el) => S.gmailIsMessageBody(el));
+    return bodies
+      .filter((el) => !bodies.some((o) => o !== el && o.contains && o.contains(el)))
       // kind 'email': opened mail is tagged, never held (hold is for chat).
-      .map((el) => ({ el, text: S.extractText(el, MAP.messageText), kind: 'email' }))
+      .map((el) => ({ el, text: S.textWithout(el, S.gmail.quotedPart), kind: 'email' }))
       .filter((r) => r.text && r.text.length >= MIN_CHARS);
   }
 
@@ -98,10 +133,15 @@
         const directText = Array.from(el.childNodes).some((c) => c.nodeType === 3 && /\S/.test(c.nodeValue || ''));
         if (own.length !== 0 && !directText) continue; // a wrapper, not text
         if (I.isEditable && I.isEditable(el)) continue; // own draft
+        // The user's own bubble is never an incoming row (bug 2026-10-27:
+        // a message just sent reappeared, held, as "incoming"). Tested on the
+        // leaf, before textRunRoot widens it.
+        if (S.isOutgoing(el)) continue;
         const target = I.textRunRoot ? I.textRunRoot(el) : el;
         if (taken.has(target)) continue;
         taken.add(target);
         if (I.isEditable && I.isEditable(target)) continue;
+        if (target !== el && S.isOutgoing(target)) continue;
         const raw = (I.textOf ? I.textOf(target) : (target.innerText || target.textContent || '')).trim();
         const text = S.cleanText(raw);
         // An author + send-time header run (e.g. "יעקב שוהם 59 דקות") is
@@ -175,9 +215,9 @@
         }
         return lines;
       },
-      fallbackText: () => (compose ? compose.readText() : ''),
+      fallbackText: () => (compose && compose.readText()) || (mailCompose && mailCompose.readText()) || '',
       fallbackDirection: 'outgoing',
-      resolveDirection: (node) => (chatComposeBox(node) ? 'outgoing' : 'incoming'),
+      resolveDirection: (node) => ((chatComposeBox(node) || gmailComposeBox(node) || S.isOutgoing(node)) ? 'outgoing' : 'incoming'),
       getDiagnostics: diagnostics,
     });
   }
@@ -204,6 +244,18 @@
       areas: S.googleChatArea(document).length,
       rows: findRows(document).length,
       chatCompose: describe(findChatCompose()),
+      // Gmail e-mail detection (structure only): body candidates vs. accepted
+      // opened bodies, list rows, and the draft box the draft watcher sees.
+      gmail: onMailHost && IS_TOP ? {
+        bodyMatches: S.gmail.messageBody.map((sel) => [sel, count(sel)]),
+        openBodies: S.all(document, S.gmail.messageBody).filter((el) => S.gmailIsMessageBody(el)).length,
+        listRows: count(S.gmail.listRow.join(',')),
+        containers: S.gmail.messageContainer.map((sel) => [sel, count(sel)]),
+        composeMatches: S.gmail.compose.map((sel) => [sel, count(sel)]),
+        draftBox: describe(findGmailCompose()),
+      } : null,
+      // Direction: own-message markers seen (counts only).
+      outgoingMarkers: S.outgoing.marker.map((sel) => [sel, count(sel)]),
       idAttrs: Object.fromEntries(['data-group-id', 'data-space-id', 'data-topic-id', 'data-message-id', 'data-member-id', 'data-thread-id', 'data-id']
         .map((a) => [a, count('[' + a + ']')])),
       groupIdKinds: Array.from(new Set(Array.from(document.querySelectorAll('[data-group-id]'),
