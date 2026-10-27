@@ -126,14 +126,117 @@
   }
 
   // --- hold (hide until checked) --------------------------------------------
+  // Hold buttons ("הצג בלי בדיקה", "הצג בכל זאת", "למה?") are handled by ONE
+  // delegated listener in the CAPTURE phase on the window, the first node of
+  // every event path. Root cause of the dead buttons (0.7.1, 2026-10-27): the
+  // placeholder registered capture-phase listeners that called
+  // stopPropagation(); an ancestor's capture listener runs BEFORE the target,
+  // so the click never reached the button. Handling it at the window also
+  // wins against page listeners (WhatsApp / Google Chat) that would swallow
+  // or re-render on mousedown, and survives a re-render that drops
+  // per-element listeners: the action is looked up by the button's key.
+  const ACTIONS = new Map(); // key -> fn
+  let actionSeq = 0;
+  const SWALLOW = ['mousedown', 'mouseup', 'pointerdown', 'pointerup', 'dblclick', 'contextmenu', 'touchstart', 'touchend', 'auxclick'];
+  function inHold(t) {
+    try { return !!(t && t.closest && t.closest('.lhg-hold')); } catch (_e) { return false; }
+  }
+  function onHoldClick(e) {
+    const t = e && e.target;
+    if (!inHold(t)) return;
+    // The page never sees a click on the placeholder (no open/quote/react).
+    e.stopImmediatePropagation();
+    e.stopPropagation();
+    let btn = null;
+    try { btn = t.closest('.lhg-hold-btn'); } catch (_e) { btn = null; }
+    if (!btn) return;
+    e.preventDefault();
+    const fn = ACTIONS.get(btn.getAttribute('data-lhg-act'));
+    if (fn) fn();
+  }
+  function onHoldOther(e) {
+    if (inHold(e && e.target)) { e.stopImmediatePropagation(); e.stopPropagation(); }
+  }
+  G.installHoldListeners = (win = globalThis) => {
+    if (!win || typeof win.addEventListener !== 'function' || win.__lhgHoldListeners) return;
+    win.__lhgHoldListeners = true;
+    win.addEventListener('click', onHoldClick, true);
+    for (const ev of SWALLOW) win.addEventListener(ev, onHoldOther, true);
+  };
+  G.installHoldListeners();
+
+  function holdButton(h, text, fn) {
+    const key = 'a' + (++actionSeq);
+    ACTIONS.set(key, fn);
+    const keys = (h.getAttribute('data-lhg-keys') || '').split(' ').filter(Boolean);
+    keys.push(key);
+    h.setAttribute('data-lhg-keys', keys.join(' '));
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'lhg-hold-btn';
+    b.setAttribute('data-lhg-act', key);
+    b.textContent = text;
+    h.appendChild(b);
+    return b;
+  }
+  function dropActions(h) {
+    for (const k of (h.getAttribute('data-lhg-keys') || '').split(' ')) if (k) ACTIONS.delete(k);
+    h.setAttribute('data-lhg-keys', '');
+  }
+
+  // Text of a message element WITHOUT our own placeholder/tag, independent of
+  // what is currently hidden (textContent walk; <br> = newline). Used so a held
+  // element keeps the same id and is not re-sent with the label's text.
+  function textOf(el) {
+    if (!el) return '';
+    let out = '';
+    const walk = (n) => {
+      for (const c of Array.from(n.childNodes || [])) {
+        if (c.nodeType === 3) out += c.nodeValue;
+        else if (c.nodeType === 1) {
+          if (c.classList && (c.classList.contains('lhg-hold') || c.classList.contains('lhg-tag'))) continue;
+          if (c.tagName === 'BR') out += '\n';
+          else walk(c);
+        }
+      }
+    };
+    walk(el);
+    return out;
+  }
+
+  // Inline "phrasing" children that belong to the same run of message text.
+  const INLINE = new Set(['A', 'SPAN', 'B', 'STRONG', 'I', 'EM', 'U', 'S', 'CODE', 'IMG', 'BR', 'WBR', 'MARK', 'SMALL', 'SUB', 'SUP', 'DEL', 'INS']);
+  const ownText = (el) => Array.from(el.childNodes || []).some((c) => c.nodeType === 3 && /\S/.test(c.nodeValue || ''));
+  const isRun = (el) => {
+    const kids = Array.from(el.children || []).filter((c) => !(c.classList && (c.classList.contains('lhg-hold') || c.classList.contains('lhg-tag'))));
+    return ownText(el) || (kids.length > 0 && kids.every((c) => INLINE.has(c.tagName)));
+  };
+  // The element that holds the WHOLE message text around a text leaf. Root
+  // cause of "pending label, text still visible" (0.7.1): Google Chat rows
+  // were text LEAVES, so in "see <a>link</a> now" or "@<span>name</span>
+  // text" only the inline child was held and the surrounding text stayed on
+  // screen under the placeholder. Climb while the parent is the same text run
+  // (own text, or only inline children); stop at the conversation area.
+  function textRunRoot(el, stop = 4) {
+    let cur = el;
+    for (let i = 0; i < stop; i++) {
+      const p = cur && cur.parentElement;
+      if (!p || p.tagName === 'C-WIZ' || p.tagName === 'BODY' || !isRun(p)) break;
+      if (textOf(p).length > 4000) break;
+      cur = p;
+    }
+    return cur;
+  }
+
   function unhold(el) {
     if (!el || !el.classList) return;
     el.classList.remove('lhg-held', 'lhg-held-warn', 'lhg-held-unsure', 'lhg-held-not_checked', 'lhg-held-pending');
     const h = el.querySelector && el.querySelector(':scope > .lhg-hold');
-    if (h) h.remove();
+    if (h) { dropActions(h); h.remove(); }
   }
 
   // st: { phase, result }. onReveal: called on the explicit "show" click.
+  // Buttons carry a key; the delegated window listener runs the action.
   function renderHold(el, st, onReveal) {
     if (!el || !el.classList || isEditable(el)) return;
     const old = el.querySelector(':scope > .lhg-tag');
@@ -146,36 +249,23 @@
       h = document.createElement('div');
       h.className = 'lhg-hold';
       h.setAttribute('dir', 'rtl');
-      // Clicks on the placeholder must not open/quote/react to the message.
-      for (const ev of ['click', 'mousedown', 'mouseup', 'dblclick', 'contextmenu']) {
-        h.addEventListener(ev, (e) => { e.stopPropagation(); }, true);
-      }
+      // Clicks on the placeholder must not open/quote/react to the message:
+      // the window-level capture listener (above) stops them. Never stop them
+      // in a capture listener HERE: that also kills the buttons inside.
       el.appendChild(h);
     }
+    dropActions(h);
     h.setAttribute('data-phase', st.phase);
     h.textContent = '';
     const label = document.createElement('span');
     const mech = st.result && st.result.mechanism ? MECHANISM_HE[st.result.mechanism] : '';
     label.textContent = HOLD_TEXT[st.phase] + (mech ? ' (' + mech + ')' : '');
     h.appendChild(label);
-    if (REVEAL_LABEL[st.phase]) {
-      const show = document.createElement('button');
-      show.type = 'button';
-      show.className = 'lhg-hold-btn';
-      show.textContent = REVEAL_LABEL[st.phase];
-      show.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); onReveal(); });
-      h.appendChild(show);
-    }
+    if (REVEAL_LABEL[st.phase]) holdButton(h, REVEAL_LABEL[st.phase], onReveal);
     if ((st.phase === 'warn' || st.phase === 'unsure') && globalThis.LHG_PANEL) {
-      const why = document.createElement('button');
-      why.type = 'button';
-      why.className = 'lhg-hold-btn';
-      why.textContent = 'למה?';
-      why.addEventListener('click', (e) => {
-        e.preventDefault(); e.stopPropagation();
+      holdButton(h, 'למה?', () => {
         try { globalThis.LHG_PANEL.renderResult(st.result, { manual: true }); } catch (_e) { /* panel absent */ }
       });
-      h.appendChild(why);
     }
     const note = document.createElement('span');
     note.className = 'lhg-hold-note';
@@ -236,17 +326,32 @@
         })),
     );
 
-    // Paint the current state of one message onto (possibly re-mounted) el.
+    // Paint the current state of one message onto every element that shows it
+    // (a re-mount, or the same text rendered twice: all copies are covered,
+    // not just the first one found).
     function apply(id) {
       const st = state.get(id);
       if (!st || !st.el) return;
-      if (st.held && !st.revealed && st.phase !== 'clear') {
-        renderHold(st.el, st, () => { st.revealed = true; apply(id); });
-        return;
+      const els = st.els || [st.el];
+      st.els = els.filter((e) => e === st.el || e.isConnected !== false);
+      for (const el of st.els) {
+        if (st.held && !st.revealed && st.phase !== 'clear') {
+          renderHold(el, st, () => { st.revealed = true; apply(id); });
+          continue;
+        }
+        unhold(el);
+        if (st.phase === 'pending') tag(el, 'checking');
+        else renderResult(el, st.result);
       }
-      unhold(st.el);
-      if (st.phase === 'pending') tag(st.el, 'checking');
-      else renderResult(st.el, st.result);
+    }
+    function addEl(id, el) {
+      const st = state.get(id);
+      if (!st || !el) return false;
+      st.els = st.els || [st.el];
+      if (!st.els.includes(el)) st.els.push(el);
+      if (st.el === el) return false;
+      st.el = el;
+      return true;
     }
 
     function scan() {
@@ -257,16 +362,18 @@
         return;
       }
       const fresh = [];
+      const pendingDup = [];
       for (const row of rows) {
         if (row.el && isEditable(row.el)) continue; // the user's own draft is not an incoming message
+        if (row.el && inHold(row.el)) continue; // our own placeholder, never a message
         const text = (row.text || '').trim();
         if (text.length < MIN_CHARS) continue;
         const id = S.weakId(platform, row.el, text);
         if (seen.has(id)) {
           // Re-mounted by the page (virtualised list): repaint its state so a
           // held message never reappears uncovered.
-          const st = state.get(id);
-          if (st && st.el !== row.el) { st.el = row.el; apply(id); }
+          if (addEl(id, row.el)) apply(id);
+          else if (!state.has(id)) pendingDup.push({ id, el: row.el }); // same text twice in this scan
           continue;
         }
         seen.add(id);
@@ -288,7 +395,8 @@
       if (fresh.length > BURST_LIMIT) return; // another chat / older history rendered: not live
       for (const row of fresh) {
         const held = !!hold() && row.kind !== 'email';
-        state.set(row.id, { phase: 'pending', result: null, revealed: false, held, el: row.el });
+        state.set(row.id, { phase: 'pending', result: null, revealed: false, held, el: row.el, els: [row.el] });
+        for (const d of pendingDup) if (d.id === row.id) addEl(row.id, d.el);
         apply(row.id); // before the next paint when called from observe()
         const accepted = queue.push({
           text: row.text.slice(0, 2000),
@@ -354,6 +462,8 @@
   G.createScanner = createScanner;
   G.observe = observe;
   G.isEditable = isEditable;
+  G.textOf = textOf;
+  G.textRunRoot = textRunRoot;
   G.phaseOf = phaseOf;
   G.TAG_TEXT = TAG_TEXT;
   G.HOLD_TEXT = HOLD_TEXT;

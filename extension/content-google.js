@@ -80,18 +80,31 @@
   }
 
   // Chat (standalone or Gmail-embedded): bubbles are text-bearing leaves
-  // inside a structurally-qualified conversation area. The text is cleaned
-  // of leading time/date header lines.
+  // inside a structurally-qualified conversation area, widened to the whole
+  // run of message text around them (LHG_INCOMING.textRunRoot), so a message
+  // with a link, a mention or a line break is held as ONE element. Holding
+  // only the leaf left the rest of the text visible under the placeholder
+  // (0.7.1). Our own placeholder/tag text is never part of the message text.
+  // The text is cleaned of leading time/date header lines.
   function chatRows(root) {
+    const I = globalThis.LHG_INCOMING;
     const out = [];
+    const taken = new Set();
     for (const area of S.googleChatArea(root)) {
       const wrapped = S.asRoot(area);
       for (const el of S.all(wrapped, S.googleChat.messageBubble)) {
-        if (!el || el.children.length !== 0) continue; // text leaf, not a wrapper
-        if (globalThis.LHG_INCOMING.isEditable && globalThis.LHG_INCOMING.isEditable(el)) continue; // own draft
-        const raw = (el.innerText || el.textContent || '').trim();
+        if (!el || el.closest('.lhg-hold, .lhg-tag')) continue; // our own UI
+        const own = Array.from(el.children).filter((c) => !c.matches('.lhg-hold, .lhg-tag'));
+        const directText = Array.from(el.childNodes).some((c) => c.nodeType === 3 && /\S/.test(c.nodeValue || ''));
+        if (own.length !== 0 && !directText) continue; // a wrapper, not text
+        if (I.isEditable && I.isEditable(el)) continue; // own draft
+        const target = I.textRunRoot ? I.textRunRoot(el) : el;
+        if (taken.has(target)) continue;
+        taken.add(target);
+        if (I.isEditable && I.isEditable(target)) continue;
+        const raw = (I.textOf ? I.textOf(target) : (target.innerText || target.textContent || '')).trim();
         const text = S.cleanText(raw);
-        if (text && text.length >= MIN_CHARS) out.push({ el, text });
+        if (text && text.length >= MIN_CHARS) out.push({ el: target, text });
       }
     }
     return out;

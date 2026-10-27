@@ -53,9 +53,14 @@
 /* Held incoming message (hidden until checked / approved). The message's own
    children are display:none and its direct text is collapsed with font-size 0;
    only the placeholder shows. No position/size changes on the page's rows. */
-.lhg-held { font-size: 0 !important; }
+/* visibility is inherited and a child may set it back: the message's own text
+   is hidden even if the page overrides font-size; the placeholder is visible
+   and clickable even under a pointer-events:none ancestor. */
+.lhg-held { font-size: 0 !important; visibility: hidden !important; }
 .lhg-held > :not(.lhg-hold) { display: none !important; }
 .lhg-hold {
+  visibility: visible !important; pointer-events: auto !important;
+  position: relative; z-index: 1;
   display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
   margin: 2px 0; padding: 4px 10px; border-radius: 8px;
   font: 12px/1.5 system-ui, "Segoe UI", Arial, sans-serif !important;
@@ -65,6 +70,7 @@
 .lhg-held-warn > .lhg-hold { background: #fff4e5; border-color: #f0a020; color: #5a3a00 !important; }
 .lhg-held-unsure > .lhg-hold { background: #fffbe0; border-color: #d8c040; color: #4a4300 !important; }
 .lhg-hold-btn {
+  pointer-events: auto !important; visibility: visible !important;
   font: 12px/1.4 system-ui, "Segoe UI", Arial, sans-serif !important;
   padding: 1px 8px; border: 1px solid #999; border-radius: 6px; background: #fff; color: #333; cursor: pointer;
 }

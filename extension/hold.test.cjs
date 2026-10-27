@@ -24,7 +24,11 @@ function el(tag = 'div') {
     appendChild(c) { c.parent = this; this.children.push(c); return c; },
     remove() { if (this.parent) this.parent.children = this.parent.children.filter((c) => c !== this); this.parent = null; },
     addEventListener(t, fn) { (this.listeners[t] = this.listeners[t] || []).push(fn); },
-    closest() { return null; },
+    closest(sel) {
+      const cls = sel.split(',').map((s) => (s.trim().match(/^\.([\w-]+)$/) || [])[1]).filter(Boolean);
+      for (let n = this; n; n = n.parent) if (cls.some((c) => n.classList.contains(c))) return n;
+      return null;
+    },
     querySelector(sel) {
       const m = sel.match(/^:scope > \.([\w-]+)$/);
       if (!m) return null;
@@ -34,16 +38,21 @@ function el(tag = 'div') {
   return e;
 }
 const hold = (e) => e.querySelector(':scope > .lhg-hold');
-const click = (b) => (b.listeners.click || []).forEach((fn) => fn({ preventDefault() {}, stopPropagation() {} }));
+// Buttons are handled by the delegated window capture listener (see
+// hold-buttons.test.cjs for the full browser-like dispatch).
+let winClick = [];
+const click = (b) => winClick.forEach((fn) => fn({ target: b, preventDefault() {}, stopPropagation() {}, stopImmediatePropagation() {} }));
 const buttons = (h) => h.children.filter((c) => c.tagName === 'BUTTON');
 
 function setup(reply) {
   const sent = [];
+  winClick = [];
   const ctx = vm.createContext({
     setTimeout, clearTimeout, Date, setInterval: () => 0,
     document: { createElement: (t) => el(t) },
     chrome: { runtime: { lastError: null, sendMessage: (m, cb) => { sent.push(m); cb(reply(m)); } } },
     LHG_SELECTORS: { weakId: (p, _e, t) => p + ':' + t },
+    addEventListener: (t, fn) => { if (t === 'click') winClick.push(fn); },
   });
   ctx.globalThis = ctx;
   vm.runInContext(fs.readFileSync(path.join(__dirname, 'incoming.js'), 'utf8'), ctx);
