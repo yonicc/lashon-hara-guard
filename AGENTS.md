@@ -32,7 +32,7 @@
 - Worker server calls must use `redirect:'manual'` and explicitly reject 3xx:
   Cloudflare Workers does not implement `redirect:'error'` (it throws before
   making any request). Never follow redirects carrying partner credentials.
-- Personal `lap_...` tokens are managed at `https://lap.ysho.uk` (TZ repo,
+- Personal `lap_...` tokens are managed at `https://lhg.ysho.uk` (legacy `lap.ysho.uk` redirects there; TZ repo,
   `src/lap-access.js`). `proxy/src/accountAccess.ts` verifies/reserves via
   central LAP partner endpoints before extraction and captures/releases after.
   `LHG_ACCOUNT_KEY` is a Worker secret; no message text goes to accounts.
@@ -60,7 +60,7 @@
 - WhatsApp selectors live only in `extension/selectors.js`. Never add a bare `#main header [title]`-style selector for the conversation title: it can match an icon button and give every chat the same key, mixing conversation context. The manual panel (Ctrl+Shift+L) shows what was detected (chat, visible messages, compose) and has a "copy diagnostics" button that copies DOM structure only (no message text) — ask the user for it when selectors fail.
 - Google Chat inside Gmail runs in a separate `chat.google.com` IFRAME (verified on BI 2026-10-27 from the diagnostics button: `top:false`, host `chat.google.com`). The Google content script therefore needs `all_frames: true`, and only the focused frame answers the panel command (`panel.js` → `ownsCommand`). The chat compose box itself carries `g_editable` and `aria-multiline`, so the "exclude Gmail e-mail compose" filter may run only on `mail.google.com`.
 - Source of truth is `extension/` in this repo (on BI-1). Every extension change must also be copied to the active unpacked copy on YONI-PC: `/home/yoni/lashon-hara-guard-gmail/extension` (Linux, user `yoni`; Chrome profile `Default`, extension id `naggldcglajoihfllgnboobgkfaknkoj`). Verify the copied files' SHA-256 match the repo's and that `manifest.json` parses.
-- **Every extension release goes to three places (owner rule, 2026-10-27): BI-1, https://lap.ysho.uk (the public download) and YONI-PC.** It is part of "done", not optional. Bump `manifest.json` `version`, commit, push, then:
+- **Every extension release goes to three places (owner rule, 2026-10-27): BI-1, https://lhg.ysho.uk (the public download; formerly lap.ysho.uk) and YONI-PC.** It is part of "done", not optional. Bump `manifest.json` `version`, commit, push, then:
   1. BI-1: `powershell -NoProfile -File scripts\release-extension.ps1` — refuses unless HEAD == origin/main and `extension/` is clean, runs the extension tests, publishes that exact commit to LAP (TZ repo `lap-worker/package-extension.py <sha>` → commit/push as yonicc → `wrangler deploy`) and verifies live that `/downloads/version.json` names the commit and the ZIP's SHA-256 matches. BI-1's Chrome loads the unpacked extension from this checkout, so nothing else to copy there.
   2. YONI-PC (runner, as root): `bash scripts/install-from-lap.sh` — installs the published ZIP into `/home/yoni/lashon-hara-guard-gmail/extension` after the SHA-256 check, keeping a backup. (BI-1 has no SSH route to YONI-PC, so this step runs there.)
   3. The user reloads the extension and refreshes the tab. Manual fallback and details: TZ repo `docs/lap.md`. The private TZ repo answers `Repository not found` to a fetch without `GH_TOKEN` of yonicc.

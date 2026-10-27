@@ -3,7 +3,7 @@
 # 1. Refuses unless HEAD == origin/main and extension/ is clean (the release
 #    is always an exact pushed commit).
 # 2. Runs the extension tests.
-# 3. Publishes that commit to https://lap.ysho.uk (TZ repo lap-worker:
+# 3. Publishes that commit to https://lhg.ysho.uk (TZ repo lap-worker:
 #    package-extension.py -> commit -> push as yonicc -> wrangler deploy),
 #    unless LAP already serves this commit.
 # 4. Verifies live: version.json commit == HEAD and the ZIP's SHA-256 matches.
@@ -40,7 +40,7 @@ try {
   if ($testExit -ne 0) { Fail 'extension tests failed' }
 
   $live = $null
-  try { $live = Invoke-RestMethod -UserAgent 'lhg-release' -Uri 'https://lap.ysho.uk/downloads/version.json' } catch { }
+  try { $live = Invoke-RestMethod -UserAgent 'lhg-release' -Uri 'https://lhg.ysho.uk/downloads/version.json' } catch { }
   if ($live -and $live.commit -eq $head) {
     Write-Host "LAP already serves $head - nothing to publish."
   } else {
@@ -68,9 +68,9 @@ try {
     }
   }
 
-  $v = Invoke-RestMethod -UserAgent 'lhg-release' -Uri 'https://lap.ysho.uk/downloads/version.json'
+  $v = Invoke-RestMethod -UserAgent 'lhg-release' -Uri 'https://lhg.ysho.uk/downloads/version.json'
   $zip = Join-Path $env:TEMP 'lhg-lap-verify.zip'
-  Invoke-WebRequest -UseBasicParsing -UserAgent 'lhg-release' -Uri 'https://lap.ysho.uk/downloads/lap-extension.zip' -OutFile $zip
+  Invoke-WebRequest -UseBasicParsing -UserAgent 'lhg-release' -Uri 'https://lhg.ysho.uk/downloads/lhg-extension.zip' -OutFile $zip
   $hash = (Get-FileHash $zip -Algorithm SHA256).Hash.ToLower()
   if ($v.commit -ne $head) { Fail "LAP serves $($v.commit), expected $head" }
   if ($hash -ne $v.sha256) { Fail "LAP zip sha256 $hash != version.json $($v.sha256)" }

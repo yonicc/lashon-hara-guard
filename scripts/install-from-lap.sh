@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Install the published extension from https://lap.ysho.uk into an unpacked
+# Install the published extension from https://lhg.ysho.uk into an unpacked
 # extension directory (default: YONI-PC's active copy), after verifying the
 # ZIP's SHA-256 against /downloads/version.json. Keeps a backup of the old copy.
 #   bash install-from-lap.sh [target-dir] [owner]
@@ -8,11 +8,11 @@
 set -euo pipefail
 DEST="${1:-/home/yoni/lashon-hara-guard-gmail/extension}"
 OWNER="${2:-yoni}"
-BASE="https://lap.ysho.uk/downloads"
+BASE="https://lhg.ysho.uk/downloads"
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
 curl -fsS -A lhg-install "$BASE/version.json" -o "$TMP/version.json"
-curl -fsS -A lhg-install "$BASE/lap-extension.zip" -o "$TMP/ext.zip"
+curl -fsS -A lhg-install "$BASE/lhg-extension.zip" -o "$TMP/ext.zip"
 python3 -I - "$TMP" <<'PY'
 import hashlib, json, sys, zipfile, pathlib
 tmp = pathlib.Path(sys.argv[1])
