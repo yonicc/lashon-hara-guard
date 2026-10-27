@@ -207,13 +207,38 @@
     return (t.innerText || t.textContent || '').trim().replace(/ /g, ' ');
   };
 
-  // Strip obvious time/date/name header lines from extracted bubble text, so
-  // the checked text is the message body rather than its chrome. Conservative:
-  // only removes a leading line that is exactly a time/date-ish token.
+  // Message chrome is never message text: the send-time stamp (a clock time,
+  // a date, or a relative stamp such as "59 דקות" / "59 minutes ago") and the
+  // chat header line "author + send-time" above the body. Conservative: a
+  // line is dropped only when it is ONLY a time token, and a header line is
+  // dropped only when a body line follows it. A time phrase inside a real
+  // sentence (e.g. "חיכיתי 59 דקות ליד הדלת") is kept whole.
+  const TIME_TOKEN_SRC = '(?:\\d{1,2}:\\d{2}(?::\\d{2})?\\s*(?:[AP]M)?'
+    + '|(?:לפני\\s+)?\\d+\\s*(?:דקות|דקה|שעות|שעה|שניות|שנייה|שניה|ימים|יום|שבועות|שבוע|חודשים|חודש)'
+    + '|\\d+\\s*(?:minutes?|mins?|hours?|hrs?|seconds?|secs?|days?)(?:\\s+ago)?'
+    + '|(?:an?|one)\\s+(?:minute|hour)\\s+ago|just\\s+now|לפני\\s+(?:דקה|שעה|יום|רגע)|עכשיו'
+    + '|\\d{1,2}[/.]\\d{1,2}(?:[/.]\\d{2,4})?|היום|אתמול|שלשום|יום\\s+\\S+)';
+  const TIME_ONLY_RE = new RegExp('^\\s*' + TIME_TOKEN_SRC + '(?:\\s*[,·•]\\s*' + TIME_TOKEN_SRC + ')?\\s*$', 'iu');
+  const HEADER_RE = new RegExp("^\\s*[\\p{L}][\\p{L}.'’-]*(?:\\s+[\\p{L}][\\p{L}.'’-]*){0,2}\\s*[•·,-]?\\s*" + TIME_TOKEN_SRC + '\\s*$', 'iu');
+
+  // True when the whole text is only a send-time stamp (e.g. "59 דקות").
+  S.isTimeOnly = (text) => TIME_ONLY_RE.test(String(text || ''));
+  // True when a single line is only an author header ending in a send-time
+  // stamp (e.g. "יעקב שוהם 59 דקות"): chrome, never a message on its own.
+  S.isMessageHeader = (text) => {
+    const t = String(text || '').trim();
+    return !!t && !t.includes('\n') && HEADER_RE.test(t);
+  };
+
+  // Strip time/date header lines from extracted bubble text, so the checked
+  // text is the message body rather than its chrome.
   S.cleanText = (text) => {
     const lines = String(text || '').split('\n');
-    while (lines.length && /^\s*(\d{1,2}:\d{2}(\s*[AP]M)?|\d{1,2}[/.]\d{1,2}([/.]\d{2,4})?|היום|אתמול|יום\s+\S+)\s*$/.test(lines[0])) {
+    while (lines.length && TIME_ONLY_RE.test(lines[0])) lines.shift();
+    while (lines.length && TIME_ONLY_RE.test(lines[lines.length - 1])) lines.pop();
+    if (lines.length > 1 && HEADER_RE.test(lines[0])) {
       lines.shift();
+      while (lines.length && TIME_ONLY_RE.test(lines[0])) lines.shift();
     }
     return lines.join('\n').trim();
   };

@@ -154,8 +154,8 @@
       findRows: (root) => {
         const rows = S.all(root, S.whatsapp.incomingMessage);
         const mapped = rows
-          .map((el) => ({ el, text: S.extractText(el, S.whatsapp.messageText) }))
-          .filter((r) => r.text);
+          .map((el) => ({ el, text: S.cleanText(S.extractText(el, S.whatsapp.messageText)) }))
+          .filter((r) => r.text && !(S.isMessageHeader && S.isMessageHeader(r.text)));
         // Local-only context (checkpoint 3b): attach per-bubble, guarded.
         // Names stay in-page; the queue still sends { text } only.
         try {

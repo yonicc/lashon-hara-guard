@@ -104,6 +104,9 @@
         if (I.isEditable && I.isEditable(target)) continue;
         const raw = (I.textOf ? I.textOf(target) : (target.innerText || target.textContent || '')).trim();
         const text = S.cleanText(raw);
+        // An author + send-time header run (e.g. "יעקב שוהם 59 דקות") is
+        // chrome above the body, never a message: do not sample it.
+        if (S.isMessageHeader && S.isMessageHeader(text)) continue;
         if (text && text.length >= MIN_CHARS) out.push({ el: target, text });
       }
     }
