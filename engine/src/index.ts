@@ -8,6 +8,7 @@ export * from './liveFacts.js';
 export * from './lessonScenario.js';
 export * from './meaning.js';
 export * from './chafetzChaim/toeletPack.js';
+export * from './chafetzChaim/allPacks.js';
 export * from './extractor/index.js';
 export * from './connectors/index.js';
 export { sanitizeContextPacket, computeContextVersion, CONTEXT_PACKET_VERSION } from './contextPacket.js';

@@ -23,6 +23,8 @@ function rebukeMissingStore(): FactStore {
   s.propose('subject.identifiable', true, 'model_extraction');
   s.propose('message.content_is_disparaging', true, 'model_extraction');
   s.propose('toelet.rebuke_attempted', false, 'model_extraction');
+  s.confirmByUser('toelet.purpose_is_constructive', true);
+  s.confirmByUser('toelet.knows_subject_will_not_accept_rebuke', false);
   return s;
 }
 
@@ -79,13 +81,17 @@ test('LIVE-05 a declared benefit alone produces no finding and no "clean" status
   assert.equal(r.questions.length, 1);
 });
 
-test('LIVE-06 10:7 exception: knowing rebuke will not be accepted blocks only the rebuke note', () => {
+test('LIVE-06 10:7 exception: known public ineffective rebuke blocks only the rebuke note; unknown stays unresolved', () => {
   const s = rebukeMissingStore();
-  s.propose('toelet.knows_subject_will_not_accept_rebuke', true, 'model_extraction');
+  s.confirmByUser('toelet.knows_subject_will_not_accept_rebuke', true);
+  s.confirmByUser('audience.size_at_least_three', true);
   const r = evaluate(input(s, 'live_draft'));
   assert.ok(!r.findings.some((f) => f.ruleId === 'cc-toelet.10-02c.rebuke-first'));
   assert.notEqual(r.status, 'evaluated', 'an exception is not a permit: other conditions stay open');
-  // unknown exception => the note still fires (unknown never acts as true)
-  const r2 = evaluate(input(rebukeMissingStore(), 'live_draft'));
-  assert.ok(r2.findings.some((f) => f.ruleId === 'cc-toelet.10-02c.rebuke-first'));
+  const missing = rebukeMissingStore();
+  missing.markUnknown('toelet.knows_subject_will_not_accept_rebuke');
+  const r2 = evaluate(input(missing, 'live_draft'));
+  assert.ok(!r2.findings.some((f) => f.ruleId === 'cc-toelet.10-02c.rebuke-first'));
+  assert.ok(r2.missingFactIds.includes('toelet.knows_subject_will_not_accept_rebuke'));
+  assert.equal(r2.status, 'needs_clarification');
 });

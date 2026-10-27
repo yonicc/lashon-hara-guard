@@ -112,6 +112,13 @@ export const FACT_CATALOG: FactCatalogEntry[] = [
   {"id": "audience.includes_subject_enemies", "questionHe": "האם בין הנמענים יש מי ששונא את המדובר?", "priority": 50, "sensitivity": "high", "persistent": true, "confirmedByUserOnly": true},
   {"id": "subject.is_established_righteous", "questionHe": "האם המדובר מוחזק לרבים ונודע ככשר וצדיק, שלא נמצאה בו רעה ואשמה? (אישור מידע בלבד, לא קביעת מעמד הלכתי)", "priority": 50, "sensitivity": "high", "persistent": true, "confirmedByUserOnly": true},
   {"id": "message.disclosure_authorized", "questionHe": "האם מוסר המידע נתן רשות לספר לאחרים את המידע המסוים הזה? (הרשות לבדה אינה היתר לספר לשון הרע או רכילות)", "priority": 50, "sensitivity": "medium", "persistent": false, "confirmedByUserOnly": true},
+  {"id": "speaker.examined_matter_as_harmful", "questionHe": "האם התבוננת היטב מראש אם העניין בעצמו רע או מזיק, במקום להחליט כך מיד? (עצם הבדיקה, לא אימות אמיתות הסיפור)", "priority": 46, "sensitivity": "medium", "persistent": false, "confirmedByUserOnly": true},
+  {"id": "toelet.disclosure_causes_actual_harm", "questionHe": "האם מסירת המידע צפויה לגרום למדובר רעה ממשית, מעבר לשלילת טובה עתידית בלבד? (נפרד מנזק העולה על הדין)", "priority": 46, "sensitivity": "medium", "persistent": false, "confirmedByUserOnly": true},
+  {"id": "speaker.fears_retaliation_from_subject", "questionHe": "האם הכותב חושש מהמדובר מפני שיש בידו להרע לו אם הדברים יתפרסמו?", "priority": 48, "sensitivity": "high", "persistent": false, "confirmedByUserOnly": true},
+  {"id": "speaker.publicly_known_impartial", "questionHe": "האם הכותב מוחזק לרבים כמי שאינו נושא פני איש? (מעמד ציבורי ידוע, לא הצהרה אישית)", "priority": 48, "sensitivity": "high", "persistent": false, "confirmedByUserOnly": true},
+  {"id": "speaker.publicly_known_says_in_presence", "questionHe": "האם הכותב מוחזק לרבים כמי שאומר בפני המדובר כל מה שיאמר שלא בפניו?", "priority": 48, "sensitivity": "high", "persistent": false, "confirmedByUserOnly": true},
+  {"id": "speaker.publicly_known_fearless", "questionHe": "האם הכותב מוחזק לרבים כמי שאינו ירא מאיש בדבריו?", "priority": 48, "sensitivity": "high", "persistent": false, "confirmedByUserOnly": true},
+  {"id": "speaker.publicly_known_truthful", "questionHe": "האם הכותב מוחזק בתוך עמו כמי שמדבר רק אמת? (נפרד מאמיתות ההודעה המסוימת)", "priority": 48, "sensitivity": "high", "persistent": false, "confirmedByUserOnly": true},
   // END GENERATED CHAFETZ CHAIM FACTS
 ];
 

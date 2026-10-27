@@ -105,8 +105,8 @@ test('CC-05 cards use only vocabulary fact ids and a known kind, and are not emp
 
 test('CC-06 fact-merge-map targets exist in facts.json and vocabulary stays small', () => {
   const map = JSON.parse(readFileSync(join(RULES, 'fact-merge-map.json'), 'utf8')) as Record<string, { action: string; target?: string }>;
-  // 61 preserved ids plus 11 source-specific distinctions (docs/19).
-  assert.ok(factIds.size <= 72, `vocabulary too large: ${factIds.size}`);
+  // 61 preserved ids plus 18 source-specific distinctions (docs/19).
+  assert.ok(factIds.size <= 79, `vocabulary too large: ${factIds.size}`);
   for (const [pid, d] of Object.entries(map)) {
     if (d.action === 'merge' || d.action === 'new') assert.ok(d.target && factIds.has(d.target), `${pid}: target ${d.target} not in facts.json`);
     else assert.equal(d.action, 'reject', `${pid}: unknown action ${d.action}`);

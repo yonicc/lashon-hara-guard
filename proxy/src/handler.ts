@@ -25,6 +25,8 @@ import {
  * file only adds auth, limits and the alert mapping.
  */
 export interface Env {
+  /** Exact deployed repository commit, supplied by the release command. */
+  LHG_BUILD_SHA?: string;
   LHG_ACCOUNT_BASE?: string;
   LHG_ACCOUNT_KEY?: string;
   LHG_BRAIN_BASE_URL: string;

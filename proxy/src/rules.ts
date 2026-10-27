@@ -1,5 +1,5 @@
 import {
-  CC_TOELET_DRAFT_PACK,
+  CC_ALL_DRAFT_PACK,
   evaluate,
   FACT_BY_ID,
   FACT_CATALOG,
@@ -106,7 +106,7 @@ export function runLiveRules(
     const r = evaluateImpl({
       message,
       facts: store.snapshot(),
-      rulePack: CC_TOELET_DRAFT_PACK,
+      rulePack: CC_ALL_DRAFT_PACK,
       catalog: FACT_CATALOG,
       // One question reaches the user. Facts already answered ("don't know" stays
       // unknown and would be planned again) are skipped, so plan that many extra.

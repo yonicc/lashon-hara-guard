@@ -1202,6 +1202,11 @@
   "reason": "מיזוג לפי משמעות",
   "target": "toelet.rebuke_attempted"
  },
+ "speaker.examined_matter_as_harmful": {
+  "action": "new",
+  "reason": "ב ט:ב פרט א — בדיקת מהות העניין כרע נפרדת מאימות אמת הדברים",
+  "target": "speaker.examined_matter_as_harmful"
+ },
  "speaker.expects_no_harm": {
   "action": "merge",
   "reason": "מיזוג לפי משמעות",
@@ -1215,6 +1220,11 @@
   "action": "new",
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
   "target": "speaker.was_pressured_to_tell"
+ },
+ "speaker.fears_retaliation_from_subject": {
+  "action": "new",
+  "reason": "א י:ח — פחד ממי שבידו להרע, אפשרות להקלה בלבד; אישור משתמש ובירור מומחה, לא היתר",
+  "target": "speaker.fears_retaliation_from_subject"
  },
  "speaker.has_deliberated_how_to_fix": {
   "action": "reject",
@@ -1358,6 +1368,26 @@
  "speaker.predicts_future_gossip": {
   "action": "reject",
   "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "speaker.publicly_known_fearless": {
+  "action": "new",
+  "reason": "א י:ט — הבחנת מוניטין ציבורי עצמאית שאינה נלמדת מאמיתות ההודעה או מהצהרת נכונות לומר בפניו; אישור משתמש בלבד",
+  "target": "speaker.publicly_known_fearless"
+ },
+ "speaker.publicly_known_impartial": {
+  "action": "new",
+  "reason": "א י:ט — הבחנת מוניטין ציבורי עצמאית שאינה נלמדת מאמיתות ההודעה או מהצהרת נכונות לומר בפניו; אישור משתמש בלבד",
+  "target": "speaker.publicly_known_impartial"
+ },
+ "speaker.publicly_known_says_in_presence": {
+  "action": "new",
+  "reason": "א י:ט — הבחנת מוניטין ציבורי עצמאית שאינה נלמדת מאמיתות ההודעה או מהצהרת נכונות לומר בפניו; אישור משתמש בלבד",
+  "target": "speaker.publicly_known_says_in_presence"
+ },
+ "speaker.publicly_known_truthful": {
+  "action": "new",
+  "reason": "א י:ט — הבחנת מוניטין ציבורי עצמאית שאינה נלמדת מאמיתות ההודעה או מהצהרת נכונות לומר בפניו; אישור משתמש בלבד",
+  "target": "speaker.publicly_known_truthful"
  },
  "speaker.rebuke_would_be_heeded": {
   "action": "merge",
@@ -1610,6 +1640,11 @@
   "action": "new",
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
   "target": "audience.can_help_or_influence"
+ },
+ "toelet.disclosure_causes_actual_harm": {
+  "action": "new",
+  "reason": "ב ט:ב,ה,ו — רעה ממשית נפרדת משלילת טובה ומנזק מעבר לדין; דורש אישור משתמש",
+  "target": "toelet.disclosure_causes_actual_harm"
  },
  "toelet.future_benefit_expected": {
   "action": "new",

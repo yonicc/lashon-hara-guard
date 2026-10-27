@@ -8,12 +8,17 @@
    `titleHe`, `summaryHe`, `quotesHe` (verbatim), `appliesTo`, `conditionsHe`, `exceptionsHe`,
    `factsNeeded` (ids from `rules/chafetz-chaim/facts.json`), `proposedNewFacts`, `relevanceToChat`,
    `uncertainHe`, `reviewIssues`, `reviewStatus`.
-3. **Engine rules** — not yet: cards are study material, not executable `Rule`s. Turning a card into
-   a `Rule` (Expr conditions over catalog facts) is a separate, reviewed step (docs/03 approval flow).
+3. **Engine rules** — `engine/src/chafetzChaim/allPacks.ts` exports `CC_ALL_DRAFT_PACK`:
+   113 executable draft reminders in eight packs, connected to `/check` in `live_draft` mode.
+   These source-linked conditions are warnings/clarifications, never approved religious rulings.
+   Cards remain draft study material; linking a reminder does not implement every branch of its section.
+   Per-section implementation limits and documentary branches: docs/22 and `sourceCoverage.json`.
 
 ## Guarantees (enforced by `engine/test/ccCards.test.ts`)
 - Every se'if in the manifest has exactly one card; no orphan cards.
-- `ref`/`url` equal the manifest; `textSha256` equals the current source hash (source drift fails the test).
+- `ref`/`url` equal the manifest; SHA-256 is recomputed from the actual section text (prefix 16,
+  matching the importer) and compared with manifest and card, independently of their agreement.
+  CC-07 mutates text without changing the manifest/card and verifies rejection. LF/CRLF are supported.
 - Every card is `draft`. A model-drafted card is never reviewed/approved by a script.
 - Every quote occurs in the se'if (niqqud-insensitive); the generator already dropped quotes that did not
   and recorded `quote_not_verbatim` in `reviewIssues`.
@@ -38,5 +43,7 @@ python -I rules\chafetz-chaim\gen_cards.py --only p1_prin10:2   # redraft one se
 
 ## Not included / open
 - Petichah (lavin/asin/arurin), Be'er Mayim Chaim, Tziyurim — not in the source layer yet.
-- Human review of cards; consolidation of proposed facts into the engine `FACT_CATALOG`;
-  first executable `halacha_draft` rules (to'elet's seven conditions — p1_prin10:2 — is the natural first).
+- Human review of cards and executable reminders. Vocabulary consolidation is implemented:
+  79 canonical facts plus five lesson facts (docs/19); facts outside the catalog remain unknown.
+- Documentary branches are tracked section by section in docs/22; legal/court classifications,
+  source-specific missing predicates and post-event duties do not become automatic permits.
