@@ -16,6 +16,8 @@
 - Missing context is unknown, never false. Store provenance, scope, and validity for facts.
 - Use synthetic examples only. Do not commit messages, identities, tokens, or real relationship graphs.
 - One rule has one canonical definition; adapters and UI consume it.
+- The one-question budget covers the complete display: a catalog-backed `rules.question` consumes it, so suppress `analysis.questionsHe`; otherwise retain at most one analysis question. Keep the proxy arbitration and the panel's compatibility guard covered by regression tests.
+- Exceptions use the same three-valued semantics as conditions: an unknown/disputed exception blocks that rule's finding and can require clarification; it is never an absent exception.
 
 ## Context integration
 - Canonical packet types/sanitizer: `engine/src/contextPacket.ts`; extractor types reference it. The proxy sanitizes before extraction. `user_confirmed` is the builder's explicit confirmation provenance; candidate/unknown never become false.

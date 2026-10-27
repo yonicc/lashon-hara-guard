@@ -87,11 +87,11 @@ export function evaluate(input: EvaluationInput): EvaluationResult {
     if (applicability === 'unknown' && missing.length === 0) continue;
 
     const conditions = evalExpr(rule.conditions, input.facts);
-    const hasTrueException = (rule.exceptions ?? []).some(
-      (e) => evalExpr(e, input.facts) === true,
-    );
+    const exceptions = (rule.exceptions ?? []).map((e) => evalExpr(e, input.facts));
+    const hasTrueException = exceptions.includes(true);
+    const hasUnknownException = exceptions.includes('unknown');
 
-    if (applicability === true && conditions === true && !hasTrueException) {
+    if (applicability === true && conditions === true && !hasTrueException && !hasUnknownException) {
       if (mayProduceFinding(rule, input.ruleMode)) {
         base.findings.push({
           ruleId: rule.id,
@@ -121,7 +121,8 @@ export function evaluate(input: EvaluationInput): EvaluationResult {
       continue;
     }
 
-    if ((applicability === 'unknown' || conditions === 'unknown') && missing.length > 0) {
+    if (!hasTrueException && conditions !== false &&
+        (applicability === 'unknown' || conditions === 'unknown' || hasUnknownException) && missing.length > 0) {
       missingByRule.set(rule.id, { rule, missing });
     }
   }

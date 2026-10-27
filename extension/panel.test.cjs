@@ -106,6 +106,16 @@ function harness() {
   return { context, listeners, msgListeners, sent };
 }
 
+test('panel: one display question with priority for the catalog question, including older proxy output', () => {
+  const { context } = harness();
+  const response = { analysis: { questionsHe: ['First?', 'Second?', 'Third?'] } };
+  const lines = context.LHG_PANEL.detailLines(response);
+  assert.equal(lines.filter((line) => line.startsWith('• ')).length, 1);
+  response.rules = { question: { factId: 'synthetic', textHe: 'Catalog question?' } };
+  const withRule = context.LHG_PANEL.detailLines(response);
+  assert.equal(withRule.filter((line) => line.startsWith('• ')).length, 0);
+});
+
 test('panel: legacy page-level Ctrl+Shift+plus still opens status without sending a check', () => {
   const { context, listeners, sent } = harness();
   context.LHG_PANEL.bindManualShortcut({ platform: 'gmail', direction: 'incoming' });

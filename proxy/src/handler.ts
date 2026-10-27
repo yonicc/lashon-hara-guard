@@ -312,7 +312,11 @@ async function handleAuthorized(
     ms: Date.now() - started,
     gate,
     gateBy,
-    ...(outcome.extraction?.analysis ? { analysis: outcome.extraction.analysis } : {}),
+    ...(outcome.extraction?.analysis ? { analysis: {
+      ...outcome.extraction.analysis,
+      // One display budget; the catalog-backed rule question takes priority.
+      questionsHe: rules?.question ? [] : (outcome.extraction.analysis.questionsHe ?? []).slice(0, 1),
+    } } : {}),
     contextMessages: Array.isArray(context?.recentMessages) ? context.recentMessages.length : 0,
     ...(rules ? { rules } : {}),
   };

@@ -56,7 +56,11 @@ type Body = Record<string, unknown> & {
 const BANNED = /(^|[^א-ת])(מותר|אסור)([^א-ת]|$)/;
 
 test('rules: a draft finding raises the alert to warn and adds the draft limitation', async () => {
-  const r = await handle(post({ text: TEXT }), ENV, provider(NO_CONCERN_WITH_FACTS));
+  const r = await handle(post({ text: TEXT, confirmedFacts: {
+    'toelet.purpose_is_constructive': true,
+    'toelet.rebuke_attempted': false,
+    'toelet.knows_subject_will_not_accept_rebuke': false,
+  } }), ENV, provider(NO_CONCERN_WITH_FACTS));
   const b = (await r.json()) as Body;
   assert.equal(b.alert, 'warn');
   assert.equal(b.rules?.mode, 'live_draft');
@@ -69,6 +73,19 @@ test('rules: a draft finding raises the alert to warn and adds the draft limitat
     assert.ok(!BANNED.test(f['messageHe']!), f['messageHe']);
   }
   assert.ok(b.limitationsHe.includes(DRAFT_RULES_LIMITATION_HE));
+});
+
+test('rules: an unknown rebuke exception is not an absent exception in the real handler', async () => {
+  const response = await handle(post({ text: TEXT, confirmedFacts: {
+    'toelet.purpose_is_constructive': true,
+    'toelet.rebuke_attempted': false,
+    'toelet.knows_subject_will_not_accept_rebuke': null,
+  } }), ENV, provider(NO_CONCERN_WITH_FACTS));
+  const body = await response.json() as Body;
+  assert.equal(response.status, 200);
+  assert.ok(!body.rules?.findings.some((finding) => finding['ruleId'] === 'cc-toelet.10-02c.rebuke-first'));
+  assert.notEqual(body.rules?.question?.factId, 'toelet.knows_subject_will_not_accept_rebuke',
+    'a user answer of unknown must not be asked again');
 });
 
 test('rules: findings never lower an alert; no finding leaves the extraction alert as is', () => {
@@ -95,6 +112,7 @@ test('rules: findings never lower an alert; no finding leaves the extraction ale
 test('rules: a concern message without rule facts stays warn and asks one yes/no/unknown question', async () => {
   const raw = {
     directAssessment: 'concern',
+    analysis: { questionsHe: ['Synthetic question one?', 'Synthetic question two?', 'Synthetic question three?'] },
     proposedFacts: [
       fact('subject.identifiable', true, 'הספק פלוני'),
       fact('message.content_is_disparaging', true, 'לא החזיר לי מקדמה'),
@@ -104,10 +122,19 @@ test('rules: a concern message without rule facts stays warn and asks one yes/no
   assert.equal(b.alert, 'warn');
   const q = b.rules?.question;
   assert.ok(q, 'expected a clarification question');
+  assert.deepEqual((b['analysis'] as { questionsHe?: string[] }).questionsHe, [], 'catalog question consumes the display budget');
   assert.ok(FACT_BY_ID.has(q.factId));
   assert.equal(q.textHe, FACT_BY_ID.get(q.factId)!.questionHe);
   assert.deepEqual(q.answers.map((a) => a.value), [true, false, null]);
   assert.deepEqual(q.answers.map((a) => a.labelHe), ['כן', 'לא', 'לא יודע']);
+});
+
+test('display: without a catalog question only one analysis question survives', async () => {
+  const raw = { directAssessment: 'unsure', proposedFacts: [],
+    analysis: { questionsHe: ['First?', 'Second?', 'Third?'] } };
+  const response = await handle(post({ text: TEXT }), { ...ENV, LHG_CC_RULES: 'off' }, provider(raw));
+  const body = await response.json() as { analysis: { questionsHe: string[] } };
+  assert.deepEqual(body.analysis.questionsHe, ['First?']);
 });
 
 test('rules: confirmedFacts — invalid ids/values dropped silently, max 20, null = unknown', async () => {
@@ -140,13 +167,21 @@ test('rules: a user answer makes a rule fire and is never re-asked; "don\'t know
       fact('message.content_is_disparaging', true, 'לא החזיר לי מקדמה'),
     ],
   };
-  const yes = (await (await handle(post({ text: TEXT, confirmedFacts: { 'toelet.rebuke_attempted': false } }),
+  const yes = (await (await handle(post({ text: TEXT, confirmedFacts: {
+    'toelet.rebuke_attempted': false,
+    'toelet.purpose_is_constructive': true,
+    'toelet.knows_subject_will_not_accept_rebuke': false,
+  } }),
     ENV, provider(raw))).json()) as Body;
   assert.equal(yes.alert, 'warn');
   assert.ok(yes.rules!.findings.some((f) => f['ruleId'] === 'cc-toelet.10-02c.rebuke-first'));
   assert.notEqual(yes.rules!.question?.factId, 'toelet.rebuke_attempted');
 
-  const dunno = (await (await handle(post({ text: TEXT, confirmedFacts: { 'toelet.rebuke_attempted': null } }),
+  const dunno = (await (await handle(post({ text: TEXT, confirmedFacts: {
+    'toelet.rebuke_attempted': null,
+    'toelet.purpose_is_constructive': true,
+    'toelet.knows_subject_will_not_accept_rebuke': false,
+  } }),
     ENV, provider(raw))).json()) as Body;
   assert.ok(!dunno.rules!.findings.some((f) => f['ruleId'] === 'cc-toelet.10-02c.rebuke-first'),
     'null must stay unknown, never act as false');

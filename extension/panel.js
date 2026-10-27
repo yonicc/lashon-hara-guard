@@ -93,7 +93,10 @@
     if (a.audience && AUDIENCE_HE[a.audience]) lines.push('למי: ' + AUDIENCE_HE[a.audience]);
     if (a.claimHe) lines.push('מה נאמר עליו: ' + a.claimHe);
     if (a.whyHe) lines.push('למה זה עלול להתפרש כגנאי: ' + a.whyHe);
-    for (const q of a.questionsHe || []) lines.push('• ' + q);
+    // Also enforce the display budget for older proxy responses.
+    if (!(r && r.rules && r.rules.question)) {
+      for (const q of (a.questionsHe || []).slice(0, 1)) lines.push('• ' + q);
+    }
     const ctx = r && typeof r.contextMessages === 'number' ? r.contextMessages : null;
     if (ctx !== null) {
       lines.push(ctx > 0
