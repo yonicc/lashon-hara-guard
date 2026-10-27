@@ -49,6 +49,13 @@
 /* Who / about whom / why block; scrolls inside small Gmail chat windows. */
 #lhg-panel { max-height: calc(100vh - 100px); overflow-y: auto; }
 #lhg-panel .lhg-details { margin-top: 6px; padding-top: 6px; border-top: 1px dashed currentColor; font-size: 13px; }
+/* Draft Chafetz Chaim rules: findings with a source link, one clarifying question. */
+#lhg-panel .lhg-rules { margin-top: 6px; padding-top: 6px; border-top: 1px dashed currentColor; font-size: 13px; }
+#lhg-panel .lhg-rules-title { font-weight: 600; }
+#lhg-panel .lhg-source a { color: inherit; text-decoration: underline; }
+#lhg-panel .lhg-limit { font-size: 12px; opacity: 0.8; }
+#lhg-panel .lhg-answers { display: flex; gap: 6px; flex-wrap: wrap; }
+#lhg-panel .lhg-answer { margin-top: 4px; }
 
 /* Held incoming message (hidden until checked / approved). The message's own
    children are display:none and its direct text is collapsed with font-size 0;

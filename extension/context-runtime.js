@@ -96,5 +96,15 @@
       return r;
     }
   }
-  globalThis.LHG_CONTEXT_RUNTIME = { prepare, send, withLocalNames };
+  // Local conversation identity (platform + DOM key) for per-conversation
+  // state kept in this browser only (LHG_RULES answers). null = unknown.
+  function conversationKey(platform, el) {
+    try {
+      const scope = scopeFor(platform, el);
+      return scope ? scope.platform + ':' + scope.key : null;
+    } catch (_) {
+      return null;
+    }
+  }
+  globalThis.LHG_CONTEXT_RUNTIME = { prepare, send, withLocalNames, conversationKey };
 })();

@@ -9,7 +9,18 @@ async function settings() {
   return { proxyUrl: (s.proxyUrl || DEFAULT_PROXY).replace(/\/+$/, ''), accessKey: s.accessKey || '' };
 }
 
-async function check(text, platform, direction, context) {
+// Draft-rules answers (docs/18 wire contract): { factId: true|false|null },
+// at most 20 — one definition, LHG_RULES.sanitize in rules.js (shared with
+// the content scripts). The proxy validates again against its catalog.
+try { if (typeof importScripts === 'function') importScripts('rules.js'); } catch (_e) { /* tests */ }
+function confirmedFactsOf(raw) {
+  const R = globalThis.LHG_RULES;
+  if (!R || !raw) return null;
+  const out = R.sanitize(raw);
+  return Object.keys(out).length ? out : null;
+}
+
+async function check(text, platform, direction, context, confirmedFacts) {
   const { proxyUrl, accessKey } = await settings();
   if (!accessKey) return { alert: 'not_configured' };
   const ctrl = new AbortController();
@@ -18,7 +29,11 @@ async function check(text, platform, direction, context) {
     const res = await fetch(proxyUrl + '/check', {
       method: 'POST',
       headers: { 'content-type': 'application/json', 'x-lhg-key': accessKey },
-      body: JSON.stringify({ text, platform, direction: direction === 'incoming' ? 'incoming' : 'outgoing', ...(context ? { context } : {}) }),
+      body: JSON.stringify({
+        text, platform, direction: direction === 'incoming' ? 'incoming' : 'outgoing',
+        ...(context ? { context } : {}),
+        ...(confirmedFacts ? { confirmedFacts } : {}),
+      }),
       signal: ctrl.signal,
     });
     if (res.status === 401) return { alert: 'not_configured', error: 'unauthorized' };
@@ -55,7 +70,7 @@ if (chrome.commands && chrome.commands.onCommand) {
 
 chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
   if (msg && msg.type === 'lhg-check' && typeof msg.text === 'string') {
-    check(msg.text, msg.platform || 'unknown', msg.direction, msg.context).then(sendResponse);
+    check(msg.text, msg.platform || 'unknown', msg.direction, msg.context, confirmedFactsOf(msg.confirmedFacts)).then(sendResponse);
     return true; // async response
   }
   if (msg && msg.type === 'lhg-warm') {

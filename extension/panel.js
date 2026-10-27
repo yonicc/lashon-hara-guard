@@ -131,44 +131,157 @@
     }];
   }
 
+  // Never "permitted / fine / approved", even after every question was
+  // answered: draft rules can only flag or ask (owner rule, docs/18).
+  const NO_FURTHER_NOTE_HE = 'לא נמצאה הערה נוספת לפי כללי הטיוטה; אינו פסק.';
+
+  function lineEl(text, cls = 'lhg-line') {
+    const d = document.createElement('div');
+    d.className = cls;
+    d.textContent = text; // never innerHTML: server/page text
+    return d;
+  }
+
+  function rulesVisible(r) {
+    const rules = globalThis.LHG_RULES ? globalThis.LHG_RULES.readRules(r) : null;
+    return !!(rules && (rules.findings.length || rules.question));
+  }
+
+  // Draft Chafetz Chaim findings / one clarifying question / limitations,
+  // under the main result. opts.onAnswer(factId, value) re-checks with the
+  // answer; without it the question is shown as text only.
+  function appendRules(p, r, opts = {}) {
+    const R = globalThis.LHG_RULES;
+    if (!R || !p) return;
+    const rules = R.readRules(r);
+    const lims = R.limitations(r);
+    if (!rules && !lims.length) return;
+    const box = document.createElement('div');
+    box.className = 'lhg-rules';
+    if (rules) {
+      box.appendChild(lineEl('כללי חפץ חיים (טיוטה, לא נבדקו בידי מומחה):', 'lhg-line lhg-rules-title'));
+      if (rules.notChecked) box.appendChild(lineEl('הכללים לא נבדקו.'));
+      for (const f of rules.findings) {
+        const d = lineEl('• ' + f.messageHe, 'lhg-line lhg-finding');
+        if (f.sourceRef || f.sourceUrl) {
+          const src = document.createElement('span');
+          src.className = 'lhg-source';
+          src.textContent = ' מקור: ';
+          if (f.sourceUrl) {
+            const a = document.createElement('a');
+            a.href = f.sourceUrl;
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            a.textContent = f.sourceRef || f.sourceUrl;
+            src.appendChild(a);
+          } else {
+            src.textContent += f.sourceRef;
+          }
+          d.appendChild(src);
+        }
+        box.appendChild(d);
+      }
+      if (!rules.notChecked && !rules.findings.length && !rules.question) box.appendChild(lineEl(NO_FURTHER_NOTE_HE));
+      const q = rules.question;
+      if (q) {
+        box.appendChild(lineEl('שאלת בירור: ' + q.textHe, 'lhg-line lhg-question'));
+        if (typeof opts.onAnswer === 'function') {
+          const row = document.createElement('div');
+          row.className = 'lhg-answers';
+          const btns = [];
+          for (const a of q.answers) {
+            const b = document.createElement('button');
+            b.type = 'button';
+            b.className = 'lhg-action lhg-answer';
+            b.textContent = a.labelHe;
+            b.addEventListener('click', () => {
+              for (const x of btns) x.disabled = true;
+              try { opts.onAnswer(q.factId, a.value); } catch (_e) { b.textContent = 'נכשל'; }
+            });
+            btns.push(b);
+            row.appendChild(b);
+          }
+          box.appendChild(row);
+        }
+      }
+    }
+    for (const l of lims) box.appendChild(lineEl(l, 'lhg-line lhg-limit'));
+    p.appendChild(box);
+  }
+
   function renderResult(r, opts = {}) {
     const manual = !!opts.manual;
     const mech = r && r.mechanism ? MECHANISM_HE[r.mechanism] || '' : '';
     const evidence = r && r.evidence ? '״' + r.evidence + '״' : '';
+    let p = null;
     switch (r && r.alert) {
       case 'warn':
-        show('warn', '⚠️ שים לב: ההודעה עלולה להתפרש כגנאי', [
+        p = show('warn', '⚠️ שים לב: ההודעה עלולה להתפרש כגנאי', [
           mech && 'אופן: ' + mech,
           evidence && 'בגלל: ' + evidence,
           'זו תזכורת לשקול ניסוח, לא פסיקה הלכתית.',
         ], detailsAction(r));
         break;
       case 'unsure':
-        show('unsure', 'ℹ️ ייתכן שיש כאן משמעות לא מכוונת', [
+        p = show('unsure', 'ℹ️ ייתכן שיש כאן משמעות לא מכוונת', [
           evidence && 'כדאי לבדוק: ' + evidence,
           'איך יבין את זה מי שמדברים עליו?',
           'זו תזכורת בלבד, לא פסיקה הלכתית.',
         ], detailsAction(r));
         break;
       case 'not_checked':
-        show('muted', 'ההודעה לא נבדקה', ['אין חיבור לשרת הבדיקה כרגע. זה לא אומר שהיא תקינה.']);
+        p = show('muted', 'ההודעה לא נבדקה', ['אין חיבור לשרת הבדיקה כרגע. זה לא אומר שאין בה בעיה.']);
         break;
       case 'not_configured':
         show('muted', 'Lashon Hara Guard לא מוגדר', ['פתח את הגדרות התוסף והדבק את מפתח הגישה.']);
         break;
       case 'none':
-        if (manual) {
-          show('muted', 'לא התקבלה התראה בבדיקה זו', [
-            'אין בכך פסיקה או קביעה שהטקסט תקין.',
+        if (manual || rulesVisible(r)) {
+          p = show('muted', 'לא התקבלה התראה בבדיקה זו', [
+            'אין בכך פסיקה, ואין זו קביעה שאין בטקסט בעיה.',
           ]);
         } else {
           hide();
         }
         break;
       default:
-        if (manual) show('muted', 'הטקסט לא נבדק', ['לא התקבלה תשובה מזוהה משרת הבדיקה. זה לא אומר שהוא תקין.']);
+        if (manual) p = show('muted', 'הטקסט לא נבדק', ['לא התקבלה תשובה מזוהה משרת הבדיקה. זה לא אומר שאין בו בעיה.']);
         else hide();
     }
+    if (p) appendRules(p, r, opts);
+  }
+
+  // One check (compose or manual) with the conversation's stored answers;
+  // answering the clarifying question stores the answer and checks again with
+  // the cumulative confirmedFacts (<= 20). opts: { manual, isCurrent() }.
+  function check(payload, el, opts = {}) {
+    const R = globalThis.LHG_RULES;
+    const send = globalThis.LHG_CONTEXT_RUNTIME?.send || ((msg, cb) => chrome.runtime.sendMessage(msg, cb));
+    const conv = R ? R.conversationKey(payload.platform, el) : null;
+    const current = () => (typeof opts.isCurrent === 'function' ? opts.isCurrent() : true);
+    // answered: a re-check after the user answered; its result is always shown
+    // (even "none"), so the user sees the outcome of the answer.
+    const go = (facts, answered = false) => {
+      const msg = R ? R.withAnswers(payload, facts) : payload;
+      send(msg, (r) => {
+        if (!current()) return;
+        const res = chrome.runtime.lastError ? { alert: 'not_checked' } : r || { alert: 'not_checked' };
+        renderResult(res, {
+          manual: !!opts.manual || answered,
+          onAnswer: R
+            ? (factId, value) => {
+                Promise.resolve(R.saveAnswer(conv, factId, value, msg.confirmedFacts || {})).then((all) => {
+                  if (!current()) return;
+                  show('checking', '…בודק שוב לפי התשובה', []);
+                  go(all, true);
+                });
+              }
+            : null,
+        });
+      }, el);
+    };
+    if (!R || !conv) { go({}); return; } // nothing stored: send at once
+    Promise.resolve(R.loadAnswers(conv)).then((f) => go(f), () => go({}));
   }
 
   function selectionContext(resolveDirection) {
@@ -226,22 +339,15 @@
     }
 
     show('checking', '…בודק את הטקסט', []);
-    const send = globalThis.LHG_CONTEXT_RUNTIME?.send || ((msg, cb) => chrome.runtime.sendMessage(msg, cb));
-    send(
+    check(
       {
         type: 'lhg-check',
         text: text.slice(0, 2000),
         platform: opts.platform || 'unknown',
         direction,
       },
-      (r) => {
-        if (chrome.runtime.lastError) {
-          renderResult({ alert: 'not_checked' }, { manual: true });
-          return;
-        }
-        renderResult(r || { alert: 'not_checked' }, { manual: true });
-      },
       globalThis.getSelection?.()?.anchorNode?.parentElement || document.activeElement,
+      { manual: true },
     );
   }
 
@@ -319,6 +425,9 @@
     show,
     hide,
     renderResult,
+    check,
+    appendRules,
+    NO_FURTHER_NOTE_HE,
     openManual,
     bindManualShortcut,
     bindCommandOpenPanel,

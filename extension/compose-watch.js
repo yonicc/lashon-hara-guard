@@ -33,9 +33,16 @@
       lastChecked = text;
       const my = ++seq;
       show('checking', '…בודק ניסוח', []);
+      const payload = { type: 'lhg-check', text, platform: opts.platform, direction: 'outgoing' };
+      // Panel-owned flow: stored answers go out as confirmedFacts, and the
+      // draft rules' clarifying question re-checks this same text.
+      if (P && typeof P.check === 'function') {
+        P.check(payload, opts.findCompose(), { isCurrent: () => my === seq });
+        return;
+      }
       const send = globalThis.LHG_CONTEXT_RUNTIME?.send || ((msg, cb) => chrome.runtime.sendMessage(msg, cb));
       send(
-        { type: 'lhg-check', text, platform: opts.platform, direction: 'outgoing' },
+        payload,
         (r) => {
           if (my !== seq) return; // the user kept typing: a newer check owns the panel
           if (chrome.runtime.lastError) {
