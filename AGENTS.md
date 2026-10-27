@@ -29,6 +29,7 @@
 - Regression commands: `node --test extension/*.test.cjs`; in both `engine/` and `proxy/`: `npm run typecheck`, `npm test`. `proxy/test/contextIntegration.test.ts` exercises the real browser scripts through the Worker handler with a synthetic provider.
 
 ## MVP runtime (verified 2026-10-26)
+- Security review: `docs/27-security-review.md`. Throttle both `/check` and `/warm` before costly work, including central account reservations; cookie Max-Age alone is not server-side session expiry. Automatic incoming/draft checks are billable work and require explicit spending/privacy controls.
 - Worker server calls must use `redirect:'manual'` and explicitly reject 3xx:
   Cloudflare Workers does not implement `redirect:'error'` (it throws before
   making any request). Never follow redirects carrying partner credentials.
