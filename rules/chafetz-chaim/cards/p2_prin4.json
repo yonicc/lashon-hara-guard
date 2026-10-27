@@ -22,22 +22,11 @@
   "exceptionsHe": [],
   "factsNeeded": [
    "message.reports_what_someone_said_or_did_against_listener",
-   "subject.identifiable"
+   "subject.identifiable",
+   "listener.already_knew",
+   "listener.will_act_harmfully"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "listener.already_knew_content",
-    "questionHe": "האם השומע כבר ידע את תוכן הדברים על פלוני לפני שסופר לו שוב?"
-   },
-   {
-    "id": "listener.realized_injustice_beforehand",
-    "questionHe": "האם השומע כבר התבונן לפני כן שמדובר בעוולה כלפיו, או שלא שם לב לכך?"
-   },
-   {
-    "id": "message.causes_hatred_in_listener",
-    "questionHe": "האם הדיבור מעורר בשומע שנאה כלפי פלוני שלא הייתה שם קודם לכן?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "הגדרת 'לא התבונן עדין' – האם די בחוסר תשומת לב רגעית או שנדרש היסח דעת גמור",
@@ -73,13 +62,10 @@
    "subject.identifiable",
    "message.reports_what_someone_said_or_did_against_listener",
    "message.contains_falsehood_or_exaggeration",
-   "listener.believes_report"
+   "listener.believes_report",
+   "listener.already_knew"
   ],
   "proposedNewFacts": [
-   {
-    "id": "message.already_revealed_by_other",
-    "questionHe": "האם פרט הרכילות כבר נמסר לשומע על ידי אדם אחר לפני הודעה זו?"
-   },
    {
     "id": "message.confirms_prior_rechilus",
     "questionHe": "האם ההודעה מאשרת או מחזקת לשומע דיווח רכילות קודם שקיבל מאחר?"

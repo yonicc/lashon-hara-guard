@@ -153,13 +153,10 @@
    "message.reports_what_someone_said_or_did_against_listener",
    "message.content_may_cause_harm",
    "matter.already_known_to_many",
-   "audience.size_at_least_three"
+   "audience.size_at_least_three",
+   "listener.will_act_harmfully"
   ],
   "proposedNewFacts": [
-   {
-    "id": "message.will_cause_grudge_in_listener",
-    "questionHe": "האם הגילוי יגרום לשומע לנטור טינה בלבו על המדובר?"
-   },
    {
     "id": "message.may_cause_cancellation_of_partnership",
     "questionHe": "האם הגילוי עלול לגרום לביטול השותפות או השידוך?"

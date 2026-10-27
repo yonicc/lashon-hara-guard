@@ -59,22 +59,11 @@
   "exceptionsHe": [],
   "factsNeeded": [
    "subject.identifiable",
-   "message.content_may_cause_harm"
+   "message.content_may_cause_harm",
+   "message.is_praise",
+   "audience.is_close_to_speaker_or_subject"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "message.is_praise_before_associate",
-    "questionHe": "האם ההודעה משבחת אדם בפני חברו, שותפו או בן/בת זוגו?"
-   },
-   {
-    "id": "context.subject_listener_joint_interest",
-    "questionHe": "האם בין המדובר לבין הנמען יש שותפות ממונית/עסקית או קשר נישואין שעלול לגרום לתרעומת על פיזור ממון?"
-   },
-   {
-    "id": "message.praise_may_cause_resentment",
-    "questionHe": "האם השבח עלול לעורר בלב הנמען תרעומת על המדובר ולהסב לו נזק או מחלוקת?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "medium",
   "uncertainHe": [
    "מהו סף ההסתברות של 'יוכל להעלות תרעומות' ו'יוכל להסבב לו רעה' – האם די באפשרות רחוקה או שנדרש שמצוי הוא",
@@ -158,14 +147,10 @@
   "factsNeeded": [
    "message.reports_what_someone_said_or_did_against_listener",
    "message.content_is_disparaging",
-   "subject.identifiable"
+   "subject.identifiable",
+   "speaker.would_say_in_subjects_presence"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "message.causes_mild_annoyance_if_said_in_presence",
-    "questionHe": "האם דרך בני אדם להקפיד קצת אם היו אומרים את הדבר הזה בפני השומע?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "מהו גדר 'להקפיד קצת' ומהם הדוגמאות לכך תלוי בביאור הערות (ה) ו-(ו) ובבאר מים חיים",
@@ -198,18 +183,10 @@
   ],
   "exceptionsHe": [],
   "factsNeeded": [
-   "message.content_may_cause_harm"
+   "message.content_may_cause_harm",
+   "message.was_told_in_confidence"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "message.was_told_as_secret",
-    "questionHe": "האם הדברים נמסרו לכותב כסוד או בדרך סתר?"
-   },
-   {
-    "id": "message.disclosure_harms_owner_plan",
-    "questionHe": "האם גילוי הדברים עלול לגרום נזק לבעל הסוד או להפר את מחשבתו ותוכניתו?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "הסעיף אינו מגדיר מה נחשב 'סוד' ומה נחשב 'דרך סתר'",

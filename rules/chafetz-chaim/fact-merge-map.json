@@ -1,0 +1,1670 @@
+{
+ "action.is_extrajudicial_punishment": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "actor.is_authorized_beit_din": {
+  "action": "reject",
+  "reason": "פרט הלכתי/משפטי ספציפי (בית דין/קניינים/שיעורי אונאה) שאינו נחוץ בצ'אט"
+ },
+ "answer.contains_oath": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "answer.possible_without_complete_lie_or_rechilut": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "audience.are_wicked_like_subject": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "audience.can_help_victim": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "audience.can_help_or_influence"
+ },
+ "audience.can_influence_subject": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "audience.can_help_or_influence"
+ },
+ "audience.includes_detractors": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "audience.includes_non_fellow": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "audience.includes_authorities_or_non_fellow"
+ },
+ "audience.includes_non_jews": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "audience.includes_authorities_or_non_fellow"
+ },
+ "audience.includes_relative_or_friend_of_subject": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "audience.is_close_to_speaker_or_subject"
+ },
+ "audience.includes_relatives_of_subject": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "audience.is_close_to_speaker_or_subject"
+ },
+ "audience.includes_yarei_elokim": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "audience.is_authority_for_discipline": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "audience.can_help_or_influence"
+ },
+ "audience.is_business_partner": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "audience.is_close_to_speaker_or_subject"
+ },
+ "audience.is_city_judges": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "audience.can_help_or_influence"
+ },
+ "audience.is_hostile_to_subject": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "audience.is_original_target": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "audience.is_spouse_or_close_relative": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "audience.is_close_to_speaker_or_subject"
+ },
+ "audience.is_spouse_or_relative_of_victim": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "audience.is_close_to_speaker_or_subject"
+ },
+ "audience.knows_subject": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "audience.listener_count": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "audience.size_at_least_three"
+ },
+ "audience.perceived_standing_of_subject": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "audience.subject_was_silent": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "audience.includes_subject"
+ },
+ "audience.told_before_two": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "audience.size_at_least_three"
+ },
+ "audience.was_warned_not_to_relay": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.was_told_in_confidence"
+ },
+ "audience.will_speak_disparagingly_due_to_inquiry": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "context.inquiry_has_future_purpose"
+ },
+ "case.offender_not_rectified": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "case.type_of_injustice": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "matter.involves_money_dispute"
+ },
+ "consequence.risk_of_crooked_judgment": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "message.content_may_cause_harm"
+ },
+ "context.asked_to_identify_sinner": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "context.inquiry_has_future_purpose"
+ },
+ "context.buyer_is_naive_tam": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "context.deception_type": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "context.disclosure_would_shame_sinner": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "context.frequent_communication_between_cities": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "context.listener_asked_who_harmed_him": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "context.inquiry_has_future_purpose"
+ },
+ "context.original_audience_size": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "audience.size_at_least_three"
+ },
+ "context.original_warning_given": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.was_told_in_confidence"
+ },
+ "context.place_time_norm": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "context.prior_relationship": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "context.same_city_as_hearing": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "context.speaker_suspected_by_asker": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "context.subject_listener_joint_interest": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "audience.is_close_to_speaker_or_subject"
+ },
+ "context.urgent_temporal_need": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "context.warning_scope_general": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.was_told_in_confidence"
+ },
+ "deliberation.was_by_majority_vote": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "details.is_truly_recognizable": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "details.relevant_to_story": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "disclosure.reveals_minority_position": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "disclosure.shifts_blame_to_colleagues": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "message.contains_falsehood_or_exaggeration"
+ },
+ "dispute.can_determine_right_party_by_torah": {
+  "action": "reject",
+  "reason": "כוונה/הערכה פנימית או הכרעה הלכתית פרטנית שאין דרך אמינה לברר בצ'אט"
+ },
+ "dispute.fear_rebuke_will_foil_repair": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "dispute.revealing_will_stop_dispute": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "dispute.subject_is_baal_machlokes": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "environment.is_habitual_gossip_group": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "evidence.based_on_suspicion_only": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "evidence.has_recognizable_signs"
+ },
+ "evidence.circumstantial_signs_verified_by_court": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "evidence.has_recognizable_signs"
+ },
+ "evidence.dvarim_nikarim_present": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "evidence.has_recognizable_signs"
+ },
+ "evidence.is_conclusive_direct": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "evidence.no_possible_favorable_judgment": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.has_favorable_interpretation"
+ },
+ "evidence.saw_directly_vs_signs": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "evidence.has_recognizable_signs"
+ },
+ "evidence.testified_in_court_or_clarified": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "evidence.has_recognizable_signs"
+ },
+ "evidence.verified_by_seven_investigations": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "toelet.facts_verified"
+ },
+ "harm.risk_of_expulsion_from_home": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "message.content_may_cause_harm"
+ },
+ "hearing.is_outside_bet_din": {
+  "action": "reject",
+  "reason": "פרט הלכתי/משפטי ספציפי (בית דין/קניינים/שיעורי אונאה) שאינו נחוץ בצ'אט"
+ },
+ "inquiry.is_general_curiosity_without_future_toelet": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "context.inquiry_has_future_purpose"
+ },
+ "inquiry.purpose_disclosed_to_responder": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "context.inquiry_has_future_purpose"
+ },
+ "judgment.is_internal_conclusion_only": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.has_favorable_interpretation"
+ },
+ "judgment.scale_tips_to_guilt": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.has_favorable_interpretation"
+ },
+ "listener.accepted_not_to_accept_again_and_confessed": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "listener.already_knew_content": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.already_knew"
+ },
+ "listener.already_spread_report_to_others": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.already_knew"
+ },
+ "listener.can_calm_speaker": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "audience.can_help_or_influence"
+ },
+ "listener.can_leave_or_avoid": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.can_leave_or_mute"
+ },
+ "listener.can_leave_or_mute": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.can_leave_or_mute"
+ },
+ "listener.can_refute_or_defend": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "audience.can_help_or_influence"
+ },
+ "listener.expected_reaction_protective_vs_retaliatory": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "listener.future_business_or_match_with_subject": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "context.inquiry_has_future_purpose"
+ },
+ "listener.has_beit_din_authorization": {
+  "action": "reject",
+  "reason": "פרט הלכתי/משפטי ספציפי (בית דין/קניינים/שיעורי אונאה) שאינו נחוץ בצ'אט"
+ },
+ "listener.has_existing_obligation_to_subject": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "listener.has_forwarded_to_others": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "audience.listener_will_spread"
+ },
+ "listener.has_recognizable_signs": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "evidence.has_recognizable_signs"
+ },
+ "listener.hearing_to_cause_benefit_to_others": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.will_act_harmfully"
+ },
+ "listener.intends_to_act_on_report": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.will_act_harmfully"
+ },
+ "listener.intends_to_cause_loss_or_disparagement": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.will_act_harmfully"
+ },
+ "listener.intends_to_hear": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "listener.is_effective_rebuker": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "audience.can_help_or_influence"
+ },
+ "listener.is_parent_of_victim": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "audience.is_close_to_speaker_or_subject"
+ },
+ "listener.is_parent_or_rabbi_of_speaker": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "audience.is_close_to_speaker_or_subject"
+ },
+ "listener.is_parent_or_teacher": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "audience.is_close_to_speaker_or_subject"
+ },
+ "listener.is_quarrelsome": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "listener.is_son_or_student": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "audience.is_close_to_speaker_or_subject"
+ },
+ "listener.joined_after_prohibited_speech_began": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.can_leave_or_mute"
+ },
+ "listener.judged_lechaf_chovah": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.judges_favorably"
+ },
+ "listener.judged_to_merit": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.judges_favorably"
+ },
+ "listener.judges_to_merit": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.judges_favorably"
+ },
+ "listener.knew_matter_not_actor": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.already_knew"
+ },
+ "listener.knows_group_as_habitual_speakers": {
+  "action": "reject",
+  "reason": "כוונה/הערכה פנימית או הכרעה הלכתית פרטנית שאין דרך אמינה לברר בצ'אט"
+ },
+ "listener.knows_subject_repentance": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "subject.has_repented_or_reformed"
+ },
+ "listener.level_of_acceptance": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.shows_agreement"
+ },
+ "listener.maintains_positive_duties": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "listener.only_self_protection": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "listener.needs_info_for_protection"
+ },
+ "listener.pressured_speaker_to_tell": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "speaker.was_pressured_to_tell"
+ },
+ "listener.realized_injustice_beforehand": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.already_knew"
+ },
+ "listener.reason_for_belief_is_sweetness": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "listener.believes_report"
+ },
+ "listener.rebuke_may_help": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "listener.rebuke_will_worsen": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "listener.rebuke_would_help": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "listener.removed_belief_from_heart": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.judges_favorably"
+ },
+ "listener.requested_to_tell": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "listener.saw_dvarim_nikarim_himself": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "evidence.has_recognizable_signs"
+ },
+ "listener.saw_others_violate_warning": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "listener.shows_agreement_or_enjoyment": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.shows_agreement"
+ },
+ "listener.stays_voluntarily": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.can_leave_or_mute"
+ },
+ "listener.tendency_to_misuse_info": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.will_act_harmfully"
+ },
+ "listener.tried_to_remove_complaint": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.judges_favorably"
+ },
+ "listener.trusts_speaker_like_two_witnesses": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "evidence.multiple_firsthand_witnesses"
+ },
+ "listener.understands_from_start_relevance": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "listener.needs_info_for_protection"
+ },
+ "listener.verified_with_subject": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "listener.will_accept_evasive_answer": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "listener.will_act_himself": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.will_act_harmfully"
+ },
+ "listener.will_act_or_cause_harm": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.will_act_harmfully"
+ },
+ "listener.will_act_without_beit_din": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.will_act_harmfully"
+ },
+ "listener.will_add_disparagement": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.will_act_harmfully"
+ },
+ "listener.will_cause_harm_on_report": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.will_act_harmfully"
+ },
+ "listener.will_cause_harm_or_shame": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.will_act_harmfully"
+ },
+ "listener.will_cause_material_harm": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.will_act_harmfully"
+ },
+ "listener.will_disclose_to_others": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "audience.listener_will_spread"
+ },
+ "listener.will_exempt_self_from_obligation": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "listener.will_hate_in_heart": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.will_act_harmfully"
+ },
+ "matter.bet_din_ordered_kum_veaseh": {
+  "action": "reject",
+  "reason": "פרט הלכתי/משפטי ספציפי (בית דין/קניינים/שיעורי אונאה) שאינו נחוץ בצ'אט"
+ },
+ "matter.excuse_is_known_false": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "matter.had_previous_quarrel_over_this": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "matter.halachic_return_permitted": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "matter.has_favorable_judgment_possibility": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.has_favorable_interpretation"
+ },
+ "matter.heard_from_two_or_more": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "evidence.multiple_firsthand_witnesses"
+ },
+ "matter.is_bein_adam_lamakom": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "matter.is_between_man_and_god"
+ },
+ "matter.is_city_rumor": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "speaker.knows_first_hand"
+ },
+ "matter.is_denial_of_virtues": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.denies_virtue_or_status"
+ },
+ "matter.is_devarim_nikarim_mamash": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "matter.is_private_recent_sin_bein_adam_lamakom": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "matter.is_between_man_and_god"
+ },
+ "matter.is_prohibition_publicly_known": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "matter.is_repeated_intentional_violation": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "subject.repeated_intentional_sin"
+ },
+ "matter.known_to_victim": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "matter.no_active_harm_done": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "matter.observed_once_only": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "matter.occured_once_secretly": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "matter.onaah_details_verified": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "matter.involves_money_dispute"
+ },
+ "matter.prohibition_widely_known": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "matter.risk_of_malshinut": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "audience.includes_authorities_or_non_fellow"
+ },
+ "matter.risk_of_unlawful_loss": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "message.content_may_cause_harm"
+ },
+ "matter.sale_completed_no_benefit": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "matter.involves_money_dispute"
+ },
+ "matter.subject_refuses_without_excuse": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "matter.torah_claim_exists": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "matter.transaction_completed": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "matter.involves_money_dispute"
+ },
+ "message.about_bad_middot": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.about_character_traits"
+ },
+ "message.about_financial_status": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.denies_virtue_or_status"
+ },
+ "message.about_physical_weakness": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.denies_virtue_or_status"
+ },
+ "message.already_revealed_by_other": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.already_knew"
+ },
+ "message.aveira_type": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "message.can_be_judged_favorably": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.has_favorable_interpretation"
+ },
+ "message.causes_harm_without_explicit_disparagement": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "message.content_is_disparaging"
+ },
+ "message.causes_hatred_in_listener": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.will_act_harmfully"
+ },
+ "message.causes_mild_annoyance_if_said_in_presence": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "speaker.would_say_in_subjects_presence"
+ },
+ "message.concerns_ancestors_misconduct": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.about_past_or_family"
+ },
+ "message.concerns_apikorsut_directly": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "subject.is_established_wicked"
+ },
+ "message.concerns_bad_middot": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.about_character_traits"
+ },
+ "message.concerns_corrected_past_misconduct": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.about_past_or_family"
+ },
+ "message.concerns_interpersonal_withholding": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "matter.involves_money_dispute"
+ },
+ "message.concerns_listeners_relatives": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "message.confirms_prior_rechilus": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "message.contains_endorsement_that_rumor_fits_subject": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "message.content_is_theft_or_damage": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "matter.involves_money_dispute"
+ },
+ "message.creates_suspicion_of_lashon_hara": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "message.is_hint_or_implied"
+ },
+ "message.denies_virtue_or_talent": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.denies_virtue_or_status"
+ },
+ "message.diminishes_standing_in_eyes_of_listeners": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.denies_virtue_or_status"
+ },
+ "message.disclosure_harms_owner_plan": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "message.content_may_cause_harm"
+ },
+ "message.disclosure_only_deflects_blame": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "message.contains_falsehood_or_exaggeration"
+ },
+ "message.disparagement_recognizable_in_tone": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "message.is_hint_or_implied"
+ },
+ "message.expected_to_cause_hatred_in_listener": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.will_act_harmfully"
+ },
+ "message.exposes_informant": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "message.has_ambiguous_interpretation": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.has_favorable_interpretation"
+ },
+ "message.has_favorable_interpretation": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.has_favorable_interpretation"
+ },
+ "message.has_permission_to_share": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.was_told_in_confidence"
+ },
+ "message.has_possible_merit": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.has_favorable_interpretation"
+ },
+ "message.has_two_interpretations": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.has_favorable_interpretation"
+ },
+ "message.includes_self_and_other_disparagement": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "message.content_is_disparaging"
+ },
+ "message.includes_self_disparagement": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "message.content_is_disparaging"
+ },
+ "message.inquiry_is_specific_matter": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "context.inquiry_has_future_purpose"
+ },
+ "message.is_about_ancestors_or_past_deeds": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.about_past_or_family"
+ },
+ "message.is_about_lack_of_wisdom": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.denies_virtue_or_status"
+ },
+ "message.is_ambiguous_two_ways": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.has_favorable_interpretation"
+ },
+ "message.is_avak_rechilut": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.said_incidentally_without_intent"
+ },
+ "message.is_complaint_about_withheld_benefit": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "matter.involves_money_dispute"
+ },
+ "message.is_excessive_praise": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.is_praise"
+ },
+ "message.is_future_warning": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "context.inquiry_has_future_purpose"
+ },
+ "message.is_malshinut_to_authorities": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "audience.includes_authorities_or_non_fellow"
+ },
+ "message.is_mere_disparagement_or_virtue_negation": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "message.content_is_disparaging"
+ },
+ "message.is_negation_of_virtue": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.denies_virtue_or_status"
+ },
+ "message.is_only_avak_lashon_hara": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.said_incidentally_without_intent"
+ },
+ "message.is_praise": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.is_praise"
+ },
+ "message.is_praise_before_associate": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.is_praise"
+ },
+ "message.is_praise_leading_to_loss": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.is_praise"
+ },
+ "message.is_publicly_known_intentional_sin": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "message.is_rumor_col": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "speaker.knows_first_hand"
+ },
+ "message.is_vague_negative_allusion": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "message.is_hint_or_implied"
+ },
+ "message.is_via_ancestors_or_past_deeds": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.about_past_or_family"
+ },
+ "message.may_cause_cancellation_of_partnership": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "message.medium_is_written": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.medium_is_written"
+ },
+ "message.motive_is_heavenly_not_hatred": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "message.omits_mitigating_detail": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "message.contains_falsehood_or_exaggeration"
+ },
+ "message.praise_may_cause_resentment": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.is_praise"
+ },
+ "message.presented_as_innocent_or_unaware": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.said_incidentally_without_intent"
+ },
+ "message.public_perception_of_aveira": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "message.purpose_is_self_protection": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "context.inquiry_has_future_purpose"
+ },
+ "message.questions_unequal_treatment": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "message.reports_what_someone_said_about_third_party": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "message.reports_what_someone_said_or_did_against_listener"
+ },
+ "message.reveals_source_of_report": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "speaker.knows_first_hand"
+ },
+ "message.said_as_mesich_lefi_tumo": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.said_incidentally_without_intent"
+ },
+ "message.said_with_lightheadedness": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "message.said_in_jest"
+ },
+ "message.source_inferable_without_naming": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "speaker.knows_first_hand"
+ },
+ "message.source_is_interested_party": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "speaker.knows_first_hand"
+ },
+ "message.speaker_warned_not_to_reveal": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.was_told_in_confidence"
+ },
+ "message.suspect_remained_silent": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "audience.includes_subject"
+ },
+ "message.targets_torah_teachings": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "message.about_torah_or_piety"
+ },
+ "message.told_in_secret_with_intent_to_conceal": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.was_told_in_confidence"
+ },
+ "message.told_jointly_with_another": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "message.tone_indicates_disparaging_intent": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "message.is_hint_or_implied"
+ },
+ "message.uses_deceitful_innocence": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.said_incidentally_without_intent"
+ },
+ "message.verified_in_beis_din": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "toelet.facts_verified"
+ },
+ "message.was_solicited_vs_volunteered": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "message.was_told_as_secret": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.was_told_in_confidence"
+ },
+ "message.was_told_in_confidence": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.was_told_in_confidence"
+ },
+ "message.will_cause_grudge_in_listener": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.will_act_harmfully"
+ },
+ "original.told_before_three": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "audience.size_at_least_three"
+ },
+ "original_disclosure.api_tlasa_details_fulfilled": {
+  "action": "reject",
+  "reason": "שאלת-על מצטברת הנגזרת משאר העובדות, לא עובדה עצמאית לשאול"
+ },
+ "original_disclosure.made_in_front_of_three": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "audience.size_at_least_three"
+ },
+ "original_disclosure.speaker_indicated_confidentiality": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.was_told_in_confidence"
+ },
+ "outcome.harm_occurred": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "message.content_may_cause_harm"
+ },
+ "relationship.prior_hatred_exists": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "report.heard_directly_from_subject": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "speaker.knows_first_hand"
+ },
+ "report.num_tellers": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "evidence.multiple_firsthand_witnesses"
+ },
+ "request.favor_denied": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "responder.is_enemy_or_competitor": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "retelling.intent_to_further_spread": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "audience.listener_will_spread"
+ },
+ "retelling.is_incidental": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.said_incidentally_without_intent"
+ },
+ "retelling.is_within_other_discourse": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.said_incidentally_without_intent"
+ },
+ "source.is_spouse": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "audience.is_close_to_speaker_or_subject"
+ },
+ "speaker.ability_to_withdraw_silently": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "speaker.checked_halachic_classification": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "toelet.facts_verified"
+ },
+ "speaker.enjoys_spread_of_disparagement": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "speaker.motive_is_revenge_or_hatred"
+ },
+ "speaker.established_as_impartial_truthful": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "toelet.facts_verified"
+ },
+ "speaker.estimates_private_rebuke_ineffective": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "toelet.rebuke_attempted"
+ },
+ "speaker.expects_no_harm": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "message.content_may_cause_harm"
+ },
+ "speaker.explained_reason_for_telling": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "speaker.fear_of_insults_if_refrains": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "speaker.was_pressured_to_tell"
+ },
+ "speaker.has_deliberated_how_to_fix": {
+  "action": "reject",
+  "reason": "כוונה/הערכה פנימית או הכרעה הלכתית פרטנית שאין דרך אמינה לברר בצ'אט"
+ },
+ "speaker.has_fear_of_subject": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "speaker.was_pressured_to_tell"
+ },
+ "speaker.heard_via_intermediary_claiming_afei_tlasa": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "speaker.knows_first_hand"
+ },
+ "speaker.intent_is_revenge_or_grudge": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "speaker.motive_is_revenge_or_hatred"
+ },
+ "speaker.intent_is_self_protection": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "speaker.intent_to_cause_harm_by_deceit": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "speaker.intent_to_cause_hatred": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.will_act_harmfully"
+ },
+ "speaker.intent_to_cause_rebuke": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "speaker.intent_to_rekindle_old_quarrel": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "speaker.motive_is_revenge_or_hatred"
+ },
+ "speaker.is_angry_while_writing": {
+  "action": "reject",
+  "reason": "כוונה/הערכה פנימית או הכרעה הלכתית פרטנית שאין דרך אמינה לברר בצ'אט"
+ },
+ "speaker.is_child_of_listener": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "speaker.is_minor"
+ },
+ "speaker.is_considered_trustworthy_like_two_witnesses": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "evidence.multiple_firsthand_witnesses"
+ },
+ "speaker.is_habitual_lashon_hara": {
+  "action": "reject",
+  "reason": "כוונה/הערכה פנימית או הכרעה הלכתית פרטנית שאין דרך אמינה לברר בצ'אט"
+ },
+ "speaker.is_habitual_speaker": {
+  "action": "reject",
+  "reason": "כוונה/הערכה פנימית או הכרעה הלכתית פרטנית שאין דרך אמינה לברר בצ'אט"
+ },
+ "speaker.is_mesiah_lefi_tumo": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.said_incidentally_without_intent"
+ },
+ "speaker.is_minor": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "speaker.is_minor"
+ },
+ "speaker.is_parent_or_household_of_listener": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "audience.is_close_to_speaker_or_subject"
+ },
+ "speaker.is_relative_of_listener": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "audience.is_close_to_speaker_or_subject"
+ },
+ "speaker.is_sinner_like_subject": {
+  "action": "reject",
+  "reason": "כוונה/הערכה פנימית או הכרעה הלכתית פרטנית שאין דרך אמינה לברר בצ'אט"
+ },
+ "speaker.is_telling_personal_grievance": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "speaker.is_two_firsthand_witnesses": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "evidence.multiple_firsthand_witnesses"
+ },
+ "speaker.judges_to_guilt": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.has_favorable_interpretation"
+ },
+ "speaker.judgment_balance": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.has_favorable_interpretation"
+ },
+ "speaker.knows_will_lead_to_lashon_hara": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "speaker.motive_is_hatred_or_enjoyment": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "speaker.motive_is_revenge_or_hatred"
+ },
+ "speaker.motive_is_peace": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "speaker.motive_is_revenge_or_hatred"
+ },
+ "speaker.motive_is_revenge": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "speaker.motive_is_revenge_or_hatred"
+ },
+ "speaker.motive_is_social_honor": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "speaker.observed_suspicious_signs": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "evidence.has_recognizable_signs"
+ },
+ "speaker.planned_phrasing_beforehand": {
+  "action": "reject",
+  "reason": "כוונה/הערכה פנימית או הכרעה הלכתית פרטנית שאין דרך אמינה לברר בצ'אט"
+ },
+ "speaker.predicts_future_gossip": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "speaker.rebuke_would_be_heeded": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "toelet.rebuke_attempted"
+ },
+ "speaker.regards_as_permitted": {
+  "action": "reject",
+  "reason": "כוונה/הערכה פנימית או הכרעה הלכתית פרטנית שאין דרך אמינה לברר בצ'אט"
+ },
+ "speaker.requested_by_parent_or_teacher": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "audience.is_close_to_speaker_or_subject"
+ },
+ "speaker.risk_major_financial_loss": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "speaker.was_pressured_to_tell"
+ },
+ "speaker.risk_of_job_loss_if_abstains": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "speaker.was_pressured_to_tell"
+ },
+ "speaker.trusted_as_two_witnesses": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "evidence.multiple_firsthand_witnesses"
+ },
+ "speaker.under_pressure_from_authority": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "speaker.was_pressured_to_tell"
+ },
+ "speaker.was_participant_in_collective_decision": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "speaker.was_pressured_to_tell": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "speaker.was_pressured_to_tell"
+ },
+ "speaker.was_urged_by_other": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "speaker.was_pressured_to_tell"
+ },
+ "speaker.will_escalate_if_defended": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "subject.act_has_plausible_innocent_explanation": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "message.has_favorable_interpretation"
+ },
+ "subject.aveira_publicly_known": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "subject.can_harm_speaker": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "speaker.was_pressured_to_tell"
+ },
+ "subject.established_as_apikores_in_city": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "subject.is_established_wicked"
+ },
+ "subject.explicit_admission": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "audience.includes_subject"
+ },
+ "subject.habit_not_to_remain_silent": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "subject.habitually_sins_intentionally": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "subject.repeated_intentional_sin"
+ },
+ "subject.is_apikores": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "subject.is_established_wicked"
+ },
+ "subject.is_beinoni": {
+  "action": "reject",
+  "reason": "כוונה/הערכה פנימית או הכרעה הלכתית פרטנית שאין דרך אמינה לברר בצ'אט"
+ },
+ "subject.is_beinoni_or_scholar": {
+  "action": "reject",
+  "reason": "כוונה/הערכה פנימית או הכרעה הלכתית פרטנית שאין דרך אמינה לברר בצ'אט"
+ },
+ "subject.is_city_rabbi": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "subject.is_public_torah_figure"
+ },
+ "subject.is_deceased": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "subject.is_established_rasha": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "subject.is_established_wicked"
+ },
+ "subject.is_known_as_righteous": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "subject.is_mocker_who_hates_rebuke": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "subject.is_moreh_horaah_bair": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "subject.is_public_torah_figure"
+ },
+ "subject.is_muchzak_as_rasha_in_city": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "subject.is_established_wicked"
+ },
+ "subject.is_talmid_chacham": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "subject.is_public_torah_figure"
+ },
+ "subject.is_torah_preacher": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "subject.is_public_torah_figure"
+ },
+ "subject.is_yarei_elokim_or_bet_din": {
+  "action": "reject",
+  "reason": "פרט הלכתי/משפטי ספציפי (בית דין/קניינים/שיעורי אונאה) שאינו נחוץ בצ'אט"
+ },
+ "subject.known_to_speaker_as_apikores": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "subject.is_established_wicked"
+ },
+ "subject.lacks_fear_of_god_and_unrepentant": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "subject.livelihood_depends_on_strength_or_credit": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "subject.now_behaves_properly": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "subject.has_repented_or_reformed"
+ },
+ "subject.offense_is_widely_known_prohibition": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "subject.piety_level": {
+  "action": "reject",
+  "reason": "כוונה/הערכה פנימית או הכרעה הלכתית פרטנית שאין דרך אמינה לברר בצ'אט"
+ },
+ "subject.prone_to_repeat_offense": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "subject.repeated_intentional_sin"
+ },
+ "subject.repeated_deliberate_violation_of_known_prohibitions": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "subject.repeated_intentional_sin"
+ },
+ "subject.rumor_is_only_kol_bealma": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "speaker.knows_first_hand"
+ },
+ "subject.silent_in_presence": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "audience.includes_subject"
+ },
+ "subject.status_level": {
+  "action": "reject",
+  "reason": "כוונה/הערכה פנימית או הכרעה הלכתית פרטנית שאין דרך אמינה לברר בצ'אט"
+ },
+ "tellers.count_is_two": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "evidence.multiple_firsthand_witnesses"
+ },
+ "teshuva.listeners_rejected_words": {
+  "action": "reject",
+  "reason": "עניין של תשובה/תיקון לאחר מעשה, לא נתון להחלת סעיף על הודעה"
+ },
+ "teshuva.subject_unaware_of_speech": {
+  "action": "reject",
+  "reason": "עניין של תשובה/תיקון לאחר מעשה, לא נתון להחלת סעיף על הודעה"
+ },
+ "teshuva.subject_was_harmed": {
+  "action": "reject",
+  "reason": "עניין של תשובה/תיקון לאחר מעשה, לא נתון להחלת סעיף על הודעה"
+ },
+ "threat.is_habitual_offender": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "subject.repeated_intentional_sin"
+ },
+ "threat.is_serious_not_empty_boast": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "context.threat_of_planned_harm"
+ },
+ "threat.planned_harm_type": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "context.threat_of_planned_harm"
+ },
+ "toelet.all_conditions_between_man_and_fellow_met": {
+  "action": "reject",
+  "reason": "שאלת-על מצטברת הנגזרת משאר העובדות, לא עובדה עצמאית לשאול"
+ },
+ "toelet.all_conditions_between_man_and_god_met": {
+  "action": "reject",
+  "reason": "שאלת-על מצטברת הנגזרת משאר העובדות, לא עובדה עצמאית לשאול"
+ },
+ "toelet.all_details_klal_4_5_10_fulfilled": {
+  "action": "reject",
+  "reason": "שאלת-על מצטברת הנגזרת משאר העובדות, לא עובדה עצמאית לשאול"
+ },
+ "toelet.certainty_of_future_harm": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "toelet.deterrence_expected": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "audience.can_help_or_influence"
+ },
+ "toelet.future_benefit_expected": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "toelet.purpose_is_constructive"
+ },
+ "toelet.harm_is_only_withholding_benefit": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "toelet.no_excess_harm"
+ },
+ "toelet.is_to_separate_from_prohibition": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "audience.can_help_or_influence"
+ },
+ "toelet.knows_subject_will_not_accept_rebuke": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "toelet.rebuke_attempted"
+ },
+ "toelet.listener_will_heed": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "audience.can_help_or_influence"
+ },
+ "toelet.onaah_less_than_sixth": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "matter.involves_money_dispute"
+ },
+ "toelet.preemptive_warning_effect": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "toelet.purpose_is_constructive"
+ },
+ "toelet.purpose_is_anxiety_relief": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "toelet.requested_by_victim": {
+  "action": "reject",
+  "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
+ },
+ "toelet.saving_from_shame": {
+  "action": "merge",
+  "reason": "מיזוג לפי משמעות",
+  "target": "toelet.purpose_is_constructive"
+ },
+ "toelet.subject_has_not_repent": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "subject.has_repented_or_reformed"
+ },
+ "toelet.victim_will_act_for_remedy": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "listener.will_act_harmfully"
+ },
+ "toelet.will_prevent_future_informing": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "audience.can_help_or_influence"
+ },
+ "transaction.is_finalized": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "matter.involves_money_dispute"
+ },
+ "verification.listener_has_independent_witnesses": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "evidence.has_recognizable_signs"
+ },
+ "witnesses.are_two": {
+  "action": "new",
+  "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
+  "target": "evidence.multiple_firsthand_witnesses"
+ }
+}

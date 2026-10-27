@@ -33,22 +33,12 @@
    "message.may_be_understood_as_disparagement",
    "audience.includes_subject",
    "speaker.knows_first_hand",
-   "toelet.purpose_is_constructive"
+   "toelet.purpose_is_constructive",
+   "subject.has_repented_or_reformed",
+   "message.about_past_or_family",
+   "matter.is_between_man_and_god"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "subject.now_behaves_properly",
-    "questionHe": "האם המדובר מתנהג עתה כשורה למרות מעשיו הקודמים?"
-   },
-   {
-    "id": "message.is_about_ancestors_or_past_deeds",
-    "questionHe": "האם הדברים עוסקים במעשה אבותיו וקרוביו או במעשיו הראשונים של המדובר?"
-   },
-   {
-    "id": "matter.is_private_recent_sin_bein_adam_lamakom",
-    "questionHe": "האם מדובר במעשה שנראה מקרוב בינו לבין עצמו והוא בין אדם למקום?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "מהם הפרטים המתירים המבוארים בסעיף ז'",
@@ -143,16 +133,13 @@
    "message.content_is_disparaging",
    "message.may_be_understood_as_disparagement",
    "message.content_may_cause_harm",
-   "speaker.knows_first_hand"
+   "speaker.knows_first_hand",
+   "message.has_favorable_interpretation"
   ],
   "proposedNewFacts": [
    {
     "id": "subject.is_beinoni",
     "questionHe": "האם המדובר הוא איש בינוני כסתם איש ישראל שדרכו להשמר מחטא ונכשל רק לפעמים?"
-   },
-   {
-    "id": "subject.act_has_plausible_innocent_explanation",
-    "questionHe": "האם יש לתלות שהמעשה נעשה שלא במתכוון או מחוסר ידיעה שהוא אסור או מסברה שהוא רק חומרא ומידת חסידות?"
    }
   ],
   "relevanceToChat": "high",
@@ -202,7 +189,8 @@
    "matter.already_known_to_many",
    "toelet.purpose_is_constructive",
    "listener.believes_report",
-   "toelet.rebuke_attempted"
+   "toelet.rebuke_attempted",
+   "audience.can_help_or_influence"
   ],
   "proposedNewFacts": [
    {
@@ -216,10 +204,6 @@
    {
     "id": "matter.prohibition_widely_known",
     "questionHe": "האם איסור המעשה נתפשט וידוע בישראל שהעושה יודע שהוא עושה במזיד?"
-   },
-   {
-    "id": "toelet.is_to_separate_from_prohibition",
-    "questionHe": "האם מטרת הגילוי היא להפריש מאיסור מתמשך כגון אשת איש שנאסרה לבעלה?"
    }
   ],
   "relevanceToChat": "high",
@@ -269,20 +253,14 @@
    "toelet.purpose_is_constructive",
    "toelet.rebuke_attempted",
    "toelet.no_excess_harm",
-   "listener.believes_report"
+   "listener.believes_report",
+   "evidence.multiple_firsthand_witnesses",
+   "audience.can_help_or_influence"
   ],
   "proposedNewFacts": [
    {
     "id": "subject.is_mocker_who_hates_rebuke",
     "questionHe": "האם המדובר ידוע כאויל לץ השונא מוכיחים שבוודאי לא יקבל תוכחה?"
-   },
-   {
-    "id": "witnesses.are_two",
-    "questionHe": "האם המעשה נראה בשני עדים או שמדובר בעד אחד בלבד?"
-   },
-   {
-    "id": "audience.is_authority_for_discipline",
-    "questionHe": "האם הנמען הוא דייני העיר או קרוביו או רבו שיש בידם לייסר בהצנע?"
    },
    {
     "id": "message.motive_is_heavenly_not_hatred",
@@ -332,21 +310,11 @@
    "message.purpose",
    "toelet.purpose_is_constructive",
    "audience.listener_will_spread",
-   "toelet.rebuke_attempted"
+   "toelet.rebuke_attempted",
+   "subject.repeated_intentional_sin",
+   "audience.can_help_or_influence"
   ],
   "proposedNewFacts": [
-   {
-    "id": "subject.prone_to_repeat_offense",
-    "questionHe": "האם המדובר הוא אדם שמשפטו לשנות באולתו ונקל לו לחזור על אותו חטא?"
-   },
-   {
-    "id": "listener.is_effective_rebuker",
-    "questionHe": "האם השומע הוא אדם שדברי תוכחתו נשמעים לחוטא ויש בכוחו למנוע ממנו לשנות באולתו?"
-   },
-   {
-    "id": "audience.is_city_judges",
-    "questionHe": "האם הנמען הוא מדייני העיר המוסמכים לדון ולא אדם פרטי אחר?"
-   },
    {
     "id": "matter.observed_once_only",
     "questionHe": "האם החטא נצפה רק פעם אחת ולא כהרגל קבוע?"
@@ -392,13 +360,10 @@
    "message.content_is_true",
    "speaker.knows_first_hand",
    "toelet.rebuke_attempted",
-   "audience.size_at_least_three"
+   "audience.size_at_least_three",
+   "subject.repeated_intentional_sin"
   ],
   "proposedNewFacts": [
-   {
-    "id": "subject.habitually_sins_intentionally",
-    "questionHe": "האם המדובר עבר כמה פעמים במזיד על אותה עבירה או על עבירה מפורסמת אחרת?"
-   },
    {
     "id": "subject.aveira_publicly_known",
     "questionHe": "האם כל שער עמו יודעים שאותה עבירה היא עבירה?"
@@ -505,14 +470,10 @@
    "message.content_is_true",
    "speaker.knows_first_hand",
    "speaker.intent_to_disparage",
-   "toelet.rebuke_attempted"
+   "toelet.rebuke_attempted",
+   "message.about_character_traits"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "message.about_bad_middot",
-    "questionHe": "האם הדברים עוסקים במידות רעות של האדם כגון גאווה, כעס שלא כהוגן או שאר מידות מגונות?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "הגדרת גדרי \"מידות מגונות\" אילו מידות נכללות נותרה לביאור ההערות בבאר מים חיים (לו-לח)",
@@ -552,17 +513,11 @@
    "message.purpose",
    "speaker.intent_to_disparage",
    "toelet.purpose_is_constructive",
-   "listener.needs_info_for_protection"
+   "listener.needs_info_for_protection",
+   "audience.is_close_to_speaker_or_subject",
+   "message.about_character_traits"
   ],
   "proposedNewFacts": [
-   {
-    "id": "listener.is_son_or_student",
-    "questionHe": "האם השומע הוא בנו או תלמידו של המספר? "
-   },
-   {
-    "id": "message.concerns_bad_middot",
-    "questionHe": "האם הדברים עוסקים במידה מגונה כגון גאווה כעס או בטלה מתורה? "
-   },
    {
     "id": "speaker.explained_reason_for_telling",
     "questionHe": "האם המספר ביאר לשומע מדוע הוא מספר בגנות חברו? "
@@ -618,20 +573,13 @@
    "listener.believes_report",
    "message.about_torah_or_piety",
    "subject.is_relative_of_speaker",
-   "message.content_is_true"
+   "message.content_is_true",
+   "context.inquiry_has_future_purpose"
   ],
   "proposedNewFacts": [
    {
-    "id": "inquiry.purpose_disclosed_to_responder",
-    "questionHe": "האם השואל הודיע לנשאל במפורש שהשאלה היא לצורך שידוך או שותפות או שכירות וכיוצא בזה?"
-   },
-   {
     "id": "responder.is_enemy_or_competitor",
     "questionHe": "האם הנשאל הוא שונא או מתחרה של המדובר באותו אמנות ועסק?"
-   },
-   {
-    "id": "inquiry.is_general_curiosity_without_future_toelet",
-    "questionHe": "האם השאלה היא סקרנות כללית על אנשי עיר ללא כוונה להוכיח או להיטיב על להבא?"
    }
   ],
   "relevanceToChat": "high",

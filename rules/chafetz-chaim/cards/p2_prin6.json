@@ -72,10 +72,6 @@
   ],
   "proposedNewFacts": [
    {
-    "id": "audience.subject_was_silent",
-    "questionHe": "האם המדובר שתק בשעה שסיפרו את הרכילות בפניו?"
-   },
-   {
     "id": "subject.habit_not_to_remain_silent",
     "questionHe": "האם טבעו של המדובר שלא לשתוק כשמאשימים אותו בדברים אחרים?"
    }
@@ -118,22 +114,12 @@
    "subject.is_fellow",
    "message.reports_what_someone_said_or_did_against_listener",
    "listener.role_is_receiving",
-   "listener.believes_report"
+   "listener.believes_report",
+   "evidence.has_recognizable_signs",
+   "audience.includes_subject",
+   "speaker.knows_first_hand"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "listener.has_recognizable_signs",
-    "questionHe": "האם יש לניזוק דברים הנכרים המוכיחים שהנחשד אכן גרם להיזק?"
-   },
-   {
-    "id": "message.suspect_remained_silent",
-    "questionHe": "האם הנחשד שתק כשעימתו אותו עם הרכילות ולא הצדיק עצמו?"
-   },
-   {
-    "id": "message.source_is_interested_party",
-    "questionHe": "האם מוסר הרכילות הוא נכרי או אדם הנוגע בדבר המבקש להסיר אשמה מעצמו?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "מה נחשב דברים הנכרים המתירים להחליט בלב שהנחשד אשם, שהסעיף מפנה לביאורו לקמן",
@@ -169,18 +155,11 @@
    "listener.role_is_receiving",
    "listener.believes_report",
    "matter.already_known_to_many",
-   "toelet.purpose_is_constructive"
+   "toelet.purpose_is_constructive",
+   "evidence.multiple_firsthand_witnesses",
+   "speaker.knows_first_hand"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "matter.heard_from_two_or_more",
-    "questionHe": "האם הדברים נשמעו משני אנשים או יותר באופן בלתי תלוי?"
-   },
-   {
-    "id": "matter.is_city_rumor",
-    "questionHe": "האם יצא קול בעיר על הדברים?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "גדר המדויק של \"משנים ויותר\" ו\"קול בעיר\" תלוי בביאור בבאר מים חיים אות ז",
@@ -225,18 +204,10 @@
    "listener.needs_info_for_protection",
    "toelet.purpose_is_constructive",
    "speaker.knows_first_hand",
-   "message.purpose"
+   "message.purpose",
+   "audience.listener_will_spread"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "report.heard_directly_from_subject",
-    "questionHe": "האם המספר שמע את הדברים ישירות מפי המדובר עצמו ולא דרך אדם אחר ששמע ממנו?"
-   },
-   {
-    "id": "listener.will_disclose_to_others",
-    "questionHe": "האם השומע מתכוון לגלות את הדברים שקיבל לאחרים או לבני ביתו?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "פירוש 'אין שום צד זכות עליו' והיקפו לפי באר מים חיים (ח)",
@@ -276,22 +247,11 @@
    "message.reports_what_someone_said_or_did_against_listener",
    "toelet.purpose_is_constructive",
    "listener.believes_report",
-   "listener.role_is_receiving"
+   "listener.role_is_receiving",
+   "evidence.multiple_firsthand_witnesses",
+   "listener.will_act_harmfully"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "listener.trusts_speaker_like_two_witnesses",
-    "questionHe": "האם השומע מכיר היטב את המספר כאדם שאינו משקר ואינו מגזם ונאמן עליו תמיד כשני עדים?"
-   },
-   {
-    "id": "listener.reason_for_belief_is_sweetness",
-    "questionHe": "האם האמונה ברכילות נובעת מהיכרות קבועה או רק משום שמתוק לו לשמוע לשון הרע ורכילות?"
-   },
-   {
-    "id": "listener.intends_to_cause_loss_or_disparagement",
-    "questionHe": "האם השומע מתכוון על סמך הרכילות להפסיד את המדובר בממון או להכותו או לגנותו בדברים?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "הגדרה מדויקת של קים לה בגוה טובא ומכיר היטב את טבעו וכמה היכרות נדרשת",
@@ -331,18 +291,11 @@
    "listener.believes_report",
    "message.reports_what_someone_said_or_did_against_listener",
    "message.may_be_understood_as_disparagement",
-   "message.content_is_disparaging"
+   "message.content_is_disparaging",
+   "audience.is_close_to_speaker_or_subject",
+   "evidence.multiple_firsthand_witnesses"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "speaker.is_relative_of_listener",
-    "questionHe": "האם המספר הוא אביו, אמו, בן/בת זוגו או קרוב משפחה אחר של השומע?"
-   },
-   {
-    "id": "speaker.is_considered_trustworthy_like_two_witnesses",
-    "questionHe": "האם השומע מחשיב את המספר לנאמן לו כבי תרי שלא ישקר לו?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "גדר המדויק של היתר 'לחוש בלבד' לעומת איסור קבלה כאמת תלוי בסעיפים ה'-ו' ובבאר מים חיים אות טו",
@@ -376,14 +329,10 @@
   "factsNeeded": [
    "message.reports_what_someone_said_or_did_against_listener",
    "listener.role_is_receiving",
-   "listener.believes_report"
+   "listener.believes_report",
+   "message.said_incidentally_without_intent"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "speaker.is_mesiah_lefi_tumo",
-    "questionHe": "האם המספר אמר את הדברים כמסיח לפי תומו בלא כוונה לעורר מדנים אלא דרך אגב?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "גדר המדויק של מסיח לפי תומו ברכילות תלוי בביאור בבאר מים חיים אות יז",
@@ -422,20 +371,14 @@
   "factsNeeded": [
    "message.reports_what_someone_said_or_did_against_listener",
    "listener.believes_report",
-   "toelet.purpose_is_constructive"
+   "toelet.purpose_is_constructive",
+   "evidence.has_recognizable_signs",
+   "message.has_favorable_interpretation"
   ],
   "proposedNewFacts": [
    {
-    "id": "listener.saw_dvarim_nikarim_himself",
-    "questionHe": "האם השומע ראה בעצמו דברים ניכרים המורים שהסיפור אמת, ולא שמע אותם מפי אחרים?"
-   },
-   {
     "id": "evidence.is_conclusive_direct",
     "questionHe": "האם הדבר הניכר הוא ממש ומגיע לעניין הסיפור ולא דבר ניכר קצת?"
-   },
-   {
-    "id": "evidence.no_possible_favorable_judgment",
-    "questionHe": "האם אין בעניין צד לשפוט את המדובר לכף זכות?"
    }
   ],
   "relevanceToChat": "medium",
@@ -482,26 +425,12 @@
    "speaker.knows_first_hand",
    "toelet.purpose_is_constructive",
    "toelet.no_other_way",
-   "toelet.facts_verified"
+   "toelet.facts_verified",
+   "speaker.motive_is_revenge_or_hatred",
+   "evidence.has_recognizable_signs",
+   "audience.can_help_or_influence"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "speaker.motive_is_revenge",
-    "questionHe": "האם כוונת הכותב במסירה היא רק לנקמה ולא לתועלת להבא?"
-   },
-   {
-    "id": "evidence.saw_directly_vs_signs",
-    "questionHe": "האם הכותב ראה בעיניו שהלה הלשין או שנסמך רק על דברים ניכרים או שמועה מאחרים?"
-   },
-   {
-    "id": "evidence.testified_in_court_or_clarified",
-    "questionHe": "האם יש עדות בבית דין או בירור ברור ללא ספק שהלה הוא שהלשין?"
-   },
-   {
-    "id": "toelet.will_prevent_future_informing",
-    "questionHe": "האם המסירה השנייה תגרום שהלה לא יחזור וילשין שוב?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "medium",
   "uncertainHe": [
    "גבולות תועלת על להבא ואי אפשר בדרך אחרת התלויים במבואר בחושן משפט סימן שפח סעיף ט בהגהה",

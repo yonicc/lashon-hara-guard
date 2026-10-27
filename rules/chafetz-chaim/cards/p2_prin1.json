@@ -89,14 +89,10 @@
   "exceptionsHe": [],
   "factsNeeded": [
    "message.reports_what_someone_said_or_did_against_listener",
-   "subject.identifiable"
+   "subject.identifiable",
+   "listener.will_act_harmfully"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "message.expected_to_cause_hatred_in_listener",
-    "questionHe": "האם הכותב משער שדבריו יגרמו לשומע לשנוא את פלוני או לכעוס עליו?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "מהו שיעור ה'משער' – האם די בחשש קל לשנאה או שנדרשת הסתברות גבוהה, ותלוי בביאור בבאר מים חיים אות ז",
@@ -165,22 +161,12 @@
   "conditionsHe": [],
   "exceptionsHe": [],
   "factsNeeded": [
-   "message.reports_what_someone_said_or_did_against_listener"
+   "message.reports_what_someone_said_or_did_against_listener",
+   "speaker.was_pressured_to_tell",
+   "audience.is_close_to_speaker_or_subject",
+   "message.said_incidentally_without_intent"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "speaker.was_pressured_to_tell",
-    "questionHe": "האם המספר סיפר רק לאחר שהשומע הבין קצת ועמד עליו והפציר בו לספר?"
-   },
-   {
-    "id": "listener.is_parent_or_teacher",
-    "questionHe": "האם המבקש שהפציר לספר הוא אביו או רבו של המספר?"
-   },
-   {
-    "id": "message.is_avak_rechilut",
-    "questionHe": "האם הדברים הם אבק רכילות ולא רכילות גמורה?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "תוכן ההערות (י) ו-(יא) בבאר מים חיים אינו כלול בטקסט הסעיף ויכול לפרט את גדר ההפצרה",
@@ -216,18 +202,10 @@
    "message.reports_what_someone_said_or_did_against_listener",
    "toelet.purpose_is_constructive",
    "subject.identifiable",
-   "message.purpose"
+   "message.purpose",
+   "speaker.was_pressured_to_tell"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "speaker.risk_major_financial_loss",
-    "questionHe": "האם הימנעות מלספר את הדברים עלולה לגרום לכותב הפסד גדול או אובדן פרנסה ומשרה?"
-   },
-   {
-    "id": "speaker.under_pressure_from_authority",
-    "questionHe": "האם הכותב נתון ללחץ ממי שממונה עליו לגלות את הדברים ומאוים בסילוק אם לא יגלה?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "מהו הגדר המדויק של הפסד גדול המחייב ליתן כל אשר לו לעומת הפסדים פחותים",
@@ -260,14 +238,10 @@
   "factsNeeded": [
    "message.reports_what_someone_said_or_did_against_listener",
    "subject.identifiable",
-   "message.content_may_cause_harm"
+   "message.content_may_cause_harm",
+   "speaker.was_pressured_to_tell"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "speaker.fear_of_insults_if_refrains",
-    "questionHe": "האם ההימנעות מסיפור הרכילות תגרום לכותב רק לחרופין וגדופין ולא להיזק ממון?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "גבול ההבחנה בין היזק ממון לבין חרופין וגדופין בעלמא אינו מבואר בסעיף זה עצמו",
@@ -305,7 +279,8 @@
    "message.reports_what_someone_said_or_did_against_listener",
    "message.contains_falsehood_or_exaggeration",
    "message.content_is_true",
-   "message.purpose"
+   "message.purpose",
+   "speaker.motive_is_revenge_or_hatred"
   ],
   "proposedNewFacts": [
    {
@@ -319,10 +294,6 @@
    {
     "id": "answer.contains_oath",
     "questionHe": "האם התשובה כוללת שבועה לשקר?"
-   },
-   {
-    "id": "speaker.motive_is_peace",
-    "questionHe": "האם השקר נאמר מפני השלום?"
    }
   ],
   "relevanceToChat": "high",
@@ -359,14 +330,10 @@
   "factsNeeded": [
    "subject.identifiable",
    "message.is_hint_or_implied",
-   "message.reports_what_someone_said_or_did_against_listener"
+   "message.reports_what_someone_said_or_did_against_listener",
+   "listener.already_knew"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "listener.knew_matter_not_actor",
-    "questionHe": "האם השומע כבר ידע מה נאמר או נעשה נגדו אך לא ידע מי אמר או עשה זאת?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "גבולות 'סתם' ו'בדרך רמז' ומידת הזיהוי הנדרשת תלויים בביאור באר מים חיים על ציונים טז-יח שאינו בסעיף",
@@ -403,20 +370,14 @@
    "subject.identifiable",
    "speaker.knows_first_hand",
    "speaker.intent_to_disparage",
-   "message.purpose"
+   "message.purpose",
+   "speaker.motive_is_revenge_or_hatred",
+   "message.said_incidentally_without_intent"
   ],
   "proposedNewFacts": [
    {
     "id": "matter.had_previous_quarrel_over_this",
     "questionHe": "האם הייתה בעבר מריבה בין השומע לבין פלוני על אותה רעה או גנות?"
-   },
-   {
-    "id": "speaker.intent_to_rekindle_old_quarrel",
-    "questionHe": "האם כוונת הכותב לעורר מחדש מחלוקת ישנה שהייתה בין השומע למדובר?"
-   },
-   {
-    "id": "message.uses_deceitful_innocence",
-    "questionHe": "האם הכותב מזכיר את הרעה בדרך רמאות כאילו בתמימות כדי שהשומע ייזכר בעצמו מי עשה זאת?"
    }
   ],
   "relevanceToChat": "medium",
@@ -453,14 +414,10 @@
   "exceptionsHe": [],
   "factsNeeded": [
    "message.reports_what_someone_said_or_did_against_listener",
-   "message.about_craft_or_goods"
+   "message.about_craft_or_goods",
+   "message.medium_is_written"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "message.medium_is_written",
-    "questionHe": "האם הדברים נמסרו בכתב (מכתב, הודעת צ'אט או מייל) ולא בדיבור בעל פה?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "היקף 'על ידי מכתב' בציון (כ) לבאר מים חיים – האם כל מסר כתוב דיגיטלי נכלל",

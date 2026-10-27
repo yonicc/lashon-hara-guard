@@ -26,12 +26,7 @@
    "message.content_is_true",
    "audience.size_at_least_three"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "audience.listener_count",
-    "questionHe": "בפני כמה אנשים בדיוק נאמרו הדברים?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "מהו גדר 'רבים' להחמרת העוון – שניים או שלושה ויותר – אינו מבואר בסעיף זה",
@@ -73,18 +68,10 @@
    "speaker.intent_to_disparage",
    "audience.size_at_least_three",
    "audience.listener_will_spread",
-   "matter.already_known_to_many"
+   "matter.already_known_to_many",
+   "message.has_favorable_interpretation"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "message.has_two_interpretations",
-    "questionHe": "האם לניסוח יש שני פנים - פירוש ניטרלי ללא גנאי ופירוש מגנה - התלוי באופן האמירה?"
-   },
-   {
-    "id": "message.disparagement_recognizable_in_tone",
-    "questionHe": "האם הגנאי ניכר בקולו, בתנועותיו או בנימת הכתיבה של המספר?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "medium",
   "uncertainHe": [
    "גבול ההבחנה בין גנאי גמור לבין אינו גנאי גמור ומתי דיבור נחשב שיש לו שני פנים",
@@ -129,26 +116,11 @@
    "matter.already_known_to_many",
    "audience.size_at_least_three",
    "speaker.intent_to_disparage",
-   "message.purpose"
+   "message.purpose",
+   "message.said_incidentally_without_intent",
+   "audience.listener_will_spread"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "retelling.is_incidental",
-    "questionHe": "האם הסיפור החוזר נאמר בדרך אקראי ולא בכוונה להפיץ את הקול הלאה?"
-   },
-   {
-    "id": "retelling.is_within_other_discourse",
-    "questionHe": "האם הדבר הוזכר דרך אגב בתוך דיבור אחר ולא כסיפור מכוון בפני עצמו?"
-   },
-   {
-    "id": "original.told_before_three",
-    "questionHe": "האם הסיפור המקורי נאמר בפני שלושה אנשים?"
-   },
-   {
-    "id": "retelling.intent_to_further_spread",
-    "questionHe": "האם המספר מתכוון להעביר את הקול ולגלותו יותר?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "האם ההיתר של 'בפני שלושה' הוא להלכה, שהרי נאמר בלשון 'יש אומרים'",
@@ -192,12 +164,7 @@
    "message.content_is_disparaging",
    "subject.identifiable"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "speaker.heard_via_intermediary_claiming_afei_tlasa",
-    "questionHe": "האם הכותב מספר גנות ששמע רק מפי שומע ראשון שטען שהדברים נאמרו במקור באפי תלתא, ולא שמע בעצמו את הדברים במקור?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "מהי הגדרת 'נתפרסם הדבר ונודע לכל' - האם הכוונה לכל בני העיר או לרבים, ומה שיעור הפרסום לפי באר מים חיים אות י",
@@ -232,16 +199,13 @@
   "factsNeeded": [
    "matter.already_known_to_many",
    "audience.size_at_least_three",
-   "audience.listener_will_spread"
+   "audience.listener_will_spread",
+   "audience.is_close_to_speaker_or_subject"
   ],
   "proposedNewFacts": [
    {
     "id": "audience.includes_yarei_elokim",
     "questionHe": "האם בין השומעים המקוריים היה לפחות אדם אחד ירא אלקים הנזהר מאיסור לשון הרע שאינו עתיד להפיץ את הדברים?"
-   },
-   {
-    "id": "audience.includes_relative_or_friend_of_subject",
-    "questionHe": "האם אחד מהשומעים המקוריים הוא קרוב משפחה או אוהב של האדם שעליו נאמרה הגנות, שאינו צפוי לגלותה לאחרים?"
    }
   ],
   "relevanceToChat": "medium",
@@ -327,13 +291,10 @@
    "audience.size_at_least_three",
    "matter.already_known_to_many",
    "listener.role_is_receiving",
-   "audience.listener_will_spread"
+   "audience.listener_will_spread",
+   "message.was_told_in_confidence"
   ],
   "proposedNewFacts": [
-   {
-    "id": "message.speaker_warned_not_to_reveal",
-    "questionHe": "האם מי שאמר את הדברים הזהיר במפורש שלא לגלותם לאחרים?"
-   },
    {
     "id": "listener.saw_others_violate_warning",
     "questionHe": "האם המשתמש ראה ששומע אחר כבר הפר את האזהרה וגילה את הדבר לאחרים?"
@@ -378,22 +339,10 @@
    "audience.size_at_least_three",
    "matter.already_known_to_many",
    "subject.identifiable",
-   "message.content_is_disparaging"
+   "message.content_is_disparaging",
+   "message.was_told_in_confidence"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "context.original_warning_given",
-    "questionHe": "האם המספר המקורי הזהיר את שומעיו שלא לגלות את הדברים?"
-   },
-   {
-    "id": "context.warning_scope_general",
-    "questionHe": "האם לשון האזהרה היתה כללית שלא לגלות כלל, או רק שלא לגלות לפלוני מסוים?"
-   },
-   {
-    "id": "context.original_audience_size",
-    "questionHe": "האם המסירה המקורית היתה בפני שלושה שומעים או רק בפני שניים?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "גבול בין לשון אזהרה כללית האוסרת כל גילוי לבין אזהרה מצומצמת רק שלא לגלות לפלוני מסוים",
@@ -437,17 +386,10 @@
    "speaker.intent_to_disparage",
    "matter.already_known_to_many",
    "listener.believes_report",
-   "audience.size_at_least_three"
+   "audience.size_at_least_three",
+   "message.about_past_or_family"
   ],
   "proposedNewFacts": [
-   {
-    "id": "message.concerns_corrected_past_misconduct",
-    "questionHe": "האם ההודעה עוסקת במעשה רע שהמדובר עשה בעבר בנערותו אך מאז ועד עתה מתנהג כשורה?"
-   },
-   {
-    "id": "message.concerns_ancestors_misconduct",
-    "questionHe": "האם ההודעה עוסקת במעשי אבותיו או משפחתו של המדובר שלא נהגו כשורה, כשהוא עצמו אינו אוחז בדרכיהם?"
-   },
    {
     "id": "message.contains_endorsement_that_rumor_fits_subject",
     "questionHe": "האם הכותב מוסיף הטעמה שהשמועה הרעה 'יפה נשמעת' על המדובר או מתאימה לו?"
@@ -487,14 +429,10 @@
    "listener.believes_report",
    "message.is_hint_or_implied",
    "message.may_be_understood_as_disparagement",
-   "message.content_is_disparaging"
+   "message.content_is_disparaging",
+   "listener.will_act_harmfully"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "listener.will_add_disparagement",
-    "questionHe": "האם ידוע שטבע השומע להוסיף עוד דברים לגנאי כשישמע את הדברים?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "מהי רמת הידיעה הנדרשת על טבע השומע - ידיעה ודאית או חשש סביר שיקבל לאמת",
@@ -535,7 +473,8 @@
    "message.is_hint_or_implied",
    "message.content_may_cause_harm",
    "audience.includes_subject",
-   "matter.already_known_to_many"
+   "matter.already_known_to_many",
+   "message.contains_falsehood_or_exaggeration"
   ],
   "proposedNewFacts": [
    {
@@ -545,10 +484,6 @@
    {
     "id": "disclosure.reveals_minority_position",
     "questionHe": "האם ההודעה מגלה שדעת הדובר או דעת פלוני הייתה בתחילה להקל והוכרעה ברוב?"
-   },
-   {
-    "id": "disclosure.shifts_blame_to_colleagues",
-    "questionHe": "האם ההודעה מטילה את האחריות להחלטה על חברי הישיבה ומסירה אותה מהדובר?"
    }
   ],
   "relevanceToChat": "low",
@@ -596,14 +531,10 @@
    "message.content_may_cause_harm",
    "matter.already_known_to_many",
    "audience.size_at_least_three",
-   "speaker.intent_to_disparage"
+   "speaker.intent_to_disparage",
+   "subject.is_public_torah_figure"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "subject.is_torah_preacher",
-    "questionHe": "האם המדובר הוא דרשן, רב או מלמד תורה הדורש ברבים?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "פרטי דין אפי תלתא שאינו מועיל כאן תלויים בביאור בבאר מים חיים הערה כה שאינו מובא במלואו בסעיף",
@@ -644,17 +575,10 @@
    "message.content_may_cause_harm",
    "matter.already_known_to_many",
    "audience.size_at_least_three",
-   "listener.role_is_receiving"
+   "listener.role_is_receiving",
+   "message.was_told_in_confidence"
   ],
   "proposedNewFacts": [
-   {
-    "id": "original_disclosure.made_in_front_of_three",
-    "questionHe": "האם הגילוי המקורי של ענין העסק נעשה בפני שלושה אנשים (אפי תלתא)?"
-   },
-   {
-    "id": "original_disclosure.speaker_indicated_confidentiality",
-    "questionHe": "האם המגלה המקורי גילה דעתו שהוא מקפיד שלא יגלו את הדברים הלאה?"
-   },
    {
     "id": "original_disclosure.api_tlasa_details_fulfilled",
     "questionHe": "האם התקיימו כל הפרטים המבוארים לעיל בדין אפי תלתא?"

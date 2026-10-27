@@ -65,12 +65,7 @@
    "listener.believes_report",
    "message.content_may_cause_harm"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "listener.understands_from_start_relevance",
-    "questionHe": "האם השומע הבין כבר מתחילת הסיפור שהמידע עשוי להיות נוגע לו על להבא לצורך הישמרות מנזק?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "גדר המדויק של 'נוגע לו על להבא' ו'כיוצא בזה' – האם רק נזק גוף או ממון או גם נזקים אחרים",
@@ -110,26 +105,11 @@
    "message.content_may_cause_harm",
    "message.purpose",
    "toelet.purpose_is_constructive",
-   "listener.needs_info_for_protection"
+   "listener.needs_info_for_protection",
+   "evidence.has_recognizable_signs",
+   "context.inquiry_has_future_purpose"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "speaker.observed_suspicious_signs",
-    "questionHe": "האם הכותב ראה בחברו דברים ניכרים המעוררים חשש שהוא רוצה להזיקו בגופו או בממונו?"
-   },
-   {
-    "id": "message.inquiry_is_specific_matter",
-    "questionHe": "האם השאלה לאנשים ממוקדת בעניין פלוני ופלוני אם מחשבתו להזיקו בו?"
-   },
-   {
-    "id": "message.purpose_is_self_protection",
-    "questionHe": "האם מטרת הדרישה והחקירה היא לדעת איך להשמר ממנו?"
-   },
-   {
-    "id": "audience.will_speak_disparagingly_due_to_inquiry",
-    "questionHe": "האם צפוי שבעקבות השאלה יספרו בני אדם בגנותו של המדובר?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "medium",
   "uncertainHe": [
    "מהי הגדרת דברים הנכרים המספיקה להתיר את הדרישה והחקירה",
@@ -169,17 +149,10 @@
    "listener.believes_report",
    "listener.needs_info_for_protection",
    "subject.identifiable",
-   "subject.is_fellow"
+   "subject.is_fellow",
+   "listener.will_act_harmfully"
   ],
   "proposedNewFacts": [
-   {
-    "id": "listener.will_cause_harm_or_shame",
-    "questionHe": "האם השומע מתכוון לעשות מעשה או לגרום נזק או ביוש למדובר בגלל הרכילות?"
-   },
-   {
-    "id": "listener.will_hate_in_heart",
-    "questionHe": "האם השומע שונא את המדובר בלבו בגלל הרכילות?"
-   },
    {
     "id": "listener.will_exempt_self_from_obligation",
     "questionHe": "האם השומע רוצה לפטור עצמו מחובה שהוא חייב למדובר בגלל הרכילות?"
@@ -228,13 +201,10 @@
    "listener.role_is_receiving",
    "subject.identifiable",
    "message.may_be_understood_as_disparagement",
-   "toelet.purpose_is_constructive"
+   "toelet.purpose_is_constructive",
+   "speaker.was_pressured_to_tell"
   ],
   "proposedNewFacts": [
-   {
-    "id": "listener.pressured_speaker_to_tell",
-    "questionHe": "האם השומע עמד על חברו והפציר בו שוב ושוב עד שסיפר לו מה אמר פלוני עליו?"
-   },
    {
     "id": "message.was_solicited_vs_volunteered",
     "questionHe": "האם הדברים נאמרו מיוזמת המספר או רק לאחר דרישה והפצרה של השומע?"
@@ -277,18 +247,11 @@
    "message.reports_what_someone_said_or_did_against_listener",
    "message.content_is_true",
    "listener.believes_report",
-   "subject.identifiable"
+   "subject.identifiable",
+   "message.has_favorable_interpretation",
+   "listener.judges_favorably"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "message.can_be_judged_favorably",
-    "questionHe": "האם יש בדבר צד לפרש לטובה שלא היתה כוונה להקניט את השומע?"
-   },
-   {
-    "id": "listener.judged_to_merit",
-    "questionHe": "האם השומע דן את המדובר לכף זכות או נטר לו בלבו על המעשה?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "מה נחשב צד מספיק לדון לכף זכות, הסעיף מפנה לבאר מים חיים (ח) ולכלל ו' ס\"ג בהערה עם שני ציורים",
@@ -325,17 +288,11 @@
    "listener.role_is_receiving",
    "listener.believes_report",
    "message.reports_what_someone_said_or_did_against_listener",
-   "subject.is_fellow"
+   "subject.is_fellow",
+   "listener.judges_favorably",
+   "listener.already_knew"
   ],
   "proposedNewFacts": [
-   {
-    "id": "listener.removed_belief_from_heart",
-    "questionHe": "האם השומע הוציא את הדבר מלבו והפסיק להאמין לרכילות שקיבל?"
-   },
-   {
-    "id": "listener.already_spread_report_to_others",
-    "questionHe": "האם השומע כבר סיפר את הרכילות שקיבל לאדם אחר?"
-   },
    {
     "id": "listener.accepted_not_to_accept_again_and_confessed",
     "questionHe": "האם השומע קיבל על עצמו להבא שלא לקבל עוד לשון הרע ורכילות והתוודה על כך?"

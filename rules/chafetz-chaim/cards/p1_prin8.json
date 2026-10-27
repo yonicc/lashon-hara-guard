@@ -119,16 +119,7 @@
    "speaker.knows_first_hand",
    "message.content_is_true"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "harm.risk_of_expulsion_from_home",
-    "questionHe": "האם סיפור הגנות על הקטן עלול לגרום לכך שמגדליו יגרשו אותו מביתם או יגרמו לו צער אחר?"
-   },
-   {
-    "id": "consequence.risk_of_crooked_judgment",
-    "questionHe": "האם המספר שקל את התוצאות העתידיות של סיפורו שמא יצא משפט מעוקל?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "medium",
   "uncertainHe": [
    "גדר קטן לעניין סעיף זה והיקף הצער או הנזק המחיל איסור",
@@ -168,18 +159,10 @@
    "message.content_is_disparaging",
    "message.may_be_understood_as_disparagement",
    "message.about_torah_or_piety",
-   "message.content_may_cause_harm"
+   "message.content_may_cause_harm",
+   "subject.is_public_torah_figure"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "subject.is_talmid_chacham",
-    "questionHe": "האם המדובר הוא תלמיד חכם לפי הדור (ראוי להורות ויגע בתורה)?"
-   },
-   {
-    "id": "subject.is_moreh_horaah_bair",
-    "questionHe": "האם המדובר הוא מורה הוראה בעיר שהציבור סומך על הוראותיו?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "גדר המדויק של ראוי להורות ויגע בתורה לפי הדור טעון ביאור בבאר מים חיים",
@@ -215,18 +198,10 @@
    "על אפיקורס מצוה לגנותו ולבזותו בין בפניו ובין שלא בפניו, בין במה שרואה עליו ובין במה ששומע עליו"
   ],
   "factsNeeded": [
-   "subject.is_fellow"
+   "subject.is_fellow",
+   "subject.is_established_wicked"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "subject.is_apikores",
-    "questionHe": "האם המדובר מוכר כאפיקורס כהגדרת הסעיף – הכופר בתורה ובנבואה מישראל, בין בתורה שבכתב ובין בתורה שבעל פה, אפילו בפסוק או דקדוק אחד?"
-   },
-   {
-    "id": "subject.known_to_speaker_as_apikores",
-    "questionHe": "האם הכותב מכיר אישית שהמדובר הוא בעל אפיקורסות כנדרש בסעיף (\"שמכירם שיש בהם אפיקורסות\")?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "low",
   "uncertainHe": [
    "גדר המדויק של \"עמיתך\" ו\"עמך\" ו\"עושה מעשה עמך\" וביאור באר מים חיים בהערות ח-י",
@@ -267,18 +242,10 @@
    "subject.is_fellow",
    "message.about_torah_or_piety",
    "listener.believes_report",
-   "matter.already_known_to_many"
+   "matter.already_known_to_many",
+   "subject.is_established_wicked"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "subject.established_as_apikores_in_city",
-    "questionHe": "האם המדובר מוחזק בעיר כאפיקורס?"
-   },
-   {
-    "id": "message.concerns_apikorsut_directly",
-    "questionHe": "האם התוכן הוא דברי אפיקורסות שנשמעו ישירות מפי המדובר?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "low",
   "uncertainHe": [
    "גדר 'מחזקין בעיר לאפיקורסים' ומה נחשב החזקה - תלוי בבאר מים חיים ס\"ק יג",
@@ -319,20 +286,13 @@
    "message.may_be_understood_as_disparagement",
    "matter.already_known_to_many",
    "message.content_is_true",
-   "speaker.knows_first_hand"
+   "speaker.knows_first_hand",
+   "subject.is_established_wicked"
   ],
   "proposedNewFacts": [
    {
-    "id": "subject.is_muchzak_as_rasha_in_city",
-    "questionHe": "האם האדם מוחזק בעיר לרשע עד שהוסכם בין אנשי העיר בלי ספק שהוא רשע?"
-   },
-   {
     "id": "subject.offense_is_widely_known_prohibition",
     "questionHe": "האם העבירות המיוחסות לו הן מסוג שנתפשט ידיעת איסורן בכל ישראל כגון ניאוף וכיוצא בזה?"
-   },
-   {
-    "id": "subject.rumor_is_only_kol_bealma",
-    "questionHe": "האם מה שיצא עליו הוא רק קול בעלמא ולא הסכמה ברורה של אנשי העיר?"
    }
   ],
   "relevanceToChat": "medium",
@@ -440,20 +400,13 @@
    "message.content_is_disparaging",
    "message.may_be_understood_as_disparagement",
    "speaker.intent_to_disparage",
-   "message.about_torah_or_piety"
+   "message.about_torah_or_piety",
+   "subject.is_public_torah_figure"
   ],
   "proposedNewFacts": [
    {
     "id": "subject.is_deceased",
     "questionHe": "האם המדובר הוא אדם שנפטר?"
-   },
-   {
-    "id": "subject.is_talmid_chacham",
-    "questionHe": "האם המדובר הוא תלמיד חכם?"
-   },
-   {
-    "id": "message.targets_torah_teachings",
-    "questionHe": "האם הביזוי מכוון לדברי תורתו של המדובר?"
    }
   ],
   "relevanceToChat": "medium",
@@ -498,22 +451,11 @@
    "message.content_may_cause_harm",
    "speaker.knows_first_hand",
    "toelet.purpose_is_constructive",
-   "listener.needs_info_for_protection"
+   "listener.needs_info_for_protection",
+   "audience.is_close_to_speaker_or_subject",
+   "context.inquiry_has_future_purpose"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "audience.is_spouse_or_close_relative",
-    "questionHe": "האם הנמען הוא בן/בת זוג או קרוב משפחה של הכותב?"
-   },
-   {
-    "id": "audience.is_business_partner",
-    "questionHe": "האם הנמען הוא שותף עסקי של הכותב?"
-   },
-   {
-    "id": "message.is_future_warning",
-    "questionHe": "האם ההודעה היא אזהרה למניעת נזק עתידי כמו שלא להלוות או להקיף לאדם מסוים?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "מה בדיוק נחשב תועלת על להבא המצדיקה גילוי לקרוב או לאשה",
@@ -554,18 +496,10 @@
    "message.may_be_understood_as_disparagement",
    "message.purpose",
    "toelet.purpose_is_constructive",
-   "toelet.rebuke_attempted"
+   "toelet.rebuke_attempted",
+   "audience.is_close_to_speaker_or_subject"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "audience.includes_relatives_of_subject",
-    "questionHe": "האם בין הנמענים נמצאים קרובי משפחתו של האדם שעליו מדובר?"
-   },
-   {
-    "id": "speaker.estimates_private_rebuke_ineffective",
-    "questionHe": "האם הכותב משער שתוכחה ישירה בינו לבין המדובר לא תועיל?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "הסעיף מפנה להערה (כה) בבאר מים חיים ופרטי דיני ההוכחה אינם בסעיף עצמו",
@@ -602,18 +536,10 @@
    "subject.identifiable",
    "message.content_is_disparaging",
    "message.content_may_cause_harm",
-   "audience.listener_will_spread"
+   "audience.listener_will_spread",
+   "audience.includes_authorities_or_non_fellow"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "audience.includes_non_jews",
-    "questionHe": "האם הדברים נאמרים בפני נכרים (שאינם יהודים) או בפני ערכאות ושופטי המלכות?"
-   },
-   {
-    "id": "message.is_malshinut_to_authorities",
-    "questionHe": "האם הדברים הם הלשנה על ישראל בפני שלטונות או ערכאות כדי לגרום לו נזק ממוני או אחר?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "מהו גדר המדויק של \"נכרים\" בסעיף – כל גוי או דווקא ערכאות ושופטי המלכות המוזכרים בהגהה",
@@ -688,14 +614,10 @@
    "listener.role_is_receiving",
    "listener.believes_report",
    "message.content_is_disparaging",
-   "message.may_be_understood_as_disparagement"
+   "message.may_be_understood_as_disparagement",
+   "audience.is_close_to_speaker_or_subject"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "speaker.is_parent_or_household_of_listener",
-    "questionHe": "האם הדובר הוא אביו, אמו או מאנשי ביתו של השומע?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "גדר המדויק של אנשי ביתו ודברים יתרים והיקף החיוב למנעם – הסעיף מפנה לבאר מים חיים (כז) ולתנא דבי אליהו פרק כ\"א",

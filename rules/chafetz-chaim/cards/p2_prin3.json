@@ -64,18 +64,10 @@
   "factsNeeded": [
    "message.reports_what_someone_said_or_did_against_listener",
    "subject.identifiable",
-   "audience.includes_subject"
+   "audience.includes_subject",
+   "speaker.knows_first_hand"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "message.reveals_source_of_report",
-    "questionHe": "האם ההודעה מגלה לנמען שמישהו אחר סיפר לך על מה שנאמר עליך?"
-   },
-   {
-    "id": "message.source_inferable_without_naming",
-    "questionHe": "האם הנמען יוכל להבין ממילא מי גילה את המידע גם בלי הזכרת שמו במפורש?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "מהו בדיוק גדר ממילא יבין ראובן מי היה המגלה לו והאם די באפשרות להבין או שנדרשת ודאות, תלוי בבאר מים חיים (ג) (ד) שאינו מצורף",
@@ -114,10 +106,6 @@
    "audience.listener_will_spread"
   ],
   "proposedNewFacts": [
-   {
-    "id": "message.reports_what_someone_said_about_third_party",
-    "questionHe": "האם הכותב מספר לשומע מה שפלוני אמר על אדם שלישי שאינו השומע, באופן שעלול לעורר מדנים ביניהם אם יתגלגל? "
-   },
    {
     "id": "message.concerns_listeners_relatives",
     "questionHe": "האם הדברים שפלוני אמר נוגעים לבניו או לקרוביו של השומע?"

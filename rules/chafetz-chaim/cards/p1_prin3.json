@@ -24,14 +24,10 @@
    "message.may_be_understood_as_disparagement",
    "message.content_is_true",
    "speaker.would_say_in_subjects_presence",
-   "audience.includes_subject"
+   "audience.includes_subject",
+   "message.was_told_in_confidence"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "message.told_in_secret_with_intent_to_conceal",
-    "questionHe": "האם הדברים נאמרו בסתר מתוך הקפדה שלא יתגלה למדובר?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "פירוש הביטוי 'בכל גוני' ופרטי החומרות הנוספות שבפניו (עזות, מדנים, הלבנת פנים) תלוי בבאר מים חיים ובהפניה לפתיחה בלאו דלא תשא עליו חטא",
@@ -72,22 +68,11 @@
    "message.may_be_understood_as_disparagement",
    "message.content_is_true",
    "subject.identifiable",
-   "subject.is_fellow"
+   "subject.is_fellow",
+   "message.said_incidentally_without_intent",
+   "message.has_favorable_interpretation"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "message.is_only_avak_lashon_hara",
-    "questionHe": "האם הדברים הם רק אבק לשון הרע ולא לשון הרע גמור?"
-   },
-   {
-    "id": "message.is_ambiguous_two_ways",
-    "questionHe": "האם הלשון משתמעת לשני אופנים שאחד מהם אינו גנאי?"
-   },
-   {
-    "id": "message.tone_indicates_disparaging_intent",
-    "questionHe": "האם ניכר מקולו ותנועותיו של האומר בשעת האמירה שכוונתו לגנות?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "medium",
   "uncertainHe": [
    "גבול ההבחנה בין לשון הרע גמורה לאבק לשון הרע בסעיף זה",
@@ -126,12 +111,7 @@
    "message.said_in_jest",
    "speaker.intent_to_disparage"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "message.said_with_lightheadedness",
-    "questionHe": "האם הדברים נאמרו בדרך קלות ראש (זלזול/קלילות) גם כשאינם בדיחה מובהקת?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "הסעיף מפנה להערה (ב) – יש לבדוק בבאר מים חיים אם יש הגדרות נוספות ל'דרך שחוק וקלות ראש'",
@@ -170,10 +150,6 @@
    "speaker.intent_to_disparage"
   ],
   "proposedNewFacts": [
-   {
-    "id": "message.causes_harm_without_explicit_disparagement",
-    "questionHe": "האם הדברים גורמים לרעה או לגנות לחברו אף שאין בהם גנאי מפורש?"
-   },
    {
     "id": "speaker.intent_to_cause_harm_by_deceit",
     "questionHe": "האם הכותב מתכוון ברמאות לגרום רעה או גנות גם בלי לומר גנאי מפורש?"
@@ -214,14 +190,10 @@
    "subject.identifiable",
    "message.content_is_disparaging",
    "message.may_be_understood_as_disparagement",
-   "message.is_hint_or_implied"
+   "message.is_hint_or_implied",
+   "message.said_incidentally_without_intent"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "message.presented_as_innocent_or_unaware",
-    "questionHe": "האם ההודעה מנוסחת כאילו בתמימות, כמי שאינו יודע שזה לשון הרע, או כהתממות ותמיהה על מעשי פלוני?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "היקף 'הרבה אפנים' ו'כיוצא בזה' לא פורט בסעיף ומשמעות הביטוי 'לפי (ה) תמן' סתומה וצריכה ביאור בבאר מים חיים",
@@ -259,16 +231,7 @@
    "listener.believes_report",
    "audience.listener_will_spread"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "outcome.harm_occurred",
-    "questionHe": "האם בפועל נגרם נזק למדובר בעקבות הדברים?"
-   },
-   {
-    "id": "speaker.expects_no_harm",
-    "questionHe": "האם הכותב משער מראש שלא ייגרם שום נזק למדובר על ידי דיבורו?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "פירוט המקורות והראיות בהערות (ו) ו-(ז) בבאר מים חיים אינו בסעיף עצמו",
@@ -310,20 +273,13 @@
    "subject.is_fellow",
    "speaker.knows_first_hand",
    "message.may_be_understood_as_disparagement",
-   "message.content_is_disparaging"
+   "message.content_is_disparaging",
+   "message.has_favorable_interpretation"
   ],
   "proposedNewFacts": [
    {
-    "id": "message.has_favorable_interpretation",
-    "questionHe": "האם המעשה או הדיבור המתואר ניתן להתפרש גם לצד הטוב ולצד הזכות?"
-   },
-   {
     "id": "subject.piety_level",
     "questionHe": "האם המדובר ידוע כירא אלהים או כבינוני הנזהר מן החטא?"
-   },
-   {
-    "id": "speaker.judgment_balance",
-    "questionHe": "האם פרשנות הכותב נוטה לכף חובה, לכף זכות, או שהספק שקול אצלו?"
    }
   ],
   "relevanceToChat": "high",
@@ -372,17 +328,10 @@
    "toelet.facts_verified",
    "toelet.no_other_way",
    "toelet.no_excess_harm",
-   "toelet.rebuke_attempted"
+   "toelet.rebuke_attempted",
+   "message.has_favorable_interpretation"
   ],
   "proposedNewFacts": [
-   {
-    "id": "judgment.scale_tips_to_guilt",
-    "questionHe": "האם במצב הנידון הכף חוב מכריע יותר עד שמצד הדין ליכא איסורא כל כך להכריע בדעתו לכף חובה?"
-   },
-   {
-    "id": "judgment.is_internal_conclusion_only",
-    "questionHe": "האם מדובר רק בהסכמה פנימית בעיני עצמו שעשה שלא כדין, או בהליכה לבזותו אצל אחרים?"
-   },
    {
     "id": "toelet.all_details_klal_4_5_10_fulfilled",
     "questionHe": "האם התקיימו כל הפרטים המבוארים בכלל ד' וה' ובכלל י' המתירים ביזוי אצל אחרים?"

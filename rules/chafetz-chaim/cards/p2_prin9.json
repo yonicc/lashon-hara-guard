@@ -82,22 +82,11 @@
    "toelet.no_excess_harm",
    "message.content_may_cause_harm",
    "audience.listener_will_spread",
-   "listener.needs_info_for_protection"
+   "listener.needs_info_for_protection",
+   "audience.can_help_or_influence",
+   "listener.will_act_harmfully"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "toelet.listener_will_heed",
-    "questionHe": "האם צפוי שהשומע ישמע לתועלת ויימנע מהנזק או מהשותפות? "
-   },
-   {
-    "id": "listener.tendency_to_misuse_info",
-    "questionHe": "האם השומע ידוע כבעל מידה רעה לרכילות שישתמש במידע לנגח את המדובר? "
-   },
-   {
-    "id": "toelet.harm_is_only_withholding_benefit",
-    "questionHe": "האם התוצאה הצפויה היא רק מניעת טובה עתידית ולא גרימת רעה ממש לנדון?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "הגבול המדויק בין רעה ממש לבין הסרת טובה עתידית והאם מניעת טובה נחשבת רעה",
@@ -146,22 +135,11 @@
    "toelet.facts_verified",
    "toelet.no_other_way",
    "toelet.no_excess_harm",
-   "toelet.rebuke_attempted"
+   "toelet.rebuke_attempted",
+   "context.threat_of_planned_harm",
+   "subject.repeated_intentional_sin"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "threat.planned_harm_type",
-    "questionHe": "האם התכנית ששמעת היא להכות, לחרף ולגדף, או להזיק בממון לפלוני?"
-   },
-   {
-    "id": "threat.is_habitual_offender",
-    "questionHe": "האם האדם המאיים מוחזק לענין זה מכבר שכמה פעמים עשה כן לאנשים אחרים?"
-   },
-   {
-    "id": "threat.is_serious_not_empty_boast",
-    "questionHe": "האם לפי הענין ניכר שדבריו רציניים ובודאי יעשה כן ולא יצאו בדרך גיזום בעלמא?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "מהי הגדרת מוחזק מכבר - כמה פעמים ולאיזה זמן נדרש כדי להיחשב חזקה",
@@ -253,26 +231,12 @@
    "toelet.purpose_is_constructive",
    "toelet.no_excess_harm",
    "toelet.facts_verified",
-   "speaker.knows_first_hand"
+   "speaker.knows_first_hand",
+   "matter.involves_money_dispute",
+   "listener.will_act_harmfully",
+   "evidence.multiple_firsthand_witnesses"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "transaction.is_finalized",
-    "questionHe": "האם העניין בין השומע לשכנגדו כבר נגמר בקניין שאסור לחזור בו לפי דיני הקניינים?"
-   },
-   {
-    "id": "listener.will_cause_harm_on_report",
-    "questionHe": "האם צפוי שהשומע יאמין מיד כוודאי ויעשה מעשה היזק לשכנגדו (כגון לחזור מהעסק) על פי הדיבור?"
-   },
-   {
-    "id": "listener.only_self_protection",
-    "questionHe": "האם השומע יסתפק בכך שישמור עצמו לעתיד בלי לגרום שום היזק לשכנגדו?"
-   },
-   {
-    "id": "speaker.is_two_firsthand_witnesses",
-    "questionHe": "האם יש שני מספרים שראו בעצמם את העניין ולא משמועה?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "medium",
   "uncertainHe": [
    "הגדרת 'גמר העניין' תלויה בכל מקרה לפי דרכי הקניין המבוארים בפוסקים (הערה טו)",
@@ -313,17 +277,10 @@
    "message.content_may_cause_harm",
    "listener.believes_report",
    "audience.size_at_least_three",
-   "toelet.no_excess_harm"
+   "toelet.no_excess_harm",
+   "listener.will_act_harmfully"
   ],
   "proposedNewFacts": [
-   {
-    "id": "listener.will_act_himself",
-    "questionHe": "האם השומע הוא אדם שטבעו לעשות מעשה בעצמו ולהפסיד לחברו בלי רשות בית דין?"
-   },
-   {
-    "id": "audience.told_before_two",
-    "questionHe": "האם הרכילות נאמרה בפני שני שומעים נוספים (היתר על ידי שנים)?"
-   },
    {
     "id": "listener.has_beit_din_authorization",
     "questionHe": "האם נעשתה עדות בבית דין והתקבלה הרשאה מבית דין לעשות מעשה נגד המדובר?"
@@ -367,14 +324,10 @@
    "toelet.facts_verified",
    "toelet.rebuke_attempted",
    "toelet.no_other_way",
-   "toelet.no_excess_harm"
+   "toelet.no_excess_harm",
+   "matter.involves_money_dispute"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "message.content_is_theft_or_damage",
-    "questionHe": "האם ההודעה עוסקת בכך שפלוני גזל, הזיק או עשה רעה אחרת לשומע?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "מהם בדיוק \"כל הפרטים הנ\"ל\" - הסעיף מפנה לסעיפים קודמים ולכלל א' סעיף ג' בלי לפרטם כאן",
@@ -450,14 +403,10 @@
   "exceptionsHe": [],
   "factsNeeded": [
    "message.reports_what_someone_said_or_did_against_listener",
-   "message.purpose"
+   "message.purpose",
+   "listener.will_act_harmfully"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "speaker.intent_to_cause_hatred",
-    "questionHe": "האם הכותב מתכוון לעורר שנאה או מדנים בין השומע למדובר, או רק לספר את העניין סתם בלי כוונה כזו?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "היקף הביטוי \"כל אלו הפרטים שבכלל זה\" תלוי בפירוט שאר הסעיפים בכלל ט ובבאר מים חיים שם",
@@ -502,7 +451,8 @@
    "toelet.facts_verified",
    "toelet.no_other_way",
    "toelet.no_excess_harm",
-   "listener.needs_info_for_protection"
+   "listener.needs_info_for_protection",
+   "matter.involves_money_dispute"
   ],
   "proposedNewFacts": [
    {
@@ -512,10 +462,6 @@
    {
     "id": "context.deception_type",
     "questionHe": "האם הרמאות היא במידות ומשקלות או רק באונאת מחיר?"
-   },
-   {
-    "id": "toelet.onaah_less_than_sixth",
-    "questionHe": "האם האונאה היא פחות משתות משווי החפץ?"
    }
   ],
   "relevanceToChat": "high",
@@ -563,20 +509,13 @@
    "toelet.no_excess_harm",
    "toelet.facts_verified",
    "subject.identifiable",
-   "speaker.knows_first_hand"
+   "speaker.knows_first_hand",
+   "matter.involves_money_dispute"
   ],
   "proposedNewFacts": [
    {
     "id": "matter.torah_claim_exists",
     "questionHe": "האם לפי דין תורה יש למתאנה עדיין תביעה להוציא אונאתו או לחזור בו מהמקח?"
-   },
-   {
-    "id": "matter.transaction_completed",
-    "questionHe": "האם המקח כבר הושלם והקונה כבר לקח את הסחורה לידיו?"
-   },
-   {
-    "id": "matter.risk_of_unlawful_loss",
-    "questionHe": "האם על ידי הסיפור עלול להיגרם למוכר הפסד שלא כדין כגון שיתפסנו או שלא ישלם לו יתרת המעות?"
    }
   ],
   "relevanceToChat": "medium",
@@ -630,20 +569,13 @@
    "toelet.no_other_way",
    "toelet.rebuke_attempted",
    "toelet.no_excess_harm",
-   "audience.listener_will_spread"
+   "audience.listener_will_spread",
+   "listener.will_act_harmfully"
   ],
   "proposedNewFacts": [
    {
-    "id": "toelet.victim_will_act_for_remedy",
-    "questionHe": "האם המספר משער שהנאנה ילך בדינא ודינא ויבקש עזרה להשיב האונאה, או שרק יכאב לבו וישנא את שכנגדו?"
-   },
-   {
     "id": "matter.halachic_return_permitted",
     "questionHe": "האם על פי דין מותר לנאנה לחזור מן המקח ולתבוע החזר האונאה?"
-   },
-   {
-    "id": "speaker.rebuke_would_be_heeded",
-    "questionHe": "האם המספר משער שדברי תוכחתו למאנה ישמעו ויחזיר את האונאה אם יוכיחו בינו לבין עצמו?"
    }
   ],
   "relevanceToChat": "medium",
@@ -690,22 +622,12 @@
    "toelet.no_excess_harm",
    "message.about_craft_or_goods",
    "message.reports_what_someone_said_or_did_against_listener",
-   "message.content_may_cause_harm"
+   "message.content_may_cause_harm",
+   "listener.will_act_harmfully",
+   "evidence.multiple_firsthand_witnesses",
+   "matter.involves_money_dispute"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "listener.will_act_without_beit_din",
-    "questionHe": "האם ידוע שטבעו של המתאנה לעשות דין לעצמו ולתפוס או להחזיר סחורה בלי רשות בית דין?"
-   },
-   {
-    "id": "tellers.count_is_two",
-    "questionHe": "האם המספרים הם שני אנשים שראו בעצמם את ענין האונאה?"
-   },
-   {
-    "id": "matter.onaah_details_verified",
-    "questionHe": "האם בורר היטב מחיר השוק עתה, שיעור האונאה על פי דין תורה, ומתי נעשתה האונאה?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "מה נחשב ידוע למספרים עצמם לעומת שמעו מפי אחרים וכיצד מוכח בצ'אט",
@@ -749,13 +671,10 @@
    "toelet.facts_verified",
    "toelet.no_other_way",
    "toelet.no_excess_harm",
-   "message.purpose"
+   "message.purpose",
+   "context.inquiry_has_future_purpose"
   ],
   "proposedNewFacts": [
-   {
-    "id": "context.listener_asked_who_harmed_him",
-    "questionHe": "האם הנפגע שאל במפורש מי פגע בו והאם הוא חושד בשואל עצמו?"
-   },
    {
     "id": "speaker.was_participant_in_collective_decision",
     "questionHe": "האם הדובר היה שותף בהחלטה קולקטיבית נגד הנפגע אף שלא הסכים ודעתו בטלה ברוב?"
@@ -799,18 +718,11 @@
    "subject.is_fellow",
    "message.reports_what_someone_said_or_did_against_listener",
    "message.content_may_cause_harm",
-   "toelet.purpose_is_constructive"
+   "toelet.purpose_is_constructive",
+   "matter.involves_money_dispute",
+   "message.contains_falsehood_or_exaggeration"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "matter.sale_completed_no_benefit",
-    "questionHe": "האם המעשה (המכירה) כבר נגמר באופן סופי כך שאין תועלת מעשית בגילוי שם האחר?"
-   },
-   {
-    "id": "message.disclosure_only_deflects_blame",
-    "questionHe": "האם הגילוי נועד רק להסיר תרעומת מהמדבר ולהטיל האשמה על אחר?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "גבולות התועלת - מתי גילוי שם נחשב חסר תועלת גמור לעומת תועלת עתידית למניעת הישנות מקרה",

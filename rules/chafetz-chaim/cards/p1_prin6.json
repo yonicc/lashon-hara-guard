@@ -65,18 +65,11 @@
    "listener.believes_report",
    "message.content_is_true",
    "toelet.purpose_is_constructive",
-   "message.purpose"
+   "message.purpose",
+   "listener.will_act_harmfully",
+   "context.inquiry_has_future_purpose"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "listener.hearing_to_cause_benefit_to_others",
-    "questionHe": "האם השמיעה נועדה לחקור אחר כך את האמת ולהוכיח את החוטא כדי שישוב או ישיב גזלה או יפייס?"
-   },
-   {
-    "id": "listener.future_business_or_match_with_subject",
-    "questionHe": "האם לשומע יש כוונה עתידית להתקשר עם המדובר בעסק, שותפות או שידוך שהמידע רלוונטי לו?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "גדר המדויק של 'נוגע לו על להבא' ומה נכלל ב'כל כהאי גונא' - תלוי בבאר מים חיים אות ג",
@@ -161,17 +154,10 @@
    "message.may_be_understood_as_disparagement",
    "toelet.purpose_is_constructive",
    "audience.listener_will_spread",
-   "subject.identifiable"
+   "subject.identifiable",
+   "audience.can_help_or_influence"
   ],
   "proposedNewFacts": [
-   {
-    "id": "listener.can_refute_or_defend",
-    "questionHe": "האם השומע מעריך שעל ידי שמיעת הענין בשלמות יהיה בכוחו להראות שאין המעשה כן או ללמד זכות בפני המספר או השומעים?"
-   },
-   {
-    "id": "listener.can_calm_speaker",
-    "questionHe": "האם השומע מכיר שהקשבה תאפשר לו להשקיט את כעס המספר ולמנוע שיספר שוב לאחרים?"
-   },
    {
     "id": "speaker.will_escalate_if_defended",
     "questionHe": "האם המספר ידוע כבעל טבע רע שכל ניסיון להכריע לזכות יגרום לו לגנות עוד יותר?"
@@ -216,20 +202,14 @@
    "message.content_is_disparaging",
    "message.may_be_understood_as_disparagement",
    "audience.size_at_least_three",
-   "listener.believes_report"
+   "listener.believes_report",
+   "listener.can_leave_or_mute",
+   "listener.shows_agreement"
   ],
   "proposedNewFacts": [
    {
-    "id": "listener.can_leave_or_mute",
-    "questionHe": "האם המשתמש יכול בקלות לעזוב את השיחה, להשתיק או לחסום את התוכן?"
-   },
-   {
     "id": "listener.rebuke_would_help",
     "questionHe": "האם המשתמש משער שתוכחתו לדוברים תועיל להפסיק את דיבור האיסור?"
-   },
-   {
-    "id": "listener.shows_agreement_or_enjoyment",
-    "questionHe": "האם המשתמש מראה בהודעותיו, בתגובות או בסימונים שהוא נהנה מהשמיעה או מסכים לדברי הגנאי?"
    }
   ],
   "relevanceToChat": "high",
@@ -271,17 +251,10 @@
    "listener.role_is_receiving",
    "message.content_is_disparaging",
    "message.may_be_understood_as_disparagement",
-   "message.reports_what_someone_said_or_did_against_listener"
+   "message.reports_what_someone_said_or_did_against_listener",
+   "listener.can_leave_or_mute"
   ],
   "proposedNewFacts": [
-   {
-    "id": "listener.joined_after_prohibited_speech_began",
-    "questionHe": "האם כשהצטרף לשיחה/לקבוצה כבר התחילו לדבר דברים אסורים?"
-   },
-   {
-    "id": "listener.can_leave_or_avoid",
-    "questionHe": "האם יכול להשתמט ולעזוב את החבורה/השיחה עכשיו?"
-   },
    {
     "id": "listener.knows_group_as_habitual_speakers",
     "questionHe": "האם ידוע לו מכבר שאנשים אלו הם בעלי לשון שתשוקתם לדבר גנאי?"
@@ -332,22 +305,11 @@
    "message.content_is_true",
    "speaker.intent_to_disparage",
    "listener.role_is_receiving",
-   "listener.believes_report"
+   "listener.believes_report",
+   "message.has_favorable_interpretation",
+   "listener.judges_favorably"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "message.has_ambiguous_interpretation",
-    "questionHe": "האם הדברים שנאמרו ניתנים להתפרש הן לכף זכות והן לכף חובה?"
-   },
-   {
-    "id": "speaker.judges_to_guilt",
-    "questionHe": "האם הכותב דן את המדובר לכף חובה ומגנה אותו על סמך פרשנותו?"
-   },
-   {
-    "id": "listener.judges_to_merit",
-    "questionHe": "האם השומע דן את המדובר לכף זכות או מסכים עם הגנאי של המספר?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "מהו בדיוק גדר 'יש בהם לצדד לכאן ולכאן' – האם כל אפשרות תיאורטית לזכות מחייבת בדין לכף זכות או רק פרשנות סבירה",
@@ -386,7 +348,8 @@
    "subject.is_fellow",
    "subject.is_group",
    "message.content_is_disparaging",
-   "message.may_be_understood_as_disparagement"
+   "message.may_be_understood_as_disparagement",
+   "listener.judges_favorably"
   ],
   "proposedNewFacts": [
    {
@@ -394,16 +357,8 @@
     "questionHe": "האם המדובר הוא איש ירא אלוקים, תלמיד חכם או בית דין שחלה עליו ביתר שאת מצוות בצדק תשפט עמיתך?"
    },
    {
-    "id": "listener.judged_lechaf_chovah",
-    "questionHe": "האם השומע דן את המדובר לכף חובה והסכים בלבו לגנות ששמע?"
-   },
-   {
     "id": "listener.verified_with_subject",
     "questionHe": "האם השומע הלך אל הרב או בית הדין ודרש מהם את טעם הפסק לפני שהחליט?"
-   },
-   {
-    "id": "listener.tried_to_remove_complaint",
-    "questionHe": "האם השומע ניסה להסיר את התרעומת מלב המספר ולהציע אמתלאות לזכות בית הדין?"
    }
   ],
   "relevanceToChat": "high",
@@ -441,18 +396,11 @@
    "message.content_is_disparaging",
    "message.may_be_understood_as_disparagement",
    "listener.role_is_receiving",
-   "listener.believes_report"
+   "listener.believes_report",
+   "message.about_past_or_family",
+   "message.denies_virtue_or_status"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "message.is_via_ancestors_or_past_deeds",
-    "questionHe": "האם הגנאי הוא לבזותו במעשה אבותיו או במעשיו הראשונים אף שהוא מתנהג עתה כשורה?"
-   },
-   {
-    "id": "message.is_about_lack_of_wisdom",
-    "questionHe": "האם הגנאי הוא על חסרון חכמה בתורה או בענייני עולם?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "היקף 'שאר חלקי אסור לשון הרע' בסעיף זה תלוי בהגדרות בכלל ד' וה' ובסעיף א' המוזכרים בו, שלא צורפו",
@@ -495,17 +443,11 @@
    "listener.needs_info_for_protection",
    "subject.is_fellow",
    "message.content_may_cause_harm",
-   "subject.identifiable"
+   "subject.identifiable",
+   "listener.shows_agreement",
+   "toelet.facts_verified"
   ],
   "proposedNewFacts": [
-   {
-    "id": "listener.level_of_acceptance",
-    "questionHe": "האם השומע מקבל את הדברים כאמת גמורה או רק כחשש בעלמא לשמירה?\""
-   },
-   {
-    "id": "message.verified_in_beis_din",
-    "questionHe": "האם הדברים נתבררו בבית דין או נאמרו רק בדרך סיפור בעלמא?\""
-   },
    {
     "id": "listener.maintains_positive_duties",
     "questionHe": "האם השומע ממשיך להיטיב עם המדובר בכל הטובות שמצווה התורה לשאר ישראל?\""
@@ -552,17 +494,10 @@
    "message.content_may_cause_harm",
    "listener.role_is_receiving",
    "listener.believes_report",
-   "listener.needs_info_for_protection"
+   "listener.needs_info_for_protection",
+   "listener.will_act_harmfully"
   ],
   "proposedNewFacts": [
-   {
-    "id": "listener.will_act_or_cause_harm",
-    "questionHe": "האם השומע מתכוון לעשות מעשה נגד הנידון או לגרום לו נזק או ביוש על סמך השמועה?"
-   },
-   {
-    "id": "listener.will_hate_in_heart",
-    "questionHe": "האם השומע מתכוון לשנוא את הנידון בלבו בגלל השמועה?"
-   },
    {
     "id": "listener.has_existing_obligation_to_subject",
     "questionHe": "האם לשומע יש חיוב קיים כלפי הנידון שהוא שוקל להפסיקו בגלל השמועה, כגון קצבת צדקה קבועה?"
@@ -606,14 +541,10 @@
    "listener.believes_report",
    "subject.is_fellow",
    "subject.identifiable",
-   "message.content_is_disparaging"
+   "message.content_is_disparaging",
+   "audience.listener_will_spread"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "listener.has_forwarded_to_others",
-    "questionHe": "האם השומע כבר סיפר או העביר את תוכן לשון הרע לאדם אחר?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "פרטי הלאוין והעשין והתיקון המבוארים בפתיחה המוזכרת בסעיף",

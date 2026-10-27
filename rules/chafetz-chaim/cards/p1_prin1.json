@@ -186,17 +186,11 @@
    "subject.identifiable",
    "message.content_is_disparaging",
    "message.may_be_understood_as_disparagement",
-   "message.content_may_cause_harm"
+   "message.content_may_cause_harm",
+   "speaker.was_pressured_to_tell",
+   "audience.is_close_to_speaker_or_subject"
   ],
   "proposedNewFacts": [
-   {
-    "id": "speaker.was_urged_by_other",
-    "questionHe": "האם הופצרת או נלחצת על ידי אחר לספר את הדברים?"
-   },
-   {
-    "id": "speaker.requested_by_parent_or_teacher",
-    "questionHe": "האם הבקשה לספר הגיעה מאביך או מרבך שאתה חייב בכבודם ובמוראם?"
-   },
    {
     "id": "speaker.knows_will_lead_to_lashon_hara",
     "questionHe": "האם ידוע לך שתוך כדי הסיפור תיאלץ להגיע ללשון הרע או אפילו לאבק לשון הרע?"
@@ -237,14 +231,10 @@
    "subject.is_fellow",
    "message.content_is_disparaging",
    "message.may_be_understood_as_disparagement",
-   "message.purpose"
+   "message.purpose",
+   "speaker.was_pressured_to_tell"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "speaker.risk_of_job_loss_if_abstains",
-    "questionHe": "האם הימנעות הכותב מלספר את הדברים עלולה לגרום לו הפסד פרנסה גדול או אובדן משרה?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "היקף הביטוי \"כדומה מדבורים האסורים\" - אילו דיבורים אסורים נכללים מעבר לגנות ישראל",
@@ -326,14 +316,10 @@
    "subject.identifiable",
    "message.content_is_disparaging",
    "message.may_be_understood_as_disparagement",
-   "message.is_hint_or_implied"
+   "message.is_hint_or_implied",
+   "message.medium_is_written"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "message.medium_is_written",
-    "questionHe": "האם הדברים נכתבו במכתב, בהודעת צ'אט או בכל כתב אחר ולא נאמרו רק בעל פה?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "גדר המדויק של 'דרך רמז' ו'בכל גוני' תלוי בביאור באר מים חיים בהערות יג ו-יד",
@@ -369,12 +355,7 @@
    "subject.is_fellow",
    "message.content_is_disparaging"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "message.includes_self_disparagement",
-    "questionHe": "האם ההודעה כוללת גם גנות על הכותב עצמו באותה גנות ממש שבה הוא מגנה את חברו, או שהקדים להתרעם על עצמו באותו עניין?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "מה נחשב בדיוק 'בזה הגנות גופא' - האם כל גנאי עצמי סמוך נחשב אותו עניין ממש",

@@ -32,20 +32,14 @@
    "speaker.knows_first_hand",
    "speaker.intent_to_disparage",
    "toelet.purpose_is_constructive",
-   "audience.size_at_least_three"
+   "audience.size_at_least_three",
+   "matter.involves_money_dispute",
+   "speaker.motive_is_revenge_or_hatred"
   ],
   "proposedNewFacts": [
    {
-    "id": "message.concerns_interpersonal_withholding",
-    "questionHe": "האם ההודעה עוסקת במניעת טובה שבין אדם לחברו כגון סירוב להלוות מעות או להיטיב טובה אחרת או הנהגת נקימה ונטירה?"
-   },
-   {
     "id": "matter.no_active_harm_done",
     "questionHe": "האם המדובר לא עשה רעה בפועל לשומע או לאחר אלא רק נמנע מלהיטיב עמו?"
-   },
-   {
-    "id": "speaker.intent_is_revenge_or_grudge",
-    "questionHe": "האם כוונת הכותב בסיפור היא לנקום או לטרות על שמנע ממנו טובה ולפרסם רוע לבבו?"
    }
   ],
   "relevanceToChat": "high",
@@ -88,14 +82,10 @@
    "message.content_may_cause_harm",
    "speaker.intent_to_disparage",
    "message.purpose",
-   "toelet.purpose_is_constructive"
+   "toelet.purpose_is_constructive",
+   "message.denies_virtue_or_status"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "message.denies_virtue_or_talent",
-    "questionHe": "האם ההודעה שוללת מהמדובר מעלה כגון חכמה, גבורה, עושר, כישרון או שלמות אחרת?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "הגבול המדויק בין לשון הרע למוציא שם רע כשיש אמת במקצת והגזמה",
@@ -138,14 +128,10 @@
    "speaker.intent_to_disparage",
    "message.purpose",
    "toelet.purpose_is_constructive",
-   "listener.believes_report"
+   "listener.believes_report",
+   "message.denies_virtue_or_status"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "message.is_negation_of_virtue",
-    "questionHe": "האם הגנאי הוא בשלילת מעלה (כגון שאינו חכם/פתי/שוטה) ולא בסיפור על עבירה מסוימת שעבר?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "האם ההיתר להשקיט מריבה מותנה בשאר תנאי התועלת המבוארים בכלל י׳ ובבאר מים חיים ס\"ק ז",
@@ -190,16 +176,13 @@
    "message.content_is_true",
    "message.content_may_cause_harm",
    "speaker.intent_to_disparage",
-   "toelet.purpose_is_constructive"
+   "toelet.purpose_is_constructive",
+   "message.denies_virtue_or_status"
   ],
   "proposedNewFacts": [
    {
     "id": "audience.perceived_standing_of_subject",
     "questionHe": "האם השומעים סוברים שהמדובר הוא בעל דרגה גבוהה בתורה או במקצועו קודם האמירה?"
-   },
-   {
-    "id": "message.diminishes_standing_in_eyes_of_listeners",
-    "questionHe": "האם האמירה ממעטת את דרגתו וכבודו של המדובר בעיני השומעים?"
    }
   ],
   "relevanceToChat": "high",
@@ -241,17 +224,10 @@
    "subject.identifiable",
    "message.content_may_cause_harm",
    "message.purpose",
-   "toelet.purpose_is_constructive"
+   "toelet.purpose_is_constructive",
+   "message.denies_virtue_or_status"
   ],
   "proposedNewFacts": [
-   {
-    "id": "message.about_physical_weakness",
-    "questionHe": "האם ההודעה עוסקת בכך שהמדובר חלש בטבעו או בכושרו הגופני?"
-   },
-   {
-    "id": "message.about_financial_status",
-    "questionHe": "האם ההודעה עוסקת בכך שהמדובר עני, אינו אמיד או שממונו משועבד לחובות?"
-   },
    {
     "id": "subject.livelihood_depends_on_strength_or_credit",
     "questionHe": "האם פרנסת המדובר תלויה בכוחו הגופני או באמינותו הכלכלית לקבלת אשראי (כגון שכיר יום, מלמד, סוחר)?"

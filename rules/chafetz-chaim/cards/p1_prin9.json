@@ -24,20 +24,13 @@
    "subject.identifiable",
    "subject.is_fellow",
    "message.is_hint_or_implied",
-   "message.may_be_understood_as_disparagement"
+   "message.may_be_understood_as_disparagement",
+   "message.is_praise"
   ],
   "proposedNewFacts": [
    {
     "id": "audience.is_hostile_to_subject",
     "questionHe": "האם הנמען הוא שונאו של המדובר או שאין לבו שלם עמו?"
-   },
-   {
-    "id": "message.is_excessive_praise",
-    "questionHe": "האם ההודעה מרבה בשבח המדובר באופן חריג שעלול להביא לגנותו?"
-   },
-   {
-    "id": "message.is_vague_negative_allusion",
-    "questionHe": "האם ההודעה כוללת אמירה עמומה לגנאי כגון שתקו מפלוני או איני רוצה להודיע מה ארע?"
    }
   ],
   "relevanceToChat": "high",
@@ -79,17 +72,10 @@
    "subject.identifiable",
    "matter.already_known_to_many",
    "audience.listener_will_spread",
-   "message.contains_falsehood_or_exaggeration"
+   "message.contains_falsehood_or_exaggeration",
+   "message.is_praise"
   ],
   "proposedNewFacts": [
-   {
-    "id": "message.is_praise",
-    "questionHe": "האם ההודעה היא שבח או הלל של אדם ולא גנאי?"
-   },
-   {
-    "id": "message.is_excessive_praise",
-    "questionHe": "האם השבח הוא מופרז ויותר מדי?"
-   },
    {
     "id": "subject.is_known_as_righteous",
     "questionHe": "האם המדובר כבר מוחזק לרבים ונודע לכשר וצדיק ללא רעה ואשמה?"
@@ -139,18 +125,11 @@
    "subject.identifiable",
    "message.content_may_cause_harm",
    "audience.size_at_least_three",
-   "audience.listener_will_spread"
+   "audience.listener_will_spread",
+   "message.is_praise",
+   "message.is_hint_or_implied"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "message.is_praise_leading_to_loss",
-    "questionHe": "האם ההודעה משבחת אדם באופן שעלול לגרום לו להפסד ממוני או להטרדה בבקשות מאחרים?"
-   },
-   {
-    "id": "message.creates_suspicion_of_lashon_hara",
-    "questionHe": "האם ניסוח ההודעה עלול לגרום לקוראים לחשוד בכותב שהוא מספר לשון הרע?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "היקף ההפסד וההטרדה הנחשב איסור – האם כל פרסום טובת מלווה אסור או רק כשצפויה התנפלות ממשית של מבקשים",
@@ -190,13 +169,10 @@
    "listener.believes_report",
    "message.content_is_disparaging",
    "message.may_be_understood_as_disparagement",
-   "subject.identifiable"
+   "subject.identifiable",
+   "listener.can_leave_or_mute"
   ],
   "proposedNewFacts": [
-   {
-    "id": "listener.stays_voluntarily",
-    "questionHe": "האם המשתמש נשאר מרצון בקבוצה/שיחה שבה מדברים לשון הרע?"
-   },
    {
     "id": "environment.is_habitual_gossip_group",
     "questionHe": "האם הקבוצה או השכונה ידועה כמקום קבוע של בעלי לשון הרע?"
@@ -247,18 +223,10 @@
   "factsNeeded": [
    "message.content_is_disparaging",
    "message.may_be_understood_as_disparagement",
-   "listener.role_is_receiving"
+   "listener.role_is_receiving",
+   "speaker.is_minor"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "speaker.is_minor",
-    "questionHe": "האם הדובר הוא קטין?"
-   },
-   {
-    "id": "speaker.is_child_of_listener",
-    "questionHe": "האם הדובר הוא בנו או בתו הקטנים של השומע?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "low",
   "uncertainHe": [
    "מהו גדר קטנים לענין חובת החינוך כאן והאם המצוה מדאורייתא או מדין חינוך כמבואר באורח חיים סימן שמג",
@@ -294,18 +262,10 @@
   ],
   "factsNeeded": [
    "message.content_is_disparaging",
-   "message.may_be_understood_as_disparagement"
+   "message.may_be_understood_as_disparagement",
+   "message.was_told_in_confidence"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "message.was_told_in_confidence",
-    "questionHe": "האם הדברים נאמרו לך באופן פרטי או כסוד שאינו מיועד להפצה?"
-   },
-   {
-    "id": "message.has_permission_to_share",
-    "questionHe": "האם מי שאמר לך את הדברים נתן לך רשות מפורשת לספרם לאחרים?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "מהו גדר \"איזה דבר\" – האם כל דיבור סתמי או רק דבר שדרכו להיות סוד, כמבואר בבאר מים חיים (טו)",

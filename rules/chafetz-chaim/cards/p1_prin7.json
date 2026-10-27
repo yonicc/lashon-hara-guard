@@ -67,16 +67,7 @@
    "message.may_be_understood_as_disparagement",
    "message.content_is_disparaging"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "subject.explicit_admission",
-    "questionHe": "האם הנידון הודה במפורש בפה מלא שהדברים אמת?"
-   },
-   {
-    "id": "subject.silent_in_presence",
-    "questionHe": "האם הנידון שתק כשאמרו עליו את דברי הגנאי בפניו ולא הכחיש?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "מהי הגדרת הודאה מפי הנידון המספיקה לפי באר מים חיים בהערה ב",
@@ -115,13 +106,10 @@
    "listener.role_is_receiving",
    "listener.believes_report",
    "subject.is_fellow",
-   "listener.needs_info_for_protection"
+   "listener.needs_info_for_protection",
+   "evidence.multiple_firsthand_witnesses"
   ],
   "proposedNewFacts": [
-   {
-    "id": "report.num_tellers",
-    "questionHe": "האם הדברים נמסרו משני אנשים או יותר?"
-   },
    {
     "id": "hearing.is_outside_bet_din",
     "questionHe": "האם הדברים נאמרו מחוץ לבית דין ולא כעדות כשרה בבית דין?"
@@ -169,12 +157,7 @@
    "listener.believes_report",
    "audience.listener_will_spread"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "message.is_rumor_col",
-    "questionHe": "האם ההודעה מעבירה קול או שמועה לא מבוררת ולא ידיעה ממקור ראשון?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "מהו גדר המדויק של \"קול\" שיצא על אחד לעניין סעיף זה",
@@ -215,18 +198,11 @@
    "subject.is_fellow",
    "matter.already_known_to_many",
    "listener.role_is_receiving",
-   "listener.believes_report"
+   "listener.believes_report",
+   "subject.is_established_wicked",
+   "subject.repeated_intentional_sin"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "subject.is_established_rasha",
-    "questionHe": "האם המדובר כבר הוחזק מכבר כאדם רשע בלי קשר לדברים הנוכחיים?"
-   },
-   {
-    "id": "subject.repeated_deliberate_violation_of_known_prohibitions",
-    "questionHe": "האם נתפרסם על המדובר כמה פעמים שעבר בשאט נפש על איסורים הידועים לכל ישראל כניאוף וכיוצא בזה?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "medium",
   "uncertainHe": [
    "מהו שיעור \"כמה פעמים\" ומהו גדר \"נתחזק מכבר בלאו הכי\" ו\"נתפרסם\" הנדרש",
@@ -265,12 +241,7 @@
    "message.content_is_disparaging",
    "subject.identifiable"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "message.includes_self_and_other_disparagement",
-    "questionHe": "האם ההודעה כוללת בתוכה גנות של הכותב עצמו יחד עם גנות על אדם אחר באותו סיפור?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "medium",
   "uncertainHe": [
    "מה נחשב בדיוק גנות לעצמו המזכה אמון חלקי ומה הגבול בינה לבין גנות על חברו",
@@ -311,21 +282,11 @@
    "message.may_be_understood_as_disparagement",
    "message.content_is_true",
    "toelet.purpose_is_constructive",
-   "toelet.facts_verified"
+   "toelet.facts_verified",
+   "evidence.multiple_firsthand_witnesses",
+   "message.has_favorable_interpretation"
   ],
   "proposedNewFacts": [
-   {
-    "id": "speaker.trusted_as_two_witnesses",
-    "questionHe": "האם השומע מחשיב את המספר לנאמן כדברי שני עדים?"
-   },
-   {
-    "id": "message.has_possible_merit",
-    "questionHe": "האם יש צד לתלות זכות במעשה כגון חסרון ידיעת האיסור או שגגה?"
-   },
-   {
-    "id": "message.is_mere_disparagement_or_virtue_negation",
-    "questionHe": "האם הדברים הם גנאי בעלמא, שלילת מעלות, או אזכרת מעשי אבותיו וקרוביו או מעשיו הראשונים?"
-   },
    {
     "id": "message.is_publicly_known_intentional_sin",
     "questionHe": "האם המדובר הוא עון מפורסם בישראל שנעשה במזיד בלי שום זכות לתלות בו?"
@@ -371,18 +332,11 @@
    "listener.believes_report",
    "listener.needs_info_for_protection",
    "audience.listener_will_spread",
-   "message.content_may_cause_harm"
+   "message.content_may_cause_harm",
+   "listener.will_act_harmfully",
+   "subject.has_repented_or_reformed"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "listener.will_cause_material_harm",
-    "questionHe": "האם השומע מתכוון לגרום למדובר הפסד בממון או להכותו על סמך הדברים שקיבל?"
-   },
-   {
-    "id": "listener.knows_subject_repentance",
-    "questionHe": "האם ידוע לשומע שהמדובר כבר שב מדרכו הרעה?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "פרטי מעשה דטוביה הנ\"ל אינם מבוארים בסעיף זה וצריכים עיון בסעיפים הקודמים ובהערה יד",
@@ -420,22 +374,12 @@
    "listener.believes_report",
    "speaker.knows_first_hand",
    "message.may_be_understood_as_disparagement",
-   "message.about_torah_or_piety"
+   "message.about_torah_or_piety",
+   "message.said_incidentally_without_intent",
+   "message.has_favorable_interpretation",
+   "listener.will_act_harmfully"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "message.said_as_mesich_lefi_tumo",
-    "questionHe": "האם הדברים נאמרו כמסיח לפי תומו בלי כוונה מכוונת לספר גנות?"
-   },
-   {
-    "id": "message.can_be_judged_favorably",
-    "questionHe": "האם יש בעניין צד לשפוט את המעשה או הדברים לזכות?"
-   },
-   {
-    "id": "listener.intends_to_act_on_report",
-    "questionHe": "האם השומע מתכוון לסמוך על הדברים כדי לספר הלאה, לבזות, להפסיד ממון או להכות?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "מה נקרא מסיח לפי תמו - הסעיף עצמו מפנה לבאר מים חיים",
@@ -472,26 +416,12 @@
    "listener.role_is_receiving",
    "listener.believes_report",
    "message.content_is_true",
-   "toelet.facts_verified"
+   "toelet.facts_verified",
+   "evidence.has_recognizable_signs",
+   "message.has_favorable_interpretation",
+   "message.denies_virtue_or_status"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "evidence.dvarim_nikarim_present",
-    "questionHe": "האם יש דברים ניכרים חיצוניים המראים שמה שמספרים על האדם הוא אמת?"
-   },
-   {
-    "id": "matter.has_favorable_judgment_possibility",
-    "questionHe": "האם אפשר לדון את המעשה לכף זכות אפילו אם הדבר אמת?"
-   },
-   {
-    "id": "matter.is_denial_of_virtues",
-    "questionHe": "האם הדברים עוסקים בשלילת מעלות או בשאר הפרטים המבוארים בסעיף ז'?"
-   },
-   {
-    "id": "evidence.verified_by_seven_investigations",
-    "questionHe": "האם נחקרה אמיתות הדברים הניכרים בשבע חקירות ונתקיימו כל התנאים הנדרשים?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "medium",
   "uncertainHe": [
    "מהי ההגדרה המדויקת של דברים הניכרים הנחשבים ראיה - תלוי בביאור באר מים חיים כב",
@@ -625,15 +555,13 @@
    "ליחיד לא נתנה רשות זו כלל",
    "אפילו לבית דין לא נתנה הרשות אם הדברים הנכרים לא נתבררו להם אלא על ידי התובע בלבד"
   ],
-  "factsNeeded": [],
+  "factsNeeded": [
+   "evidence.has_recognizable_signs"
+  ],
   "proposedNewFacts": [
    {
     "id": "actor.is_authorized_beit_din",
     "questionHe": "האם הפועל הוא בית דין הפועל בהוראת שעה ולא אדם יחיד?"
-   },
-   {
-    "id": "evidence.circumstantial_signs_verified_by_court",
-    "questionHe": "האם בית הדין עצמו רואה את הדברים הנכרים או שעדים העידו עליהם בפניו?"
    },
    {
     "id": "context.urgent_temporal_need",
@@ -683,17 +611,10 @@
    "toelet.facts_verified",
    "toelet.no_excess_harm",
    "listener.role_is_receiving",
-   "listener.believes_report"
+   "listener.believes_report",
+   "evidence.has_recognizable_signs"
   ],
   "proposedNewFacts": [
-   {
-    "id": "evidence.based_on_suspicion_only",
-    "questionHe": "האם ההאשמה מבוססת רק על חשד ודברים הניכרים ללא ראיה ישירה או עדים?"
-   },
-   {
-    "id": "verification.listener_has_independent_witnesses",
-    "questionHe": "האם לשומעים יש עדים שנגנב ועדות לדברים הניכרים או שראו זאת בעצמם?"
-   },
    {
     "id": "action.is_extrajudicial_punishment",
     "questionHe": "האם הכוונה או התוצאה היא הכאה או ענישה גופנית שלא על פי דין?"

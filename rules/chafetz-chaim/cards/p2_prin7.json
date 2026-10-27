@@ -30,18 +30,10 @@
    "subject.is_relative_of_speaker",
    "speaker.knows_first_hand",
    "toelet.purpose_is_constructive",
-   "toelet.facts_verified"
+   "toelet.facts_verified",
+   "audience.is_close_to_speaker_or_subject"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "listener.is_parent_or_rabbi_of_speaker",
-    "questionHe": "האם השומע הוא אביו, אמו או רבו של הכותב שהכותב רוצה להגן על כבודם?"
-   },
-   {
-    "id": "listener.is_parent_of_victim",
-    "questionHe": "האם ההודעה נשלחת להורה של ילד כדי לספר לו שילד אחר הכה את בנו?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "פירוש המדויק של קרוב או רחוק - ביחס למי נמדדת הקרבה ומה גבולה",
@@ -79,18 +71,10 @@
    "subject.is_fellow",
    "message.reports_what_someone_said_or_did_against_listener",
    "message.content_is_true",
-   "message.contains_falsehood_or_exaggeration"
+   "message.contains_falsehood_or_exaggeration",
+   "subject.is_public_torah_figure"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "subject.is_talmid_chacham",
-    "questionHe": "האם המדובר הוא תלמיד חכם?"
-   },
-   {
-    "id": "subject.is_city_rabbi",
-    "questionHe": "האם המדובר הוא הרב שבעיר או דמות תורנית ציבורית שהרכילות עליה עלולה לגרום לקלקולים גדולים?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "גדר המדויק של עם הארץ ומי יוצא מכלל עמיך לעניין זה תלוי במקורות בביאור מים חיים ובכלל א",
@@ -125,18 +109,11 @@
   "factsNeeded": [
    "message.reports_what_someone_said_or_did_against_listener",
    "subject.identifiable",
-   "message.content_may_cause_harm"
+   "message.content_may_cause_harm",
+   "audience.is_close_to_speaker_or_subject",
+   "message.was_told_in_confidence"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "audience.is_spouse_or_relative_of_victim",
-    "questionHe": "האם הנמען הוא אשת הנפגע או קרוב משפחתו?"
-   },
-   {
-    "id": "audience.was_warned_not_to_relay",
-    "questionHe": "האם המספר הזהיר את הנמען שלא לגלות את הדברים לנפגע?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "היקף המושג קרוביו - אילו קרובים בכלל זה - תלוי בביאור בבאר מים חיים",
@@ -177,14 +154,10 @@
    "message.content_may_cause_harm",
    "message.about_craft_or_goods",
    "message.content_is_true",
-   "message.contains_falsehood_or_exaggeration"
+   "message.contains_falsehood_or_exaggeration",
+   "audience.includes_authorities_or_non_fellow"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "audience.includes_non_fellow",
-    "questionHe": "האם בין הנמענים יש מי שאינו יהודי?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "האם היתר 'באמת שרי' שבהגהה הוא דין אמיתי או תוספת צנזורה שאינה להלכה, כפי שמעיר הסעיף",
@@ -217,14 +190,10 @@
   "factsNeeded": [
    "listener.role_is_receiving",
    "listener.believes_report",
-   "message.reports_what_someone_said_or_did_against_listener"
+   "message.reports_what_someone_said_or_did_against_listener",
+   "audience.is_close_to_speaker_or_subject"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "source.is_spouse",
-    "questionHe": "האם המידע מגיע מבן/בת הזוג של השומע?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "פרטי דיני קבלת רכילות מופנים לסעיפים יג-יד בכלל ח' בחלק א' ולבאר מים חיים שם, ואינם מבוארים בסעיף זה",

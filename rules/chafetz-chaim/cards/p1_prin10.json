@@ -27,16 +27,13 @@
    "speaker.knows_first_hand",
    "message.purpose",
    "toelet.purpose_is_constructive",
-   "toelet.facts_verified"
+   "toelet.facts_verified",
+   "matter.involves_money_dispute"
   ],
   "proposedNewFacts": [
    {
     "id": "case.offender_not_rectified",
     "questionHe": "האם ידוע בברור שהמעוול לא השיב את הגזלה ולא שילם את הנזק ולא ביקש מחילה מהנפגע?"
-   },
-   {
-    "id": "case.type_of_injustice",
-    "questionHe": "האם מדובר בגזל או עושק או היזק ממוני או בביזוי וצער והונאת דברים?"
    }
   ],
   "relevanceToChat": "high",
@@ -88,18 +85,10 @@
    "toelet.purpose_is_constructive",
    "toelet.no_other_way",
    "toelet.no_excess_harm",
-   "speaker.intent_to_disparage"
+   "speaker.intent_to_disparage",
+   "speaker.motive_is_revenge_or_hatred"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "speaker.checked_halachic_classification",
-    "questionHe": "האם הכותב התבונן היטב אם המעשה נחשב על פי דין גזל או היזק ולא החליט מיד שמדובר בגזל ועושק?"
-   },
-   {
-    "id": "speaker.motive_is_hatred_or_enjoyment",
-    "questionHe": "האם הכוונה בסיפור היא הנאה מהפגם שנותן בחברו או שנאה קודמת ולא תועלת?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "מה נחשב בירור מספיק לכך שנתברר לו אחר כך שהדבר אמת לאחר שמיעה מאחרים",
@@ -190,28 +179,18 @@
    "subject.is_relative_of_speaker",
    "audience.listener_will_spread",
    "message.reports_what_someone_said_or_did_against_listener",
-   "message.purpose"
+   "message.purpose",
+   "audience.can_help_or_influence",
+   "audience.includes_authorities_or_non_fellow"
   ],
   "proposedNewFacts": [
-   {
-    "id": "audience.can_help_victim",
-    "questionHe": "האם השומעים יכולים לעזור לנגזל או לניזק בעניינו?"
-   },
    {
     "id": "audience.are_wicked_like_subject",
     "questionHe": "האם השומעים הם בעצמם בעלי רשע העושים מעשים דומים ולא רואים בכך עוון?"
    },
    {
-    "id": "toelet.deterrence_expected",
-    "questionHe": "האם צפוי שהסיפור יגרום להתרחקות מדרך רשע או לחזרת העושה בתשובה?"
-   },
-   {
     "id": "matter.known_to_victim",
     "questionHe": "האם הדבר כבר נתגלה לנגזל או לנעשק עצמו?"
-   },
-   {
-    "id": "matter.risk_of_malshinut",
-    "questionHe": "האם יש חשש שהסיפור יגיע לידי מלשינות לשלטונות?"
    },
    {
     "id": "toelet.requested_by_victim",
@@ -312,14 +291,6 @@
    {
     "id": "speaker.predicts_future_gossip",
     "questionHe": "האם הכותב מכיר בטבע האיש וצופה שילך ויגנה את הנידון גם בפני אנשים אחרים?"
-   },
-   {
-    "id": "toelet.preemptive_warning_effect",
-    "questionHe": "האם ההקדמה נועדה לכך שכשיבוא המרגל לא יתקבלו דבריו ואדרבה יוכיחוהו וישמור עצמו להבא?"
-   },
-   {
-    "id": "toelet.saving_from_shame",
-    "questionHe": "האם הסיפור לאחרים מציל את נפש הנידון מצער וכלמה עתידיים?"
    }
   ],
   "relevanceToChat": "medium",
@@ -366,12 +337,7 @@
    "speaker.would_say_in_subjects_presence",
    "listener.believes_report"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "toelet.knows_subject_will_not_accept_rebuke",
-    "questionHe": "האם הכותב יודע ומכיר שהמדובר לא יוסר בדבריו ולא יקבל תוכחה?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "מהו שיעור הידיעה הנדרש ל'יודע ומכיר בו שלא יקבל תוכחתו' – תלוי בבאר מים חיים כג",
@@ -409,18 +375,10 @@
    "subject.identifiable",
    "message.may_be_understood_as_disparagement",
    "audience.size_at_least_three",
-   "matter.already_known_to_many"
+   "matter.already_known_to_many",
+   "speaker.was_pressured_to_tell"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "speaker.has_fear_of_subject",
-    "questionHe": "האם יש על הכותב אימה מפני האיש שמדבר עליו? "
-   },
-   {
-    "id": "subject.can_harm_speaker",
-    "questionHe": "האם יש לאל ידו של המדובר להרע עם הכותב אם ייוודע שסיפר עליו?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "medium",
   "uncertainHe": [
    "מהי רמת האימה הנדרשת ומה נחשב שיש לאל ידו להרע עמו",
@@ -467,12 +425,7 @@
    "message.may_be_understood_as_disparagement",
    "message.content_is_disparaging"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "speaker.established_as_impartial_truthful",
-    "questionHe": "האם המספר מוחזק לרבים כאדם שאינו נושא פנים, אומר בפניו כבשלא בפניו, אינו יגור מפני איש ומדבר רק אמת?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "מהו הגדר המדויק של 'מוחזק לרבים' וכמה זמן ופרסום נדרש להחזקה זו",
@@ -507,17 +460,11 @@
    "אם ראה עליו שאוחז בה ועושה אותה כמה פעמים במזיד והיא דבר המפורסם לכל שהוא אסור – אז מותר אם נתקיימו גם כל הפרטים שבסעיף ב' וכלל ד' סעיף ז'"
   ],
   "factsNeeded": [
-   "speaker.knows_first_hand"
+   "speaker.knows_first_hand",
+   "matter.is_between_man_and_god",
+   "subject.repeated_intentional_sin"
   ],
   "proposedNewFacts": [
-   {
-    "id": "matter.is_bein_adam_lamakom",
-    "questionHe": "האם העבירה המדוברת היא עבירה שבין אדם למקום ולא שבין אדם לחברו?"
-   },
-   {
-    "id": "matter.is_repeated_intentional_violation",
-    "questionHe": "האם הכותב ראה בעצמו שהמדובר אוחז בעבירה ועושה אותה כמה פעמים במזיד?"
-   },
    {
     "id": "matter.is_prohibition_publicly_known",
     "questionHe": "האם האיסור הוא דבר המפורסם לכל שהוא אסור?"
@@ -568,16 +515,13 @@
    "speaker.intent_to_disparage",
    "toelet.purpose_is_constructive",
    "message.purpose",
-   "audience.listener_will_spread"
+   "audience.listener_will_spread",
+   "speaker.motive_is_revenge_or_hatred"
   ],
   "proposedNewFacts": [
    {
     "id": "speaker.is_telling_personal_grievance",
     "questionHe": "האם הכותב מספר על עוול שנעשה לו עצמו על ידי המדובר כגון גזילה, עושק, חירוף, צער או ביזוי?"
-   },
-   {
-    "id": "speaker.enjoys_spread_of_disparagement",
-    "questionHe": "האם הכותב שמח ונהנה מכך שדבריו מתקבלים ומתפרסמים לגנות ולביזיון של המדובר?"
    }
   ],
   "relevanceToChat": "high",
@@ -620,14 +564,10 @@
    "message.content_is_true",
    "speaker.intent_to_disparage",
    "message.purpose",
-   "toelet.purpose_is_constructive"
+   "toelet.purpose_is_constructive",
+   "matter.involves_money_dispute"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "message.is_complaint_about_withheld_benefit",
-    "questionHe": "האם ההודעה היא תלונה וגנאי על כך שפלוני לא היטיב עמו בהלוואה, צדקה, הכנסת אורחים או טובה דומה שהיה ראוי להיטיבו?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "מהי הגדרת 'אשר היה ראוי להיטיב עמו' - האם לפי דין, מנהג או ציפייה סובייקטיבית של המבקש",
@@ -670,17 +610,10 @@
    "speaker.intent_to_disparage",
    "speaker.knows_first_hand",
    "toelet.purpose_is_constructive",
-   "toelet.facts_verified"
+   "toelet.facts_verified",
+   "audience.can_help_or_influence"
   ],
   "proposedNewFacts": [
-   {
-    "id": "toelet.future_benefit_expected",
-    "questionHe": "האם הכותב משער שעל ידי הסיפור תבוא לו תועלת על להבא כגון השבת הגזלה או מניעת חירוף וגידוף נוסף?"
-   },
-   {
-    "id": "audience.can_influence_subject",
-    "questionHe": "האם הנמענים הם אנשים שדבריהם נשמעים למדובר, או אנשים חשובים או קרוביו שיכולים להוכיחו ולמנעו?"
-   },
    {
     "id": "speaker.intent_is_self_protection",
     "questionHe": "האם כוונת הכותב היא לשמור את עצמו מנזק ממון או צער וביוש ולא לבזות את המדובר?"
@@ -736,17 +669,10 @@
    "toelet.no_excess_harm",
    "message.content_may_cause_harm",
    "message.purpose",
-   "speaker.intent_to_disparage"
+   "speaker.intent_to_disparage",
+   "subject.has_repented_or_reformed"
   ],
   "proposedNewFacts": [
-   {
-    "id": "toelet.subject_has_not_repent",
-    "questionHe": "האם ידוע לך שחברך לא שב עדיין מאותו מעשה?"
-   },
-   {
-    "id": "message.omits_mitigating_detail",
-    "questionHe": "האם ההודעה משמיטה פרט כלשהו שהוא צד זכות למדובר, שידיעתו תפחית את הגנות בעיני השומעים?"
-   },
    {
     "id": "toelet.purpose_is_anxiety_relief",
     "questionHe": "האם מטרת הסיפור היא להפיג דאגה מלבך (ישיחנה לאחרים) ולא תועלת מעשית אחרת?"
@@ -845,14 +771,10 @@
    "listener.believes_report",
    "message.purpose",
    "speaker.intent_to_disparage",
-   "toelet.purpose_is_constructive"
+   "toelet.purpose_is_constructive",
+   "speaker.motive_is_revenge_or_hatred"
   ],
-  "proposedNewFacts": [
-   {
-    "id": "speaker.motive_is_revenge",
-    "questionHe": "האם ההודעה נכתבת כנקמה על ששמע שהמדובר דיבר על הכותב?"
-   }
-  ],
+  "proposedNewFacts": [],
   "relevanceToChat": "high",
   "uncertainHe": [
    "הסעיף מפנה לסעיף י\"ד הנ\"ל לעניין איסור אפילו אם הדבר אמת ותוכן ההפניה לא מבואר כאן",
@@ -897,13 +819,10 @@
    "toelet.purpose_is_constructive",
    "toelet.facts_verified",
    "toelet.no_other_way",
-   "toelet.no_excess_harm"
+   "toelet.no_excess_harm",
+   "context.inquiry_has_future_purpose"
   ],
   "proposedNewFacts": [
-   {
-    "id": "context.asked_to_identify_sinner",
-    "questionHe": "האם ההודעה היא תשובה לשאלה מי עשה דבר שלא כהוגן?"
-   },
    {
     "id": "context.speaker_suspected_by_asker",
     "questionHe": "האם השואל חושד בכותב עצמו שהוא עשה את המעשה?"
