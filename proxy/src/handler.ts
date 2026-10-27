@@ -1,4 +1,5 @@
 import { personalCheck } from './accountAccess.js';
+import { throttle } from './throttle.js';
 import {
   DRAFT_RULES_LIMITATION_HE, notCheckedRules, pickConfirmedFacts, rulesModeFromEnv, runLiveRules,
   type RulesResult,
@@ -54,6 +55,7 @@ export interface Env {
   /** Chafetz Chaim draft rules in /check: 'live' (default) | 'off' (docs/18, owner 2026-10-27). */
   LHG_CC_RULES?: string;
   LIMITER?: { limit(o: { key: string }): Promise<{ success: boolean }> };
+  EDGE_LIMITER?: Env['LIMITER'];
 }
 
 export async function handle(
@@ -61,6 +63,12 @@ export async function handle(
   makeProvider: (env: Env) => ExtractorProvider | null = providerFromEnv,
   fetchImpl: typeof fetch = fetch,
 ): Promise<Response> {
+  const path = new URL(request.url).pathname;
+  if (request.method === 'POST' && (path === '/check' || path === '/warm')) {
+    // Cloudflare overwrites this header: never trust x-forwarded-for.
+    const blocked = await throttle(env.EDGE_LIMITER, 'ip:' + (request.headers.get('cf-connecting-ip') || 'unknown'));
+    if (blocked) return blocked;
+  }
   return personalCheck(request, env, (req, settings) => handleAuthorized(req, settings, makeProvider, fetchImpl), fetchImpl);
 }
 
@@ -235,6 +243,9 @@ async function handleAuthorized(
   const key = request.headers.get('x-lhg-key') ?? '';
   if (!sameKey(key, env.LHG_ACCESS_KEY ?? '')) return json({ error: 'unauthorized' }, 401);
 
+  const blocked = await throttle(env.LIMITER, 'account:' + key);
+  if (blocked) return blocked;
+
   if (url.pathname === '/warm') {
     // Oracle is always up; only when it does not answer, wake the Modal copy
     // (cold start ~12s) so the fallback is warm. A healthy Oracle keeps Modal asleep.
@@ -242,11 +253,6 @@ async function handleAuthorized(
       ? await gateScore(env, 'warm', fetchImpl, undefined, (ep) => ep.name === 'oracle') : null;
     const g = oracle ?? await gateScore(env, 'warm', fetchImpl, 30000, (ep) => ep.name === 'modal');
     return json({ warm: g !== null, by: g?.by ?? null });
-  }
-
-  if (env.LIMITER) {
-    const { success } = await env.LIMITER.limit({ key: key.slice(0, 16) });
-    if (!success) return json({ error: 'rate_limited' }, 429);
   }
 
   let body: Record<string, unknown>;

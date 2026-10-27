@@ -1,5 +1,6 @@
 import type { Env } from './handler.js';
 import { MAX_TEXT_CHARS } from './limits.js';
+import { throttle } from './throttle.js';
 type AccessEnv = Env & { LHG_ACCOUNT_BASE?: string; LHG_ACCOUNT_KEY?: string };
 export async function accountCall(env: AccessEnv, mode: string, body: unknown, fetchImpl: typeof fetch): Promise<Response> {
  if (!env.LHG_ACCOUNT_BASE || !env.LHG_ACCOUNT_KEY) return new Response('{"error":"accounts_unavailable"}', {status:503});
@@ -28,17 +29,28 @@ export async function personalCheck(
   if(text.length>MAX_TEXT_CHARS)return err('text_too_long',413);
  }
  const ref=crypto.randomUUID(),mode=url.pathname==='/warm'?'validate':'begin';
- const auth=await accountCall(env,mode,{token,ref},fetchImpl);
+ // Resolve current account before charging, so rotating tokens cannot evade limits.
+ const auth=await accountCall(env,'validate',{token},fetchImpl);
  if(!auth.ok){
   let code='access_denied';try{code=((await auth.json()) as {error:string}).error||code;}catch{}
   return err(code,auth.status);
  }
  const identity=await auth.json() as {userId:string};
+ if(typeof identity.userId!=='string'||!identity.userId)return err('accounts_unavailable',503);
+ const blocked=await throttle(env.LIMITER,'account:'+identity.userId);
+ if(blocked)return blocked;
+ if(mode==='begin'){
+  const reservation=await accountCall(env,'begin',{token,ref},fetchImpl);
+  if(!reservation.ok){
+   let code='access_denied';try{code=((await reservation.json()) as {error:string}).error||code;}catch{}
+   return err(code,reservation.status);
+  }
+ }
  // Stable account key makes all devices share the same rate limit.
  const headers=new Headers(request.headers);headers.set('x-lhg-key',identity.userId);
  const authorized=new Request(request,{headers});
  let response:Response;
- try { response=await next(authorized,{...env,LHG_ACCESS_KEY:identity.userId}); }
+ try { response=await next(authorized,{...env,LHG_ACCESS_KEY:identity.userId,LIMITER:undefined}); }
  catch { response=err('check_failed',503); }
  if(mode==='validate')return response;
  let success=false;

@@ -32,3 +32,9 @@ LHG_CC_RULES = "live"
 name = "LIMITER"
 namespace_id = "1001"
 simple = { limit = 30, period = 60 }
+
+# Admission before central identity/database calls, shared by /check and /warm.
+[[ratelimits]]
+name = "EDGE_LIMITER"
+namespace_id = "1002"
+simple = { limit = 120, period = 60 }

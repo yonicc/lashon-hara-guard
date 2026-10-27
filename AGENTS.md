@@ -29,6 +29,12 @@
 - Regression commands: `node --test extension/*.test.cjs`; in both `engine/` and `proxy/`: `npm run typecheck`, `npm test`. `proxy/test/contextIntegration.test.ts` exercises the real browser scripts through the Worker handler with a synthetic provider.
 
 ## MVP runtime (verified 2026-10-26)
+- Both POST /check and /warm consume EDGE_LIMITER (120/min/IP) before
+  central calls, then LIMITER (30/min/full account id) after validate but
+  before begin/reservation or gate work. Tokens/devices share account budget;
+  legacy keys also consume LIMITER. Limiter failures return 503, refusals 429.
+  Cloudflare rate limits are per-location approximate admission controls,
+  not a global financial cap; central daily quota remains authoritative.
 - Security review: `docs/27-security-review.md`. Throttle both `/check` and `/warm` before costly work, including central account reservations; cookie Max-Age alone is not server-side session expiry. Automatic incoming/draft checks are billable work and require explicit spending/privacy controls.
 - Worker server calls must use `redirect:'manual'` and explicitly reject 3xx:
   Cloudflare Workers does not implement `redirect:'error'` (it throws before

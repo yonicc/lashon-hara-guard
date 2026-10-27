@@ -13,11 +13,11 @@ const request=(path='/check',body:unknown={text:'synthetic'})=>new Request('http
 function mock(denied=false){const calls:Array<{path:string,body:any}>=[];return {calls,fetch:(async(url:any,opts:any)=>{const path=new URL(String(url)).pathname;calls.push({path,body:JSON.parse(opts.body)});return new Response(JSON.stringify(denied?{error:'no_access'}:{ok:true,userId:'same-account'}),{status:denied?403:200});}) as typeof fetch};}
 test('personal token authorizes before provider and captures only completed work',async()=>{
  const m=mock();const r=await personalCheck(request(),env,async(req,settings)=>{assert.equal(req.headers.get('x-lhg-key'),'same-account');assert.equal(settings.LHG_ACCESS_KEY,'same-account');return new Response('{"status":"extracted"}');},m.fetch);
- assert.equal(r.status,200);assert.equal(m.calls.length,2);assert.equal(m.calls[1]!.body.success,true);
+ assert.equal(r.status,200);assert.equal(m.calls.length,3);assert.equal(m.calls[2]!.body.success,true);
  assert.ok(!JSON.stringify(m.calls).includes('synthetic'),'account center never sees text');
 });
 test('provider failure releases; central refusal never invokes provider',async()=>{
- const m=mock();await personalCheck(request(),env,async()=>{throw Error('provider unavailable');},m.fetch);assert.equal(m.calls[1]!.body.success,false);
+ const m=mock();await personalCheck(request(),env,async()=>{throw Error('provider unavailable');},m.fetch);assert.equal(m.calls[2]!.body.success,false);
  const no=mock(true);let invoked=false;const r=await personalCheck(request(),env,async()=>{invoked=true;return new Response();},no.fetch);
  assert.equal(r.status,403);assert.equal(invoked,false);
 });
