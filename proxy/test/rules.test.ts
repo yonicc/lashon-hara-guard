@@ -5,7 +5,7 @@ import {
   DRAFT_RULES_LIMITATION_HE, MAX_CONFIRMED_FACTS, pickConfirmedFacts, runLiveRules,
 } from '../src/rules.js';
 import {
-  CC_TOELET_DRAFT_PACK, FACT_BY_ID, toeletPackFactIds,
+  CC_TOELET_DRAFT_PACK, FACT_BY_ID, toeletPackFactIds, evaluate,
   type ExtractionOutcome, type ExtractorProvider, type MessageEnvelope,
 } from '../../engine/src/index.js';
 
@@ -58,7 +58,6 @@ const BANNED = /(^|[^א-ת])(מותר|אסור)([^א-ת]|$)/;
 test('rules: a draft finding raises the alert to warn and adds the draft limitation', async () => {
   const r = await handle(post({ text: TEXT, confirmedFacts: {
     'toelet.purpose_is_constructive': true,
-    'toelet.rebuke_attempted': false,
     'toelet.knows_subject_will_not_accept_rebuke': false,
   } }), ENV, provider(NO_CONCERN_WITH_FACTS));
   const b = (await r.json()) as Body;
@@ -86,6 +85,23 @@ test('rules: an unknown rebuke exception is not an absent exception in the real 
   assert.ok(!body.rules?.findings.some((finding) => finding['ruleId'] === 'cc-toelet.10-02c.rebuke-first'));
   assert.notEqual(body.rules?.question?.factId, 'toelet.knows_subject_will_not_accept_rebuke',
     'a user answer of unknown must not be asked again');
+});
+
+test('rules: the live adapter asks the missing rebuke exception rather than a resolved OR alternative', () => {
+  const message = { id: 'synthetic', revision: 1, direction: 'outgoing', authorRef: 'user',
+    platform: 'test', conversationId: 'synthetic', audienceSnapshot: {}, text: TEXT } as MessageEnvelope;
+  const result = runLiveRules(message, undefined, {
+    'subject.identifiable': true,
+    'message.content_is_disparaging': true,
+    'toelet.purpose_is_constructive': true,
+    'toelet.rebuke_attempted': false,
+  }, 'test', (input) => evaluate({ ...input, rulePack: {
+    ...CC_TOELET_DRAFT_PACK,
+    rules: CC_TOELET_DRAFT_PACK.rules.filter((rule) => rule.id === 'cc-toelet.10-02c.rebuke-first'),
+  } }));
+  assert.equal(result.notChecked, undefined);
+  assert.equal(result.findings.length, 0);
+  assert.equal(result.question?.factId, 'toelet.knows_subject_will_not_accept_rebuke');
 });
 
 test('rules: findings never lower an alert; no finding leaves the extraction alert as is', () => {

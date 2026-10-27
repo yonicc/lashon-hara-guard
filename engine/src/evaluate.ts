@@ -4,6 +4,7 @@ import type {
   EvaluationInput,
   EvaluationResult,
   Finding,
+  Expr,
   Rule,
 } from './types.js';
 import { evalExpr, exprFactIds, isFactKnown } from './evalExpr.js';
@@ -24,12 +25,23 @@ function cacheKey(input: EvaluationInput): string {
   return createHash('sha256').update(raw, 'utf8').digest('hex');
 }
 
+/** Only unresolved expression branches can change its three-valued result. */
+function unresolvedFacts(expr: Expr, facts: EvaluationInput['facts']): string[] {
+  if (evalExpr(expr, facts) !== 'unknown') return [];
+  if ('and' in expr) return expr.and.flatMap((child) => unresolvedFacts(child, facts));
+  if ('or' in expr) return expr.or.flatMap((child) => unresolvedFacts(child, facts));
+  if ('not' in expr) return unresolvedFacts(expr.not, facts);
+  return [...exprFactIds(expr)].filter((id) => !isFactKnown(facts, id));
+}
+
 function ruleMissingFacts(rule: Rule, facts: EvaluationInput['facts']): string[] {
   const ids = new Set<string>();
-  (rule.requiredFacts ?? []).forEach((f) => ids.add(f));
-  exprFactIds(rule.applicability).forEach((f) => ids.add(f));
-  exprFactIds(rule.conditions).forEach((f) => ids.add(f));
-  (rule.exceptions ?? []).forEach((e) => exprFactIds(e).forEach((f) => ids.add(f)));
+  const expressions = [rule.applicability, rule.conditions, ...(rule.exceptions ?? [])];
+  const referenced = new Set(expressions.flatMap((expr) => [...exprFactIds(expr)]));
+  // Standalone required metadata still matters. Generated requiredFacts lists
+  // must not reintroduce a dormant OR/AND branch already resolved by known facts.
+  (rule.requiredFacts ?? []).filter((id) => !referenced.has(id)).forEach((id) => ids.add(id));
+  expressions.flatMap((expr) => unresolvedFacts(expr, facts)).forEach((id) => ids.add(id));
   return [...ids].filter((id) => !isFactKnown(facts, id));
 }
 
