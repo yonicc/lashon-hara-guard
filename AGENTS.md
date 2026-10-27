@@ -2,7 +2,7 @@
 
 ## Git access
 - Remote: https://github.com/yonicc/lashon-hara-guard (default branch: main).
-- Push account: yonicc; commit identity: Yoni <yoni@citycar.co.il>.
+- Push account: yonicc; commit identity: yonicc <yonicc@gmail.com> (owner's rule 2026-10-27; repo-local git config on BI-1 is set to it — commits before ea07a34 inclusive were made as Yoni <yoni@citycar.co.il> and were not rewritten).
 - BI-1: set GH_TOKEN per command/script using gh auth token --user yonicc. Never switch the shared active account.
 - Working directory: C:\Users\dev\lashon-hara-guard on BI-1.
 
