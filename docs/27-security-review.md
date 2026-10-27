@@ -4,6 +4,30 @@ Scope: LHG public download v0.8.2 (e9702c6), proxy live build header bec6a832, c
 
 ## Findings
 
+### Remediation verified — 2026-10-27
+
+- Finding 1: deployed proxy code 4192b16680007b7d1c5a5b4d0d58744e9bdf5b06.
+  Both POST routes pass IP admission (120/minute) before central calls,
+  then current-identity validation and full-account admission (30/minute)
+  before reservations/quota increments or classifier calls. Legacy keys pass
+  the same authenticated limiter. Refusals return 429/Retry-After; limiter
+  exceptions fail closed with 503. Cloudflare counters are approximate and
+  per location, so they do not replace the central daily/financial caps.
+- Finding 5: deployed account-worker code ba251b0 sets DENY and an additional
+  enforced CSP frame-ancestors 'none', preserving any upstream policy, on
+  normal pages, API, redirects, 404 and upstream errors.
+- Validation: 59 proxy tests and typecheck, 221 TZ tests passed. Live build
+  header matched; login/admin/404 carried both anti-framing headers; a fresh
+  headless Chrome reported an enforced framing violation from a local foreign
+  origin. Bounded sequential requests with an invalid key across /check and
+  /warm eventually returned rate_limited/429 with Retry-After 60, without
+  account lookup, paid work or model invocation. The first 130-request probe
+  did not reject; a second bounded probe rejected on request 113, consistent
+  with approximate enforcement rather than an exact 121st-request guarantee.
+- Account-limit ordering and shared-token/device budget were verified with
+  isolated fixtures; no production personal token, credit or quota was used.
+  Other findings below remain open.
+
 1. **High: unmetered warm route / rate limit ordering.** proxy/src/handler.ts handles /warm BEFORE LIMITER. accountAccess.ts validates personal tokens but does not reserve quota/funds for warm. An eligible user can repeatedly invoke Oracle and, on failure, Modal without that rate limit. /check calls account begin (JSON database load/save, quota increment, reservation) before LIMITER, so requests rejected later still consume account quota and hit storage. Apply edge throttling before account calls plus per-account throttling to both routes. Exploit volume/cost was not tested.
 
 2. **High if legacy key remains enabled: unbilled shared-key path.** accountAccess.ts delegates non-lap_ keys directly to handleAuthorized; LHG_ACCESS_KEY authorizes without a personal wallet or daily account quota. The accepted legacy key itself was neither retrieved nor tested. Remove this path or bind the owner's exemption to a normal revocable account token. Do not treat this as an unauthenticated bypass: the shared secret is required.
