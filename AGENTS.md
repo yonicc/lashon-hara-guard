@@ -52,6 +52,7 @@
 - Worker secrets: use `npx wrangler secret bulk <json outside repo>`. Piping a value into `npx wrangler secret put` in PowerShell 5.1 reports Success but stores a wrong value (every call then 401).
 
 ## Gate classifier on Modal (verified 2026-10-26, docs/12)
+- Runbook: `.claude/skills/lhg-gate-evaluation/SKILL.md`. Offline expansion validation/review export: `py classifier/validate_expansion.py` (docs/29). Keep contrast pairs as well as translations in one family/split; new expansion labels remain human_review_pending development candidates until reviewed.
 - The proxy asks the Modal gate (`classifier/serve_modal.py`, model v2 fp32) first; `p < LHG_GATE_THRESHOLD` (0.2) skips the model. Gate failure/timeout must always escalate to the model, so the gate can only save a call, never hide a message. Disable by removing `LHG_GATE_URL` from `proxy/wrangler.toml`.
 - Modal CLI on BI-1: `py -m modal ...`, profile `yonicc` in `C:\Users\dev\.modal.toml`. Secret `lhg-gate` (GATE_KEY) == Worker secret `LHG_GATE_KEY`. Models live in Volume `lhg-models` (`/v1`, `/v2`). Do not set `min_containers` without the user's decision (always-on ≈ $2.6/day).
 - Judge a gate model only on an INDEPENDENT eval set (`classifier/gen_eval.py`, another vendor/prompt, never trained on). Same-generator test scores were optimistic (v1: 0.986 own test vs 0.906 on Codex eval). Once an eval set has guided data changes, generate a fresh one.

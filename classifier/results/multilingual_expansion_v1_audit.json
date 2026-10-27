@@ -1,0 +1,60 @@
+{
+  "rows": 210,
+  "families": 40,
+  "language_counts": {
+    "he": 70,
+    "en": 70,
+    "mixed": 70
+  },
+  "label_counts": {
+    "no_concern": 90,
+    "concern": 90,
+    "ambiguous": 30
+  },
+  "category_counts": {
+    "ambiguous_praise": 3,
+    "audience": 3,
+    "comparison": 3,
+    "complaint": 12,
+    "exclusion": 12,
+    "fiction": 6,
+    "fraud_report": 6,
+    "idiom": 3,
+    "indirect": 6,
+    "missing_context": 3,
+    "negation": 12,
+    "praise": 12,
+    "privacy": 12,
+    "public_reputation": 6,
+    "quotation": 6,
+    "quote_context": 3,
+    "reference": 3,
+    "request_context": 3,
+    "rumor": 12,
+    "safety_report": 18,
+    "sarcasm": 12,
+    "sarcasm_context": 3,
+    "school_report": 6,
+    "self_reference": 12,
+    "short_message": 6,
+    "spelling": 6,
+    "technical": 12,
+    "unclear_target": 3,
+    "workplace_report": 6
+  },
+  "exact_overlaps": {
+    "v1.jsonl": [],
+    "v2_aug.jsonl": [],
+    "eval_codex_v2.jsonl": [],
+    "phase_a_multilingual_v1.jsonl": []
+  },
+  "data_sha256": "04a3a08a7b5796ec14ceb90731442bac4e7c075f685dfb3d6795c2fe3c65aa18",
+  "review_status": "human_review_pending",
+  "split": "development_candidate",
+  "limitations": [
+    "Synthetic labels, not expert or human reviewed.",
+    "Translations and contrast pairs are correlated.",
+    "Exact normalization does not rule out semantic overlap.",
+    "No training, final holdout assignment, scoring or production changes."
+  ]
+}
