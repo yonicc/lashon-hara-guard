@@ -1,0 +1,1500 @@
+{
+  "schemaVersion": 1,
+  "status": "partial_draft_expansion_not_full_coverage",
+  "baseRevision": "e9702c6bd8b19e52eae5acf6df214b647459c11e",
+  "scopeHe": "חלק א׳ כללים א׳–ה׳ בלבד. Sefaria / Chofetz Chaim, CC-BY-SA. המקור המדויק גובר על כרטיס טיוטה. אין פסק, היתר, סיווג אדם או אימות הליך.",
+  "validation": {
+    "commands": ["cd engine; npm run typecheck", "cd engine; node --import tsx --test test/speechExpansion.test.ts", "cd engine; npm test"],
+    "typecheck": "passed",
+    "targetedTests": {"passed": 70, "failed": 0},
+    "engineTests": {"passed": 217, "failed": 0, "skipped": 1},
+    "skippedHe": "בדיקת brainSend חיה דולגה כרגיל; לא בוצעה קריאת מודל או בדיקת חיבור חיה.",
+    "limitsHe": "בדיקות ההרחבה מרכיבות קטלוג מקומי ידני; לא נבדק חיבור ההרחבה לחבילה המרכזית שטרם נערך."
+  },
+  "integration": {
+    "exportName": "CC_SPEECH_EXPANSION_DRAFT_PACK",
+    "module": "engine/src/chafetzChaim/speechExpansion.ts",
+    "facts": "rules/chafetz-chaim/speechExpansion.facts.json",
+    "factsShape": "FactCatalogEntry[]",
+    "state": "isolated_pending_parent_integration",
+    "developmentHe": [
+      "המחבר נדרש לחבר את המודול ואת רשימת העובדות לקטלוג ולחבילת הכללים, בלי לשנות מזהים קיימים.",
+      "כל העובדות החדשות confirmedByUserOnly/high/nonpersistent. הידיעה על נסיבות מחוץ לטקסט אינה מתקבלת ממודל. חלק מן השאלות דורשות תשובת משתמש ולא חילוץ אוטומטי.",
+      "לא עודכנו allPacks, facts.json, sourceCoverage או החילוץ. לכן הבדיקות משתמשות בקטלוג מאוחד מקומי בלבד ואין כאן טענה שההרחבה רצה כרגע ב־/check.",
+      "נדרש להשלים matrix ולבדוק חיבור ב־proxy ובתוסף והצגת שאלה אחת. נטיית הספק מיוצגת בשתי שאלות בוליאניות התואמות לחוזה confirmedFacts הקיים; אין שינוי חוזה.",
+      "כללים קיימים נשמרו: בפרט cc-speech.3-05.incidental הוא קירוב ואינו מוכיח מסווה רמאות; cc-reputation.5-02.status אינו כולל את חריג הפישור של סעיף ג׳. נדרש לשקול את החפיפה בחיבור, בלי להציג היתר או לבטל התרעה אוטומטית."
+    ]
+  },
+  "accounting": {
+    "assignedSections": 50,
+    "addedRules": 64,
+    "addedFacts": 45,
+    "sectionsWithAdditions": 40,
+    "noteHe": "הספירות הן בדיקת שלמות מלאי בלבד, לא ראיה לכיסוי סמנטי מלא או לאישור הלכתי."
+  },
+  "lessonsHe": [
+    "חוזה confirmedFacts הקיים מקבל boolean או null בלבד; שאלות חדשות על נטיית הספק מיוצגות כבוליאניות ולא כמחרוזת. ענף חסר או זוג תשובות סותר אינו משלים סיווג.",
+    "ידיעה ממקור ראשון על המעשה אינה נוכחות באמירה המקורית בפני שלושה; מספר מספרים, מספר שומעים ומספר עדים הם נתונים שונים.",
+    "חריג חסר או שנוי במחלוקת נשאר unknown וחוסם את הממצא המסוים; מסלול תזכורת נפרד על החריג אינו פסק שהוא מתקיים או היתר.",
+    "המקורות כוללים נוסחי יש אומרים, אפשר וצריך עיון. התזכורות משמרות את דרגת הספק ואינן מאחדות דעה היסטורית של מיעוט עם העברת אשמה.",
+    "החסר בפיתוח מתועד בנפרד מביקורת מומחה; גם אחרי הביקורת יהיה צורך לאסוף מקורות חסרים ולחבר עובדות, ולא די להחליף סטטוס."
+  ],
+  "sections": [
+    {
+      "key": "p1_prin1:1",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin1.json",
+      "sourceSection": 1,
+      "complete": false,
+      "implementation": "baseline_retained_no_new_rule",
+      "implementedHe": [
+        "לא נוסף כלל חדש; ראו מימוש קיים ויתרה מקורית ב־sourceCoverage. אין זו טענת אי־ישימות."
+      ],
+      "addedRuleIds": [],
+      "bindings": [],
+      "remainingDevelopmentHe": [
+        "לא נוספה הכרעת אמת, זיקה לעמיתך או סיווג חומרת מוציא שם רע. נשאר לפתח בירור קשר התוספת להגדלת הגנות."
+      ],
+      "remainingExpertHe": [
+        "גדר גנות ותערובת שקר המגדילה אותה תלויים גם בבאר מים חיים; אין סיווג מוציא שם רע."
+      ]
+    },
+    {
+      "key": "p1_prin1:2",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin1.json",
+      "sourceSection": 2,
+      "complete": false,
+      "implementation": "baseline_retained_no_new_rule",
+      "implementedHe": [
+        "לא נוסף כלל חדש; ראו מימוש קיים ויתרה מקורית ב־sourceCoverage. אין זו טענת אי־ישימות."
+      ],
+      "addedRuleIds": [],
+      "bindings": [],
+      "remainingDevelopmentHe": [
+        "הפתיחה אינה במאגר; איסוף ומיפוי לאוין ועשין ותנאי כל מצווה הם עבודת פיתוח ומקורות שטרם נעשתה, ולא חסם מומחה בלבד."
+      ],
+      "remainingExpertHe": [
+        "לאחר איסוף הפתיחה תידרש ביקורת לתנאי כל מצווה; חסרון האיסוף עצמו הוא פיתוח."
+      ]
+    },
+    {
+      "key": "p1_prin1:3",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin1.json",
+      "sourceSection": 3,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "הרגל מדווח לעומת כישלון יחיד — יש להבחין בין כישלון מקרי להרגל תמידי; דיווח המשתמש מזמין בירור ההרגל, ואינו מסווג אותו כבעל לשון הרע או מוכיח זדון"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.1-03.habit"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.1-03.habit",
+          "applicability": "SPEECH",
+          "conditions": "yes('speaker.reports_habitual_disparaging_speech')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוסף בירור הרגל באישור המשתמש בלבד. אין היסטוריה מאומתת לאורך זמן או בירור זדון, ואין תיוג אדם."
+      ],
+      "remainingExpertHe": [
+        "הגדרת הרגל, זדון ותואר בעל לשון הרע אינה מוכרעת מאישור משתמש."
+      ]
+    },
+    {
+      "key": "p1_prin1:4",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin1.json",
+      "sourceSection": 4,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "גבולות תיאור החומרה בהרגל — תיאור החומרה במקור מוגבל להרגל תמידי ולאי קבלה להישמר עד שנעשה כהיתר; אין להחילו על מעידה יחידה או להסיק מרשומה גורל רוחני של אדם"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.1-04.habit-limits"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.1-04.habit-limits",
+          "applicability": "SPEECH",
+          "conditions": "yes('speaker.reports_habitual_disparaging_speech')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוספה תזכורת המבחינה בהרגל ואי קבלה להישמר; לא נוסף בירור עצמאי של קבלה לעתיד. אין חישוב ענישה רוחנית בסריקת הודעה."
+      ],
+      "remainingExpertHe": [
+        "פירוש החומרה והתחולה הרוחנית דורש לימוד מוסמך; אינו פלט של סריקת הודעה."
+      ]
+    },
+    {
+      "key": "p1_prin1:5",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin1.json",
+      "sourceSection": 5,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "בקשת אב או רב גם באבק — בקשת אב או רב אינה מספיקה גם בחשש אבק; נדרש בירור אופן האמירה ולא רק אם הגנות מפורשת"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.1-05.authority-avak"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.1-05.authority-avak",
+          "applicability": "all(IDENTIFIED, yes('message.has_benign_and_disparaging_readings'), no('message.content_is_disparaging'))",
+          "conditions": "yes('context.parent_or_rabbi_requested_disclosure')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "ענף אבק נוסף רק לדו־משמעות המוגדרת במפורש; סוגי אבק אחרים והקשר כיבוד ומורא אינם מכוסים כולם."
+      ],
+      "remainingExpertHe": [
+        "יחס כיבוד ומורא מול סוגי אבק והקשר הבקשה דורשים ביקורת; אין הוראת התנהגות כוללת מול אב או רב."
+      ]
+    },
+    {
+      "key": "p1_prin1:6",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin1.json",
+      "sourceSection": 6,
+      "complete": false,
+      "implementation": "baseline_retained_no_new_rule",
+      "implementedHe": [
+        "לא נוסף כלל חדש; ראו מימוש קיים ויתרה מקורית ב־sourceCoverage. אין זו טענת אי־ישימות."
+      ],
+      "addedRuleIds": [],
+      "bindings": [],
+      "remainingDevelopmentHe": [
+        "תזכורת לחץ הפרנסה הקיימת נשארת. אין מודל ראיות להפסד פרנסה, ולא נוסף בירור נסיבות אונס או סיכון."
+      ],
+      "remainingExpertHe": [
+        "היקף דין הפסד ואונס והפניה ליורה דעה קנ״ז דורשים מקורות וביקורת מוסמכת."
+      ]
+    },
+    {
+      "key": "p1_prin1:7",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin1.json",
+      "sourceSection": 7,
+      "complete": false,
+      "implementation": "baseline_retained_no_new_rule",
+      "implementedHe": [
+        "לא נוסף כלל חדש; ראו מימוש קיים ויתרה מקורית ב־sourceCoverage. אין זו טענת אי־ישימות."
+      ],
+      "addedRuleIds": [],
+      "bindings": [],
+      "remainingDevelopmentHe": [
+        "תזכורת לחץ חברתי קיימת. דיני תוכחה וקבלה מופנים לכלל ו׳ ולפתיחה; לא נוספו כאן שלבי יציאה מהחבורה או מחאה."
+      ],
+      "remainingExpertHe": [
+        "הפניות לחובת תוכחה וקבלה ולהבטחות שכר אינן מסמיכות את המנוע לקבוע חיוב מחאה או שכר."
+      ]
+    },
+    {
+      "key": "p1_prin1:8",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin1.json",
+      "sourceSection": 8,
+      "complete": false,
+      "implementation": "baseline_retained_no_new_rule",
+      "implementedHe": [
+        "לא נוסף כלל חדש; ראו מימוש קיים ויתרה מקורית ב־sourceCoverage. אין זו טענת אי־ישימות."
+      ],
+      "addedRuleIds": [],
+      "bindings": [],
+      "remainingDevelopmentHe": [
+        "כתיבה ורמז מכוסים בתזכורות קיימות. נותר בירור אופן הרמז והזיהוי כאשר המידע החזותי או הקולי אינו בטקסט."
+      ],
+      "remainingExpertHe": [
+        "גבולות רמז וגנות תלויים בהקשר ובבאר מים חיים; אמצעי הכתיבה אינו היתר."
+      ]
+    },
+    {
+      "key": "p1_prin1:9",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin1.json",
+      "sourceSection": 9,
+      "complete": false,
+      "implementation": "baseline_retained_no_new_rule",
+      "implementedHe": [
+        "לא נוסף כלל חדש; ראו מימוש קיים ויתרה מקורית ב־sourceCoverage. אין זו טענת אי־ישימות."
+      ],
+      "addedRuleIds": [],
+      "bindings": [],
+      "remainingDevelopmentHe": [
+        "תזכורת גנאי עצמי קיימת. לא נוסף אימות שמדובר באותו גנאי עצמו; עובדה זו נשארת תלויה בקלט הקיים."
+      ],
+      "remainingExpertHe": [
+        "החלת אותו גנאי על המספר והאחר אינה פטור; גבולות הסעיף דורשים ביקורת פרשנית."
+      ]
+    },
+    {
+      "key": "p1_prin2:1",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin2.json",
+      "sourceSection": 1,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "קהל קטן אינו פטור — גם בפני שומע יחיד נדרשת בדיקת הגנות; פחות משלושה שומעים אינו בסיס להסרת חשש, ואין לחשב מניין עבירות לפי מספר המחברים הגלויים"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.2-01.small-audience"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.2-01.small-audience",
+          "applicability": "SPEECH",
+          "conditions": "no('audience.size_at_least_three')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוסף ענף קהל קטן לפי שלילי מפורש של שלושה ומעלה; אינו מוכיח שומע יחיד דווקא. אין מניין עבירות או ספירת קהל מהמחברים הגלויים."
+      ],
+      "remainingExpertHe": [
+        "ריבוי שומעים מוסיף חשש אך אין להסיק מניין לאוין או הכשלה בפועל לכל נמען."
+      ]
+    },
+    {
+      "key": "p1_prin2:2",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin2.json",
+      "sourceSection": 2,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "שני פנים ואופן אמירה — בסעיף זה הדיון הוא באבק דו־משמעי ולא בגנאי גמור; אופן אמירה המגלה גנאי אינו נעשה תקין בשל שלושה שומעים"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.2-02.dual-delivery"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.2-02.dual-delivery",
+          "applicability": "all(IDENTIFIED, yes('message.has_benign_and_disparaging_readings'), no('message.content_is_disparaging'))",
+          "conditions": "yes('message.delivery_signals_disparagement')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוספו עובדות דו־משמעות ואופן אמירה. חסר קלט קול ותנועה; אישור משתמש אינו שחזור אודיו. אין הכשרת ניסוח אוטומטית."
+      ],
+      "remainingExpertHe": [
+        "הבחנת אבק דו־משמעי מגנות גמורה ואופן האמירה המדויק דורשים ביקורת; שלושה אינם היתר."
+      ]
+    },
+    {
+      "key": "p1_prin2:3",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin2.json",
+      "sourceSection": 3,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "כוונת הפצת דיווח — הדעה המסויגת על חזרה אקראית אינה כוללת כוונה להעביר את הקול; אין כאן הכרעה במחלוקת על עצם ההקלה",
+        "אקראי לעומת דרך אגב — בהגהה מובאת דעה המצמצמת גם חזרה אקראית לעניין שנתגלגל דרך אגב; אין להסיק שכוונה לספר עניין זה בלבד נכללת בהקלה"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.2-03.spread-intent",
+        "cc-speech-expansion.2-03.incidental-only"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.2-03.spread-intent",
+          "applicability": "all(SPEECH, yes('context.repeats_prior_report'))",
+          "conditions": "yes('speaker.intends_to_spread_report')",
+          "exceptions": []
+        },
+        {
+          "ruleId": "cc-speech-expansion.2-03.incidental-only",
+          "applicability": "all(SPEECH, yes('context.repeats_prior_report'))",
+          "conditions": "no('message.said_incidentally_without_intent')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוספו כוונת הפצה ודרך אגב. אין עדיין מודל מצטבר המאמת את כל צמצומי סעיפים ד׳–י׳ כתהליך אחד."
+      ],
+      "remainingExpertHe": [
+        "יש אומרים על עצם ההקלה ודעה נוספת המחייבת דרך אגב; אין הכרעה ביניהן."
+      ]
+    },
+    {
+      "key": "p1_prin2:4",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin2.json",
+      "sourceSection": 4,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "שומע ראשון לעומת שרשרת מסירה — ידיעה ממקור ראשון על המעשה אינה נוכחות באמירה המקורית בפני שלושה; אין לסמוך רק על טענת מוסר קודם שכך פורסם",
+        "פרסום לכל כענף נפרד — פרסום ממשי לכל נזכר כענף נפרד משרשרת המסירה; הוא אינו מאמת את אמיתות הדיווח ואינו מבטל את צמצומי סעיפים ה׳–י׳ או את המחלוקת"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.2-04.transmission-chain",
+        "cc-speech-expansion.2-04.widespread-branch"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.2-04.transmission-chain",
+          "applicability": "all(SPEECH, yes('context.repeats_prior_report'))",
+          "conditions": "no('speaker.heard_original_report_before_three')",
+          "exceptions": [
+            "yes('matter.already_known_to_many')"
+          ]
+        },
+        {
+          "ruleId": "cc-speech-expansion.2-04.widespread-branch",
+          "applicability": "all(SPEECH, yes('context.repeats_prior_report'))",
+          "conditions": "yes('matter.already_known_to_many')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוסף בירור נוכחות באמירה המקורית הנבדל מידיעת המעשה. פרסום לכל הוא חריג תלת־ערכי ומסלול תזכורת נפרד; אין ראיות עצמאיות לתפוצה."
+      ],
+      "remainingExpertHe": [
+        "פרסום לכל אינו היתר אוטומטי ואינו מבטל את המחלוקת בכלל."
+      ]
+    },
+    {
+      "key": "p1_prin2:5",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin2.json",
+      "sourceSection": 5,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "שומע שאינו מפיץ — שלושה שומעים אינם בהכרח שלושה מפרסמים; המקור מדבר בירא שמים הנזהר, ולגבי קרוב או אוהב מציג אפשרות בלבד; אין להסיק אי־הפצה מתואר או מקרבה לבדם"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.2-05.non-spreader"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.2-05.non-spreader",
+          "applicability": "all(SPEECH, yes('context.repeats_prior_report'))",
+          "conditions": "yes('audience.original_listener_withholds_report')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוספה עובדה של לפחות שומע מקורי שאינו מפיץ. אין פירוט לכל שומע של סיבת ההימנעות או שלושה מפרסמים מאומתים."
+      ],
+      "remainingExpertHe": [
+        "דין קרוב או אוהב נאמר כאפשר; אין להפוך קרבה למסקנה מוחלטת על הפצה."
+      ]
+    },
+    {
+      "key": "p1_prin2:6",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin2.json",
+      "sourceSection": 6,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "העברה לעיר אחרת — הצד המקיל מוגבל במקור לאותה העיר, גם כששיירות מצויות; שיוך קבוצת צ׳אט לעיר או לתחום פרסום מצריך בירור ואינו נלמד מגודל הקבוצה"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.2-06.locality"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.2-06.locality",
+          "applicability": "all(SPEECH, yes('context.repeats_prior_report'))",
+          "conditions": "yes('context.report_crosses_locality')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוסף בירור מעבר לעיר אחרת. אין מודל מקום והיקף תפוצה מקוונים או אימות גאוגרפי אוטומטי."
+      ],
+      "remainingExpertHe": [
+        "החלת אותה עיר על תקשורת דיגיטלית אינה מוכרעת בקוד."
+      ]
+    },
+    {
+      "key": "p1_prin2:7",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin2.json",
+      "sourceSection": 7,
+      "complete": false,
+      "implementation": "baseline_retained_no_new_rule",
+      "implementedHe": [
+        "לא נוסף כלל חדש; ראו מימוש קיים ויתרה מקורית ב־sourceCoverage. אין זו טענת אי־ישימות."
+      ],
+      "addedRuleIds": [],
+      "bindings": [],
+      "remainingDevelopmentHe": [
+        "כלל הסוד הקיים נשמר; תזכורות היקף האזהרה בסעיף ח׳ אינן מעקב אחר זהות מי שהפר את האזהרה."
+      ],
+      "remainingExpertHe": [
+        "גבולות אזהרה ותחולת סוד מחייבים ביקורת; הפרתה בידי אחרים אינה היתר."
+      ]
+    },
+    {
+      "key": "p1_prin2:8",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin2.json",
+      "sourceSection": 8,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "היקף אזהרת הסוד — אזהרה כללית או שלא ייוודע מכם אינה מצטמצמת למסירה למדובר בלבד; הפרת הסוד בידי אחרים אינה מבטלת את האזהרה",
+        "אזהרה רק לאדם מסוים — באזהרה רק שלא לגלות לפלוני ההגהה אומרת אפשר וצריך עיון לגבי גילוי אקראי לאחר; אין להפוך את הספק להרשאה, ונדרשים יתר צמצומי הפרסום",
+        "מספר שומעים לעומת מספר מספרים — שני מספרים בפני שני שומעים אינם שלושה שומעים; כמה מקורות לדיווח אינם תחליף למספר השומעים באמירה המקורית"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.2-08.warning-scope",
+        "cc-speech-expansion.2-08.restricted-warning",
+        "cc-speech-expansion.2-08.two-listeners"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.2-08.warning-scope",
+          "applicability": "all(SPEECH, yes('message.was_told_in_confidence'))",
+          "conditions": "yes('message.confidentiality_warning_is_general')",
+          "exceptions": []
+        },
+        {
+          "ruleId": "cc-speech-expansion.2-08.restricted-warning",
+          "applicability": "all(SPEECH, yes('message.was_told_in_confidence'))",
+          "conditions": "no('message.confidentiality_warning_is_general')",
+          "exceptions": []
+        },
+        {
+          "ruleId": "cc-speech-expansion.2-08.two-listeners",
+          "applicability": "all(SPEECH, yes('context.repeats_prior_report'))",
+          "conditions": "yes('context.original_report_had_only_two_listeners')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוספו היקף האזהרה ושני שומעים במקור בנפרד משני מספרים. אין parser מלא של נוסח הסוד או רישום משתתפים מקורי."
+      ],
+      "remainingExpertHe": [
+        "אזהרה רק לפלוני מוצגת כאפשר וצריך עיון; אין הכרעה בספק."
+      ]
+    },
+    {
+      "key": "p1_prin2:9",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin2.json",
+      "sourceSection": 9,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "הטעמה גם בלי תוספת שקר — גם הטעמת הדיווח וחיזוק גנותו בלי תוספת עובדתית מחייבים בדיקה; העתקה כשלעצמה אינה הוכחת קבלה בלב",
+        "פרסום עבר ומשפחה — פרסום קודם אינו הופך עבר שתוקן או מעשי אבות לגנות מוצדקת של מי שמתנהג עתה כשורה"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.2-09.amplification",
+        "cc-speech-expansion.2-09.reformed-past"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.2-09.amplification",
+          "applicability": "all(SPEECH, yes('context.repeats_prior_report'))",
+          "conditions": "yes('message.amplifies_prior_disparagement')",
+          "exceptions": []
+        },
+        {
+          "ruleId": "cc-speech-expansion.2-09.reformed-past",
+          "applicability": "all(all(SPEECH, yes('context.repeats_prior_report')), yes('message.about_past_or_family'))",
+          "conditions": "yes('subject.has_repented_or_reformed')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוספו הטעמה בלי שקר ועבר מתוקן בפרסום. אין השוואה אוטומטית בין נוסח קודם לנוכחי או הוכחת קבלה בלב."
+      ],
+      "remainingExpertHe": [
+        "אין להסיק קבלה בלב מטקסט מועתק, או לפסוק מעמד רוחני של מספר על עבר ומשפחה."
+      ]
+    },
+    {
+      "key": "p1_prin2:10",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin2.json",
+      "sourceSection": 10,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "צפי לקבלה כאמת — הכרת טבע הנמען שיקבל מיד כאמת מחייבת זהירות גם ברמז; זה שונה מאמונה שכבר התרחשה, וייתכן גם שיוסיף גנות",
+        "מחלוקת גם בהצטרפות תנאים — גם הצטרפות תנאי הפרסום אינה מכריעה את המחלוקת: הסעיף מדגיש שלדעת פוסקים רבים אין מקור להקלה; נוכחות ישירה אינה היתר"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.2-10.expected-belief",
+        "cc-speech-expansion.2-10.publicity-dispute"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.2-10.expected-belief",
+          "applicability": "all(SPEECH, yes('context.repeats_prior_report'))",
+          "conditions": "yes('listener.expected_to_accept_report_as_fact')",
+          "exceptions": []
+        },
+        {
+          "ruleId": "cc-speech-expansion.2-10.publicity-dispute",
+          "applicability": "all(SPEECH, yes('context.repeats_prior_report'))",
+          "conditions": "yes('speaker.heard_original_report_before_three')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוסף צפי לקבלה כאמת בנפרד מאמונה נוכחית, ותזכורת מחלוקת. אין בירור נפרד של תוספת צפויה מצד הנמען."
+      ],
+      "remainingExpertHe": [
+        "המחלוקת בעצם ההקלה נשארת גם בהצטרפות כל הפרטים."
+      ]
+    },
+    {
+      "key": "p1_prin2:11",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin2.json",
+      "sourceSection": 11,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "הטלת אחריות על רוב מוסדי — בדיון טובי העיר המקור מזהיר מגילוי דעת מיעוט כדי להסיר אחריות ולהטילה על הרוב, גם באמת ותחת לחץ; היקף היישום למוסד אחר דורש בדיקה",
+        "דעה היסטורית בלבד — לגבי סיפור סתמי על דעת המיעוט בעבר מובאת כאן דעת היד הקטנה; יש להבחינה מהטלת אחריות נוכחית, ואין להציג את שני הענפים כמוסכמים באותה מידה"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.2-11.institutional-blame",
+        "cc-speech-expansion.2-11.historical-minority"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.2-11.institutional-blame",
+          "applicability": "IDENTIFIED",
+          "conditions": "yes('context.discloses_committee_dissent_to_shift_blame')",
+          "exceptions": []
+        },
+        {
+          "ruleId": "cc-speech-expansion.2-11.historical-minority",
+          "applicability": "IDENTIFIED",
+          "conditions": "yes('context.reports_historical_committee_minority')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוספו העברת אחריות וגילוי היסטורי כדעת היד הקטנה בנפרד. אין פרוטוקול הצבעה, סמכות מוסדית או הסכם סודיות מאומת."
+      ],
+      "remainingExpertHe": [
+        "היד הקטנה נזכרת לגבי דעה היסטורית סתמית; החלה על מוסד מודרני דורשת ביקורת נפרדת."
+      ]
+    },
+    {
+      "key": "p1_prin2:12",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin2.json",
+      "sourceSection": 12,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "ביקורת דרשה ולעג — לעג לדרשה גם כשהייתה פומבית וגם בטענת אמת דורש בדיקה; עצה פרטית לדרשן נבדלת מהפיכתו ללעג, והעדפת סגנון אינה מוכיחה שאין בדבריו ממש",
+        "ייחוס מניע בלעדי לדרשן — צורך בפרנסה אינו מוכיח שכל כוונת הדרשן להנאת עצמו בלבד; המקור מבחין בין מניעים שיכולים להצטרף ואין להסיק מניע נסתר מן הביקורת"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.2-12.lecture-mockery",
+        "cc-speech-expansion.2-12.lecture-motive"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.2-12.lecture-mockery",
+          "applicability": "all(SPEECH, yes('message.critiques_torah_lecture'))",
+          "conditions": "yes('message.said_in_jest')",
+          "exceptions": []
+        },
+        {
+          "ruleId": "cc-speech-expansion.2-12.lecture-motive",
+          "applicability": "all(SPEECH, yes('message.critiques_torah_lecture'))",
+          "conditions": "yes('message.attributes_exclusively_self_serving_motive')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוספו לעג לדרשה וייחוס מניע בלעדי. נותר לזהות משוב פרטי מועיל, שוני סגנון ותוכן ממשי בלי לייחס מניע למבקר או לדרשן."
+      ],
+      "remainingExpertHe": [
+        "ייחוס מניעים, כבוד התורה וסגנון דרשה דורשים זהירות; אין להסיק כוונת שנאה של המבקר או מניע בלעדי לדרשן."
+      ]
+    },
+    {
+      "key": "p1_prin2:13",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin2.json",
+      "sourceSection": 13,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "גילוי עצמי אינו הרשאה גורפת — גילוי האדם על עסקו בפני שלושה אינו לבדו הרשאה גורפת; יש לברר הקפדה והיקף רשות וכן את כל צמצומי הפרסום שבסעיפים הקודמים"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.2-13.self-disclosure"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.2-13.self-disclosure",
+          "applicability": "IDENTIFIED",
+          "conditions": "yes('context.subject_disclosed_own_business_before_three')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוסף גילוי עצמי בעסק בפני שלושה. אין בירור מלא של הקפדה, היקף רשות והתנאים המצטברים; הרשאה קיימת אינה פותרת אותם."
+      ],
+      "remainingExpertHe": [
+        "הסקת חוסר הקפדה מגילוי עצמי כפופה לכל הצמצומים ולבאר מים חיים; אין רשות גורפת."
+      ]
+    },
+    {
+      "key": "p1_prin3:1",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin3.json",
+      "sourceSection": 1,
+      "complete": false,
+      "implementation": "baseline_retained_no_new_rule",
+      "implementedHe": [
+        "לא נוסף כלל חדש; ראו מימוש קיים ויתרה מקורית ב־sourceCoverage. אין זו טענת אי־ישימות."
+      ],
+      "addedRuleIds": [],
+      "bindings": [],
+      "remainingDevelopmentHe": [
+        "כלל הנוכחות הקיים נשמר. אין בירור עצמאי של מדנים, הלבנת פנים בפועל או סיפור בסתר, ולא נוסף תיוג של עזות."
+      ],
+      "remainingExpertHe": [
+        "אין הכרעת חיובי הלבנת פנים, ארור או עזות מתוך נוכחות."
+      ]
+    },
+    {
+      "key": "p1_prin3:2",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin3.json",
+      "sourceSection": 2,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "דו־משמעות ונכונות לומר בפניו — כאשר אופן האמירה מגלה גנאי, נכונות מוצהרת לומר בפניו אינה מספיקה גם באבק; ענף האופן שאינו מגלה גנאי אינו אישור אוטומטי",
+        "גבולות הצד שאינו מגלה גנאי — הצד המקיל במקור מוגבל לאבק בעל שני פנים ולאופן האמירה בפועל, ולא רק להצהרת אומץ לומר בפניו; קלט כתוב אינו מאמת קול ותנועות, ונדרשת בדיקת ההקשר"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.3-02.dual-presence",
+        "cc-speech-expansion.3-02.benign-delivery"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.3-02.dual-presence",
+          "applicability": "all(IDENTIFIED, yes('message.has_benign_and_disparaging_readings'), no('message.content_is_disparaging'))",
+          "conditions": "all(yes('speaker.would_say_in_subjects_presence'), yes('message.delivery_signals_disparagement'))",
+          "exceptions": []
+        },
+        {
+          "ruleId": "cc-speech-expansion.3-02.benign-delivery",
+          "applicability": "all(IDENTIFIED, yes('message.has_benign_and_disparaging_readings'), no('message.content_is_disparaging'))",
+          "conditions": "no('message.delivery_signals_disparagement')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוספו ענפים נפרדים לאופן שמגלה גנאי ולאופן שאינו מגלהו. אין קלט תנועות ואודיו; לא נוצר כלל היתר באף ענף."
+      ],
+      "remainingExpertHe": [
+        "האופן הנוכחי ושני הפירושים הם לב ההבחנה; נכונות מוצהרת לבדה אינה פותרת אותה."
+      ]
+    },
+    {
+      "key": "p1_prin3:3",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin3.json",
+      "sourceSection": 3,
+      "complete": false,
+      "implementation": "baseline_retained_no_new_rule",
+      "implementedHe": [
+        "לא נוסף כלל חדש; ראו מימוש קיים ויתרה מקורית ב־sourceCoverage. אין זו טענת אי־ישימות."
+      ],
+      "addedRuleIds": [],
+      "bindings": [],
+      "remainingDevelopmentHe": [
+        "כלל הצחוק הקיים מצריך גנות ממשית. אין להרחיבו לכל אבק; מניע העדר שנאה אינו נלמד מצחוק."
+      ],
+      "remainingExpertHe": [
+        "אין הרחבה אוטומטית מגנות ממשית לכל אבק ואין ייחוס שנאה מצחוק."
+      ]
+    },
+    {
+      "key": "p1_prin3:4",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin3.json",
+      "sourceSection": 4,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "תוכן ניטרלי המסבב רעה — גם דברים שאינם גנאי כשלעצמם עשויים לשמש לסיבוב רעה או גנות בכוונה; יש לבדוק את הקשר הסיבתי ואת הכוונה ולא לייחס רמאות מתוכן ניטרלי בלבד"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.3-04.indirect-harm"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.3-04.indirect-harm",
+          "applicability": "all(IDENTIFIED, no('message.content_is_disparaging'), yes('message.content_may_cause_harm'))",
+          "conditions": "yes('speaker.intends_indirect_harm_by_neutral_report')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוסף ענף תוכן לא מגנה עם סיכון נזק וכוונה עקיפה מפורשת. אין אימות חיצוני לקשר הסיבתי; שאלת הזיהוי נשארת עצמאית."
+      ],
+      "remainingExpertHe": [
+        "הכוונה והקשר הסיבתי נדרשים לתיאור רמאות; המנוע אינו מאמתם."
+      ]
+    },
+    {
+      "key": "p1_prin3:5",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin3.json",
+      "sourceSection": 5,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "מסווה תמימות — הסעיף מתאר הצגת תמימות בדרך רמאות; אין לזהות אותה אוטומטית עם אמירה תמימה באמת או עם דיבור אגבי"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.3-05.feigned-innocence"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.3-05.feigned-innocence",
+          "applicability": "SPEECH",
+          "conditions": "yes('speaker.feigns_innocence_while_disparaging')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוספה עובדת מסווה תמימות שאינה זהה לאגביות. כלל האגביות הישן נשאר כפי שהוא; חיבור ההרחבה אינו תיקון אותו טריגר בקובץ משותף."
+      ],
+      "remainingExpertHe": [
+        "תמימות אמיתית ומסווה רמאות נבדלים; עובדת משתמש אינה פסק על לבו של אדם אחר."
+      ]
+    },
+    {
+      "key": "p1_prin3:6",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin3.json",
+      "sourceSection": 6,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "לא נגרם נזק לאחר הסיפור — אי־התרחשות נזק לאחר הסיפור אינה מוחקת את עצם הגנות; היא נבדלת מתחזית מראש שלא ייגרם נזק ומבירור דרך התיקון"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.3-06.actual-no-harm"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.3-06.actual-no-harm",
+          "applicability": "all(SPEECH, yes('context.reviewing_already_sent_report'))",
+          "conditions": "no('toelet.disclosure_causes_actual_harm')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוסף דיווח שכבר נשלח ונזק בפועל שלילי, בנפרד מתחזית נזק. אין הליך כפרה או הוכחה שלא נגרמה גנות."
+      ],
+      "remainingExpertHe": [
+        "כפרה ודרך תיקון הן בירור נפרד; העדר נזק אינו מחיקת גנות."
+      ]
+    },
+    {
+      "key": "p1_prin3:7",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin3.json",
+      "sourceSection": 7,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "צד זכות בירא אלוהים — בירא אלוהים המקור מחייב לדון לזכות גם כשהנסיבות נוטות לחובה; אין להסיק את מעמד האדם מתואר כבוד או מהודעה אחת",
+        "ספק שקול בבינוני — בבינוני הנזהר בדרך כלל ספק שקול נוטה לזכות; זה אינו אותו ענף של ירא אלוהים ואינו קובע עובדה על המעשה",
+        "נטייה לחובה בבינוני — בבינוני כשהדבר נוטה לחובה המקור אומר שנכון מאוד להשאירו כספק; אין להשוות לשון זו לחובת ההכרעה בספק שקול, ואין בכך רשות להפיץ",
+        "נסיבות נוטות לזכות — כאשר הנסיבות נוטות לזכות, הכרעה לחובה ופרסומה דורשות זהירות מיוחדת; אין לקבוע מהודעה בודדת את אשמתו של המדובר"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.3-07.god-fearing",
+        "cc-speech-expansion.3-07.balanced-average",
+        "cc-speech-expansion.3-07.adverse-average",
+        "cc-speech-expansion.3-07.favorable-balance"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.3-07.god-fearing",
+          "applicability": "all(SPEECH, yes('message.has_favorable_interpretation'))",
+          "conditions": "yes('subject.known_as_god_fearing')",
+          "exceptions": []
+        },
+        {
+          "ruleId": "cc-speech-expansion.3-07.balanced-average",
+          "applicability": "all(all(SPEECH, yes('message.has_favorable_interpretation')), yes('subject.generally_observant_with_occasional_lapses'))",
+          "conditions": "all(yes('matter.interpretations_are_balanced'), no('matter.circumstances_favor_adverse_reading'))",
+          "exceptions": []
+        },
+        {
+          "ruleId": "cc-speech-expansion.3-07.adverse-average",
+          "applicability": "all(all(SPEECH, yes('message.has_favorable_interpretation')), yes('subject.generally_observant_with_occasional_lapses'))",
+          "conditions": "all(no('matter.interpretations_are_balanced'), yes('matter.circumstances_favor_adverse_reading'))",
+          "exceptions": []
+        },
+        {
+          "ruleId": "cc-speech-expansion.3-07.favorable-balance",
+          "applicability": "all(SPEECH, yes('message.has_favorable_interpretation'))",
+          "conditions": "all(no('matter.interpretations_are_balanced'), no('matter.circumstances_favor_adverse_reading'))",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוספו ירא אלוהים, בינוני והטיית הספק כעובדות נפרדות, עם נוסח מובחן לספק שקול ולנטייה לחובה. אין אימות מעמד או נסיבות מבחוץ."
+      ],
+      "remainingExpertHe": [
+        "דרגות ירא ובינוני ושיעור הנטייה דורשים בירור; הנוסח מבדיל חיוב מספק שקול מהמלצה בספק נוטה לחובה."
+      ]
+    },
+    {
+      "key": "p1_prin3:8",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin3.json",
+      "sourceSection": 8,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "הכרעה אישית אינה רשות להפצה — גם מסקנה אישית שהמעשה שלא כדין אינה רשות לבזות אצל אחרים; פרטי כללים ד׳, ה׳ וי׳ דורשים בירור עצמאי"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.3-08.personal-vs-public"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.3-08.personal-vs-public",
+          "applicability": "SPEECH",
+          "conditions": "yes('speaker.personally_concludes_wrongdoing')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוספה הבחנה בין הכרעה אישית לפרסום. אין עדיין בדיקה מצטברת מלאה של כל פרטי ד׳, ה׳ וי׳."
+      ],
+      "remainingExpertHe": [
+        "תנאי הגילוי מכללים ד׳, ה׳ וי׳ מחייבים ביקורת נפרדת; אין רשות ממסקנה אישית."
+      ]
+    },
+    {
+      "key": "p1_prin4:1",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin4.json",
+      "sourceSection": 1,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "ייחוס חטא חדש — חטא חדש בין אדם למקום אינו זהה לעבר שתוקן; מסלולי סעיף ז׳ וכלל ח׳ דורשים פרטים, וטענת חטא אינה קביעה שהאדם מחוץ לעמיתך"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.4-01.recent-lapse"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.4-01.recent-lapse",
+          "applicability": "all(SPEECH, yes('message.reports_religious_noncompliance'), yes('matter.is_between_man_and_god'))",
+          "conditions": "no('message.about_past_or_family')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוסף דיווח חדש על אי קיום דתי בנפרד מעבר ומשפחה. אין סיווג אפיקורסות או יציאה מעמיתך; ענפי עבירות לחברו נבדקים במודול אחר."
+      ],
+      "remainingExpertHe": [
+        "החרגת אפיקורס ומעמד עמיתך אינם מסווגים מתוך טענת חטא."
+      ]
+    },
+    {
+      "key": "p1_prin4:2",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin4.json",
+      "sourceSection": 2,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "גם פרט מצווה הנתפס כקל — גם ענף מצווה, הנהגה דרבנן או פרט שאין רגילים להחשיבו כחמור דורשים בדיקה; תיקון דיווח שקר לתועלת מופנה לכלל י׳ ואינו היתר מכלל זה לבדו"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.4-02.minor-precept"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.4-02.minor-precept",
+          "applicability": "all(SPEECH, yes('message.reports_religious_noncompliance'), yes('matter.is_between_man_and_god'))",
+          "conditions": "yes('message.reports_religious_noncompliance')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוספה תזכורת למגוון פרטי מצווה בלי לפסוק את דרגתם. אין עובדה ממוקדת של תיקון דיווח שקר לתועלת או מסלול תיקון מלא."
+      ],
+      "remainingExpertHe": [
+        "דרגות מצווה ותיקון שקר לתועלת דורשים את תנאי כלל י׳ והערות באר מים חיים."
+      ]
+    },
+    {
+      "key": "p1_prin4:3",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin4.json",
+      "sourceSection": 3,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "חוסר ידיעה אינו מזיד — אפשרות שגגה, אי ידיעת האיסור או מחשבה שזו חומרא נשארת רלוונטית גם אחרי חזרות; מספר חזרות אינו הוכחת מזיד או רשות לשנוא"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.4-03.knowledge-of-law"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.4-03.knowledge-of-law",
+          "applicability": "all(all(SPEECH, yes('message.reports_religious_noncompliance'), yes('matter.is_between_man_and_god')), yes('subject.generally_observant_with_occasional_lapses'))",
+          "conditions": "yes('subject.may_not_know_prohibition_or_severity')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוסף בירור אי ידיעה או חומרה הנבדל מחזרות. אין פירוק נוסף בין שגגה, אי ידיעת עצם האיסור ומחשבה שזו חומרא."
+      ],
+      "remainingExpertHe": [
+        "היחס בין אי ידיעה, שגגה וחומרא אינו מוכרע מספירת חזרות."
+      ]
+    },
+    {
+      "key": "p1_prin4:4",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin4.json",
+      "sourceSection": 4,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "מעשה נסתר יחיד — מעשה אחד בסתר מחייב זהירות מפני אפשרות תשובה; גם שני רואים אינם לבדם סיבה לפרסמו או למסרו לדיינים כשאין תועלת",
+        "טענה להפרשה מאיסור — חריג ההפרשה במקור מצריך בירור נפרד: ראייה עצמית, משמעות הלכתית ותועלת מעשית אצל הנמען; שמועה, קהל או הצהרת תועלת אינם תחליף, ואין כאן קביעת איסור לבעל"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.4-04.single-private",
+        "cc-speech-expansion.4-04.prevent-current"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.4-04.single-private",
+          "applicability": "all(all(SPEECH, yes('message.reports_religious_noncompliance'), yes('matter.is_between_man_and_god')), yes('subject.generally_observant_with_occasional_lapses'))",
+          "conditions": "yes('matter.single_private_lapse')",
+          "exceptions": [
+            "yes('context.disclosure_to_prevent_current_prohibition')"
+          ]
+        },
+        {
+          "ruleId": "cc-speech-expansion.4-04.prevent-current",
+          "applicability": "all(SPEECH, yes('message.reports_religious_noncompliance'), yes('matter.is_between_man_and_god'))",
+          "conditions": "yes('context.disclosure_to_prevent_current_prohibition')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוספו מעשה יחיד בסתר וחריג תלת־ערכי של טענה להפרשה מאיסור. אין אימות מעמד תלמיד חכם, איסור נישואין או נאמנות כבי תרי."
+      ],
+      "remainingExpertHe": [
+        "חריג אפרושי מאיסורא בנישואין, נאמנות ותשובה דורש בירור מוסמך; אין קביעת איסור לבעל."
+      ]
+    },
+    {
+      "key": "p1_prin4:5",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin4.json",
+      "sourceSection": 5,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "עדים וקהל מועיל — מסלול שני הרואים לגורם המועיל דורש כוונה נקייה והצנעה; שני מחברי הודעות אינם שני עדים כשרים, ואין להחליף בית דין בקבוצת צ׳אט",
+        "מסירה פרטית לרב או איש סוד — מסלול עד יחיד לרבו או איש סודו דורש נאמנות מיוחדת כדברי שניים, ולא רק אמון רגיל; גם קבלת הרב אינה רשות לו למסור לאחרים"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.4-05.two-witnesses",
+        "cc-speech-expansion.4-05.single-confidant"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.4-05.two-witnesses",
+          "applicability": "all(all(SPEECH, yes('message.reports_religious_noncompliance'), yes('matter.is_between_man_and_god')), yes('toelet.knows_subject_will_not_accept_rebuke'), yes('audience.can_influence_subject'))",
+          "conditions": "yes('evidence.multiple_firsthand_witnesses')",
+          "exceptions": []
+        },
+        {
+          "ruleId": "cc-speech-expansion.4-05.single-confidant",
+          "applicability": "all(all(SPEECH, yes('message.reports_religious_noncompliance'), yes('matter.is_between_man_and_god')), yes('audience.is_speakers_trusted_rabbi'))",
+          "conditions": "no('evidence.multiple_firsthand_witnesses')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוספו תזכורות נפרדות לשני רואים ולעד יחיד לרב או איש סוד. אין עובדות של כשרות עדות, בית דין מוסמך או נאמנות מיוחדת כדברי שניים."
+      ],
+      "remainingExpertHe": [
+        "כשרות עדות, סמכות דיינים ונאמנות כבי תרי הן עניינים להליך מוסמך."
+      ]
+    },
+    {
+      "key": "p1_prin4:6",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin4.json",
+      "sourceSection": 6,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "השפעת רב מול חשש הפצה — גילוי לרב שישפיע אף אם עלול להתפרסם ממנו מוצג במקור בלשון אפשר; זה דורש בירור מומחה ואינו היתר אוטומטי בשל השפעת הנמען",
+        "מספר רואים אינו מספר מעשים — ראיית שניים של אירוע אחד אינה היסטוריה של חטאים ואינה מוציאה אדם מעמיתך; גבולות הגילוי לגורם מוסמך נבדלים מפרסום לאחרים"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.4-06.mentor-leak",
+        "cc-speech-expansion.4-06.one-event-two-seers"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.4-06.mentor-leak",
+          "applicability": "all(all(SPEECH, yes('message.reports_religious_noncompliance'), yes('matter.is_between_man_and_god')), yes('audience.is_speakers_trusted_rabbi'), yes('audience.can_influence_subject'))",
+          "conditions": "yes('audience.listener_will_spread')",
+          "exceptions": []
+        },
+        {
+          "ruleId": "cc-speech-expansion.4-06.one-event-two-seers",
+          "applicability": "all(all(SPEECH, yes('message.reports_religious_noncompliance'), yes('matter.is_between_man_and_god')), yes('matter.single_private_lapse'))",
+          "conditions": "yes('evidence.multiple_firsthand_witnesses')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוספו השפעת רב מול הפצה ומספר רואים מול מספר מעשים. אין הערכת תועלת מול תפוצה או תחליף להליך מוסמך."
+      ],
+      "remainingExpertHe": [
+        "ההקלה ברב שאינו צנוע מנוסחת כאפשר; אין הכרעה בין תועלת לחשש פרסום."
+      ]
+    },
+    {
+      "key": "p1_prin4:7",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin4.json",
+      "sourceSection": 7,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "חזרה נטענת אינה סיווג אדם — הסעיף דורש בחינת דרך, ידיעת איסור מפורסם ופרטים מבאר מים חיים; עובדת חזרה נטענת אינה פסק רשע ואינה משלימה את תנאי היציאה מעמיתך"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.4-07.repeated-deliberate"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.4-07.repeated-deliberate",
+          "applicability": "SPEECH",
+          "conditions": "yes('subject.repeated_intentional_sin')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוספה תזכורת לחזרות נטענות שאינן סיווג רשע. חסר איסוף פרטי באר מים חיים ובירור היסטוריית ידיעת איסור וחרטה."
+      ],
+      "remainingExpertHe": [
+        "פרטי באר מים חיים חסרים, ומעמד רשע אינו נקבע מעובדת חזרות לבדה."
+      ]
+    },
+    {
+      "key": "p1_prin4:8",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin4.json",
+      "sourceSection": 8,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "ספק באמתלה לבית דין — בסירוב נטען להוראת בית דין בקום ועשה, ספק באמתלה נבדל מאמתלה שהתבררה כשקר; טקסט על סירוב אינו מאמת סמכות, הוראה או שקר בלב",
+        "בירור הוראה וסירוב — גם כשלא דווח ספק באמתלה, יש לאמת הוראת בית דין בקום ועשה וסירוב ללא תשובה; אין להסיק מהרשומה רשות לפרסום או לרישום לדורות"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.4-08.court-excuse",
+        "cc-speech-expansion.4-08.court-review"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.4-08.court-excuse",
+          "applicability": "IDENTIFIED",
+          "conditions": "all(yes('context.court_order_to_act_reported'), yes('context.refusal_excuse_unresolved'))",
+          "exceptions": []
+        },
+        {
+          "ruleId": "cc-speech-expansion.4-08.court-review",
+          "applicability": "IDENTIFIED",
+          "conditions": "all(yes('context.court_order_to_act_reported'), no('context.refusal_excuse_unresolved'))",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוספו סירוב נטען להוראה בקום ועשה וספק באמתלה, בלי רשות פרסום. אין אימות פסק, סמכות, סירוב או קביעת שקר באמתלה."
+      ],
+      "remainingExpertHe": [
+        "אין להכריע אמתלא המסורה ללב או סמכות בית דין מתיאור משתמש."
+      ]
+    },
+    {
+      "key": "p1_prin4:9",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin4.json",
+      "sourceSection": 9,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "מידות וידיעת חומרתן — גם הרגל במידה אינו מוכיח ידיעת חומרת איסורה; יש לברר אפשרות תשובה ותוכחה ואין להחזיקו רשע רק בשל תיאור מידה"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.4-09.traits-knowledge"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.4-09.traits-knowledge",
+          "applicability": "all(SPEECH, yes('message.about_character_traits'))",
+          "conditions": "yes('subject.may_not_know_prohibition_or_severity')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוסף בירור אי ידיעת חומרה במידות. אין הליך תוכחה או אימות תשובה, ואין הוכחת רשע מתוך מידות."
+      ],
+      "remainingExpertHe": [
+        "מידות אינן לבדן הוכחת רשע או ידיעת חומרת איסור."
+      ]
+    },
+    {
+      "key": "p1_prin4:10",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin4.json",
+      "sourceSection": 10,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "הסבר גבולות אזהרה חינוכית — באזהרת בן או תלמיד מפני לימוד המעשים יש לבאר מדוע מספרים ומה גבולות המקרה, כדי שלא ילמד היתר גורף; קרבה ותועלת מוצהרת אינן לבדן מספקות",
+        "מניע באזהרה חינוכית — יש להבחין בין שמירה מפני לימוד מעשים לבין ביזוי ושמחה בקלון; יחס חינוכי וסכנת השפעה אינם מוחקים מניע גינוי"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.4-10.educational-purpose",
+        "cc-speech-expansion.4-10.educational-motive"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.4-10.educational-purpose",
+          "applicability": "all(all(SPEECH, yes('audience.is_speakers_child_or_student'), yes('toelet.risk_of_learning_bad_conduct')), PURPOSE)",
+          "conditions": "no('context.educational_purpose_explained_to_listener')",
+          "exceptions": []
+        },
+        {
+          "ruleId": "cc-speech-expansion.4-10.educational-motive",
+          "applicability": "all(SPEECH, yes('audience.is_speakers_child_or_student'), yes('toelet.risk_of_learning_bad_conduct'))",
+          "conditions": "yes('speaker.intent_to_disparage')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוספו יחס בן או תלמיד, סיכון למידת מעשים, הסבר המטרה ומניע גינוי. אין מודל מלא של שאר תנאי התועלת או הוכחת כוונה נקייה."
+      ],
+      "remainingExpertHe": [
+        "גבולות אזהרת בן ותלמיד, כוונה לשמור מול קלון ויתר התנאים דורשים ביקורת."
+      ]
+    },
+    {
+      "key": "p1_prin4:11",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin4.json",
+      "sourceSection": 11,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "גילוי מטרת הבירור — יש לגלות לנשאל את מטרת ההתקשרות או הקרבה הנוגעת לתועלת; תועלת לשואל אינה תחליף לכוונת המשיב ואינה מצדיקה הסוואת השאלה",
+        "שונא או מתחרה כנשאל — המקור מזהיר מבירור אצל שונא ואף מתחרה באותה אומנות; הצהרת המשיב שאין לו שנאה אינה כשלעצמה בירור אמין של המניע",
+        "אנשים שאינם נחוצים לבירור — שאלות על אנשים שאין לגביהם תועלת אינן מקבלות את מטרת הבירור המרכזי; אין להסוות את נושא ההתקשרות באמצעות גנות אחרים",
+        "חשש להגנה לעומת אמונה — תשובת בירור לצורך התקשרות אינה בסיס לקבלה מוחלטת; המקור מבחין בין חשש לשמירה לבין אמונה, ודורש דיוק ויתר פרטי כלל ט׳ ברכילות",
+        "חקירה ללא צורך עתידי — חקירת מצב אנשי עיר מסקרנות נבדלת מבירור קרוב שנועד לזרזו להבא; יש לברר צורך לגבי כל אדם ואין להקנות לכל הסיפור תועלת גורפת"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.4-11.inquiry-disclosure",
+        "cc-speech-expansion.4-11.respondent-conflict",
+        "cc-speech-expansion.4-11.unrelated-inquiries",
+        "cc-speech-expansion.4-11.inquiry-belief",
+        "cc-speech-expansion.4-11.curiosity"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.4-11.inquiry-disclosure",
+          "applicability": "all(IDENTIFIED, yes('context.inquiry_has_future_purpose'))",
+          "conditions": "no('context.inquiry_purpose_disclosed_to_respondent')",
+          "exceptions": []
+        },
+        {
+          "ruleId": "cc-speech-expansion.4-11.respondent-conflict",
+          "applicability": "all(IDENTIFIED, yes('context.inquiry_has_future_purpose'))",
+          "conditions": "yes('context.respondent_is_subject_enemy_or_competitor')",
+          "exceptions": []
+        },
+        {
+          "ruleId": "cc-speech-expansion.4-11.unrelated-inquiries",
+          "applicability": "all(IDENTIFIED, yes('context.inquiry_has_future_purpose'))",
+          "conditions": "yes('context.inquiry_includes_unrelated_people')",
+          "exceptions": []
+        },
+        {
+          "ruleId": "cc-speech-expansion.4-11.inquiry-belief",
+          "applicability": "all(IDENTIFIED, yes('context.inquiry_has_future_purpose'))",
+          "conditions": "yes('listener.believes_report')",
+          "exceptions": []
+        },
+        {
+          "ruleId": "cc-speech-expansion.4-11.curiosity",
+          "applicability": "all(IDENTIFIED, yes('context.inquiry_includes_unrelated_people'))",
+          "conditions": "no('context.inquiry_has_future_purpose')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוספו גילוי מטרה, שונא או מתחרה, אנשים שאינם נחוצים, קבלה כאמת וסקרנות ללא צורך. אין הליך מלא לשאלת קרוב על תורה ולכל פרטי התשובה בכלל ט׳."
+      ],
+      "remainingExpertHe": [
+        "מתי וכיצד להשיב מופנה לכלל ט׳ ברכילות; הצהרת תועלת אינה משלימה את תנאיו."
+      ]
+    },
+    {
+      "key": "p1_prin4:12",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin4.json",
+      "sourceSection": 12,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "תיקון לאחר פגיעה — כאשר נגרמו גנות ונזק או צער יש לברר גם ריצוי הנפגע, בנוסף לחרטה וידוי וקבלה לעתיד; אין כאן אימות כפרה או הוראה אוטומטית לגלות פרטים העלולים לפגוע שוב",
+        "דחייה ללא גנות כלל — המקור מבחין בדחיית הדברים בלי שהמדובר נתגנה כלל, ומפנה לתשובה שבין אדם למקום; העדר נזק מדווח לבדו אינו מוכיח דחייה או מחילה"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.4-12.repair-harm",
+        "cc-speech-expansion.4-12.repair-rejected"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.4-12.repair-harm",
+          "applicability": "all(SPEECH, yes('context.reviewing_already_sent_report'))",
+          "conditions": "yes('toelet.disclosure_causes_actual_harm')",
+          "exceptions": []
+        },
+        {
+          "ruleId": "cc-speech-expansion.4-12.repair-rejected",
+          "applicability": "all(SPEECH, yes('context.reviewing_already_sent_report'))",
+          "conditions": "all(no('toelet.disclosure_causes_actual_harm'), yes('context.all_listeners_rejected_without_disparagement'))",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוספו תיקון לאחר פגיעה ודחייה בלי גנות כלל. אין שלבי חרטה, וידוי, קבלה ומחילה מאומתים או איתור נפגעים לדורות."
+      ],
+      "remainingExpertHe": [
+        "דרך בקשת מחילה וגילוי לנפגע דורשת בירור רגיש; אין הוראת גילוי אוטומטית או קביעת כפרה."
+      ]
+    },
+    {
+      "key": "p1_prin5:1",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin5.json",
+      "sourceSection": 1,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "מניעת טובה לעומת עשיית רעה — מניעת הלוואה או טובה בלי עשיית רעה ובלי תועלת אינה עילה מספקת לגנות, גם כשראו בעצמם; ענפי תועלת נידונים בנפרד בכלל י׳",
+        "מניע נקמה בתיאור מניעת טובה — אם הטובה נמנעה מהמספר עצמו המקור מוסיף דיון בנטירה ובנקמה; יש לברר למי נמנעה והכוונה, ואין למנות איסורים מהצהרת כעס בלבד"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.5-01.withheld-favor",
+        "cc-speech-expansion.5-01.revenge"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.5-01.withheld-favor",
+          "applicability": "all(SPEECH, yes('message.reports_withheld_favor_without_active_harm'))",
+          "conditions": "no('toelet.purpose_is_constructive')",
+          "exceptions": []
+        },
+        {
+          "ruleId": "cc-speech-expansion.5-01.revenge",
+          "applicability": "all(SPEECH, yes('message.reports_withheld_favor_without_active_harm'))",
+          "conditions": "yes('speaker.motive_is_revenge_or_hatred')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוספו מניעת טובה בלי רעה פעילה ומניע נקמה. לא נוסף בירור נפרד למי נמנעה הטובה או ליכולת המיטיב בפועל."
+      ],
+      "remainingExpertHe": [
+        "תועלת, נקמה ונטירה מפורשות עם ענפים בכלל י׳; אין מניין איסורים אוטומטי."
+      ]
+    },
+    {
+      "key": "p1_prin5:2",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin5.json",
+      "sourceSection": 2,
+      "complete": false,
+      "implementation": "baseline_retained_no_new_rule",
+      "implementedHe": [
+        "לא נוסף כלל חדש; ראו מימוש קיים ויתרה מקורית ב־sourceCoverage. אין זו טענת אי־ישימות."
+      ],
+      "addedRuleIds": [],
+      "bindings": [],
+      "remainingDevelopmentHe": [
+        "כלל שלילת מעלות הקיים נשמר; אינו מאמת חכמה, נזק שידוכים או פרנסה. לא שונה הטריגר המשותף כדי להוסיף חריג פישור."
+      ],
+      "remainingExpertHe": [
+        "היקף שלילת מעלות, הגזמה ונזק אינו מסווג בפסק מנוע."
+      ]
+    },
+    {
+      "key": "p1_prin5:3",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin5.json",
+      "sourceSection": 3,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "הסבר להפחתת שנאה — ההגהה מבחינה באמירה המסבירה מעשה כפגיעה לא מכוונת כדי להשקיט שנאה; אין להשוותה לביזוי רגיל, והיקף התנאים דורש בירור בלי פסק או היתר"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.5-03.peacemaking"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.5-03.peacemaking",
+          "applicability": "all(IDENTIFIED, yes('message.denies_virtue_or_status'))",
+          "conditions": "yes('speaker.explains_conduct_to_reduce_listener_hatred')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוסף מסלול נפרד לפישור והשקטת שנאה. הכלל הקיים בסעיף ב׳ אינו מסונן על ידי מסלול זה; נדרש מהמחבר לשקול את חפיפת התזכורות בלי לבטל אזהרה אוטומטית."
+      ],
+      "remainingExpertHe": [
+        "החריג המפורש של הסבר לפישור דורש בירור גבולות בבאר מים חיים; אינו היתר גורף."
+      ]
+    },
+    {
+      "key": "p1_prin5:4",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin5.json",
+      "sourceSection": 4,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "פגיעה במעמד תורה אצל הקהל — יש לברר מה הקהל סבר קודם וכיצד ההקטנה תשפיע על מעמד ופרנסה; מעמד ציבורי אינו מוכיח את ציפיות כל קהל, ותועלת מפנה לכלל ט׳ ברכילות"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.5-04.prior-audience-status"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.5-04.prior-audience-status",
+          "applicability": "all(SPEECH, yes('message.about_torah_or_piety'))",
+          "conditions": "yes('audience.previously_regarded_subject_as_torah_scholar')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוסף בירור מעמד קודם בעיני הקהל, בנפרד ממעמד תורה ציבורי. אין הערכת נזק מפורטת או יישום מלא של כלל ט׳ ברכילות."
+      ],
+      "remainingExpertHe": [
+        "תועלת מופנית לכלל ט׳ ברכילות; אין להסיק היתר מעצם תועלת או ממעמד קודם."
+      ]
+    },
+    {
+      "key": "p1_prin5:5",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin5.json",
+      "sourceSection": 5,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "חולשה לפי אופי העיסוק — תיאור חולשה נבחן לפי עיסוקו וחשש הנזק, כגון פרנסת שכיר או מלמד; אין להניח שכל תיאור חולשה מגנה, ותועלת דורשת את פרטי כלל ט׳ ברכילות",
+        "חובות ופגיעה באשראי — פרסום עניות או חובות עלול לפגוע באשראי ובפרנסה; אין לאמת חוב מן ההודעה, ואין די בהצהרה שאין כוונה לגנות כדי להשלים תנאי תועלת"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.5-05.physical-weakness",
+        "cc-speech-expansion.5-05.credit"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.5-05.physical-weakness",
+          "applicability": "all(IDENTIFIED, yes('message.about_physical_weakness'))",
+          "conditions": "yes('message.content_may_cause_harm')",
+          "exceptions": []
+        },
+        {
+          "ruleId": "cc-speech-expansion.5-05.credit",
+          "applicability": "all(IDENTIFIED, yes('message.about_financial_means_or_debt'))",
+          "conditions": "yes('message.content_may_cause_harm')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוספו חולשה גופנית ועניות או חובות עם סיכון נזק. אין אימות מצב רפואי, כלכלי או אופי עיסוק, ואין חיזוי אשראי."
+      ],
+      "remainingExpertHe": [
+        "חשש נזק לפי ענייניו ופרטי תועלת בכלל ט׳ דורשים ביקורת; עצם חוב או חולשה אינו פסק."
+      ]
+    },
+    {
+      "key": "p1_prin5:6",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin5.json",
+      "sourceSection": 6,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "גנאי תלוי אדם מקום וזמן — גם ניסוח שלא סווג כשבח עשוי להתפרש לפי ערכו ומשאביו של המדובר, המקום והזמן; אמת המידה אינה מה שהמספר היה שמח שיאמרו עליו"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.5-06.relative-context"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.5-06.relative-context",
+          "applicability": "all(IDENTIFIED, no('message.is_praise'))",
+          "conditions": "yes('message.may_be_understood_as_disparagement')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוסף ענף כשההודעה אינה שבח ובכל זאת נתפסת כגנאי. אין מודל משאבים, מקום וזמן או אמות מידה אישיות; אין ספי שעות או סכומי צדקה."
+      ],
+      "remainingExpertHe": [
+        "גנאי תלוי אדם מקום וזמן; אין לקבוע סף כלכלי או רמת לימוד מחייבת בקוד."
+      ]
+    },
+    {
+      "key": "p1_prin5:7",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin5.json",
+      "sourceSection": 7,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "גנאי חפצים בלי נזק מאומת — דיבה על חפצים ונכסים דורשת בדיקה גם כשהערכת הנזק שלילית; יש לאמת את הזיקה לבעלים, ואין להסיק קנאה מעצם הביקורת"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.5-07.goods-disparagement"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.5-07.goods-disparagement",
+          "applicability": "all(IDENTIFIED, yes('message.about_craft_or_goods'), yes('message.content_is_disparaging'))",
+          "conditions": "no('message.content_may_cause_harm')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוסף ענף דיבת חפצים עם הערכת נזק שלילית, לצד הקיים. אין עובדה עצמאית של זיקת בעלות; identifiable אינו לבדו הוכחת בעלים."
+      ],
+      "remainingExpertHe": [
+        "זיקת החפץ לבעליו והיקף חפצים ונכסים דורשים ביקורת ומקורות באר מים חיים."
+      ]
+    },
+    {
+      "key": "p1_prin5:8",
+      "sourceFile": "sources/chafetz-chaim/raw/p1_prin5.json",
+      "sourceSection": 8,
+      "complete": false,
+      "implementation": "partial_live_draft_addition",
+      "implementedHe": [
+        "שני מספרים יחד — שני מספרים עשויים לחזק את אמון השומעים, וזה נבדל ממספר הנמענים ומכשרות עדות; אמת או שיתוף שניים אינם בסיס להסרת החשש"
+      ],
+      "addedRuleIds": [
+        "cc-speech-expansion.5-08.joint-speakers"
+      ],
+      "bindings": [
+        {
+          "ruleId": "cc-speech-expansion.5-08.joint-speakers",
+          "applicability": "SPEECH",
+          "conditions": "yes('context.two_speakers_jointly_report')",
+          "exceptions": []
+        }
+      ],
+      "remainingDevelopmentHe": [
+        "נוסף סיפור משותף של שני מספרים בנפרד ממספר השומעים ומעדים. אין סיווג עדות או מניין חומרת עבירות."
+      ],
+      "remainingExpertHe": [
+        "גדר לספר בשניים, אמון השומעים וחומרת הדין דורשים ביקורת; אין להשוותם לכשרות עדות."
+      ]
+    }
+  ]
+}
