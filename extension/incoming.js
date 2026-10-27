@@ -368,7 +368,17 @@
         if (row.el && inHold(row.el)) continue; // our own placeholder, never a message
         const text = (row.text || '').trim();
         if (text.length < MIN_CHARS) continue;
+        // The user's OWN message is never incoming (one rule: S.isOutgoing;
+        // adapters also pre-filter, this guard covers every platform).
+        if (row.kind !== 'email' && S.isOutgoing && S.isOutgoing(row.el, { localContext: row.localContext })) continue;
         const id = S.weakId(platform, row.el, text);
+        // Just sent from this frame's compose box (same text, last seconds):
+        // the page's echo of the user's message. Marked seen so it is not
+        // picked up as incoming once the window has passed.
+        if (!seen.has(id) && row.kind !== 'email' && G.recentlySent(text)) {
+          seen.add(id);
+          continue;
+        }
         if (seen.has(id)) {
           // Re-mounted by the page (virtualised list): repaint its state so a
           // held message never reappears uncovered.
@@ -459,6 +469,15 @@
     setInterval(() => scanner.scan(), 15000);
   }
 
+  // Delegates to the compose registry (compose-watch.js) when loaded.
+  G.recentlySent = (text) => {
+    try {
+      const C = globalThis.LHG_COMPOSE;
+      return !!(C && typeof C.recentlySent === 'function' && C.recentlySent(text));
+    } catch (_e) {
+      return false;
+    }
+  };
   G.createScanner = createScanner;
   G.observe = observe;
   G.isEditable = isEditable;

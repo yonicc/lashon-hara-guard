@@ -117,10 +117,21 @@
       '.a3s.aiL',
       '.a3s',
       'div[data-message-id] .a3s',
+      '[data-legacy-message-id] .a3s',
+      '.ii.gt .a3s',
       '[role="listitem"] .a3s',
     ],
-    messageText: ['.a3s', 'div'],
-    compose: ['.Am.Al.editable', 'div[role="textbox"][contenteditable="true"]'],
+    // Quoted history / signature inside a body or a draft: never the text
+    // of THIS message (dropped only when something else remains).
+    quotedPart: ['.gmail_quote', 'blockquote', '.gmail_signature', '.im'],
+    // Containers that prove a body belongs to an opened message.
+    messageContainer: ['.adn', 'div[data-message-id]', '[data-legacy-message-id]', '.ii.gt', '[role="listitem"]'],
+    // E-mail compose body (new message, reply, forward).
+    compose: ['.Am.Al.editable', '[g_editable="true"]', 'div[role="textbox"][contenteditable="true"]'],
+    // Gmail-only compose body classes: enough on their own.
+    composeStrong: ['.Am.Al.editable'],
+    // A generic textbox counts only inside a compose window / inline reply.
+    composeWindow: ['[role="dialog"]', '.M9', '.AD', '.aoP', '.iN', '.ip.adB', '.gA', 'form'],
     // Folder list rows: previews, never messages.
     listRow: ['tr.zA', '[role="row"]', '.zA'],
   };
@@ -133,11 +144,126 @@
   S.gmailInListRow = (el) => !!S.closestMatch(el, S.gmail.listRow);
   S.gmailIsMessageBody = (el) => {
     if (!el || S.gmailInListRow(el)) return false;
-    const container = S.closestMatch(el, ['.adn', 'div[data-message-id]', '[role="listitem"]']);
+    // Never a draft being written (the compose body is not a received mail).
+    if (el.isContentEditable || S.closestMatch(el, S.gmail.composeStrong)) return false;
+    const container = S.closestMatch(el, S.gmail.messageContainer);
     if (!container || S.gmailInListRow(container)) return false;
     // A folder preview is a bare .a3s directly in the list table; an opened
     // message body is wrapped in the .adn message container above.
     return true;
+  };
+
+  // Is this contenteditable an e-mail draft body (not a Chat compose box,
+  // not a search field)? Strong Gmail classes count alone; a generic
+  // role=textbox / g_editable box only inside a compose window.
+  S.gmailIsDraftBox = (el) => {
+    if (!el || !el.isContentEditable) return false;
+    if (S.closestMatch(el, S.gmail.composeStrong)) return true;
+    if (!S.closestMatch(el, S.gmail.compose)) return false;
+    return !!S.closestMatch(el, S.gmail.composeWindow);
+  };
+
+  // --- direction: is a rendered bubble the user's OWN message? -------------
+  // Root cause of "my message shows up as incoming" (2026-10-27): Google
+  // Chat rows were every text leaf with no direction test, so the bubble the
+  // user had just sent was scanned (and held) as an incoming message.
+  // Evidence, any one is enough (never a guess from layout or position):
+  //   - an explicit marker on the bubble or an ancestor (WhatsApp
+  //     message-out, data-is-self and friends);
+  //   - an aria-label / sender name on the bubble's ancestors that names the
+  //     user ("You", "את/ה", "Sent by you");
+  //   - the local context says the author is the user (isSelf).
+  S.outgoing = {
+    marker: [
+      '.message-out',
+      '[class*="message-out"]',
+      '[data-is-self="true"]',
+      '[data-self="true"]',
+      '[data-is-own="true"]',
+      '[data-is-outgoing="true"]',
+      '[data-outgoing="true"]',
+      '[data-from-self="true"]',
+    ],
+    // The incoming twin: stops the ancestor climb (a row that says "in").
+    incomingMarker: ['.message-in', '[data-is-self="false"]', '[data-outgoing="false"]'],
+    // Sender-name chips inside a bubble/row.
+    sender: ['[data-sender-name]', '[data-name]', '[data-hovercard-id]', '[data-member-id]'],
+  };
+  const SELF_NAME_RE = /^\s*(?:you|me|אתה|את|את\/ה|אתם|אני)\s*$/iu;
+  // A label that STARTS with the self pronoun must be followed by ':' / ','
+  // or end there ("את" alone is also a common Hebrew particle).
+  const SELF_LABEL_RE = /(?:^\s*(?:you|me|אתה|את|את\/ה|אני)\s*(?:[:,]|$)|\b(?:sent by you|you sent|you said|your message)\b|נשלחה?\s+על[\s-]+ידך|ההודעה\s+שלך|(?:^|\s)שלחת(?=[\s:,]|$))/iu;
+  S.isSelfName = (name) => SELF_NAME_RE.test(String(name || ''));
+  S.isSelfContext = (lc) => !!(lc && (lc.isSelf === true || S.isSelfName(lc.authorDisplayName)));
+  // opts: { localContext?, maxDepth? (default 8) }
+  S.isOutgoing = (el, opts = {}) => {
+    try {
+      if (!el) return false;
+      if (S.isSelfContext(opts.localContext)) return true;
+      if (!el.closest) return false;
+      if (closestMatch(el, S.outgoing.marker)) return true;
+      const depth = opts.maxDepth || 8;
+      let cur = el;
+      for (let i = 0; cur && i < depth; i++, cur = cur.parentElement) {
+        if (cur.tagName === 'BODY') break;
+        let label = '';
+        try { label = cur.getAttribute('aria-label') || ''; } catch (_e) { label = ''; }
+        if (label && SELF_LABEL_RE.test(label)) return true;
+        let selfAttr = null;
+        try { selfAttr = cur.getAttribute('data-sender-name') || cur.getAttribute('data-name'); } catch (_e) { selfAttr = null; }
+        if (selfAttr && S.isSelfName(selfAttr)) return true;
+        // A sender chip that names the user ("You") directly inside this
+        // ancestor (Google Chat shows the author above the first bubble).
+        if (i > 0 && cur.children) {
+          for (const c of Array.from(cur.children)) {
+            if (c === el || (c.contains && c.contains(el))) continue;
+            let isSender = false;
+            try { isSender = !!(c.matches && c.matches(S.outgoing.sender.join(','))); } catch (_e) { isSender = false; }
+            if (isSender && S.isSelfName(c.textContent)) return true;
+          }
+        }
+        // An explicit incoming row ends the search: its ancestors belong to
+        // the whole conversation, not to this message.
+        let inRow = false;
+        try { inRow = !!(cur.matches && cur.matches(S.outgoing.incomingMarker.join(','))); } catch (_e) { inRow = false; }
+        if (inRow) return false;
+        if (cur.tagName === 'C-WIZ') break;
+      }
+    } catch (_e) {
+      return false;
+    }
+    return false;
+  };
+
+  // Text of an element WITHOUT the parts listed in `skip` (quoted history,
+  // signature) and without our own tag/placeholder; <br> and block elements
+  // become line breaks. Falls back to the full text when skipping would leave
+  // nothing (a body that is ONLY a forwarded quote is still a message).
+  S.textWithout = (el, skip = []) => {
+    if (!el) return '';
+    const BLOCK = /^(?:DIV|P|LI|TR|H[1-6]|PRE|BLOCKQUOTE|UL|OL|TABLE)$/;
+    const walk = (n, skipping) => {
+      let out = '';
+      for (const c of Array.from(n.childNodes || [])) {
+        if (c.nodeType === 3) { out += c.nodeValue; continue; }
+        if (c.nodeType !== 1) continue;
+        if (c.classList && (c.classList.contains('lhg-hold') || c.classList.contains('lhg-tag'))) continue;
+        if (c.tagName === 'BR') { out += '\n'; continue; }
+        let skipIt = false;
+        if (skipping) {
+          for (const s of skip) { try { if (c.matches(s)) { skipIt = true; break; } } catch (_e) { /* keep */ } }
+        }
+        if (skipIt) continue;
+        const inner = walk(c, skipping);
+        if (BLOCK.test(c.tagName) && out && !out.endsWith('\n')) out += '\n';
+        out += inner;
+        if (BLOCK.test(c.tagName) && inner && !out.endsWith('\n')) out += '\n';
+      }
+      return out;
+    };
+    const norm = (t) => t.replace(/ /g, ' ').replace(/[ \t]+\n/g, '\n').replace(/\n{3,}/g, '\n\n').trim();
+    const own = norm(walk(el, true));
+    return own || norm(walk(el, false));
   };
 
   function first(node, list) {

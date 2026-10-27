@@ -104,7 +104,7 @@
   function resolveDirection(node) {
     if (node && node.closest) {
       if (node.closest(S ? S.whatsapp.compose.join(',') : 'footer [contenteditable="true"]')) return 'outgoing';
-      if (node.closest('.message-out, [class*="message-out"]')) return 'outgoing';
+      if (S ? S.isOutgoing(node) : node.closest('.message-out, [class*="message-out"]')) return 'outgoing';
       if (node.closest('.message-in, [class*="message-in"]')) return 'incoming';
     }
     return 'incoming';
@@ -152,7 +152,9 @@
     const scanner = globalThis.LHG_INCOMING.createScanner({
       platform: PLATFORM,
       findRows: (root) => {
-        const rows = S.all(root, S.whatsapp.incomingMessage);
+        // '[class*="message-in"]' also matches e.g. "message-info" inside an
+        // OUTGOING row: the user's own bubbles are dropped by S.isOutgoing.
+        const rows = S.all(root, S.whatsapp.incomingMessage).filter((el) => !S.isOutgoing(el));
         const mapped = rows
           .map((el) => ({ el, text: S.cleanText(S.extractText(el, S.whatsapp.messageText)) }))
           .filter((r) => r.text && !(S.isMessageHeader && S.isMessageHeader(r.text)));
