@@ -57,6 +57,7 @@
 - Judge a gate model only on an INDEPENDENT eval set (`classifier/gen_eval.py`, another vendor/prompt, never trained on). Same-generator test scores were optimistic (v1: 0.986 own test vs 0.906 on Codex eval). Once an eval set has guided data changes, generate a fresh one.
 - Since 2026-10-27 the PRIMARY gate is Oracle (`classifier/oracle`, docs/16): container `lhg-gate` (cores 2-3, 2g, 127.0.0.1:8090) behind the `shiurim` tunnel path `/lhg-gate/*`; Modal is the fallback, then the model. Worker secret `LHG_GATE_ORACLE_KEY` == `GATE_KEY` in Oracle `/home/ubuntu/lhg-gate/gate.env`. Scoring in `classifier/oracle/server.py` duplicates `serve_modal.Gate._score` (max_length 96, strip): change both together.
 - `serve_modal.py` must not use `from __future__ import annotations` (breaks `modal.parameter()`).
+- Multilingual gate diagnostic: `py classifier/eval_phase_a.py` (docs/28). Its synthetic labels are provisional; translated siblings share a family and must stay in the same split. Once used to guide improvements, this set is development data, not a fresh holdout. Gate harmless-escalation rate is not the end-user warning false-positive rate.
 - brain-mcp's `/api/v1/chat/completions` codex branch drops `system_prompt` (fix in progress, child chat 2026-10-26); until verified fixed, put instructions in the user turn for `agent_kind=codex`.
 
 ## Concurrent agents
