@@ -5,9 +5,13 @@
 - מיזוגים במפה: 53 הצעות.
 - סימון `new` במפה: 189 הצעות; הסימון מתאר החלטת איחוד ולא ספירת עובדות.
 - נדחו: 115 הצעות, עם סיבה במפה.
-- סך הכול ב־`facts.json`: 68 עובדות; 61 המזהים הקיימים נשמרו ונוספו 7 הבחנות מכלל י׳.
+- סך הכול ב־`facts.json`: 72 עובדות; 61 המזהים הקיימים נשמרו ונוספו 11 הבחנות.
 
 כל ההכרעות ב־`rules/chafetz-chaim/fact-merge-map.json`: `{action: merge|new|reject, target?, reason}`.
+
+השלמת ממצא 11: `extractor/factPolicy.ts` הוא מקור מדיניות הקבלה של `validateExtraction` וגם `factStoreFromExtraction`. סף מפורש 0.6 (כולל); אפס, נמוך, חסר, לא־סופי ומחוץ ל־0..1 נדחים. `valueType` בקטלוג מגדיר string/number; ברירת המחדל boolean. אין המרות מטיפוס לטיפוס. גם מסלול meaning אינו עוקף את הסף או אישור המשתמש. עובדות user-only נדחות מקליטה אוטומטית, ולא נשמרות כידועות. `ANALYSIS_LIMITS.questions=1`.
+
+ארבע הבחנות נוספות אומתו בקריאה ישירה ב־`text/p1_prin9.txt` ו־`text/p2_prin8.txt`: `message.praise_is_excessive` (א ט:א–ב), `audience.includes_subject_enemies` (א ט:א), `subject.is_established_righteous` (א ט:ב), `message.disclosure_authorized` (א ט:ו; ב ח:ה לחובת הסוד). שלוש האחרונות דורשות אישור משתמש; הרשות מתייחסת למידע המסוים ואינה היתר לספר לשון הרע. כולן draft.
 הרצה חוזרת: `python -I rules/chafetz-chaim/consolidate_facts.py` (אידמפוטנטי, שומר מפה קיימת).
 
 ## העובדות החדשות לפי נושא
@@ -39,7 +43,7 @@
 שאלות־על מצטברות, כוונות/הכרעות פנימיות שאין לברר בצ'אט, פרטי בית דין/קניינים/אונאה, וענייני תשובה לאחר מעשה. הדחויות נשארות מתועדות בכרטיסים ב־`proposedNewFacts`.
 
 ## חיבור למנוע — מקור יחיד
-`facts.json` הוא המקור לשאלות ולכל נתוני הבטיחות והעדיפות של האוצר. `consolidate_facts.py` מייצר ממנו את האזור המסומן ב־`engine/src/lessonScenario.ts`; חמש עובדות תרחיש השיעור נשארות מחוץ לאזור. כל 66 מזהי הקטלוג המקורי נשמרו; כעת יש 73. אין לערוך את האזור המיוצר ידנית.
+`facts.json` הוא המקור לשאלות ולכל נתוני הבטיחות והעדיפות של האוצר. `consolidate_facts.py` מייצר ממנו את האזור המסומן ב־`engine/src/lessonScenario.ts`; חמש עובדות תרחיש השיעור נשארות מחוץ לאזור. כל 66 מזהי הקטלוג המקורי נשמרו; כעת יש 77. אין לערוך את האזור המיוצר ידנית.
 
 ```powershell
 python -I rules\chafetz-chaim\consolidate_facts.py

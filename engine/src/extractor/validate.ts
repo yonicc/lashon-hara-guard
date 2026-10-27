@@ -1,11 +1,12 @@
 import type { FactCatalogEntry } from '../types.js';
 import type { RawExtraction, ValidatedExtraction, ProposedFact, ExtractionAnalysis } from './types.js';
 import { normalizeHebrewText } from './normalize.js';
+import { proposalRejection } from './factPolicy.js';
 
 const MECHANISMS = new Set(['irony', 'praise', 'hint', 'mockery', 'omission', 'direct', 'other']);
 const AUDIENCES = new Set(['private', 'group', 'public', 'unknown']);
 /** Length caps for the user-facing explanation (characters). */
-export const ANALYSIS_LIMITS = { ref: 24, mention: 60, description: 80, claim: 160, why: 220, question: 140, questions: 3 };
+export const ANALYSIS_LIMITS = { ref: 24, mention: 60, description: 80, claim: 160, why: 220, question: 140, questions: 1 };
 
 function isRecord(v: unknown): v is Record<string, unknown> {
   return typeof v === 'object' && v !== null;
@@ -68,7 +69,7 @@ export function validateAnalysis(
  * - Only catalog fact ids survive.
  * - confirmedByUserOnly facts are never accepted from extraction.
  * - evidenceExcerpt must be a verbatim (post-normalization) span of the message.
- * - Confidence must be a finite 0..1 number; missing/invalid confidence drops the fact.
+ * - Catalog value type and shared confidence threshold are enforced; invalid/low values drop.
  * Nothing here decides a halachic/legal outcome.
  */
 export function validateExtraction(
@@ -92,9 +93,9 @@ export function validateExtraction(
     if (!isRecord(item) || typeof item.id !== 'string') continue;
     const entry = catalogById.get(item.id);
     if (!entry) { droppedFacts.push({ id: item.id, reason: 'fact_not_in_catalog' }); continue; }
-    if (entry.confirmedByUserOnly) { droppedFacts.push({ id: item.id, reason: 'confirmed_by_user_only' }); continue; }
-    const confidence = clampConfidence(item.confidence);
-    if (confidence === null) { droppedFacts.push({ id: item.id, reason: 'confidence_missing_or_invalid' }); continue; }
+    const rejection = proposalRejection(entry, item.value, item.confidence);
+    if (rejection) { droppedFacts.push({ id: item.id, reason: rejection }); continue; }
+    const confidence = item.confidence as number;
     if (typeof item.evidenceExcerpt !== 'string' || !item.evidenceExcerpt.trim()) {
       droppedFacts.push({ id: item.id, reason: 'evidence_missing' }); continue;
     }

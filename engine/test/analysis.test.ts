@@ -23,7 +23,7 @@ test('analysis: refs only from context participants or self; mention must be ver
   assert.equal(v.analysis?.subjectRef, undefined);
   assert.equal(v.analysis?.subjectMention, 'הרב');
   assert.equal(v.analysis?.audience, 'group');
-  assert.equal(v.analysis?.questionsHe?.length, 3);
+  assert.deepEqual(v.analysis?.questionsHe, ['מה התועלת?']);
 });
 
 test('analysis: invented mention, bad audience and non-strings are dropped; nothing left -> absent', () => {

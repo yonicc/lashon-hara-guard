@@ -10,7 +10,7 @@ import argparse, json, pathlib
 HERE = pathlib.Path(__file__).parent
 REPO = HERE.parent.parent
 CATALOG = REPO / 'engine/src/lessonScenario.ts'
-FIELDS = ('id', 'questionHe', 'priority', 'sensitivity', 'persistent', 'confirmedByUserOnly')
+FIELDS = ('id', 'questionHe', 'priority', 'sensitivity', 'persistent', 'confirmedByUserOnly', 'valueType')
 
 def catalog_text(facts):
     text = CATALOG.read_text(encoding='utf-8')

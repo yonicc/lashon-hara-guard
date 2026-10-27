@@ -18,6 +18,7 @@ export const FACT_CATALOG: FactCatalogEntry[] = [
   },
   {
     id: 'lesson.teacher_id',
+    valueType: 'string',
     questionHe: 'מי מוסר את השיעור שההודעה מתייחסת אליו?',
     priority: 10,
     sensitivity: 'medium',
@@ -54,7 +55,7 @@ export const FACT_CATALOG: FactCatalogEntry[] = [
   {"id": "message.reports_what_someone_said_or_did_against_listener", "questionHe": "האם הכותב מספר לשומע מה פלוני אמר או עשה נגדו (רכילות)?", "priority": 69, "sensitivity": "low", "persistent": false},
   {"id": "message.about_craft_or_goods", "questionHe": "האם הדברים עוסקים באיכות מלאכתו, סחורתו או שירותו של אדם?", "priority": 70, "sensitivity": "low", "persistent": false},
   {"id": "message.about_torah_or_piety", "questionHe": "האם הדברים עוסקים בחסרון בתורתו או ביראת השמים שלו?", "priority": 71, "sensitivity": "low", "persistent": false},
-  {"id": "message.purpose", "questionHe": "מה מטרת ההודעה?", "priority": 40, "sensitivity": "low", "persistent": false},
+  {"id": "message.purpose", "questionHe": "מה מטרת ההודעה?", "priority": 40, "sensitivity": "low", "persistent": false, "valueType": "string"},
   {"id": "speaker.knows_first_hand", "questionHe": "האם הכותב יודע את הדברים בעצמו, ולא משמועה?", "priority": 72, "sensitivity": "low", "persistent": false},
   {"id": "speaker.would_say_in_subjects_presence", "questionHe": "האם הכותב היה אומר את הדברים גם בפני המדובר?", "priority": 73, "sensitivity": "low", "persistent": false},
   {"id": "speaker.intent_to_disparage", "questionHe": "האם הכוונה היא לבזות או להקטין את המדובר?", "priority": 74, "sensitivity": "medium", "persistent": false},
@@ -107,6 +108,10 @@ export const FACT_CATALOG: FactCatalogEntry[] = [
   {"id": "audience.can_influence_subject", "questionHe": "האם הנמענים יכולים להשפיע על המדובר לתקן או להימנע מהמעשה?", "priority": 45, "sensitivity": "low", "persistent": false},
   {"id": "matter.known_to_victim", "questionHe": "האם הנפגע כבר יודע מה סופר או נעשה נגדו?", "priority": 50, "sensitivity": "medium", "persistent": false},
   {"id": "context.asked_to_identify_sinner", "questionHe": "האם הכותב נשאל מי עשה את המעשה המתואר? (בלי לקבוע שהמעשה הוא עבירה)", "priority": 50, "sensitivity": "low", "persistent": false},
+  {"id": "message.praise_is_excessive", "questionHe": "האם ההודעה מרבה בשבחו של המדובר מעבר לשבח רגיל?", "priority": 50, "sensitivity": "low", "persistent": false},
+  {"id": "audience.includes_subject_enemies", "questionHe": "האם בין הנמענים יש מי ששונא את המדובר?", "priority": 50, "sensitivity": "high", "persistent": true, "confirmedByUserOnly": true},
+  {"id": "subject.is_established_righteous", "questionHe": "האם המדובר מוחזק לרבים ונודע ככשר וצדיק, שלא נמצאה בו רעה ואשמה? (אישור מידע בלבד, לא קביעת מעמד הלכתי)", "priority": 50, "sensitivity": "high", "persistent": true, "confirmedByUserOnly": true},
+  {"id": "message.disclosure_authorized", "questionHe": "האם מוסר המידע נתן רשות לספר לאחרים את המידע המסוים הזה? (הרשות לבדה אינה היתר לספר לשון הרע או רכילות)", "priority": 50, "sensitivity": "medium", "persistent": false, "confirmedByUserOnly": true},
   // END GENERATED CHAFETZ CHAIM FACTS
 ];
 

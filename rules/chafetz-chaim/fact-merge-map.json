@@ -53,6 +53,11 @@
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
   "target": "audience.is_close_to_speaker_or_subject"
  },
+ "audience.includes_subject_enemies": {
+  "action": "new",
+  "reason": "שבח בפני שונאיו; חלק א ט:א",
+  "target": "audience.includes_subject_enemies"
+ },
  "audience.includes_yarei_elokim": {
   "action": "reject",
   "reason": "לא נחוץ להחלת סעיף על הודעת צ'אט, או שאין דרך לבררו מהמשתמש/ההקשר"
@@ -815,6 +820,11 @@
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
   "target": "message.denies_virtue_or_status"
  },
+ "message.disclosure_authorized": {
+  "action": "new",
+  "reason": "רשות למסירת המידע המסוים; חלק א ט:ו וחלק ב ח:ה; אינה היתר לשון הרע",
+  "target": "message.disclosure_authorized"
+ },
  "message.disclosure_harms_owner_plan": {
   "action": "merge",
   "reason": "מיזוג לפי משמעות",
@@ -985,6 +995,11 @@
   "action": "merge",
   "reason": "מיזוג לפי משמעות",
   "target": "message.contains_falsehood_or_exaggeration"
+ },
+ "message.praise_is_excessive": {
+  "action": "new",
+  "reason": "שבח מרובה נפרד משבח רגיל; חלק א ט:א–ב",
+  "target": "message.praise_is_excessive"
  },
  "message.praise_may_cause_resentment": {
   "action": "new",
@@ -1455,6 +1470,11 @@
   "action": "new",
   "reason": "עובדה חדשה נחוצה וניתנת לבירור בצ'אט",
   "target": "subject.is_established_wicked"
+ },
+ "subject.is_established_righteous": {
+  "action": "new",
+  "reason": "מוחזק לרבים ככשר וצדיק; חלק א ט:ב; אישור משתמש בלבד",
+  "target": "subject.is_established_righteous"
  },
  "subject.is_known_as_righteous": {
   "action": "reject",

@@ -82,6 +82,8 @@ export interface RulePack {
 
 export interface FactCatalogEntry {
   id: string;
+  /** Omitted means boolean for existing boolean catalogs. */
+  valueType?: 'boolean' | 'string' | 'number';
   questionHe: string;
   /** Lower = asked earlier. */
   priority: number;

@@ -20,7 +20,7 @@ const tri = (store: FactStore, id: string) => evalExpr({ eq: [id, false] }, stor
 test('FACT-VOCAB-01 every vocabulary question and all safety metadata have one canonical definition', () => {
   assert.equal(new Set(vocabulary.map((f) => f.id)).size, vocabulary.length);
   assert.equal(byId.size, FACT_CATALOG.length);
-  assert.equal(vocabulary.length, 68);
+  assert.equal(vocabulary.length, 72);
   for (const f of vocabulary) {
     const { sourceRefs, ...entry } = f;
     assert.deepEqual(byId.get(f.id), entry, f.id);
@@ -35,7 +35,7 @@ test('FACT-VOCAB-02 new distinctions have exact primary-source sections in the 1
   const all = new Set<string>();
   for (const p of manifest.principles) for (const s of p.seifim) all.add(p.key + ':' + s.n);
   const linked = vocabulary.filter((f) => f.sourceRefs);
-  assert.equal(linked.length, 7);
+  assert.equal(linked.length, 11);
   for (const f of linked) for (const ref of f.sourceRefs!) assert.ok(all.has(ref), ref);
   assert.deepEqual(vocabulary.find((f) => f.id === classification)?.sourceRefs, ['p1_prin10:2']);
   const text = readFileSync(new URL('sources/chafetz-chaim/text/p1_prin10.txt', repo), 'utf8')
@@ -53,7 +53,7 @@ test('FACT-VOCAB-03 legal conclusions and sensitive conduct cannot become model-
   for (const id of guarded) {
     assert.equal(byId.get(id)?.confirmedByUserOnly, true, id);
     const direct = factStoreFromExtraction(extraction([proposal(id, true)]), FACT_CATALOG);
-    assert.equal(direct.facts.get(id)?.status, 'candidate');
+    assert.equal(direct.facts.has(id), false);
     assert.equal(tri(direct, id), 'unknown');
   }
 });
