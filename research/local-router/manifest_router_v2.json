@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "seed": 20261029,
+  "input": "router_train_v2.jsonl",
+  "families_total": 62,
+  "splits": {
+    "train": {
+      "families": 42,
+      "rows": 50
+    },
+    "dev": {
+      "families": 10,
+      "rows": 12
+    },
+    "holdout": {
+      "families": 10,
+      "rows": 12
+    }
+  },
+  "provenance": "synthetic_template_v2, family-grouped, mixed+combo heads",
+  "review_status": "synthetic, human_review_pending, agent_reviewed false",
+  "note": "router v2 is template seed only; production needs thousands via EN->DictaLM->audit pipeline (40.next.2)",
+  "hashes": {
+    "router_train_v2": "17bde2917fccafbe7da9d19e3719c9338eff970e038db84258e7ab41f02bc7e8",
+    "router_dev_v2": "3d64e990c15fe87fac448ee1f6dc7d333b31feaa585cedad1347f6539ab204b7",
+    "router_holdout_v2": "8de2288cd2cf8020a58855f7b062d26af3641bfaf4a9eb9f131cf2f59b05af0b"
+  }
+}

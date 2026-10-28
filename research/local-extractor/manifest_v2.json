@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "seed": 20261029,
+  "input": "train_v2.jsonl",
+  "splits": {
+    "train": {
+      "families": 1805,
+      "path": "C:\\Users\\dev\\worktrees\\research\\data-expansion-v2-20261028-215713\\research\\local-extractor\\train_v2.jsonl"
+    },
+    "dev": {
+      "families": 148,
+      "path": "C:\\Users\\dev\\worktrees\\research\\data-expansion-v2-20261028-215713\\research\\local-extractor\\dev_v2.jsonl"
+    },
+    "holdout": {
+      "families": 171,
+      "path": "C:\\Users\\dev\\worktrees\\research\\data-expansion-v2-20261028-215713\\research\\local-extractor\\holdout_v2.jsonl"
+    }
+  },
+  "provenance": "synthetic_templates_v2, family-grouped; contrast empty-gold; unknown omitted",
+  "review_status": "synthetic, human_review_pending (agent_reviewed false until synthetic verification runs)",
+  "note": "holdout is independent only if never inspected for tuning; otherwise development diagnostics",
+  "hashes": {
+    "train_v2": "f45f0d126506698b3a64984021088a40e339953c119fac8ee8a080ad93572126",
+    "dev_v2": "1880fcc0f01193ed6c7eb185fe6726676dfdb7921de5a261d4720f4c12ebba57",
+    "holdout_v2": "25170a5d685a7a71e60cc219b953acb542893a082b8f33660d47876c31cf657f"
+  }
+}
