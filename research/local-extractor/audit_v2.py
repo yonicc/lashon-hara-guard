@@ -1,83 +1,70 @@
-"""Audit + review export for extractor v2.
+"""Quality/leakage report and human-review export for the v2 data. Offline, deterministic, no model call.
 
-Produces results/audit_v2.json and results/review_v2.csv from family-sliced splits.
-
-Checks: alias/canonical, evidence verbatim, family+text disjoint, unknown not false,
-synthetic provenance, no human claim. Development holdout is NOT independent if inspected.
+    py research/local-extractor/audit_v2.py
+Writes results/audit_v2.json and results/review_v2.csv (UTF-8 with BOM so Excel shows Hebrew).
+The CSV is a stratified sample for a HUMAN reviewer: every split x fact x value, every contrast kind and a
+natural-row sample per language. Columns human_verdict/human_note are empty: no human review has happened.
 """
-import collections, csv, hashlib, json, pathlib, random, re
+import collections, csv, hashlib, json, pathlib, random
+
 ROOT = pathlib.Path(__file__).parent
-RESULTS = ROOT / "results"
-NORM = lambda s: re.sub(r"\s+", " ", s).strip().casefold()
-def sha256(p): return hashlib.sha256(p.read_bytes()).hexdigest()
-def load(name): return [json.loads(l) for l in (ROOT / name).read_text(encoding="utf-8").splitlines() if l.strip()]
+SPLITS = {"train": "train_v2.jsonl", "dev": "dev_v2.jsonl", "holdout": "holdout_v2.jsonl"}
+
+
+def load(p):
+    return [json.loads(s) for s in (ROOT / p).read_text(encoding="utf-8").splitlines() if s.strip()]
+
 
 def main():
-    CONTRACT = json.loads((ROOT / "contract_v2.json").read_text(encoding="utf-8"))
-    ALIASES = {f[0] for f in CONTRACT["facts"]}
-    MAP = {f[0]: f[1] for f in CONTRACT["facts"]}
-    CATALOG = {f["id"] for f in json.loads((ROOT.parent.parent / "rules/chafetz-chaim/facts.json").read_text(encoding="utf-8"))["facts"]}
-    files = ["train_v2.jsonl","dev_v2.jsonl","holdout_v2.jsonl"]
-    datasets = {n: load(n) for n in files}
-    # text + family disjoint
-    norms = {n: {NORM(r["text"]) for r in rows} for n, rows in datasets.items()}
-    fams = {n: {r["family"] for r in rows} for n, rows in datasets.items()}
-    assert not (norms["train_v2.jsonl"] & norms["dev_v2.jsonl"])
-    assert not (norms["train_v2.jsonl"] & norms["holdout_v2.jsonl"])
-    assert not (norms["dev_v2.jsonl"] & norms["holdout_v2.jsonl"])
-    assert not (fams["train_v2.jsonl"] & fams["dev_v2.jsonl"])
-    assert not (fams["train_v2.jsonl"] & fams["holdout_v2.jsonl"])
-    assert not (fams["dev_v2.jsonl"] & fams["holdout_v2.jsonl"])
-    for n, rows in datasets.items():
-        assert len({r["id"] for r in rows}) == len(rows), n
-        for r in rows:
-            assert r.get("synthetic") is True and r.get("human_review_pending") is True, r["id"]
-            # agent_reviewed must be false until synthetic verification has run
-            assert r.get("agent_reviewed") is False, f"{r['id']}: agent_reviewed must be false (mark true only after synthetic check)"
-            assert set(r.get("gold",{})) <= ALIASES, r["id"]
-            for k,(v,ev) in r.get("gold",{}).items():
-                assert MAP[k] in CATALOG, f"{r['id']} {k} not in facts.json"
-                assert type(v) is bool and ev in r["text"], f"{r['id']} {k} evidence"
-            # provenance
-            assert r.get("provenance","").startswith("synthetic"), r["id"]
-            assert r.get("language") in ("he","en","mixed")
-        # empty gold should include contrasts + some unknowns; verify not claiming false
-        empty = sum(1 for r in rows if not r.get("gold"))
-        assert empty >= 0
+    man = json.loads((ROOT / "manifest_v2.json").read_text(encoding="utf-8"))
+    data = {s: load(p) for s, p in SPLITS.items()}
+    for s, p in SPLITS.items():
+        assert hashlib.sha256((ROOT / p).read_bytes()).hexdigest() == man["splits"][s]["sha256"], f"{p} != manifest"
+    keys = [f[0] for f in json.loads((ROOT / "contract_v2.json").read_text(encoding="utf-8"))["facts"]]
+    rep = {"manifest_version": man["version"], "leakage": man["leakage"], "splits": {}}
+    for s, rows in data.items():
+        cov = collections.Counter(f"{k}:{str(v[0]).lower()}" for r in rows for k, v in r["gold"].items())
+        k_hist = collections.Counter(len(r["gold"]) for r in rows)
+        missing = [f"{k}:{v}" for k in keys for v in ("true", "false") if not cov[f"{k}:{v}"]]
+        rep["splits"][s] = {"rows": len(rows), "families": len({r["family"] for r in rows}),
+                            "by_language": dict(collections.Counter(r["language"] for r in rows)),
+                            "by_provenance": dict(collections.Counter(r["provenance"] for r in rows)),
+                            "facts_per_row": dict(sorted(k_hist.items())), "min_fact_value_count": min(cov[f"{k}:{v}"] for k in keys for v in ("true", "false")),
+                            "missing_fact_values": missing,
+                            "natural_fact_values": dict(sorted(collections.Counter(
+                                f"{k}:{str(v[0]).lower()}" for r in rows if r["provenance"].startswith("natural")
+                                for k, v in r["gold"].items()).items()))}
+    gs = ROOT / "results" / "natural_v2-genstats.json"
+    if gs.exists():
+        g = json.loads(gs.read_text(encoding="utf-8"))
+        rep["natural_generation"] = {"stats": g["stats"], "models": g["models"], "seed": g["seed"], "n": g["n"]}
+    rep["review_status"] = man["review_status"]
+    rng = random.Random(20261029)
+    sample = []
+    for s, rows in data.items():
+        tmpl = [r for r in rows if r["provenance"] == "synthetic_template"]
+        for k in keys:
+            for v in (True, False):
+                pool = [r for r in tmpl if k in r["gold"] and r["gold"][k][0] is v]
+                sample += [(s, r) for r in rng.sample(pool, min(1, len(pool)))]
+        con = [r for r in rows if r["provenance"] == "synthetic_template_contrast"]
+        sample += [(s, r) for r in rng.sample(con, min(6, len(con)))]
+        unk = [r for r in tmpl if not r["gold"]]
+        sample += [(s, r) for r in rng.sample(unk, min(4, len(unk)))]
+        for lang in ("he", "en", "mixed"):
+            nat = [r for r in rows if r["provenance"].startswith("natural") and r["language"] == lang]
+            sample += [(s, r) for r in rng.sample(nat, min(12 if s == "train" else 6, len(nat)))]
+    with open(ROOT / "results" / "review_v2.csv", "w", encoding="utf-8-sig", newline="") as fh:
+        w = csv.writer(fh)
+        w.writerow(["id", "split", "provenance", "language", "family", "text", "gold_json", "human_verdict", "human_note"])
+        for s, r in sample:
+            w.writerow([r["id"], s, r["provenance"], r["language"], r["family"], r["text"],
+                        json.dumps(r["gold"], ensure_ascii=False), "", ""])
+    rep["review_export"] = {"path": "results/review_v2.csv", "rows": len(sample), "status": "human_review_pending"}
+    (ROOT / "results" / "audit_v2.json").write_text(json.dumps(rep, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    print(json.dumps({s: {k: v[k] for k in ("rows", "families", "min_fact_value_count", "missing_fact_values")}
+                      for s, v in rep["splits"].items()}, ensure_ascii=False), "review rows", len(sample))
 
-    out={}
-    for name, rows in datasets.items():
-        counts=collections.Counter()
-        for r in rows:
-            for k,(v,_) in r.get("gold",{}).items():
-                counts[f"{k}:{str(v).lower()}"]+=1
-        out[name]={"rows": len(rows), "families": len(fams[name]), "languages": dict(collections.Counter(r["language"] for r in rows)), "labels": dict(counts), "sha256": sha256(ROOT/name)}
-    # contrasts present
-    train_rows = datasets["train_v2.jsonl"] if "train_v2.jsonl" in datasets else datasets["train_v2"]
-    contrast = sum(1 for r in datasets["train_v2.jsonl"] if r.get("provenance")=="synthetic_template_contrast")
-    out["contrasts_in_train_v2"]=contrast
-    out["holdout_note"]="holdout_v2 was generated together with train; author has seen it — must be treated as development, not independent"
-    out["limitations"]=[
-        "Template synthetic only; no natural/LLM-authored language in v2.",
-        "Same agent/seed authored all splits; holdout is not independent.",
-        "No human or halachic review of gold; provisional agent template.",
-        "Router v2 remains 74 template rows; needs EN->DictaLM->audit expansion to thousands.",
-        "unknown omitted == unknown, never false; enforced by validator.",
-    ]
-    out["normalized_exact_overlap"]=0
-    out["family_overlap"]=0
-    RESULTS.mkdir(exist_ok=True)
-    (RESULTS / "audit_v2.json").write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(json.dumps(out, ensure_ascii=False, indent=2))
-    # review export
-    rng=random.Random(142)
-    sample=rng.sample(datasets["train_v2.jsonl"], min(36, len(datasets["train_v2.jsonl"])))
-    csv_path = RESULTS / "review_v2.csv"
-    with open(csv_path, "w", encoding="utf-8-sig", newline="") as f:
-        w=csv.writer(f)
-        w.writerow(["id","family","language","text","gold","provenance","human_review_pending"])
-        for r in sample:
-            w.writerow([r["id"], r["family"], r["language"], r["text"], json.dumps(r.get("gold",{}), ensure_ascii=False), r.get("provenance"), r.get("human_review_pending")])
-    print(f"review csv: {csv_path} rows {len(sample)}")
 
-if __name__=="__main__": main()
+if __name__ == "__main__":
+    main()

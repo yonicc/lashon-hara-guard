@@ -56,6 +56,30 @@ STYLE={
 ("no_alternative",False):["say it could also be solved privately, but they still write"],
 }
 WEIGHT={"purpose":5,"firsthand":3,"verified":3,"rebuke":2,"intent":2,"revenge":1.5,"rejects":1.2,"no_alternative":1.2}
+# v2 (contract_v2.json, 18 facts). v1 runs keep WEIGHT/contract.json and are unchanged.
+STYLE.update({
+("said_in_jest",True):["say they only mean it as a joke about him"],
+("said_in_jest",False):["say they are completely serious, this is not a joke"],
+("is_hint",True):["say they are only hinting at it and will not say it outright"],
+("is_hint",False):["say they are saying it outright and explicitly"],
+("medium_written",True):["say they are deliberately putting this in writing so there is a record"],
+("medium_written",False):["say they will only tell the details orally in person and will not put them in writing"],
+("same_self_disparagement",True):["apply the very same criticism to themself too (e.g. 'I am just as bad at this as he is')"],
+("same_self_disparagement",False):["say explicitly it is only about him and not about themself"],
+("unverified_rumor",True):["say it is only a rumor going around that nobody has clarified yet"],
+("unverified_rumor",False):["say it is not a rumor: it was clarified and established (e.g. an official finding)"],
+("second_source",True):["say they confirm what someone else already told the reader about it (they are a second source)"],
+("second_source",False):["say they cannot confirm what the reader heard about it from someone else"],
+("future_purpose",True):["say they ask/tell because of a future match, partnership, rental or hiring decision"],
+("future_purpose",False):["say they are just curious and have no future dealings with him"],
+("requested_disclosure",True):["say their father, mother or rabbi asked them to pass this on"],
+("requested_disclosure",False):["say no parent or rabbi asked them to tell this"],
+("repeats_prior",True):["say they are passing on what someone else told them about him"],
+("repeats_prior",False):["say this is their own account and they are not passing on anyone else's story"],
+("subject_self_disclosed",True):["say he himself told this in front of a stated number of people (three or more, e.g. at a meeting of six)"],
+("subject_self_disclosed",False):["say he only told it privately to one person, or to nobody"],
+})
+WEIGHT_V2={**{a:2 for a in WEIGHT},"purpose":3,**{a:2 for a,_ in STYLE if a not in WEIGHT}}
 TRAPS=["quote another person in quotation marks who states one of the facts about THEMSELF",
  "ask a question about whether to send it","describe a hypothetical ('if I ever ...')","a neutral logistics sentence"]
 
@@ -92,8 +116,9 @@ def obj_from(text):
         v=json.loads(m.group(0));return v if isinstance(v,dict) else None
     except json.JSONDecodeError:return None
 
-def plan(n,seed):
-    rng=random.Random(seed);aliases=list(WEIGHT);w=[WEIGHT[a] for a in aliases];out=[]
+def plan(n,seed,weight=None):
+    weight=weight or WEIGHT
+    rng=random.Random(seed);aliases=list(weight);w=[weight[a] for a in aliases];out=[]
     names=["Avi","Noa","Yossi","Shira","Moshe","Tamar","Eli","Dana","Ronen","Michal","Itzik","Yael","Boaz","Orly"]
     for i in range(n):
         k=rng.choices([0,1,2,3],[1,3,4,2])[0];facts=[]
@@ -183,15 +208,17 @@ def ok_text(lang,t):
 def norm(t):return re.sub(r"\W+"," ",t.lower()).strip()
 
 @app.local_entrypoint()
-def main(out:str="diverse/natural_v1.jsonl",n:int=3000,seed:int=808):
-    contract=json.loads((ROOT/"contract.json").read_text(encoding="utf-8"))
+def main(out:str="diverse/natural_v1.jsonl",n:int=3000,seed:int=808,contract_file:str="contract.json"):
+    contract=json.loads((ROOT/contract_file).read_text(encoding="utf-8"))
+    v2=len(contract["facts"])>len(WEIGHT)
+    if v2 and set(WEIGHT_V2)!={a for a,_,_ in contract["facts"]}:raise ValueError("STYLE/WEIGHT_V2 do not match contract aliases")
     dest=ROOT/out
     if dest.exists():raise ValueError("Refuse overwrite")
     evals=[]
     for f in["legacy.jsonl","fresh.jsonl","confirmation.jsonl","diverse/sealed.jsonl","diverse/sealed_v3.jsonl"]:
         evals+=[json.loads(s)["text"] for s in (ROOT/f).read_text(encoding="utf-8").splitlines()]
     evalnorm={norm(t) for t in evals}
-    res=generate.remote(plan(n,seed),contract)
+    res=generate.remote(plan(n,seed,WEIGHT_V2 if v2 else None),contract)
     st={"generated":len(res["rows"]),"gen_fail":res["gen_fail"],"en_disagree":0,"en_bad":0,"dup":0,"eval_overlap":0,
         "he_bad":0,"he_disagree":0}
     seen=set();keep=[];rejects=[]
@@ -223,7 +250,8 @@ def main(out:str="diverse/natural_v1.jsonl",n:int=3000,seed:int=808):
             text=" ".join(parts)
             gold={s["fact"]:[target[s["fact"]],p] for s,p in zip(r["segments"],parts) if s["fact"]}
             rows.append(dict(id=f"{fam}-{lang}",family=fam,language=lang,text=text,gold=gold,split="natural_train",
-              synthetic=True,agent_reviewed=False,human_review_pending=True,source="qwen32b_gen+dicta_tr_v1",scene=r["scene"]))
+              synthetic=True,agent_reviewed=False,human_review_pending=True,source="qwen32b_gen+dicta_tr_v2" if v2 else "qwen32b_gen+dicta_tr_v1",
+              scene=r["scene"],provenance="natural_llm_blind_verified",contract=contract_file))
         emit("en",[s["text"] for s in r["segments"]])
         if fh!=target:
             st["he_disagree"]+=1;rejects.append({"why":"he_disagree","target":target,"verify":fh,"he":r["he"]});continue

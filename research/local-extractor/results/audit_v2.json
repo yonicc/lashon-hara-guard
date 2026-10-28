@@ -1,157 +1,129 @@
 {
-  "train_v2.jsonl": {
-    "rows": 1916,
-    "families": 1805,
-    "languages": {
-      "en": 633,
-      "he": 648,
-      "mixed": 635
-    },
-    "labels": {
-      "firsthand:false": 81,
-      "said_in_jest:true": 88,
-      "same_self_disparagement:true": 64,
-      "requested_disclosure:false": 84,
-      "rebuke:false": 75,
-      "same_self_disparagement:false": 81,
-      "verified:true": 83,
-      "no_alternative:true": 81,
-      "verified:false": 84,
-      "rejects:true": 83,
-      "second_source:false": 81,
-      "said_in_jest:false": 95,
-      "subject_self_disclosed:true": 70,
-      "intent:true": 101,
-      "subject_self_disclosed:false": 78,
-      "medium_written:false": 98,
-      "repeats_prior:false": 96,
-      "revenge:false": 101,
-      "is_hint:false": 80,
-      "rejects:false": 75,
-      "future_purpose:true": 89,
-      "intent:false": 88,
-      "second_source:true": 75,
-      "rumor_public:false": 64,
-      "is_hint:true": 75,
-      "purpose:false": 72,
-      "rumor_public:true": 82,
-      "repeats_prior:true": 75,
-      "rebuke:true": 69,
-      "no_alternative:false": 73,
-      "future_purpose:false": 93,
-      "revenge:true": 81,
-      "purpose:true": 87,
-      "firsthand:true": 75,
-      "requested_disclosure:true": 83,
-      "medium_written:true": 60
-    },
-    "sha256": "f45f0d126506698b3a64984021088a40e339953c119fac8ee8a080ad93572126"
+ "manifest_version": "v2.1",
+ "leakage": {
+  "train|dev": {
+   "family_overlap": 0,
+   "semantic_unit_overlap": 0,
+   "normalized_text_overlap": 0,
+   "shared_sentences_ge3_words": [
+    "if i wrote",
+    "is it accurate to say",
+    "someone else wrote",
+    "אם הייתי כותב",
+    "האם נכון לומר",
+    "מישהו אחר כתב"
+   ],
+   "shared_sentence_count": 6
   },
-  "dev_v2.jsonl": {
-    "rows": 164,
-    "families": 148,
-    "languages": {
-      "en": 60,
-      "mixed": 56,
-      "he": 48
-    },
-    "labels": {
-      "said_in_jest:true": 9,
-      "medium_written:true": 7,
-      "subject_self_disclosed:false": 9,
-      "revenge:false": 5,
-      "future_purpose:true": 11,
-      "rejects:true": 6,
-      "verified:false": 6,
-      "medium_written:false": 6,
-      "rumor_public:true": 6,
-      "future_purpose:false": 6,
-      "is_hint:true": 5,
-      "second_source:true": 11,
-      "purpose:true": 6,
-      "is_hint:false": 10,
-      "repeats_prior:true": 4,
-      "purpose:false": 6,
-      "rebuke:true": 10,
-      "firsthand:false": 10,
-      "no_alternative:false": 5,
-      "repeats_prior:false": 7,
-      "second_source:false": 5,
-      "same_self_disparagement:false": 10,
-      "rumor_public:false": 3,
-      "intent:false": 4,
-      "no_alternative:true": 6,
-      "requested_disclosure:false": 9,
-      "firsthand:true": 9,
-      "same_self_disparagement:true": 7,
-      "subject_self_disclosed:true": 7,
-      "rejects:false": 6,
-      "verified:true": 7,
-      "revenge:true": 4,
-      "rebuke:false": 4,
-      "said_in_jest:false": 4,
-      "requested_disclosure:true": 4,
-      "intent:true": 2
-    },
-    "sha256": "1880fcc0f01193ed6c7eb185fe6726676dfdb7921de5a261d4720f4c12ebba57"
+  "train|holdout": {
+   "family_overlap": 0,
+   "semantic_unit_overlap": 0,
+   "normalized_text_overlap": 0,
+   "shared_sentences_ge3_words": [
+    "if i wrote",
+    "is it accurate to say",
+    "someone else wrote",
+    "אם הייתי כותב",
+    "האם נכון לומר",
+    "מישהו אחר כתב"
+   ],
+   "shared_sentence_count": 6
   },
-  "holdout_v2.jsonl": {
-    "rows": 186,
-    "families": 171,
-    "languages": {
-      "en": 66,
-      "he": 57,
-      "mixed": 63
-    },
-    "labels": {
-      "revenge:false": 8,
-      "future_purpose:false": 7,
-      "rebuke:true": 7,
-      "no_alternative:true": 12,
-      "same_self_disparagement:false": 9,
-      "said_in_jest:false": 9,
-      "subject_self_disclosed:true": 10,
-      "revenge:true": 8,
-      "intent:false": 8,
-      "rejects:true": 2,
-      "purpose:false": 11,
-      "verified:true": 6,
-      "second_source:false": 6,
-      "purpose:true": 8,
-      "is_hint:false": 6,
-      "verified:false": 6,
-      "same_self_disparagement:true": 3,
-      "is_hint:true": 5,
-      "medium_written:false": 7,
-      "firsthand:false": 7,
-      "repeats_prior:false": 5,
-      "requested_disclosure:true": 9,
-      "rumor_public:false": 5,
-      "rejects:false": 9,
-      "second_source:true": 6,
-      "said_in_jest:true": 4,
-      "subject_self_disclosed:false": 10,
-      "repeats_prior:true": 11,
-      "intent:true": 7,
-      "firsthand:true": 5,
-      "no_alternative:false": 7,
-      "rumor_public:true": 3,
-      "rebuke:false": 8,
-      "requested_disclosure:false": 7,
-      "medium_written:true": 3,
-      "future_purpose:true": 1
-    },
-    "sha256": "25170a5d685a7a71e60cc219b953acb542893a082b8f33660d47876c31cf657f"
+  "dev|holdout": {
+   "family_overlap": 0,
+   "semantic_unit_overlap": 0,
+   "normalized_text_overlap": 0,
+   "shared_sentences_ge3_words": [
+    "if i wrote",
+    "is it accurate to say",
+    "someone else wrote",
+    "אם הייתי כותב",
+    "האם נכון לומר",
+    "מישהו אחר כתב"
+   ],
+   "shared_sentence_count": 6
+  }
+ },
+ "splits": {
+  "train": {
+   "rows": 3012,
+   "families": 900,
+   "by_language": {
+    "he": 1004,
+    "en": 1004,
+    "mixed": 1004
+   },
+   "by_provenance": {
+    "synthetic_template": 2700,
+    "synthetic_template_contrast": 312
+   },
+   "facts_per_row": {
+    "0": 462,
+    "1": 705,
+    "2": 1011,
+    "3": 678,
+    "4": 156
+   },
+   "min_fact_value_count": 84,
+   "missing_fact_values": [],
+   "natural_fact_values": {}
   },
-  "contrasts_in_train_v2": 123,
-  "holdout_note": "holdout_v2 was generated together with train; author has seen it — must be treated as development, not independent",
-  "limitations": [
-    "Template synthetic only; no natural/LLM-authored language in v2.",
-    "Same agent/seed authored all splits; holdout is not independent.",
-    "No human or halachic review of gold; provisional agent template.",
-    "Router v2 remains 74 template rows; needs EN->DictaLM->audit expansion to thousands.",
-    "unknown omitted == unknown, never false; enforced by validator."
-  ],
-  "normalized_exact_overlap": 0,
-  "family_overlap": 0
+  "dev": {
+   "rows": 606,
+   "families": 154,
+   "by_language": {
+    "he": 202,
+    "en": 202,
+    "mixed": 202
+   },
+   "by_provenance": {
+    "synthetic_template": 450,
+    "synthetic_template_contrast": 156
+   },
+   "facts_per_row": {
+    "0": 186,
+    "1": 159,
+    "2": 165,
+    "3": 66,
+    "4": 30
+   },
+   "min_fact_value_count": 9,
+   "missing_fact_values": [],
+   "natural_fact_values": {}
+  },
+  "holdout": {
+   "rows": 756,
+   "families": 204,
+   "by_language": {
+    "he": 252,
+    "en": 252,
+    "mixed": 252
+   },
+   "by_provenance": {
+    "synthetic_template": 600,
+    "synthetic_template_contrast": 156
+   },
+   "facts_per_row": {
+    "0": 204,
+    "1": 183,
+    "2": 225,
+    "3": 102,
+    "4": 42
+   },
+   "min_fact_value_count": 12,
+   "missing_fact_values": [],
+   "natural_fact_values": {}
+  }
+ },
+ "review_status": {
+  "synthetic": true,
+  "agent_reviewed": false,
+  "human_review_pending": true,
+  "note": "No human has reviewed any row. Natural rows passed an automatic LLM blind-agreement filter only."
+ },
+ "review_export": {
+  "path": "results/review_v2.csv",
+  "rows": 138,
+  "status": "human_review_pending"
+ }
 }
