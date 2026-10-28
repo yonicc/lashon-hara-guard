@@ -1,0 +1,112 @@
+{
+ "train.jsonl": {
+  "rows": 842,
+  "languages": {
+   "he": 285,
+   "en": 269,
+   "mixed": 288
+  },
+  "labels": {
+   "purpose:true": 60,
+   "verified:false": 55,
+   "revenge:true": 75,
+   "rejects:false": 77,
+   "rejects:true": 69,
+   "revenge:false": 72,
+   "rebuke:true": 80,
+   "verified:true": 70,
+   "intent:false": 69,
+   "rebuke:false": 66,
+   "firsthand:false": 66,
+   "intent:true": 65,
+   "no_alternative:true": 59,
+   "firsthand:true": 78,
+   "purpose:false": 58,
+   "no_alternative:false": 67
+  },
+  "sha256": "dc5c7befaf9332e043bcae2ca433cf94edf3ea6fe49e6058a63ff01ef642d045"
+ },
+ "legacy.jsonl": {
+  "rows": 74,
+  "languages": {
+   "he": 74
+  },
+  "labels": {
+   "firsthand:false": 4,
+   "verified:false": 3,
+   "purpose:true": 13,
+   "firsthand:true": 5,
+   "rebuke:true": 3,
+   "intent:true": 3,
+   "purpose:false": 4,
+   "revenge:true": 3,
+   "rebuke:false": 2,
+   "verified:true": 2,
+   "intent:false": 2,
+   "no_alternative:true": 2,
+   "no_alternative:false": 2,
+   "revenge:false": 1,
+   "rejects:true": 1,
+   "rejects:false": 1
+  },
+  "sha256": "a62436699fb6253aff33494610bb1d74317cb32a329ec9b9bb20a9fb4bdfe124"
+ },
+ "fresh.jsonl": {
+  "rows": 72,
+  "languages": {
+   "he": 24,
+   "en": 24,
+   "mixed": 24
+  },
+  "labels": {
+   "purpose:true": 3,
+   "purpose:false": 3,
+   "intent:true": 3,
+   "intent:false": 3,
+   "revenge:true": 3,
+   "revenge:false": 3,
+   "firsthand:true": 3,
+   "firsthand:false": 3,
+   "verified:true": 3,
+   "verified:false": 3,
+   "rebuke:true": 3,
+   "rebuke:false": 3,
+   "rejects:true": 3,
+   "rejects:false": 3,
+   "no_alternative:true": 3,
+   "no_alternative:false": 3
+  },
+  "sha256": "39b993e8e089ae47e86dd9df9b41bf95943e59389ddc0a5e75b66251d7ef6763"
+ },
+ "confirmation.jsonl": {
+  "rows": 48,
+  "languages": {
+   "he": 16,
+   "en": 16,
+   "mixed": 16
+  },
+  "labels": {
+   "verified:true": 3,
+   "firsthand:false": 3,
+   "purpose:false": 3,
+   "intent:true": 3,
+   "firsthand:true": 3,
+   "verified:false": 3,
+   "revenge:false": 3,
+   "rebuke:false": 3,
+   "rejects:true": 3,
+   "no_alternative:false": 3,
+   "purpose:true": 3,
+   "intent:false": 3
+  },
+  "sha256": "6652933194ef541b8480e5fbe1ee5ff4c2559c7368cbc04a08417bcf0f8ae050"
+ },
+ "limitations": [
+  "Template-generated training; no real messages.",
+  "Fresh set: 24 semantic families with three language variants; not 72 independent situations.",
+  "Confirmation: 16 families x three languages, authored after e1 review but before e2 predictions.",
+  "One agent authored templates and separate fresh cases. No external/human label review.",
+  "No normalized exact overlap. This does not prove semantic independence."
+ ],
+ "normalized_exact_train_eval_overlap": 0
+}

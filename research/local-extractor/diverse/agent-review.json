@@ -1,0 +1,17 @@
+{
+  "reviewed_rows": 36,
+  "method": "Read the reproducible seed-142 sample from audit.json before fine-tuning outputs were inspected.",
+  "status": "synthetic; same-agent review; human_review_pending",
+  "clear_for_narrow_alias_contract": 34,
+  "annotation_ambiguities": [
+    {
+      "id": "train-mixed-69",
+      "issue": "Inherited template labels disparaging intent but omits constructive-purpose=false; cross-alias entailment is inconsistently annotated across datasets."
+    },
+    {
+      "id": "combo-200",
+      "issue": "No-alternative span mentions preventing harm; whether that alone establishes the writer's constructive purpose requires annotation policy clarification."
+    }
+  ],
+  "decision": "Retain frozen data, report per-alias and per-set metrics, do not claim exhaustive or expert-reviewed truth. No new outcomes inspected or used to change labels."
+}

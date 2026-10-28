@@ -4,6 +4,7 @@
 - Remote: https://github.com/yonicc/lashon-hara-guard (default branch: main).
 - Push account: yonicc; commit identity: yonicc <yonicc@gmail.com> (owner's rule 2026-10-27; repo-local git config on BI-1 is set to it — commits before ea07a34 inclusive were made as Yoni <yoni@citycar.co.il> and were not rewritten).
 - BI-1: set GH_TOKEN per command/script using gh auth token --user yonicc. Never switch the shared active account.
+- YONI-PC: run Git as the checkout owner (`runuser -u yoni -- ...` from the root runner); use yonicc credentials per command. Modal management-only CLI: `/home/yoni/.local/share/lhg-modal-cli/bin/python`, `MODAL_CONFIG_PATH=/home/yoni/.modal.toml`; keep model inference/training in Modal unless local CPU work is explicitly requested.
 - Working directory: C:\Users\dev\lashon-hara-guard on BI-1.
 
 ## Scope and conventions
@@ -69,6 +70,11 @@
 - Synthetic Hebrew: Qwen2.5-32B writing Hebrew directly is unusable (0 clean rows). Generate English, translate with `dicta-il/dictalm2.0-instruct` at temperature 0 with a Hebrew prefix ("תרגם לעברית:"; Mistral template has no system role); DictaLM cannot code-switch, so mixed text comes from Qwen2.5-32B.
 - Compression: `quantize_dynamic` int8 wrecked router decisions (xlmr 173/459 flips). Ship `emb8` (int8 embedding table only, `onnx_bench.py --ship emb8`), calibrate thresholds on the shipped artifact (`compare_quant.py --node-dev`), judge by decisions. DictaBERT does not load in transformers.js 2.17 (`Unknown Normalizer type: NFD`).
 - BI-1: `py -m modal volume get` needs an EXISTING destination dir (`cd <dir>; ... router/<run> .`); keep model downloads on `D:` (C: ran out of space 2026-10-28). `py -I` hides user-site packages (`onnx` is `--user`).
+
+## Local extractor R&D (docs/37)
+- Local extractor R&D: docs/37 and research/local-extractor/. Torch dynamic int8 corrupted decoder JSON on CPU in both the 1.5B and 4B pilots; model load success is not output parity. Retain an uncompressed CPU comparison.
+- Modal extractor wrappers explicitly mount pilot_modal.py and probe_modal.py; nested sibling imports were not auto-mounted. retries=0 did not bound import-failing container startup attempts: stop only the exact experiment app with modal app stop --yes <id>.
+- Modal preemption also restarts a running input despite retries=0. The original no-overwrite guard rejected an interrupted partial tag. `pilot_modal.gpu_run(checkpoint_every=100)` now journals inputs/revisions and saves adapter, optimizer, example order and RNG states; changed inputs are refused. Forced interruption/resume matched all 15 tensors and losses exactly in the tiny-Qwen2 smoke test (docs/38); this is not full-model CPU parity.
 
 ## Concurrent agents
 - More than one agent edits this repo at the same time (e.g. context layer vs gate). Always `git pull --ff-only` before editing, re-read a file before patching it, and stage only your own paths.

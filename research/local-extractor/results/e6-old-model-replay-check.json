@@ -1,0 +1,9 @@
+{
+  "rows_compared": 194,
+  "changed_decisions": [
+    "legacy-t40",
+    "fresh-14-he"
+  ],
+  "changed_raw_count": 4,
+  "interpretation": "Same stored model replay; kernel/runtime variation can change outputs. Not new training."
+}
