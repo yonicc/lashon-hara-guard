@@ -1,0 +1,1241 @@
+[
+ {
+  "key": "p1_prin1:1",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin1:2",
+  "cat": "D",
+  "disp": "blocked",
+  "feas": "not_implemented",
+  "blocker": "expert_ruling"
+ },
+ {
+  "key": "p1_prin1:3",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin1:4",
+  "cat": "N",
+  "disp": "partial",
+  "feas": "not_message_decision",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin1:5",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin1:6",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin1:7",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin1:8",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin1:9",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin2:1",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin2:2",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin2:3",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin2:4",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin2:5",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin2:6",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin2:7",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin2:8",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin2:9",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin2:10",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin2:11",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin2:12",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin2:13",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin3:1",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin3:2",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin3:3",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin3:4",
+  "cat": "B",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin3:5",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin3:6",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin3:7",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin3:8",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin4:1",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin4:2",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin4:3",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin4:4",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin4:5",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin4:6",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin4:7",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin4:8",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin4:9",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin4:10",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin4:11",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin4:12",
+  "cat": "N",
+  "disp": "partial",
+  "feas": "not_message_decision",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin5:1",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin5:2",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin5:3",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin5:4",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin5:5",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin5:6",
+  "cat": "B",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin5:7",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin5:8",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin6:1",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin6:2",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin6:3",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin6:4",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin6:5",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin6:6",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin6:7",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin6:8",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin6:9",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin6:10",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin6:11",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin6:12",
+  "cat": "N",
+  "disp": "partial",
+  "feas": "not_message_decision",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin7:1",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin7:2",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin7:3",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin7:4",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin7:5",
+  "cat": "D",
+  "disp": "blocked",
+  "feas": "external_evidence",
+  "blocker": "expert_ruling"
+ },
+ {
+  "key": "p1_prin7:6",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin7:7",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin7:8",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin7:9",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin7:10",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin7:11",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin7:12",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin7:13",
+  "cat": "D",
+  "disp": "blocked",
+  "feas": "external_evidence",
+  "blocker": "external_evidence"
+ },
+ {
+  "key": "p1_prin7:14",
+  "cat": "D",
+  "disp": "blocked",
+  "feas": "external_evidence",
+  "blocker": "external_evidence"
+ },
+ {
+  "key": "p1_prin8:1",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin8:2",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin8:3",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin8:4",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin8:5",
+  "cat": "D",
+  "disp": "blocked",
+  "feas": "external_evidence",
+  "blocker": "expert_ruling"
+ },
+ {
+  "key": "p1_prin8:6",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin8:7",
+  "cat": "D",
+  "disp": "blocked",
+  "feas": "external_evidence",
+  "blocker": "expert_ruling"
+ },
+ {
+  "key": "p1_prin8:8",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin8:9",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin8:10",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin8:11",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin8:12",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin8:13",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin8:14",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin9:1",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin9:2",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin9:3",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin9:4",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin9:5",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin9:6",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin10:1",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin10:2",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin10:3",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin10:4",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin10:5",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin10:6",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin10:7",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin10:8",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin10:9",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin10:10",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin10:11",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin10:12",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin10:13",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin10:14",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin10:15",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin10:16",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p1_prin10:17",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin1:1",
+  "cat": "D",
+  "disp": "blocked",
+  "feas": "not_message_decision",
+  "blocker": "not_representable"
+ },
+ {
+  "key": "p2_prin1:2",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin1:3",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin1:4",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin1:5",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin1:6",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin1:7",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin1:8",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin1:9",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin1:10",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin1:11",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin2:1",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin2:2",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin2:3",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin2:4",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin3:1",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin3:2",
+  "cat": "B",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin3:3",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin3:4",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin4:1",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin4:2",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin4:3",
+  "cat": "N",
+  "disp": "partial",
+  "feas": "not_message_decision",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin5:1",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin5:2",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin5:3",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin5:4",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin5:5",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin5:6",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin5:7",
+  "cat": "N",
+  "disp": "partial",
+  "feas": "not_message_decision",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin6:1",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin6:2",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin6:3",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin6:4",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin6:5",
+  "cat": "D",
+  "disp": "blocked",
+  "feas": "external_evidence",
+  "blocker": "expert_ruling"
+ },
+ {
+  "key": "p2_prin6:6",
+  "cat": "D",
+  "disp": "blocked",
+  "feas": "external_evidence",
+  "blocker": "external_evidence"
+ },
+ {
+  "key": "p2_prin6:7",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin6:8",
+  "cat": "B",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin6:9",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin6:10",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin7:1",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin7:2",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin7:3",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin7:4",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin7:5",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin8:1",
+  "cat": "B",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin8:2",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin8:3",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin8:4",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin8:5",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin9:1",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin9:2",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin9:3",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin9:4",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin9:5",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin9:6",
+  "cat": "D",
+  "disp": "partial",
+  "feas": "external_evidence",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin9:7",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin9:8",
+  "cat": "A",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin9:9",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin9:10",
+  "cat": "D",
+  "disp": "blocked",
+  "feas": "external_evidence",
+  "blocker": "expert_ruling"
+ },
+ {
+  "key": "p2_prin9:11",
+  "cat": "D",
+  "disp": "blocked",
+  "feas": "external_evidence",
+  "blocker": "external_evidence"
+ },
+ {
+  "key": "p2_prin9:12",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin9:13",
+  "cat": "D",
+  "disp": "blocked",
+  "feas": "external_evidence",
+  "blocker": "expert_ruling"
+ },
+ {
+  "key": "p2_prin9:14",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ },
+ {
+  "key": "p2_prin9:15",
+  "cat": "C",
+  "disp": "partial",
+  "feas": "not_implemented",
+  "blocker": null
+ }
+]
