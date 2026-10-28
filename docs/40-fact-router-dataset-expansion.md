@@ -60,7 +60,8 @@ disagreement 3,254, malformed 675, kept **3,900 rows** (en 2,062 / he 989 / mixe
 | holdout | 1,124 | 399 | 600 | 156 | 368 | `facc6afdcedb4d272c5517a9f47e490cd438665e883a1e1523ccf11769c567ca` |
 
 Sources: `all_v2.jsonl` 4,374 rows `118dc0080c7bcdf4a14c993b3ec5d881fd22816dbb9ac7e190dbd0c2b07270ae`;
-`diverse/natural_v2.jsonl` 3,900 rows `1f1efaf8c62f7bc921ab58eec95fca3dad2ff7f9b765678a71c9b6053438ae66`.
+`diverse/natural_v2.jsonl` 3,900 rows `6696741c866ef9f1786c780676351702ce29e11974874092e6d93f50bfb20c15` (LF bytes as
+checked out; `.gitattributes` pins LF).
 Every fact × value occurs in every split (minimum: train 127, dev 10, holdout 16).
 **Known gap:** the natural round is skewed toward `true`. It has no `no_alternative:false` and only 12
 `firsthand:false`, 18 `rejects:false` and 25 `repeats_prior:false`. The falses come mostly from templates. A
