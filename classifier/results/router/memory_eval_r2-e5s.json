@@ -1,0 +1,279 @@
+{
+ "run": "r2-e5s",
+ "thresholds_from": "r2-e5s-int8",
+ "scenarios": 16,
+ "head_fired": "15/16",
+ "end_to_end": "15/16",
+ "retrieval_only": "16/16",
+ "by_need": {
+  "mem_search": {
+   "head_fired": "10/11",
+   "end_to_end": "10/11",
+   "retrieval_only": "11/11"
+  },
+  "mem_recent": {
+   "head_fired": "5/5",
+   "end_to_end": "5/5",
+   "retrieval_only": "5/5"
+  }
+ },
+ "router_ms_max": 7.7,
+ "plan_ms_max": 14,
+ "forced_ms_max": 13,
+ "rows": [
+  {
+   "id": "s01",
+   "lang": "he",
+   "need": "mem_search",
+   "router_labels": [
+    "mem_recent"
+   ],
+   "router_ms": 5.3,
+   "head_fired": false,
+   "end_to_end": false,
+   "retrieval_only": true,
+   "plan_ms": 1,
+   "forced_ms": 7,
+   "stopped": "done"
+  },
+  {
+   "id": "s02",
+   "lang": "he",
+   "need": "mem_search",
+   "router_labels": [
+    "mem_recent",
+    "mem_search",
+    "ask_user"
+   ],
+   "router_ms": 5.4,
+   "head_fired": true,
+   "end_to_end": true,
+   "retrieval_only": true,
+   "plan_ms": 7,
+   "forced_ms": 5,
+   "stopped": "done"
+  },
+  {
+   "id": "s03",
+   "lang": "he",
+   "need": "mem_search",
+   "router_labels": [
+    "mem_search",
+    "ask_user"
+   ],
+   "router_ms": 5.7,
+   "head_fired": true,
+   "end_to_end": true,
+   "retrieval_only": true,
+   "plan_ms": 7,
+   "forced_ms": 13,
+   "stopped": "done"
+  },
+  {
+   "id": "s04",
+   "lang": "he",
+   "need": "mem_search",
+   "router_labels": [
+    "mem_search",
+    "ask_user"
+   ],
+   "router_ms": 7,
+   "head_fired": true,
+   "end_to_end": true,
+   "retrieval_only": true,
+   "plan_ms": 7,
+   "forced_ms": 6,
+   "stopped": "done"
+  },
+  {
+   "id": "s05",
+   "lang": "he",
+   "need": "mem_search",
+   "router_labels": [
+    "mem_recent",
+    "mem_search"
+   ],
+   "router_ms": 5.2,
+   "head_fired": true,
+   "end_to_end": true,
+   "retrieval_only": true,
+   "plan_ms": 8,
+   "forced_ms": 7,
+   "stopped": "done"
+  },
+  {
+   "id": "s06",
+   "lang": "en",
+   "need": "mem_search",
+   "router_labels": [
+    "mem_recent",
+    "mem_search"
+   ],
+   "router_ms": 7.2,
+   "head_fired": true,
+   "end_to_end": true,
+   "retrieval_only": true,
+   "plan_ms": 14,
+   "forced_ms": 12,
+   "stopped": "done"
+  },
+  {
+   "id": "s07",
+   "lang": "en",
+   "need": "mem_search",
+   "router_labels": [
+    "mem_recent",
+    "mem_search"
+   ],
+   "router_ms": 6.6,
+   "head_fired": true,
+   "end_to_end": true,
+   "retrieval_only": true,
+   "plan_ms": 9,
+   "forced_ms": 9,
+   "stopped": "done"
+  },
+  {
+   "id": "s08",
+   "lang": "en",
+   "need": "mem_search",
+   "router_labels": [
+    "mem_search",
+    "ask_user"
+   ],
+   "router_ms": 6.4,
+   "head_fired": true,
+   "end_to_end": true,
+   "retrieval_only": true,
+   "plan_ms": 9,
+   "forced_ms": 9,
+   "stopped": "done"
+  },
+  {
+   "id": "s09",
+   "lang": "en",
+   "need": "mem_search",
+   "router_labels": [
+    "mem_search"
+   ],
+   "router_ms": 6.3,
+   "head_fired": true,
+   "end_to_end": true,
+   "retrieval_only": true,
+   "plan_ms": 9,
+   "forced_ms": 12,
+   "stopped": "done"
+  },
+  {
+   "id": "s10",
+   "lang": "mixed",
+   "need": "mem_search",
+   "router_labels": [
+    "mem_recent",
+    "mem_search",
+    "ask_user"
+   ],
+   "router_ms": 6.5,
+   "head_fired": true,
+   "end_to_end": true,
+   "retrieval_only": true,
+   "plan_ms": 10,
+   "forced_ms": 9,
+   "stopped": "done"
+  },
+  {
+   "id": "s11",
+   "lang": "mixed",
+   "need": "mem_search",
+   "router_labels": [
+    "mem_search",
+    "ask_user"
+   ],
+   "router_ms": 6.8,
+   "head_fired": true,
+   "end_to_end": true,
+   "retrieval_only": true,
+   "plan_ms": 9,
+   "forced_ms": 10,
+   "stopped": "done"
+  },
+  {
+   "id": "s12",
+   "lang": "he",
+   "need": "mem_recent",
+   "router_labels": [
+    "mem_recent"
+   ],
+   "router_ms": 7.3,
+   "head_fired": true,
+   "end_to_end": true,
+   "retrieval_only": true,
+   "plan_ms": 0,
+   "forced_ms": 0,
+   "stopped": "done"
+  },
+  {
+   "id": "s13",
+   "lang": "he",
+   "need": "mem_recent",
+   "router_labels": [
+    "mem_recent",
+    "ask_user"
+   ],
+   "router_ms": 5.9,
+   "head_fired": true,
+   "end_to_end": true,
+   "retrieval_only": true,
+   "plan_ms": 1,
+   "forced_ms": 0,
+   "stopped": "done"
+  },
+  {
+   "id": "s14",
+   "lang": "en",
+   "need": "mem_recent",
+   "router_labels": [
+    "mem_recent",
+    "ask_user"
+   ],
+   "router_ms": 5.6,
+   "head_fired": true,
+   "end_to_end": true,
+   "retrieval_only": true,
+   "plan_ms": 0,
+   "forced_ms": 0,
+   "stopped": "done"
+  },
+  {
+   "id": "s15",
+   "lang": "en",
+   "need": "mem_recent",
+   "router_labels": [
+    "mem_recent"
+   ],
+   "router_ms": 6,
+   "head_fired": true,
+   "end_to_end": true,
+   "retrieval_only": true,
+   "plan_ms": 0,
+   "forced_ms": 0,
+   "stopped": "done"
+  },
+  {
+   "id": "s16",
+   "lang": "mixed",
+   "need": "mem_recent",
+   "router_labels": [
+    "mem_recent",
+    "ask_user"
+   ],
+   "router_ms": 7.7,
+   "head_fired": true,
+   "end_to_end": true,
+   "retrieval_only": true,
+   "plan_ms": 1,
+   "forced_ms": 0,
+   "stopped": "done"
+  }
+ ]
+}

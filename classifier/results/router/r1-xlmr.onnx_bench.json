@@ -1,0 +1,1 @@
+{"model": "r1-xlmr", "cpu_threads": 1, "fp32_mb": 1061.0, "int8_mb": 266.4, "fp32": {"p50_ms": 35.2, "p95_ms": 47.7, "max_prob_drift_vs_torch": 0.0}, "int8": {"p50_ms": 19.1, "p95_ms": 25.4, "max_prob_drift_vs_torch": 0.9412}}

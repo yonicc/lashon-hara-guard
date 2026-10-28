@@ -64,6 +64,12 @@
 - Multilingual gate diagnostic: `py classifier/eval_phase_a.py` (docs/28). Its synthetic labels are provisional; translated siblings share a family and must stay in the same split. Once used to guide improvements, this set is development data, not a fresh holdout. Gate harmless-escalation rate is not the end-user warning false-positive rate.
 - brain-mcp's `/api/v1/chat/completions` codex branch drops `system_prompt` (fix in progress, child chat 2026-10-26); until verified fixed, put instructions in the user turn for `agent_kind=codex`.
 
+## Local context router (R&D, verified 2026-10-28, docs/35-local-router-evaluation.md)
+- Owner scope: the router decides only none / `mem_recent` / `mem_search` / `ask_user` (`classifier/router/labels.json` → `heads`, mapped once in `evaluate.py` `heads_of`). Retrieval is deterministic code (`research/local-router/getters.mjs`), never a model tool loop.
+- Synthetic Hebrew: Qwen2.5-32B writing Hebrew directly is unusable (0 clean rows). Generate English, translate with `dicta-il/dictalm2.0-instruct` at temperature 0 with a Hebrew prefix ("תרגם לעברית:"; Mistral template has no system role); DictaLM cannot code-switch, so mixed text comes from Qwen2.5-32B.
+- Compression: `quantize_dynamic` int8 wrecked router decisions (xlmr 173/459 flips). Ship `emb8` (int8 embedding table only, `onnx_bench.py --ship emb8`), calibrate thresholds on the shipped artifact (`compare_quant.py --node-dev`), judge by decisions. DictaBERT does not load in transformers.js 2.17 (`Unknown Normalizer type: NFD`).
+- BI-1: `py -m modal volume get` needs an EXISTING destination dir (`cd <dir>; ... router/<run> .`); keep model downloads on `D:` (C: ran out of space 2026-10-28). `py -I` hides user-site packages (`onnx` is `--user`).
+
 ## Concurrent agents
 - More than one agent edits this repo at the same time (e.g. context layer vs gate). Always `git pull --ff-only` before editing, re-read a file before patching it, and stage only your own paths.
 - Never edit a file containing Hebrew with `Set-Content -Encoding ascii` / raw PowerShell replace: it turns Hebrew into `?` (happened to `extension/manifest.json`, caught by `git diff`). Use `remote_edit_file`.

@@ -1,0 +1,157 @@
+# Router holdout v1 - SYNTHETIC, agent-authored (Claude, independent of the Qwen training generator and its prompt).
+# NEVER train on these rows. All names/events invented. review: agent_reviewed; human_review_pending.
+# family|lang|labels|concern|text     labels: R=recent_history P=participants L=relationship E=event U=purpose K=prior_knowledge -=none
+# A label means the MESSAGE ITSELF needs that local context to be understood/judged; generic "every remark could use more context" is not a label.
+c01|he|-|1|אבי פשוט טיפש, אין מה לעשות איתו
+c01|he|R|1|אבי שוב עשה את זה, טיפש
+c01|en|-|1|Kevin is honestly the laziest person on our team
+c01|en|R|1|Kevin did it again. Unbelievable.
+c01|mixed|-|1|Danny הוא הכי lazy בצוות שלנו
+c01|mixed|R|1|אז Danny did it again, לא מאמינה
+c02|he|-|0|מחר בשמונה בבוקר נפגשים ליד השער
+c02|he|R|0|אז כמו שסיכמנו למעלה, ליד השער בשמונה
+c02|en|-|0|Reminder: dinner is at 7 at Maya's place
+c02|en|R|0|ok so like I said above, 7 at Maya's
+c02|mixed|-|0|meeting מחר ב-9, אל תשכחו laptop
+c03|he|K|1|שמעתי שיוסי פוטר בגלל שגנב מהקופה
+c03|he|-|1|יוסי גנב מהקופה, ראיתי את זה בעצמי
+c03|en|K|1|I heard Rachel got fired for faking her expense reports
+c03|mixed|K|1|שמעתי ש-Eli got fired בגלל זיופים בדוחות
+c04|he|UL|1|כדאי שתדעי לפני שאת משכירה לו את הדירה: הוא לא שילם לנו שכירות שלושה חודשים
+c04|he|R|1|הוא לא שילם שכירות שלושה חודשים, איזה נוכל
+c04|en|UL|1|Before you sign the lease with him, you should know he never returned our deposit
+c04|mixed|UL|1|before you hire אותה כמטפלת, תדעי שהיא השאירה את הילדים לבד אצלנו
+c05|he|P|1|רק בינינו, אל תעבירי: רונית לא באמת יודעת לבשל
+c05|he|-|1|רונית לא יודעת לבשל
+c05|en|P|1|Just between us, don't forward this - Tom's wife left him
+c05|mixed|P|1|רק between us, אל תעבירי: Hila נכשלה שוב במבחן
+c06|he|E|1|אחרי מה שקרה אתמול באסיפה אני לא מדבר עם משה
+c06|he|-|0|האסיפה נדחתה ליום רביעי בשבע
+c06|en|E|1|After what happened at the board meeting I'm done with Linda
+c06|mixed|E|1|אחרי מה שקרה ב-meeting אתמול, אני לא עובד עם Avi יותר
+c07|he|LU|0|אני צריך להחליט אם לקבל את דני לעבודה, מה את יודעת עליו?
+c07|en|LU|0|We're thinking of hiring Josh as our accountant, have you worked with him?
+c07|mixed|LU|0|אנחנו שוקלים to hire את Josh כרואה חשבון, עבדת איתו?
+c08|he|R|1|נו, ומה אתה אומר עליה עכשיו?
+c08|en|R|1|so what do you think of her now?
+c09|he|UL|1|המנהלת צריכה לדעת שהגננת צועקת על הילדים, למי כדאי לפנות?
+c09|en|UL|1|Should I tell the principal that Mr. Stein yells at the kids? who do I even talk to
+c09|mixed|UL|1|should I tell the גננת שהסייעת צועקת על הילדים? למי פונים
+c10|he|K|1|כולם כבר יודעים שהעסק של שלומי פשט רגל, זה היה בעיתון
+c10|he|-|0|העסק של שלומי פתח סניף חדש, ממש מרגש
+c10|en|K|1|Everyone already knows the bakery owner was arrested, it was all over the local news
+c10|en|-|0|The bakery on Main St. has amazing croissants now
+c11|he|PE|1|שרה, את כאן בקבוצה? אז שתדעי שכולם צוחקים על הנאום שלך
+c11|en|PE|1|Dana, are you in this group? then you should know everyone's laughing at your toast
+c11|mixed|PE|1|Yael, את בקבוצה? אז שתדעי שכולם laughing על ה-speech שלך
+c12|he|E|1|ראיתם מה הרב עשה בשיעור היום? לא ייאמן
+c12|he|-|0|ראיתם מה הרב הביא לשיעור היום? עוגה ענקית
+c12|en|E|1|Did you see what the coach did at practice today? insane
+c12|en|-|0|Coach brought pizza to practice today, so nice of him
+c12|mixed|E|1|ראיתם מה ה-coach עשה באימון היום? crazy
+c12|mixed|-|0|ה-coach הביא pizza לאימון, איזה מתוק
+c13|he|R|0|כן, בדיוק, גם אני חשבתי ככה
+c13|en|R|0|yep exactly, same here
+c13|en|R|0|lol same 😂
+c13|mixed|R|0|כן exactly, גם אני thought so
+c14|he|-|1|השכן מקומה שלוש הוא האדם הכי קמצן שפגשתי
+c14|en|-|1|My downstairs neighbor is the cheapest man alive
+c14|mixed|-|1|השכן מלמטה הוא the cheapest guy ever
+c15|he|P|1|אל תגידו לנועה שאמרתי, אבל אבא שלה שוב מובטל
+c15|en|P|1|Don't tell Noah I said this but his dad lost his job again
+c16|he|L|1|בתור הבוס שלו אני חייבת להגיד: הדוחות של אלון מלאים בטעויות
+c16|en|L|1|As his manager I have to say, Alan's reports are a mess
+c16|mixed|L|1|as his manager, הדוחות של Alon מלאים בטעויות
+c17|he|U|0|אני דואגת לדנה, היא נראית מדוכאת, איך אפשר לעזור לה?
+c17|en|U|0|I'm worried about Jen, she seems really down lately. how can we help?
+c17|mixed|U|0|I'm worried about Noa, היא נראית ממש down, איך עוזרים?
+c18|he|K|1|זה נכון מה שאומרים על המורה החדש?
+c18|en|K|1|Is it true what people are saying about the new rabbi?
+c18|mixed|K|1|זה true מה שאומרים על ה-CEO החדש?
+c19|he|RE|1|זה שוב קרה במשמרת, והפעם היא אפילו לא התנצלה
+c19|en|RE|1|It happened again on the night shift and this time she didn't even apologize
+c19|mixed|RE|1|it happened again במשמרת והיא אפילו לא apologized
+c20|he|-|0|תודה רבה לכל מי שעזר בהעברת הדירה, אתם אלופים
+c20|en|-|0|Thank you all for helping with the move, you're the best
+c20|mixed|-|0|תודה לכולם על העזרה ב-move, you're the best
+c21|he|PL|1|אמא, אל תספרי לסבתא, אבל הדוד שוב לווה כסף ולא החזיר
+c22|he|UK|0|מישהו מכיר את הקבלן ירון? רוצים לסגור איתו, יש עליו תלונות?
+c22|en|UK|0|Anyone know a contractor named Gary? we're about to hire him, any complaints?
+c22|mixed|UK|0|מישהו מכיר contractor בשם Yaron? אנחנו עומדים לסגור, any complaints?
+c23|he|R|1|חחח בדיוק מה שהוא כתב, ממש גאון 🙄
+c23|he|-|0|איזה גאון אורי, פתר את החידה בשנייה
+c23|en|R|1|lol exactly what he wrote, what a genius 🙄
+c23|en|-|0|Omer is a genius, solved the puzzle in a second
+c23|mixed|R|1|lol בדיוק מה שהוא כתב, what a genius 🙄
+c24|he|EK|1|אחרי הטיול השנתי כבר ברור לכולם איזה מדריך גרוע הוא גיל
+c24|en|EK|1|After the class trip it's clear to everyone what a terrible guide Phil is
+c24|mixed|EK|1|אחרי ה-trip השנתי ברור לכולם איזה guide גרוע הוא Gil
+c25|he|K|1|כמו שכבר דיברנו בחודש שעבר, ההתנהלות של הוועד בעייתית
+c25|en|K|1|As we discussed last month, the HOA's handling of the budget is shady
+c25|mixed|K|1|כמו שדיברנו last month, הוועד מתנהל shady לגמרי
+c26|he|-|0|מי מצטרף? צריך עוד שניים לנסיעה
+c26|en|-|0|Who's joining? we need two more for the carpool
+c26|mixed|-|0|מי joining? צריך עוד שניים ל-carpool
+c27|he|LR|1|הוא הגיס שלי, אז אני יכול להגיד: הוא עצלן ברמות
+c27|en|LR|1|He's my brother-in-law so I can say it: the guy is bone lazy
+c27|mixed|LR|1|הוא brother-in-law שלי אז מותר לי: lazy ברמות
+c28|he|UL|1|אני מתלבטת אם לספר למעסיק של מיכל שהיא עובדת במקביל אצל המתחרים
+c28|en|UL|1|I'm torn about telling Mia's employer she's moonlighting for a competitor
+c29|he|R|0|לא, זה לא מה שהתכוונתי, תקרא שוב את ההודעה שלי
+c29|en|R|0|No, that's not what I meant, read my message again
+c29|mixed|R|0|לא, that's not what I meant, תקראי שוב
+c30|he|-|0|מזל טוב לחיים ולשירה להולדת הבת!
+c30|en|-|0|Congrats to Sam and Leah on the baby girl!
+c30|mixed|-|0|מזל טוב ל-Sam ולאה on the baby girl!
+c31|he|E|1|מה שהיה בחתונה של אחיה היה ביזיון, היא שתתה יותר מדי
+c31|en|E|1|What went down at Sarah's wedding was a disgrace, she drank way too much
+c31|mixed|E|1|מה שהיה ב-wedding של אחותו היה disgrace
+c32|he|PR|1|אמרתי לכם, הוא לא קורא את הקבוצה הזאת, אז אפשר לדבר חופשי על שמעון
+c32|en|PR|1|Told you, he doesn't read this chat, so we can talk freely about Simon
+c32|mixed|PR|1|אמרתי לכם, he doesn't read this chat, אז אפשר לדבר על Shimon
+c33|he|K|0|הודיעו כבר בפומבי שהמנהל פורש, זה לא סוד
+c33|en|K|0|It was announced publicly that the director is retiring, not a secret
+c33|mixed|K|0|it was announced publicly שהמנהל פורש, לא סוד
+c34|he|UL|1|אני חייבת להזהיר אותך: השותף שלך לוקח עמלות מאחורי הגב שלך
+c34|en|UL|1|I have to warn you, your partner is skimming commissions behind your back
+c34|mixed|UL|1|אני חייבת להזהיר אותך, ה-partner שלך לוקח commissions מאחורי הגב
+c35|he|-|1|מנחם תמיד מאחר ואף פעם לא מתנצל
+c35|en|-|1|Mark is always late and never apologizes
+c36|he|R|1|אז זה הוא? עכשיו הכל מובן
+c37|he|-|0|הכנס אתמול היה מעולה, ההרצאה של ד"ר כהן הייתה מרתקת
+c37|en|-|0|The conference yesterday was great, Dr. Cohen's talk was fascinating
+c37|mixed|-|0|ה-conference אתמול היה great, ההרצאה של Dr. Cohen מרתקת
+c38|he|LU|1|כמורה של הילד שלך אני לא אמורה להגיד, אבל ההורים של יונתן מזניחים אותו
+c38|en|LU|1|As your kid's teacher I shouldn't say this, but Jonah's parents neglect him
+c39|he|KR|1|שוב השמועה הזאת על האלמנה מקומה שנייה? כבר שמעתי אותה שלוש פעמים
+c39|en|KR|1|This rumor about the widow on the second floor again? I've heard it three times
+c39|mixed|KR|1|שוב ה-rumor הזה על השכנה? שמעתי אותו כבר three times
+c40|he|-|0|אני ממש עייף היום, לא ישנתי כל הלילה
+c41|he|RE|0|הוא עדיין לא החזיר את המפתחות מהאירוע?
+c41|en|RE|0|did he ever return the keys from the event?
+c41|mixed|RE|0|הוא החזיר כבר את ה-keys מה-event?
+c42|he|PK|1|תעבירי לכל הקבוצה: ליאת לא מגיעה כי היא שוב בהריון ולא סיפרה לאף אחד
+c42|en|PK|1|Pass it on to the whole group: Lia isn't coming because she's pregnant again and hasn't told anyone
+c42|mixed|PK|1|תעבירי לכל ה-group: Lia לא מגיעה כי היא pregnant again ולא סיפרה
+c43|he|U|1|אני צריכה עצה איך להתמודד עם השכנה שמעשנת במדרגות
+c43|en|U|1|I need advice on dealing with the neighbor who smokes in the stairwell
+c43|mixed|U|1|צריכה advice איך להתמודד עם השכנה שמעשנת ב-stairwell
+c43|en|U|1|any tips how to give feedback to a coworker who keeps interrupting in meetings?
+c44|he|EK|1|אתם זוכרים את הסיפור עם המכונית של בני? אז מסתבר שהוא שיקר
+c44|en|EK|1|Remember the story with Ben's car? turns out he lied
+c44|mixed|EK|1|זוכרים את הסיפור עם ה-car של Ben? מסתבר שהוא lied
+c45|he|R|1|ואז היא ענתה לו את זה?! איזו חוצפנית
+c45|en|R|1|and then she said THAT to him?! the nerve
+c45|mixed|R|1|ואז היא said that to him?! איזו חוצפה
+c46|he|-|1|איך אנשים מסוגלים לבחור במנהל מטומטם כמו קובי
+c46|en|-|1|How could anyone elect a moron like Jake as chairman
+c46|mixed|-|1|איך בחרו ב-moron כמו Kobi ליו"ר
+c47|he|-|0|כמו שכולם יודעים, ההרשמה נסגרת ביום חמישי
+c47|en|-|0|As everyone knows, registration closes Thursday
+c48|en|PE|1|ok now that Ron left the group, can we talk about his presentation?
+c48|mixed|PE|1|עכשיו ש-Ron left the group, אפשר לדבר על ה-presentation שלו?
+c48|he|PE|1|עכשיו שרון יצא מהקבוצה, אפשר לדבר על המצגת שלו?
+c49|he|-|0|הבוס החדש שלי נראה בחור נחמד
+c49|en|-|0|My new boss seems like a nice guy
+c50|he|PL|0|תזכירי לאבא שלך לא לספר לאחיך על המסיבה, זו הפתעה
+c50|en|P|0|Don't mention the party to Eitan, it's a surprise

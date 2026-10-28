@@ -1,0 +1,1534 @@
+{
+ "labels": [
+  "mem_recent",
+  "mem_search",
+  "ask_user"
+ ],
+ "target_recall": 0.9,
+ "dev_rows": 1668,
+ "holdout_rows": 153,
+ "candidates": {
+  "never": {
+   "dev": {
+    "all": {
+     "rows": 1668,
+     "per_label": {
+      "mem_recent": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 268
+      },
+      "mem_search": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 658
+      },
+      "ask_user": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 362
+      }
+     },
+     "missed_label_rate": 1.0,
+     "missed_all_rate": 1.0,
+     "missed_all_concern": 1.0,
+     "needless_rate": 0.0,
+     "getters_mean": 0.0
+    },
+    "he": {
+     "rows": 734,
+     "per_label": {
+      "mem_recent": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 118
+      },
+      "mem_search": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 288
+      },
+      "ask_user": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 161
+      }
+     },
+     "missed_label_rate": 1.0,
+     "missed_all_rate": 1.0,
+     "missed_all_concern": 1.0,
+     "needless_rate": 0.0,
+     "getters_mean": 0.0
+    },
+    "en": {
+     "rows": 735,
+     "per_label": {
+      "mem_recent": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 118
+      },
+      "mem_search": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 288
+      },
+      "ask_user": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 162
+      }
+     },
+     "missed_label_rate": 1.0,
+     "missed_all_rate": 1.0,
+     "missed_all_concern": 1.0,
+     "needless_rate": 0.0,
+     "getters_mean": 0.0
+    },
+    "mixed": {
+     "rows": 199,
+     "per_label": {
+      "mem_recent": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 32
+      },
+      "mem_search": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 82
+      },
+      "ask_user": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 39
+      }
+     },
+     "missed_label_rate": 1.0,
+     "missed_all_rate": 1.0,
+     "missed_all_concern": 1.0,
+     "needless_rate": 0.0,
+     "getters_mean": 0.0
+    }
+   },
+   "holdout": {
+    "all": {
+     "rows": 153,
+     "per_label": {
+      "mem_recent": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 37
+      },
+      "mem_search": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 50
+      },
+      "ask_user": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 34
+      }
+     },
+     "missed_label_rate": 1.0,
+     "missed_all_rate": 1.0,
+     "missed_all_concern": 1.0,
+     "needless_rate": 0.0,
+     "getters_mean": 0.0
+    },
+    "he": {
+     "rows": 59,
+     "per_label": {
+      "mem_recent": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 14
+      },
+      "mem_search": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 17
+      },
+      "ask_user": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 13
+      }
+     },
+     "missed_label_rate": 1.0,
+     "missed_all_rate": 1.0,
+     "missed_all_concern": 1.0,
+     "needless_rate": 0.0,
+     "getters_mean": 0.0
+    },
+    "en": {
+     "rows": 54,
+     "per_label": {
+      "mem_recent": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 13
+      },
+      "mem_search": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 17
+      },
+      "ask_user": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 12
+      }
+     },
+     "missed_label_rate": 1.0,
+     "missed_all_rate": 1.0,
+     "missed_all_concern": 1.0,
+     "needless_rate": 0.0,
+     "getters_mean": 0.0
+    },
+    "mixed": {
+     "rows": 40,
+     "per_label": {
+      "mem_recent": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 10
+      },
+      "mem_search": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 16
+      },
+      "ask_user": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 9
+      }
+     },
+     "missed_label_rate": 1.0,
+     "missed_all_rate": 1.0,
+     "missed_all_concern": 1.0,
+     "needless_rate": 0.0,
+     "getters_mean": 0.0
+    }
+   }
+  },
+  "always": {
+   "dev": {
+    "all": {
+     "rows": 1668,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.161,
+       "recall": 1.0,
+       "support": 268
+      },
+      "mem_search": {
+       "precision": 0.394,
+       "recall": 1.0,
+       "support": 658
+      },
+      "ask_user": {
+       "precision": 0.217,
+       "recall": 1.0,
+       "support": 362
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 1.0,
+     "getters_mean": 4.0
+    },
+    "he": {
+     "rows": 734,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.161,
+       "recall": 1.0,
+       "support": 118
+      },
+      "mem_search": {
+       "precision": 0.392,
+       "recall": 1.0,
+       "support": 288
+      },
+      "ask_user": {
+       "precision": 0.219,
+       "recall": 1.0,
+       "support": 161
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 1.0,
+     "getters_mean": 4.0
+    },
+    "en": {
+     "rows": 735,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.161,
+       "recall": 1.0,
+       "support": 118
+      },
+      "mem_search": {
+       "precision": 0.392,
+       "recall": 1.0,
+       "support": 288
+      },
+      "ask_user": {
+       "precision": 0.22,
+       "recall": 1.0,
+       "support": 162
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 1.0,
+     "getters_mean": 4.0
+    },
+    "mixed": {
+     "rows": 199,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.161,
+       "recall": 1.0,
+       "support": 32
+      },
+      "mem_search": {
+       "precision": 0.412,
+       "recall": 1.0,
+       "support": 82
+      },
+      "ask_user": {
+       "precision": 0.196,
+       "recall": 1.0,
+       "support": 39
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 1.0,
+     "getters_mean": 4.0
+    }
+   },
+   "holdout": {
+    "all": {
+     "rows": 153,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.242,
+       "recall": 1.0,
+       "support": 37
+      },
+      "mem_search": {
+       "precision": 0.327,
+       "recall": 1.0,
+       "support": 50
+      },
+      "ask_user": {
+       "precision": 0.222,
+       "recall": 1.0,
+       "support": 34
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 1.0,
+     "getters_mean": 4.0
+    },
+    "he": {
+     "rows": 59,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.237,
+       "recall": 1.0,
+       "support": 14
+      },
+      "mem_search": {
+       "precision": 0.288,
+       "recall": 1.0,
+       "support": 17
+      },
+      "ask_user": {
+       "precision": 0.22,
+       "recall": 1.0,
+       "support": 13
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 1.0,
+     "getters_mean": 4.0
+    },
+    "en": {
+     "rows": 54,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.241,
+       "recall": 1.0,
+       "support": 13
+      },
+      "mem_search": {
+       "precision": 0.315,
+       "recall": 1.0,
+       "support": 17
+      },
+      "ask_user": {
+       "precision": 0.222,
+       "recall": 1.0,
+       "support": 12
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 1.0,
+     "getters_mean": 4.0
+    },
+    "mixed": {
+     "rows": 40,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.25,
+       "recall": 1.0,
+       "support": 10
+      },
+      "mem_search": {
+       "precision": 0.4,
+       "recall": 1.0,
+       "support": 16
+      },
+      "ask_user": {
+       "precision": 0.225,
+       "recall": 1.0,
+       "support": 9
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 1.0,
+     "getters_mean": 4.0
+    }
+   }
+  },
+  "keywords": {
+   "dev": {
+    "all": {
+     "rows": 1668,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.479,
+       "recall": 0.504,
+       "support": 268
+      },
+      "mem_search": {
+       "precision": 0.624,
+       "recall": 0.321,
+       "support": 658
+      },
+      "ask_user": {
+       "precision": 0.471,
+       "recall": 0.133,
+       "support": 362
+      }
+     },
+     "missed_label_rate": 0.694,
+     "missed_all_rate": 0.528,
+     "missed_all_concern": 0.533,
+     "needless_rate": 0.248,
+     "getters_mean": 0.78
+    },
+    "he": {
+     "rows": 734,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.411,
+       "recall": 0.525,
+       "support": 118
+      },
+      "mem_search": {
+       "precision": 0.667,
+       "recall": 0.264,
+       "support": 288
+      },
+      "ask_user": {
+       "precision": 0.613,
+       "recall": 0.118,
+       "support": 161
+      }
+     },
+     "missed_label_rate": 0.723,
+     "missed_all_rate": 0.544,
+     "missed_all_concern": 0.553,
+     "needless_rate": 0.206,
+     "getters_mean": 0.73
+    },
+    "en": {
+     "rows": 735,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.563,
+       "recall": 0.492,
+       "support": 118
+      },
+      "mem_search": {
+       "precision": 0.608,
+       "recall": 0.382,
+       "support": 288
+      },
+      "ask_user": {
+       "precision": 0.407,
+       "recall": 0.148,
+       "support": 162
+      }
+     },
+     "missed_label_rate": 0.662,
+     "missed_all_rate": 0.519,
+     "missed_all_concern": 0.52,
+     "needless_rate": 0.303,
+     "getters_mean": 0.83
+    },
+    "mixed": {
+     "rows": 199,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.536,
+       "recall": 0.469,
+       "support": 32
+      },
+      "mem_search": {
+       "precision": 0.581,
+       "recall": 0.305,
+       "support": 82
+      },
+      "ask_user": {
+       "precision": 0.417,
+       "recall": 0.128,
+       "support": 39
+      }
+     },
+     "missed_label_rate": 0.706,
+     "missed_all_rate": 0.504,
+     "missed_all_concern": 0.505,
+     "needless_rate": 0.203,
+     "getters_mean": 0.75
+    }
+   },
+   "holdout": {
+    "all": {
+     "rows": 153,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.771,
+       "recall": 0.73,
+       "support": 37
+      },
+      "mem_search": {
+       "precision": 0.814,
+       "recall": 0.7,
+       "support": 50
+      },
+      "ask_user": {
+       "precision": 0.78,
+       "recall": 0.941,
+       "support": 34
+      }
+     },
+     "missed_label_rate": 0.223,
+     "missed_all_rate": 0.123,
+     "missed_all_concern": 0.136,
+     "needless_rate": 0.34,
+     "getters_mean": 1.25
+    },
+    "he": {
+     "rows": 59,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.714,
+       "recall": 0.714,
+       "support": 14
+      },
+      "mem_search": {
+       "precision": 0.846,
+       "recall": 0.647,
+       "support": 17
+      },
+      "ask_user": {
+       "precision": 0.688,
+       "recall": 0.846,
+       "support": 13
+      }
+     },
+     "missed_label_rate": 0.273,
+     "missed_all_rate": 0.179,
+     "missed_all_concern": 0.167,
+     "needless_rate": 0.35,
+     "getters_mean": 1.15
+    },
+    "en": {
+     "rows": 54,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.833,
+       "recall": 0.769,
+       "support": 13
+      },
+      "mem_search": {
+       "precision": 0.765,
+       "recall": 0.765,
+       "support": 17
+      },
+      "ask_user": {
+       "precision": 0.8,
+       "recall": 1.0,
+       "support": 12
+      }
+     },
+     "missed_label_rate": 0.167,
+     "missed_all_rate": 0.054,
+     "missed_all_concern": 0.071,
+     "needless_rate": 0.353,
+     "getters_mean": 1.31
+    },
+    "mixed": {
+     "rows": 40,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.778,
+       "recall": 0.7,
+       "support": 10
+      },
+      "mem_search": {
+       "precision": 0.846,
+       "recall": 0.688,
+       "support": 16
+      },
+      "ask_user": {
+       "precision": 0.9,
+       "recall": 1.0,
+       "support": 9
+      }
+     },
+     "missed_label_rate": 0.229,
+     "missed_all_rate": 0.133,
+     "missed_all_concern": 0.174,
+     "needless_rate": 0.3,
+     "getters_mean": 1.3
+    }
+   }
+  },
+  "qwen72b-teacher": {
+   "thresholds": {
+    "mem_recent": 0.9,
+    "mem_search": 0.9,
+    "ask_user": 0.9
+   },
+   "meta": {
+    "run": "qwen72b-teacher",
+    "base_model": "Qwen/Qwen2.5-72B-Instruct",
+    "note": "zero-shot 72B labeler = round-2 label source; dev probs are its own labels (circular)"
+   },
+   "dev": {
+    "all": {
+     "rows": 1668,
+     "per_label": {
+      "mem_recent": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 268
+      },
+      "mem_search": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 658
+      },
+      "ask_user": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 362
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.0,
+     "getters_mean": 1.29
+    },
+    "he": {
+     "rows": 734,
+     "per_label": {
+      "mem_recent": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 118
+      },
+      "mem_search": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 288
+      },
+      "ask_user": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 161
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.0,
+     "getters_mean": 1.29
+    },
+    "en": {
+     "rows": 735,
+     "per_label": {
+      "mem_recent": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 118
+      },
+      "mem_search": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 288
+      },
+      "ask_user": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 162
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.0,
+     "getters_mean": 1.29
+    },
+    "mixed": {
+     "rows": 199,
+     "per_label": {
+      "mem_recent": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 32
+      },
+      "mem_search": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 82
+      },
+      "ask_user": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 39
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.0,
+     "getters_mean": 1.31
+    }
+   },
+   "holdout": {
+    "all": {
+     "rows": 153,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.857,
+       "recall": 0.649,
+       "support": 37
+      },
+      "mem_search": {
+       "precision": 0.906,
+       "recall": 0.96,
+       "support": 50
+      },
+      "ask_user": {
+       "precision": 0.582,
+       "recall": 0.941,
+       "support": 34
+      }
+     },
+     "missed_label_rate": 0.14,
+     "missed_all_rate": 0.028,
+     "missed_all_concern": 0.037,
+     "needless_rate": 0.277,
+     "getters_mean": 1.35
+    },
+    "he": {
+     "rows": 59,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.9,
+       "recall": 0.643,
+       "support": 14
+      },
+      "mem_search": {
+       "precision": 0.889,
+       "recall": 0.941,
+       "support": 17
+      },
+      "ask_user": {
+       "precision": 0.545,
+       "recall": 0.923,
+       "support": 13
+      }
+     },
+     "missed_label_rate": 0.159,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.25,
+     "getters_mean": 1.27
+    },
+    "en": {
+     "rows": 54,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.818,
+       "recall": 0.692,
+       "support": 13
+      },
+      "mem_search": {
+       "precision": 0.895,
+       "recall": 1.0,
+       "support": 17
+      },
+      "ask_user": {
+       "precision": 0.611,
+       "recall": 0.917,
+       "support": 12
+      }
+     },
+     "missed_label_rate": 0.119,
+     "missed_all_rate": 0.054,
+     "missed_all_concern": 0.071,
+     "needless_rate": 0.294,
+     "getters_mean": 1.37
+    },
+    "mixed": {
+     "rows": 40,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.857,
+       "recall": 0.6,
+       "support": 10
+      },
+      "mem_search": {
+       "precision": 0.938,
+       "recall": 0.938,
+       "support": 16
+      },
+      "ask_user": {
+       "precision": 0.6,
+       "recall": 1.0,
+       "support": 9
+      }
+     },
+     "missed_label_rate": 0.143,
+     "missed_all_rate": 0.033,
+     "missed_all_concern": 0.043,
+     "needless_rate": 0.3,
+     "getters_mean": 1.45
+    }
+   }
+  },
+  "r2-e5lr": {
+   "thresholds": {
+    "mem_recent": 0.3079,
+    "mem_search": 0.3289,
+    "ask_user": 0.288
+   },
+   "meta": {
+    "run": "r2-e5lr",
+    "base_model": "intfloat/multilingual-e5-small",
+    "cfg": {
+     "base": "intfloat/multilingual-e5-small",
+     "frozen": true
+    },
+    "gpu": "A10G",
+    "train_rows": 9513,
+    "train_seconds": 6,
+    "container_seconds": 9,
+    "params": 117653760,
+    "container_cpu2_latency": {
+     "p50_ms": 21.6,
+     "p95_ms": 26.1
+    }
+   },
+   "dev": {
+    "all": {
+     "rows": 1668,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.346,
+       "recall": 0.903,
+       "support": 268
+      },
+      "mem_search": {
+       "precision": 0.621,
+       "recall": 0.901,
+       "support": 658
+      },
+      "ask_user": {
+       "precision": 0.359,
+       "recall": 0.901,
+       "support": 362
+      }
+     },
+     "missed_label_rate": 0.099,
+     "missed_all_rate": 0.028,
+     "missed_all_concern": 0.011,
+     "needless_rate": 0.507,
+     "getters_mean": 2.22
+    },
+    "he": {
+     "rows": 734,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.334,
+       "recall": 0.89,
+       "support": 118
+      },
+      "mem_search": {
+       "precision": 0.597,
+       "recall": 0.885,
+       "support": 288
+      },
+      "ask_user": {
+       "precision": 0.347,
+       "recall": 0.907,
+       "support": 161
+      }
+     },
+     "missed_label_rate": 0.108,
+     "missed_all_rate": 0.026,
+     "missed_all_concern": 0.008,
+     "needless_rate": 0.592,
+     "getters_mean": 2.3
+    },
+    "en": {
+     "rows": 735,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.367,
+       "recall": 0.898,
+       "support": 118
+      },
+      "mem_search": {
+       "precision": 0.634,
+       "recall": 0.91,
+       "support": 288
+      },
+      "ask_user": {
+       "precision": 0.383,
+       "recall": 0.914,
+       "support": 162
+      }
+     },
+     "missed_label_rate": 0.092,
+     "missed_all_rate": 0.03,
+     "missed_all_concern": 0.011,
+     "needless_rate": 0.431,
+     "getters_mean": 2.14
+    },
+    "mixed": {
+     "rows": 199,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.32,
+       "recall": 0.969,
+       "support": 32
+      },
+      "mem_search": {
+       "precision": 0.661,
+       "recall": 0.927,
+       "support": 82
+      },
+      "ask_user": {
+       "precision": 0.317,
+       "recall": 0.821,
+       "support": 39
+      }
+     },
+     "missed_label_rate": 0.092,
+     "missed_all_rate": 0.032,
+     "missed_all_concern": 0.02,
+     "needless_rate": 0.473,
+     "getters_mean": 2.27
+    }
+   },
+   "holdout": {
+    "all": {
+     "rows": 153,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.456,
+       "recall": 0.973,
+       "support": 37
+      },
+      "mem_search": {
+       "precision": 0.746,
+       "recall": 0.88,
+       "support": 50
+      },
+      "ask_user": {
+       "precision": 0.42,
+       "recall": 1.0,
+       "support": 34
+      }
+     },
+     "missed_label_rate": 0.058,
+     "missed_all_rate": 0.009,
+     "missed_all_concern": 0.012,
+     "needless_rate": 0.617,
+     "getters_mean": 2.08
+    },
+    "he": {
+     "rows": 59,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.412,
+       "recall": 1.0,
+       "support": 14
+      },
+      "mem_search": {
+       "precision": 0.636,
+       "recall": 0.824,
+       "support": 17
+      },
+      "ask_user": {
+       "precision": 0.394,
+       "recall": 1.0,
+       "support": 13
+      }
+     },
+     "missed_label_rate": 0.068,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.7,
+     "getters_mean": 2.2
+    },
+    "en": {
+     "rows": 54,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.522,
+       "recall": 0.923,
+       "support": 13
+      },
+      "mem_search": {
+       "precision": 0.8,
+       "recall": 0.941,
+       "support": 17
+      },
+      "ask_user": {
+       "precision": 0.462,
+       "recall": 1.0,
+       "support": 12
+      }
+     },
+     "missed_label_rate": 0.048,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.588,
+     "getters_mean": 1.87
+    },
+    "mixed": {
+     "rows": 40,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.455,
+       "recall": 1.0,
+       "support": 10
+      },
+      "mem_search": {
+       "precision": 0.824,
+       "recall": 0.875,
+       "support": 16
+      },
+      "ask_user": {
+       "precision": 0.409,
+       "recall": 1.0,
+       "support": 9
+      }
+     },
+     "missed_label_rate": 0.057,
+     "missed_all_rate": 0.033,
+     "missed_all_concern": 0.043,
+     "needless_rate": 0.5,
+     "getters_mean": 2.17
+    }
+   }
+  },
+  "r2-e5s": {
+   "thresholds": {
+    "mem_recent": 0.0432,
+    "mem_search": 0.1338,
+    "ask_user": 0.0436
+   },
+   "meta": {
+    "run": "r2-e5s",
+    "base_model": "intfloat/multilingual-e5-small",
+    "cfg": {
+     "base": "intfloat/multilingual-e5-small",
+     "lr": 5e-05,
+     "epochs": 6,
+     "bs": 32
+    },
+    "gpu": "A10G",
+    "train_rows": 9513,
+    "train_seconds": 90,
+    "container_seconds": 104,
+    "params": 117654915,
+    "container_cpu2_latency": {
+     "p50_ms": 18.4,
+     "p95_ms": 22.9
+    }
+   },
+   "dev": {
+    "all": {
+     "rows": 1668,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.409,
+       "recall": 0.903,
+       "support": 268
+      },
+      "mem_search": {
+       "precision": 0.698,
+       "recall": 0.9,
+       "support": 658
+      },
+      "ask_user": {
+       "precision": 0.362,
+       "recall": 0.901,
+       "support": 362
+      }
+     },
+     "missed_label_rate": 0.099,
+     "missed_all_rate": 0.038,
+     "missed_all_concern": 0.022,
+     "needless_rate": 0.357,
+     "getters_mean": 2.09
+    },
+    "he": {
+     "rows": 734,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.385,
+       "recall": 0.89,
+       "support": 118
+      },
+      "mem_search": {
+       "precision": 0.682,
+       "recall": 0.878,
+       "support": 288
+      },
+      "ask_user": {
+       "precision": 0.367,
+       "recall": 0.913,
+       "support": 161
+      }
+     },
+     "missed_label_rate": 0.109,
+     "missed_all_rate": 0.043,
+     "missed_all_concern": 0.024,
+     "needless_rate": 0.386,
+     "getters_mean": 2.11
+    },
+    "en": {
+     "rows": 735,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.428,
+       "recall": 0.907,
+       "support": 118
+      },
+      "mem_search": {
+       "precision": 0.697,
+       "recall": 0.917,
+       "support": 288
+      },
+      "ask_user": {
+       "precision": 0.371,
+       "recall": 0.914,
+       "support": 162
+      }
+     },
+     "missed_label_rate": 0.086,
+     "missed_all_rate": 0.03,
+     "missed_all_concern": 0.016,
+     "needless_rate": 0.348,
+     "getters_mean": 2.08
+    },
+    "mixed": {
+     "rows": 199,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.435,
+       "recall": 0.938,
+       "support": 32
+      },
+      "mem_search": {
+       "precision": 0.765,
+       "recall": 0.915,
+       "support": 82
+      },
+      "ask_user": {
+       "precision": 0.304,
+       "recall": 0.795,
+       "support": 39
+      }
+     },
+     "missed_label_rate": 0.111,
+     "missed_all_rate": 0.048,
+     "missed_all_concern": 0.04,
+     "needless_rate": 0.284,
+     "getters_mean": 2.01
+    }
+   },
+   "holdout": {
+    "all": {
+     "rows": 153,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.618,
+       "recall": 0.919,
+       "support": 37
+      },
+      "mem_search": {
+       "precision": 0.75,
+       "recall": 0.9,
+       "support": 50
+      },
+      "ask_user": {
+       "precision": 0.32,
+       "recall": 0.912,
+       "support": 34
+      }
+     },
+     "missed_label_rate": 0.091,
+     "missed_all_rate": 0.047,
+     "missed_all_concern": 0.049,
+     "needless_rate": 0.511,
+     "getters_mean": 2.01
+    },
+    "he": {
+     "rows": 59,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.632,
+       "recall": 0.857,
+       "support": 14
+      },
+      "mem_search": {
+       "precision": 0.727,
+       "recall": 0.941,
+       "support": 17
+      },
+      "ask_user": {
+       "precision": 0.3,
+       "recall": 0.923,
+       "support": 13
+      }
+     },
+     "missed_label_rate": 0.091,
+     "missed_all_rate": 0.051,
+     "missed_all_concern": 0.067,
+     "needless_rate": 0.65,
+     "getters_mean": 1.97
+    },
+    "en": {
+     "rows": 54,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.571,
+       "recall": 0.923,
+       "support": 13
+      },
+      "mem_search": {
+       "precision": 0.682,
+       "recall": 0.882,
+       "support": 17
+      },
+      "ask_user": {
+       "precision": 0.323,
+       "recall": 0.833,
+       "support": 12
+      }
+     },
+     "missed_label_rate": 0.119,
+     "missed_all_rate": 0.081,
+     "missed_all_concern": 0.071,
+     "needless_rate": 0.471,
+     "getters_mean": 2.04
+    },
+    "mixed": {
+     "rows": 40,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.667,
+       "recall": 1.0,
+       "support": 10
+      },
+      "mem_search": {
+       "precision": 0.875,
+       "recall": 0.875,
+       "support": 16
+      },
+      "ask_user": {
+       "precision": 0.346,
+       "recall": 1.0,
+       "support": 9
+      }
+     },
+     "missed_label_rate": 0.057,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.3,
+     "getters_mean": 2.02
+    }
+   }
+  },
+  "r2-xlmr": {
+   "thresholds": {
+    "mem_recent": 0.0336,
+    "mem_search": 0.1039,
+    "ask_user": 0.0407
+   },
+   "meta": {
+    "run": "r2-xlmr",
+    "base_model": "xlm-roberta-base",
+    "cfg": {
+     "base": "xlm-roberta-base",
+     "lr": 2e-05,
+     "epochs": 5,
+     "bs": 32
+    },
+    "gpu": "A10G",
+    "train_rows": 9513,
+    "train_seconds": 179,
+    "container_seconds": 213,
+    "params": 278045955,
+    "container_cpu2_latency": {
+     "p50_ms": 43.1,
+     "p95_ms": 50.0
+    }
+   },
+   "dev": {
+    "all": {
+     "rows": 1668,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.458,
+       "recall": 0.899,
+       "support": 268
+      },
+      "mem_search": {
+       "precision": 0.712,
+       "recall": 0.901,
+       "support": 658
+      },
+      "ask_user": {
+       "precision": 0.381,
+       "recall": 0.898,
+       "support": 362
+      }
+     },
+     "missed_label_rate": 0.1,
+     "missed_all_rate": 0.029,
+     "missed_all_concern": 0.009,
+     "needless_rate": 0.347,
+     "getters_mean": 1.96
+    },
+    "he": {
+     "rows": 734,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.453,
+       "recall": 0.89,
+       "support": 118
+      },
+      "mem_search": {
+       "precision": 0.705,
+       "recall": 0.896,
+       "support": 288
+      },
+      "ask_user": {
+       "precision": 0.377,
+       "recall": 0.894,
+       "support": 161
+      }
+     },
+     "missed_label_rate": 0.106,
+     "missed_all_rate": 0.034,
+     "missed_all_concern": 0.013,
+     "needless_rate": 0.378,
+     "getters_mean": 1.97
+    },
+    "en": {
+     "rows": 735,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.465,
+       "recall": 0.907,
+       "support": 118
+      },
+      "mem_search": {
+       "precision": 0.713,
+       "recall": 0.896,
+       "support": 288
+      },
+      "ask_user": {
+       "precision": 0.39,
+       "recall": 0.907,
+       "support": 162
+      }
+     },
+     "missed_label_rate": 0.099,
+     "missed_all_rate": 0.03,
+     "missed_all_concern": 0.008,
+     "needless_rate": 0.326,
+     "getters_mean": 1.94
+    },
+    "mixed": {
+     "rows": 199,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.453,
+       "recall": 0.906,
+       "support": 32
+      },
+      "mem_search": {
+       "precision": 0.733,
+       "recall": 0.939,
+       "support": 82
+      },
+      "ask_user": {
+       "precision": 0.366,
+       "recall": 0.872,
+       "support": 39
+      }
+     },
+     "missed_label_rate": 0.085,
+     "missed_all_rate": 0.008,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.311,
+     "getters_mean": 1.99
+    }
+   },
+   "holdout": {
+    "all": {
+     "rows": 153,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.667,
+       "recall": 0.919,
+       "support": 37
+      },
+      "mem_search": {
+       "precision": 0.769,
+       "recall": 0.8,
+       "support": 50
+      },
+      "ask_user": {
+       "precision": 0.407,
+       "recall": 0.971,
+       "support": 34
+      }
+     },
+     "missed_label_rate": 0.116,
+     "missed_all_rate": 0.019,
+     "missed_all_concern": 0.025,
+     "needless_rate": 0.362,
+     "getters_mean": 1.77
+    },
+    "he": {
+     "rows": 59,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.65,
+       "recall": 0.929,
+       "support": 14
+      },
+      "mem_search": {
+       "precision": 0.727,
+       "recall": 0.941,
+       "support": 17
+      },
+      "ask_user": {
+       "precision": 0.4,
+       "recall": 0.923,
+       "support": 13
+      }
+     },
+     "missed_label_rate": 0.068,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.45,
+     "getters_mean": 1.83
+    },
+    "en": {
+     "rows": 54,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.6,
+       "recall": 0.923,
+       "support": 13
+      },
+      "mem_search": {
+       "precision": 0.812,
+       "recall": 0.765,
+       "support": 17
+      },
+      "ask_user": {
+       "precision": 0.4,
+       "recall": 1.0,
+       "support": 12
+      }
+     },
+     "missed_label_rate": 0.119,
+     "missed_all_rate": 0.027,
+     "missed_all_concern": 0.036,
+     "needless_rate": 0.353,
+     "getters_mean": 1.78
+    },
+    "mixed": {
+     "rows": 40,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.818,
+       "recall": 0.9,
+       "support": 10
+      },
+      "mem_search": {
+       "precision": 0.786,
+       "recall": 0.688,
+       "support": 16
+      },
+      "ask_user": {
+       "precision": 0.429,
+       "recall": 1.0,
+       "support": 9
+      }
+     },
+     "missed_label_rate": 0.171,
+     "missed_all_rate": 0.033,
+     "missed_all_concern": 0.043,
+     "needless_rate": 0.2,
+     "getters_mean": 1.68
+    }
+   }
+  }
+ }
+}

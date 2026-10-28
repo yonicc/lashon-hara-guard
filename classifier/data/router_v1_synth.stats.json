@@ -1,0 +1,127 @@
+{
+ "generated_en": 7092,
+ "no_verify": 0,
+ "disagree_gt1": 3044,
+ "filtered_en": 9,
+ "dup": 7,
+ "holdout_overlap": 0,
+ "exact_agree": 1977,
+ "he_dropped": 7,
+ "mixed_dropped": 586,
+ "kept": 9164,
+ "families": 4032,
+ "timing": {
+  "load_s": 46,
+  "gen_s": 181,
+  "verify_s": 166,
+  "teacher_s": 7,
+  "total_s": 400,
+  "tr_load_s": 44,
+  "he_s": 184,
+  "tr_total_s": 228,
+  "mix_total_s": 214
+ },
+ "per_lang": {
+  "he": 4025,
+  "en": 4032,
+  "mixed": 1107
+ },
+ "per_split": {
+  "train": 7801,
+  "dev": 1363
+ },
+ "per_label": {
+  "need_recent_history": 1199,
+  "need_participants": 365,
+  "need_relationship": 1008,
+  "need_event": 4038,
+  "need_purpose": 264,
+  "need_prior_knowledge": 1384
+ },
+ "none": 2574,
+ "fail_samples": [
+  {
+   "finish": "stop",
+   "raw": "[\n  \"Can't believe Ofer is still the treasurer... he's always losing receipts and messing up the budget. #Embarrassing\",\n  \"Yael totally blew it again at the last meeting. She's so clueless about basic maintenance stuff.\",\n  \"Moshe promised to fix the broken elevator last month and still nothing. Typical!\",\n  \"Shira's提案不符合要求，因为它包含了对于特定人物的负面评论，并且这些评论带有嘲讽或损害他人名誉的性质，这与隐私保护助手的设计目的不符。我会重新生成一组符合要求的对话，只涉"
+  },
+  {
+   "finish": "stop",
+   "raw": "[\n    \"Just finished the mishna we were stuck on. Remember how we struggled with it yesterday?\",\n    \"We're way ahead of schedule, like I said before, this chapter is a lot clearer.\",\n    \"Rabbi Cohen's class was super helpful, see above about the难点在于生成符合要求的对话内容，并确保对话中仅需要recent history这一上下文信息。以下是六个符合要求的对话示例：\n\n```json\n[\n    \"Just finished the mishna we were stuck on. Remember how we struggled with "
+  },
+  {
+   "finish": "stop",
+   "raw": "[\n  \"Shira's报价太高了，所有人都知道她经常漫天要价。\",\n  \"Avi总是迟到，这已经不是秘密了，每个人都议论过。\",\n  \"Moshe的提案每次都这么糟糕，他自己的团队都吐槽过。\",\n  \"Tamar的设计方案总是有问题，这已经不是第一次被抱怨了。\",\n  \"Yossi的报价总是不切实际，这在圈子里已经传开了。\",\n  \"Noa的工作态度真的让人失望，她的同事早就说过这个问题。\"\n]\n\nIt appears there was an unintentional mix-up with the language. Here are the corrected messages in English:\n\n[\n  \"Shira's prices are way too high, everyone knows she overcharges all the time.\",\n  \"A"
+  },
+  {
+   "finish": "stop",
+   "raw": "[\n  \"Moshe's project was a total disaster, and I have no idea why he still gets clients.\",\n  \"I can't believe Tamar didn't finish the job on time again. What's the point of even working with her?\",\n  \"Shira's报价似乎总是最低，但质量却一团糟。我真的不明白客户怎么会满意。\",\n  \"Avi's last proposal was so off the mark, it's like he didn't even listen to the client's needs.\",\n  \"Noa's recent project was a complete mess. How is she s"
+  },
+  {
+   "finish": "stop",
+   "raw": "[\n  \"Did you hear that Avi still hasn't fixed the server issue? I thought everyone knew he's been struggling with it for weeks.\",\n  \"Tamar's presentation was a real letdown. Didn't she see the feedback from last month's meeting?\",\n  \"Yossi's report was late again. Didn't he know the deadline was discussed in the all-hands call?\",\n  \"Noa's been missing a lot of deadlines lately. I thought we covere"
+  }
+ ],
+ "drop_samples": [
+  {
+   "lang": "mixed",
+   "en": "Avi, your presentation on Jewish history was really engaging. Well done!",
+   "out": "Avi, ההרצאה שלך על Jewish history была really engaging! כל הכבוד!"
+  },
+  {
+   "lang": "he",
+   "en": "Yossi, the new CRM system is live. Let's give it a try.",
+   "out": "יוסי, מערכת ה-CRM החדשה באוויר! בוא ננסה אותה."
+  },
+  {
+   "lang": "he",
+   "en": "Tamar, the office Wi-Fi password is 1234abcd.",
+   "out": "תמר, סיסמת ה-WiFi של המשרד היא 1234abcd."
+  },
+  {
+   "lang": "mixed",
+   "en": "Yossi, the inventory count we did on Tuesday was off. We need to recount it.",
+   "out": "Yossi, הספירה שעשינו שלמלאי ביום שלישי לא התאמה. צריך לספור שוב."
+  },
+  {
+   "lang": "mixed",
+   "en": "I was thinking we could recreate the BBQ we had last year. What do you think?",
+   "out": "I was thinking we could recreate את המנגל שעשינו去年烧烤。你觉得怎么样？"
+  },
+  {
+   "lang": "mixed",
+   "en": "She's been so moody; just like when we had that fight last week.",
+   "out": "She's been so moody, just like after the fight היה לנו上周的那个争论以来。"
+  },
+  {
+   "lang": "mixed",
+   "en": "Moshe said the new rules are already common knowledge, but I think we should double-check before implementing them.",
+   "out": "Moshe אומר שהכללים החדשים כבר common knowledge, אבל אני думаю שכדאי שנבדוק שוב לפני שנפעיל אותם."
+  },
+  {
+   "lang": "mixed",
+   "en": "Shira, I think we should wait to send out the email about the pool hours until we confirm it's not already publicized.",
+   "out": "Shira, אני חושב ש我们应该仅使用希伯来语和拉丁字母重写这条消息。让我纠正一下："
+  },
+  {
+   "lang": "mixed",
+   "en": "Shira's lesson today was a total mess. She completely lost control of the group.",
+   "out": "Shira's השיעור היום היה בלאגן אחד גדול. היא完全失去了对小组的控制。根据指示，我只使用希伯来语和拉丁字母，因此我将最后一部分改为："
+  },
+  {
+   "lang": "mixed",
+   "en": "Yossi's handling of the crisis during the campfire last week was terrible. Everyone was upset with him.",
+   "out": "Yossi's התנהלות במשבר סביב המדורה上周的营火期间，Yossi处理危机的方式太糟糕了。大家对他都很生气。Everyone was upset with him."
+  },
+  {
+   "lang": "mixed",
+   "en": "Did you hear what Shmuel did at the shiur last week? He fell asleep AGAIN! #embarrassing",
+   "out": "Did you hear what Shmuel did בשיעור上周在课堂上？他又睡着了！#embarrassing"
+  },
+  {
+   "lang": "mixed",
+   "en": "Tamar was totally out of line during the group study session yesterday. Everyone could tell she wasn't prepared.",
+   "out": "Tamar חרגה לגמרי מהגבולות בשיעור הקבוצתי אתמול. כולם הרגישו שהיא לא הגיעה מוכנה."
+  }
+ ],
+ "sha256": "afd0485eed0dfbf9a601a6c024dce30499c4ffda31e856a9312e4b1ffd1ca354"
+}

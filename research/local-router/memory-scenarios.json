@@ -1,0 +1,35 @@
+{
+ "note": "SYNTHETIC, agent-authored (Claude), agent_reviewed; human_review_pending. Each scenario is its own conversation scope. 'planted' is the context the message needs; 'need' is the head that should fetch it. mem_search plants are older than the 5 latest messages (so only search can find them); mem_recent plants are the latest message.",
+ "distractors": [
+  "מי מביא את השתייה ליום שישי?",
+  "אני אאחר בעשר דקות",
+  "תודה על ההסעה אתמול",
+  "שלחתי את הקובץ במייל",
+  "Can someone share the zoom link?",
+  "יש חניה ליד הבניין?",
+  "great job everyone on the launch",
+  "התחזית אומרת שיירד גשם בשבת",
+  "מישהו ראה את המטען שלי?",
+  "הישיבה הבאה ביום ראשון בשמונה",
+  "the printer on floor 2 is fixed",
+  "תזכורת: לשלם עד סוף החודש"
+ ],
+ "scenarios": [
+  {"id": "s01", "lang": "he", "need": "mem_search", "message": "כמו שכבר דיברנו, ההתנהלות של הוועד בעייתית", "planted": "בחודש שעבר דיברנו על זה שהוועד לא מפרסם את הדוחות הכספיים", "key": "הדוחות הכספיים"},
+  {"id": "s02", "lang": "he", "need": "mem_search", "message": "שוב הסיפור עם יוסי והקופה? כבר שמענו", "planted": "אומרים שיוסי לקח כסף מהקופה של החנות", "key": "מהקופה"},
+  {"id": "s03", "lang": "he", "need": "mem_search", "message": "אחרי מה שקרה בטיול השנתי אני לא סומך על המדריך", "planted": "בטיול השנתי המדריך השאיר שני ילדים לבד ליד המעיין", "key": "ליד המעיין"},
+  {"id": "s04", "lang": "he", "need": "mem_search", "message": "זוכרים את העניין עם המכונית של בני? מסתבר שהוא שיקר", "planted": "בני סיפר שמישהו פגע לו במכונית בחניון", "key": "בחניון"},
+  {"id": "s05", "lang": "he", "need": "mem_search", "message": "זה נכון מה שאומרים על המורה החדש?", "planted": "שמעתי שהמורה החדש לחשבון פוטר מבית הספר הקודם", "key": "פוטר"},
+  {"id": "s06", "lang": "en", "need": "mem_search", "message": "As we discussed last month, the HOA budget handling is shady", "planted": "last month we found the HOA never published the budget report", "key": "budget report"},
+  {"id": "s07", "lang": "en", "need": "mem_search", "message": "Remember the story with Ben's car? turns out he lied", "planted": "Ben said someone scratched his car in the parking lot", "key": "parking lot"},
+  {"id": "s08", "lang": "en", "need": "mem_search", "message": "After what happened at the board meeting I'm done with Linda", "planted": "at the board meeting Linda blamed the whole team for the missed deadline", "key": "missed deadline"},
+  {"id": "s09", "lang": "en", "need": "mem_search", "message": "Is it true what people are saying about the new rabbi?", "planted": "people say the new rabbi left his previous community after a dispute", "key": "dispute"},
+  {"id": "s10", "lang": "mixed", "need": "mem_search", "message": "כמו שדיברנו last month, הוועד מתנהל shady לגמרי", "planted": "last month גילינו שהוועד לא פרסם את ה-budget report", "key": "budget report"},
+  {"id": "s11", "lang": "mixed", "need": "mem_search", "message": "זוכרים את הסיפור עם ה-car של Ben? מסתבר שהוא lied", "planted": "Ben סיפר שמישהו scratched את האוטו שלו בחניון", "key": "scratched"},
+  {"id": "s12", "lang": "he", "need": "mem_recent", "message": "אבי שוב עשה את זה, לא ייאמן", "planted": "אבי שוב השאיר את הכלים בכיור של המשרד", "key": "בכיור"},
+  {"id": "s13", "lang": "he", "need": "mem_recent", "message": "ואז היא ענתה לו את זה?! איזו חוצפנית", "planted": "דנה אמרה למנהל שהוא לא מבין כלום בתקציב", "key": "בתקציב"},
+  {"id": "s14", "lang": "en", "need": "mem_recent", "message": "so what do you think of her now?", "planted": "Maya just told the whole class she copied the essay", "key": "copied the essay"},
+  {"id": "s15", "lang": "en", "need": "mem_recent", "message": "lol exactly what he wrote, what a genius 🙄", "planted": "Tom wrote that the server outage was the users' fault", "key": "server outage"},
+  {"id": "s16", "lang": "mixed", "need": "mem_recent", "message": "ואז היא said that to him?! איזו חוצפה", "planted": "Noa אמרה ל-manager שהוא לא מבין כלום ב-budget", "key": "budget"}
+ ]
+}
