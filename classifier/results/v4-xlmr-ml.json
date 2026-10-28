@@ -1,0 +1,319 @@
+{
+ "run": "v4-xlmr-ml",
+ "base_model": "FacebookAI/xlm-roberta-base",
+ "train_rows": 8401,
+ "test_rows": 2088,
+ "epochs": 4,
+ "train_seconds": 469,
+ "cpu_ms_per_message": 121.8,
+ "thresholds": {
+  "0.1": {
+   "concern_recall": 0.988,
+   "precision": 0.985,
+   "f1": 0.987,
+   "harmless_escalated": 0.016
+  },
+  "0.2": {
+   "concern_recall": 0.985,
+   "precision": 0.987,
+   "f1": 0.986,
+   "harmless_escalated": 0.014
+  },
+  "0.3": {
+   "concern_recall": 0.984,
+   "precision": 0.991,
+   "f1": 0.988,
+   "harmless_escalated": 0.01
+  },
+  "0.5": {
+   "concern_recall": 0.983,
+   "precision": 0.991,
+   "f1": 0.987,
+   "harmless_escalated": 0.01
+  },
+  "0.7": {
+   "concern_recall": 0.98,
+   "precision": 0.991,
+   "f1": 0.985,
+   "harmless_escalated": 0.01
+  }
+ },
+ "per_category": {
+  "n_thanks": {
+   "n": 75,
+   "hit@0.3": 75
+  },
+  "c_mock_praise": {
+   "n": 68,
+   "hit@0.3": 67
+  },
+  "n_humor": {
+   "n": 68,
+   "hit@0.3": 65
+  },
+  "c_habit": {
+   "n": 64,
+   "hit@0.3": 64
+  },
+  "c_gossip": {
+   "n": 68,
+   "hit@0.3": 67
+  },
+  "n_neutral_fact": {
+   "n": 70,
+   "hit@0.3": 70
+  },
+  "n_self": {
+   "n": 70,
+   "hit@0.3": 69
+  },
+  "c_group": {
+   "n": 69,
+   "hit@0.3": 68
+  },
+  "n_request": {
+   "n": 64,
+   "hit@0.3": 64
+  },
+  "n_idea_critique": {
+   "n": 68,
+   "hit@0.3": 68
+  },
+  "n_sincere_praise": {
+   "n": 63,
+   "hit@0.3": 61
+  },
+  "n_feelings": {
+   "n": 68,
+   "hit@0.3": 68
+  },
+  "c_direct": {
+   "n": 65,
+   "hit@0.3": 64
+  },
+  "n_good_news": {
+   "n": 74,
+   "hit@0.3": 74
+  },
+  "c_hint": {
+   "n": 66,
+   "hit@0.3": 65
+  },
+  "c_omission": {
+   "n": 66,
+   "hit@0.3": 66
+  },
+  "c_negative_fact": {
+   "n": 71,
+   "hit@0.3": 69
+  },
+  "c_rhetorical": {
+   "n": 65,
+   "hit@0.3": 65
+  },
+  "n_logistics": {
+   "n": 70,
+   "hit@0.3": 69
+  },
+  "c_irony": {
+   "n": 62,
+   "hit@0.3": 59
+  },
+  "c_insinuation": {
+   "n": 60,
+   "hit@0.3": 57
+  },
+  "n_short_reaction": {
+   "n": 105,
+   "hit@0.3": 105
+  },
+  "c_conditional_praise": {
+   "n": 76,
+   "hit@0.3": 75
+  },
+  "n_hard_praise": {
+   "n": 100,
+   "hit@0.3": 98
+  },
+  "n_hard_logistics": {
+   "n": 105,
+   "hit@0.3": 104
+  },
+  "c_logistic_jab": {
+   "n": 90,
+   "hit@0.3": 89
+  },
+  "c_private_exposure": {
+   "n": 96,
+   "hit@0.3": 94
+  },
+  "c_avoid_person": {
+   "n": 102,
+   "hit@0.3": 102
+  }
+ },
+ "misses": [
+  {
+   "text": "Guys, the singing works great solo, but in a group, it's just chaotic",
+   "category": "c_conditional_praise",
+   "label": 1,
+   "p": 0.002
+  },
+  {
+   "text": "Ruti the gossip is completely out of my life",
+   "category": "c_direct",
+   "label": 1,
+   "p": 0.116
+  },
+  {
+   "text": "Alon my brother, Eli said he'll film you and send it to the municipality about the balcony",
+   "category": "c_gossip",
+   "label": 1,
+   "p": 0.029
+  },
+  {
+   "text": "אני אומרת לכם הצוות של אולם שמחת עולם על הפנים, שירות איטי מבולגן כזה לא ראיתי בחיים, הרסו לנו את כל האירוע של דודה מירי",
+   "category": "c_group",
+   "label": 1,
+   "p": 0.025
+  },
+  {
+   "text": "Great job throwing trash outside the bin in the garbage room, thanks to you there's a terrible smell and mice. Really appreciate your consideration for your neighbors 👏",
+   "category": "c_hint",
+   "label": 1,
+   "p": 0.002
+  },
+  {
+   "text": "אבי תעדכן בפרטי אם צריך 🙏",
+   "category": "c_insinuation",
+   "label": 1,
+   "p": 0.122
+  },
+  {
+   "text": "חברים בואו נסכם שביום שישי אוכלים אצל אמא בלי ויכוחים מיותרים אתם יודעים למה אני מתכוונת בואו נעשה ערב נעים ורגוע לכולם ❤️",
+   "category": "c_insinuation",
+   "label": 1,
+   "p": 0.009
+  },
+  {
+   "text": "מי שצריך פרטים שיפנה אליי",
+   "category": "c_insinuation",
+   "label": 1,
+   "p": 0.004
+  },
+  {
+   "text": "תודה ענקית לנועה השכנה שהתנדבה לשמור על הכלב ולקחה אותו לטיול של חמש דקות, רואים שהיא ממש השקיעה והתאמצה בשבילו הבוקר",
+   "category": "c_irony",
+   "label": 1,
+   "p": 0.006
+  },
+  {
+   "text": "תודה רבה לגל על הטרמפ המדהים",
+   "category": "c_irony",
+   "label": 1,
+   "p": 0.009
+  },
+  {
+   "text": "יוסי כרגיל הגיע ראשון היום",
+   "category": "c_irony",
+   "label": 1,
+   "p": 0.002
+  },
+  {
+   "text": "תכתבו לנועה שההסעה יוצאת בשמונה, עם חצי שעה ספייר לאחר",
+   "category": "c_logistic_jab",
+   "label": 1,
+   "p": 0.078
+  },
+  {
+   "text": "Wow, how our dedicated Dana managed to prepare two slides in two whole days, really a work pace that inspires us all here.",
+   "category": "c_mock_praise",
+   "label": 1,
+   "p": 0.007
+  },
+  {
+   "text": "Shimon the new guy is getting involved with implementation",
+   "category": "c_negative_fact",
+   "label": 1,
+   "p": 0.001
+  },
+  {
+   "text": "מיכל סיפרה לי שבעלה עזב את הבית, המצב שם ממש על הפנים",
+   "category": "c_negative_fact",
+   "label": 1,
+   "p": 0.174
+  },
+  {
+   "text": "שלח לי הודעה מגעילה אשלח צילום",
+   "category": "c_private_exposure",
+   "label": 1,
+   "p": 0.001
+  },
+  {
+   "text": "השמעתי לכולם את ההקלטה שלך",
+   "category": "c_private_exposure",
+   "label": 1,
+   "p": 0.211
+  },
+  {
+   "text": "תמר תאספי את עומר מחוג ציור",
+   "category": "n_hard_logistics",
+   "label": 0,
+   "p": 0.996
+  },
+  {
+   "text": "איזה כיף שמאיה שמרה על הילדים בהפסקה כשהמורה איחרה ממש הצילה אותנו",
+   "category": "n_hard_praise",
+   "label": 0,
+   "p": 0.977
+  },
+  {
+   "text": "Great job to Matan for not giving up in the run",
+   "category": "n_hard_praise",
+   "label": 0,
+   "p": 0.993
+  },
+  {
+   "text": "הילדה טוענת שהמורה ביטלה שיעורי בית בגלל שהירח מלא הלילה",
+   "category": "n_humor",
+   "label": 0,
+   "p": 0.729
+  },
+  {
+   "text": "מזכירה לכולם שהישיבה מחר נדחית בעשר דקות כי המעלית עושה דרמה כמו בכל יום ראשון בבוקר בלי יוצא מן הכלל",
+   "category": "n_humor",
+   "label": 0,
+   "p": 0.932
+  },
+  {
+   "text": "בוקר אור, מי שאיבד קופסת אוכל כחולה עם מדבקת כוכבים היא אצלנו, הילד שלי טוען שהיא אימצה אותו והוא לא מוכן להיפרד ממנה כל כך מהר",
+   "category": "n_humor",
+   "label": 0,
+   "p": 0.977
+  },
+  {
+   "text": "Bring a חוגר ו Zionist לשער",
+   "category": "n_logistics",
+   "label": 0,
+   "p": 0.977
+  },
+  {
+   "text": "Every time, you ruin everything",
+   "category": "n_self",
+   "label": 0,
+   "p": 1.0
+  },
+  {
+   "text": "Avi the electrician is such a giant. First, he fixed the staircase lighting on Sabbath evening and refused to take a single shekel for the great job.",
+   "category": "n_sincere_praise",
+   "label": 0,
+   "p": 0.753
+  },
+  {
+   "text": "אבא שלי אתה יודע כמה הוא טוב לב הוא לקח את הילדים לגינה לשעתיים כדי שננוח אמר שזה התענוג שלו אין על הלב הענק שלו בעולם",
+   "category": "n_sincere_praise",
+   "label": 0,
+   "p": 0.893
+  }
+ ]
+}

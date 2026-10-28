@@ -9,6 +9,7 @@ import time
 import modal
 
 os.environ["LHG_GATE_RUN"] = "v3-multilingual-pilot"
+os.environ["LHG_GATE_RUN_ML"] = ""  # reproduce the single-model pilot (routing came later, docs/31)
 from serve_modal import app, Gate
 from eval_phase_a import metrics, norm
 

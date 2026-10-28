@@ -1,0 +1,343 @@
+{
+ "run": "v4-dicta-he2",
+ "base_model": "dicta-il/dictabert",
+ "train_rows": 12067,
+ "test_rows": 3001,
+ "epochs": 4,
+ "train_seconds": 479,
+ "cpu_ms_per_message": 115.4,
+ "thresholds": {
+  "0.1": {
+   "concern_recall": 0.996,
+   "precision": 0.983,
+   "f1": 0.989,
+   "harmless_escalated": 0.02
+  },
+  "0.2": {
+   "concern_recall": 0.994,
+   "precision": 0.987,
+   "f1": 0.991,
+   "harmless_escalated": 0.014
+  },
+  "0.3": {
+   "concern_recall": 0.992,
+   "precision": 0.989,
+   "f1": 0.99,
+   "harmless_escalated": 0.013
+  },
+  "0.5": {
+   "concern_recall": 0.991,
+   "precision": 0.991,
+   "f1": 0.991,
+   "harmless_escalated": 0.01
+  },
+  "0.7": {
+   "concern_recall": 0.989,
+   "precision": 0.992,
+   "f1": 0.99,
+   "harmless_escalated": 0.009
+  }
+ },
+ "per_category": {
+  "n_thanks": {
+   "n": 104,
+   "hit@0.3": 104
+  },
+  "c_mock_praise": {
+   "n": 97,
+   "hit@0.3": 93
+  },
+  "n_humor": {
+   "n": 96,
+   "hit@0.3": 90
+  },
+  "c_habit": {
+   "n": 93,
+   "hit@0.3": 93
+  },
+  "c_gossip": {
+   "n": 96,
+   "hit@0.3": 96
+  },
+  "n_neutral_fact": {
+   "n": 98,
+   "hit@0.3": 98
+  },
+  "n_self": {
+   "n": 99,
+   "hit@0.3": 98
+  },
+  "c_group": {
+   "n": 97,
+   "hit@0.3": 95
+  },
+  "n_request": {
+   "n": 92,
+   "hit@0.3": 91
+  },
+  "n_idea_critique": {
+   "n": 96,
+   "hit@0.3": 96
+  },
+  "n_sincere_praise": {
+   "n": 91,
+   "hit@0.3": 89
+  },
+  "n_feelings": {
+   "n": 97,
+   "hit@0.3": 97
+  },
+  "c_direct": {
+   "n": 94,
+   "hit@0.3": 94
+  },
+  "n_good_news": {
+   "n": 103,
+   "hit@0.3": 103
+  },
+  "c_hint": {
+   "n": 94,
+   "hit@0.3": 93
+  },
+  "c_omission": {
+   "n": 95,
+   "hit@0.3": 95
+  },
+  "c_negative_fact": {
+   "n": 100,
+   "hit@0.3": 99
+  },
+  "c_rhetorical": {
+   "n": 94,
+   "hit@0.3": 94
+  },
+  "n_logistics": {
+   "n": 99,
+   "hit@0.3": 98
+  },
+  "c_irony": {
+   "n": 90,
+   "hit@0.3": 88
+  },
+  "c_insinuation": {
+   "n": 102,
+   "hit@0.3": 102
+  },
+  "n_short_reaction": {
+   "n": 148,
+   "hit@0.3": 147
+  },
+  "c_conditional_praise": {
+   "n": 119,
+   "hit@0.3": 118
+  },
+  "n_hard_praise": {
+   "n": 141,
+   "hit@0.3": 135
+  },
+  "n_hard_logistics": {
+   "n": 148,
+   "hit@0.3": 148
+  },
+  "c_logistic_jab": {
+   "n": 133,
+   "hit@0.3": 133
+  },
+  "c_private_exposure": {
+   "n": 139,
+   "hit@0.3": 138
+  },
+  "c_avoid_person": {
+   "n": 146,
+   "hit@0.3": 145
+  }
+ },
+ "misses": [
+  {
+   "text": "Please not with the drama fund again",
+   "category": "c_avoid_person",
+   "label": 1,
+   "p": 0.108
+  },
+  {
+   "text": "Guys, the singing works great solo, but in a group, it's just chaotic",
+   "category": "c_conditional_praise",
+   "label": 1,
+   "p": 0.001
+  },
+  {
+   "text": "אני אומרת לכם הצוות של אולם שמחת עולם על הפנים, שירות איטי מבולגן כזה לא ראיתי בחיים, הרסו לנו את כל האירוע של דודה מירי",
+   "category": "c_group",
+   "label": 1,
+   "p": 0.219
+  },
+  {
+   "text": "אני אומרת לכם הצוות של אולם שמחת עולם על הפנים, שירות איטי מבולגן כזה לא ראיתי בחיים, הרסו לנו את כל האירוע של דודה מירי",
+   "category": "c_group",
+   "label": 1,
+   "p": 0.219
+  },
+  {
+   "text": "Great job throwing trash outside the bin in the garbage room, thanks to you there's a terrible smell and mice. Really appreciate your consideration for your neighbors 👏",
+   "category": "c_hint",
+   "label": 1,
+   "p": 0.0
+  },
+  {
+   "text": "Itamar, the king of the kitchen, made us a completely burned Shabbat dinner, but he patiently explained that it's a new style of steamed cuisine, like in restaurants.",
+   "category": "c_irony",
+   "label": 1,
+   "p": 0.185
+  },
+  {
+   "text": "Big props לכל הכבוד לאורי for making it לישיבה just in time for הקפה האחרון ממש",
+   "category": "c_irony",
+   "label": 1,
+   "p": 0.099
+  },
+  {
+   "text": "Great job, Sharon, כל הכבוד, עם החישובים המושלמים שלך אנחנו צריכים לעשות את הדוח הכספי tout COURT מהתחלה עד הסוף.",
+   "category": "c_mock_praise",
+   "label": 1,
+   "p": 0.001
+  },
+  {
+   "text": "What a king you are, busy with your phone right in the middle of prayer",
+   "category": "c_mock_praise",
+   "label": 1,
+   "p": 0.243
+  },
+  {
+   "text": "Great job, Sharon, with your perfect calculations, we now have to start the financial report all over again.",
+   "category": "c_mock_praise",
+   "label": 1,
+   "p": 0.179
+  },
+  {
+   "text": "Blessings to the mesmerizing song, it turned everything upside down",
+   "category": "c_mock_praise",
+   "label": 1,
+   "p": 0.002
+  },
+  {
+   "text": "Shimon the new guy is getting involved with implementation",
+   "category": "c_negative_fact",
+   "label": 1,
+   "p": 0.001
+  },
+  {
+   "text": "I sent them the recording of you yelling",
+   "category": "c_private_exposure",
+   "label": 1,
+   "p": 0.119
+  },
+  {
+   "text": "כל הכבוד לנועה על הראיון המטורף",
+   "category": "n_hard_praise",
+   "label": 0,
+   "p": 1.0
+  },
+  {
+   "text": "כל הכבוד לנועה על הראיון המטורף",
+   "category": "n_hard_praise",
+   "label": 0,
+   "p": 1.0
+  },
+  {
+   "text": "Big respect to Gahl for picking me up from the base in the middle of the night without asking questions, people like that don't come around every day and he really deserves all the paragon in the world",
+   "category": "n_hard_praise",
+   "label": 0,
+   "p": 1.0
+  },
+  {
+   "text": "I have to complain about the magnificent singer who collected all the money for a gift for the teacher with insane patience, chased everyone on WhatsApp, and did everything with great love 💐",
+   "category": "n_hard_praise",
+   "label": 0,
+   "p": 0.953
+  },
+  {
+   "text": "חייבת לפרגן על השיריה המקסימה who collected all the money למתנה למורה עם בסבלנות מטורפת, רדפה אחרי כולם בוואטסאפ ועשתה הכל באהבה גדולה 💐",
+   "category": "n_hard_praise",
+   "label": 0,
+   "p": 0.511
+  },
+  {
+   "text": "It's so much fun having Avi on the trip. He's entertaining everyone and making sure everyone has water and maps. Without him, everything would be a lot less smooth and fun 😄",
+   "category": "n_hard_praise",
+   "label": 0,
+   "p": 0.765
+  },
+  {
+   "text": "Yossi suggested doing it like on Thursdays at the base, but forgot we don't have a medach anymore, so everyone will bring disposable and scrape from the balcony",
+   "category": "n_humor",
+   "label": 0,
+   "p": 0.994
+  },
+  {
+   "text": "Official message: Our kids remember everything except what's written on the board.",
+   "category": "n_humor",
+   "label": 0,
+   "p": 0.999
+  },
+  {
+   "text": "Who would've thought שafter three years נשב על beer, נtegaגע למסעות כאילו זה היה an annual vacation ולא nightmare עם an apron weighing like a fridge.",
+   "category": "n_humor",
+   "label": 0,
+   "p": 0.36
+  },
+  {
+   "text": "My jeans החליטו להתכווץ פתאום haha",
+   "category": "n_humor",
+   "label": 0,
+   "p": 0.899
+  },
+  {
+   "text": "Someone heard the snoring in the tent hahaha",
+   "category": "n_humor",
+   "label": 0,
+   "p": 0.998
+  },
+  {
+   "text": "My jeans suddenly decided to shrink haha",
+   "category": "n_humor",
+   "label": 0,
+   "p": 0.94
+  },
+  {
+   "text": "Whoever finished the siddur should send a message to David, the shift manager",
+   "category": "n_logistics",
+   "label": 0,
+   "p": 0.331
+  },
+  {
+   "text": "Doddy Yossi, update when you're arriving?",
+   "category": "n_request",
+   "label": 0,
+   "p": 0.328
+  },
+  {
+   "text": "What a shame, I forgot to send the trip form with Omer, and now he's the only one in the class without permission. I'm just such a scattered mom.",
+   "category": "n_self",
+   "label": 0,
+   "p": 0.333
+  },
+  {
+   "text": "Such pressure, didn't have time to do anything",
+   "category": "n_short_reaction",
+   "label": 0,
+   "p": 0.998
+  },
+  {
+   "text": "I heard that David Eliyahu donated his old sukkah to the building next door and helped them set it up for hours, an amazing guy with infinite generosity all year round",
+   "category": "n_sincere_praise",
+   "label": 0,
+   "p": 0.797
+  },
+  {
+   "text": "It's fitting that Avpo has a huge crush on the gorgeous Lea",
+   "category": "n_sincere_praise",
+   "label": 0,
+   "p": 1.0
+  }
+ ]
+}

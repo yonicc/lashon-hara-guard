@@ -1,0 +1,283 @@
+{
+ "run": "v4-xlmr-he2",
+ "base_model": "FacebookAI/xlm-roberta-base",
+ "train_rows": 12067,
+ "test_rows": 3001,
+ "epochs": 4,
+ "train_seconds": 595,
+ "cpu_ms_per_message": 140.3,
+ "thresholds": {
+  "0.1": {
+   "concern_recall": 0.994,
+   "precision": 0.99,
+   "f1": 0.992,
+   "harmless_escalated": 0.011
+  },
+  "0.2": {
+   "concern_recall": 0.992,
+   "precision": 0.994,
+   "f1": 0.993,
+   "harmless_escalated": 0.007
+  },
+  "0.3": {
+   "concern_recall": 0.992,
+   "precision": 0.995,
+   "f1": 0.993,
+   "harmless_escalated": 0.006
+  },
+  "0.5": {
+   "concern_recall": 0.991,
+   "precision": 0.996,
+   "f1": 0.993,
+   "harmless_escalated": 0.005
+  },
+  "0.7": {
+   "concern_recall": 0.989,
+   "precision": 0.997,
+   "f1": 0.993,
+   "harmless_escalated": 0.003
+  }
+ },
+ "per_category": {
+  "n_thanks": {
+   "n": 104,
+   "hit@0.3": 104
+  },
+  "c_mock_praise": {
+   "n": 97,
+   "hit@0.3": 91
+  },
+  "n_humor": {
+   "n": 96,
+   "hit@0.3": 94
+  },
+  "c_habit": {
+   "n": 93,
+   "hit@0.3": 93
+  },
+  "c_gossip": {
+   "n": 96,
+   "hit@0.3": 96
+  },
+  "n_neutral_fact": {
+   "n": 98,
+   "hit@0.3": 98
+  },
+  "n_self": {
+   "n": 99,
+   "hit@0.3": 99
+  },
+  "c_group": {
+   "n": 97,
+   "hit@0.3": 97
+  },
+  "n_request": {
+   "n": 92,
+   "hit@0.3": 92
+  },
+  "n_idea_critique": {
+   "n": 96,
+   "hit@0.3": 95
+  },
+  "n_sincere_praise": {
+   "n": 91,
+   "hit@0.3": 90
+  },
+  "n_feelings": {
+   "n": 97,
+   "hit@0.3": 97
+  },
+  "c_direct": {
+   "n": 94,
+   "hit@0.3": 94
+  },
+  "n_good_news": {
+   "n": 103,
+   "hit@0.3": 103
+  },
+  "c_hint": {
+   "n": 94,
+   "hit@0.3": 91
+  },
+  "c_omission": {
+   "n": 95,
+   "hit@0.3": 95
+  },
+  "c_negative_fact": {
+   "n": 100,
+   "hit@0.3": 99
+  },
+  "c_rhetorical": {
+   "n": 94,
+   "hit@0.3": 94
+  },
+  "n_logistics": {
+   "n": 99,
+   "hit@0.3": 98
+  },
+  "c_irony": {
+   "n": 90,
+   "hit@0.3": 88
+  },
+  "c_insinuation": {
+   "n": 102,
+   "hit@0.3": 102
+  },
+  "n_short_reaction": {
+   "n": 148,
+   "hit@0.3": 147
+  },
+  "c_conditional_praise": {
+   "n": 119,
+   "hit@0.3": 118
+  },
+  "n_hard_praise": {
+   "n": 141,
+   "hit@0.3": 139
+  },
+  "n_hard_logistics": {
+   "n": 148,
+   "hit@0.3": 148
+  },
+  "c_logistic_jab": {
+   "n": 133,
+   "hit@0.3": 133
+  },
+  "c_private_exposure": {
+   "n": 139,
+   "hit@0.3": 139
+  },
+  "c_avoid_person": {
+   "n": 146,
+   "hit@0.3": 146
+  }
+ },
+ "misses": [
+  {
+   "text": "Guys, the singing works great solo, but in a group, it's just chaotic",
+   "category": "c_conditional_praise",
+   "label": 1,
+   "p": 0.0
+  },
+  {
+   "text": "הקופאית עם המשקפיים מהסופר למטה שוב עשתה לי פרצוף כאילו אני גונב משהו",
+   "category": "c_hint",
+   "label": 1,
+   "p": 0.002
+  },
+  {
+   "text": "הקופאית עם המשקפיים מהסופר למטה שוב עשתה לי פרצוף כאילו אני גונב משהו",
+   "category": "c_hint",
+   "label": 1,
+   "p": 0.002
+  },
+  {
+   "text": "Great job throwing trash outside the bin in the garbage room, thanks to you there's a terrible smell and mice. Really appreciate your consideration for your neighbors 👏",
+   "category": "c_hint",
+   "label": 1,
+   "p": 0.001
+  },
+  {
+   "text": "כל הכבוד לדניאל על הניווט אתמול",
+   "category": "c_irony",
+   "label": 1,
+   "p": 0.177
+  },
+  {
+   "text": "Big props לכל הכבוד לאורי for making it לישיבה just in time for הקפה האחרון ממש",
+   "category": "c_irony",
+   "label": 1,
+   "p": 0.018
+  },
+  {
+   "text": "A real prince, Matan, the snitch ran home",
+   "category": "c_mock_praise",
+   "label": 1,
+   "p": 0.001
+  },
+  {
+   "text": "Big props to Tal the cannon for getting a medical certificate for every annual trip",
+   "category": "c_mock_praise",
+   "label": 1,
+   "p": 0.134
+  },
+  {
+   "text": "Great job, Sharon, כל הכבוד, עם החישובים המושלמים שלך אנחנו צריכים לעשות את הדוח הכספי tout COURT מהתחלה עד הסוף.",
+   "category": "c_mock_praise",
+   "label": 1,
+   "p": 0.0
+  },
+  {
+   "text": "What a king you are, busy with your phone right in the middle of prayer",
+   "category": "c_mock_praise",
+   "label": 1,
+   "p": 0.221
+  },
+  {
+   "text": "Great job, Sharon, with your perfect calculations, we now have to start the financial report all over again.",
+   "category": "c_mock_praise",
+   "label": 1,
+   "p": 0.0
+  },
+  {
+   "text": "Blessings to the mesmerizing song, it turned everything upside down",
+   "category": "c_mock_praise",
+   "label": 1,
+   "p": 0.033
+  },
+  {
+   "text": "Shimon the new guy is getting involved with implementation",
+   "category": "c_negative_fact",
+   "label": 1,
+   "p": 0.0
+  },
+  {
+   "text": "כל הכבוד לנועה על הראיון המטורף",
+   "category": "n_hard_praise",
+   "label": 0,
+   "p": 0.555
+  },
+  {
+   "text": "כל הכבוד לנועה על הראיון המטורף",
+   "category": "n_hard_praise",
+   "label": 0,
+   "p": 0.555
+  },
+  {
+   "text": "Official message: Our kids remember everything except what's written on the board.",
+   "category": "n_humor",
+   "label": 0,
+   "p": 0.83
+  },
+  {
+   "text": "Someone heard the snoring in the tent hahaha",
+   "category": "n_humor",
+   "label": 0,
+   "p": 0.779
+  },
+  {
+   "text": "Dana's smile there was cold and distant",
+   "category": "n_idea_critique",
+   "label": 0,
+   "p": 0.933
+  },
+  {
+   "text": "Bring a חוגר ו Zionist לשער",
+   "category": "n_logistics",
+   "label": 0,
+   "p": 0.598
+  },
+  {
+   "text": "Starved to death, נועה אכלה כבר?",
+   "category": "n_short_reaction",
+   "label": 0,
+   "p": 0.355
+  },
+  {
+   "text": "It's fitting that Avpo has a huge crush on the gorgeous Lea",
+   "category": "n_sincere_praise",
+   "label": 0,
+   "p": 0.71
+  }
+ ]
+}

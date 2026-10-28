@@ -21,12 +21,16 @@ from fastapi import Header, HTTPException
 # v2 + fp32 chosen 2026-10-26 on the fresh Codex eval (eval_codex_v2): recall 0.992,
 # harmless escalated 3.9%; int8 kept the recall but escalated 7.1% of harmless.
 MODEL_RUN = os.environ.get("LHG_GATE_RUN", "v2")
+# Multilingual 2nd model for Latin-script text, max of both (gate_route.py, docs/31).
+# Empty = Hebrew-only gate (rollback: deploy with LHG_GATE_RUN_ML=).
+MODEL_RUN_ML = os.environ.get("LHG_GATE_RUN_ML", "v4-xlmr-ml")
 app = modal.App("lhg-gate")
 image = (
     modal.Image.debian_slim(python_version="3.11")
     .pip_install("torch==2.4.1", index_url="https://download.pytorch.org/whl/cpu")
     .pip_install("transformers==4.46.3", "numpy<2", "fastapi[standard]==0.115.6")
-    .env({"LHG_GATE_RUN": MODEL_RUN})
+    .env({"LHG_GATE_RUN": MODEL_RUN, "LHG_GATE_RUN_ML": MODEL_RUN_ML})
+    .add_local_python_source("gate_route")
 )
 vol = modal.Volume.from_name("lhg-models")
 
@@ -49,11 +53,29 @@ class Gate:
             model = torch.quantization.quantize_dynamic(model, {torch.nn.Linear}, dtype=torch.qint8)
         self.model = model
         self.torch = torch
+        self.run_ml = os.environ.get("LHG_GATE_RUN_ML", "")
+        self.ml = None
+        if self.run_ml:
+            ml_path = f"/models/{self.run_ml}"
+            self.ml = (AutoTokenizer.from_pretrained(ml_path),
+                       AutoModelForSequenceClassification.from_pretrained(ml_path).eval())
+
+    def _probs(self, tok, model, texts: list[str]) -> list[float]:
+        enc = tok(texts, padding=True, truncation=True, max_length=96, return_tensors="pt")
+        return self.torch.softmax(model(**enc).logits, -1)[:, 1].tolist()
+
+    def _score_routed(self, texts: list[str]):
+        """[(p, used_ml)] - routing/combination live only in gate_route.py."""
+        from gate_route import combine, uses_second_model
+
+        with self.torch.no_grad():
+            ps = self._probs(self.tok, self.model, texts)
+            idx = [i for i, t in enumerate(texts) if self.ml and uses_second_model(t)]
+            ml_ps = dict(zip(idx, self._probs(*self.ml, [texts[i] for i in idx]))) if idx else {}
+        return [(combine(p, ml_ps.get(i)), i in ml_ps) for i, p in enumerate(ps)]
 
     def _score(self, texts: list[str]) -> list[float]:
-        with self.torch.no_grad():
-            enc = self.tok(texts, padding=True, truncation=True, max_length=96, return_tensors="pt")
-            return self.torch.softmax(self.model(**enc).logits, -1)[:, 1].tolist()
+        return [p for p, _ in self._score_routed(texts)]
 
     @modal.method()
     def score(self, texts: list[str]) -> list[float]:
@@ -69,9 +91,11 @@ class Gate:
         if not isinstance(text, str) or not text.strip() or len(text) > 2000:
             raise HTTPException(status_code=400, detail="text required (max 2000 chars)")
         t0 = time.time()
-        p = self._score([text.strip()])[0]
+        from gate_route import run_label
+
+        p, used_ml = self._score_routed([text.strip()])[0]
         return {"p": round(p, 4), "ms": round((time.time() - t0) * 1000, 1),
-                "run": os.environ.get("LHG_GATE_RUN", MODEL_RUN)}
+                "run": run_label(os.environ.get("LHG_GATE_RUN", MODEL_RUN), self.run_ml, used_ml)}
 
 
 @app.local_entrypoint()

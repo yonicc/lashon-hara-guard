@@ -1,0 +1,397 @@
+{
+ "run": "v4-dicta-ml",
+ "base_model": "dicta-il/dictabert",
+ "train_rows": 8401,
+ "test_rows": 2088,
+ "epochs": 4,
+ "train_seconds": 354,
+ "cpu_ms_per_message": 97.5,
+ "thresholds": {
+  "0.1": {
+   "concern_recall": 0.975,
+   "precision": 0.98,
+   "f1": 0.977,
+   "harmless_escalated": 0.022
+  },
+  "0.2": {
+   "concern_recall": 0.97,
+   "precision": 0.982,
+   "f1": 0.976,
+   "harmless_escalated": 0.019
+  },
+  "0.3": {
+   "concern_recall": 0.967,
+   "precision": 0.983,
+   "f1": 0.975,
+   "harmless_escalated": 0.018
+  },
+  "0.5": {
+   "concern_recall": 0.966,
+   "precision": 0.987,
+   "f1": 0.976,
+   "harmless_escalated": 0.014
+  },
+  "0.7": {
+   "concern_recall": 0.963,
+   "precision": 0.991,
+   "f1": 0.977,
+   "harmless_escalated": 0.01
+  }
+ },
+ "per_category": {
+  "n_thanks": {
+   "n": 75,
+   "hit@0.3": 75
+  },
+  "c_mock_praise": {
+   "n": 68,
+   "hit@0.3": 64
+  },
+  "n_humor": {
+   "n": 68,
+   "hit@0.3": 65
+  },
+  "c_habit": {
+   "n": 64,
+   "hit@0.3": 64
+  },
+  "c_gossip": {
+   "n": 68,
+   "hit@0.3": 66
+  },
+  "n_neutral_fact": {
+   "n": 70,
+   "hit@0.3": 68
+  },
+  "n_self": {
+   "n": 70,
+   "hit@0.3": 69
+  },
+  "c_group": {
+   "n": 69,
+   "hit@0.3": 67
+  },
+  "n_request": {
+   "n": 64,
+   "hit@0.3": 64
+  },
+  "n_idea_critique": {
+   "n": 68,
+   "hit@0.3": 68
+  },
+  "n_sincere_praise": {
+   "n": 63,
+   "hit@0.3": 61
+  },
+  "n_feelings": {
+   "n": 68,
+   "hit@0.3": 68
+  },
+  "c_direct": {
+   "n": 65,
+   "hit@0.3": 63
+  },
+  "n_good_news": {
+   "n": 74,
+   "hit@0.3": 74
+  },
+  "c_hint": {
+   "n": 66,
+   "hit@0.3": 63
+  },
+  "c_omission": {
+   "n": 66,
+   "hit@0.3": 66
+  },
+  "c_negative_fact": {
+   "n": 71,
+   "hit@0.3": 70
+  },
+  "c_rhetorical": {
+   "n": 65,
+   "hit@0.3": 61
+  },
+  "n_logistics": {
+   "n": 70,
+   "hit@0.3": 69
+  },
+  "c_irony": {
+   "n": 62,
+   "hit@0.3": 57
+  },
+  "c_insinuation": {
+   "n": 60,
+   "hit@0.3": 57
+  },
+  "n_short_reaction": {
+   "n": 105,
+   "hit@0.3": 103
+  },
+  "c_conditional_praise": {
+   "n": 76,
+   "hit@0.3": 72
+  },
+  "n_hard_praise": {
+   "n": 100,
+   "hit@0.3": 96
+  },
+  "n_hard_logistics": {
+   "n": 105,
+   "hit@0.3": 102
+  },
+  "c_logistic_jab": {
+   "n": 90,
+   "hit@0.3": 87
+  },
+  "c_private_exposure": {
+   "n": 96,
+   "hit@0.3": 93
+  },
+  "c_avoid_person": {
+   "n": 102,
+   "hit@0.3": 102
+  }
+ },
+ "misses": [
+  {
+   "text": "Guys, the singing works great solo, but in a group, it's just chaotic",
+   "category": "c_conditional_praise",
+   "label": 1,
+   "p": 0.001
+  },
+  {
+   "text": "תודה שסידרת את האוטו דני, רק למה חיכית חודשיים לתקן אותו?",
+   "category": "c_conditional_praise",
+   "label": 1,
+   "p": 0.0
+  },
+  {
+   "text": "הקייטרינג סבבה כשהאוכל חם",
+   "category": "c_conditional_praise",
+   "label": 1,
+   "p": 0.068
+  },
+  {
+   "text": "Roni only helps at home when asked",
+   "category": "c_conditional_praise",
+   "label": 1,
+   "p": 0.262
+  },
+  {
+   "text": "Ruti the gossip is completely out of my life",
+   "category": "c_direct",
+   "label": 1,
+   "p": 0.017
+  },
+  {
+   "text": "I'm shocked by the manipulative bitch, she copied all my work and presented it as her own, what a shameless, skilled liar.",
+   "category": "c_direct",
+   "label": 1,
+   "p": 0.115
+  },
+  {
+   "text": "Dani סיפר שאתה ruined את הקידוש",
+   "category": "c_gossip",
+   "label": 1,
+   "p": 0.126
+  },
+  {
+   "text": "Alon my brother, Eli said he'll film you and send it to the municipality about the balcony",
+   "category": "c_gossip",
+   "label": 1,
+   "p": 0.004
+  },
+  {
+   "text": "אני אומרת לכם הצוות של אולם שמחת עולם על הפנים, שירות איטי מבולגן כזה לא ראיתי בחיים, הרסו לנו את כל האירוע של דודה מירי",
+   "category": "c_group",
+   "label": 1,
+   "p": 0.104
+  },
+  {
+   "text": "The sixth crew left early and left a mess",
+   "category": "c_group",
+   "label": 1,
+   "p": 0.059
+  },
+  {
+   "text": "The one responsible for the shared garden has simply vanished in the last month, and everything looks neglected and messy. This way, we can't continue to live here with dignity.",
+   "category": "c_hint",
+   "label": 1,
+   "p": 0.007
+  },
+  {
+   "text": "The one responsible für הגינה המשותפת has simply vanished בחודש האחרון, והכל נראה neglected and messy. This way, we can't continue לחיות here with dignity.",
+   "category": "c_hint",
+   "label": 1,
+   "p": 0.007
+  },
+  {
+   "text": "Great job throwing trash outside the bin in the garbage room, thanks to you there's a terrible smell and mice. Really appreciate your consideration for your neighbors 👏",
+   "category": "c_hint",
+   "label": 1,
+   "p": 0.0
+  },
+  {
+   "text": "אבי תעדכן בפרטי אם צריך 🙏",
+   "category": "c_insinuation",
+   "label": 1,
+   "p": 0.218
+  },
+  {
+   "text": "חברים בואו נסכם שביום שישי אוכלים אצל אמא בלי ויכוחים מיותרים אתם יודעים למה אני מתכוונת בואו נעשה ערב נעים ורגוע לכולם ❤️",
+   "category": "c_insinuation",
+   "label": 1,
+   "p": 0.03
+  },
+  {
+   "text": "מי שצריך פרטים שיפנה אליי",
+   "category": "c_insinuation",
+   "label": 1,
+   "p": 0.003
+  },
+  {
+   "text": "תודה ענקית לנועה השכנה שהתנדבה לשמור על הכלב ולקחה אותו לטיול של חמש דקות, רואים שהיא ממש השקיעה והתאמצה בשבילו הבוקר",
+   "category": "c_irony",
+   "label": 1,
+   "p": 0.0
+  },
+  {
+   "text": "Avi the speedy managed to reply to the email within three days only, amazing",
+   "category": "c_irony",
+   "label": 1,
+   "p": 0.019
+  },
+  {
+   "text": "תודה רבה לגל על הטרמפ המדהים",
+   "category": "c_irony",
+   "label": 1,
+   "p": 0.01
+  },
+  {
+   "text": "יוסי כרגיל הגיע ראשון היום",
+   "category": "c_irony",
+   "label": 1,
+   "p": 0.006
+  },
+  {
+   "text": "What luck we have with Michal the organized one, she forgot to bring the keys to the storage and then waited for us to praise her for the initiative.",
+   "category": "c_irony",
+   "label": 1,
+   "p": 0.0
+  },
+  {
+   "text": "For the camping trip, תביא איתך extra food בשביל מיכל, היא finishes everything תוך שעה וואז אומרת שהיא brought a diet מהבית, apparently.",
+   "category": "c_logistic_jab",
+   "label": 1,
+   "p": 0.028
+  },
+  {
+   "text": "Legi, נכין קפה חזק so we don't fall asleep",
+   "category": "c_logistic_jab",
+   "label": 1,
+   "p": 0.021
+  },
+  {
+   "text": "תכתבו לנועה שההסעה יוצאת בשמונה, עם חצי שעה ספייר לאחר",
+   "category": "c_logistic_jab",
+   "label": 1,
+   "p": 0.102
+  },
+  {
+   "text": "What a goalkeeper ליאור, missed the whole מטרה",
+   "category": "c_mock_praise",
+   "label": 1,
+   "p": 0.0
+  },
+  {
+   "text": "Dude, David finally responded after a week of complete ignoring the group",
+   "category": "c_mock_praise",
+   "label": 1,
+   "p": 0.001
+  },
+  {
+   "text": "What a goalkeeper Liior, missed the whole goal",
+   "category": "c_mock_praise",
+   "label": 1,
+   "p": 0.0
+  },
+  {
+   "text": "Wooow, עומר כוכב כדורגל אמיתי 😂",
+   "category": "c_mock_praise",
+   "label": 1,
+   "p": 0.294
+  },
+  {
+   "text": "Shimon the new guy is getting involved with implementation",
+   "category": "c_negative_fact",
+   "label": 1,
+   "p": 0.025
+  },
+  {
+   "text": "Guys, I'm in the market, Yael wrote me privately that she made up the whole story about the theft just to get attention, she was working on all of us with her eyes, see her message 😡",
+   "category": "c_private_exposure",
+   "label": 1,
+   "p": 0.002
+  },
+  {
+   "text": "I sent them the recording of you yelling",
+   "category": "c_private_exposure",
+   "label": 1,
+   "p": 0.012
+  },
+  {
+   "text": "Listen, Noa whispered to me privately",
+   "category": "c_private_exposure",
+   "label": 1,
+   "p": 0.08
+  },
+  {
+   "text": "So, the turbaned genius forgot the notebook?",
+   "category": "c_rhetorical",
+   "label": 1,
+   "p": 0.033
+  },
+  {
+   "text": "Really thought Dani would bother to come?",
+   "category": "c_rhetorical",
+   "label": 1,
+   "p": 0.038
+  },
+  {
+   "text": "What a loser Sagie is, can't believe it 😂",
+   "category": "c_rhetorical",
+   "label": 1,
+   "p": 0.133
+  },
+  {
+   "text": "Another song with her performances, who gets excited about this anymore?",
+   "category": "c_rhetorical",
+   "label": 1,
+   "p": 0.178
+  },
+  {
+   "text": "Cute, Shabbat at ours in Rishon LeZion as usual. Noa is in charge of the salads and Dad brings the desserts. Please arrive by 6 PM.",
+   "category": "n_hard_logistics",
+   "label": 0,
+   "p": 1.0
+  },
+  {
+   "text": "תמר תאספי את עומר מחוג ציור",
+   "category": "n_hard_logistics",
+   "label": 0,
+   "p": 0.994
+  },
+  {
+   "text": "ספיר תזכירי לאיתמר להביא גיטרה",
+   "category": "n_hard_logistics",
+   "label": 0,
+   "p": 0.322
+  },
+  {
+   "text": "שוב הציל אותנו דניאל שהקפיץ את החזן כשהרכב שלו לא הניע",
+   "category": "n_hard_praise",
+   "label": 0,
+   "p": 0.626
+  }
+ ]
+}

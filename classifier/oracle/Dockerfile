@@ -6,6 +6,6 @@ ENV PIP_NO_CACHE_DIR=1 PYTHONUNBUFFERED=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=
 RUN pip install torch==2.4.1 --index-url https://download.pytorch.org/whl/cpu \
  && pip install transformers==4.46.3 "numpy<2" "fastapi[standard]==0.115.6"
 WORKDIR /app
-COPY server.py bench.py ./
+COPY server.py gate_route.py bench.py ./
 EXPOSE 8090
 CMD ["uvicorn", "server:app", "--host", "0.0.0.0", "--port", "8090", "--workers", "1"]

@@ -32,6 +32,18 @@ live threshold, allocate GPUs or set min_containers as part of evaluation.
 Modal is the fallback gate; Oracle is primary. Direct Modal scoring measures
 the fallback model, not end-to-end alerts or the full production route.
 
+## Compare trained runs (since 2026-10-28, docs/31)
+
+```powershell
+py -m modal run classifier/eval_candidates.py --runs v2,<run> --out classifier/results/<name>.json
+```
+
+Scores Volume runs on CPU exactly like serving, across eval_codex_v2, Phase A,
+expansion and the fresh holdout, per language. First run = baseline; a slice with
+more misses fails. Note: the live gate is routed (`classifier/gate_route.py`:
+Hebrew-only → v2, Latin → max(v2, v4-xlmr-ml)); `eval_phase_a.py` on the deployed
+Modal Gate now measures the routed gate, not v2 alone.
+
 ## Expand and review offline
 
 ```powershell
