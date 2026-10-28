@@ -70,12 +70,15 @@ input.switch:disabled { opacity: 0.45; cursor: default; }
 }
 .seg button.active { background: #fff; color: var(--ink); font-weight: 700; box-shadow: 0 3px 10px rgba(110, 140, 190, 0.18); }
 label.field { display: block; margin-top: 10px; font-weight: 600; font-size: 0.88rem; }
-input.text {
+input.text, select.text {
   display: block; width: 100%; margin-top: 4px; padding: 9px 12px; direction: ltr; text-align: left;
   font: inherit; font-size: 0.9rem; color: var(--ink);
   border: 1.5px solid var(--line); border-radius: 14px; background: #fff;
 }
-input.text:focus { outline: none; border-color: var(--teal); }
+input.text:focus, select.text:focus { outline: none; border-color: var(--teal); }
+.modes { display: grid; gap: 6px; margin: 4px 0 8px; }
+.mode-opt { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.mode-opt .badge:not(:empty) { font-size: 0.74rem; color: #8a5a00; background: #fff4d6; border-radius: 999px; padding: 1px 8px; }
 .status { min-height: 1.4em; margin-top: 8px; font-size: 0.86rem; white-space: pre-wrap; }
 a { color: #2f7f71; }
 footer.note { text-align: center; color: var(--muted); font-size: 0.8rem; margin-top: 18px; }

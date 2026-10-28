@@ -24,6 +24,25 @@
       <div class="status" id="generalStatus"></div>
     </section>
 
+    <section class="card" id="checkModeCard">
+      <h2 data-i18n="mode.title"></h2>
+      <div class="modes" role="radiogroup">
+        <label class="mode-opt"><input type="radio" name="checkMode" value="cloud"><span data-i18n="mode.cloud"></span> <span class="badge" data-mode-badge="cloud"></span></label>
+        <label class="mode-opt"><input type="radio" name="checkMode" value="local-fast"><span data-i18n="mode.local-fast"></span> <span class="badge" data-mode-badge="local-fast"></span></label>
+        <label class="mode-opt"><input type="radio" name="checkMode" value="local-hebrew"><span data-i18n="mode.local-hebrew"></span> <span class="badge" data-mode-badge="local-hebrew"></span></label>
+        <label class="mode-opt"><input type="radio" name="checkMode" value="local-union"><span data-i18n="mode.local-union"></span> <span class="badge" data-mode-badge="local-union"></span></label>
+      </div>
+      <label class="toggle"><span data-i18n="mode.fallback"></span><input type="checkbox" class="switch" id="cloudFallback"></label>
+      <p class="hint" data-i18n="mode.localHint"></p>
+      <div class="row">
+        <button class="btn primary" id="useCloud" type="button" data-i18n="mode.useCloud"></button>
+      </div>
+      <label class="field" for="cloudModel" data-i18n="mode.cloudModel"></label>
+      <select class="text" id="cloudModel"></select>
+      <p class="hint" data-i18n="mode.cloudModelHint"></p>
+      <div class="status" id="modeStatus"></div>
+    </section>
+
     <section class="card">
       <h2 data-i18n="card.platforms"></h2>
       <div class="platforms" id="platforms">
@@ -86,6 +105,7 @@
   </div>
   <script src="i18n.js"></script>
   <script src="settings.js"></script>
+  <script src="check-mode.js"></script>
   <script src="options.js"></script>
 </body>
 </html>

@@ -26,6 +26,11 @@
     <label class="toggle"><span data-i18n="opt.hideIncoming"></span><input type="checkbox" class="switch" id="hideIncoming"></label>
   </section>
 
+  <section class="card" id="modeQuick" hidden>
+    <div class="status" id="modeStatus"></div>
+    <button class="btn" id="useCloud" type="button" data-i18n="mode.useCloud"></button>
+  </section>
+
   <div class="row">
     <button class="btn primary" id="openPanel" type="button" data-i18n="opt.openPanel"></button>
     <button class="btn soft" id="openOptions" type="button" data-i18n="opt.allSettings"></button>
@@ -34,6 +39,7 @@
   <p class="hint" id="shortcut"></p>
   <script src="i18n.js"></script>
   <script src="settings.js"></script>
+  <script src="check-mode.js"></script>
   <script src="options.js"></script>
 </body>
 </html>

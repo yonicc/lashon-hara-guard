@@ -462,7 +462,9 @@
         ], detailsAction(r));
         break;
       case 'not_checked':
-        p = show('muted', t('notChecked.title'), [t('notChecked.body')]);
+        // A local mode that could not run (check-mode.js) says so explicitly.
+        p = show('muted', t('notChecked.title'),
+          [t(/^local_/.test(r.error || '') ? 'notChecked.local' : 'notChecked.body')]);
         break;
       case 'not_configured':
         show('muted', t('notConfigured.title'), [t('notConfigured.body')]);

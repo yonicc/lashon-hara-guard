@@ -5,6 +5,7 @@
 (() => {
   const I = globalThis.LHG_I18N;
   const S = globalThis.LHG_SETTINGS;
+  const M = globalThis.LHG_CHECK_MODE;
   const t = (k, v) => (I ? I.t(k, v) : k);
   const $ = (id) => document.getElementById(id);
   const on = (id, ev, fn) => { const el = $(id); if (el) el.addEventListener(ev, fn); };
@@ -25,6 +26,7 @@
     if (shortcut !== null) {
       say('shortcut', shortcut ? t('opt.shortcut', { k: shortcut }) : t('opt.noShortcut'));
     }
+    renderMode();
   }
 
   function renderSwitches(s) {
@@ -68,6 +70,68 @@
   }
 
   // --- panel ------------------------------------------------------------------
+  // --- check mode (check-mode.js is the one home of modes and models) --------
+  let modePrefs = M ? M.normalize({}) : null;
+  let localReady = {}; // { 'local-fast': bool, ... } from the background worker
+  function renderMode() {
+    if (!M || !modePrefs) return;
+    for (const r of document.querySelectorAll('input[name="checkMode"]')) r.checked = r.value === modePrefs.lhgCheckMode;
+    for (const b of document.querySelectorAll('[data-mode-badge]')) {
+      const mode = b.getAttribute('data-mode-badge');
+      b.textContent = mode === 'cloud' ? '' : t(localReady[mode] ? 'mode.experimental' : 'mode.notInstalled');
+    }
+    if ($('cloudFallback')) $('cloudFallback').checked = modePrefs.lhgCloudFallback;
+    const sel = $('cloudModel');
+    if (sel) {
+      if (sel.options.length !== M.CLOUD_MODELS.length) {
+        sel.textContent = '';
+        for (const m of M.CLOUD_MODELS) sel.appendChild(new Option(m.label, m.id));
+      }
+      for (const o of sel.options) {
+        const m = M.CLOUD_MODELS.find((x) => x.id === o.value);
+        o.textContent = o.value === M.DEFAULT_CLOUD_MODEL ? t('mode.defaultModel', { m: m.label }) : m.label;
+      }
+      sel.value = modePrefs.lhgCloudModel;
+    }
+    const local = modePrefs.lhgCheckMode !== 'cloud';
+    const quick = $('modeQuick');
+    if (quick) quick.hidden = !local;
+    if (!local) say('modeStatus', t('mode.statusCloud'));
+    else if (localReady[modePrefs.lhgCheckMode]) say('modeStatus', t('mode.statusLocal'));
+    else say('modeStatus', t(modePrefs.lhgCloudFallback ? 'mode.statusFallback' : 'mode.statusUnchecked'));
+  }
+  function saveMode(patch) {
+    modePrefs = M.normalize({ ...modePrefs, ...patch });
+    chrome.storage.local.set(modePrefs, renderMode);
+    renderMode();
+  }
+  if (M && (document.querySelector('input[name="checkMode"]') || $('useCloud'))) {
+    chrome.storage.local.get(M.KEYS, (s) => { modePrefs = M.normalize(s || {}); renderMode(); });
+    try {
+      chrome.runtime.sendMessage({ type: 'lhg-check-mode-status' }, (r) => {
+        void chrome.runtime.lastError;
+        localReady = (r && typeof r === 'object') ? r : {};
+        renderMode();
+      });
+    } catch (_e) { /* no background: every local mode stays "not installed" */ }
+    if (chrome.storage.onChanged) {
+      chrome.storage.onChanged.addListener((ch, area) => {
+        if (area && area !== 'local') return;
+        if (!ch || !M.KEYS.some((k) => k in ch)) return;
+        const merged = { ...modePrefs };
+        for (const k of M.KEYS) if (k in ch) merged[k] = ch[k].newValue;
+        modePrefs = M.normalize(merged);
+        renderMode();
+      });
+    }
+    for (const r of document.querySelectorAll('input[name="checkMode"]')) {
+      r.addEventListener('change', () => { if (r.checked) saveMode({ lhgCheckMode: r.value }); });
+    }
+    on('cloudFallback', 'change', () => saveMode({ lhgCloudFallback: $('cloudFallback').checked }));
+    on('useCloud', 'click', () => saveMode({ lhgCheckMode: 'cloud' })); // one click back to the cloud
+    on('cloudModel', 'change', () => saveMode({ lhgCloudModel: $('cloudModel').value }));
+  }
+
   on('memoryEnabled', 'change', () => S?.set({lhgMemoryEnabled:$('memoryEnabled').checked}));
   on('memoryImport','change',async()=>{
     say('memoryStatus',t('memory.working'));

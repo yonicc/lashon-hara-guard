@@ -6,10 +6,14 @@ const TIMEOUT_MS = 25000;
 
 async function settings() {
   const I = globalThis.LHG_I18N;
-  const s = await chrome.storage.local.get(['proxyUrl', 'accessKey', I ? I.STORE_KEY : 'lhgLang']);
+  const M = globalThis.LHG_CHECK_MODE;
+  const s = await chrome.storage.local.get(['proxyUrl', 'accessKey', I ? I.STORE_KEY : 'lhgLang', ...(M ? M.KEYS : [])]);
   // The explanation language follows the UI language (i18n.js is its one home).
   const lang = I ? I.normalize(s[I.STORE_KEY]) || I.DEFAULT_LANG : 'en';
-  return { proxyUrl: (s.proxyUrl || DEFAULT_PROXY).replace(/\/+$/, ''), accessKey: s.accessKey || '', lang };
+  // Check mode and cloud model (check-mode.js is their one home). Part of the
+  // config, so they are part of the result-cache key as well.
+  const mode = M ? M.normalize(s) : null;
+  return { proxyUrl: (s.proxyUrl || DEFAULT_PROXY).replace(/\/+$/, ''), accessKey: s.accessKey || '', lang, ...(mode ? { mode } : {}) };
 }
 
 // Draft-rules answers (docs/18 wire contract): { factId: true|false|null },
@@ -17,6 +21,7 @@ async function settings() {
 // the content scripts). The proxy validates again against its catalog.
 try { if (typeof importScripts === 'function') importScripts('rules.js'); } catch (_e) { /* tests */ }
 try { if (typeof importScripts === 'function') importScripts('i18n.js'); } catch (_e) { /* tests */ }
+try { if (typeof importScripts === 'function') importScripts('check-mode.js'); } catch (_e) { /* tests */ }
 try { if (typeof importScripts === 'function') importScripts('memory-background.js'); } catch (_e) { /* tests */ }
 function confirmedFactsOf(raw) {
   const R = globalThis.LHG_RULES;
@@ -31,7 +36,9 @@ function userNoteOf(raw) {
   return R && typeof R.userNote === 'function' ? R.userNote(raw) : null;
 }
 
-async function check(text, platform, direction, context, confirmedFacts, userNote, config) {
+// `model`: optional cloud model id (check-mode.js CLOUD_MODELS); null/absent
+// keeps the request identical to older extensions (proxy default model).
+async function check(text, platform, direction, context, confirmedFacts, userNote, config, model) {
   const { proxyUrl, accessKey, lang } = config || await settings();
   if (!accessKey) return { alert: 'not_configured' };
   const ctrl = new AbortController();
@@ -45,6 +52,7 @@ async function check(text, platform, direction, context, confirmedFacts, userNot
         ...(context ? { context } : {}),
         ...(confirmedFacts ? { confirmedFacts } : {}),
         ...(userNote ? { userNote } : {}),
+        ...(model ? { model } : {}),
         lang,
       }),
       signal: ctrl.signal,
@@ -107,8 +115,17 @@ async function cachedCheck(msg) {
       try { saved = (await chrome.storage.local.get(key))[key]; } catch (_) { /* storage failure is a cache miss */ }
       if (saved?.expires > Date.now()) return saved.result;
     }
-    const result = await check(msg.text, msg.platform || 'unknown', msg.direction, msg.context, facts, note, config);
-    if (reusable && ['none', 'warn', 'unsure'].includes(result?.alert) && !result.error && !result.rules?.notChecked) {
+    const cloud = (model) => check(msg.text, msg.platform || 'unknown', msg.direction, msg.context, facts, note, config, model);
+    const M = globalThis.LHG_CHECK_MODE;
+    const result = M && config.mode
+      ? await M.route({ text: msg.text, platform: msg.platform || 'unknown',
+        direction: msg.direction === 'incoming' ? 'incoming' : 'outgoing', context: msg.context,
+        confirmedFacts: facts, userNote: note, lang: config.lang }, config.mode, cloud)
+      : await cloud(null);
+    // A cloud-fallback answer is not cached under the local mode's key: once
+    // the local engine is installed, the same message must reach it.
+    if (reusable && ['none', 'warn', 'unsure'].includes(result?.alert) && !result.error && !result.rules?.notChecked &&
+        result.checkedBy !== 'cloud-fallback') {
       try {
         await chrome.storage.local.set({ [key]: { expires: Date.now() + 14 * 86400000, result } });
         const all = await chrome.storage.local.get(null);
@@ -128,6 +145,12 @@ chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
   if (msg && msg.type === 'lhg-check' && typeof msg.text === 'string') {
     cachedCheck(msg).then(sendResponse, () => sendResponse({ alert: 'not_checked' }));
     return true; // async response
+  }
+  if (msg && msg.type === 'lhg-check-mode-status') {
+    // Which local modes can run here (options page). Engines live in this worker.
+    const M = globalThis.LHG_CHECK_MODE;
+    (M ? M.status() : Promise.resolve({})).then(sendResponse, () => sendResponse({}));
+    return true;
   }
   if (msg && msg.type === 'lhg-warm') {
     // Fire-and-forget: wake the proxy's fast classifier while the user types.

@@ -1,5 +1,6 @@
 import { personalCheck } from './accountAccess.js';
 import { throttle } from './throttle.js';
+import { pickCloudModel, type CloudModel } from './cloudModels.js';
 import {
   DRAFT_RULES_LIMITATION_HE, notCheckedRules, pickConfirmedFacts, rulesModeFromEnv, runLiveRules,
   type RulesResult,
@@ -58,9 +59,12 @@ export interface Env {
   EDGE_LIMITER?: Env['LIMITER'];
 }
 
+/** Builds the extraction provider; `choice` = allow-listed cloud model, null = env default. */
+export type ProviderFactory = (env: Env, choice?: CloudModel | null) => ExtractorProvider | null;
+
 export async function handle(
   request: Request, env: Env,
-  makeProvider: (env: Env) => ExtractorProvider | null = providerFromEnv,
+  makeProvider: ProviderFactory = providerFromEnv,
   fetchImpl: typeof fetch = fetch,
 ): Promise<Response> {
   const path = new URL(request.url).pathname;
@@ -107,6 +111,8 @@ export interface CheckResponse {
   contextMessages?: number;
   /** Live draft Chafetz Chaim rules (absent when LHG_CC_RULES=off or the gate skipped the model). */
   rules?: RulesResult;
+  /** Model that ran; present only when the request carried a `model` field. */
+  model?: string;
 }
 
 /**
@@ -184,9 +190,22 @@ export function pickLang(raw: unknown): 'he' | 'en' {
   return raw === 'en' ? 'en' : 'he';
 }
 
-export function providerFromEnv(env: Env): ExtractorProvider | null {
-  const opts = brainSendOptionsFromEnv(env as unknown as NodeJS.ProcessEnv);
-  return opts ? new BrainSendExtractorProvider(opts) : null;
+/**
+ * The env provider (unchanged default), optionally switched to one
+ * allow-listed cloud model. Only backend/model/account change; token, base
+ * URL, timeout and reasoning effort stay the Worker's.
+ */
+export function providerFromEnv(
+  env: Env, choice?: CloudModel | null, fetchImpl?: typeof fetch,
+): ExtractorProvider | null {
+  const opts = brainSendOptionsFromEnv(env as unknown as NodeJS.ProcessEnv, fetchImpl);
+  if (!opts) return null;
+  if (!choice) return new BrainSendExtractorProvider(opts);
+  const { account: envAccount, ...rest } = opts;
+  const account = choice.agentKind === 'meta_api' ? envAccount : choice.account;
+  return new BrainSendExtractorProvider({
+    ...rest, agentKind: choice.agentKind, model: choice.model, ...(account ? { account } : {}),
+  });
 }
 
 export type GateName = 'oracle' | 'modal';
@@ -251,7 +270,7 @@ export async function gateScore(
 async function handleAuthorized(
   request: Request,
   env: Env,
-  makeProvider: (env: Env) => ExtractorProvider | null = providerFromEnv,
+  makeProvider: ProviderFactory = providerFromEnv,
   fetchImpl: typeof fetch = fetch,
 ): Promise<Response> {
   const url = new URL(request.url);
@@ -295,8 +314,11 @@ async function handleAuthorized(
   const confirmedFacts = pickConfirmedFacts(body['confirmedFacts']);
   const userNote = pickUserNote(body['userNote']);
   const lang = pickLang(body['lang']);
+  // Optional cloud model id (allow-list in cloudModels.ts); anything else = env default.
+  const modelRequested = 'model' in body;
+  const cloudModel = pickCloudModel(body['model']);
 
-  const provider = makeProvider(env);
+  const provider = makeProvider(env, cloudModel);
   if (!provider) return json({ error: 'proxy_not_configured' }, 503);
 
   const started = Date.now();
@@ -351,6 +373,7 @@ async function handleAuthorized(
     } } : {}),
     contextMessages: Array.isArray(context?.recentMessages) ? context.recentMessages.length : 0,
     ...(rules ? { rules } : {}),
+    ...(modelRequested ? { model: provider.modelVersion } : {}),
   };
   return json(res);
 }

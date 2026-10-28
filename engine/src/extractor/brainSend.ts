@@ -32,6 +32,8 @@ export interface BrainSendExtractorOptions {
   token: string;
   model?: string;
   account?: string;
+  /** Brain v1 completions backend. Empty = BRAIN_AGENT_KIND ('meta_api'). Allow-listed by the proxy. */
+  agentKind?: string;
   timeoutMs?: number;
   /** Meta reasoning_effort: minimal | low | medium | high. Empty = DEFAULT_BRAIN_REASONING_EFFORT. */
   reasoningEffort?: string;
@@ -327,8 +329,8 @@ function extractJsonCandidate(text: string): string {
 export class BrainSendExtractorProvider implements ExtractorProvider {
   id = 'brain-meta-api-extractor';
   modelVersion: string;
-  private readonly opts: Required<Omit<BrainSendExtractorOptions, 'fetchImpl' | 'account' | 'reasoningEffort'>> &
-    Pick<BrainSendExtractorOptions, 'fetchImpl' | 'account' | 'reasoningEffort'>;
+  private readonly opts: Required<Omit<BrainSendExtractorOptions, 'fetchImpl' | 'account' | 'reasoningEffort' | 'agentKind'>> &
+    Pick<BrainSendExtractorOptions, 'fetchImpl' | 'account' | 'reasoningEffort'> & { agentKind: string };
 
   constructor(opts: BrainSendExtractorOptions) {
     if (!opts.baseUrl?.trim()) throw new BrainSendError('missing_base_url');
@@ -337,6 +339,7 @@ export class BrainSendExtractorProvider implements ExtractorProvider {
       baseUrl: opts.baseUrl.replace(/\/+$/, ''),
       token: opts.token,
       model: opts.model?.trim() || DEFAULT_BRAIN_MODEL,
+      agentKind: opts.agentKind?.trim() || BRAIN_AGENT_KIND,
       timeoutMs: opts.timeoutMs && opts.timeoutMs > 0 ? Math.floor(opts.timeoutMs) : DEFAULT_BRAIN_TIMEOUT_MS,
       ...(opts.account?.trim() ? { account: opts.account.trim() } : {}),
       reasoningEffort: opts.reasoningEffort?.trim() || DEFAULT_BRAIN_REASONING_EFFORT,
@@ -365,7 +368,7 @@ export class BrainSendExtractorProvider implements ExtractorProvider {
   private async extractOnce(req: ExtractorRequest, timeoutMs: number): Promise<unknown> {
     const fetchImpl = this.opts.fetchImpl ?? fetch;
     const body = {
-      agent_kind: BRAIN_AGENT_KIND,
+      agent_kind: this.opts.agentKind,
       model: this.opts.model,
       ...(this.opts.account ? { account: this.opts.account } : {}),
       ...(this.opts.reasoningEffort ? { reasoning_effort: this.opts.reasoningEffort } : {}),
