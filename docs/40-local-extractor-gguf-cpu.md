@@ -32,6 +32,15 @@
   - "מקומי מדויק": union, כפול זמן ו-8.4GB.
   - "ענן": כמו היום, בלחיצה.
 
+## פרסום (Hugging Face) ובדיקת Ollama
+- פורסם כ-repo ציבורי, ישירות מ-Modal (`research/local-extractor/hf_publish_modal.py`, ‏secret `lhg-hf-upload`):
+  - https://huggingface.co/yonicc/lhg-extractor-qwen7b-gguf
+  - https://huggingface.co/yonicc/lhg-extractor-dictalm-gguf
+
+  בכל repo יש Q4_K_M ו-Q8_0, ‏`extractor_prompt.txt`, ‏`contract.json` וכרטיס מודל עם המדידות.
+- **בדיקת Ollama** ב-Modal, על 4 ליבות: `ollama pull hf.co/<repo>:Q4_K_M` לקח 24–30 שניות. ‏`/api/generate` עם `raw:true` והנחיה מרונדרת החזיר פלט זהה ל-llama.cpp ב-3 מתוך 3 הודעות בכל מודל. הזמנים: 22, ‏7 ו-3.3 שניות להודעה, כנראה בזכות מטמון ההנחיה הקבועה. זה מדגם של 3 הודעות בלבד. `results/e9-hf-*-ollama.json`.
+- הריצה המקומית המתוכננת היא אפליקציה לצד התוסף (Ollama או llama.cpp), לא בתוך התוסף. חיבור התוסף טרם נבדק.
+
 ## עלות (הערכה לפי מחירון, לא חשבונית)
 ארבע מדידות CPU של כ-40–50 דקות כל אחת, וארבע המרות על 8 ליבות: **כ-1$**. קובצי ה-GGUF שמורים ב-Volume `lhg-models` תחת `local-extractor/<tag>/gguf/`, והאחסון נספר בנפרד.
 

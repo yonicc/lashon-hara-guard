@@ -1,0 +1,39 @@
+{
+ "publish": {
+  "user": "yonicc",
+  "repo": "yonicc/lhg-extractor-qwen7b-gguf",
+  "files": [
+   ".gitattributes",
+   "README.md",
+   "contract.json",
+   "extractor_prompt.txt",
+   "lhg-extractor-qwen7b-Q4_K_M.gguf",
+   "lhg-extractor-qwen7b-Q8_0.gguf"
+  ],
+  "sha": "3d043bf955e4b3ceb4dd62241377393bc08df714"
+ },
+ "ollama": {
+  "ref": "hf.co/yonicc/lhg-extractor-qwen7b-gguf:Q4_K_M",
+  "pull_s": 30,
+  "rows": [
+   {
+    "id": "legacy-t01",
+    "raw": "{\"firsthand\":[false,\"שמעתי מחבר שהחשמלאי ראובן גבה ממנו כפול.\"],\"verified\":[false,\"לא בדקתי את זה בעצמי, אבל תיזהרו ממנו.\"]}",
+    "expected_llamacpp": "{\"firsthand\":[false,\"שמעתי מחבר שהחשמלאי ראובן גבה ממנו כפול.\"],\"verified\":[false,\"לא בדקתי את זה בעצמי, אבל תיזהרו ממנו.\"]}",
+    "s": 22.5
+   },
+   {
+    "id": "legacy-t02",
+    "raw": "{\"firsthand\":[true,\"ראיתי בעיניים שלי שהנהג של ההסעות נוסע במהירות מטורפת עם הילדים.\"],\"rebuke\":[true,\"כבר דיברתי איתו פעמיים והוא לא הקשיב, אז אני מעדכן את ועד ההורים כדי שיחליפו אותו.\"]}",
+    "expected_llamacpp": "{\"firsthand\":[true,\"ראיתי בעיניים שלי שהנהג של ההסעות נוסע במהירות מטורפת עם הילדים.\"],\"rebuke\":[true,\"כבר דיברתי איתו פעמיים והוא לא הקשיב, אז אני מעדכן את ועד ההורים כדי שיחליפו אותו.\"]}",
+    "s": 7.4
+   },
+   {
+    "id": "legacy-t03",
+    "raw": "{\"intent\":[true,\"בא לי שכולם ידעו איזה שקרן הוא שמעון, שיתבייש.\"]}",
+    "expected_llamacpp": "{\"intent\":[true,\"בא לי שכולם ידעו איזה שקרן הוא שמעון, שיתבייש.\"]}",
+    "s": 3.3
+   }
+  ]
+ }
+}

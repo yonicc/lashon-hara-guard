@@ -82,6 +82,8 @@
 
 - GGUF (docs/40): convert_hf_to_gguf b4500 fails on DictaLM with `struct.error: required argument is not an integer` because transformers 4.55 saved null hparams; stage config.json without null keys (`gguf_modal.py`). Q4_K_M kept JSON intact (0 format errors) unlike Torch dynamic int8.
 
+- Local extractor GGUFs are public on HF (`yonicc/lhg-extractor-qwen7b-gguf`, `yonicc/lhg-extractor-dictalm-gguf`), published from Modal with secret `lhg-hf-upload` (`hf_publish_modal.py`). Ollama `raw:true` + the rendered training prompt matched llama.cpp output 3/3. The YONI-PC Modal venv needs `python-dotenv` for `modal secret create --from-dotenv`.
+
 ## Concurrent agents
 - More than one agent edits this repo at the same time (e.g. context layer vs gate). Always `git pull --ff-only` before editing, re-read a file before patching it, and stage only your own paths.
 - Never edit a file containing Hebrew with `Set-Content -Encoding ascii` / raw PowerShell replace: it turns Hebrew into `?` (happened to `extension/manifest.json`, caught by `git diff`). Use `remote_edit_file`.
