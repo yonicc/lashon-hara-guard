@@ -84,6 +84,7 @@
 
 - Local extractor GGUFs are public on HF (`yonicc/lhg-extractor-qwen7b-gguf`, `yonicc/lhg-extractor-dictalm-gguf`), published from Modal with secret `lhg-hf-upload` (`hf_publish_modal.py`). Ollama `raw:true` + the rendered training prompt matched llama.cpp output 3/3. The YONI-PC Modal venv needs `python-dotenv` for `modal secret create --from-dotenv`.
 - Ollama extension adapter/build/install: docs/45. Rebuild with `node scripts/build-ollama.mjs` and check freshness with `--check`; never edit the generated bundle or engine/dist. The trained alias:[bool,quote] contract has no confidence: retain factPolicy rejection, never invent a score. A successful narrow extraction remains unresolved (no meaning assessment); rules/alert mapping are imported from the canonical source.
+- Ollama setup UI: `ollama-setup.html` is the sole authorized download requester (exact port sender URL); never expose `/api/pull` to content scripts. Keep model IDs in ollama-client and mode membership in check-mode. `scripts/test-ollama-setup-browser.mjs` covers Hebrew/RTL, download/cancel/retry, failed inference and explicit activation in real MV3. Closing the page cancels setup; retries reuse Ollama files. docs/45.
 
 ## Concurrent agents
 - More than one agent edits this repo at the same time (e.g. context layer vs gate). Always `git pull --ff-only` before editing, re-read a file before patching it, and stage only your own paths.

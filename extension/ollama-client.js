@@ -22,6 +22,57 @@
       } finally { clearTimeout(timer); }
     }
     return {
+      async inspect() {
+        const data = await request('/api/tags', undefined, 2000);
+        if (!Array.isArray(data.models)) throw new Error('ollama_bad_models');
+        return Object.fromEntries(Object.keys(MODELS).map(id => [id,
+          data.models.some(m => m.name === MODELS[id] || m.model === MODELS[id])]));
+      },
+      async pull(id, onProgress, signal) {
+        if (!MODELS[id]) throw new Error('ollama_unknown_model');
+        const abort = new AbortController();
+        const cancel = () => abort.abort();
+        if (signal?.aborted) abort.abort();
+        signal?.addEventListener('abort', cancel, { once: true });
+        const timer = setTimeout(cancel, 30 * 60 * 1000);
+        let reader;
+        try {
+          const response = await fetchImpl(BASE + '/api/pull', {
+            method: 'POST', redirect: 'error', credentials: 'omit', cache: 'no-store',
+            signal: abort.signal, headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ model: MODELS[id], stream: true }),
+          });
+          if (!response.ok) throw new Error('ollama_http_' + response.status);
+          reader = response.body.getReader();
+          const decoder = new TextDecoder();
+          let pending = '', success = false;
+          function line(text) {
+            if (!text.trim()) return;
+            const data = JSON.parse(text);
+            if (data.error) throw new Error('ollama_pull_failed');
+            if (data.status === 'success') success = true;
+            const total = Number(data.total), completed = Number(data.completed);
+            onProgress({ id, percent: Number.isFinite(total) && total > 0 &&
+              Number.isFinite(completed) && completed >= 0
+              ? Math.min(100, Math.floor(100 * completed / total)) : null });
+          }
+          while (true) {
+            const part = await reader.read();
+            pending += decoder.decode(part.value, { stream: !part.done });
+            const lines = pending.split('\n'); pending = lines.pop();
+            for (const text of lines) {
+              if (text.length > 65536) throw new Error('ollama_progress_too_large');
+              line(text);
+            }
+            if (pending.length > 65536) throw new Error('ollama_progress_too_large');
+            if (part.done) { line(pending); break; }
+          }
+          if (!success) throw new Error('ollama_pull_incomplete');
+        } finally {
+          clearTimeout(timer); signal?.removeEventListener('abort', cancel);
+          if (reader) { try { await reader.cancel(); } catch (_) {} }
+        }
+      },
       async available(id) {
         if (!MODELS[id]) return false;
         try {

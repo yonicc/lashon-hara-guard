@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lashon Hara Guard</title>
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body>
+  <main class="wrap">
+    <header class="top">
+      <div class="grow"><h1 data-i18n="setup.title"></h1><p data-i18n="setup.intro"></p></div>
+      <button type="button" class="btn" id="language" data-i18n="setup.lang"></button>
+    </header>
+    <section class="card">
+      <h2 data-i18n="setup.installTitle"></h2>
+      <p data-i18n="setup.installHint"></p>
+      <p><a class="btn" href="https://ollama.com/download" target="_blank" rel="noopener noreferrer" data-i18n="setup.downloadApp"></a></p>
+      <button class="btn primary" id="connect" type="button" data-i18n="setup.connect"></button>
+      <details id="help">
+        <summary data-i18n="setup.helpTitle"></summary>
+        <p data-i18n="setup.help"></p>
+        <label for="origin" data-i18n="setup.origin"></label>
+        <input class="text" id="origin" readonly dir="ltr">
+        <button class="btn" id="copyOrigin" type="button" data-i18n="setup.copy"></button>
+        <p id="copyStatus" role="status"></p>
+      </details>
+    </section>
+    <section class="card">
+      <h2 data-i18n="setup.chooseTitle"></h2>
+      <p data-i18n="setup.chooseHint"></p>
+      <fieldset id="choices" disabled>
+        <legend data-i18n="mode.title"></legend>
+        <div id="modes"></div>
+        <button class="btn primary" id="download" type="button" data-i18n="setup.downloadModel"></button>
+      </fieldset>
+      <p><button class="btn" id="cancel" type="button" data-i18n="setup.cancel" hidden></button></p>
+      <progress id="progress" max="100" hidden></progress>
+    </section>
+    <section class="card">
+      <h2 data-i18n="setup.testTitle"></h2>
+      <p data-i18n="setup.testHint"></p>
+      <button class="btn primary" id="activate" type="button" data-i18n="setup.activate" disabled></button>
+    </section>
+    <p class="status" id="status" role="status" aria-live="polite" tabindex="-1"></p>
+    <p><a href="options.html" data-i18n="setup.back"></a></p>
+  </main>
+  <script src="i18n.js"></script>
+  <script src="check-mode.js"></script>
+  <script src="ollama-setup-page.js"></script>
+</body>
+</html>

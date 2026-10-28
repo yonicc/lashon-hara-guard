@@ -23,6 +23,7 @@ try { if (typeof importScripts === 'function') importScripts('rules.js'); } catc
 try { if (typeof importScripts === 'function') importScripts('i18n.js'); } catch (_e) { /* tests */ }
 try { if (typeof importScripts === 'function') importScripts('check-mode.js'); } catch (_e) { /* tests */ }
 try { if (typeof importScripts === 'function') importScripts('ollama-client.js', 'ollama-engine.bundle.js', 'ollama-register.js'); } catch (_e) { /* local failure remains not_checked */ }
+try { if (typeof importScripts === 'function') importScripts('ollama-setup.js'); } catch (_e) { /* setup unavailable */ }
 try { if (typeof importScripts === 'function') importScripts('memory-background.js'); } catch (_e) { /* tests */ }
 function confirmedFactsOf(raw) {
   const R = globalThis.LHG_RULES;
