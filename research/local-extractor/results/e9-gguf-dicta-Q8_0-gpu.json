@@ -1,0 +1,2634 @@
+{
+ "runs": {
+  "gguf-dicta-Q8_0": [
+   {
+    "id": "legacy-t01",
+    "raw": "{\"firsthand\":[false,\"שמעתי מחבר שהחשמלאי ראובן גבה ממנו כפול.\"],\"verified\":[false,\"לא בדקתי את זה בעצמי, אבל תיזהרו ממנו.\"]}",
+    "generated_tokens": 54,
+    "prompt_tokens": 506,
+    "batch_size": 1,
+    "batch_elapsed_s": 202.755670797,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t02",
+    "raw": "{\"firsthand\":[true,\"ראיתי בעיניים שלי שהנהג של ההסעות נוסע במהירות מטורפת עם הילדים.\"],\"rebuke\":[true,\"כבר דיברתי איתו פעמיים והוא לא הקשיב, אז אני מעדכן את ועד ההורים כדי שיחליפו אותו.\"]}",
+    "generated_tokens": 73,
+    "prompt_tokens": 523,
+    "batch_size": 1,
+    "batch_elapsed_s": 52.00527785799997,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t03",
+    "raw": "{\"intent\":[true,\"בא לי שכולם ידעו איזה שקרן הוא שמעון, שיתבייש.\"]}",
+    "generated_tokens": 30,
+    "prompt_tokens": 490,
+    "batch_size": 1,
+    "batch_elapsed_s": 22.70747759400001,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t04",
+    "raw": "{\"intent\":[true,\"אחרי מה שהוא עשה לי, אני אדאג שכל העיר תשמע על לוי.\"],\"revenge\":[true,\"שיסבול כמו שאני סבלתי.\"]}",
+    "generated_tokens": 48,
+    "prompt_tokens": 500,
+    "batch_size": 1,
+    "batch_elapsed_s": 36.85170762199999,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t05",
+    "raw": "{\"rebuke\":[false,\"לא ניסיתי לדבר איתה קודם, ישר כתבתי לקבוצה: המנקה שלנו לוקחת חפצים מהבית.\"]}",
+    "generated_tokens": 43,
+    "prompt_tokens": 501,
+    "batch_size": 1,
+    "batch_elapsed_s": 34.44462939700003,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t06",
+    "raw": "{\"verified\":[true,\"בדקתי את זה עם שלושה אנשים שהיו שם וכולם אישרו: המאמן מקלל את הילדים באימונים.\"],\"purpose\":[true,\"אני מספר להנהלת המועדון כדי שיטפלו בזה.\"]}",
+    "generated_tokens": 59,
+    "prompt_tokens": 511,
+    "batch_size": 1,
+    "batch_elapsed_s": 43.51257942900003,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t07",
+    "raw": "{\"purpose\":[true,\"אני לא אומר את זה כדי לפגוע בו, רק כדי שלא תיפלו כמוני: המוסך של יהודה החליף לי חלקים מקוריים במשומשים.\"]}",
+    "generated_tokens": 47,
+    "prompt_tokens": 506,
+    "batch_size": 1,
+    "batch_elapsed_s": 37.76498752700002,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t08",
+    "raw": "{\"no_alternative\":[true,\"אין דרך אחרת להזהיר אתכם בלי לספר את זה: הספק שלנו מוכר מוצרים פגי תוקף.\"]}",
+    "generated_tokens": 39,
+    "prompt_tokens": 496,
+    "batch_size": 1,
+    "batch_elapsed_s": 30.512935459000005,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t09",
+    "raw": "{\"purpose\":[true,\"יכולתי פשוט להגיד לכם לא לקנות שם בלי להסביר, אבל אני רוצה שתדעו מה בדיוק קרה עם בעל החנות.\"]}",
+    "generated_tokens": 46,
+    "prompt_tokens": 505,
+    "batch_size": 1,
+    "batch_elapsed_s": 36.77654797800005,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t10",
+    "raw": "{\"firsthand\":[true,\"אני כותב רק מה שקרה בדיוק, בלי להוסיף: המתווך לא החזיר את דמי הרצינות.\"]}",
+    "generated_tokens": 38,
+    "prompt_tokens": 497,
+    "batch_size": 1,
+    "batch_elapsed_s": 30.34816379299997,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t11",
+    "raw": "{\"purpose\":[false,\"אני לא רוצה שהוא יפוטר, רק שיפסיק.\"],\"purpose\":[false,\"לכן אני כותב רק לראש הצוות ולא לכל המחלקה: דני מאחר כל בוקר.\"]}",
+    "generated_tokens": 53,
+    "prompt_tokens": 505,
+    "batch_size": 1,
+    "batch_elapsed_s": 40.342132813000035,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t12",
+    "raw": "{\"purpose\":[true,\"אני יודע שאם אספר את זה לבעל הבית הוא יזרוק אותם מהדירה מיד, וזה הרבה יותר ממה שמגיע להם על הרעש.\"]}",
+    "generated_tokens": 49,
+    "prompt_tokens": 508,
+    "batch_size": 1,
+    "batch_elapsed_s": 37.87946369100007,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t13",
+    "raw": "{}",
+    "generated_tokens": 1,
+    "prompt_tokens": 496,
+    "batch_size": 1,
+    "batch_elapsed_s": 12.656750536000004,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t14",
+    "raw": "{}",
+    "generated_tokens": 1,
+    "prompt_tokens": 501,
+    "batch_size": 1,
+    "batch_elapsed_s": 15.425735326999984,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t15",
+    "raw": "{\"purpose\":[true,\"אני כותב לכל שלושים חברי הוועד: הגזבר לא הגיש דוח כבר שנה.\"]}",
+    "generated_tokens": 32,
+    "prompt_tokens": 491,
+    "batch_size": 1,
+    "batch_elapsed_s": 24.993118628999923,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t16",
+    "raw": "{\"purpose\":[false,\"רק בינינו, אל תעביר את זה הלאה: השכן מלמטה חייב כסף לכל הבניין.\"]}",
+    "generated_tokens": 36,
+    "prompt_tokens": 495,
+    "batch_size": 1,
+    "batch_elapsed_s": 28.154078520999974,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t17",
+    "raw": "{\"purpose\":[true,\"אני בטוח שתספרי את זה לכל החברות שלך, אז הנה: הגננת החדשה עוזבת כי פיטרו אותה.\"]}",
+    "generated_tokens": 40,
+    "prompt_tokens": 499,
+    "batch_size": 1,
+    "batch_elapsed_s": 30.416213749999997,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t18",
+    "raw": "{\"no_alternative\":[true,\"פניתי לרב הקהילה כי רק הוא יכול להשפיע על האיש הזה לחזור בו מההתנהגות שלו.\"]}",
+    "generated_tokens": 40,
+    "prompt_tokens": 497,
+    "batch_size": 1,
+    "batch_elapsed_s": 27.858297676000007,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t19",
+    "raw": "{\"firsthand\":[true,\"החלטתי להגיש תלונה במשטרה על השכן שהיכה את הכלב שלו, ראיתי את זה מהחלון.\"]}",
+    "generated_tokens": 38,
+    "prompt_tokens": 497,
+    "batch_size": 1,
+    "batch_elapsed_s": 29.09862552100003,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t20",
+    "raw": "{}",
+    "generated_tokens": 1,
+    "prompt_tokens": 499,
+    "batch_size": 1,
+    "batch_elapsed_s": 13.789860865000037,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t21",
+    "raw": "{\"firsthand\":[false,\"לא הייתי שם, רק קראתי על זה בפייסבוק: הגבאי של בית הכנסת השני נעצר.\"]}",
+    "generated_tokens": 33,
+    "prompt_tokens": 492,
+    "batch_size": 1,
+    "batch_elapsed_s": 23.51638961499998,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t22",
+    "raw": "{\"firsthand\":[true,\"הייתי שם בעצמי וראיתי: הקופאית נתנה עודף לא נכון בכוונה.\"]}",
+    "generated_tokens": 34,
+    "prompt_tokens": 493,
+    "batch_size": 1,
+    "batch_elapsed_s": 24.941594014999964,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t23",
+    "raw": "{\"verified\":[true,\"שאלתי את המעביד הקודם שלו לפני שכתבתי, והוא אישר שהעובד הזה פוטר בגלל גניבה.\"],\"purpose\":[true,\"אני כותב לך כי אתה שוקל להעסיק אותו.\"]}",
+    "generated_tokens": 65,
+    "prompt_tokens": 517,
+    "batch_size": 1,
+    "batch_elapsed_s": 48.576528062999955,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t24",
+    "raw": "{\"verified\":[false,\"לא בדקתי אם זה נכון, אבל אומרים שהבייביסיטר מעשנת ליד התינוקות.\"]}",
+    "generated_tokens": 36,
+    "prompt_tokens": 495,
+    "batch_size": 1,
+    "batch_elapsed_s": 26.221879697000077,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t25",
+    "raw": "{\"rebuke\":[true,\"כבר הערתי לו בעדינות כמה פעמים שהוא משאיר את המטבח המשותף מלוכלך, וזה לא עזר, אז אני מעלה את זה לאחראי על הקומה.\"]}",
+    "generated_tokens": 56,
+    "prompt_tokens": 514,
+    "batch_size": 1,
+    "batch_elapsed_s": 41.408835017,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t26",
+    "raw": "{\"rebuke\":[false,\"לא אמרתי לה כלום ישירות, אני מעדיף שאחרים יגידו לה שהיא מדברת יותר מדי בטלפון בעבודה.\"]}",
+    "generated_tokens": 42,
+    "prompt_tokens": 500,
+    "batch_size": 1,
+    "batch_elapsed_s": 30.959271752000063,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t27",
+    "raw": "{\"purpose\":[false,\"אני כותב את זה רק כדי שתצחקו: תראו איך הבוס שלנו התלבש היום, כמו ליצן.\"],\"intent\":[true,\"אני כותב את זה רק כדי שתצחקו: תראו איך הבוס שלנו התלבש היום, כמו ליצן.\"]}",
+    "generated_tokens": 76,
+    "prompt_tokens": 498,
+    "batch_size": 1,
+    "batch_elapsed_s": 44.28312022500006,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t28",
+    "raw": "{\"purpose\":[true,\"המטרה שלי היא להגן על הילדים בגן, לא לרכל: העוזרת בגן משאירה אותם לבד בחצר.\"]}",
+    "generated_tokens": 39,
+    "prompt_tokens": 498,
+    "batch_size": 1,
+    "batch_elapsed_s": 28.70829659800006,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t29",
+    "raw": "{\"revenge\":[true,\"יש לי חשבון פתוח איתו מזמן, ועכשיו הגיע הזמן לגלות לכולם מה הוא עשה בעסק.\"]}",
+    "generated_tokens": 39,
+    "prompt_tokens": 497,
+    "batch_size": 1,
+    "batch_elapsed_s": 28.33120860100007,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t30",
+    "raw": "{\"rebuke\":[false,\"אני אומר את זה גם בפניו, אין לי בעיה: העבודה של יוסי על הפרויקט הייתה חלשה מאוד.\"]}",
+    "generated_tokens": 39,
+    "prompt_tokens": 497,
+    "batch_size": 1,
+    "batch_elapsed_s": 28.62170782299995,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t31",
+    "raw": "{}",
+    "generated_tokens": 1,
+    "prompt_tokens": 497,
+    "batch_size": 1,
+    "batch_elapsed_s": 13.05904369200016,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t32",
+    "raw": "{\"purpose\":[true,\"אני מעביר את זה לכל הקבוצה של השכונה, מאות אנשים: הקבלן ברחוב הרצל לא סיים את העבודה.\"]}",
+    "generated_tokens": 43,
+    "prompt_tokens": 502,
+    "batch_size": 1,
+    "batch_elapsed_s": 32.25907088600002,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t33",
+    "raw": "{\"rebuke\":[false,\"שלחתי רק לך, אף אחד אחר לא יודע: אחיך לא החזיר לי את ההלוואה.\"]}",
+    "generated_tokens": 36,
+    "prompt_tokens": 494,
+    "batch_size": 1,
+    "batch_elapsed_s": 26.03099845099996,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t34",
+    "raw": "{\"purpose\":[false,\"אם תשתף את זה עם עוד מישהו זה יגיע לכל הישיבה תוך שעה, אז בבקשה תשמור לעצמך: הבחור החדש נכשל במבחן.\"]}",
+    "generated_tokens": 55,
+    "prompt_tokens": 514,
+    "batch_size": 1,
+    "batch_elapsed_s": 42.57602894999991,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t35",
+    "raw": "{\"purpose\":[true,\"אני מספרת לך כי את החברה הכי טובה שלה ואת יכולה לדבר איתה על זה: היא נראית מוזנחת לאחרונה.\"]}",
+    "generated_tokens": 45,
+    "prompt_tokens": 504,
+    "batch_size": 1,
+    "batch_elapsed_s": 33.07389530499995,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t36",
+    "raw": "{\"no_alternative\":[true,\"אני לא יודע למה אני מספר לך את זה, אתה ממילא לא יכול לעשות עם זה כלום: המנהל הקודם רימה את החברה.\"]}",
+    "generated_tokens": 49,
+    "prompt_tokens": 506,
+    "batch_size": 1,
+    "batch_elapsed_s": 34.90420181299987,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t37",
+    "raw": "{\"purpose\":[true,\"פרסמתי את זה בעיתון המקומי כדי שכולם ידעו: הקבלן לא שילם לעובדים שלו.\"]}",
+    "generated_tokens": 40,
+    "prompt_tokens": 499,
+    "batch_size": 1,
+    "batch_elapsed_s": 28.72617792799997,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t38",
+    "raw": "{\"rebuke\":[true,\"ניסיתי כל דרך אחרת — דיברתי איתו, שלחתי מכתב, פניתי לאשתו — ושום דבר לא עזר, אז אין ברירה אלא לפנות לוועד.\"],\"no_alternative\":[true,\"ניסיתי כל דרך אחרת — דיברתי איתו, שלחתי מכתב, פניתי לאשתו — ושום דבר לא עזר, אז אין ברירה אלא לפנות לוועד.\"]}",
+    "generated_tokens": 110,
+    "prompt_tokens": 513,
+    "batch_size": 1,
+    "batch_elapsed_s": 63.67086954399997,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t39",
+    "raw": "{\"no_alternative\":[false,\"אפשר היה גם פשוט לא לשבץ אותו במשמרות לילה בלי להסביר לכולם למה, אבל אני מעדיף שכולם יידעו שהוא נרדם במשמרת.\"],\"intent\":[true,\"אפשר היה גם פשוט לא לשבץ אותו במשמרות לילה בלי להסביר לכולם למה, אבל אני מעדיף שכולם יידעו שהוא נרדם במשמרת.\"]}",
+    "generated_tokens": 104,
+    "prompt_tokens": 511,
+    "batch_size": 1,
+    "batch_elapsed_s": 59.79831163599988,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t40",
+    "raw": "{\"purpose\":[true,\"אני נזהר לכתוב רק לרכזת, כי אם זה יתפרסם הוא עלול לאבד את הפרנסה שלו בגלל טעות קטנה.\"]}",
+    "generated_tokens": 44,
+    "prompt_tokens": 503,
+    "batch_size": 1,
+    "batch_elapsed_s": 31.830142461999912,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t41",
+    "raw": "{}",
+    "generated_tokens": 1,
+    "prompt_tokens": 501,
+    "batch_size": 1,
+    "batch_elapsed_s": 13.60714761700001,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t42",
+    "raw": "{\"purpose\":[true,\"אני מספר לך רק כדי שתדע ממי להיזהר בעסקים: השותף שלו הוליך אותי שולל בעסקה, הייתי בצד השני.\"]}",
+    "generated_tokens": 46,
+    "prompt_tokens": 505,
+    "batch_size": 1,
+    "batch_elapsed_s": 32.951895265000076,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t43",
+    "raw": "{\"verified\":[false,\"אחי בן העשר סיפר לי שהמורה שלו מרביץ, ולא בדקתי עוד.\"]}",
+    "generated_tokens": 30,
+    "prompt_tokens": 489,
+    "batch_size": 1,
+    "batch_elapsed_s": 21.139030568999942,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t44",
+    "raw": "{}",
+    "generated_tokens": 1,
+    "prompt_tokens": 502,
+    "batch_size": 1,
+    "batch_elapsed_s": 14.00630404399999,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t45",
+    "raw": "{\"revenge\":[true,\"אני כותב את זה כנקמה, ואני לא מתבייש: הוא הרס לי את החתונה.\"]}",
+    "generated_tokens": 36,
+    "prompt_tokens": 494,
+    "batch_size": 1,
+    "batch_elapsed_s": 25.246113581999907,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t46",
+    "raw": "{\"revenge\":[false,\"אני לא כועס עליו ואין לי שום דבר אישי נגדו; אני רק חושב שהדיירים צריכים לדעת שהוא לא מתקן את המעלית.\"]}",
+    "generated_tokens": 49,
+    "prompt_tokens": 507,
+    "batch_size": 1,
+    "batch_elapsed_s": 34.42645909299995,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t47",
+    "raw": "{\"rebuke\":[false,\"עניתי לך רק כי שאלת אותי ישירות לפני השידוך: כן, הבחור הזה ידוע כבעל מזג חם מאוד, ראיתי את זה כמה פעמים.\"],\"firsthand\":[true,\"ראיתי את זה כמה פעמים.\"]}",
+    "generated_tokens": 68,
+    "prompt_tokens": 511,
+    "batch_size": 1,
+    "batch_elapsed_s": 43.41882251800007,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t48",
+    "raw": "{\"purpose\":[true,\"המטרה של ההודעה היא לבקש עזרה בתיקון המזגן, לא לדבר על אף אחד.\"]}",
+    "generated_tokens": 35,
+    "prompt_tokens": 494,
+    "batch_size": 1,
+    "batch_elapsed_s": 25.06658085700019,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t49",
+    "raw": "{\"purpose\":[false,\"המטרה שלי פשוט לפרוק, נמאס לי מהשכנה הזאת שצועקת כל לילה.\"]}",
+    "generated_tokens": 34,
+    "prompt_tokens": 493,
+    "batch_size": 1,
+    "batch_elapsed_s": 23.71678840499999,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t50",
+    "raw": "{}",
+    "generated_tokens": 1,
+    "prompt_tokens": 495,
+    "batch_size": 1,
+    "batch_elapsed_s": 11.589233699000033,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t51",
+    "raw": "{\"rejects\":[true,\"אין טעם שאדבר איתו, אני יודע שהוא לא יקבל ממני שום הערה, אז אני מספר לוועד שהוא מחנה על המדרכה.\"],\"purpose\":[true,\"אין טעם שאדבר איתו, אני יודע שהוא לא יקבל ממני שום הערה, אז אני מספר לוועד שהוא מחנה על המדרכה.\"]}",
+    "generated_tokens": 97,
+    "prompt_tokens": 508,
+    "batch_size": 1,
+    "batch_elapsed_s": 55.50872576300003,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-t52",
+    "raw": "{\"rejects\":[false,\"אני בטוח שאם אגיד לה בעדינות היא תקשיב, אבל בינתיים אני רק מעדכן אותך שהיא שוכחת לנעול את המחסן.\"]}",
+    "generated_tokens": 48,
+    "prompt_tokens": 507,
+    "batch_size": 1,
+    "batch_elapsed_s": 35.38544075000004,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-c01",
+    "raw": "{}",
+    "generated_tokens": 1,
+    "prompt_tokens": 482,
+    "batch_size": 1,
+    "batch_elapsed_s": 7.498948918999986,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-c02",
+    "raw": "{}",
+    "generated_tokens": 1,
+    "prompt_tokens": 480,
+    "batch_size": 1,
+    "batch_elapsed_s": 6.6015014489998975,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-c03",
+    "raw": "{}",
+    "generated_tokens": 1,
+    "prompt_tokens": 484,
+    "batch_size": 1,
+    "batch_elapsed_s": 7.978443307999896,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-c04",
+    "raw": "{}",
+    "generated_tokens": 1,
+    "prompt_tokens": 483,
+    "batch_size": 1,
+    "batch_elapsed_s": 7.687859144999948,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-c05",
+    "raw": "{\"purpose\":[true,\"השיעור של הרב היום היה מרתק, ממליץ לכולם לבוא בשבוע הבא.\"]}",
+    "generated_tokens": 31,
+    "prompt_tokens": 490,
+    "batch_size": 1,
+    "batch_elapsed_s": 21.79795008100018,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-c06",
+    "raw": "{}",
+    "generated_tokens": 1,
+    "prompt_tokens": 481,
+    "batch_size": 1,
+    "batch_elapsed_s": 6.967906452000079,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-c07",
+    "raw": "{}",
+    "generated_tokens": 1,
+    "prompt_tokens": 482,
+    "batch_size": 1,
+    "batch_elapsed_s": 7.309954971000025,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-c08",
+    "raw": "{\"purpose\":[true,\"הגשם היום פשוט מטורף, תיזהרו בכבישים.\"]}",
+    "generated_tokens": 26,
+    "prompt_tokens": 485,
+    "batch_size": 1,
+    "batch_elapsed_s": 18.46714821899991,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-c09",
+    "raw": "{\"verified\":[true,\"שלחתי לכם את הסיכום של הישיבה, תעברו עליו.\"]}",
+    "generated_tokens": 29,
+    "prompt_tokens": 488,
+    "batch_size": 1,
+    "batch_elapsed_s": 20.25287624800012,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-c10",
+    "raw": "{}",
+    "generated_tokens": 1,
+    "prompt_tokens": 485,
+    "batch_size": 1,
+    "batch_elapsed_s": 8.085156415000029,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-c11",
+    "raw": "{}",
+    "generated_tokens": 1,
+    "prompt_tokens": 482,
+    "batch_size": 1,
+    "batch_elapsed_s": 7.117068675000155,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-c12",
+    "raw": "{}",
+    "generated_tokens": 1,
+    "prompt_tokens": 479,
+    "batch_size": 1,
+    "batch_elapsed_s": 6.074898033999943,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-d01",
+    "raw": "{}",
+    "generated_tokens": 1,
+    "prompt_tokens": 489,
+    "batch_size": 1,
+    "batch_elapsed_s": 9.42790348199992,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-d02",
+    "raw": "{}",
+    "generated_tokens": 1,
+    "prompt_tokens": 489,
+    "batch_size": 1,
+    "batch_elapsed_s": 9.459620932000007,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-d03",
+    "raw": "{}",
+    "generated_tokens": 1,
+    "prompt_tokens": 483,
+    "batch_size": 1,
+    "batch_elapsed_s": 7.497441036000055,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-d04",
+    "raw": "{}",
+    "generated_tokens": 1,
+    "prompt_tokens": 485,
+    "batch_size": 1,
+    "batch_elapsed_s": 8.069686362999846,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-d05",
+    "raw": "{}",
+    "generated_tokens": 1,
+    "prompt_tokens": 483,
+    "batch_size": 1,
+    "batch_elapsed_s": 7.479105603999869,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-d06",
+    "raw": "{}",
+    "generated_tokens": 1,
+    "prompt_tokens": 480,
+    "batch_size": 1,
+    "batch_elapsed_s": 6.2240153689999715,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-d07",
+    "raw": "{}",
+    "generated_tokens": 1,
+    "prompt_tokens": 483,
+    "batch_size": 1,
+    "batch_elapsed_s": 7.780862160999959,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-d08",
+    "raw": "{}",
+    "generated_tokens": 1,
+    "prompt_tokens": 489,
+    "batch_size": 1,
+    "batch_elapsed_s": 10.24171473499996,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-b01",
+    "raw": "{\"purpose\":[true,\"לתועלת: יעקב מהקומה השלישית הוא אדם מאוד לא נעים.\"]}",
+    "generated_tokens": 27,
+    "prompt_tokens": 486,
+    "batch_size": 1,
+    "batch_elapsed_s": 19.508472054000094,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "legacy-b02",
+    "raw": "{\"purpose\":[true,\"אני אומר את זה לתועלת בלבד: הבת של השכנים נראית רע מאוד בזמן האחרון.\"]}",
+    "generated_tokens": 34,
+    "prompt_tokens": 493,
+    "batch_size": 1,
+    "batch_elapsed_s": 26.243652282000085,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-1",
+    "raw": "{\"firsthand\":[true,\"ראיתי אתמול בעצמי איך הקבלן משאיר את הפיגום בלי גידור ליד הגן.\"],\"purpose\":[true,\"תדברו עם העירייה שיסגרו לו את האתר לפני שילד ייפגע.\"]}",
+    "generated_tokens": 66,
+    "prompt_tokens": 518,
+    "batch_size": 1,
+    "batch_elapsed_s": 46.34933010499981,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-2",
+    "raw": "{\"verified\":[false,\"חברה סיפרה לי שהרופאה בקופה צורחת על מטופלים, לא בדקתי אם זה נכון.\"],\"purpose\":[false,\"סתם, שיהיה לכם על מה לרכל.\"]}",
+    "generated_tokens": 58,
+    "prompt_tokens": 511,
+    "batch_size": 1,
+    "batch_elapsed_s": 41.100230036000085,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-3",
+    "raw": "{\"revenge\":[true,\"אחרי שהוא הלשין עליי לבוס, הגיע תורו.\"],\"purpose\":[true,\"אני הולך לפרסם לכולם את ההודעות שלו כדי שיתבייש.\"],\"intent\":[true,\"אני הולך לפרסם לכולם את ההודעות שלו כדי שיתבייש.\"]}",
+    "generated_tokens": 76,
+    "prompt_tokens": 502,
+    "batch_size": 1,
+    "batch_elapsed_s": 47.38671449399999,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-4",
+    "raw": "{\"rebuke\":[true,\"דיברתי עם השכן כבר שלוש פעמים על הרעש בלילות, והוא פשוט צוחק לי בפנים.\"],\"purpose\":[true,\"אני כותב לוועד הבית כדי שיטפלו בזה.\"]}",
+    "generated_tokens": 63,
+    "prompt_tokens": 514,
+    "batch_size": 1,
+    "batch_elapsed_s": 45.61626756299984,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-5",
+    "raw": "{\"verified\":[true,\"הצלבתי את החשבוניות מול הדוח של הגזבר ויש פער של אלפי שקלים.\"],\"purpose\":[true,\"שכולם בוועד יידעו לפני ההצבעה.\"]}",
+    "generated_tokens": 55,
+    "prompt_tokens": 507,
+    "batch_size": 1,
+    "batch_elapsed_s": 39.38597310999967,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-6",
+    "raw": "{\"no_alternative\":[true,\"אין לי שום דרך אחרת להגן על הבת שלי חוץ מלספר להורים מה המדריך עושה.\"],\"rebuke\":[true,\"ניסיתי לדבר איתו והוא אמר שזה לא ענייני.\"]}",
+    "generated_tokens": 66,
+    "prompt_tokens": 515,
+    "batch_size": 1,
+    "batch_elapsed_s": 46.99433389900014,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-7",
+    "raw": "{\"intent\":[false,\"אני לא רוצה להשמיץ אף אחד, אבל המעסיק הקודם שלי לא שילם לי משכורת חודשיים.\"],\"purpose\":[true,\"היזהרו לפני שאתם חותמים אצלו.\"]}",
+    "generated_tokens": 60,
+    "prompt_tokens": 513,
+    "batch_size": 1,
+    "batch_elapsed_s": 43.46864262600002,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-8",
+    "raw": "{\"firsthand\":[false,\"שמעתי שמנהל הסניף מעלים קופות.\"],\"rebuke\":[false,\"עוד לא שאלתי אותו על זה ישירות.\"]}",
+    "generated_tokens": 43,
+    "prompt_tokens": 494,
+    "batch_size": 1,
+    "batch_elapsed_s": 27.716671913000027,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-9",
+    "raw": "{}",
+    "generated_tokens": 1,
+    "prompt_tokens": 503,
+    "batch_size": 1,
+    "batch_elapsed_s": 14.2853215680002,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-10",
+    "raw": "{}",
+    "generated_tokens": 1,
+    "prompt_tokens": 494,
+    "batch_size": 1,
+    "batch_elapsed_s": 11.458191710999927,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-11",
+    "raw": "{\"firsthand\":[true,\"I watched the delivery guy throw our package over the fence myself.\"],\"purpose\":[true,\"Please report him to the company so it stops happening to everyone on the street.\"]}",
+    "generated_tokens": 44,
+    "prompt_tokens": 496,
+    "batch_size": 1,
+    "batch_elapsed_s": 29.398089147000064,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-12",
+    "raw": "{\"intent\":[true,\"Honestly I just want everyone to see what a joke Dan is, lol.\"]}",
+    "generated_tokens": 24,
+    "prompt_tokens": 491,
+    "batch_size": 1,
+    "batch_elapsed_s": 20.06975002099989,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-13",
+    "raw": "{\"verified\":[true,\"I called the clinic and two staff members confirmed the hygienist has no license.\"],\"purpose\":[true,\"Don't book with her until this is sorted out.\"]}",
+    "generated_tokens": 45,
+    "prompt_tokens": 497,
+    "batch_size": 1,
+    "batch_elapsed_s": 31.460028152999712,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-14",
+    "raw": "{\"rebuke\":[true,\"I already told Ronit twice that she can't take credit for my work, and she keeps doing it.\"],\"rejects\":[true,\"There's no point talking to her again, she won't listen.\"]}",
+    "generated_tokens": 55,
+    "prompt_tokens": 506,
+    "batch_size": 1,
+    "batch_elapsed_s": 37.807110692999686,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-15",
+    "raw": "{\"firsthand\":[false,\"A friend forwarded me a screenshot saying the landlord keeps deposits.\"],\"verified\":[false,\"I haven't checked any of it.\"]}",
+    "generated_tokens": 40,
+    "prompt_tokens": 492,
+    "batch_size": 1,
+    "batch_elapsed_s": 26.584786989999884,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-16",
+    "raw": "{\"revenge\":[false,\"Not trying to get back at him or anything, I just think the board needs to know the treasurer skipped the audit so they can fix it.\"],\"purpose\":[true,\"Not trying to get back at him or anything, I just think the board needs to know the treasurer skipped the audit so they can fix it.\"]}",
+    "generated_tokens": 80,
+    "prompt_tokens": 499,
+    "batch_size": 1,
+    "batch_elapsed_s": 47.08133028899965,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-17",
+    "raw": "{}",
+    "generated_tokens": 1,
+    "prompt_tokens": 492,
+    "batch_size": 1,
+    "batch_elapsed_s": 11.302574554999865,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-18",
+    "raw": "{\"revenge\":[true,\"She embarrassed me at the wedding, so now it's my turn to make her pay.\"],\"purpose\":[true,\"Spread this around.\"]}",
+    "generated_tokens": 40,
+    "prompt_tokens": 491,
+    "batch_size": 1,
+    "batch_elapsed_s": 26.840005070999723,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-19",
+    "raw": "{\"no_alternative\":[true,\"The only way to stop him from scamming more seniors is to post this publicly, I tried everything else.\"]}",
+    "generated_tokens": 34,
+    "prompt_tokens": 499,
+    "batch_size": 1,
+    "batch_elapsed_s": 26.911856451999938,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-20",
+    "raw": "{}",
+    "generated_tokens": 1,
+    "prompt_tokens": 481,
+    "batch_size": 1,
+    "batch_elapsed_s": 7.103876237999884,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-21",
+    "raw": "{\"firsthand\":[true,\"ראיתי בעצמי את ה-driver עושה texting בזמן נסיעה עם הילדים.\"],\"purpose\":[true,\"Please tell the school so they find someone else.\"]}",
+    "generated_tokens": 48,
+    "prompt_tokens": 500,
+    "batch_size": 1,
+    "batch_elapsed_s": 33.06232320900017,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-22",
+    "raw": "{\"firsthand\":[false,\"I heard from Maya שהמורה לפסנתר מאחר כל שיעור, but I didn't verify it.\"]}",
+    "generated_tokens": 34,
+    "prompt_tokens": 493,
+    "batch_size": 1,
+    "batch_elapsed_s": 24.518258021999827,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-23",
+    "raw": "{\"rebuke\":[true,\"דיברתי עם Avi על ה-comments שלו בישיבה, and he promised to stop.\"],\"purpose\":[false,\"אני מעדכן את HR רק כדי שיהיה רשום.\"]}",
+    "generated_tokens": 52,
+    "prompt_tokens": 503,
+    "batch_size": 1,
+    "batch_elapsed_s": 35.26183102799996,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-24",
+    "raw": "{\"purpose\":[false,\"Just for laughs, תראו מה נועה לבשה היום 😂\"]}",
+    "generated_tokens": 26,
+    "prompt_tokens": 485,
+    "batch_size": 1,
+    "batch_elapsed_s": 18.301233467000202,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-25",
+    "raw": "{\"purpose\":[false,\"I'm 100% sure שהוא גונב, honestly.\"],\"verified\":[false,\"אין לי ראיות אבל.\"]}",
+    "generated_tokens": 39,
+    "prompt_tokens": 490,
+    "batch_size": 1,
+    "batch_elapsed_s": 25.302426073999868,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-26",
+    "raw": "{\"verified\":[true,\"בדקתי מול ה-bank statements, and the money never arrived.\"],\"purpose\":[true,\"Warn the others before they pay him.\"]}",
+    "generated_tokens": 38,
+    "prompt_tokens": 491,
+    "batch_size": 1,
+    "batch_elapsed_s": 24.892896005999773,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-27",
+    "raw": "{\"rejects\":[true,\"He will never accept criticism from me, I know him.\"],\"purpose\":[true,\"אז אני פונה ישר למנהלת כדי שתעצור את זה.\"]}",
+    "generated_tokens": 46,
+    "prompt_tokens": 497,
+    "batch_size": 1,
+    "batch_elapsed_s": 30.477001444000052,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-28",
+    "raw": "{\"revenge\":[false,\"אני לא כותב את זה מתוך כעס או נקמה, I just want the next tenant to know about the mold.\"]}",
+    "generated_tokens": 37,
+    "prompt_tokens": 495,
+    "batch_size": 1,
+    "batch_elapsed_s": 26.107357344999855,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-29",
+    "raw": "{}",
+    "generated_tokens": 1,
+    "prompt_tokens": 494,
+    "batch_size": 1,
+    "batch_elapsed_s": 11.254737121999824,
+    "token_limit": 256,
+    "hit_limit": false
+   },
+   {
+    "id": "sealed3-30",
+    "raw": "{\"intent\":[true,\"אני רוצה שכולם יצחקו עליו tomorrow at the party, תעבירו את הסרטון.\"]}",
+    "generated_tokens": 31,
+    "prompt_tokens": 491,
+    "batch_size": 1,
+    "batch_elapsed_s": 22.071769336000216,
+    "token_limit": 256,
+    "hit_limit": false
+   }
+  ]
+ },
+ "evaluation_rows": [
+  {
+   "id": "legacy-t01",
+   "language": "he",
+   "text": "שמעתי מחבר שהחשמלאי ראובן גבה ממנו כפול. לא בדקתי את זה בעצמי, אבל תיזהרו ממנו.",
+   "expect": {
+    "firsthand": false,
+    "verified": false,
+    "purpose": true
+   },
+   "ok": [],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t02",
+   "language": "he",
+   "text": "ראיתי בעיניים שלי שהנהג של ההסעות נוסע במהירות מטורפת עם הילדים. כבר דיברתי איתו פעמיים והוא לא הקשיב, אז אני מעדכן את ועד ההורים כדי שיחליפו אותו.",
+   "expect": {
+    "firsthand": true,
+    "rebuke": true,
+    "purpose": true
+   },
+   "ok": [
+    "no_alternative"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t03",
+   "language": "he",
+   "text": "בא לי שכולם ידעו איזה שקרן הוא שמעון, שיתבייש.",
+   "expect": {
+    "intent": true,
+    "purpose": false
+   },
+   "ok": [
+    "revenge"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t04",
+   "language": "he",
+   "text": "אחרי מה שהוא עשה לי, אני אדאג שכל העיר תשמע על לוי. שיסבול כמו שאני סבלתי.",
+   "expect": {
+    "revenge": true,
+    "intent": true,
+    "purpose": false
+   },
+   "ok": [],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t05",
+   "language": "he",
+   "text": "לא ניסיתי לדבר איתה קודם, ישר כתבתי לקבוצה: המנקה שלנו לוקחת חפצים מהבית.",
+   "expect": {
+    "rebuke": false
+   },
+   "ok": [
+    "firsthand",
+    "purpose"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t06",
+   "language": "he",
+   "text": "בדקתי את זה עם שלושה אנשים שהיו שם וכולם אישרו: המאמן מקלל את הילדים באימונים. אני מספר להנהלת המועדון כדי שיטפלו בזה.",
+   "expect": {
+    "verified": true,
+    "purpose": true
+   },
+   "ok": [
+    "firsthand"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t07",
+   "language": "he",
+   "text": "אני לא אומר את זה כדי לפגוע בו, רק כדי שלא תיפלו כמוני: המוסך של יהודה החליף לי חלקים מקוריים במשומשים.",
+   "expect": {
+    "intent": false,
+    "purpose": true
+   },
+   "ok": [
+    "firsthand"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t08",
+   "language": "he",
+   "text": "אין דרך אחרת להזהיר אתכם בלי לספר את זה: הספק שלנו מוכר מוצרים פגי תוקף.",
+   "expect": {
+    "no_alternative": true,
+    "purpose": true
+   },
+   "ok": [],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t09",
+   "language": "he",
+   "text": "יכולתי פשוט להגיד לכם לא לקנות שם בלי להסביר, אבל אני רוצה שתדעו מה בדיוק קרה עם בעל החנות.",
+   "expect": {
+    "no_alternative": false
+   },
+   "ok": [
+    "purpose",
+    "intent"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t10",
+   "language": "he",
+   "text": "אני כותב רק מה שקרה בדיוק, בלי להוסיף: המתווך לא החזיר את דמי הרצינות.",
+   "expect": {},
+   "ok": [
+    "firsthand",
+    "purpose"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t11",
+   "language": "he",
+   "text": "אני לא רוצה שהוא יפוטר, רק שיפסיק. לכן אני כותב רק לראש הצוות ולא לכל המחלקה: דני מאחר כל בוקר.",
+   "expect": {
+    "purpose": true
+   },
+   "ok": [
+    "intent"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t12",
+   "language": "he",
+   "text": "אני יודע שאם אספר את זה לבעל הבית הוא יזרוק אותם מהדירה מיד, וזה הרבה יותר ממה שמגיע להם על הרעש.",
+   "expect": {},
+   "ok": [
+    "purpose"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t13",
+   "language": "he",
+   "text": "הוא כאן בקבוצה, אז שישמע גם הוא: ראובן, אתה תמיד מאחר לישיבות.",
+   "expect": {},
+   "ok": [
+    "firsthand"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t14",
+   "language": "he",
+   "text": "משה לא בקבוצה הזאת, אז אפשר לדבר: מישהו שם לב שהוא שוב שכח את המפתחות של המשרד?",
+   "expect": {},
+   "ok": [],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t15",
+   "language": "he",
+   "text": "אני כותב לכל שלושים חברי הוועד: הגזבר לא הגיש דוח כבר שנה.",
+   "expect": {},
+   "ok": [
+    "purpose"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t16",
+   "language": "he",
+   "text": "רק בינינו, אל תעביר את זה הלאה: השכן מלמטה חייב כסף לכל הבניין.",
+   "expect": {},
+   "ok": [],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t17",
+   "language": "he",
+   "text": "אני בטוח שתספרי את זה לכל החברות שלך, אז הנה: הגננת החדשה עוזבת כי פיטרו אותה.",
+   "expect": {},
+   "ok": [],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t18",
+   "language": "he",
+   "text": "פניתי לרב הקהילה כי רק הוא יכול להשפיע על האיש הזה לחזור בו מההתנהגות שלו.",
+   "expect": {
+    "purpose": true
+   },
+   "ok": [
+    "no_alternative"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t19",
+   "language": "he",
+   "text": "החלטתי להגיש תלונה במשטרה על השכן שהיכה את הכלב שלו, ראיתי את זה מהחלון.",
+   "expect": {
+    "firsthand": true
+   },
+   "ok": [
+    "purpose"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t20",
+   "language": "he",
+   "text": "אמא שלי לחצה עליי שאספר לה מה קרה בכיתה, אז סיפרתי שהמורה צעקה על דני.",
+   "expect": {},
+   "ok": [
+    "firsthand"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t21",
+   "language": "he",
+   "text": "לא הייתי שם, רק קראתי על זה בפייסבוק: הגבאי של בית הכנסת השני נעצר.",
+   "expect": {
+    "firsthand": false
+   },
+   "ok": [
+    "verified"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t22",
+   "language": "he",
+   "text": "הייתי שם בעצמי וראיתי: הקופאית נתנה עודף לא נכון בכוונה.",
+   "expect": {
+    "firsthand": true
+   },
+   "ok": [],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t23",
+   "language": "he",
+   "text": "שאלתי את המעביד הקודם שלו לפני שכתבתי, והוא אישר שהעובד הזה פוטר בגלל גניבה. אני כותב לך כי אתה שוקל להעסיק אותו.",
+   "expect": {
+    "verified": true,
+    "purpose": true
+   },
+   "ok": [
+    "firsthand"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t24",
+   "language": "he",
+   "text": "לא בדקתי אם זה נכון, אבל אומרים שהבייביסיטר מעשנת ליד התינוקות.",
+   "expect": {
+    "verified": false,
+    "firsthand": false
+   },
+   "ok": [
+    "purpose"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t25",
+   "language": "he",
+   "text": "כבר הערתי לו בעדינות כמה פעמים שהוא משאיר את המטבח המשותף מלוכלך, וזה לא עזר, אז אני מעלה את זה לאחראי על הקומה.",
+   "expect": {
+    "rebuke": true,
+    "purpose": true
+   },
+   "ok": [
+    "firsthand",
+    "no_alternative"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t26",
+   "language": "he",
+   "text": "לא אמרתי לה כלום ישירות, אני מעדיף שאחרים יגידו לה שהיא מדברת יותר מדי בטלפון בעבודה.",
+   "expect": {
+    "rebuke": false
+   },
+   "ok": [],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t27",
+   "language": "he",
+   "text": "אני כותב את זה רק כדי שתצחקו: תראו איך הבוס שלנו התלבש היום, כמו ליצן.",
+   "expect": {
+    "intent": true,
+    "purpose": false
+   },
+   "ok": [],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t28",
+   "language": "he",
+   "text": "המטרה שלי היא להגן על הילדים בגן, לא לרכל: העוזרת בגן משאירה אותם לבד בחצר.",
+   "expect": {
+    "purpose": true,
+    "intent": false
+   },
+   "ok": [
+    "firsthand"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t29",
+   "language": "he",
+   "text": "יש לי חשבון פתוח איתו מזמן, ועכשיו הגיע הזמן לגלות לכולם מה הוא עשה בעסק.",
+   "expect": {
+    "revenge": true
+   },
+   "ok": [
+    "intent",
+    "purpose"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t30",
+   "language": "he",
+   "text": "אני אומר את זה גם בפניו, אין לי בעיה: העבודה של יוסי על הפרויקט הייתה חלשה מאוד.",
+   "expect": {},
+   "ok": [
+    "firsthand"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t31",
+   "language": "he",
+   "text": "אל תגידו לו שאני אמרתי, בחיים לא הייתי אומר לו את זה בפנים: הוא לא יודע לנהל.",
+   "expect": {},
+   "ok": [],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t32",
+   "language": "he",
+   "text": "אני מעביר את זה לכל הקבוצה של השכונה, מאות אנשים: הקבלן ברחוב הרצל לא סיים את העבודה.",
+   "expect": {},
+   "ok": [
+    "purpose"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t33",
+   "language": "he",
+   "text": "שלחתי רק לך, אף אחד אחר לא יודע: אחיך לא החזיר לי את ההלוואה.",
+   "expect": {},
+   "ok": [
+    "firsthand"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t34",
+   "language": "he",
+   "text": "אם תשתף את זה עם עוד מישהו זה יגיע לכל הישיבה תוך שעה, אז בבקשה תשמור לעצמך: הבחור החדש נכשל במבחן.",
+   "expect": {},
+   "ok": [],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t35",
+   "language": "he",
+   "text": "אני מספרת לך כי את החברה הכי טובה שלה ואת יכולה לדבר איתה על זה: היא נראית מוזנחת לאחרונה.",
+   "expect": {},
+   "ok": [
+    "purpose"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t36",
+   "language": "he",
+   "text": "אני לא יודע למה אני מספר לך את זה, אתה ממילא לא יכול לעשות עם זה כלום: המנהל הקודם רימה את החברה.",
+   "expect": {},
+   "ok": [
+    "purpose"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t37",
+   "language": "he",
+   "text": "פרסמתי את זה בעיתון המקומי כדי שכולם ידעו: הקבלן לא שילם לעובדים שלו.",
+   "expect": {},
+   "ok": [
+    "purpose"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t38",
+   "language": "he",
+   "text": "ניסיתי כל דרך אחרת — דיברתי איתו, שלחתי מכתב, פניתי לאשתו — ושום דבר לא עזר, אז אין ברירה אלא לפנות לוועד.",
+   "expect": {
+    "no_alternative": true,
+    "rebuke": true
+   },
+   "ok": [
+    "purpose"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t39",
+   "language": "he",
+   "text": "אפשר היה גם פשוט לא לשבץ אותו במשמרות לילה בלי להסביר לכולם למה, אבל אני מעדיף שכולם יידעו שהוא נרדם במשמרת.",
+   "expect": {
+    "no_alternative": false
+   },
+   "ok": [
+    "intent",
+    "purpose"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t40",
+   "language": "he",
+   "text": "אני נזהר לכתוב רק לרכזת, כי אם זה יתפרסם הוא עלול לאבד את הפרנסה שלו בגלל טעות קטנה.",
+   "expect": {},
+   "ok": [
+    "purpose"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t41",
+   "language": "he",
+   "text": "ידוע לי שאם אספר לאבא שלה הוא יכה אותה, ובכל זאת אני חושב לספר לו שהיא מאחרת לבית הספר.",
+   "expect": {},
+   "ok": [
+    "purpose"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t42",
+   "language": "he",
+   "text": "אני מספר לך רק כדי שתדע ממי להיזהר בעסקים: השותף שלו הוליך אותי שולל בעסקה, הייתי בצד השני.",
+   "expect": {
+    "purpose": true,
+    "firsthand": true
+   },
+   "ok": [],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t43",
+   "language": "he",
+   "text": "אחי בן העשר סיפר לי שהמורה שלו מרביץ, ולא בדקתי עוד.",
+   "expect": {
+    "firsthand": false,
+    "verified": false
+   },
+   "ok": [],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t44",
+   "language": "he",
+   "text": "הבוס שלי דרש ממני לדווח לו על כל מי שמאחר, אז אני מדווח: אורי איחר היום בשעה.",
+   "expect": {},
+   "ok": [
+    "firsthand"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t45",
+   "language": "he",
+   "text": "אני כותב את זה כנקמה, ואני לא מתבייש: הוא הרס לי את החתונה.",
+   "expect": {
+    "revenge": true
+   },
+   "ok": [
+    "intent",
+    "purpose",
+    "firsthand"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t46",
+   "language": "he",
+   "text": "אני לא כועס עליו ואין לי שום דבר אישי נגדו; אני רק חושב שהדיירים צריכים לדעת שהוא לא מתקן את המעלית.",
+   "expect": {
+    "revenge": false,
+    "purpose": true
+   },
+   "ok": [
+    "intent"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t47",
+   "language": "he",
+   "text": "עניתי לך רק כי שאלת אותי ישירות לפני השידוך: כן, הבחור הזה ידוע כבעל מזג חם מאוד, ראיתי את זה כמה פעמים.",
+   "expect": {
+    "purpose": true,
+    "firsthand": true
+   },
+   "ok": [],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t48",
+   "language": "he",
+   "text": "המטרה של ההודעה היא לבקש עזרה בתיקון המזגן, לא לדבר על אף אחד.",
+   "expect": {},
+   "ok": [
+    "intent"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t49",
+   "language": "he",
+   "text": "המטרה שלי פשוט לפרוק, נמאס לי מהשכנה הזאת שצועקת כל לילה.",
+   "expect": {
+    "purpose": false
+   },
+   "ok": [
+    "firsthand",
+    "intent"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t50",
+   "language": "he",
+   "text": "אני רק בכיתה ו', ואני רוצה לספר שהילד שיושב לידי מעתיק במבחנים.",
+   "expect": {},
+   "ok": [
+    "firsthand"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t51",
+   "language": "he",
+   "text": "אין טעם שאדבר איתו, אני יודע שהוא לא יקבל ממני שום הערה, אז אני מספר לוועד שהוא מחנה על המדרכה.",
+   "expect": {
+    "rejects": true
+   },
+   "ok": [
+    "rebuke",
+    "purpose"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-t52",
+   "language": "he",
+   "text": "אני בטוח שאם אגיד לה בעדינות היא תקשיב, אבל בינתיים אני רק מעדכן אותך שהיא שוכחת לנעול את המחסן.",
+   "expect": {
+    "rejects": false
+   },
+   "ok": [
+    "rebuke",
+    "purpose"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-c01",
+   "language": "he",
+   "text": "מזל טוב לרבקה על הולדת הבת!",
+   "expect": {},
+   "ok": [],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-c02",
+   "language": "he",
+   "text": "מחר בשמונה יש אסיפת הורים בבית הספר.",
+   "expect": {},
+   "ok": [],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-c03",
+   "language": "he",
+   "text": "מישהו יודע מתי נפתחת הבריכה העירונית?",
+   "expect": {},
+   "ok": [],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-c04",
+   "language": "he",
+   "text": "תודה ליוסי שהביא את הכיסאות לאירוע.",
+   "expect": {},
+   "ok": [],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-c05",
+   "language": "he",
+   "text": "השיעור של הרב היום היה מרתק, ממליץ לכולם לבוא בשבוע הבא.",
+   "expect": {},
+   "ok": [
+    "firsthand"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-c06",
+   "language": "he",
+   "text": "אני מרגיש לא טוב היום, לא אגיע לעבודה.",
+   "expect": {},
+   "ok": [],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-c07",
+   "language": "he",
+   "text": "כמה עולה כרטיס לרכבת לירושלים?",
+   "expect": {},
+   "ok": [],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-c08",
+   "language": "he",
+   "text": "הגשם היום פשוט מטורף, תיזהרו בכבישים.",
+   "expect": {},
+   "ok": [],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-c09",
+   "language": "he",
+   "text": "שלחתי לכם את הסיכום של הישיבה, תעברו עליו.",
+   "expect": {},
+   "ok": [],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-c10",
+   "language": "he",
+   "text": "דני, אתה יכול להביא את הספר שהשארתי אצלך?",
+   "expect": {},
+   "ok": [],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-c11",
+   "language": "he",
+   "text": "המסעדה החדשה בקניון סגורה ביום שני.",
+   "expect": {},
+   "ok": [],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-c12",
+   "language": "he",
+   "text": "איזה יופי של תמונות מהטיול!",
+   "expect": {},
+   "ok": [],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-d01",
+   "language": "he",
+   "text": "השכן שלנו ממש עצלן, אף פעם לא מוריד את הזבל.",
+   "expect": {},
+   "ok": [
+    "firsthand"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-d02",
+   "language": "he",
+   "text": "המורה למתמטיקה של הבת שלי פשוט לא יודעת ללמד.",
+   "expect": {},
+   "ok": [],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-d03",
+   "language": "he",
+   "text": "ראובן תמיד מגיע מאוחר, כרגיל.",
+   "expect": {},
+   "ok": [
+    "firsthand"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-d04",
+   "language": "he",
+   "text": "איזה גאון, שוב הוא שכח את הכרטיסים בבית.",
+   "expect": {},
+   "ok": [
+    "intent"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-d05",
+   "language": "he",
+   "text": "הוא לא ממש חכם, אם אתם שואלים אותי.",
+   "expect": {},
+   "ok": [],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-d06",
+   "language": "he",
+   "text": "הספר שלה גרוע, חבל על הכסף.",
+   "expect": {},
+   "ok": [],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-d07",
+   "language": "he",
+   "text": "שמעון שוב מתרברב על המכונית החדשה שלו.",
+   "expect": {},
+   "ok": [],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-d08",
+   "language": "he",
+   "text": "היא חושבת שהיא יודעת הכל, אבל בפועל אין לה מושג.",
+   "expect": {},
+   "ok": [
+    "intent"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-b01",
+   "language": "he",
+   "text": "לתועלת: יעקב מהקומה השלישית הוא אדם מאוד לא נעים.",
+   "expect": {},
+   "ok": [
+    "purpose"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "legacy-b02",
+   "language": "he",
+   "text": "אני אומר את זה לתועלת בלבד: הבת של השכנים נראית רע מאוד בזמן האחרון.",
+   "expect": {},
+   "ok": [
+    "purpose"
+   ],
+   "source": "legacy_eval_v1",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "legacy_eval"
+  },
+  {
+   "id": "sealed3-1",
+   "family": "sealed3-1",
+   "language": "he",
+   "text": "ראיתי אתמול בעצמי איך הקבלן משאיר את הפיגום בלי גידור ליד הגן. תדברו עם העירייה שיסגרו לו את האתר לפני שילד ייפגע.",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {
+    "firsthand": true,
+    "purpose": true
+   },
+   "ok": []
+  },
+  {
+   "id": "sealed3-2",
+   "family": "sealed3-2",
+   "language": "he",
+   "text": "חברה סיפרה לי שהרופאה בקופה צורחת על מטופלים, לא בדקתי אם זה נכון. סתם, שיהיה לכם על מה לרכל.",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {
+    "firsthand": false,
+    "verified": false,
+    "purpose": false
+   },
+   "ok": [
+    "intent"
+   ]
+  },
+  {
+   "id": "sealed3-3",
+   "family": "sealed3-3",
+   "language": "he",
+   "text": "אחרי שהוא הלשין עליי לבוס, הגיע תורו. אני הולך לפרסם לכולם את ההודעות שלו כדי שיתבייש.",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {
+    "revenge": true,
+    "intent": true
+   },
+   "ok": [
+    "purpose"
+   ]
+  },
+  {
+   "id": "sealed3-4",
+   "family": "sealed3-4",
+   "language": "he",
+   "text": "דיברתי עם השכן כבר שלוש פעמים על הרעש בלילות, והוא פשוט צוחק לי בפנים. אני כותב לוועד הבית כדי שיטפלו בזה.",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {
+    "rebuke": true,
+    "purpose": true
+   },
+   "ok": [
+    "firsthand",
+    "rejects"
+   ]
+  },
+  {
+   "id": "sealed3-5",
+   "family": "sealed3-5",
+   "language": "he",
+   "text": "הצלבתי את החשבוניות מול הדוח של הגזבר ויש פער של אלפי שקלים. שכולם בוועד יידעו לפני ההצבעה.",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {
+    "verified": true,
+    "purpose": true
+   },
+   "ok": [
+    "firsthand"
+   ]
+  },
+  {
+   "id": "sealed3-6",
+   "family": "sealed3-6",
+   "language": "he",
+   "text": "אין לי שום דרך אחרת להגן על הבת שלי חוץ מלספר להורים מה המדריך עושה. ניסיתי לדבר איתו והוא אמר שזה לא ענייני.",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {
+    "no_alternative": true,
+    "purpose": true,
+    "rebuke": true
+   },
+   "ok": [
+    "rejects"
+   ]
+  },
+  {
+   "id": "sealed3-7",
+   "family": "sealed3-7",
+   "language": "he",
+   "text": "אני לא רוצה להשמיץ אף אחד, אבל המעסיק הקודם שלי לא שילם לי משכורת חודשיים. היזהרו לפני שאתם חותמים אצלו.",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {
+    "intent": false,
+    "firsthand": true,
+    "purpose": true
+   },
+   "ok": []
+  },
+  {
+   "id": "sealed3-8",
+   "family": "sealed3-8",
+   "language": "he",
+   "text": "שמעתי שמנהל הסניף מעלים קופות. עוד לא שאלתי אותו על זה ישירות.",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {
+    "firsthand": false,
+    "rebuke": false
+   },
+   "ok": []
+  },
+  {
+   "id": "sealed3-9",
+   "family": "sealed3-9",
+   "language": "he",
+   "text": "האם מותר לי לכתוב בקבוצה שהגננת צועקת על הילדים? אני שואל לפני שאני עושה משהו.",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {},
+   "ok": []
+  },
+  {
+   "id": "sealed3-10",
+   "family": "sealed3-10",
+   "language": "he",
+   "text": "יוסי כתב בקבוצה 'אני אנקום בו על זה', ואני רק מעביר לכם את מה שהוא כתב.",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {},
+   "ok": [
+    "purpose"
+   ]
+  },
+  {
+   "id": "sealed3-11",
+   "family": "sealed3-11",
+   "language": "en",
+   "text": "I watched the delivery guy throw our package over the fence myself. Please report him to the company so it stops happening to everyone on the street.",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {
+    "firsthand": true,
+    "purpose": true
+   },
+   "ok": []
+  },
+  {
+   "id": "sealed3-12",
+   "family": "sealed3-12",
+   "language": "en",
+   "text": "Honestly I just want everyone to see what a joke Dan is, lol. He botched the presentation again.",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {
+    "intent": true
+   },
+   "ok": [
+    "purpose",
+    "firsthand"
+   ]
+  },
+  {
+   "id": "sealed3-13",
+   "family": "sealed3-13",
+   "language": "en",
+   "text": "I called the clinic and two staff members confirmed the hygienist has no license. Don't book with her until this is sorted out.",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {
+    "verified": true,
+    "purpose": true
+   },
+   "ok": []
+  },
+  {
+   "id": "sealed3-14",
+   "family": "sealed3-14",
+   "language": "en",
+   "text": "I already told Ronit twice that she can't take credit for my work, and she keeps doing it. There's no point talking to her again, she won't listen.",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {
+    "rebuke": true,
+    "rejects": true
+   },
+   "ok": [
+    "firsthand"
+   ]
+  },
+  {
+   "id": "sealed3-15",
+   "family": "sealed3-15",
+   "language": "en",
+   "text": "A friend forwarded me a screenshot saying the landlord keeps deposits. I haven't checked any of it.",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {
+    "firsthand": false,
+    "verified": false
+   },
+   "ok": []
+  },
+  {
+   "id": "sealed3-16",
+   "family": "sealed3-16",
+   "language": "en",
+   "text": "Not trying to get back at him or anything, I just think the board needs to know the treasurer skipped the audit so they can fix it.",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {
+    "revenge": false,
+    "purpose": true
+   },
+   "ok": [
+    "intent"
+   ]
+  },
+  {
+   "id": "sealed3-17",
+   "family": "sealed3-17",
+   "language": "en",
+   "text": "If he ever does that again, maybe I'll tell his manager. For now I'm just thinking out loud.",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {},
+   "ok": []
+  },
+  {
+   "id": "sealed3-18",
+   "family": "sealed3-18",
+   "language": "en",
+   "text": "She embarrassed me at the wedding, so now it's my turn to make her pay. Spread this around.",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {
+    "revenge": true
+   },
+   "ok": [
+    "intent",
+    "purpose"
+   ]
+  },
+  {
+   "id": "sealed3-19",
+   "family": "sealed3-19",
+   "language": "en",
+   "text": "The only way to stop him from scamming more seniors is to post this publicly, I tried everything else. He sold my grandmother a fake warranty.",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {
+    "no_alternative": true,
+    "purpose": true
+   },
+   "ok": [
+    "firsthand",
+    "rebuke"
+   ]
+  },
+  {
+   "id": "sealed3-20",
+   "family": "sealed3-20",
+   "language": "en",
+   "text": "Meeting moved to Thursday at 9, bring the budget slides.",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {},
+   "ok": []
+  },
+  {
+   "id": "sealed3-21",
+   "family": "sealed3-21",
+   "language": "mixed",
+   "text": "ראיתי בעצמי את ה-driver עושה texting בזמן נסיעה עם הילדים. Please tell the school so they find someone else.",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {
+    "firsthand": true,
+    "purpose": true
+   },
+   "ok": []
+  },
+  {
+   "id": "sealed3-22",
+   "family": "sealed3-22",
+   "language": "mixed",
+   "text": "I heard from Maya שהמורה לפסנתר מאחר כל שיעור, but I didn't verify it.",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {
+    "firsthand": false,
+    "verified": false
+   },
+   "ok": []
+  },
+  {
+   "id": "sealed3-23",
+   "family": "sealed3-23",
+   "language": "mixed",
+   "text": "דיברתי עם Avi על ה-comments שלו בישיבה, and he promised to stop. אני מעדכן את HR רק כדי שיהיה רשום.",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {
+    "rebuke": true
+   },
+   "ok": [
+    "purpose",
+    "rejects"
+   ]
+  },
+  {
+   "id": "sealed3-24",
+   "family": "sealed3-24",
+   "language": "mixed",
+   "text": "Just for laughs, תראו מה נועה לבשה היום 😂",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {
+    "purpose": false
+   },
+   "ok": [
+    "intent"
+   ]
+  },
+  {
+   "id": "sealed3-25",
+   "family": "sealed3-25",
+   "language": "mixed",
+   "text": "I'm 100% sure שהוא גונב, honestly. אין לי ראיות אבל.",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {},
+   "ok": [
+    "verified"
+   ]
+  },
+  {
+   "id": "sealed3-26",
+   "family": "sealed3-26",
+   "language": "mixed",
+   "text": "בדקתי מול ה-bank statements, and the money never arrived. Warn the others before they pay him.",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {
+    "verified": true,
+    "purpose": true
+   },
+   "ok": [
+    "firsthand"
+   ]
+  },
+  {
+   "id": "sealed3-27",
+   "family": "sealed3-27",
+   "language": "mixed",
+   "text": "He will never accept criticism from me, I know him. אז אני פונה ישר למנהלת כדי שתעצור את זה.",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {
+    "rejects": true,
+    "purpose": true
+   },
+   "ok": []
+  },
+  {
+   "id": "sealed3-28",
+   "family": "sealed3-28",
+   "language": "mixed",
+   "text": "אני לא כותב את זה מתוך כעס או נקמה, I just want the next tenant to know about the mold.",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {
+    "revenge": false,
+    "purpose": true
+   },
+   "ok": [
+    "intent"
+   ]
+  },
+  {
+   "id": "sealed3-29",
+   "family": "sealed3-29",
+   "language": "mixed",
+   "text": "Someone wrote in the group: 'בדקתי והוא באמת רמאי'. I have no idea who checked what.",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {},
+   "ok": []
+  },
+  {
+   "id": "sealed3-30",
+   "family": "sealed3-30",
+   "language": "mixed",
+   "text": "אני רוצה שכולם יצחקו עליו tomorrow at the party, תעבירו את הסרטון.",
+   "split": "sealed_v3",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_sealed_v3",
+   "expect": {
+    "intent": true
+   },
+   "ok": [
+    "purpose"
+   ]
+  }
+ ],
+ "cpu": {
+  "threads": 4,
+  "modal_cpu": "(4,4)",
+  "load_s": 1.3,
+  "gguf_bytes": 7705911968,
+  "p50_s": 26.840005070999723,
+  "p95_s": 47.38671449399999,
+  "mean_s": 28.20382185229805,
+  "peak_rss_gib": 8.165359497070312,
+  "llama_cpp": "b4500"
+ },
+ "convert": {
+  "gguf": "/models/local-extractor/e8-natural-dicta-20261028/gguf/model-Q8_0.gguf",
+  "bytes": 7705911968,
+  "convert_s": 55
+ }
+}

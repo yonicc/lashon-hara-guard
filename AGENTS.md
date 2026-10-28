@@ -79,6 +79,8 @@
 - e8 (docs/39): a `modal run` WITHOUT `--detach` dies with the client: YONI-PC dropped off and both H100 apps stopped (`ConflictError: App state is APP_STATE_STOPPED`). Launch `--detach`, keep `checkpoint_every`, resume with `natural_modal.py --resume` (same tag, identical inputs), read `comparison.json` from the Volume.
 - Synthetic fact data: the blind verifier must use the gold's reading of a fact. The strict "do not infer" extractor prompt rejected natural warnings ("watch out for him") as purpose and filtered out exactly the rows needed. DictaLM-2.0 has no system role: `pilot_modal.prompt` folds it into the user turn.
 
+- GGUF (docs/40): convert_hf_to_gguf b4500 fails on DictaLM with `struct.error: required argument is not an integer` because transformers 4.55 saved null hparams; stage config.json without null keys (`gguf_modal.py`). Q4_K_M kept JSON intact (0 format errors) unlike Torch dynamic int8.
+
 ## Concurrent agents
 - More than one agent edits this repo at the same time (e.g. context layer vs gate). Always `git pull --ff-only` before editing, re-read a file before patching it, and stage only your own paths.
 - Never edit a file containing Hebrew with `Set-Content -Encoding ascii` / raw PowerShell replace: it turns Hebrew into `?` (happened to `extension/manifest.json`, caught by `git diff`). Use `remote_edit_file`.

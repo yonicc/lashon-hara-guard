@@ -1,0 +1,62 @@
+{
+ "tag": "e9-gguf-7b-Q8_0",
+ "reference": "e8-natural-7b-20261028:natural-7b-lora",
+ "cpu": {
+  "threads": 4,
+  "modal_cpu": "(4,4)",
+  "load_s": 1.6,
+  "gguf_bytes": 8098522432,
+  "p50_s": 21.142127684000002,
+  "p95_s": 35.448441871,
+  "mean_s": 20.25309574799038,
+  "peak_rss_gib": 8.448970794677734,
+  "llama_cpp": "b4500"
+ },
+ "gguf_gib": 7.54,
+ "changed_rows_vs_bf16": 4,
+ "rows": 104,
+ "p50_s": 21.1,
+ "p95_s": 35.4,
+ "mean_generated_tokens": 23.5,
+ "mean_prompt_tokens": 402.9,
+ "all": {
+  "gguf": [
+   0.8961,
+   0.7113
+  ],
+  "bf16": [
+   0.9079,
+   0.7113
+  ]
+ },
+ "set:legacy_eval": {
+  "gguf": [
+   0.8421,
+   0.6275
+  ],
+  "bf16": [
+   0.8649,
+   0.6275
+  ]
+ },
+ "set:sealed_v3": {
+  "gguf": [
+   0.9487,
+   0.8043
+  ],
+  "bf16": [
+   0.9487,
+   0.8043
+  ]
+ },
+ "set:sealed_v3;language:he": {
+  "gguf": [
+   0.8571,
+   0.6316
+  ],
+  "bf16": [
+   0.8571,
+   0.6316
+  ]
+ }
+}

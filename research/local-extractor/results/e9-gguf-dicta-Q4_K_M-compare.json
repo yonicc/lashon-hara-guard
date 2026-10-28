@@ -1,0 +1,62 @@
+{
+ "tag": "e9-gguf-dicta-Q4_K_M",
+ "reference": "e8-natural-dicta-20261028:natural-dicta-lora",
+ "cpu": {
+  "threads": 4,
+  "modal_cpu": "(4,4)",
+  "load_s": 0.9,
+  "gguf_bytes": 4374991520,
+  "p50_s": 26.10852625300015,
+  "p95_s": 42.87693388699972,
+  "mean_s": 26.724859956259614,
+  "peak_rss_gib": 5.0679779052734375,
+  "llama_cpp": "b4500"
+ },
+ "gguf_gib": 4.07,
+ "changed_rows_vs_bf16": 8,
+ "rows": 104,
+ "p50_s": 26.1,
+ "p95_s": 42.9,
+ "mean_generated_tokens": 35.7,
+ "mean_prompt_tokens": 497.0,
+ "all": {
+  "gguf": [
+   0.8352,
+   0.7835
+  ],
+  "bf16": [
+   0.8506,
+   0.7629
+  ]
+ },
+ "set:legacy_eval": {
+  "gguf": [
+   0.7347,
+   0.7059
+  ],
+  "bf16": [
+   0.7609,
+   0.6863
+  ]
+ },
+ "set:sealed_v3": {
+  "gguf": [
+   0.9524,
+   0.8696
+  ],
+  "bf16": [
+   0.9512,
+   0.8478
+  ]
+ },
+ "set:sealed_v3;language:he": {
+  "gguf": [
+   0.9375,
+   0.7895
+  ],
+  "bf16": [
+   0.9375,
+   0.7895
+  ]
+ }
+}

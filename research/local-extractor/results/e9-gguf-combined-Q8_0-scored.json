@@ -1,0 +1,6061 @@
+{
+ "union": {
+  "groups": {
+   "all": {
+    "tp": 78,
+    "wrong": 1,
+    "unsupported": 12,
+    "missed": 18,
+    "fp": 13,
+    "fn": 19,
+    "rows": 104,
+    "exact": 75,
+    "unknown_as_false": 5,
+    "format_error_rows": 0,
+    "hit_token_limit": 0,
+    "precision": 0.8571,
+    "recall": 0.8041
+   },
+   "language:he": {
+    "tp": 53,
+    "wrong": 1,
+    "unsupported": 11,
+    "missed": 16,
+    "fp": 12,
+    "fn": 17,
+    "rows": 84,
+    "exact": 58,
+    "unknown_as_false": 4,
+    "format_error_rows": 0,
+    "hit_token_limit": 0,
+    "precision": 0.8154,
+    "recall": 0.7571
+   },
+   "set:legacy_eval": {
+    "tp": 38,
+    "wrong": 1,
+    "unsupported": 10,
+    "missed": 12,
+    "fp": 11,
+    "fn": 13,
+    "rows": 74,
+    "exact": 52,
+    "unknown_as_false": 3,
+    "format_error_rows": 0,
+    "hit_token_limit": 0,
+    "precision": 0.7755,
+    "recall": 0.7451
+   },
+   "set:legacy_eval;language:he": {
+    "tp": 38,
+    "wrong": 1,
+    "unsupported": 10,
+    "missed": 12,
+    "fp": 11,
+    "fn": 13,
+    "rows": 74,
+    "exact": 52,
+    "unknown_as_false": 3,
+    "format_error_rows": 0,
+    "hit_token_limit": 0,
+    "precision": 0.7755,
+    "recall": 0.7451
+   },
+   "fact:purpose": {
+    "tp": 22,
+    "wrong": 1,
+    "unsupported": 6,
+    "missed": 9,
+    "fp": 7,
+    "fn": 10,
+    "precision": 0.7586,
+    "recall": 0.6875
+   },
+   "fact:intent": {
+    "tp": 7,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 2,
+    "fp": 0,
+    "fn": 2,
+    "precision": 1.0,
+    "recall": 0.7778
+   },
+   "fact:revenge": {
+    "tp": 8,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "fact:firsthand": {
+    "tp": 13,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 4,
+    "fp": 0,
+    "fn": 4,
+    "precision": 1.0,
+    "recall": 0.7647
+   },
+   "fact:verified": {
+    "tp": 10,
+    "wrong": 0,
+    "unsupported": 2,
+    "missed": 1,
+    "fp": 2,
+    "fn": 1,
+    "precision": 0.8333,
+    "recall": 0.9091
+   },
+   "fact:rebuke": {
+    "tp": 9,
+    "wrong": 0,
+    "unsupported": 3,
+    "missed": 1,
+    "fp": 3,
+    "fn": 1,
+    "precision": 0.75,
+    "recall": 0.9
+   },
+   "fact:rejects": {
+    "tp": 4,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "fact:no_alternative": {
+    "tp": 5,
+    "wrong": 0,
+    "unsupported": 1,
+    "missed": 1,
+    "fp": 1,
+    "fn": 1,
+    "precision": 0.8333,
+    "recall": 0.8333
+   },
+   "set:sealed_v3": {
+    "tp": 40,
+    "wrong": 0,
+    "unsupported": 2,
+    "missed": 6,
+    "fp": 2,
+    "fn": 6,
+    "rows": 30,
+    "exact": 23,
+    "unknown_as_false": 2,
+    "format_error_rows": 0,
+    "hit_token_limit": 0,
+    "precision": 0.9524,
+    "recall": 0.8696
+   },
+   "set:sealed_v3;language:he": {
+    "tp": 15,
+    "wrong": 0,
+    "unsupported": 1,
+    "missed": 4,
+    "fp": 1,
+    "fn": 4,
+    "rows": 10,
+    "exact": 6,
+    "unknown_as_false": 1,
+    "format_error_rows": 0,
+    "hit_token_limit": 0,
+    "precision": 0.9375,
+    "recall": 0.7895
+   },
+   "language:en": {
+    "tp": 13,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "rows": 10,
+    "exact": 9,
+    "unknown_as_false": 0,
+    "format_error_rows": 0,
+    "hit_token_limit": 0,
+    "precision": 1.0,
+    "recall": 0.9286
+   },
+   "set:sealed_v3;language:en": {
+    "tp": 13,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "rows": 10,
+    "exact": 9,
+    "unknown_as_false": 0,
+    "format_error_rows": 0,
+    "hit_token_limit": 0,
+    "precision": 1.0,
+    "recall": 0.9286
+   },
+   "language:mixed": {
+    "tp": 12,
+    "wrong": 0,
+    "unsupported": 1,
+    "missed": 1,
+    "fp": 1,
+    "fn": 1,
+    "rows": 10,
+    "exact": 8,
+    "unknown_as_false": 1,
+    "format_error_rows": 0,
+    "hit_token_limit": 0,
+    "precision": 0.9231,
+    "recall": 0.9231
+   },
+   "set:sealed_v3;language:mixed": {
+    "tp": 12,
+    "wrong": 0,
+    "unsupported": 1,
+    "missed": 1,
+    "fp": 1,
+    "fn": 1,
+    "rows": 10,
+    "exact": 8,
+    "unknown_as_false": 1,
+    "format_error_rows": 0,
+    "hit_token_limit": 0,
+    "precision": 0.9231,
+    "recall": 0.9231
+   }
+  },
+  "validation_errors": {},
+  "rows": [
+   {
+    "id": "legacy-t01",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "firsthand": [
+      false,
+      "שמעתי מחבר שהחשמלאי ראובן גבה ממנו כפול."
+     ],
+     "verified": [
+      false,
+      "לא בדקתי את זה בעצמי, אבל תיזהרו ממנו."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t02",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "firsthand": [
+      true,
+      "ראיתי בעיניים שלי שהנהג של ההסעות נוסע במהירות מטורפת עם הילדים."
+     ],
+     "rebuke": [
+      true,
+      "כבר דיברתי איתו פעמיים והוא לא הקשיב, אז אני מעדכן את ועד ההורים כדי שיחליפו אותו."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t03",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "intent": [
+      true,
+      "בא לי שכולם ידעו איזה שקרן הוא שמעון, שיתבייש."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t04",
+    "tp": 2,
+    "wrong": 1,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 1,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "intent": [
+      true,
+      "אחרי מה שהוא עשה לי, אני אדאג שכל העיר תשמע על לוי."
+     ],
+     "revenge": [
+      true,
+      "שיסבול כמו שאני סבלתי."
+     ],
+     "purpose": [
+      true,
+      "אחרי מה שהוא עשה לי, אני אדאג שכל העיר תשמע על לוי."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t05",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "rebuke": [
+      false,
+      "לא ניסיתי לדבר איתה קודם, ישר כתבתי לקבוצה: המנקה שלנו לוקחת חפצים מהבית."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t06",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "verified": [
+      true,
+      "בדקתי את זה עם שלושה אנשים שהיו שם וכולם אישרו: המאמן מקלל את הילדים באימונים."
+     ],
+     "purpose": [
+      true,
+      "אני מספר להנהלת המועדון כדי שיטפלו בזה."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t07",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      true,
+      "אני לא אומר את זה כדי לפגוע בו, רק כדי שלא תיפלו כמוני: המוסך של יהודה החליף לי חלקים מקוריים במשומשים."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t08",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "no_alternative": [
+      true,
+      "אין דרך אחרת להזהיר אתכם בלי לספר את זה: הספק שלנו מוכר מוצרים פגי תוקף."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t09",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      true,
+      "יכולתי פשוט להגיד לכם לא לקנות שם בלי להסביר, אבל אני רוצה שתדעו מה בדיוק קרה עם בעל החנות."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t10",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "firsthand": [
+      true,
+      "אני כותב רק מה שקרה בדיוק, בלי להוסיף: המתווך לא החזיר את דמי הרצינות."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t11",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      true,
+      "אני לא רוצה שהוא יפוטר, רק שיפסיק."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t12",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      true,
+      "אני יודע שאם אספר את זה לבעל הבית הוא יזרוק אותם מהדירה מיד, וזה הרבה יותר ממה שמגיע להם על הרעש."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t13",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-t14",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-t15",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      true,
+      "אני כותב לכל שלושים חברי הוועד: הגזבר לא הגיש דוח כבר שנה."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t16",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-t17",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 1,
+    "missed": 0,
+    "fp": 1,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      true,
+      "אני בטוח שתספרי את זה לכל החברות שלך, אז הנה: הגננת החדשה עוזבת כי פיטרו אותה."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t18",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 1,
+    "missed": 1,
+    "fp": 1,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "no_alternative": [
+      true,
+      "פניתי לרב הקהילה כי רק הוא יכול להשפיע על האיש הזה לחזור בו מההתנהגות שלו."
+     ],
+     "rebuke": [
+      true,
+      "פניתי לרב הקהילה כי רק הוא יכול להשפיע על האיש הזה לחזור בו מההתנהגות שלו."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t19",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "firsthand": [
+      true,
+      "החלטתי להגיש תלונה במשטרה על השכן שהיכה את הכלב שלו, ראיתי את זה מהחלון."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t20",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-t21",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "firsthand": [
+      false,
+      "לא הייתי שם, רק קראתי על זה בפייסבוק: הגבאי של בית הכנסת השני נעצר."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t22",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "firsthand": [
+      true,
+      "הייתי שם בעצמי וראיתי: הקופאית נתנה עודף לא נכון בכוונה."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t23",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "verified": [
+      true,
+      "שאלתי את המעביד הקודם שלו לפני שכתבתי, והוא אישר שהעובד הזה פוטר בגלל גניבה."
+     ],
+     "purpose": [
+      true,
+      "אני כותב לך כי אתה שוקל להעסיק אותו."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t24",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "verified": [
+      false,
+      "לא בדקתי אם זה נכון, אבל אומרים שהבייביסיטר מעשנת ליד התינוקות."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t25",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "rebuke": [
+      true,
+      "כבר הערתי לו בעדינות כמה פעמים שהוא משאיר את המטבח המשותף מלוכלך, וזה לא עזר, אז אני מעלה את זה לאחראי על הקומה."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t26",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "rebuke": [
+      false,
+      "לא אמרתי לה כלום ישירות, אני מעדיף שאחרים יגידו לה שהיא מדברת יותר מדי בטלפון בעבודה."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t27",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      false,
+      "אני כותב את זה רק כדי שתצחקו: תראו איך הבוס שלנו התלבש היום, כמו ליצן."
+     ],
+     "intent": [
+      true,
+      "אני כותב את זה רק כדי שתצחקו: תראו איך הבוס שלנו התלבש היום, כמו ליצן."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t28",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      true,
+      "המטרה שלי היא להגן על הילדים בגן, לא לרכל: העוזרת בגן משאירה אותם לבד בחצר."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t29",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "revenge": [
+      true,
+      "יש לי חשבון פתוח איתו מזמן, ועכשיו הגיע הזמן לגלות לכולם מה הוא עשה בעסק."
+     ],
+     "purpose": [
+      true,
+      "יש לי חשבון פתוח איתו מזמן, ועכשיו הגיע הזמן לגלות לכולם מה הוא עשה בעסק."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t30",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 1,
+    "missed": 0,
+    "fp": 1,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "rebuke": [
+      false,
+      "אני אומר את זה גם בפניו, אין לי בעיה: העבודה של יוסי על הפרויקט הייתה חלשה מאוד."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t31",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-t32",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      true,
+      "אני מעביר את זה לכל הקבוצה של השכונה, מאות אנשים: הקבלן ברחוב הרצל לא סיים את העבודה."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t33",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 1,
+    "missed": 0,
+    "fp": 1,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "rebuke": [
+      false,
+      "שלחתי רק לך, אף אחד אחר לא יודע: אחיך לא החזיר לי את ההלוואה."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t34",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 1,
+    "missed": 0,
+    "fp": 1,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      false,
+      "אם תשתף את זה עם עוד מישהו זה יגיע לכל הישיבה תוך שעה, אז בבקשה תשמור לעצמך: הבחור החדש נכשל במבחן."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t35",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      true,
+      "אני מספרת לך כי את החברה הכי טובה שלה ואת יכולה לדבר איתה על זה: היא נראית מוזנחת לאחרונה."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t36",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 1,
+    "missed": 0,
+    "fp": 1,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "no_alternative": [
+      true,
+      "אני לא יודע למה אני מספר לך את זה, אתה ממילא לא יכול לעשות עם זה כלום: המנהל הקודם רימה את החברה."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t37",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      true,
+      "פרסמתי את זה בעיתון המקומי כדי שכולם ידעו: הקבלן לא שילם לעובדים שלו."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t38",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "rebuke": [
+      true,
+      "ניסיתי כל דרך אחרת — דיברתי איתו, שלחתי מכתב, פניתי לאשתו — ושום דבר לא עזר, אז אין ברירה אלא לפנות לוועד."
+     ],
+     "no_alternative": [
+      true,
+      "ניסיתי כל דרך אחרת — דיברתי איתו, שלחתי מכתב, פניתי לאשתו — ושום דבר לא עזר, אז אין ברירה אלא לפנות לוועד."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t39",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "no_alternative": [
+      false,
+      "אפשר היה גם פשוט לא לשבץ אותו במשמרות לילה בלי להסביר לכולם למה, אבל אני מעדיף שכולם יידעו שהוא נרדם במשמרת."
+     ],
+     "intent": [
+      true,
+      "אפשר היה גם פשוט לא לשבץ אותו במשמרות לילה בלי להסביר לכולם למה, אבל אני מעדיף שכולם יידעו שהוא נרדם במשמרת."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t40",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      true,
+      "אני נזהר לכתוב רק לרכזת, כי אם זה יתפרסם הוא עלול לאבד את הפרנסה שלו בגלל טעות קטנה."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t41",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-t42",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      true,
+      "אני מספר לך רק כדי שתדע ממי להיזהר בעסקים: השותף שלו הוליך אותי שולל בעסקה, הייתי בצד השני."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t43",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "verified": [
+      false,
+      "אחי בן העשר סיפר לי שהמורה שלו מרביץ, ולא בדקתי עוד."
+     ],
+     "firsthand": [
+      false,
+      "אחי בן העשר סיפר לי שהמורה שלו מרביץ, ולא בדקתי עוד."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t44",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-t45",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "revenge": [
+      true,
+      "אני כותב את זה כנקמה, ואני לא מתבייש: הוא הרס לי את החתונה."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t46",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "revenge": [
+      false,
+      "אני לא כועס עליו ואין לי שום דבר אישי נגדו; אני רק חושב שהדיירים צריכים לדעת שהוא לא מתקן את המעלית."
+     ],
+     "purpose": [
+      true,
+      "אני רק חושב שהדיירים צריכים לדעת שהוא לא מתקן את המעלית."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t47",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "firsthand": [
+      true,
+      "כן, הבחור הזה ידוע כבעל מזג חם מאוד, ראיתי את זה כמה פעמים."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t48",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 1,
+    "missed": 0,
+    "fp": 1,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      true,
+      "המטרה של ההודעה היא לבקש עזרה בתיקון המזגן, לא לדבר על אף אחד."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t49",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      false,
+      "המטרה שלי פשוט לפרוק, נמאס לי מהשכנה הזאת שצועקת כל לילה."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t50",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-t51",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "rejects": [
+      true,
+      "אני יודע שהוא לא יקבל ממני שום הערה, אז אני מספר לוועד שהוא מחנה על המדרכה."
+     ],
+     "purpose": [
+      true,
+      "אין טעם שאדבר איתו, אני יודע שהוא לא יקבל ממני שום הערה, אז אני מספר לוועד שהוא מחנה על המדרכה."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t52",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "rejects": [
+      false,
+      "אני בטוח שאם אגיד לה בעדינות היא תקשיב, אבל בינתיים אני רק מעדכן אותך שהיא שוכחת לנעול את המחסן."
+     ]
+    }
+   },
+   {
+    "id": "legacy-c01",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-c02",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-c03",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-c04",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-c05",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 1,
+    "missed": 0,
+    "fp": 1,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      true,
+      "השיעור של הרב היום היה מרתק, ממליץ לכולם לבוא בשבוע הבא."
+     ]
+    }
+   },
+   {
+    "id": "legacy-c06",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-c07",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-c08",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 1,
+    "missed": 0,
+    "fp": 1,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      true,
+      "הגשם היום פשוט מטורף, תיזהרו בכבישים."
+     ]
+    }
+   },
+   {
+    "id": "legacy-c09",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 1,
+    "missed": 0,
+    "fp": 1,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "verified": [
+      true,
+      "שלחתי לכם את הסיכום של הישיבה, תעברו עליו."
+     ]
+    }
+   },
+   {
+    "id": "legacy-c10",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-c11",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-c12",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-d01",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-d02",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-d03",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-d04",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-d05",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-d06",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-d07",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-d08",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-b01",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      true,
+      "לתועלת: יעקב מהקומה השלישית הוא אדם מאוד לא נעים."
+     ]
+    }
+   },
+   {
+    "id": "legacy-b02",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "sealed3-1",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "firsthand": [
+      true,
+      "ראיתי אתמול בעצמי איך הקבלן משאיר את הפיגום בלי גידור ליד הגן."
+     ],
+     "purpose": [
+      true,
+      "תדברו עם העירייה שיסגרו לו את האתר לפני שילד ייפגע."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-2",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "verified": [
+      false,
+      "חברה סיפרה לי שהרופאה בקופה צורחת על מטופלים, לא בדקתי אם זה נכון."
+     ],
+     "purpose": [
+      false,
+      "סתם, שיהיה לכם על מה לרכל."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-3",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "revenge": [
+      true,
+      "אחרי שהוא הלשין עליי לבוס, הגיע תורו."
+     ],
+     "purpose": [
+      true,
+      "אני הולך לפרסם לכולם את ההודעות שלו כדי שיתבייש."
+     ],
+     "intent": [
+      true,
+      "אני הולך לפרסם לכולם את ההודעות שלו כדי שיתבייש."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-4",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "rebuke": [
+      true,
+      "דיברתי עם השכן כבר שלוש פעמים על הרעש בלילות, והוא פשוט צוחק לי בפנים."
+     ],
+     "purpose": [
+      true,
+      "אני כותב לוועד הבית כדי שיטפלו בזה."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-5",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "verified": [
+      true,
+      "הצלבתי את החשבוניות מול הדוח של הגזבר ויש פער של אלפי שקלים."
+     ],
+     "purpose": [
+      true,
+      "שכולם בוועד יידעו לפני ההצבעה."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-6",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 2,
+    "fp": 0,
+    "fn": 2,
+    "errors": [],
+    "accepted": {
+     "no_alternative": [
+      true,
+      "אין לי שום דרך אחרת להגן על הבת שלי חוץ מלספר להורים מה המדריך עושה."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-7",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "intent": [
+      false,
+      "אני לא רוצה להשמיץ אף אחד, אבל המעסיק הקודם שלי לא שילם לי משכורת חודשיים."
+     ],
+     "purpose": [
+      true,
+      "היזהרו לפני שאתם חותמים אצלו."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-8",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 1,
+    "missed": 0,
+    "fp": 1,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "firsthand": [
+      false,
+      "שמעתי שמנהל הסניף מעלים קופות."
+     ],
+     "rebuke": [
+      false,
+      "עוד לא שאלתי אותו על זה ישירות."
+     ],
+     "verified": [
+      false,
+      "עוד לא שאלתי אותו על זה ישירות."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-9",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "sealed3-10",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "sealed3-11",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "firsthand": [
+      true,
+      "I watched the delivery guy throw our package over the fence myself."
+     ],
+     "purpose": [
+      true,
+      "Please report him to the company so it stops happening to everyone on the street."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-12",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "intent": [
+      true,
+      "Honestly I just want everyone to see what a joke Dan is, lol."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-13",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "verified": [
+      true,
+      "I called the clinic and two staff members confirmed the hygienist has no license."
+     ],
+     "purpose": [
+      true,
+      "Don't book with her until this is sorted out."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-14",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "rebuke": [
+      true,
+      "I already told Ronit twice that she can't take credit for my work, and she keeps doing it."
+     ],
+     "rejects": [
+      true,
+      "There's no point talking to her again, she won't listen."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-15",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "firsthand": [
+      false,
+      "A friend forwarded me a screenshot saying the landlord keeps deposits."
+     ],
+     "verified": [
+      false,
+      "I haven't checked any of it."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-16",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "revenge": [
+      false,
+      "Not trying to get back at him or anything, I just think the board needs to know the treasurer skipped the audit so they can fix it."
+     ],
+     "purpose": [
+      true,
+      "Not trying to get back at him or anything, I just think the board needs to know the treasurer skipped the audit so they can fix it."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-17",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "sealed3-18",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "revenge": [
+      true,
+      "She embarrassed me at the wedding, so now it's my turn to make her pay."
+     ],
+     "purpose": [
+      true,
+      "Spread this around."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-19",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "no_alternative": [
+      true,
+      "The only way to stop him from scamming more seniors is to post this publicly, I tried everything else."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-20",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "sealed3-21",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "firsthand": [
+      true,
+      "ראיתי בעצמי את ה-driver עושה texting בזמן נסיעה עם הילדים."
+     ],
+     "purpose": [
+      true,
+      "Please tell the school so they find someone else."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-22",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "firsthand": [
+      false,
+      "I heard from Maya שהמורה לפסנתר מאחר כל שיעור, but I didn't verify it."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-23",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "rebuke": [
+      true,
+      "דיברתי עם Avi על ה-comments שלו בישיבה, and he promised to stop."
+     ],
+     "purpose": [
+      false,
+      "אני מעדכן את HR רק כדי שיהיה רשום."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-24",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      false,
+      "Just for laughs, תראו מה נועה לבשה היום 😂"
+     ]
+    }
+   },
+   {
+    "id": "sealed3-25",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 1,
+    "missed": 0,
+    "fp": 1,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      false,
+      "I'm 100% sure שהוא גונב, honestly."
+     ],
+     "verified": [
+      false,
+      "אין לי ראיות אבל."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-26",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "verified": [
+      true,
+      "בדקתי מול ה-bank statements, and the money never arrived."
+     ],
+     "purpose": [
+      true,
+      "Warn the others before they pay him."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-27",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "rejects": [
+      true,
+      "He will never accept criticism from me, I know him."
+     ],
+     "purpose": [
+      true,
+      "אז אני פונה ישר למנהלת כדי שתעצור את זה."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-28",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "revenge": [
+      false,
+      "אני לא כותב את זה מתוך כעס או נקמה, I just want the next tenant to know about the mold."
+     ],
+     "purpose": [
+      true,
+      "I just want the next tenant to know about the mold."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-29",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "sealed3-30",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "intent": [
+      true,
+      "אני רוצה שכולם יצחקו עליו tomorrow at the party, תעבירו את הסרטון."
+     ]
+    }
+   }
+  ],
+  "engine_inputs": [
+   {
+    "id": "legacy-t01",
+    "text": "שמעתי מחבר שהחשמלאי ראובן גבה ממנו כפול. לא בדקתי את זה בעצמי, אבל תיזהרו ממנו.",
+    "proposedFacts": [
+     {
+      "id": "speaker.knows_first_hand",
+      "value": false,
+      "evidenceExcerpt": "שמעתי מחבר שהחשמלאי ראובן גבה ממנו כפול.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.facts_verified",
+      "value": false,
+      "evidenceExcerpt": "לא בדקתי את זה בעצמי, אבל תיזהרו ממנו.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t02",
+    "text": "ראיתי בעיניים שלי שהנהג של ההסעות נוסע במהירות מטורפת עם הילדים. כבר דיברתי איתו פעמיים והוא לא הקשיב, אז אני מעדכן את ועד ההורים כדי שיחליפו אותו.",
+    "proposedFacts": [
+     {
+      "id": "speaker.knows_first_hand",
+      "value": true,
+      "evidenceExcerpt": "ראיתי בעיניים שלי שהנהג של ההסעות נוסע במהירות מטורפת עם הילדים.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.rebuke_attempted",
+      "value": true,
+      "evidenceExcerpt": "כבר דיברתי איתו פעמיים והוא לא הקשיב, אז אני מעדכן את ועד ההורים כדי שיחליפו אותו.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t03",
+    "text": "בא לי שכולם ידעו איזה שקרן הוא שמעון, שיתבייש.",
+    "proposedFacts": [
+     {
+      "id": "speaker.intent_to_disparage",
+      "value": true,
+      "evidenceExcerpt": "בא לי שכולם ידעו איזה שקרן הוא שמעון, שיתבייש.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t04",
+    "text": "אחרי מה שהוא עשה לי, אני אדאג שכל העיר תשמע על לוי. שיסבול כמו שאני סבלתי.",
+    "proposedFacts": [
+     {
+      "id": "speaker.intent_to_disparage",
+      "value": true,
+      "evidenceExcerpt": "אחרי מה שהוא עשה לי, אני אדאג שכל העיר תשמע על לוי.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "speaker.motive_is_revenge_or_hatred",
+      "value": true,
+      "evidenceExcerpt": "שיסבול כמו שאני סבלתי.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "אחרי מה שהוא עשה לי, אני אדאג שכל העיר תשמע על לוי.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t05",
+    "text": "לא ניסיתי לדבר איתה קודם, ישר כתבתי לקבוצה: המנקה שלנו לוקחת חפצים מהבית.",
+    "proposedFacts": [
+     {
+      "id": "toelet.rebuke_attempted",
+      "value": false,
+      "evidenceExcerpt": "לא ניסיתי לדבר איתה קודם, ישר כתבתי לקבוצה: המנקה שלנו לוקחת חפצים מהבית.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t06",
+    "text": "בדקתי את זה עם שלושה אנשים שהיו שם וכולם אישרו: המאמן מקלל את הילדים באימונים. אני מספר להנהלת המועדון כדי שיטפלו בזה.",
+    "proposedFacts": [
+     {
+      "id": "toelet.facts_verified",
+      "value": true,
+      "evidenceExcerpt": "בדקתי את זה עם שלושה אנשים שהיו שם וכולם אישרו: המאמן מקלל את הילדים באימונים.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "אני מספר להנהלת המועדון כדי שיטפלו בזה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t07",
+    "text": "אני לא אומר את זה כדי לפגוע בו, רק כדי שלא תיפלו כמוני: המוסך של יהודה החליף לי חלקים מקוריים במשומשים.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "אני לא אומר את זה כדי לפגוע בו, רק כדי שלא תיפלו כמוני: המוסך של יהודה החליף לי חלקים מקוריים במשומשים.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t08",
+    "text": "אין דרך אחרת להזהיר אתכם בלי לספר את זה: הספק שלנו מוכר מוצרים פגי תוקף.",
+    "proposedFacts": [
+     {
+      "id": "toelet.no_other_way",
+      "value": true,
+      "evidenceExcerpt": "אין דרך אחרת להזהיר אתכם בלי לספר את זה: הספק שלנו מוכר מוצרים פגי תוקף.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t09",
+    "text": "יכולתי פשוט להגיד לכם לא לקנות שם בלי להסביר, אבל אני רוצה שתדעו מה בדיוק קרה עם בעל החנות.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "יכולתי פשוט להגיד לכם לא לקנות שם בלי להסביר, אבל אני רוצה שתדעו מה בדיוק קרה עם בעל החנות.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t10",
+    "text": "אני כותב רק מה שקרה בדיוק, בלי להוסיף: המתווך לא החזיר את דמי הרצינות.",
+    "proposedFacts": [
+     {
+      "id": "speaker.knows_first_hand",
+      "value": true,
+      "evidenceExcerpt": "אני כותב רק מה שקרה בדיוק, בלי להוסיף: המתווך לא החזיר את דמי הרצינות.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t11",
+    "text": "אני לא רוצה שהוא יפוטר, רק שיפסיק. לכן אני כותב רק לראש הצוות ולא לכל המחלקה: דני מאחר כל בוקר.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "אני לא רוצה שהוא יפוטר, רק שיפסיק.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t12",
+    "text": "אני יודע שאם אספר את זה לבעל הבית הוא יזרוק אותם מהדירה מיד, וזה הרבה יותר ממה שמגיע להם על הרעש.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "אני יודע שאם אספר את זה לבעל הבית הוא יזרוק אותם מהדירה מיד, וזה הרבה יותר ממה שמגיע להם על הרעש.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t13",
+    "text": "הוא כאן בקבוצה, אז שישמע גם הוא: ראובן, אתה תמיד מאחר לישיבות.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-t14",
+    "text": "משה לא בקבוצה הזאת, אז אפשר לדבר: מישהו שם לב שהוא שוב שכח את המפתחות של המשרד?",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-t15",
+    "text": "אני כותב לכל שלושים חברי הוועד: הגזבר לא הגיש דוח כבר שנה.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "אני כותב לכל שלושים חברי הוועד: הגזבר לא הגיש דוח כבר שנה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t16",
+    "text": "רק בינינו, אל תעביר את זה הלאה: השכן מלמטה חייב כסף לכל הבניין.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-t17",
+    "text": "אני בטוח שתספרי את זה לכל החברות שלך, אז הנה: הגננת החדשה עוזבת כי פיטרו אותה.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "אני בטוח שתספרי את זה לכל החברות שלך, אז הנה: הגננת החדשה עוזבת כי פיטרו אותה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t18",
+    "text": "פניתי לרב הקהילה כי רק הוא יכול להשפיע על האיש הזה לחזור בו מההתנהגות שלו.",
+    "proposedFacts": [
+     {
+      "id": "toelet.no_other_way",
+      "value": true,
+      "evidenceExcerpt": "פניתי לרב הקהילה כי רק הוא יכול להשפיע על האיש הזה לחזור בו מההתנהגות שלו.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.rebuke_attempted",
+      "value": true,
+      "evidenceExcerpt": "פניתי לרב הקהילה כי רק הוא יכול להשפיע על האיש הזה לחזור בו מההתנהגות שלו.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t19",
+    "text": "החלטתי להגיש תלונה במשטרה על השכן שהיכה את הכלב שלו, ראיתי את זה מהחלון.",
+    "proposedFacts": [
+     {
+      "id": "speaker.knows_first_hand",
+      "value": true,
+      "evidenceExcerpt": "החלטתי להגיש תלונה במשטרה על השכן שהיכה את הכלב שלו, ראיתי את זה מהחלון.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t20",
+    "text": "אמא שלי לחצה עליי שאספר לה מה קרה בכיתה, אז סיפרתי שהמורה צעקה על דני.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-t21",
+    "text": "לא הייתי שם, רק קראתי על זה בפייסבוק: הגבאי של בית הכנסת השני נעצר.",
+    "proposedFacts": [
+     {
+      "id": "speaker.knows_first_hand",
+      "value": false,
+      "evidenceExcerpt": "לא הייתי שם, רק קראתי על זה בפייסבוק: הגבאי של בית הכנסת השני נעצר.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t22",
+    "text": "הייתי שם בעצמי וראיתי: הקופאית נתנה עודף לא נכון בכוונה.",
+    "proposedFacts": [
+     {
+      "id": "speaker.knows_first_hand",
+      "value": true,
+      "evidenceExcerpt": "הייתי שם בעצמי וראיתי: הקופאית נתנה עודף לא נכון בכוונה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t23",
+    "text": "שאלתי את המעביד הקודם שלו לפני שכתבתי, והוא אישר שהעובד הזה פוטר בגלל גניבה. אני כותב לך כי אתה שוקל להעסיק אותו.",
+    "proposedFacts": [
+     {
+      "id": "toelet.facts_verified",
+      "value": true,
+      "evidenceExcerpt": "שאלתי את המעביד הקודם שלו לפני שכתבתי, והוא אישר שהעובד הזה פוטר בגלל גניבה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "אני כותב לך כי אתה שוקל להעסיק אותו.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t24",
+    "text": "לא בדקתי אם זה נכון, אבל אומרים שהבייביסיטר מעשנת ליד התינוקות.",
+    "proposedFacts": [
+     {
+      "id": "toelet.facts_verified",
+      "value": false,
+      "evidenceExcerpt": "לא בדקתי אם זה נכון, אבל אומרים שהבייביסיטר מעשנת ליד התינוקות.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t25",
+    "text": "כבר הערתי לו בעדינות כמה פעמים שהוא משאיר את המטבח המשותף מלוכלך, וזה לא עזר, אז אני מעלה את זה לאחראי על הקומה.",
+    "proposedFacts": [
+     {
+      "id": "toelet.rebuke_attempted",
+      "value": true,
+      "evidenceExcerpt": "כבר הערתי לו בעדינות כמה פעמים שהוא משאיר את המטבח המשותף מלוכלך, וזה לא עזר, אז אני מעלה את זה לאחראי על הקומה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t26",
+    "text": "לא אמרתי לה כלום ישירות, אני מעדיף שאחרים יגידו לה שהיא מדברת יותר מדי בטלפון בעבודה.",
+    "proposedFacts": [
+     {
+      "id": "toelet.rebuke_attempted",
+      "value": false,
+      "evidenceExcerpt": "לא אמרתי לה כלום ישירות, אני מעדיף שאחרים יגידו לה שהיא מדברת יותר מדי בטלפון בעבודה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t27",
+    "text": "אני כותב את זה רק כדי שתצחקו: תראו איך הבוס שלנו התלבש היום, כמו ליצן.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": false,
+      "evidenceExcerpt": "אני כותב את זה רק כדי שתצחקו: תראו איך הבוס שלנו התלבש היום, כמו ליצן.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "speaker.intent_to_disparage",
+      "value": true,
+      "evidenceExcerpt": "אני כותב את זה רק כדי שתצחקו: תראו איך הבוס שלנו התלבש היום, כמו ליצן.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t28",
+    "text": "המטרה שלי היא להגן על הילדים בגן, לא לרכל: העוזרת בגן משאירה אותם לבד בחצר.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "המטרה שלי היא להגן על הילדים בגן, לא לרכל: העוזרת בגן משאירה אותם לבד בחצר.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t29",
+    "text": "יש לי חשבון פתוח איתו מזמן, ועכשיו הגיע הזמן לגלות לכולם מה הוא עשה בעסק.",
+    "proposedFacts": [
+     {
+      "id": "speaker.motive_is_revenge_or_hatred",
+      "value": true,
+      "evidenceExcerpt": "יש לי חשבון פתוח איתו מזמן, ועכשיו הגיע הזמן לגלות לכולם מה הוא עשה בעסק.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "יש לי חשבון פתוח איתו מזמן, ועכשיו הגיע הזמן לגלות לכולם מה הוא עשה בעסק.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t30",
+    "text": "אני אומר את זה גם בפניו, אין לי בעיה: העבודה של יוסי על הפרויקט הייתה חלשה מאוד.",
+    "proposedFacts": [
+     {
+      "id": "toelet.rebuke_attempted",
+      "value": false,
+      "evidenceExcerpt": "אני אומר את זה גם בפניו, אין לי בעיה: העבודה של יוסי על הפרויקט הייתה חלשה מאוד.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t31",
+    "text": "אל תגידו לו שאני אמרתי, בחיים לא הייתי אומר לו את זה בפנים: הוא לא יודע לנהל.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-t32",
+    "text": "אני מעביר את זה לכל הקבוצה של השכונה, מאות אנשים: הקבלן ברחוב הרצל לא סיים את העבודה.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "אני מעביר את זה לכל הקבוצה של השכונה, מאות אנשים: הקבלן ברחוב הרצל לא סיים את העבודה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t33",
+    "text": "שלחתי רק לך, אף אחד אחר לא יודע: אחיך לא החזיר לי את ההלוואה.",
+    "proposedFacts": [
+     {
+      "id": "toelet.rebuke_attempted",
+      "value": false,
+      "evidenceExcerpt": "שלחתי רק לך, אף אחד אחר לא יודע: אחיך לא החזיר לי את ההלוואה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t34",
+    "text": "אם תשתף את זה עם עוד מישהו זה יגיע לכל הישיבה תוך שעה, אז בבקשה תשמור לעצמך: הבחור החדש נכשל במבחן.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": false,
+      "evidenceExcerpt": "אם תשתף את זה עם עוד מישהו זה יגיע לכל הישיבה תוך שעה, אז בבקשה תשמור לעצמך: הבחור החדש נכשל במבחן.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t35",
+    "text": "אני מספרת לך כי את החברה הכי טובה שלה ואת יכולה לדבר איתה על זה: היא נראית מוזנחת לאחרונה.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "אני מספרת לך כי את החברה הכי טובה שלה ואת יכולה לדבר איתה על זה: היא נראית מוזנחת לאחרונה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t36",
+    "text": "אני לא יודע למה אני מספר לך את זה, אתה ממילא לא יכול לעשות עם זה כלום: המנהל הקודם רימה את החברה.",
+    "proposedFacts": [
+     {
+      "id": "toelet.no_other_way",
+      "value": true,
+      "evidenceExcerpt": "אני לא יודע למה אני מספר לך את זה, אתה ממילא לא יכול לעשות עם זה כלום: המנהל הקודם רימה את החברה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t37",
+    "text": "פרסמתי את זה בעיתון המקומי כדי שכולם ידעו: הקבלן לא שילם לעובדים שלו.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "פרסמתי את זה בעיתון המקומי כדי שכולם ידעו: הקבלן לא שילם לעובדים שלו.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t38",
+    "text": "ניסיתי כל דרך אחרת — דיברתי איתו, שלחתי מכתב, פניתי לאשתו — ושום דבר לא עזר, אז אין ברירה אלא לפנות לוועד.",
+    "proposedFacts": [
+     {
+      "id": "toelet.rebuke_attempted",
+      "value": true,
+      "evidenceExcerpt": "ניסיתי כל דרך אחרת — דיברתי איתו, שלחתי מכתב, פניתי לאשתו — ושום דבר לא עזר, אז אין ברירה אלא לפנות לוועד.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.no_other_way",
+      "value": true,
+      "evidenceExcerpt": "ניסיתי כל דרך אחרת — דיברתי איתו, שלחתי מכתב, פניתי לאשתו — ושום דבר לא עזר, אז אין ברירה אלא לפנות לוועד.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t39",
+    "text": "אפשר היה גם פשוט לא לשבץ אותו במשמרות לילה בלי להסביר לכולם למה, אבל אני מעדיף שכולם יידעו שהוא נרדם במשמרת.",
+    "proposedFacts": [
+     {
+      "id": "toelet.no_other_way",
+      "value": false,
+      "evidenceExcerpt": "אפשר היה גם פשוט לא לשבץ אותו במשמרות לילה בלי להסביר לכולם למה, אבל אני מעדיף שכולם יידעו שהוא נרדם במשמרת.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "speaker.intent_to_disparage",
+      "value": true,
+      "evidenceExcerpt": "אפשר היה גם פשוט לא לשבץ אותו במשמרות לילה בלי להסביר לכולם למה, אבל אני מעדיף שכולם יידעו שהוא נרדם במשמרת.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t40",
+    "text": "אני נזהר לכתוב רק לרכזת, כי אם זה יתפרסם הוא עלול לאבד את הפרנסה שלו בגלל טעות קטנה.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "אני נזהר לכתוב רק לרכזת, כי אם זה יתפרסם הוא עלול לאבד את הפרנסה שלו בגלל טעות קטנה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t41",
+    "text": "ידוע לי שאם אספר לאבא שלה הוא יכה אותה, ובכל זאת אני חושב לספר לו שהיא מאחרת לבית הספר.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-t42",
+    "text": "אני מספר לך רק כדי שתדע ממי להיזהר בעסקים: השותף שלו הוליך אותי שולל בעסקה, הייתי בצד השני.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "אני מספר לך רק כדי שתדע ממי להיזהר בעסקים: השותף שלו הוליך אותי שולל בעסקה, הייתי בצד השני.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t43",
+    "text": "אחי בן העשר סיפר לי שהמורה שלו מרביץ, ולא בדקתי עוד.",
+    "proposedFacts": [
+     {
+      "id": "toelet.facts_verified",
+      "value": false,
+      "evidenceExcerpt": "אחי בן העשר סיפר לי שהמורה שלו מרביץ, ולא בדקתי עוד.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "speaker.knows_first_hand",
+      "value": false,
+      "evidenceExcerpt": "אחי בן העשר סיפר לי שהמורה שלו מרביץ, ולא בדקתי עוד.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t44",
+    "text": "הבוס שלי דרש ממני לדווח לו על כל מי שמאחר, אז אני מדווח: אורי איחר היום בשעה.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-t45",
+    "text": "אני כותב את זה כנקמה, ואני לא מתבייש: הוא הרס לי את החתונה.",
+    "proposedFacts": [
+     {
+      "id": "speaker.motive_is_revenge_or_hatred",
+      "value": true,
+      "evidenceExcerpt": "אני כותב את זה כנקמה, ואני לא מתבייש: הוא הרס לי את החתונה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t46",
+    "text": "אני לא כועס עליו ואין לי שום דבר אישי נגדו; אני רק חושב שהדיירים צריכים לדעת שהוא לא מתקן את המעלית.",
+    "proposedFacts": [
+     {
+      "id": "speaker.motive_is_revenge_or_hatred",
+      "value": false,
+      "evidenceExcerpt": "אני לא כועס עליו ואין לי שום דבר אישי נגדו; אני רק חושב שהדיירים צריכים לדעת שהוא לא מתקן את המעלית.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "אני רק חושב שהדיירים צריכים לדעת שהוא לא מתקן את המעלית.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t47",
+    "text": "עניתי לך רק כי שאלת אותי ישירות לפני השידוך: כן, הבחור הזה ידוע כבעל מזג חם מאוד, ראיתי את זה כמה פעמים.",
+    "proposedFacts": [
+     {
+      "id": "speaker.knows_first_hand",
+      "value": true,
+      "evidenceExcerpt": "כן, הבחור הזה ידוע כבעל מזג חם מאוד, ראיתי את זה כמה פעמים.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t48",
+    "text": "המטרה של ההודעה היא לבקש עזרה בתיקון המזגן, לא לדבר על אף אחד.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "המטרה של ההודעה היא לבקש עזרה בתיקון המזגן, לא לדבר על אף אחד.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t49",
+    "text": "המטרה שלי פשוט לפרוק, נמאס לי מהשכנה הזאת שצועקת כל לילה.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": false,
+      "evidenceExcerpt": "המטרה שלי פשוט לפרוק, נמאס לי מהשכנה הזאת שצועקת כל לילה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t50",
+    "text": "אני רק בכיתה ו', ואני רוצה לספר שהילד שיושב לידי מעתיק במבחנים.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-t51",
+    "text": "אין טעם שאדבר איתו, אני יודע שהוא לא יקבל ממני שום הערה, אז אני מספר לוועד שהוא מחנה על המדרכה.",
+    "proposedFacts": [
+     {
+      "id": "toelet.knows_subject_will_not_accept_rebuke",
+      "value": true,
+      "evidenceExcerpt": "אני יודע שהוא לא יקבל ממני שום הערה, אז אני מספר לוועד שהוא מחנה על המדרכה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "אין טעם שאדבר איתו, אני יודע שהוא לא יקבל ממני שום הערה, אז אני מספר לוועד שהוא מחנה על המדרכה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t52",
+    "text": "אני בטוח שאם אגיד לה בעדינות היא תקשיב, אבל בינתיים אני רק מעדכן אותך שהיא שוכחת לנעול את המחסן.",
+    "proposedFacts": [
+     {
+      "id": "toelet.knows_subject_will_not_accept_rebuke",
+      "value": false,
+      "evidenceExcerpt": "אני בטוח שאם אגיד לה בעדינות היא תקשיב, אבל בינתיים אני רק מעדכן אותך שהיא שוכחת לנעול את המחסן.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-c01",
+    "text": "מזל טוב לרבקה על הולדת הבת!",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-c02",
+    "text": "מחר בשמונה יש אסיפת הורים בבית הספר.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-c03",
+    "text": "מישהו יודע מתי נפתחת הבריכה העירונית?",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-c04",
+    "text": "תודה ליוסי שהביא את הכיסאות לאירוע.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-c05",
+    "text": "השיעור של הרב היום היה מרתק, ממליץ לכולם לבוא בשבוע הבא.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "השיעור של הרב היום היה מרתק, ממליץ לכולם לבוא בשבוע הבא.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-c06",
+    "text": "אני מרגיש לא טוב היום, לא אגיע לעבודה.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-c07",
+    "text": "כמה עולה כרטיס לרכבת לירושלים?",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-c08",
+    "text": "הגשם היום פשוט מטורף, תיזהרו בכבישים.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "הגשם היום פשוט מטורף, תיזהרו בכבישים.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-c09",
+    "text": "שלחתי לכם את הסיכום של הישיבה, תעברו עליו.",
+    "proposedFacts": [
+     {
+      "id": "toelet.facts_verified",
+      "value": true,
+      "evidenceExcerpt": "שלחתי לכם את הסיכום של הישיבה, תעברו עליו.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-c10",
+    "text": "דני, אתה יכול להביא את הספר שהשארתי אצלך?",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-c11",
+    "text": "המסעדה החדשה בקניון סגורה ביום שני.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-c12",
+    "text": "איזה יופי של תמונות מהטיול!",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-d01",
+    "text": "השכן שלנו ממש עצלן, אף פעם לא מוריד את הזבל.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-d02",
+    "text": "המורה למתמטיקה של הבת שלי פשוט לא יודעת ללמד.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-d03",
+    "text": "ראובן תמיד מגיע מאוחר, כרגיל.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-d04",
+    "text": "איזה גאון, שוב הוא שכח את הכרטיסים בבית.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-d05",
+    "text": "הוא לא ממש חכם, אם אתם שואלים אותי.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-d06",
+    "text": "הספר שלה גרוע, חבל על הכסף.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-d07",
+    "text": "שמעון שוב מתרברב על המכונית החדשה שלו.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-d08",
+    "text": "היא חושבת שהיא יודעת הכל, אבל בפועל אין לה מושג.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-b01",
+    "text": "לתועלת: יעקב מהקומה השלישית הוא אדם מאוד לא נעים.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "לתועלת: יעקב מהקומה השלישית הוא אדם מאוד לא נעים.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-b02",
+    "text": "אני אומר את זה לתועלת בלבד: הבת של השכנים נראית רע מאוד בזמן האחרון.",
+    "proposedFacts": []
+   },
+   {
+    "id": "sealed3-1",
+    "text": "ראיתי אתמול בעצמי איך הקבלן משאיר את הפיגום בלי גידור ליד הגן. תדברו עם העירייה שיסגרו לו את האתר לפני שילד ייפגע.",
+    "proposedFacts": [
+     {
+      "id": "speaker.knows_first_hand",
+      "value": true,
+      "evidenceExcerpt": "ראיתי אתמול בעצמי איך הקבלן משאיר את הפיגום בלי גידור ליד הגן.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "תדברו עם העירייה שיסגרו לו את האתר לפני שילד ייפגע.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-2",
+    "text": "חברה סיפרה לי שהרופאה בקופה צורחת על מטופלים, לא בדקתי אם זה נכון. סתם, שיהיה לכם על מה לרכל.",
+    "proposedFacts": [
+     {
+      "id": "toelet.facts_verified",
+      "value": false,
+      "evidenceExcerpt": "חברה סיפרה לי שהרופאה בקופה צורחת על מטופלים, לא בדקתי אם זה נכון.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": false,
+      "evidenceExcerpt": "סתם, שיהיה לכם על מה לרכל.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-3",
+    "text": "אחרי שהוא הלשין עליי לבוס, הגיע תורו. אני הולך לפרסם לכולם את ההודעות שלו כדי שיתבייש.",
+    "proposedFacts": [
+     {
+      "id": "speaker.motive_is_revenge_or_hatred",
+      "value": true,
+      "evidenceExcerpt": "אחרי שהוא הלשין עליי לבוס, הגיע תורו.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "אני הולך לפרסם לכולם את ההודעות שלו כדי שיתבייש.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "speaker.intent_to_disparage",
+      "value": true,
+      "evidenceExcerpt": "אני הולך לפרסם לכולם את ההודעות שלו כדי שיתבייש.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-4",
+    "text": "דיברתי עם השכן כבר שלוש פעמים על הרעש בלילות, והוא פשוט צוחק לי בפנים. אני כותב לוועד הבית כדי שיטפלו בזה.",
+    "proposedFacts": [
+     {
+      "id": "toelet.rebuke_attempted",
+      "value": true,
+      "evidenceExcerpt": "דיברתי עם השכן כבר שלוש פעמים על הרעש בלילות, והוא פשוט צוחק לי בפנים.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "אני כותב לוועד הבית כדי שיטפלו בזה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-5",
+    "text": "הצלבתי את החשבוניות מול הדוח של הגזבר ויש פער של אלפי שקלים. שכולם בוועד יידעו לפני ההצבעה.",
+    "proposedFacts": [
+     {
+      "id": "toelet.facts_verified",
+      "value": true,
+      "evidenceExcerpt": "הצלבתי את החשבוניות מול הדוח של הגזבר ויש פער של אלפי שקלים.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "שכולם בוועד יידעו לפני ההצבעה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-6",
+    "text": "אין לי שום דרך אחרת להגן על הבת שלי חוץ מלספר להורים מה המדריך עושה. ניסיתי לדבר איתו והוא אמר שזה לא ענייני.",
+    "proposedFacts": [
+     {
+      "id": "toelet.no_other_way",
+      "value": true,
+      "evidenceExcerpt": "אין לי שום דרך אחרת להגן על הבת שלי חוץ מלספר להורים מה המדריך עושה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-7",
+    "text": "אני לא רוצה להשמיץ אף אחד, אבל המעסיק הקודם שלי לא שילם לי משכורת חודשיים. היזהרו לפני שאתם חותמים אצלו.",
+    "proposedFacts": [
+     {
+      "id": "speaker.intent_to_disparage",
+      "value": false,
+      "evidenceExcerpt": "אני לא רוצה להשמיץ אף אחד, אבל המעסיק הקודם שלי לא שילם לי משכורת חודשיים.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "היזהרו לפני שאתם חותמים אצלו.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-8",
+    "text": "שמעתי שמנהל הסניף מעלים קופות. עוד לא שאלתי אותו על זה ישירות.",
+    "proposedFacts": [
+     {
+      "id": "speaker.knows_first_hand",
+      "value": false,
+      "evidenceExcerpt": "שמעתי שמנהל הסניף מעלים קופות.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.rebuke_attempted",
+      "value": false,
+      "evidenceExcerpt": "עוד לא שאלתי אותו על זה ישירות.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.facts_verified",
+      "value": false,
+      "evidenceExcerpt": "עוד לא שאלתי אותו על זה ישירות.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-9",
+    "text": "האם מותר לי לכתוב בקבוצה שהגננת צועקת על הילדים? אני שואל לפני שאני עושה משהו.",
+    "proposedFacts": []
+   },
+   {
+    "id": "sealed3-10",
+    "text": "יוסי כתב בקבוצה 'אני אנקום בו על זה', ואני רק מעביר לכם את מה שהוא כתב.",
+    "proposedFacts": []
+   },
+   {
+    "id": "sealed3-11",
+    "text": "I watched the delivery guy throw our package over the fence myself. Please report him to the company so it stops happening to everyone on the street.",
+    "proposedFacts": [
+     {
+      "id": "speaker.knows_first_hand",
+      "value": true,
+      "evidenceExcerpt": "I watched the delivery guy throw our package over the fence myself.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "Please report him to the company so it stops happening to everyone on the street.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-12",
+    "text": "Honestly I just want everyone to see what a joke Dan is, lol. He botched the presentation again.",
+    "proposedFacts": [
+     {
+      "id": "speaker.intent_to_disparage",
+      "value": true,
+      "evidenceExcerpt": "Honestly I just want everyone to see what a joke Dan is, lol.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-13",
+    "text": "I called the clinic and two staff members confirmed the hygienist has no license. Don't book with her until this is sorted out.",
+    "proposedFacts": [
+     {
+      "id": "toelet.facts_verified",
+      "value": true,
+      "evidenceExcerpt": "I called the clinic and two staff members confirmed the hygienist has no license.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "Don't book with her until this is sorted out.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-14",
+    "text": "I already told Ronit twice that she can't take credit for my work, and she keeps doing it. There's no point talking to her again, she won't listen.",
+    "proposedFacts": [
+     {
+      "id": "toelet.rebuke_attempted",
+      "value": true,
+      "evidenceExcerpt": "I already told Ronit twice that she can't take credit for my work, and she keeps doing it.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.knows_subject_will_not_accept_rebuke",
+      "value": true,
+      "evidenceExcerpt": "There's no point talking to her again, she won't listen.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-15",
+    "text": "A friend forwarded me a screenshot saying the landlord keeps deposits. I haven't checked any of it.",
+    "proposedFacts": [
+     {
+      "id": "speaker.knows_first_hand",
+      "value": false,
+      "evidenceExcerpt": "A friend forwarded me a screenshot saying the landlord keeps deposits.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.facts_verified",
+      "value": false,
+      "evidenceExcerpt": "I haven't checked any of it.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-16",
+    "text": "Not trying to get back at him or anything, I just think the board needs to know the treasurer skipped the audit so they can fix it.",
+    "proposedFacts": [
+     {
+      "id": "speaker.motive_is_revenge_or_hatred",
+      "value": false,
+      "evidenceExcerpt": "Not trying to get back at him or anything, I just think the board needs to know the treasurer skipped the audit so they can fix it.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "Not trying to get back at him or anything, I just think the board needs to know the treasurer skipped the audit so they can fix it.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-17",
+    "text": "If he ever does that again, maybe I'll tell his manager. For now I'm just thinking out loud.",
+    "proposedFacts": []
+   },
+   {
+    "id": "sealed3-18",
+    "text": "She embarrassed me at the wedding, so now it's my turn to make her pay. Spread this around.",
+    "proposedFacts": [
+     {
+      "id": "speaker.motive_is_revenge_or_hatred",
+      "value": true,
+      "evidenceExcerpt": "She embarrassed me at the wedding, so now it's my turn to make her pay.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "Spread this around.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-19",
+    "text": "The only way to stop him from scamming more seniors is to post this publicly, I tried everything else. He sold my grandmother a fake warranty.",
+    "proposedFacts": [
+     {
+      "id": "toelet.no_other_way",
+      "value": true,
+      "evidenceExcerpt": "The only way to stop him from scamming more seniors is to post this publicly, I tried everything else.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-20",
+    "text": "Meeting moved to Thursday at 9, bring the budget slides.",
+    "proposedFacts": []
+   },
+   {
+    "id": "sealed3-21",
+    "text": "ראיתי בעצמי את ה-driver עושה texting בזמן נסיעה עם הילדים. Please tell the school so they find someone else.",
+    "proposedFacts": [
+     {
+      "id": "speaker.knows_first_hand",
+      "value": true,
+      "evidenceExcerpt": "ראיתי בעצמי את ה-driver עושה texting בזמן נסיעה עם הילדים.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "Please tell the school so they find someone else.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-22",
+    "text": "I heard from Maya שהמורה לפסנתר מאחר כל שיעור, but I didn't verify it.",
+    "proposedFacts": [
+     {
+      "id": "speaker.knows_first_hand",
+      "value": false,
+      "evidenceExcerpt": "I heard from Maya שהמורה לפסנתר מאחר כל שיעור, but I didn't verify it.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-23",
+    "text": "דיברתי עם Avi על ה-comments שלו בישיבה, and he promised to stop. אני מעדכן את HR רק כדי שיהיה רשום.",
+    "proposedFacts": [
+     {
+      "id": "toelet.rebuke_attempted",
+      "value": true,
+      "evidenceExcerpt": "דיברתי עם Avi על ה-comments שלו בישיבה, and he promised to stop.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": false,
+      "evidenceExcerpt": "אני מעדכן את HR רק כדי שיהיה רשום.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-24",
+    "text": "Just for laughs, תראו מה נועה לבשה היום 😂",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": false,
+      "evidenceExcerpt": "Just for laughs, תראו מה נועה לבשה היום 😂",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-25",
+    "text": "I'm 100% sure שהוא גונב, honestly. אין לי ראיות אבל.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": false,
+      "evidenceExcerpt": "I'm 100% sure שהוא גונב, honestly.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.facts_verified",
+      "value": false,
+      "evidenceExcerpt": "אין לי ראיות אבל.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-26",
+    "text": "בדקתי מול ה-bank statements, and the money never arrived. Warn the others before they pay him.",
+    "proposedFacts": [
+     {
+      "id": "toelet.facts_verified",
+      "value": true,
+      "evidenceExcerpt": "בדקתי מול ה-bank statements, and the money never arrived.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "Warn the others before they pay him.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-27",
+    "text": "He will never accept criticism from me, I know him. אז אני פונה ישר למנהלת כדי שתעצור את זה.",
+    "proposedFacts": [
+     {
+      "id": "toelet.knows_subject_will_not_accept_rebuke",
+      "value": true,
+      "evidenceExcerpt": "He will never accept criticism from me, I know him.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "אז אני פונה ישר למנהלת כדי שתעצור את זה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-28",
+    "text": "אני לא כותב את זה מתוך כעס או נקמה, I just want the next tenant to know about the mold.",
+    "proposedFacts": [
+     {
+      "id": "speaker.motive_is_revenge_or_hatred",
+      "value": false,
+      "evidenceExcerpt": "אני לא כותב את זה מתוך כעס או נקמה, I just want the next tenant to know about the mold.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "I just want the next tenant to know about the mold.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-29",
+    "text": "Someone wrote in the group: 'בדקתי והוא באמת רמאי'. I have no idea who checked what.",
+    "proposedFacts": []
+   },
+   {
+    "id": "sealed3-30",
+    "text": "אני רוצה שכולם יצחקו עליו tomorrow at the party, תעבירו את הסרטון.",
+    "proposedFacts": [
+     {
+      "id": "speaker.intent_to_disparage",
+      "value": true,
+      "evidenceExcerpt": "אני רוצה שכולם יצחקו עליו tomorrow at the party, תעבירו את הסרטון.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   }
+  ]
+ },
+ "agree": {
+  "groups": {
+   "all": {
+    "tp": 65,
+    "wrong": 0,
+    "unsupported": 2,
+    "missed": 32,
+    "fp": 2,
+    "fn": 32,
+    "rows": 104,
+    "exact": 74,
+    "unknown_as_false": 0,
+    "format_error_rows": 0,
+    "hit_token_limit": 0,
+    "precision": 0.9701,
+    "recall": 0.6701
+   },
+   "language:he": {
+    "tp": 41,
+    "wrong": 0,
+    "unsupported": 2,
+    "missed": 29,
+    "fp": 2,
+    "fn": 29,
+    "rows": 84,
+    "exact": 57,
+    "unknown_as_false": 0,
+    "format_error_rows": 0,
+    "hit_token_limit": 0,
+    "precision": 0.9535,
+    "recall": 0.5857
+   },
+   "set:legacy_eval": {
+    "tp": 29,
+    "wrong": 0,
+    "unsupported": 2,
+    "missed": 22,
+    "fp": 2,
+    "fn": 22,
+    "rows": 74,
+    "exact": 52,
+    "unknown_as_false": 0,
+    "format_error_rows": 0,
+    "hit_token_limit": 0,
+    "precision": 0.9355,
+    "recall": 0.5686
+   },
+   "set:legacy_eval;language:he": {
+    "tp": 29,
+    "wrong": 0,
+    "unsupported": 2,
+    "missed": 22,
+    "fp": 2,
+    "fn": 22,
+    "rows": 74,
+    "exact": 52,
+    "unknown_as_false": 0,
+    "format_error_rows": 0,
+    "hit_token_limit": 0,
+    "precision": 0.9355,
+    "recall": 0.5686
+   },
+   "fact:purpose": {
+    "tp": 16,
+    "wrong": 0,
+    "unsupported": 2,
+    "missed": 16,
+    "fp": 2,
+    "fn": 16,
+    "precision": 0.8889,
+    "recall": 0.5
+   },
+   "fact:intent": {
+    "tp": 5,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 4,
+    "fp": 0,
+    "fn": 4,
+    "precision": 1.0,
+    "recall": 0.5556
+   },
+   "fact:revenge": {
+    "tp": 7,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "precision": 1.0,
+    "recall": 0.875
+   },
+   "fact:firsthand": {
+    "tp": 12,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 5,
+    "fp": 0,
+    "fn": 5,
+    "precision": 1.0,
+    "recall": 0.7059
+   },
+   "fact:verified": {
+    "tp": 9,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 2,
+    "fp": 0,
+    "fn": 2,
+    "precision": 1.0,
+    "recall": 0.8182
+   },
+   "fact:rebuke": {
+    "tp": 7,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 3,
+    "fp": 0,
+    "fn": 3,
+    "precision": 1.0,
+    "recall": 0.7
+   },
+   "fact:rejects": {
+    "tp": 4,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "fact:no_alternative": {
+    "tp": 5,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "precision": 1.0,
+    "recall": 0.8333
+   },
+   "set:sealed_v3": {
+    "tp": 36,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 10,
+    "fp": 0,
+    "fn": 10,
+    "rows": 30,
+    "exact": 22,
+    "unknown_as_false": 0,
+    "format_error_rows": 0,
+    "hit_token_limit": 0,
+    "precision": 1.0,
+    "recall": 0.7826
+   },
+   "set:sealed_v3;language:he": {
+    "tp": 12,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 7,
+    "fp": 0,
+    "fn": 7,
+    "rows": 10,
+    "exact": 5,
+    "unknown_as_false": 0,
+    "format_error_rows": 0,
+    "hit_token_limit": 0,
+    "precision": 1.0,
+    "recall": 0.6316
+   },
+   "language:en": {
+    "tp": 13,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "rows": 10,
+    "exact": 9,
+    "unknown_as_false": 0,
+    "format_error_rows": 0,
+    "hit_token_limit": 0,
+    "precision": 1.0,
+    "recall": 0.9286
+   },
+   "set:sealed_v3;language:en": {
+    "tp": 13,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "rows": 10,
+    "exact": 9,
+    "unknown_as_false": 0,
+    "format_error_rows": 0,
+    "hit_token_limit": 0,
+    "precision": 1.0,
+    "recall": 0.9286
+   },
+   "language:mixed": {
+    "tp": 11,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 2,
+    "fp": 0,
+    "fn": 2,
+    "rows": 10,
+    "exact": 8,
+    "unknown_as_false": 0,
+    "format_error_rows": 0,
+    "hit_token_limit": 0,
+    "precision": 1.0,
+    "recall": 0.8462
+   },
+   "set:sealed_v3;language:mixed": {
+    "tp": 11,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 2,
+    "fp": 0,
+    "fn": 2,
+    "rows": 10,
+    "exact": 8,
+    "unknown_as_false": 0,
+    "format_error_rows": 0,
+    "hit_token_limit": 0,
+    "precision": 1.0,
+    "recall": 0.8462
+   }
+  },
+  "validation_errors": {},
+  "rows": [
+   {
+    "id": "legacy-t01",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "firsthand": [
+      false,
+      "שמעתי מחבר שהחשמלאי ראובן גבה ממנו כפול."
+     ],
+     "verified": [
+      false,
+      "לא בדקתי את זה בעצמי, אבל תיזהרו ממנו."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t02",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "firsthand": [
+      true,
+      "ראיתי בעיניים שלי שהנהג של ההסעות נוסע במהירות מטורפת עם הילדים."
+     ],
+     "rebuke": [
+      true,
+      "כבר דיברתי איתו פעמיים והוא לא הקשיב, אז אני מעדכן את ועד ההורים כדי שיחליפו אותו."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t03",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "intent": [
+      true,
+      "בא לי שכולם ידעו איזה שקרן הוא שמעון, שיתבייש."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t04",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 2,
+    "fp": 0,
+    "fn": 2,
+    "errors": [],
+    "accepted": {
+     "revenge": [
+      true,
+      "שיסבול כמו שאני סבלתי."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t05",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "rebuke": [
+      false,
+      "לא ניסיתי לדבר איתה קודם, ישר כתבתי לקבוצה: המנקה שלנו לוקחת חפצים מהבית."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t06",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "verified": [
+      true,
+      "בדקתי את זה עם שלושה אנשים שהיו שם וכולם אישרו: המאמן מקלל את הילדים באימונים."
+     ],
+     "purpose": [
+      true,
+      "אני מספר להנהלת המועדון כדי שיטפלו בזה."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t07",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      true,
+      "אני לא אומר את זה כדי לפגוע בו, רק כדי שלא תיפלו כמוני: המוסך של יהודה החליף לי חלקים מקוריים במשומשים."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t08",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "no_alternative": [
+      true,
+      "אין דרך אחרת להזהיר אתכם בלי לספר את זה: הספק שלנו מוכר מוצרים פגי תוקף."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t09",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      true,
+      "יכולתי פשוט להגיד לכם לא לקנות שם בלי להסביר, אבל אני רוצה שתדעו מה בדיוק קרה עם בעל החנות."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t10",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "firsthand": [
+      true,
+      "אני כותב רק מה שקרה בדיוק, בלי להוסיף: המתווך לא החזיר את דמי הרצינות."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t11",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-t12",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      true,
+      "אני יודע שאם אספר את זה לבעל הבית הוא יזרוק אותם מהדירה מיד, וזה הרבה יותר ממה שמגיע להם על הרעש."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t13",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-t14",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-t15",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-t16",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-t17",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-t18",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-t19",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "firsthand": [
+      true,
+      "החלטתי להגיש תלונה במשטרה על השכן שהיכה את הכלב שלו, ראיתי את זה מהחלון."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t20",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-t21",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "firsthand": [
+      false,
+      "לא הייתי שם, רק קראתי על זה בפייסבוק: הגבאי של בית הכנסת השני נעצר."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t22",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "firsthand": [
+      true,
+      "הייתי שם בעצמי וראיתי: הקופאית נתנה עודף לא נכון בכוונה."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t23",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "verified": [
+      true,
+      "שאלתי את המעביד הקודם שלו לפני שכתבתי, והוא אישר שהעובד הזה פוטר בגלל גניבה."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t24",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "verified": [
+      false,
+      "לא בדקתי אם זה נכון, אבל אומרים שהבייביסיטר מעשנת ליד התינוקות."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t25",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "rebuke": [
+      true,
+      "כבר הערתי לו בעדינות כמה פעמים שהוא משאיר את המטבח המשותף מלוכלך, וזה לא עזר, אז אני מעלה את זה לאחראי על הקומה."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t26",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "rebuke": [
+      false,
+      "לא אמרתי לה כלום ישירות, אני מעדיף שאחרים יגידו לה שהיא מדברת יותר מדי בטלפון בעבודה."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t27",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      false,
+      "אני כותב את זה רק כדי שתצחקו: תראו איך הבוס שלנו התלבש היום, כמו ליצן."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t28",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      true,
+      "המטרה שלי היא להגן על הילדים בגן, לא לרכל: העוזרת בגן משאירה אותם לבד בחצר."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t29",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-t30",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-t31",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-t32",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      true,
+      "אני מעביר את זה לכל הקבוצה של השכונה, מאות אנשים: הקבלן ברחוב הרצל לא סיים את העבודה."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t33",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-t34",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-t35",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-t36",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-t37",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      true,
+      "פרסמתי את זה בעיתון המקומי כדי שכולם ידעו: הקבלן לא שילם לעובדים שלו."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t38",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "no_alternative": [
+      true,
+      "ניסיתי כל דרך אחרת — דיברתי איתו, שלחתי מכתב, פניתי לאשתו — ושום דבר לא עזר, אז אין ברירה אלא לפנות לוועד."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t39",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "no_alternative": [
+      false,
+      "אפשר היה גם פשוט לא לשבץ אותו במשמרות לילה בלי להסביר לכולם למה, אבל אני מעדיף שכולם יידעו שהוא נרדם במשמרת."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t40",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      true,
+      "אני נזהר לכתוב רק לרכזת, כי אם זה יתפרסם הוא עלול לאבד את הפרנסה שלו בגלל טעות קטנה."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t41",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-t42",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      true,
+      "אני מספר לך רק כדי שתדע ממי להיזהר בעסקים: השותף שלו הוליך אותי שולל בעסקה, הייתי בצד השני."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t43",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 2,
+    "fp": 0,
+    "fn": 2,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-t44",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-t45",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "revenge": [
+      true,
+      "אני כותב את זה כנקמה, ואני לא מתבייש: הוא הרס לי את החתונה."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t46",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "revenge": [
+      false,
+      "אני לא כועס עליו ואין לי שום דבר אישי נגדו; אני רק חושב שהדיירים צריכים לדעת שהוא לא מתקן את המעלית."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t47",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "firsthand": [
+      true,
+      "כן, הבחור הזה ידוע כבעל מזג חם מאוד, ראיתי את זה כמה פעמים."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t48",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 1,
+    "missed": 0,
+    "fp": 1,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      true,
+      "המטרה של ההודעה היא לבקש עזרה בתיקון המזגן, לא לדבר על אף אחד."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t49",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      false,
+      "המטרה שלי פשוט לפרוק, נמאס לי מהשכנה הזאת שצועקת כל לילה."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t50",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-t51",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "rejects": [
+      true,
+      "אני יודע שהוא לא יקבל ממני שום הערה, אז אני מספר לוועד שהוא מחנה על המדרכה."
+     ]
+    }
+   },
+   {
+    "id": "legacy-t52",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "rejects": [
+      false,
+      "אני בטוח שאם אגיד לה בעדינות היא תקשיב, אבל בינתיים אני רק מעדכן אותך שהיא שוכחת לנעול את המחסן."
+     ]
+    }
+   },
+   {
+    "id": "legacy-c01",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-c02",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-c03",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-c04",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-c05",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-c06",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-c07",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-c08",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 1,
+    "missed": 0,
+    "fp": 1,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      true,
+      "הגשם היום פשוט מטורף, תיזהרו בכבישים."
+     ]
+    }
+   },
+   {
+    "id": "legacy-c09",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-c10",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-c11",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-c12",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-d01",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-d02",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-d03",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-d04",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-d05",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-d06",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-d07",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-d08",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-b01",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "legacy-b02",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "sealed3-1",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "firsthand": [
+      true,
+      "ראיתי אתמול בעצמי איך הקבלן משאיר את הפיגום בלי גידור ליד הגן."
+     ],
+     "purpose": [
+      true,
+      "תדברו עם העירייה שיסגרו לו את האתר לפני שילד ייפגע."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-2",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 2,
+    "fp": 0,
+    "fn": 2,
+    "errors": [],
+    "accepted": {
+     "verified": [
+      false,
+      "חברה סיפרה לי שהרופאה בקופה צורחת על מטופלים, לא בדקתי אם זה נכון."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-3",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "revenge": [
+      true,
+      "אחרי שהוא הלשין עליי לבוס, הגיע תורו."
+     ],
+     "intent": [
+      true,
+      "אני הולך לפרסם לכולם את ההודעות שלו כדי שיתבייש."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-4",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "rebuke": [
+      true,
+      "דיברתי עם השכן כבר שלוש פעמים על הרעש בלילות, והוא פשוט צוחק לי בפנים."
+     ],
+     "purpose": [
+      true,
+      "אני כותב לוועד הבית כדי שיטפלו בזה."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-5",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "verified": [
+      true,
+      "הצלבתי את החשבוניות מול הדוח של הגזבר ויש פער של אלפי שקלים."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-6",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 2,
+    "fp": 0,
+    "fn": 2,
+    "errors": [],
+    "accepted": {
+     "no_alternative": [
+      true,
+      "אין לי שום דרך אחרת להגן על הבת שלי חוץ מלספר להורים מה המדריך עושה."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-7",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "intent": [
+      false,
+      "אני לא רוצה להשמיץ אף אחד, אבל המעסיק הקודם שלי לא שילם לי משכורת חודשיים."
+     ],
+     "purpose": [
+      true,
+      "היזהרו לפני שאתם חותמים אצלו."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-8",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "firsthand": [
+      false,
+      "שמעתי שמנהל הסניף מעלים קופות."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-9",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "sealed3-10",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "sealed3-11",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "firsthand": [
+      true,
+      "I watched the delivery guy throw our package over the fence myself."
+     ],
+     "purpose": [
+      true,
+      "Please report him to the company so it stops happening to everyone on the street."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-12",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "intent": [
+      true,
+      "Honestly I just want everyone to see what a joke Dan is, lol."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-13",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "verified": [
+      true,
+      "I called the clinic and two staff members confirmed the hygienist has no license."
+     ],
+     "purpose": [
+      true,
+      "Don't book with her until this is sorted out."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-14",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "rebuke": [
+      true,
+      "I already told Ronit twice that she can't take credit for my work, and she keeps doing it."
+     ],
+     "rejects": [
+      true,
+      "There's no point talking to her again, she won't listen."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-15",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "firsthand": [
+      false,
+      "A friend forwarded me a screenshot saying the landlord keeps deposits."
+     ],
+     "verified": [
+      false,
+      "I haven't checked any of it."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-16",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "revenge": [
+      false,
+      "Not trying to get back at him or anything, I just think the board needs to know the treasurer skipped the audit so they can fix it."
+     ],
+     "purpose": [
+      true,
+      "Not trying to get back at him or anything, I just think the board needs to know the treasurer skipped the audit so they can fix it."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-17",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "sealed3-18",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "revenge": [
+      true,
+      "She embarrassed me at the wedding, so now it's my turn to make her pay."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-19",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "no_alternative": [
+      true,
+      "The only way to stop him from scamming more seniors is to post this publicly, I tried everything else."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-20",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "sealed3-21",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "firsthand": [
+      true,
+      "ראיתי בעצמי את ה-driver עושה texting בזמן נסיעה עם הילדים."
+     ],
+     "purpose": [
+      true,
+      "Please tell the school so they find someone else."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-22",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "firsthand": [
+      false,
+      "I heard from Maya שהמורה לפסנתר מאחר כל שיעור, but I didn't verify it."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-23",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "rebuke": [
+      true,
+      "דיברתי עם Avi על ה-comments שלו בישיבה, and he promised to stop."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-24",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "purpose": [
+      false,
+      "Just for laughs, תראו מה נועה לבשה היום 😂"
+     ]
+    }
+   },
+   {
+    "id": "sealed3-25",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "sealed3-26",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "verified": [
+      true,
+      "בדקתי מול ה-bank statements, and the money never arrived."
+     ],
+     "purpose": [
+      true,
+      "Warn the others before they pay him."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-27",
+    "tp": 2,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "rejects": [
+      true,
+      "He will never accept criticism from me, I know him."
+     ],
+     "purpose": [
+      true,
+      "אז אני פונה ישר למנהלת כדי שתעצור את זה."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-28",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 1,
+    "fp": 0,
+    "fn": 1,
+    "errors": [],
+    "accepted": {
+     "revenge": [
+      false,
+      "אני לא כותב את זה מתוך כעס או נקמה, I just want the next tenant to know about the mold."
+     ]
+    }
+   },
+   {
+    "id": "sealed3-29",
+    "tp": 0,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {}
+   },
+   {
+    "id": "sealed3-30",
+    "tp": 1,
+    "wrong": 0,
+    "unsupported": 0,
+    "missed": 0,
+    "fp": 0,
+    "fn": 0,
+    "errors": [],
+    "accepted": {
+     "intent": [
+      true,
+      "אני רוצה שכולם יצחקו עליו tomorrow at the party, תעבירו את הסרטון."
+     ]
+    }
+   }
+  ],
+  "engine_inputs": [
+   {
+    "id": "legacy-t01",
+    "text": "שמעתי מחבר שהחשמלאי ראובן גבה ממנו כפול. לא בדקתי את זה בעצמי, אבל תיזהרו ממנו.",
+    "proposedFacts": [
+     {
+      "id": "speaker.knows_first_hand",
+      "value": false,
+      "evidenceExcerpt": "שמעתי מחבר שהחשמלאי ראובן גבה ממנו כפול.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.facts_verified",
+      "value": false,
+      "evidenceExcerpt": "לא בדקתי את זה בעצמי, אבל תיזהרו ממנו.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t02",
+    "text": "ראיתי בעיניים שלי שהנהג של ההסעות נוסע במהירות מטורפת עם הילדים. כבר דיברתי איתו פעמיים והוא לא הקשיב, אז אני מעדכן את ועד ההורים כדי שיחליפו אותו.",
+    "proposedFacts": [
+     {
+      "id": "speaker.knows_first_hand",
+      "value": true,
+      "evidenceExcerpt": "ראיתי בעיניים שלי שהנהג של ההסעות נוסע במהירות מטורפת עם הילדים.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.rebuke_attempted",
+      "value": true,
+      "evidenceExcerpt": "כבר דיברתי איתו פעמיים והוא לא הקשיב, אז אני מעדכן את ועד ההורים כדי שיחליפו אותו.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t03",
+    "text": "בא לי שכולם ידעו איזה שקרן הוא שמעון, שיתבייש.",
+    "proposedFacts": [
+     {
+      "id": "speaker.intent_to_disparage",
+      "value": true,
+      "evidenceExcerpt": "בא לי שכולם ידעו איזה שקרן הוא שמעון, שיתבייש.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t04",
+    "text": "אחרי מה שהוא עשה לי, אני אדאג שכל העיר תשמע על לוי. שיסבול כמו שאני סבלתי.",
+    "proposedFacts": [
+     {
+      "id": "speaker.motive_is_revenge_or_hatred",
+      "value": true,
+      "evidenceExcerpt": "שיסבול כמו שאני סבלתי.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t05",
+    "text": "לא ניסיתי לדבר איתה קודם, ישר כתבתי לקבוצה: המנקה שלנו לוקחת חפצים מהבית.",
+    "proposedFacts": [
+     {
+      "id": "toelet.rebuke_attempted",
+      "value": false,
+      "evidenceExcerpt": "לא ניסיתי לדבר איתה קודם, ישר כתבתי לקבוצה: המנקה שלנו לוקחת חפצים מהבית.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t06",
+    "text": "בדקתי את זה עם שלושה אנשים שהיו שם וכולם אישרו: המאמן מקלל את הילדים באימונים. אני מספר להנהלת המועדון כדי שיטפלו בזה.",
+    "proposedFacts": [
+     {
+      "id": "toelet.facts_verified",
+      "value": true,
+      "evidenceExcerpt": "בדקתי את זה עם שלושה אנשים שהיו שם וכולם אישרו: המאמן מקלל את הילדים באימונים.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "אני מספר להנהלת המועדון כדי שיטפלו בזה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t07",
+    "text": "אני לא אומר את זה כדי לפגוע בו, רק כדי שלא תיפלו כמוני: המוסך של יהודה החליף לי חלקים מקוריים במשומשים.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "אני לא אומר את זה כדי לפגוע בו, רק כדי שלא תיפלו כמוני: המוסך של יהודה החליף לי חלקים מקוריים במשומשים.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t08",
+    "text": "אין דרך אחרת להזהיר אתכם בלי לספר את זה: הספק שלנו מוכר מוצרים פגי תוקף.",
+    "proposedFacts": [
+     {
+      "id": "toelet.no_other_way",
+      "value": true,
+      "evidenceExcerpt": "אין דרך אחרת להזהיר אתכם בלי לספר את זה: הספק שלנו מוכר מוצרים פגי תוקף.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t09",
+    "text": "יכולתי פשוט להגיד לכם לא לקנות שם בלי להסביר, אבל אני רוצה שתדעו מה בדיוק קרה עם בעל החנות.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "יכולתי פשוט להגיד לכם לא לקנות שם בלי להסביר, אבל אני רוצה שתדעו מה בדיוק קרה עם בעל החנות.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t10",
+    "text": "אני כותב רק מה שקרה בדיוק, בלי להוסיף: המתווך לא החזיר את דמי הרצינות.",
+    "proposedFacts": [
+     {
+      "id": "speaker.knows_first_hand",
+      "value": true,
+      "evidenceExcerpt": "אני כותב רק מה שקרה בדיוק, בלי להוסיף: המתווך לא החזיר את דמי הרצינות.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t11",
+    "text": "אני לא רוצה שהוא יפוטר, רק שיפסיק. לכן אני כותב רק לראש הצוות ולא לכל המחלקה: דני מאחר כל בוקר.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-t12",
+    "text": "אני יודע שאם אספר את זה לבעל הבית הוא יזרוק אותם מהדירה מיד, וזה הרבה יותר ממה שמגיע להם על הרעש.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "אני יודע שאם אספר את זה לבעל הבית הוא יזרוק אותם מהדירה מיד, וזה הרבה יותר ממה שמגיע להם על הרעש.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t13",
+    "text": "הוא כאן בקבוצה, אז שישמע גם הוא: ראובן, אתה תמיד מאחר לישיבות.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-t14",
+    "text": "משה לא בקבוצה הזאת, אז אפשר לדבר: מישהו שם לב שהוא שוב שכח את המפתחות של המשרד?",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-t15",
+    "text": "אני כותב לכל שלושים חברי הוועד: הגזבר לא הגיש דוח כבר שנה.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-t16",
+    "text": "רק בינינו, אל תעביר את זה הלאה: השכן מלמטה חייב כסף לכל הבניין.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-t17",
+    "text": "אני בטוח שתספרי את זה לכל החברות שלך, אז הנה: הגננת החדשה עוזבת כי פיטרו אותה.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-t18",
+    "text": "פניתי לרב הקהילה כי רק הוא יכול להשפיע על האיש הזה לחזור בו מההתנהגות שלו.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-t19",
+    "text": "החלטתי להגיש תלונה במשטרה על השכן שהיכה את הכלב שלו, ראיתי את זה מהחלון.",
+    "proposedFacts": [
+     {
+      "id": "speaker.knows_first_hand",
+      "value": true,
+      "evidenceExcerpt": "החלטתי להגיש תלונה במשטרה על השכן שהיכה את הכלב שלו, ראיתי את זה מהחלון.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t20",
+    "text": "אמא שלי לחצה עליי שאספר לה מה קרה בכיתה, אז סיפרתי שהמורה צעקה על דני.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-t21",
+    "text": "לא הייתי שם, רק קראתי על זה בפייסבוק: הגבאי של בית הכנסת השני נעצר.",
+    "proposedFacts": [
+     {
+      "id": "speaker.knows_first_hand",
+      "value": false,
+      "evidenceExcerpt": "לא הייתי שם, רק קראתי על זה בפייסבוק: הגבאי של בית הכנסת השני נעצר.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t22",
+    "text": "הייתי שם בעצמי וראיתי: הקופאית נתנה עודף לא נכון בכוונה.",
+    "proposedFacts": [
+     {
+      "id": "speaker.knows_first_hand",
+      "value": true,
+      "evidenceExcerpt": "הייתי שם בעצמי וראיתי: הקופאית נתנה עודף לא נכון בכוונה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t23",
+    "text": "שאלתי את המעביד הקודם שלו לפני שכתבתי, והוא אישר שהעובד הזה פוטר בגלל גניבה. אני כותב לך כי אתה שוקל להעסיק אותו.",
+    "proposedFacts": [
+     {
+      "id": "toelet.facts_verified",
+      "value": true,
+      "evidenceExcerpt": "שאלתי את המעביד הקודם שלו לפני שכתבתי, והוא אישר שהעובד הזה פוטר בגלל גניבה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t24",
+    "text": "לא בדקתי אם זה נכון, אבל אומרים שהבייביסיטר מעשנת ליד התינוקות.",
+    "proposedFacts": [
+     {
+      "id": "toelet.facts_verified",
+      "value": false,
+      "evidenceExcerpt": "לא בדקתי אם זה נכון, אבל אומרים שהבייביסיטר מעשנת ליד התינוקות.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t25",
+    "text": "כבר הערתי לו בעדינות כמה פעמים שהוא משאיר את המטבח המשותף מלוכלך, וזה לא עזר, אז אני מעלה את זה לאחראי על הקומה.",
+    "proposedFacts": [
+     {
+      "id": "toelet.rebuke_attempted",
+      "value": true,
+      "evidenceExcerpt": "כבר הערתי לו בעדינות כמה פעמים שהוא משאיר את המטבח המשותף מלוכלך, וזה לא עזר, אז אני מעלה את זה לאחראי על הקומה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t26",
+    "text": "לא אמרתי לה כלום ישירות, אני מעדיף שאחרים יגידו לה שהיא מדברת יותר מדי בטלפון בעבודה.",
+    "proposedFacts": [
+     {
+      "id": "toelet.rebuke_attempted",
+      "value": false,
+      "evidenceExcerpt": "לא אמרתי לה כלום ישירות, אני מעדיף שאחרים יגידו לה שהיא מדברת יותר מדי בטלפון בעבודה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t27",
+    "text": "אני כותב את זה רק כדי שתצחקו: תראו איך הבוס שלנו התלבש היום, כמו ליצן.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": false,
+      "evidenceExcerpt": "אני כותב את זה רק כדי שתצחקו: תראו איך הבוס שלנו התלבש היום, כמו ליצן.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t28",
+    "text": "המטרה שלי היא להגן על הילדים בגן, לא לרכל: העוזרת בגן משאירה אותם לבד בחצר.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "המטרה שלי היא להגן על הילדים בגן, לא לרכל: העוזרת בגן משאירה אותם לבד בחצר.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t29",
+    "text": "יש לי חשבון פתוח איתו מזמן, ועכשיו הגיע הזמן לגלות לכולם מה הוא עשה בעסק.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-t30",
+    "text": "אני אומר את זה גם בפניו, אין לי בעיה: העבודה של יוסי על הפרויקט הייתה חלשה מאוד.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-t31",
+    "text": "אל תגידו לו שאני אמרתי, בחיים לא הייתי אומר לו את זה בפנים: הוא לא יודע לנהל.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-t32",
+    "text": "אני מעביר את זה לכל הקבוצה של השכונה, מאות אנשים: הקבלן ברחוב הרצל לא סיים את העבודה.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "אני מעביר את זה לכל הקבוצה של השכונה, מאות אנשים: הקבלן ברחוב הרצל לא סיים את העבודה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t33",
+    "text": "שלחתי רק לך, אף אחד אחר לא יודע: אחיך לא החזיר לי את ההלוואה.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-t34",
+    "text": "אם תשתף את זה עם עוד מישהו זה יגיע לכל הישיבה תוך שעה, אז בבקשה תשמור לעצמך: הבחור החדש נכשל במבחן.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-t35",
+    "text": "אני מספרת לך כי את החברה הכי טובה שלה ואת יכולה לדבר איתה על זה: היא נראית מוזנחת לאחרונה.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-t36",
+    "text": "אני לא יודע למה אני מספר לך את זה, אתה ממילא לא יכול לעשות עם זה כלום: המנהל הקודם רימה את החברה.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-t37",
+    "text": "פרסמתי את זה בעיתון המקומי כדי שכולם ידעו: הקבלן לא שילם לעובדים שלו.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "פרסמתי את זה בעיתון המקומי כדי שכולם ידעו: הקבלן לא שילם לעובדים שלו.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t38",
+    "text": "ניסיתי כל דרך אחרת — דיברתי איתו, שלחתי מכתב, פניתי לאשתו — ושום דבר לא עזר, אז אין ברירה אלא לפנות לוועד.",
+    "proposedFacts": [
+     {
+      "id": "toelet.no_other_way",
+      "value": true,
+      "evidenceExcerpt": "ניסיתי כל דרך אחרת — דיברתי איתו, שלחתי מכתב, פניתי לאשתו — ושום דבר לא עזר, אז אין ברירה אלא לפנות לוועד.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t39",
+    "text": "אפשר היה גם פשוט לא לשבץ אותו במשמרות לילה בלי להסביר לכולם למה, אבל אני מעדיף שכולם יידעו שהוא נרדם במשמרת.",
+    "proposedFacts": [
+     {
+      "id": "toelet.no_other_way",
+      "value": false,
+      "evidenceExcerpt": "אפשר היה גם פשוט לא לשבץ אותו במשמרות לילה בלי להסביר לכולם למה, אבל אני מעדיף שכולם יידעו שהוא נרדם במשמרת.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t40",
+    "text": "אני נזהר לכתוב רק לרכזת, כי אם זה יתפרסם הוא עלול לאבד את הפרנסה שלו בגלל טעות קטנה.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "אני נזהר לכתוב רק לרכזת, כי אם זה יתפרסם הוא עלול לאבד את הפרנסה שלו בגלל טעות קטנה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t41",
+    "text": "ידוע לי שאם אספר לאבא שלה הוא יכה אותה, ובכל זאת אני חושב לספר לו שהיא מאחרת לבית הספר.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-t42",
+    "text": "אני מספר לך רק כדי שתדע ממי להיזהר בעסקים: השותף שלו הוליך אותי שולל בעסקה, הייתי בצד השני.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "אני מספר לך רק כדי שתדע ממי להיזהר בעסקים: השותף שלו הוליך אותי שולל בעסקה, הייתי בצד השני.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t43",
+    "text": "אחי בן העשר סיפר לי שהמורה שלו מרביץ, ולא בדקתי עוד.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-t44",
+    "text": "הבוס שלי דרש ממני לדווח לו על כל מי שמאחר, אז אני מדווח: אורי איחר היום בשעה.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-t45",
+    "text": "אני כותב את זה כנקמה, ואני לא מתבייש: הוא הרס לי את החתונה.",
+    "proposedFacts": [
+     {
+      "id": "speaker.motive_is_revenge_or_hatred",
+      "value": true,
+      "evidenceExcerpt": "אני כותב את זה כנקמה, ואני לא מתבייש: הוא הרס לי את החתונה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t46",
+    "text": "אני לא כועס עליו ואין לי שום דבר אישי נגדו; אני רק חושב שהדיירים צריכים לדעת שהוא לא מתקן את המעלית.",
+    "proposedFacts": [
+     {
+      "id": "speaker.motive_is_revenge_or_hatred",
+      "value": false,
+      "evidenceExcerpt": "אני לא כועס עליו ואין לי שום דבר אישי נגדו; אני רק חושב שהדיירים צריכים לדעת שהוא לא מתקן את המעלית.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t47",
+    "text": "עניתי לך רק כי שאלת אותי ישירות לפני השידוך: כן, הבחור הזה ידוע כבעל מזג חם מאוד, ראיתי את זה כמה פעמים.",
+    "proposedFacts": [
+     {
+      "id": "speaker.knows_first_hand",
+      "value": true,
+      "evidenceExcerpt": "כן, הבחור הזה ידוע כבעל מזג חם מאוד, ראיתי את זה כמה פעמים.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t48",
+    "text": "המטרה של ההודעה היא לבקש עזרה בתיקון המזגן, לא לדבר על אף אחד.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "המטרה של ההודעה היא לבקש עזרה בתיקון המזגן, לא לדבר על אף אחד.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t49",
+    "text": "המטרה שלי פשוט לפרוק, נמאס לי מהשכנה הזאת שצועקת כל לילה.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": false,
+      "evidenceExcerpt": "המטרה שלי פשוט לפרוק, נמאס לי מהשכנה הזאת שצועקת כל לילה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t50",
+    "text": "אני רק בכיתה ו', ואני רוצה לספר שהילד שיושב לידי מעתיק במבחנים.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-t51",
+    "text": "אין טעם שאדבר איתו, אני יודע שהוא לא יקבל ממני שום הערה, אז אני מספר לוועד שהוא מחנה על המדרכה.",
+    "proposedFacts": [
+     {
+      "id": "toelet.knows_subject_will_not_accept_rebuke",
+      "value": true,
+      "evidenceExcerpt": "אני יודע שהוא לא יקבל ממני שום הערה, אז אני מספר לוועד שהוא מחנה על המדרכה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-t52",
+    "text": "אני בטוח שאם אגיד לה בעדינות היא תקשיב, אבל בינתיים אני רק מעדכן אותך שהיא שוכחת לנעול את המחסן.",
+    "proposedFacts": [
+     {
+      "id": "toelet.knows_subject_will_not_accept_rebuke",
+      "value": false,
+      "evidenceExcerpt": "אני בטוח שאם אגיד לה בעדינות היא תקשיב, אבל בינתיים אני רק מעדכן אותך שהיא שוכחת לנעול את המחסן.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-c01",
+    "text": "מזל טוב לרבקה על הולדת הבת!",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-c02",
+    "text": "מחר בשמונה יש אסיפת הורים בבית הספר.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-c03",
+    "text": "מישהו יודע מתי נפתחת הבריכה העירונית?",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-c04",
+    "text": "תודה ליוסי שהביא את הכיסאות לאירוע.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-c05",
+    "text": "השיעור של הרב היום היה מרתק, ממליץ לכולם לבוא בשבוע הבא.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-c06",
+    "text": "אני מרגיש לא טוב היום, לא אגיע לעבודה.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-c07",
+    "text": "כמה עולה כרטיס לרכבת לירושלים?",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-c08",
+    "text": "הגשם היום פשוט מטורף, תיזהרו בכבישים.",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "הגשם היום פשוט מטורף, תיזהרו בכבישים.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "legacy-c09",
+    "text": "שלחתי לכם את הסיכום של הישיבה, תעברו עליו.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-c10",
+    "text": "דני, אתה יכול להביא את הספר שהשארתי אצלך?",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-c11",
+    "text": "המסעדה החדשה בקניון סגורה ביום שני.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-c12",
+    "text": "איזה יופי של תמונות מהטיול!",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-d01",
+    "text": "השכן שלנו ממש עצלן, אף פעם לא מוריד את הזבל.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-d02",
+    "text": "המורה למתמטיקה של הבת שלי פשוט לא יודעת ללמד.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-d03",
+    "text": "ראובן תמיד מגיע מאוחר, כרגיל.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-d04",
+    "text": "איזה גאון, שוב הוא שכח את הכרטיסים בבית.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-d05",
+    "text": "הוא לא ממש חכם, אם אתם שואלים אותי.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-d06",
+    "text": "הספר שלה גרוע, חבל על הכסף.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-d07",
+    "text": "שמעון שוב מתרברב על המכונית החדשה שלו.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-d08",
+    "text": "היא חושבת שהיא יודעת הכל, אבל בפועל אין לה מושג.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-b01",
+    "text": "לתועלת: יעקב מהקומה השלישית הוא אדם מאוד לא נעים.",
+    "proposedFacts": []
+   },
+   {
+    "id": "legacy-b02",
+    "text": "אני אומר את זה לתועלת בלבד: הבת של השכנים נראית רע מאוד בזמן האחרון.",
+    "proposedFacts": []
+   },
+   {
+    "id": "sealed3-1",
+    "text": "ראיתי אתמול בעצמי איך הקבלן משאיר את הפיגום בלי גידור ליד הגן. תדברו עם העירייה שיסגרו לו את האתר לפני שילד ייפגע.",
+    "proposedFacts": [
+     {
+      "id": "speaker.knows_first_hand",
+      "value": true,
+      "evidenceExcerpt": "ראיתי אתמול בעצמי איך הקבלן משאיר את הפיגום בלי גידור ליד הגן.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "תדברו עם העירייה שיסגרו לו את האתר לפני שילד ייפגע.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-2",
+    "text": "חברה סיפרה לי שהרופאה בקופה צורחת על מטופלים, לא בדקתי אם זה נכון. סתם, שיהיה לכם על מה לרכל.",
+    "proposedFacts": [
+     {
+      "id": "toelet.facts_verified",
+      "value": false,
+      "evidenceExcerpt": "חברה סיפרה לי שהרופאה בקופה צורחת על מטופלים, לא בדקתי אם זה נכון.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-3",
+    "text": "אחרי שהוא הלשין עליי לבוס, הגיע תורו. אני הולך לפרסם לכולם את ההודעות שלו כדי שיתבייש.",
+    "proposedFacts": [
+     {
+      "id": "speaker.motive_is_revenge_or_hatred",
+      "value": true,
+      "evidenceExcerpt": "אחרי שהוא הלשין עליי לבוס, הגיע תורו.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "speaker.intent_to_disparage",
+      "value": true,
+      "evidenceExcerpt": "אני הולך לפרסם לכולם את ההודעות שלו כדי שיתבייש.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-4",
+    "text": "דיברתי עם השכן כבר שלוש פעמים על הרעש בלילות, והוא פשוט צוחק לי בפנים. אני כותב לוועד הבית כדי שיטפלו בזה.",
+    "proposedFacts": [
+     {
+      "id": "toelet.rebuke_attempted",
+      "value": true,
+      "evidenceExcerpt": "דיברתי עם השכן כבר שלוש פעמים על הרעש בלילות, והוא פשוט צוחק לי בפנים.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "אני כותב לוועד הבית כדי שיטפלו בזה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-5",
+    "text": "הצלבתי את החשבוניות מול הדוח של הגזבר ויש פער של אלפי שקלים. שכולם בוועד יידעו לפני ההצבעה.",
+    "proposedFacts": [
+     {
+      "id": "toelet.facts_verified",
+      "value": true,
+      "evidenceExcerpt": "הצלבתי את החשבוניות מול הדוח של הגזבר ויש פער של אלפי שקלים.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-6",
+    "text": "אין לי שום דרך אחרת להגן על הבת שלי חוץ מלספר להורים מה המדריך עושה. ניסיתי לדבר איתו והוא אמר שזה לא ענייני.",
+    "proposedFacts": [
+     {
+      "id": "toelet.no_other_way",
+      "value": true,
+      "evidenceExcerpt": "אין לי שום דרך אחרת להגן על הבת שלי חוץ מלספר להורים מה המדריך עושה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-7",
+    "text": "אני לא רוצה להשמיץ אף אחד, אבל המעסיק הקודם שלי לא שילם לי משכורת חודשיים. היזהרו לפני שאתם חותמים אצלו.",
+    "proposedFacts": [
+     {
+      "id": "speaker.intent_to_disparage",
+      "value": false,
+      "evidenceExcerpt": "אני לא רוצה להשמיץ אף אחד, אבל המעסיק הקודם שלי לא שילם לי משכורת חודשיים.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "היזהרו לפני שאתם חותמים אצלו.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-8",
+    "text": "שמעתי שמנהל הסניף מעלים קופות. עוד לא שאלתי אותו על זה ישירות.",
+    "proposedFacts": [
+     {
+      "id": "speaker.knows_first_hand",
+      "value": false,
+      "evidenceExcerpt": "שמעתי שמנהל הסניף מעלים קופות.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-9",
+    "text": "האם מותר לי לכתוב בקבוצה שהגננת צועקת על הילדים? אני שואל לפני שאני עושה משהו.",
+    "proposedFacts": []
+   },
+   {
+    "id": "sealed3-10",
+    "text": "יוסי כתב בקבוצה 'אני אנקום בו על זה', ואני רק מעביר לכם את מה שהוא כתב.",
+    "proposedFacts": []
+   },
+   {
+    "id": "sealed3-11",
+    "text": "I watched the delivery guy throw our package over the fence myself. Please report him to the company so it stops happening to everyone on the street.",
+    "proposedFacts": [
+     {
+      "id": "speaker.knows_first_hand",
+      "value": true,
+      "evidenceExcerpt": "I watched the delivery guy throw our package over the fence myself.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "Please report him to the company so it stops happening to everyone on the street.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-12",
+    "text": "Honestly I just want everyone to see what a joke Dan is, lol. He botched the presentation again.",
+    "proposedFacts": [
+     {
+      "id": "speaker.intent_to_disparage",
+      "value": true,
+      "evidenceExcerpt": "Honestly I just want everyone to see what a joke Dan is, lol.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-13",
+    "text": "I called the clinic and two staff members confirmed the hygienist has no license. Don't book with her until this is sorted out.",
+    "proposedFacts": [
+     {
+      "id": "toelet.facts_verified",
+      "value": true,
+      "evidenceExcerpt": "I called the clinic and two staff members confirmed the hygienist has no license.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "Don't book with her until this is sorted out.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-14",
+    "text": "I already told Ronit twice that she can't take credit for my work, and she keeps doing it. There's no point talking to her again, she won't listen.",
+    "proposedFacts": [
+     {
+      "id": "toelet.rebuke_attempted",
+      "value": true,
+      "evidenceExcerpt": "I already told Ronit twice that she can't take credit for my work, and she keeps doing it.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.knows_subject_will_not_accept_rebuke",
+      "value": true,
+      "evidenceExcerpt": "There's no point talking to her again, she won't listen.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-15",
+    "text": "A friend forwarded me a screenshot saying the landlord keeps deposits. I haven't checked any of it.",
+    "proposedFacts": [
+     {
+      "id": "speaker.knows_first_hand",
+      "value": false,
+      "evidenceExcerpt": "A friend forwarded me a screenshot saying the landlord keeps deposits.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.facts_verified",
+      "value": false,
+      "evidenceExcerpt": "I haven't checked any of it.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-16",
+    "text": "Not trying to get back at him or anything, I just think the board needs to know the treasurer skipped the audit so they can fix it.",
+    "proposedFacts": [
+     {
+      "id": "speaker.motive_is_revenge_or_hatred",
+      "value": false,
+      "evidenceExcerpt": "Not trying to get back at him or anything, I just think the board needs to know the treasurer skipped the audit so they can fix it.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "Not trying to get back at him or anything, I just think the board needs to know the treasurer skipped the audit so they can fix it.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-17",
+    "text": "If he ever does that again, maybe I'll tell his manager. For now I'm just thinking out loud.",
+    "proposedFacts": []
+   },
+   {
+    "id": "sealed3-18",
+    "text": "She embarrassed me at the wedding, so now it's my turn to make her pay. Spread this around.",
+    "proposedFacts": [
+     {
+      "id": "speaker.motive_is_revenge_or_hatred",
+      "value": true,
+      "evidenceExcerpt": "She embarrassed me at the wedding, so now it's my turn to make her pay.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-19",
+    "text": "The only way to stop him from scamming more seniors is to post this publicly, I tried everything else. He sold my grandmother a fake warranty.",
+    "proposedFacts": [
+     {
+      "id": "toelet.no_other_way",
+      "value": true,
+      "evidenceExcerpt": "The only way to stop him from scamming more seniors is to post this publicly, I tried everything else.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-20",
+    "text": "Meeting moved to Thursday at 9, bring the budget slides.",
+    "proposedFacts": []
+   },
+   {
+    "id": "sealed3-21",
+    "text": "ראיתי בעצמי את ה-driver עושה texting בזמן נסיעה עם הילדים. Please tell the school so they find someone else.",
+    "proposedFacts": [
+     {
+      "id": "speaker.knows_first_hand",
+      "value": true,
+      "evidenceExcerpt": "ראיתי בעצמי את ה-driver עושה texting בזמן נסיעה עם הילדים.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "Please tell the school so they find someone else.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-22",
+    "text": "I heard from Maya שהמורה לפסנתר מאחר כל שיעור, but I didn't verify it.",
+    "proposedFacts": [
+     {
+      "id": "speaker.knows_first_hand",
+      "value": false,
+      "evidenceExcerpt": "I heard from Maya שהמורה לפסנתר מאחר כל שיעור, but I didn't verify it.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-23",
+    "text": "דיברתי עם Avi על ה-comments שלו בישיבה, and he promised to stop. אני מעדכן את HR רק כדי שיהיה רשום.",
+    "proposedFacts": [
+     {
+      "id": "toelet.rebuke_attempted",
+      "value": true,
+      "evidenceExcerpt": "דיברתי עם Avi על ה-comments שלו בישיבה, and he promised to stop.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-24",
+    "text": "Just for laughs, תראו מה נועה לבשה היום 😂",
+    "proposedFacts": [
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": false,
+      "evidenceExcerpt": "Just for laughs, תראו מה נועה לבשה היום 😂",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-25",
+    "text": "I'm 100% sure שהוא גונב, honestly. אין לי ראיות אבל.",
+    "proposedFacts": []
+   },
+   {
+    "id": "sealed3-26",
+    "text": "בדקתי מול ה-bank statements, and the money never arrived. Warn the others before they pay him.",
+    "proposedFacts": [
+     {
+      "id": "toelet.facts_verified",
+      "value": true,
+      "evidenceExcerpt": "בדקתי מול ה-bank statements, and the money never arrived.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "Warn the others before they pay him.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-27",
+    "text": "He will never accept criticism from me, I know him. אז אני פונה ישר למנהלת כדי שתעצור את זה.",
+    "proposedFacts": [
+     {
+      "id": "toelet.knows_subject_will_not_accept_rebuke",
+      "value": true,
+      "evidenceExcerpt": "He will never accept criticism from me, I know him.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     },
+     {
+      "id": "toelet.purpose_is_constructive",
+      "value": true,
+      "evidenceExcerpt": "אז אני פונה ישר למנהלת כדי שתעצור את זה.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-28",
+    "text": "אני לא כותב את זה מתוך כעס או נקמה, I just want the next tenant to know about the mold.",
+    "proposedFacts": [
+     {
+      "id": "speaker.motive_is_revenge_or_hatred",
+      "value": false,
+      "evidenceExcerpt": "אני לא כותב את זה מתוך כעס או נקמה, I just want the next tenant to know about the mold.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   },
+   {
+    "id": "sealed3-29",
+    "text": "Someone wrote in the group: 'בדקתי והוא באמת רמאי'. I have no idea who checked what.",
+    "proposedFacts": []
+   },
+   {
+    "id": "sealed3-30",
+    "text": "אני רוצה שכולם יצחקו עליו tomorrow at the party, תעבירו את הסרטון.",
+    "proposedFacts": [
+     {
+      "id": "speaker.intent_to_disparage",
+      "value": true,
+      "evidenceExcerpt": "אני רוצה שכולם יצחקו עליו tomorrow at the party, תעבירו את הסרטון.",
+      "provenance": "model_extraction",
+      "confidence": 0.6
+     }
+    ]
+   }
+  ]
+ }
+}
