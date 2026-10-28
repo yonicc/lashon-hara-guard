@@ -215,3 +215,57 @@ test('manifest: rules.js loads before panel.js on every content-script entry', (
     } else assert.ok(cs.js.indexOf('rules.js') > -1 && cs.js.indexOf('rules.js') < cs.js.indexOf('panel.js'));
   }
 });
+
+test('rules: readRules surfaces up to 5 questions and mirrors questions[0] (back-compat)', () => {
+  const env = setup((calls) => mockProxy(calls));
+  const ans = [{ value: true, labelHe: 'כן' }, { value: false, labelHe: 'לא' }, { value: null, labelHe: 'לא יודע' }];
+  const mk = (id) => ({ factId: id, textHe: 'האם שאלה ' + id + '?', answers: ans });
+  // New multi-question wire shape.
+  const r5 = { mode: 'live_draft', findings: [], questions: [mk('a.one'), mk('b.two'), mk('c.three'), mk('d.four'), mk('e.five')], question: mk('a.one') };
+  const out5 = env.R.readRules({ rules: r5 });
+  assert.equal(out5.questions.length, 5);
+  assert.deepEqual(out5.question, out5.questions[0]);
+  // Cap at 5 even if the proxy sent more.
+  const r7 = { mode: 'live_draft', findings: [], questions: [mk('a.1'), mk('b.2'), mk('c.3'), mk('d.4'), mk('e.5'), mk('f.6'), mk('g.7')] };
+  assert.equal(env.R.readRules({ rules: r7 }).questions.length, 5);
+  // Legacy one-question shape (singular only) still yields exactly one question.
+  const legacy = env.R.readRules({ rules: { mode: 'live_draft', findings: [], question: mk('legacy.only') } });
+  assert.equal(legacy.questions.length, 1);
+  assert.equal(legacy.question.factId, 'legacy.only');
+  // A question with no valid answers is dropped.
+  const bad = env.R.readRules({ rules: { mode: 'live_draft', findings: [], questions: [{ factId: 'x.y', textHe: 't', answers: [] }] } });
+  assert.equal(bad.questions.length, 0);
+  assert.equal(bad.question, null);
+});
+
+test('rules: panel renders up to 5 questions, each with its own answer buttons', async () => {
+  const ans = [{ value: true, labelHe: 'כן' }, { value: false, labelHe: 'לא' }, { value: null, labelHe: 'לא יודע' }];
+  const mk = (id) => ({ factId: id, textHe: 'האם שאלה ' + id + '?', answers: ans });
+  // A proxy that returns three catalog questions until each is answered.
+  const env = setup((calls) => (msg) => {
+    calls.push(JSON.parse(JSON.stringify(msg)));
+    const f = msg.confirmedFacts || {};
+    const remaining = ['q.one', 'q.two', 'q.three'].filter((id) => !(id in f));
+    return { alert: 'unsure', limitationsHe: [],
+      rules: { mode: 'live_draft', findings: [],
+        questions: remaining.map(mk), question: remaining.length ? mk(remaining[0]) : undefined } };
+  });
+  env.P.check(payload(), null, {});
+  await flush();
+  const p = env.panel();
+  // Three questions rendered, each followed by its own answer row => 9 buttons.
+  assert.equal(byClass(p, 'lhg-question').length, 3);
+  assert.equal(byClass(p, 'lhg-answer').length, 9);
+  assert.match(p.textContent, /האם שאלה q.one\?/);
+  assert.match(p.textContent, /האם שאלה q.two\?/);
+  assert.match(p.textContent, /האם שאלה q.three\?/);
+  // Answering the first question's "כן" sends only that fact.
+  click(byClass(p, 'lhg-answer')[0]);
+  await flush();
+  assert.deepEqual(env.calls[1].confirmedFacts, { 'q.one': true });
+  // After the answer, q.one is gone; the remaining two questions render.
+  const p2 = env.panel();
+  assert.equal(byClass(p2, 'lhg-question').length, 2);
+  assert.ok(!p2.textContent.includes('q.one?'));
+  assert.match(p2.textContent, /האם שאלה q.two\?/);
+});

@@ -233,3 +233,46 @@ test('rules: every fact the pack can ask about is a yes/no question', () => {
   }
   assert.ok(CC_TOELET_DRAFT_PACK.rules.every((r) => r.source?.url));
 });
+
+test('rules: up to 5 unanswered catalog questions surface; question mirrors questions[0]', async () => {
+  const message = { id: 'synthetic5', revision: 1, direction: 'outgoing', authorRef: 'user',
+    platform: 'test', conversationId: 'synthetic5', audienceSnapshot: {}, text: TEXT } as MessageEnvelope;
+  // Many toelet facts missing -> the engine plans several candidate questions.
+  const result = runLiveRules(message, undefined, {
+    'subject.identifiable': true,
+    'message.content_is_disparaging': true,
+  }, 'test');
+  assert.equal(result.notChecked, undefined);
+  const qs = result.questions ?? [];
+  assert.ok(qs.length >= 2 && qs.length <= 5, `expected 2..5 questions, got ${qs.length}`);
+  // back-compat mirror: the singular question is always the first unanswered one.
+  assert.deepEqual(result.question, qs[0]);
+  // every question is a catalog-backed yes/no/unknown question
+  for (const q of qs) {
+    assert.ok(FACT_BY_ID.has(q.factId));
+    assert.equal(q.textHe, FACT_BY_ID.get(q.factId)!.questionHe);
+    assert.deepEqual(q.answers.map((a) => a.value), [true, false, null]);
+    assert.deepEqual(q.answers.map((a) => a.labelHe), ['כן', 'לא', 'לא יודע']);
+  }
+});
+
+test('rules: the question cap is 5 even when more facts are missing', async () => {
+  const message = { id: 'cap5', revision: 1, direction: 'outgoing', authorRef: 'user',
+    platform: 'test', conversationId: 'cap5', audienceSnapshot: {}, text: TEXT } as MessageEnvelope;
+  // Confirm nothing and leave almost every fact unknown -> many candidate questions.
+  const result = runLiveRules(message, undefined, {}, 'test');
+  const qs = result.questions ?? [];
+  assert.ok(qs.length <= 5, `never more than 5 questions, got ${qs.length}`);
+  if (qs.length) assert.deepEqual(result.question, qs[0]);
+});
+
+test('rules: already-answered facts are not re-asked within the multi-question budget', async () => {
+  const message = { id: 'skip5', revision: 1, direction: 'outgoing', authorRef: 'user',
+    platform: 'test', conversationId: 'skip5', audienceSnapshot: {}, text: TEXT } as MessageEnvelope;
+  const answered = { 'subject.identifiable': true, 'message.content_is_disparaging': true,
+    'toelet.rebuke_attempted': false, 'toelet.purpose_is_constructive': true };
+  const result = runLiveRules(message, undefined, answered, 'test');
+  for (const q of result.questions ?? []) {
+    assert.ok(!(q.factId in answered), `answered fact ${q.factId} must not be re-asked`);
+  }
+});

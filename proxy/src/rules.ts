@@ -14,10 +14,11 @@ import {
 
 /**
  * Live Chafetz Chaim draft rules in POST /check (owner's decision 2026-10-27,
- * mode "live_draft"; see docs/18). Wire contract is fixed — the extension is
- * built against it:
+ * mode "live_draft"; see docs/18). Wire contract — the extension is built
+ * against it. Question budget raised 1 -> up to 5 (owner's decision 2026-10-29,
+ * docs/40 §A, implemented in docs/41):
  *   request  confirmedFacts?: Record<factId, boolean|null>  (catalog ids, <= 20)
- *   response rules?: RulesResult
+ *   response rules?: RulesResult  (questions: up to MAX_QUESTIONS catalog-backed)
  * Boundaries: a finding can only raise the alert to 'warn' (alertFor) or ask;
  * nothing here ever says "permitted"; unknown stays unknown; an engine failure is
  * `notChecked: true` and leaves the alert untouched. No message text is logged.
@@ -25,6 +26,9 @@ import {
 export type RulesMode = 'live' | 'off';
 
 export const MAX_CONFIRMED_FACTS = 20;
+
+/** Up to 5 clarifying questions per check (owner's decision 2026-10-29, docs/40 §A). */
+export const MAX_QUESTIONS = 5;
 
 /** Added to limitationsHe whenever at least one draft finding is returned. */
 export const DRAFT_RULES_LIMITATION_HE =
@@ -54,6 +58,9 @@ export interface RulesResult {
   mode: 'live_draft';
   notChecked?: boolean;
   findings: RulesFinding[];
+  /** All unanswered catalog questions, up to MAX_QUESTIONS. */
+  questions?: RulesQuestion[];
+  /** Back-compat mirror of questions[0] for one-question clients (pre-0.10). */
   question?: RulesQuestion;
 }
 
@@ -108,9 +115,10 @@ export function runLiveRules(
       facts: store.snapshot(),
       rulePack: CC_ALL_DRAFT_PACK,
       catalog: FACT_CATALOG,
-      // One question reaches the user. Facts already answered ("don't know" stays
-      // unknown and would be planned again) are skipped, so plan that many extra.
-      maxQuestions: 1 + Object.keys(confirmed).length,
+      // Up to MAX_QUESTIONS questions reach the user. Facts already answered
+      // ("don't know" stays unknown and would be planned again) are skipped,
+      // so plan that many extra to still fill the display budget.
+      maxQuestions: MAX_QUESTIONS + Object.keys(confirmed).length,
       ruleMode: 'live_draft',
       contextVersion: 'proxy-check',
       modelVersion,
@@ -123,11 +131,17 @@ export function runLiveRules(
       sourceRef: sourceRefOf(f.source),
       sourceUrl: f.source?.url ?? '',
     }));
-    const q = r.questions.find((x) => !(x.factId in confirmed));
-    const question: RulesQuestion | undefined = q
-      ? { factId: q.factId, textHe: q.questionHe, answers: ANSWER_LABELS_HE.map((a) => ({ ...a })) }
-      : undefined;
-    return { mode: 'live_draft', findings, ...(question ? { question } : {}) };
+    const questions: RulesQuestion[] = r.questions
+      .filter((x) => !(x.factId in confirmed))
+      .slice(0, MAX_QUESTIONS)
+      .map((x) => ({ factId: x.factId, textHe: x.questionHe, answers: ANSWER_LABELS_HE.map((a) => ({ ...a })) }));
+    // `question` mirrors the first unanswered question so a one-question client
+    // (pre-0.10 extension) still works unchanged against the new proxy.
+    return {
+      mode: 'live_draft',
+      findings,
+      ...(questions.length ? { questions, question: questions[0] } : {}),
+    };
   } catch {
     return notCheckedRules();
   }

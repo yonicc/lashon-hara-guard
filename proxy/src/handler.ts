@@ -343,8 +343,8 @@ async function handleAuthorized(
     gateBy,
     ...(outcome.extraction?.analysis ? { analysis: {
       ...outcome.extraction.analysis,
-      // One display budget; the catalog-backed rule question takes priority.
-      questionsHe: rules?.question ? [] : (outcome.extraction.analysis.questionsHe ?? []).slice(0, 1),
+      // One display budget; the catalog-backed rule question(s) take priority.
+      questionsHe: rules?.questions?.length ? [] : (outcome.extraction.analysis.questionsHe ?? []).slice(0, 1),
     } } : {}),
     contextMessages: Array.isArray(context?.recentMessages) ? context.recentMessages.length : 0,
     ...(rules ? { rules } : {}),

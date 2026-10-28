@@ -1,7 +1,10 @@
 // Chafetz Chaim draft rules (live_draft, owner 2026-10-27; docs/18) — the
-// extension side of the fixed wire contract with the proxy:
+// extension side of the wire contract with the proxy:
 //   request  confirmedFacts?: Record<factId, boolean|null>   (<= 20)
-//   response rules?: { mode:'live_draft', notChecked?, findings[], question? }
+//   response rules?: { mode:'live_draft', notChecked?, findings[], questions?, question? }
+// Question budget 1 -> up to 5 (owner 2026-10-29, docs/40 §A, docs/41): the
+// proxy sends `questions[]`; `question` (singular) is the back-compat mirror
+// of questions[0]. We read both, preferring the array.
 // This file owns the user's ANSWERS: stored locally per conversation (the key
 // is a hash of the local conversation identity, never the name itself),
 // cumulative, at most MAX_FACTS (the most recent answers win). null = "don't
@@ -115,8 +118,7 @@
         sourceRef: typeof f.sourceRef === 'string' ? f.sourceRef : '',
         sourceUrl: typeof f.sourceUrl === 'string' && /^https:\/\//.test(f.sourceUrl) ? f.sourceUrl : '',
       }));
-    const q = rules.question;
-    const question = q && typeof q.factId === 'string' && FACT_ID.test(q.factId) && typeof q.textHe === 'string'
+    const pickQ = (q) => q && typeof q.factId === 'string' && FACT_ID.test(q.factId) && typeof q.textHe === 'string'
       ? {
           factId: q.factId,
           textHe: q.textHe,
@@ -124,7 +126,14 @@
             .filter((a) => a && typeof a.labelHe === 'string' && (a.value === true || a.value === false || a.value === null)),
         }
       : null;
-    return { notChecked: rules.notChecked === true, findings, question: question && question.answers.length ? question : null };
+    // Prefer the new questions[] array; fall back to the singular mirror so an
+    // older one-question proxy still yields a single question. Cap at 5.
+    let questions = (Array.isArray(rules.questions) ? rules.questions : (rules.question ? [rules.question] : []))
+      .map(pickQ)
+      .filter((q) => q && q.answers.length)
+      .slice(0, 5);
+    const question = questions[0] || null;
+    return { notChecked: rules.notChecked === true, findings, questions, question };
   }
 
   function limitations(r) {

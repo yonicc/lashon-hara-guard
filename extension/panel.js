@@ -275,8 +275,10 @@
     if (a.audience && ['private', 'group', 'public'].includes(a.audience)) lines.push(t('detail.audience', { v: t('audience.' + a.audience) }));
     if (a.claimHe) lines.push(t('detail.claim', { v: a.claimHe }));
     if (a.whyHe) lines.push(t('detail.why', { v: a.whyHe }));
-    // Also enforce the display budget for older proxy responses.
-    if (!(r && r.rules && r.rules.question)) {
+    // Also enforce the display budget for older proxy responses. A catalog
+    // question (singular legacy or the new questions array) consumes it.
+    const hasCatalogQ = !!(r && r.rules && (r.rules.question || (Array.isArray(r.rules.questions) && r.rules.questions.length)));
+    if (!hasCatalogQ) {
       for (const x of (a.questionsHe || []).slice(0, 1)) lines.push('• ' + x);
     }
     const ctx = r && typeof r.contextMessages === 'number' ? r.contextMessages : null;
@@ -317,12 +319,12 @@
 
   function rulesVisible(r) {
     const rules = globalThis.LHG_RULES ? globalThis.LHG_RULES.readRules(r) : null;
-    return !!(rules && (rules.findings.length || rules.question));
+    return !!(rules && (rules.findings.length || (rules.questions && rules.questions.length)));
   }
 
-  // Draft Chafetz Chaim findings / one clarifying question / limitations,
+  // Draft Chafetz Chaim findings / up to 5 clarifying questions / limitations,
   // under the main result. opts.onAnswer(factId, value) re-checks with the
-  // answer; without it the question is shown as text only.
+  // answer; without it the questions are shown as text only.
   function appendRules(p, r, opts = {}) {
     const R = globalThis.LHG_RULES;
     if (!R || !p) return;
@@ -354,9 +356,9 @@
         }
         box.appendChild(d);
       }
-      if (!rules.notChecked && !rules.findings.length && !rules.question) box.appendChild(lineEl(t('noFurtherNote')));
-      const q = rules.question;
-      if (q) {
+      const questions = rules.questions && rules.questions.length ? rules.questions : (rules.question ? [rules.question] : []);
+      if (!rules.notChecked && !rules.findings.length && !questions.length) box.appendChild(lineEl(t('noFurtherNote')));
+      for (const q of questions) {
         box.appendChild(lineEl(t('rules.question', { q: q.textHe }), 'lhg-line lhg-question'));
         if (typeof opts.onAnswer === 'function') {
           const row = document.createElement('div');
