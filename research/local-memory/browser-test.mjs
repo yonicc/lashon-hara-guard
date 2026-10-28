@@ -10,6 +10,7 @@ const assets=process.env.LHG_TRANSFORMERS_DIR;
 if(!assets) throw Error('Set LHG_TRANSFORMERS_DIR to installed @xenova/transformers 2.17.2 (with cached e5 model).');
 const wasm=path.resolve(assets,'../../onnxruntime-web/dist');
 const routes=[
+ ['/extension/',path.resolve(here,'../../extension')],
  ['/vendor/',path.join(assets,'dist')],
  ['/wasm/',wasm],
  ['/models/',path.join(assets,'.cache')],

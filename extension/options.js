@@ -38,6 +38,7 @@
     }
     const hide = $('hideIncoming');
     if (hide) hide.checked = s.hideIncoming;
+    if ($('memoryEnabled')) $('memoryEnabled').checked = s.lhgMemoryEnabled === true;
   }
 
   // --- language ---------------------------------------------------------------
@@ -67,6 +68,29 @@
   }
 
   // --- panel ------------------------------------------------------------------
+  on('memoryEnabled', 'change', () => S?.set({lhgMemoryEnabled:$('memoryEnabled').checked}));
+  on('memoryImport','change',async()=>{
+    say('memoryStatus',t('memory.working'));
+    try {
+      await (await import('./memory-embedding.mjs')).importModel($('memoryImport').files);
+      const r=await chrome.runtime.sendMessage({type:'lhg-memory',op:'install'});
+      say('memoryStatus',t(r?.ok?'memory.ready':'memory.failed'));
+    } catch {say('memoryStatus',t('memory.failed'));}
+    finally {$('memoryImport').value='';}
+  });
+  for (const [id, op] of [['memoryInstall','install'],['memoryClear','clear']]) {
+    on(id,'click',async()=>{
+      $(id).disabled=true;
+      say('memoryStatus',t('memory.working'));
+      try {
+        if(op==='install') await (await import('./memory-embedding.mjs')).installModel();
+        const result=await chrome.runtime.sendMessage({type:'lhg-memory',op});
+        say('memoryStatus',t(result?.ok ? (op==='clear'?'memory.cleared':'memory.ready') : 'memory.failed'));
+      } catch {say('memoryStatus',t('memory.failed'));}
+      finally {$(id).disabled=false;}
+    });
+  }
+
   // Open the in-page panel without the keyboard shortcut. Chrome only assigns a
   // command's suggested key on a fresh install, so an extension that gained the
   // command in an update can have NO shortcut (seen on BI-1 2026-10-26). This

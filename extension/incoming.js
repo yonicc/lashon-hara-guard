@@ -375,6 +375,8 @@
         if (row.el && isEditable(row.el)) continue; // the user's own draft is not an incoming message
         if (row.el && inHold(row.el)) continue; // our own placeholder, never a message
         const text = (row.text || '').trim();
+        globalThis.LHG_MEMORY?.context(platform, row.el, text,
+          S.isOutgoing?.(row.el, {localContext:row.localContext}) ? 'outgoing' : 'incoming');
         if (text.length < MIN_CHARS) continue;
         // The user's OWN message is never incoming (one rule: S.isOutgoing;
         // adapters also pre-filter, this guard covers every platform).
@@ -434,7 +436,12 @@
     // Live: a switch turned off releases everything at once; a language
     // change repaints the placeholders and tags in the new language.
     const repaintAll = () => { for (const id of state.keys()) apply(id); };
-    try { if (globalThis.LHG_SETTINGS) globalThis.LHG_SETTINGS.onChange(() => { if (!active()) repaintAll(); }); } catch (_e) { /* ignore */ }
+    try {
+      if (globalThis.LHG_SETTINGS) {
+        globalThis.LHG_SETTINGS.onChange(() => { if (!active()) repaintAll(); else scan(); });
+        globalThis.LHG_SETTINGS.ready?.().then(() => scan());
+      }
+    } catch (_e) { /* ignore */ }
     try { if (globalThis.LHG_I18N) globalThis.LHG_I18N.onChange(repaintAll); } catch (_e) { /* ignore */ }
 
     return {

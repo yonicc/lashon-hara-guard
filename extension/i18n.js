@@ -14,6 +14,16 @@
 
   const DICT = {
     en: {
+      'memory.title': 'Local context memory',
+      'memory.enabled': 'Remember diagnosed text and collected context on this device',
+      'memory.hint': 'Off by default. Stores unsent drafts and observed context for up to 14 days. Requires a recognized account and conversation. Install downloads about 135 MB of model data from Hugging Face; text embeddings and retrieval then run locally. No disk encryption is provided.',
+      'memory.install': 'Install local search model',
+      'memory.import': 'Or import the matching model folder when downloads are blocked',
+      'memory.clear': 'Delete local memory',
+      'memory.working': 'Working…',
+      'memory.ready': 'Local search model is ready.',
+      'memory.cleared': 'Local memory deleted.',
+      'memory.failed': 'Local memory is unavailable. Check the model installation and try again.',
       'brand': 'Lashon Hara Guard',
       'lang.other': 'עברית',
       'lang.otherTitle': 'החלף לעברית',
@@ -155,6 +165,16 @@
       'status.hideOff': 'Hiding incoming messages: off',
     },
     he: {
+      'memory.title': 'זיכרון קונטקסט מקומי',
+      'memory.enabled': 'שמירת טקסט מאובחן וקונטקסט שנאסף במחשב הזה',
+      'memory.hint': 'כבוי כברירת מחדל. שומר גם טיוטות שלא נשלחו וקונטקסט נצפה עד 14 יום, בזיהוי חשבון ושיחה בלבד. ההתקנה מורידה כ־135MB של קובצי מודל מ־Hugging Face; ההטמעה והשליפה מתבצעות מקומית. אין הצפנה עצמאית של הנתונים.',
+      'memory.install': 'התקנת מודל חיפוש מקומי',
+      'memory.import': 'או טעינת תיקיית המודל המתאים כשההורדה חסומה',
+      'memory.clear': 'מחיקת הזיכרון המקומי',
+      'memory.working': 'מתבצע…',
+      'memory.ready': 'מודל החיפוש המקומי מוכן.',
+      'memory.cleared': 'הזיכרון המקומי נמחק.',
+      'memory.failed': 'הזיכרון המקומי אינו זמין. יש לבדוק את התקנת המודל ולנסות שוב.',
       'brand': 'Lashon Hara Guard',
       'lang.other': 'English',
       'lang.otherTitle': 'Switch to English',

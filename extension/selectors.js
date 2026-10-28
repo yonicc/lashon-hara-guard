@@ -4,6 +4,12 @@
 // explicitly (show "not recognized") instead of failing silently.
 (() => {
   const S = (globalThis.LHG_SELECTORS = globalThis.LHG_SELECTORS || {});
+  S.memory = {
+    account: 'a[href*="SignOutOptions"], [data-authuser] [data-email], [data-ogsr-up] [data-email]',
+    conversation: '[data-thread-id], [data-space-id], [data-group-id]',
+    source: '[data-message-id], [data-legacy-message-id], [data-id]',
+    whatsappSource: '[data-id]',
+  };
 
   S.whatsapp = {
     // Compose box at the bottom of the open chat.

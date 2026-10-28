@@ -51,6 +51,7 @@
   }
 
   function prepare(payload, el, remember = false) {
+    globalThis.LHG_MEMORY?.context(payload.platform, el, payload.text, payload.direction);
     // Resolve DOM identity synchronously, before another conversation can open.
     let scope, hints;
     try {
