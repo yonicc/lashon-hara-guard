@@ -317,7 +317,7 @@
 
   function rulesVisible(r) {
     const rules = globalThis.LHG_RULES ? globalThis.LHG_RULES.readRules(r) : null;
-    return !!(rules && (rules.findings.length || rules.question));
+    return !!(rules && (rules.findings.length || rules.question || (rules.referrals && rules.referrals.length)));
   }
 
   // Draft Chafetz Chaim findings / one clarifying question / limitations,
@@ -354,7 +354,7 @@
         }
         box.appendChild(d);
       }
-      if (!rules.notChecked && !rules.findings.length && !rules.question) box.appendChild(lineEl(t('noFurtherNote')));
+      if (!rules.notChecked && !rules.findings.length && !rules.question && !(rules.referrals && rules.referrals.length)) box.appendChild(lineEl(t('noFurtherNote')));
       const q = rules.question;
       if (q) {
         box.appendChild(lineEl(t('rules.question', { q: q.textHe }), 'lhg-line lhg-question'));
@@ -377,9 +377,53 @@
           box.appendChild(row);
         }
       }
+      // Group-D rabbi referrals: a structured question to bring to a rabbi.
+      // Never a ruling; rendered as an expandable packet, not a yes/no prompt.
+      if (rules.referrals && rules.referrals.length) appendReferrals(box, rules.referrals);
     }
     for (const l of lims) box.appendChild(lineEl(l, 'lhg-line lhg-limit'));
     p.appendChild(box);
+  }
+
+  // One expandable referral packet per group-D section. Emphasises "not a
+  // ruling": the question and the gathered facts are shown for a rabbi.
+  function appendReferrals(box, referrals) {
+    for (const ref of referrals) {
+      const det = document.createElement('details');
+      det.className = 'lhg-referral';
+      const sum = document.createElement('summary');
+      sum.className = 'lhg-referral-summary';
+      sum.textContent = t('referral.title');
+      det.appendChild(sum);
+      det.appendChild(lineEl(t('referral.notRuling'), 'lhg-line lhg-referral-notruling'));
+      det.appendChild(lineEl(ref.questionHe, 'lhg-line lhg-referral-question'));
+      if (ref.howToAskHe) det.appendChild(lineEl(ref.howToAskHe, 'lhg-line lhg-referral-how'));
+      if (ref.gatheredFacts && ref.gatheredFacts.length) {
+        det.appendChild(lineEl(t('referral.facts'), 'lhg-line lhg-referral-sub'));
+        for (const g of ref.gatheredFacts) {
+          det.appendChild(lineEl('• ' + g.questionHe + ' — ' + g.valueHe + ' (' + g.provenanceHe + ')', 'lhg-line lhg-referral-fact'));
+        }
+      }
+      if (ref.quotesHe && ref.quotesHe.length) {
+        det.appendChild(lineEl(t('referral.source'), 'lhg-line lhg-referral-sub'));
+        for (const q2 of ref.quotesHe) det.appendChild(lineEl('״' + q2 + '״', 'lhg-line lhg-referral-quote'));
+      }
+      if (ref.uncertainHe && ref.uncertainHe.length) {
+        det.appendChild(lineEl(t('referral.doubts'), 'lhg-line lhg-referral-sub'));
+        for (const u of ref.uncertainHe) det.appendChild(lineEl('• ' + u, 'lhg-line lhg-referral-doubt'));
+      }
+      if (ref.whyNotCheckedHe) det.appendChild(lineEl(ref.whyNotCheckedHe, 'lhg-line lhg-referral-why'));
+      if (ref.sourceUrl) {
+        const a = document.createElement('a');
+        a.href = ref.sourceUrl;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.className = 'lhg-line lhg-referral-link';
+        a.textContent = t('referral.openSource');
+        det.appendChild(a);
+      }
+      box.appendChild(det);
+    }
   }
 
   function renderResult(r, opts = {}) {

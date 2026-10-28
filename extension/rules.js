@@ -124,7 +124,30 @@
             .filter((a) => a && typeof a.labelHe === 'string' && (a.value === true || a.value === false || a.value === null)),
         }
       : null;
-    return { notChecked: rules.notChecked === true, findings, question: question && question.answers.length ? question : null };
+    // Group-D rabbi referrals (additive, docs/40 §B): a structured question to a
+    // rabbi, never a ruling. Normalised defensively; unknown shapes are dropped.
+    const str = (v) => (typeof v === 'string' ? v : '');
+    const strArr = (v) => (Array.isArray(v) ? v.filter((x) => typeof x === 'string') : []);
+    const referrals = (Array.isArray(rules.referrals) ? rules.referrals : [])
+      .filter((x) => x && typeof x.questionHe === 'string' && x.questionHe.trim())
+      .slice(0, 8)
+      .map((x) => ({
+        sectionKey: str(x.sectionKey),
+        sourceRef: str(x.sourceRef),
+        sourceUrl: typeof x.sourceUrl === 'string' && /^https:\/\//.test(x.sourceUrl) ? x.sourceUrl : '',
+        category: str(x.category),
+        questionHe: x.questionHe,
+        howToAskHe: str(x.howToAskHe),
+        backgroundHe: str(x.backgroundHe),
+        quotesHe: strArr(x.quotesHe).slice(0, 4),
+        gatheredFacts: (Array.isArray(x.gatheredFacts) ? x.gatheredFacts : [])
+          .filter((g) => g && typeof g.id === 'string')
+          .slice(0, 20)
+          .map((g) => ({ id: str(g.id), questionHe: str(g.questionHe), valueHe: str(g.valueHe), provenanceHe: str(g.provenanceHe) })),
+        uncertainHe: strArr(x.uncertainHe).slice(0, 8),
+        whyNotCheckedHe: str(x.whyNotCheckedHe),
+      }));
+    return { notChecked: rules.notChecked === true, findings, question: question && question.answers.length ? question : null, referrals };
   }
 
   function limitations(r) {

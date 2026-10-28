@@ -112,6 +112,21 @@
 #lhg-panel .lhg-answers { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
 #lhg-panel .lhg-answer { margin-top: 2px; }
 
+/* Group-D rabbi referral: a structured question to a rabbi, never a ruling. */
+#lhg-panel .lhg-referral {
+  margin-top: 8px; padding: 7px 10px; border: 1px solid var(--lhg-line); border-radius: 12px;
+  background: rgba(255, 250, 225, 0.55);
+}
+#lhg-panel .lhg-referral-summary { font-weight: 700; cursor: pointer; }
+#lhg-panel .lhg-referral-notruling { font-weight: 700; color: #8a5a00; margin-top: 4px; }
+#lhg-panel .lhg-referral-question { margin-top: 6px; }
+#lhg-panel .lhg-referral-how { font-size: 12px; color: var(--lhg-muted); }
+#lhg-panel .lhg-referral-sub { font-weight: 700; margin-top: 6px; }
+#lhg-panel .lhg-referral-fact, #lhg-panel .lhg-referral-doubt { font-size: 12px; }
+#lhg-panel .lhg-referral-quote { font-size: 12px; font-style: italic; }
+#lhg-panel .lhg-referral-why { font-size: 12px; color: var(--lhg-muted); margin-top: 6px; }
+#lhg-panel .lhg-referral-link { display: inline-block; margin-top: 6px; text-decoration: underline; }
+
 /* Footer: the free-text note, always available. */
 #lhg-panel .lhg-foot {
   flex: none; display: flex; flex-wrap: wrap; align-items: flex-end; gap: 8px;

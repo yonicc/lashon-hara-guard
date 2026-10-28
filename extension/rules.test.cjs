@@ -215,3 +215,46 @@ test('manifest: rules.js loads before panel.js on every content-script entry', (
     } else assert.ok(cs.js.indexOf('rules.js') > -1 && cs.js.indexOf('rules.js') < cs.js.indexOf('panel.js'));
   }
 });
+
+test('rules: a group-D referral renders as a question for a rabbi, never a ruling', async () => {
+  const referral = {
+    sectionKey: 'p1_prin1:2', sourceRef: 'Chafetz Chaim, Part One, Principle 1:2',
+    sourceUrl: 'https://www.sefaria.org/Chafetz_Chaim,_Part_One,_Principle_1:2',
+    category: 'expert_ruling',
+    questionHe: 'האם נסיבות המקרה נכנסות לכלל, וכיצד נוהגים?',
+    howToAskHe: 'יש להציג את המקרה בפני רב מוסמך.',
+    backgroundHe: 'רקע סינתטי',
+    quotesHe: ['לא תלך רכיל בעמיך'],
+    gatheredFacts: [{ id: 'subject.identifiable', questionHe: 'האם אפשר לזהות במי מדובר?', valueHe: 'ידוע: כן', provenanceHe: 'חולץ מהטקסט' }],
+    uncertainHe: ['נדרשת הכרעה מוסמכת'],
+    whyNotCheckedHe: 'סעיף זה מסווג כהכרעת מומחה (קבוצה ד׳) — אינו מוכרע אוטומטית.',
+  };
+  const env = setup(() => () => ({
+    alert: 'warn', limitationsHe: ['נמצאו 1 סעיפים הדורשים בירור מומחה.'],
+    rules: { mode: 'live_draft', findings: [], referrals: [referral] },
+  }));
+  env.P.check(payload(), null, { manual: true });
+  await flush();
+  const p = env.panel();
+  const text = p.textContent;
+  assert.match(text, /שאלה לרב \(לא פסק\)/);
+  assert.match(text, /האם נסיבות המקרה נכנסות לכלל/);
+  assert.match(text, /האם אפשר לזהות במי מדובר\?/);
+  assert.match(text, /נדרשת הכרעה מוסמכת/);
+  // A referral never renders a yes/no answer row.
+  assert.equal(byClass(p, 'lhg-answer').length, 0);
+  // And never a forbidden ruling word.
+  assert.doesNotMatch(text, FORBIDDEN);
+});
+
+test('rules: malformed referrals are dropped; missing sourceUrl never becomes a link', async () => {
+  const bad = { questionHe: '  ', gatheredFacts: 'not-array', quotesHe: [1, 2], sourceUrl: 'javascript:alert(1)' };
+  const env = setup(() => () => ({
+    alert: 'warn', limitationsHe: [],
+    rules: { mode: 'live_draft', findings: [], referrals: [bad] },
+  }));
+  env.P.renderResult({ alert: 'warn', rules: { mode: 'live_draft', findings: [], referrals: [bad] } }, { manual: true });
+  await flush();
+  // The blank referral is dropped entirely; no referral box, no link injected.
+  assert.equal(byClass(env.panel(), 'lhg-referral').length, 0);
+});

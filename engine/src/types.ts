@@ -152,6 +152,40 @@ export interface DraftObservation {
   note: 'draft_or_unapproved_rule_matched_internal_only';
 }
 
+/**
+ * A structured referral artifact for a Chafetz Chaim section that needs
+ * external evidence, an expert ruling, or is not representable (docs/32
+ * group D; docs/40 §B; owner decision 2026-10-29).
+ *
+ * Hard boundary: a referral is NEVER a ruling and never asserts the message is
+ * permitted or forbidden. It is a well-organized packet — every fact already
+ * gathered, what the local check could and could not establish, and the open
+ * halachic question — for the user to bring before a qualified rabbi.
+ */
+export interface RabbiReferral {
+  /** Coverage key of the triggering section, e.g. "p1_prin1:2". */
+  sectionKey: string;
+  /** Human citation, e.g. "Chafetz Chaim, Part One, …, Principle 1:2". */
+  sourceRef: string;
+  sourceUrl: string;
+  /** Which group-D driver: expert_ruling | external_evidence | not_representable | external_evidence_partial. */
+  category: string;
+  /** The open halachic question, phrased for a rabbi (never yes/no auto-ruled). */
+  questionHe: string;
+  /** One-line "how to ask" framing for the user. */
+  howToAskHe: string;
+  /** What this section is about (card summary). */
+  backgroundHe: string;
+  /** Short quotes from the primary text. */
+  quotesHe: string[];
+  /** Facts already gathered for this message (status + provenance), never a verdict. */
+  gatheredFacts: Array<{ id: string; questionHe: string; valueHe: string; provenanceHe: string }>;
+  /** Specific points of doubt / what could not be checked from the device. */
+  uncertainHe: string[];
+  /** Why the local check cannot conclude this section. */
+  whyNotCheckedHe: string;
+}
+
 export interface PlannedQuestion {
   factId: string;
   questionHe: string;
@@ -165,6 +199,12 @@ export interface EvaluationResult {
   draftObservations: DraftObservation[];
   missingFactIds: string[];
   questions: PlannedQuestion[];
+  /**
+   * Group-D sections (external evidence / expert ruling / not representable,
+   * docs/32) NEVER auto-rule. Each is surfaced only as a rabbi-referral
+   * artifact — never as a finding, and never counted as "checked".
+   */
+  referrals: RabbiReferral[];
   /** True when extractor direct assessment materially disagrees with engine outcome. */
   disagreement: boolean;
   limitationsHe: string[];
