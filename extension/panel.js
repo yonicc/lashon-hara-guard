@@ -275,8 +275,10 @@
     if (a.audience && ['private', 'group', 'public'].includes(a.audience)) lines.push(t('detail.audience', { v: t('audience.' + a.audience) }));
     if (a.claimHe) lines.push(t('detail.claim', { v: a.claimHe }));
     if (a.whyHe) lines.push(t('detail.why', { v: a.whyHe }));
-    // Also enforce the display budget for older proxy responses.
-    if (!(r && r.rules && r.rules.question)) {
+    // Also enforce the display budget for older proxy responses. A catalog
+    // question (singular legacy or the new questions array) consumes it.
+    const hasCatalogQ = !!(r && r.rules && (r.rules.question || (Array.isArray(r.rules.questions) && r.rules.questions.length)));
+    if (!hasCatalogQ) {
       for (const x of (a.questionsHe || []).slice(0, 1)) lines.push('• ' + x);
     }
     const ctx = r && typeof r.contextMessages === 'number' ? r.contextMessages : null;
@@ -317,12 +319,12 @@
 
   function rulesVisible(r) {
     const rules = globalThis.LHG_RULES ? globalThis.LHG_RULES.readRules(r) : null;
-    return !!(rules && (rules.findings.length || rules.question || (rules.referrals && rules.referrals.length)));
+    return !!(rules && (rules.findings.length || (rules.questions && rules.questions.length) || (rules.referrals && rules.referrals.length)));
   }
 
-  // Draft Chafetz Chaim findings / one clarifying question / limitations,
+  // Draft Chafetz Chaim findings / up to 5 clarifying questions / limitations,
   // under the main result. opts.onAnswer(factId, value) re-checks with the
-  // answer; without it the question is shown as text only.
+  // answer; without it the questions are shown as text only.
   function appendRules(p, r, opts = {}) {
     const R = globalThis.LHG_RULES;
     if (!R || !p) return;
@@ -354,20 +356,23 @@
         }
         box.appendChild(d);
       }
-      if (!rules.notChecked && !rules.findings.length && !rules.question && !(rules.referrals && rules.referrals.length)) box.appendChild(lineEl(t('noFurtherNote')));
-      const q = rules.question;
-      if (q) {
+      const questions = rules.questions && rules.questions.length ? rules.questions : (rules.question ? [rules.question] : []);
+      if (!rules.notChecked && !rules.findings.length && !questions.length && !(rules.referrals && rules.referrals.length)) box.appendChild(lineEl(t('noFurtherNote')));
+      for (const q of questions) {
         box.appendChild(lineEl(t('rules.question', { q: q.textHe }), 'lhg-line lhg-question'));
         if (typeof opts.onAnswer === 'function') {
           const row = document.createElement('div');
           row.className = 'lhg-answers';
           const btns = [];
+          let submitted = false;
           for (const a of q.answers) {
             const b = document.createElement('button');
             b.type = 'button';
             b.className = 'lhg-action lhg-answer';
             b.textContent = a.labelHe;
             b.addEventListener('click', () => {
+              if (submitted) return;
+              submitted = true;
               for (const x of btns) x.disabled = true;
               try { opts.onAnswer(q.factId, a.value); } catch (_e) { b.textContent = t('failed'); }
             });
@@ -496,14 +501,19 @@
     const conv = R ? R.conversationKey(payload.platform, el) : null;
     const current = () => (typeof opts.isCurrent === 'function' ? opts.isCurrent() : true);
     const { userNote, ...base } = payload;
+    let revision = 0;
+    let answerChain = Promise.resolve();
+    let latestFacts = payload.confirmedFacts || {};
     lastCheck = { payload: base, el, opts };
     if (parts) chromeText();
     // answered: a re-check after the user answered; its result is always shown
     // (even "none"), so the user sees the outcome of the answer.
     const go = (facts, answered = false, forceRecheck = false) => {
+      latestFacts = facts;
+      const requestRevision = ++revision;
       const msg = { ...(R ? R.withAnswers(payload, facts) : payload), ...(forceRecheck ? { forceRecheck: true } : {}) };
       send(msg, (r) => {
-        if (!current()) return;
+        if (!current() || requestRevision !== revision) return;
         const res = chrome.runtime.lastError ? { alert: 'not_checked' } : r || { alert: 'not_checked' };
         if (typeof opts.onResult === 'function') opts.onResult(res);
         renderResult(res, {
@@ -513,8 +523,10 @@
           onRecheck: () => { if (current()) { show('checking', t('recheck'), []); go(facts, true, true); } },
           onAnswer: R
             ? (factId, value) => {
-                Promise.resolve(R.saveAnswer(conv, factId, value, msg.confirmedFacts || {})).then((all) => {
-                  if (!current()) return;
+                const answerRevision = ++revision;
+                answerChain = answerChain.then(() => R.saveAnswer(conv, factId, value, latestFacts)).then((all) => {
+                  latestFacts = all;
+                  if (!current() || answerRevision !== revision) return;
                   show('checking', t('recheck'), []);
                   go(all, true);
                 });

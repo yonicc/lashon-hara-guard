@@ -8,16 +8,18 @@ import {
   type EvaluationInput,
   type EvaluationResult,
   type MessageEnvelope,
+  type RabbiReferral,
   type SourceRef,
   type ValidatedExtraction,
 } from '../../engine/src/index.js';
 
 /**
  * Live Chafetz Chaim draft rules in POST /check (owner's decision 2026-10-27,
- * mode "live_draft"; see docs/18). Wire contract is fixed — the extension is
- * built against it:
+ * mode "live_draft"; see docs/18). Wire contract — the extension is built
+ * against it. Question budget raised 1 -> up to 5 (owner's decision 2026-10-29,
+ * docs/40 §A, implemented in docs/41):
  *   request  confirmedFacts?: Record<factId, boolean|null>  (catalog ids, <= 20)
- *   response rules?: RulesResult
+ *   response rules?: RulesResult  (questions: up to MAX_QUESTIONS catalog-backed)
  * Boundaries: a finding can only raise the alert to 'warn' (alertFor) or ask;
  * nothing here ever says "permitted"; unknown stays unknown; an engine failure is
  * `notChecked: true` and leaves the alert untouched. No message text is logged.
@@ -25,6 +27,9 @@ import {
 export type RulesMode = 'live' | 'off';
 
 export const MAX_CONFIRMED_FACTS = 20;
+
+/** Up to 5 clarifying questions per check (owner's decision 2026-10-29, docs/40 §A). */
+export const MAX_QUESTIONS = 5;
 
 /** Added to limitationsHe whenever at least one draft finding is returned. */
 export const DRAFT_RULES_LIMITATION_HE =
@@ -55,24 +60,15 @@ export interface RulesQuestion {
  * structured question to a qualified rabbi, never a ruling. Additive to the
  * fixed /check contract — the extension renders it only when present.
  */
-export interface RulesReferral {
-  sectionKey: string;
-  sourceRef: string;
-  sourceUrl: string;
-  category: string;
-  questionHe: string;
-  howToAskHe: string;
-  backgroundHe: string;
-  quotesHe: string[];
-  gatheredFacts: Array<{ id: string; questionHe: string; valueHe: string; provenanceHe: string }>;
-  uncertainHe: string[];
-  whyNotCheckedHe: string;
-}
+export type RulesReferral = RabbiReferral;
 
 export interface RulesResult {
   mode: 'live_draft';
   notChecked?: boolean;
   findings: RulesFinding[];
+  /** All unanswered catalog questions, up to MAX_QUESTIONS. */
+  questions?: RulesQuestion[];
+  /** Back-compat mirror of questions[0] for one-question clients (pre-0.10). */
   question?: RulesQuestion;
   referrals?: RulesReferral[];
 }
@@ -128,9 +124,10 @@ export function runLiveRules(
       facts: store.snapshot(),
       rulePack: CC_ALL_DRAFT_PACK,
       catalog: FACT_CATALOG,
-      // One question reaches the user. Facts already answered ("don't know" stays
-      // unknown and would be planned again) are skipped, so plan that many extra.
-      maxQuestions: 1 + Object.keys(confirmed).length,
+      // Up to MAX_QUESTIONS questions reach the user. Facts already answered
+      // ("don't know" stays unknown and would be planned again) are skipped,
+      // so plan that many extra to still fill the display budget.
+      maxQuestions: MAX_QUESTIONS + Object.keys(confirmed).length,
       ruleMode: 'live_draft',
       contextVersion: 'proxy-check',
       modelVersion,
@@ -143,32 +140,17 @@ export function runLiveRules(
       sourceRef: sourceRefOf(f.source),
       sourceUrl: f.source?.url ?? '',
     }));
-    const q = r.questions.find((x) => !(x.factId in confirmed));
-    const question: RulesQuestion | undefined = q
-      ? { factId: q.factId, textHe: q.questionHe, answers: ANSWER_LABELS_HE.map((a) => ({ ...a })) }
-      : undefined;
-    // Group-D referrals are additive: findings stay draft reminders; a
-    // referral is the only artifact for a section the device cannot rule on.
-    const referrals: RulesReferral[] | undefined = r.referrals.length
-      ? r.referrals.map((x) => ({
-          sectionKey: x.sectionKey,
-          sourceRef: x.sourceRef,
-          sourceUrl: x.sourceUrl,
-          category: x.category,
-          questionHe: x.questionHe,
-          howToAskHe: x.howToAskHe,
-          backgroundHe: x.backgroundHe,
-          quotesHe: x.quotesHe,
-          gatheredFacts: x.gatheredFacts,
-          uncertainHe: x.uncertainHe,
-          whyNotCheckedHe: x.whyNotCheckedHe,
-        }))
-      : undefined;
+    const questions: RulesQuestion[] = r.questions
+      .filter((x) => !(x.factId in confirmed))
+      .slice(0, MAX_QUESTIONS)
+      .map((x) => ({ factId: x.factId, textHe: x.questionHe, answers: ANSWER_LABELS_HE.map((a) => ({ ...a })) }));
+    // `question` mirrors the first unanswered question so a one-question client
+    // (pre-0.10 extension) still works unchanged against the new proxy.
     return {
       mode: 'live_draft',
       findings,
-      ...(question ? { question } : {}),
-      ...(referrals ? { referrals } : {}),
+      ...(questions.length ? { questions, question: questions[0] } : {}),
+      ...(r.referrals.length ? { referrals: r.referrals } : {}),
     };
   } catch {
     return notCheckedRules();

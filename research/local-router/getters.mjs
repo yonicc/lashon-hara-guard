@@ -11,16 +11,19 @@
 //    and the scope-bound read tools of LocalMemory (research/local-memory/memory.mjs `tools(scope)`); returned
 //    snippets are clipped to 300 chars and carry pseudonymous refs, never the memory sourceId. The `trace`
 //    is the only thing meant for logs and holds no text, refs or queries - names, counts, status and ms only.
-//  * propose_question only QUEUES one catalog fact (the one-question budget of docs/18); it never asks, and
-//    it ends expansion. Relationship/purpose labels can never be answered by inference.
+//  * propose_question only QUEUES catalog facts (up to MAX_QUESTIONS, the multi-question budget of
+//    docs/18 as updated 2026-10-29, docs/40 §A / docs/41); it never asks, and it ends expansion.
+//    Relationship/purpose labels can never be answered by inference.
 
 export const BUDGET = Object.freeze({ perCallMs: 50, totalMs: 400, maxCalls: 3 });
 export const MAX_SNIPPET = 300;
 export const MAX_RECENT = 5;
 export const MAX_TOP_K = 3;
+// Up to 5 clarifying questions per check (owner's decision 2026-10-29, docs/40 §A).
+export const MAX_QUESTIONS = 5;
 
 // The router decides only 3 heads (classifier/router/labels.json "heads"): context is enough (none fires) /
-// expand from local memory (mem_recent, mem_search) / ask the user one question (ask_user).
+// expand from local memory (mem_recent, mem_search) / ask the user (ask_user -> up to MAX_QUESTIONS questions).
 export const LABEL_GETTER = Object.freeze({
   mem_recent: 'get_recent',
   mem_search: 'search_history',
@@ -38,7 +41,7 @@ const ok = (value) => ({ status: 'ok', value });
 const clip = (t) => (typeof t === 'string' ? t.slice(0, MAX_SNIPPET) : '');
 
 export function createGetters({ packet, memory = null, questionFacts = {}, now = () => Date.now() }) {
-  let questionQueued = null;
+  const questionsQueued = [];
   const refOf = new Map(); // memory sourceId -> m1, m2 ... (sourceIds never leave this closure)
   const neutralRef = (id) => { if (!refOf.has(id)) refOf.set(id, 'm' + (refOf.size + 1)); return refOf.get(id); };
 
@@ -86,11 +89,29 @@ export function createGetters({ packet, memory = null, questionFacts = {}, now =
       return ok({ eventKnown: true, kind: e.kind, teacherRef: e.teacherRef });
     },
     async propose_question({ label } = {}) {
-      const factId = questionFacts[label];
+      // The engine supplies candidates in priority order; the router only opens
+      // the ask_user route. One budgeted call queues the complete bounded batch.
+      const candidates = questionFacts[label];
+      if (Array.isArray(candidates)) {
+        const factIds = [];
+        for (const id of candidates) {
+          if (typeof id !== 'string' || !id || questionsQueued.includes(id)) continue;
+          if (questionsQueued.length >= MAX_QUESTIONS) break;
+          questionsQueued.push(id);
+          factIds.push(id);
+        }
+        return factIds.length
+          ? ok({ queued: true, factId: factIds[0], factIds, queuedCount: questionsQueued.length })
+          : unknown('no-unanswered-catalog-candidates');
+      }
+      const factId = candidates;
       if (!factId) return unknown('no-catalog-fact-for-label');
-      if (questionQueued) return ok({ queued: false, reason: 'question-budget-used', factId: questionQueued });
-      questionQueued = factId;
-      return ok({ queued: true, factId });
+      if (questionsQueued.includes(factId)) return ok({ queued: false, reason: 'question-already-queued', factId });
+      if (questionsQueued.length >= MAX_QUESTIONS) {
+        return ok({ queued: false, reason: 'question-budget-used', factId: questionsQueued[0], queuedCount: questionsQueued.length });
+      }
+      questionsQueued.push(factId);
+      return ok({ queued: true, factId, queuedCount: questionsQueued.length });
     },
   });
 }

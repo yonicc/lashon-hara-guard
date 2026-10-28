@@ -75,7 +75,7 @@ const PROVENANCE_HE: Record<string, string> = {
   system: 'מערכת',
 };
 
-/** Known/candidate facts the check already gathered, rendered for a rabbi referral. Never a verdict. */
+/** Every gathered fact, including explicit unknown answers; never a verdict. */
 function gatheredFactsForReferral(
   facts: EvaluationInput['facts'],
   catalog: EvaluationInput['catalog'],
@@ -83,9 +83,9 @@ function gatheredFactsForReferral(
   const out: EvaluationResult['referrals'][number]['gatheredFacts'] = [];
   const byId = new Map(catalog.map((c) => [c.id, c]));
   for (const rec of [...facts.values()]
-    .filter((r) => r.status === 'known' || r.status === 'candidate' || r.status === 'disputed')
     .sort((a, b) => a.id.localeCompare(b.id))) {
     const valueHe =
+      rec.status === 'unknown' ? 'לא ידוע' :
       rec.value === true ? 'כן' : rec.value === false ? 'לא' : rec.value === '' ? 'לא ידוע' : String(rec.value);
     out.push({
       id: rec.id,

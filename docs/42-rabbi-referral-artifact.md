@@ -67,9 +67,9 @@ whyNotCheckedHe why the device cannot conclude this section
 
 - **Which facts are bundled** — `gatheredFactsForReferral` (deterministic,
   sorted by id) includes every fact the check already holds with status
-  `known` / `candidate` / `disputed`, each labeled with its **status** and
-  **provenance** in Hebrew. Unknown facts are not listed (they are the open
-  question, not evidence). This is exactly "the gathered details" the owner
+  `known` / `candidate` / `disputed` / explicitly recorded `unknown`, each
+  labeled with its **status** and **provenance** in Hebrew. Unknown values are
+  always rendered as unknown, never as false. This is "the gathered details" the owner
   asked for — and it is *evidence for a rabbi*, never a computed verdict.
 - **How the open question is phrased** — `openQuestionHe` is category-driven
   and always interrogative ("האם … וכיצד נוהגים?"). It never asserts an
@@ -128,12 +128,17 @@ whyNotCheckedHe why the device cannot conclude this section
 The extension completeness test preserves all 73 sections and 166 gathered
 facts per section, plus quote/doubt lists beyond the old silent caps.
 
+Validation after integrating main's five-question contract: engine 366 passed
+(one live test skipped), proxy 67 passed including workerd, extension/router
+152 passed. Both typechecks, referral-data freshness and coverage checks passed.
+Extension manifest: 0.10.2. Repository integration does not deploy the Worker.
+
 ## 6. Open questions (for the owner / expert review)
 
 1. **Wording review.** `openQuestionHe` / `howToAskHe` are deterministic
    templates. A qualified rabbi should review the exact Hebrew phrasing before
    this is shown to end users — the structure is fixed, the wording is a draft.
-2. **Bundle scope.** Today `gatheredFacts` lists every known/candidate fact in
+2. **Bundle scope.** Today `gatheredFacts` lists every recorded fact in
    the check. Should it be narrowed to facts *relevant to that section* (the
    section's `factsNeeded`), or is the full gathered set more useful to a rabbi?
 3. **Multi-question budget.** Referrals are separate specialist artifacts,

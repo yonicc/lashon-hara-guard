@@ -143,14 +143,53 @@ test('no thread identity -> no stored lookup at all', async () => {
   assert.equal(mem.calls.length, 0);
 });
 
-test('one question: propose_question queues once, ends expansion, never answers', async () => {
+test('questions: propose_question queues up to MAX_QUESTIONS distinct facts, ends expansion, never answers', async () => {
   const g = createGetters({ packet: packet(), questionFacts: QF });
   const r = await runPlan({ getters: g, labels: ['ask_user'] });
   assert.equal(r.stopped, 'question-queued');
-  assert.deepEqual(r.results.propose_question.value, { queued: true, factId: QF.ask_user });
-  const again = await g.propose_question({ label: 'ask_user' });
-  assert.equal(again.value.queued, false);
+  assert.deepEqual(r.results.propose_question.value, { queued: true, factId: QF.ask_user, queuedCount: 1 });
   assert.ok(!('answer' in r.results.propose_question.value));
+  // The same fact is never queued twice.
+  const dup = await g.propose_question({ label: 'ask_user' });
+  assert.equal(dup.value.queued, false);
+  assert.equal(dup.value.reason, 'question-already-queued');
+});
+
+test('questions: the queue is capped at 5 distinct catalog facts', async () => {
+  // Six distinct ask_user-style labels, each mapped to its own catalog fact.
+  const QF6 = { a1: 'relationships.teacher_is_parent', a2: 'subject.identifiable',
+    a3: 'message.content_is_disparaging', a4: 'message.may_be_understood_as_disparagement',
+    a5: 'message.purpose', a6: 'toelet.rebuke_attempted' };
+  const g = createGetters({ packet: packet(), questionFacts: QF6 });
+  const queued = [];
+  for (const l of Object.keys(QF6)) {
+    const r = await g.propose_question({ label: l });
+    if (r.value?.queued) queued.push(r.value.factId);
+  }
+  assert.equal(queued.length, 5, 'never more than 5 queued questions');
+  assert.equal(new Set(queued).size, 5, 'all queued facts are distinct');
+  const seventh = await g.propose_question({ label: 'a1' });
+  assert.equal(seventh.value.queued, false);
+});
+
+test('normal executor batches five ordered distinct candidates alongside both memory heads', async () => {
+  const ids = FACT_CATALOG.slice(0, 7).map((f) => f.id);
+  const g = createGetters({ packet: packet(), memory: fakeMemory(),
+    questionFacts: { ask_user: [ids[0], ids[0], ...ids.slice(1)] } });
+  const r = await runPlan({ getters: g, labels: ['mem_recent', 'mem_search', 'ask_user'], messageText: MSG });
+  assert.deepEqual(r.results.propose_question.value.factIds, ids.slice(0, 5));
+  assert.equal(r.results.propose_question.value.queuedCount, 5);
+  assert.equal(r.stopped, 'question-queued');
+  assert.equal(r.results.get_recent.status, 'ok');
+  assert.equal(r.results.search_history.status, 'ok');
+  assert.equal(r.trace.filter((e) => e.getter === 'propose_question').length, 1);
+  assert.equal('answer' in r.results.propose_question.value, false);
+});
+
+test('normal executor does not invent questions for an empty candidate list', async () => {
+  const g = createGetters({ packet: packet(), questionFacts: { ask_user: [] } });
+  const r = await runPlan({ getters: g, labels: ['ask_user'] });
+  assert.equal(r.results.propose_question.status, 'unknown');
 });
 
 test('trace carries no text, names, refs or query', async () => {

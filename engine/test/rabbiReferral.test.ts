@@ -97,6 +97,11 @@ test('referral carries facts already gathered and the open question, never a rul
   assert.deepEqual(ids, [...ids].sort());
   assert.ok(ids.includes('subject.identifiable'));
   assert.ok(ids.includes('audience.is_speakers_trusted_rabbi'));
+  s.markUnknown('toelet.facts_verified');
+  const unresolved = evaluate(liveInput(s)).referrals.find(x=>x.sectionKey==='p1_prin1:5')!;
+  const unknown = unresolved.gatheredFacts.find(g=>g.id==='toelet.facts_verified');
+  assert.ok(unknown?.valueHe.includes('לא ידוע'));
+  assert.equal(unknown?.valueHe, 'לא ידוע: לא ידוע');
 });
 
 test('non-group-D sections still evaluate normally (group D is a strict subset)', () => {
