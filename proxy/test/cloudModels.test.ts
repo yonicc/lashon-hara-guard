@@ -36,11 +36,14 @@ async function run(body: Record<string, unknown>, env: Env = ENV) {
 }
 
 test('cloudModels: ten unique ids, default first, stateless backends only', () => {
-  assert.equal(CLOUD_MODELS.length, 11);
-  assert.equal(new Set(CLOUD_MODELS.map((m) => m.id)).size, 11);
+  assert.equal(CLOUD_MODELS.length, 12);
+  assert.equal(new Set(CLOUD_MODELS.map((m) => m.id)).size, 12);
   assert.equal(CLOUD_MODELS[0]!.id, DEFAULT_CLOUD_MODEL_ID);
   assert.equal(CLOUD_MODELS[0]!.model, DEFAULT_BRAIN_MODEL);
-  for (const m of CLOUD_MODELS) assert.ok(['meta_api', 'openrouter', 'modal'].includes(m.agentKind), m.id);
+  for (const m of CLOUD_MODELS) assert.ok(['meta_api', 'openrouter', 'modal', 'baseten'].includes(m.agentKind), m.id);
+  // Baseten: one model only (owner rule 2026-10-28).
+  assert.deepEqual(CLOUD_MODELS.filter((m) => m.agentKind === 'baseten').map((m) => m.model),
+    ['meta-models/muse-spark-open-1026']);
 });
 
 test('cloudModels: the extension picker lists exactly the server allow-list', () => {
@@ -96,6 +99,9 @@ test('/check with an allow-listed model routes backend, model and account from t
   assert.deepEqual([kimi.brain[0]!['agent_kind'], kimi.brain[0]!['model'], kimi.brain[0]!['reasoning_effort']],
     ['modal', 'moonshotai/Kimi-K3', 'low']);
   assert.equal('account' in kimi.brain[0]!, false);
+  const open = await run({ model: 'muse-spark-open-1026' });
+  assert.deepEqual([open.brain[0]!['agent_kind'], open.brain[0]!['model'], open.brain[0]!['account']],
+    ['baseten', 'meta-models/muse-spark-open-1026', 'yoni']);
   assert.equal(son.brain[0]!['reasoning_effort'], 'minimal');
   assert.deepEqual([muse.brain[0]!['agent_kind'], muse.brain[0]!['account']], ['meta_api', 'env-acct']);
   // Token, base URL and system prompt stay the Worker's.

@@ -11,8 +11,9 @@
  * agent tools, the system prompt is forwarded. The `claude` and `codex`
  * branches run agent CLIs (tools, dropped system prompt) and are excluded.
  * Picked 2026-10-28 from the owner's live Brain model picker (`/api/chat/models`).
- * Baseten is listed there too, but its key answered 403 ("please check the
- * api-key") on 2026-10-28, so it is not used. Every entry passed a live smoke
+ * Baseten: the key serves ONLY meta-models/muse-spark-open-1026 (owner,
+ * 2026-10-28); other Baseten models answered 403 ("please check the
+ * api-key"). Every entry passed a live smoke
  * (synthetic irony -> concern, neutral -> no_concern) under the Worker's 20 s
  * timeout on 2026-10-28; deepseek-v4(.1)-flash, kimi-k3, glm-5.3-flash,
  * gpt-oss-120b, qwen3.8-flash and grok-4.7 timed out, gemini-3.5-flash-lite
@@ -24,7 +25,7 @@
  *   - The default id also maps to the env provider (LHG_BRAIN_MODEL /
  *     LHG_BRAIN_ACCOUNT), so choosing it changes nothing.
  */
-export type CloudAgentKind = 'meta_api' | 'openrouter' | 'modal';
+export type CloudAgentKind = 'meta_api' | 'openrouter' | 'modal' | 'baseten';
 
 export interface CloudModel {
   /** Stable id the extension sends. */
@@ -61,6 +62,8 @@ export const CLOUD_MODELS: readonly CloudModel[] = Object.freeze([
   { id: 'gemini-3.6-flash', agentKind: 'openrouter', model: 'google/gemini-3.6-flash' },
   // Owner request 2026-10-28: Kimi K3 on the Brain's Modal backend (OpenAI-compatible, no account).
   { id: 'kimi-k3-modal', agentKind: 'modal', model: 'moonshotai/Kimi-K3', reasoningEffort: 'low' },
+  // Baseten: this model only (owner rule 2026-10-28).
+  { id: 'muse-spark-open-1026', agentKind: 'baseten', model: 'meta-models/muse-spark-open-1026', account: 'yoni' },
 ].map((m) => Object.freeze(m as CloudModel)));
 
 /**

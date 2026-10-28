@@ -29,8 +29,8 @@ test('check-mode: defaults are cloud, no fallback, default model; junk normalize
     { lhgCheckMode: 'cloud', lhgCloudFallback: false, lhgCloudModel: 'muse-spark-1.3' });
   assert.deepEqual(plain(M.normalize({ lhgCheckMode: 'local-x', lhgCloudFallback: 'yes', lhgCloudModel: 'evil' })),
     { lhgCheckMode: 'cloud', lhgCloudFallback: false, lhgCloudModel: 'muse-spark-1.3' });
-  assert.equal(M.CLOUD_MODELS.length, 11);
-  assert.equal(new Set(M.CLOUD_MODELS.map((m) => m.id)).size, 11);
+  assert.equal(M.CLOUD_MODELS.length, 12);
+  assert.equal(new Set(M.CLOUD_MODELS.map((m) => m.id)).size, 12);
   assert.equal(M.modelParam({}), null);
   assert.equal(M.modelParam({ lhgCloudModel: 'claude-haiku-5.5' }), 'claude-haiku-5.5');
 });

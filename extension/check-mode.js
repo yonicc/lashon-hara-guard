@@ -45,6 +45,7 @@
     { id: 'mistral-medium-3.5', label: 'Mistral Medium 3.5 (OpenRouter)' },
     { id: 'gemini-3.6-flash', label: 'Gemini 3.6 Flash (OpenRouter)' },
     { id: 'kimi-k3-modal', label: 'Kimi K3 (Modal)' },
+    { id: 'muse-spark-open-1026', label: 'Muse Spark Open 1026 (Baseten)' },
   ];
   const MODEL_IDS = CLOUD_MODELS.map((m) => m.id);
 

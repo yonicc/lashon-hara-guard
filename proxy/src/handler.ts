@@ -347,6 +347,16 @@ async function handleAuthorized(
     ...(userNote ? { userNote } : {}),
     ...(lang === 'en' ? { lang } : {}),
   });
+  if (outcome.status === 'not_checked') {
+    // Diagnostics for `wrangler tail`: error codes, model and timing only —
+    // never message text, context or keys (BrainSendError messages are codes).
+    console.log('lhg-check not_checked', JSON.stringify({
+      errors: (outcome.errors ?? []).map((e) => String(e).slice(0, 160)),
+      model: provider.modelVersion, platform, direction,
+      contextMessages: Array.isArray(context?.recentMessages) ? context.recentMessages.length : 0,
+      ms: Date.now() - started,
+    }));
+  }
   let rules: RulesResult | undefined;
   if (rulesModeFromEnv(env) === 'live') {
     rules = outcome.status === 'extracted' && outcome.extraction
