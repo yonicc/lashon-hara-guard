@@ -1,0 +1,85 @@
+{
+ "tag": "e4-20261028",
+ "runtime": "torch fp32, no quantization",
+ "threads": 4,
+ "platform": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+ "machine": "x86_64",
+ "cpuinfo": "\t: unknown",
+ "cold_load_quantize_s": 46.867456912994385,
+ "rows": [
+  {
+   "id": "confirm-1-he",
+   "raw": "{\"verified\":[true,\"העדכון הגיע אליי מאחרים, ואחר כך השוויתי למסמכים ואישרתי את נכונותו\"]}",
+   "generated_tokens": 36,
+   "batch_size": 1,
+   "batch_elapsed_s": 47.25085704899999,
+   "token_limit": 256,
+   "hit_limit": false
+  },
+  {
+   "id": "confirm-1-en",
+   "raw": "{\"verified\":[true,\"I compared the account with the documents and confirmed its accuracy\"]}",
+   "generated_tokens": 18,
+   "batch_size": 1,
+   "batch_elapsed_s": 30.581416219000005,
+   "token_limit": 256,
+   "hit_limit": false
+  },
+  {
+   "id": "confirm-4-he",
+   "raw": "{\"verified\":[false,\"למען הדיוק, לא טרחתי לוודא שהטענה נכונה\"]}",
+   "generated_tokens": 24,
+   "batch_size": 1,
+   "batch_elapsed_s": 36.78327618099999,
+   "token_limit": 256,
+   "hit_limit": false
+  },
+  {
+   "id": "confirm-4-en",
+   "raw": "{\"verified\":[false,\"To be precise, I never bothered to verify the allegation\"]}",
+   "generated_tokens": 18,
+   "batch_size": 1,
+   "batch_elapsed_s": 31.86362074499999,
+   "token_limit": 256,
+   "hit_limit": false
+  },
+  {
+   "id": "confirm-7-he",
+   "raw": "{\"rejects\":[true,\"ידוע לי מראש שהוא יסרב לשמוע כל ביקורת על מעשיו\"]}",
+   "generated_tokens": 22,
+   "batch_size": 1,
+   "batch_elapsed_s": 35.71499176999998,
+   "token_limit": 256,
+   "hit_limit": false
+  },
+  {
+   "id": "confirm-7-en",
+   "raw": "{\"rejects\":[true,\"I already know he will refuse to hear any criticism of his actions\"]}",
+   "generated_tokens": 21,
+   "batch_size": 1,
+   "batch_elapsed_s": 30.171550224999976,
+   "token_limit": 256,
+   "hit_limit": false
+  },
+  {
+   "id": "confirm-11-he",
+   "raw": "{}",
+   "generated_tokens": 2,
+   "batch_size": 1,
+   "batch_elapsed_s": 13.891641102000051,
+   "token_limit": 256,
+   "hit_limit": false
+  },
+  {
+   "id": "confirm-11-en",
+   "raw": "{}",
+   "generated_tokens": 2,
+   "batch_size": 1,
+   "batch_elapsed_s": 13.746442252000008,
+   "token_limit": 256,
+   "hit_limit": false
+  }
+ ],
+ "max_rss_kib": 22471592,
+ "function_seconds": 336.87528896331787
+}

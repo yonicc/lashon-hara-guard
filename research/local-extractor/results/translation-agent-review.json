@@ -1,0 +1,33 @@
+{
+  "synthetic": true,
+  "agent_reviewed": true,
+  "human_review_pending": true,
+  "scope": "12 purposively selected Hebrew/English pairs; not a representative MT quality estimate",
+  "reviewed": [
+    "fresh-19-he",
+    "confirm-1-he",
+    "confirm-4-he",
+    "confirm-5-he",
+    "confirm-6-he",
+    "confirm-7-he",
+    "confirm-8-he",
+    "confirm-9-he",
+    "confirm-11-he",
+    "confirm-12-he",
+    "confirm-13-he",
+    "confirm-14-he"
+  ],
+  "findings": [
+    {
+      "id": "confirm-11-he",
+      "issue": "The verification question was omitted; only the eyewitness question remains.",
+      "severity": "information_loss"
+    },
+    {
+      "id": "confirm-5-he",
+      "issue": "להחזיר לו rendered repay him rather than retaliate; explicit no-grudge clause retained.",
+      "severity": "ambiguous_sense"
+    }
+  ],
+  "other_ten": "Relevant stated polarity/attribution preserved in this agent sample. No human verification."
+}

@@ -1,0 +1,86 @@
+{
+ "rates": {
+  "A10_second": 0.000306,
+  "physical_core_second": 1.31e-05,
+  "GiB_second": 2.22e-06
+ },
+ "rates_source": "https://modal.com/pricing",
+ "rows": [
+  {
+   "phase": "e1-20261028",
+   "kind": "GPU",
+   "seconds": 266.16900277137756,
+   "gpu_cost": 0.08144771484804154,
+   "approx_total": 0.10484929357170106
+  },
+  {
+   "phase": "e2-20261028",
+   "kind": "GPU",
+   "seconds": 322.6988935470581,
+   "gpu_cost": 0.09874586142539979,
+   "approx_total": 0.12711754814605714
+  },
+  {
+   "phase": "e3-20261028",
+   "kind": "GPU",
+   "seconds": 95.86892056465149,
+   "gpu_cost": 0.029335889692783355,
+   "approx_total": 0.037764685188827515
+  },
+  {
+   "phase": "e4-20261028",
+   "kind": "GPU",
+   "seconds": 806.3959066867828,
+   "gpu_cost": 0.24675714744615557,
+   "approx_total": 0.31765547556205753
+  },
+  {
+   "phase": "e5-20261028",
+   "kind": "GPU",
+   "seconds": 32.73888802528381,
+   "gpu_cost": 0.010018099735736847,
+   "approx_total": 0.012896502770919801
+  },
+  {
+   "phase": "e1-20261028",
+   "kind": "CPU",
+   "seconds": 408.70569682121277,
+   "estimated_billed_GiB": 16.767047882080078,
+   "approx_total": 0.036629367847413545
+  },
+  {
+   "phase": "e2-20261028",
+   "kind": "CPU",
+   "seconds": 486.0917983055115,
+   "estimated_billed_GiB": 32,
+   "approx_total": 0.06000317158283233
+  },
+  {
+   "phase": "e4-20261028",
+   "kind": "CPU",
+   "seconds": 336.87528896331787,
+   "estimated_billed_GiB": 32,
+   "approx_total": 0.041583885669631955
+  },
+  {
+   "phase": "e3-translation",
+   "kind": "CPU",
+   "seconds": 122.1684422492981,
+   "estimated_billed_GiB": 4.9524993896484375,
+   "approx_total": 0.007744813255059388
+  }
+ ],
+ "gpu_seconds": 1523.8716115951538,
+ "training_gpu_seconds": 757.5467500686646,
+ "resource_subtotal_estimate_USD": 0.7462447435945002,
+ "conservative_compute_estimate_USD": [
+  1,
+  2
+ ],
+ "not_an_invoice": true,
+ "excluded": [
+  "Image builds and pre-function container initialization, including failed imports.",
+  "Volume storage recurring cost; real memory/CPU usage is not integrated over time.",
+  "Historical router/gate experiments and historical cloud calls."
+ ]
+}

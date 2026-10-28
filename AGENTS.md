@@ -70,6 +70,10 @@
 - Compression: `quantize_dynamic` int8 wrecked router decisions (xlmr 173/459 flips). Ship `emb8` (int8 embedding table only, `onnx_bench.py --ship emb8`), calibrate thresholds on the shipped artifact (`compare_quant.py --node-dev`), judge by decisions. DictaBERT does not load in transformers.js 2.17 (`Unknown Normalizer type: NFD`).
 - BI-1: `py -m modal volume get` needs an EXISTING destination dir (`cd <dir>; ... router/<run> .`); keep model downloads on `D:` (C: ran out of space 2026-10-28). `py -I` hides user-site packages (`onnx` is `--user`).
 
+## Local extractor R&D (docs/37)
+- Local extractor R&D: docs/37 and research/local-extractor/. Torch dynamic int8 corrupted decoder JSON on CPU in both the 1.5B and 4B pilots; model load success is not output parity. Retain an uncompressed CPU comparison.
+- Modal extractor wrappers explicitly mount pilot_modal.py and probe_modal.py; nested sibling imports were not auto-mounted. retries=0 did not bound import-failing container startup attempts: stop only the exact experiment app with modal app stop --yes <id>.
+
 ## Concurrent agents
 - More than one agent edits this repo at the same time (e.g. context layer vs gate). Always `git pull --ff-only` before editing, re-read a file before patching it, and stage only your own paths.
 - Never edit a file containing Hebrew with `Set-Content -Encoding ascii` / raw PowerShell replace: it turns Hebrew into `?` (happened to `extension/manifest.json`, caught by `git diff`). Use `remote_edit_file`.
