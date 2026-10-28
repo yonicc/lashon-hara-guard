@@ -1,0 +1,21 @@
+{
+  "checks": [
+    "explicit options import loads the pinned trained model in real offscreen WASM",
+    "router rejects corrupt imported data",
+    "extension page cannot forge a content frame router request",
+    "real isolated context runtime loaded",
+    "trained emb8 router fires mem_search",
+    "real e5 scoped search retrieves the older planted message",
+    "router cannot retrieve foreign account or conversation",
+    "retrieval reaches the actual packet prepared for check",
+    "packet shares the five-by-300 excerpt budget",
+    "candidate provenance survives into packet",
+    "account identity stays local",
+    "offscreen restart reloads both models from cache only",
+    "packet expansion works after cached offscreen restart",
+    "router switch is enforced at privileged bridge",
+    "no external requests during import, inference or retrieval"
+  ],
+  "route_ms": 69.57719999999972,
+  "external": []
+}
