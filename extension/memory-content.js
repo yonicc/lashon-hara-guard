@@ -34,6 +34,10 @@
     } else {
       const root=el?.closest?.(globalThis.LHG_SELECTORS.memory.conversation);
       conversationId=root?.getAttribute('data-thread-id')||root?.getAttribute('data-space-id')||root?.getAttribute('data-group-id');
+      if (!conversationId && platform === 'gmail') {
+        const hash = globalThis.location?.hash || '';
+        if (/^#[^/]+\/.+/.test(hash)) conversationId = hash;
+      }
     }
     if(!conversationId && draft) {
       if(!ids.has(el)) ids.set(el,'compose-'+session+'-'+(++seq));
@@ -91,5 +95,5 @@
     };
     return Object.freeze({get_recent:args=>read('get_recent',args),search_history:args=>read('search_history',args)});
   }
-  globalThis.LHG_MEMORY={input,context,tools,scopeFor};
+  globalThis.LHG_MEMORY={input,context,tools,scopeFor,account};
 })();

@@ -1,10 +1,11 @@
-// Shared outgoing check while typing (one home for every platform adapter).
+// Shared outgoing send gate (one home for every platform adapter).
 // An adapter supplies only what is platform-specific: which element is a
-// compose box and how to find the current one. The pause/debounce, warm-up,
+// compose box and how to find the current one. The send gate, warm-up,
 // stale-response guard and "cleared after send" handling live here.
-// Sending is never blocked and the text is never rewritten.
+// Typing alone never opens the panel: a check starts from an explicit send
+// action (send button / keyboard shortcut). Native send is held until a
+// current check permits it; progress is indeterminate, never a fake percent.
 (() => {
-  const PAUSE_MS = 1200;
   const MIN_CHARS = 6;
   const WARM_EVERY_MS = 4 * 60 * 1000; // the gate container sleeps after 5 idle minutes
   // A bubble whose text equals what the user typed in a compose box within
@@ -46,15 +47,87 @@
   }
 
   // opts: { platform, composeBox(el) -> box|null, findCompose() -> box|null,
-  //         pauseMs?, textOf?(box) -> string (e.g. a draft without quotes) }
+  //         sendAction?(event) -> { box, button?, ready?, send() }, textOf? }
   function createComposeWatcher(opts) {
     const P = globalThis.LHG_PANEL;
-    const pauseMs = opts.pauseMs || PAUSE_MS;
-    let timer = null;
-    let lastChecked = '';
     let lastTyped = '';
-    let seq = 0;
     let lastWarm = 0;
+    const pending = new WeakMap();
+    let replaying = false;
+
+    function intercept(e) {
+      if (replaying) return;
+      const action = opts.sendAction ? opts.sendAction(e) : (() => {
+        const box = opts.composeBox(e.target);
+        if (!box || e.type !== 'keydown' || e.key !== 'Enter' || e.shiftKey || e.isComposing) return null;
+        return { box, send: () => box.dispatchEvent(new KeyboardEvent('keydown', {
+          key: 'Enter', code: 'Enter', bubbles: true, cancelable: true, ctrlKey: !!e.ctrlKey, metaKey: !!e.metaKey,
+        })) };
+      })();
+      if (!action || !action.box) return;
+      if (!textOf(action.box)) return; // attachments-only send has no message text to check
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      const box = action.box;
+      const previous = pending.get(box);
+      if (previous) {
+        if (previous.isCurrent()) {
+          if (previous.result && P) P.renderResult(previous.result, { manual: true, onApprove: previous.approve });
+          return;
+        }
+        previous.cancel();
+      }
+      const text = textOf(box);
+      if (!text) return;
+      const token = {};
+      token.text = text;
+      pending.set(box, token);
+      const button = action.button;
+      const label = button && button.textContent;
+      const t = (key) => globalThis.LHG_I18N?.t(key) || key;
+      if (button) { button.textContent = t('send.checking'); button.setAttribute('aria-busy', 'true'); }
+      token.cancel = () => {
+        pending.delete(box);
+        if (button) { button.textContent = label; button.removeAttribute('aria-busy'); }
+      };
+      show('checking', t('send.checking'), [t('send.waiting')]);
+      const contextKey = () => globalThis.LHG_CONTEXT_RUNTIME?.contentKey?.(opts.platform, box, text);
+      let capturedContext = contextKey();
+      const current = () => pending.get(box) === token && textOf(box) === text && contextKey() === capturedContext;
+      token.isCurrent = current;
+      const done = (r) => {
+        if (pending.get(box) !== token) return;
+        if (button) { button.textContent = label; button.removeAttribute('aria-busy'); }
+        token.result = r;
+        if (!current() || !r || r.error || r.rules?.notChecked || !['none', 'warn', 'unsure'].includes(r.alert)) {
+          pending.delete(box);
+          return;
+        }
+        if (r.alert !== 'none') return; // explicit panel approval or a clarifying answer is required
+        pending.delete(box);
+        noteTyped(text);
+        replaying = true;
+        try { action.send(); } finally { replaying = false; }
+      };
+      const payload = { type: 'lhg-check', text, platform: opts.platform, direction: 'outgoing' };
+      token.approve = () => {
+        if (current() && ['warn', 'unsure'].includes(token.result?.alert)) done({ alert: 'none' });
+      };
+      const begin = () => {
+        if (pending.get(box) !== token || textOf(box) !== text) return;
+        capturedContext = contextKey();
+        if (P && typeof P.check === 'function') {
+          P.check(payload, box, { isCurrent: current, onResult: done, onApprove: token.approve });
+        } else {
+          const send = globalThis.LHG_CONTEXT_RUNTIME?.send || ((msg, cb) => chrome.runtime.sendMessage(msg, cb));
+          send(payload, (r) => { render(r); done(chrome.runtime.lastError ? null : r); }, box);
+        }
+      };
+      if (action.ready) Promise.resolve().then(action.ready).then(begin, () => done({ alert: 'not_checked' }));
+      else begin();
+    }
+    document.addEventListener('click', intercept, true);
+    document.addEventListener('keydown', intercept, true);
 
     const hide = () => P && P.hide();
     const show = (kind, title, lines) => P && P.show(kind, title, lines);
@@ -75,49 +148,21 @@
       try { chrome.runtime.sendMessage({ type: 'lhg-warm' }); } catch (_e) { /* extension reloaded */ }
     }
 
-    function run(text) {
-      if (text === lastChecked) return;
-      lastChecked = text;
-      const my = ++seq;
-      show('checking', '…בודק ניסוח', []);
-      const payload = { type: 'lhg-check', text, platform: opts.platform, direction: 'outgoing' };
-      // Panel-owned flow: stored answers go out as confirmedFacts, and the
-      // draft rules' clarifying question re-checks this same text.
-      if (P && typeof P.check === 'function') {
-        P.check(payload, opts.findCompose(), { isCurrent: () => my === seq });
-        return;
-      }
-      const send = globalThis.LHG_CONTEXT_RUNTIME?.send || ((msg, cb) => chrome.runtime.sendMessage(msg, cb));
-      send(
-        payload,
-        (r) => {
-          if (my !== seq) return; // the user kept typing: a newer check owns the panel
-          if (chrome.runtime.lastError) {
-            render({ alert: 'not_checked' });
-            return;
-          }
-          render(r);
-        },
-        opts.findCompose(),
-      );
-    }
-
-    function schedule(box) {
-      clearTimeout(timer);
+    // Typing alone tracks state (memory, sent-echo registry) but never
+    // schedules a check or opens the panel.
+    function trackTyping(box) {
       const text = textOf(box);
+      const job = pending.get(box);
+      if (job && job.text !== text) job.cancel();
       globalThis.LHG_MEMORY?.input(opts.platform, box, text);
       if (text.length < MIN_CHARS) {
-        // Emptied after a send: the last typed text is what was sent.
         if (!text && lastTyped) noteTyped(lastTyped);
         lastTyped = '';
-        lastChecked = '';
         hide();
         return;
       }
       lastTyped = text;
-      // Remember it now too: a send by click may never fire another input.
       noteTyped(text);
-      timer = setTimeout(() => run(text), pauseMs);
     }
 
     document.addEventListener(
@@ -126,7 +171,7 @@
         const box = opts.composeBox(e.target);
         if (box) {
           warm();
-          schedule(box);
+          trackTyping(box);
         }
       },
       true,
@@ -140,9 +185,6 @@
         if (box && !textOf(box)) {
           if (lastTyped) noteTyped(lastTyped);
           lastTyped = '';
-          seq++;
-          lastChecked = '';
-          clearTimeout(timer);
           hide();
         }
       },

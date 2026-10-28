@@ -113,7 +113,7 @@ test('hold: a failed check is never an implicit approval (IN-02)', async () => {
   assert.equal(buttons(h)[0].textContent, 'הצג בלי בדיקה');
 });
 
-test('hold: a burst (other chat / older history) is not held and not sent; e-mail is never held', async () => {
+test('hold: a chat burst is not sent; an opened e-mail is held before checking', async () => {
   const { G, sent } = setup(() => ({ alert: 'warn' }));
   let rows = [];
   const sc = G.createScanner({ platform: 'gmail', findRows: () => rows, hold: () => true });
@@ -126,9 +126,9 @@ test('hold: a burst (other chat / older history) is not held and not sent; e-mai
   const mail = el();
   rows = [...rows, { el: mail, text: 'גוף של מייל שנפתח עכשיו', kind: 'email' }];
   sc.scan();
-  assert.equal(hold(mail), null, 'e-mail is tagged, not held');
+  assert.ok(hold(mail), 'e-mail is held synchronously');
   await tick();
-  assert.ok(mail.querySelector(':scope > .lhg-tag'));
+  assert.ok(hold(mail), 'warning remains covered pending explicit reveal');
 });
 
 test('hold: a re-mounted held message is covered again', async () => {

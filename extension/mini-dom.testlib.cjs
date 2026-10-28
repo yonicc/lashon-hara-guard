@@ -47,6 +47,8 @@ class Element {
   setAttribute(k, v) { this._attrs.set(k, String(v)); }
   hasAttribute(k) { return this._attrs.has(k); }
   removeAttribute(k) { this._attrs.delete(k); }
+  click() { return this.ownerDocument.dispatch('click', this); }
+  dispatchEvent(event) { return this.ownerDocument.dispatch(event.type, this, event); }
   appendChild(c) {
     if (c.parentNode) c.parentNode.removeChild(c);
     c.parentNode = this;
@@ -130,7 +132,11 @@ class Document extends Element {
   createElement(tag) { return new Element(tag, this); }
   createTextNode(t) { return new TextNode(t); }
   addEventListener(type, fn) { (this.listeners[type] = this.listeners[type] || []).push(fn); }
-  dispatch(type, target) { for (const fn of this.listeners[type] || []) fn({ type, target }); }
+  dispatch(type, target, options = {}) {
+    const event = { type, target, preventDefault() { this.defaultPrevented = true; }, stopImmediatePropagation() { this.stopped = true; }, ...options };
+    for (const fn of this.listeners[type] || []) { fn(event); if (event.stopped) break; }
+    return event;
+  }
   hasFocus() { return true; }
 }
 

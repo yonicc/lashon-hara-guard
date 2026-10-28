@@ -208,5 +208,10 @@ test('background: confirmedFacts reach POST /check (sanitized, shared rules.js)'
 
 test('manifest: rules.js loads before panel.js on every content-script entry', () => {
   const m = JSON.parse(fs.readFileSync(path.join(__dirname, 'manifest.json'), 'utf8'));
-  for (const cs of m.content_scripts) assert.ok(cs.js.indexOf('rules.js') > -1 && cs.js.indexOf('rules.js') < cs.js.indexOf('panel.js'));
+  for (const cs of m.content_scripts) {
+    if (cs.run_at === 'document_start') {
+      assert.deepEqual(cs.js, ['early-incoming.js']);
+      assert.deepEqual(cs.css, ['early-incoming.css']);
+    } else assert.ok(cs.js.indexOf('rules.js') > -1 && cs.js.indexOf('rules.js') < cs.js.indexOf('panel.js'));
+  }
 });

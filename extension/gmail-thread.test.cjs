@@ -11,6 +11,29 @@ const { createDocument, append } = require('./mini-dom.testlib.cjs');
 const src = (f) => fs.readFileSync(path.join(__dirname, f), 'utf8');
 const tick = (ms = 30) => new Promise((r) => setTimeout(r, ms));
 
+test('Gmail history refreshes after a collapsed body mounts and never includes future mail', async () => {
+  const t = loadThread(), thread = t.document.querySelector('#thread');
+  const old = append(thread, '<div class="adn" data-message-id="older"></div>');
+  const current = append(thread, threadBody('current', 'Current', 'current@example.test', 'Current synthetic message body.')).querySelector('.a3s');
+  append(thread, threadBody('future', 'Future', 'future@example.test', 'Future message must not be context.'));
+  const payload = { type: 'lhg-check', platform: 'gmail', direction: 'incoming', text: 'Current synthetic message body.' };
+  const first = await t.ctx.LHG_CONTEXT_RUNTIME.prepare(payload, current, true);
+  assert.equal(first.context.recentMessages.length, 0);
+  append(old, '<div class="a3s aiL">Previously collapsed synthetic body.</div>');
+  const second = await t.ctx.LHG_CONTEXT_RUNTIME.prepare(payload, current, true);
+  assert.equal(second.context.recentMessages.length, 1);
+  assert.match(second.context.recentMessages[0].text, /Previously collapsed/);
+  assert.doesNotMatch(JSON.stringify(second.context), /Future message|Current synthetic message/);
+});
+
+test('Gmail quote-only reply supplies history even with no mounted message bodies', async () => {
+  const t = loadThread();
+  const box = append(t.document.body, '<div role="dialog"><div class="Am Al editable" contenteditable="true" role="textbox"><div>New synthetic reply text.</div><div class="gmail_quote">Quoted prior synthetic message.</div></div></div>').querySelector('[role="textbox"]');
+  const result = await t.ctx.LHG_CONTEXT_RUNTIME.prepare({ type: 'lhg-check', platform: 'gmail', direction: 'outgoing', text: 'New synthetic reply text.' }, box);
+  assert.equal(result.context.recentMessages.length, 1);
+  assert.match(result.context.recentMessages[0].text, /Quoted prior/);
+});
+
 function loadThread() {
   const INBOX = `<div role="main"><div role="list" id="thread"></div></div>`;
   const document = createDocument(INBOX);

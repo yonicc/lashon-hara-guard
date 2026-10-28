@@ -5,6 +5,7 @@
   let serial = 0;
   const session = globalThis.crypto?.randomUUID?.() || String(Date.now()) + '-' + Math.random().toString(36).slice(2);
   let builder;
+  const packetBuilders = new WeakMap();
   let pending = Promise.resolve();
   // Bound persisted message retention as well as the builder's memory window.
   try { Promise.resolve(globalThis.LHG_CONTEXT_STORE?.purgeExpired?.()).catch(() => {}); } catch (_) {}
@@ -64,31 +65,24 @@
     return scope;
   }
 
-  // Gmail thread history (bug 2026-10-28): seed the builder with the older
-  // messages already rendered in the opened thread (chronological, before
-  // the current one). Runs ONLY for scope.kind === 'email_thread', and only
-  // ONCE per conversation scope: every check in the same thread reuses the
-  // seeded history (the builder dedups the current message itself in
-  // buildPacket). Skips the current message itself and the outgoing draft
-  // by text containment. Names stay local: ingestMessage takes display
-  // names, the builder only exports anonymised refs + scrubbed text
-  // (MAX_TEXT_OUT 300 chars). One billed check per user action is unchanged:
-  // seeding only fills the builder's local window before that same packet.
-  const seededScopes = new Set();
-  async function seedGmailThreadHistory(scope, builder, currentEl, currentText) {
+  // Snapshot loaded prior bodies synchronously, in DOM chronology. Rebuild
+  // for each check so late expansion and edits cannot freeze out history.
+  // The existing packet budget remains five scrubbed 300-character excerpts.
+  // If no older bodies are mounted, use the current mail/reply's quote.
+  function gmailHistory(currentEl, currentText) {
+    const history = [];
     try {
-      if (seededScopes.has(scope.id)) return;
-      seededScopes.add(scope.id);
       const S = globalThis.LHG_SELECTORS;
-      if (!S || !S.gmail || typeof S.all !== 'function') return;
+      if (!S || !S.gmail || typeof S.all !== 'function') return history;
       const root = S.first(document, S.gmail.threadRoot) || document;
       const bodies = S.all(root, S.gmail.messageBody)
-        .filter((el) => el !== currentEl && S.gmailIsMessageBody(el));
+        .filter((el) => S.gmailIsMessageBody(el));
       const norm = (t) => String(t || '').replace(/\s+/g, ' ').trim();
       const curNorm = norm(currentText);
       let n = 0;
       for (const body of bodies) {
-        if (n >= 5) break; // builder window is MAX_RECENT (5)
+        // Never use later messages to judge an earlier incoming message.
+        if (body === currentEl || body.contains?.(currentEl)) break;
         let text = '';
         try { text = norm(S.textWithout(body, S.gmail.quotedPart)); } catch (_) { continue; }
         if (!text || text.length < 6) continue;
@@ -100,18 +94,32 @@
           author = (sender && (sender.getAttribute('name') || sender.getAttribute('email') || sender.getAttribute('data-hovercard-id') || sender.textContent)) || '';
           author = norm(author).slice(0, 80);
         } catch (_) { author = ''; }
-        try {
-          await builder.ingestMessage(scope.id, {
-            text, direction: 'incoming', timestamp: Date.now() - (bodies.length - n) * 60000,
-            authorDisplayName: author,
-          });
-          n++;
-        } catch (_) { /* one bad row never breaks the check */ }
+        history.push({ text, direction: 'incoming', authorDisplayName: author });
+        n++;
       }
-    } catch (_) { /* DOM/bulder failure: check proceeds without history */ }
+      // Quote fallback is available even when Gmail did not mount older bodies.
+      // Preserve it as quoted history; do not invent sender attribution.
+      for (const quote of history.length ? [] : S.all(currentEl, ['.gmail_quote'])) {
+        const text = norm(quote.textContent);
+        if (text.length >= 6 && !history.some(m => norm(m.text).includes(text) || text.includes(norm(m.text)))) {
+          history.push({ text, direction: 'incoming', authorDisplayName: '' });
+        }
+      }
+    } catch (_) { /* only DOM that is loaded can be captured */ }
+    return history;
+  }
+  async function seedGmailThreadHistory(scope, target, history) {
+    for (let i = 0; i < history.length; i++) {
+      await target.ingestMessage(scope.id, { ...history[i], id: 'gmail-' + i,
+        timestamp: Date.now() - (history.length - i) * 60000 });
+    }
   }
 
   function prepare(payload, el, remember = false) {
+    const identity = globalThis.LHG_MEMORY?.scopeFor?.(payload.platform, el);
+    const source = el?.closest?.('[data-message-id], [data-legacy-message-id], [data-id]');
+    const messageId = source?.getAttribute('data-message-id') || source?.getAttribute('data-legacy-message-id') || source?.getAttribute('data-id');
+    payload = { ...payload, ...(identity ? { cacheIdentity: { ...identity, ...(messageId ? { messageId } : {}) } } : {}) };
     globalThis.LHG_MEMORY?.context(payload.platform, el, payload.text, payload.direction);
     // Resolve DOM identity synchronously, before another conversation can open.
     let scope, hints;
@@ -128,15 +136,33 @@
       replyToAuthorDisplayName: hints.quoted?.authorDisplayName || '',
       ...(typeof hints.forwarded === 'boolean' ? { forwarded: hints.forwarded } : {}),
     };
+    const history = scope.kind === 'email_thread' ? gmailHistory(el, current.text) : null;
     const work = pending.then(async () => {
-      builder ||= globalThis.LHG_CONTEXT_BUILDER.createContextBuilder();
+      // Gmail is rebuilt from a synchronous DOM snapshot on every check:
+      // newly expanded messages must not be frozen out by a one-time seed.
+      if (history) builder = globalThis.LHG_CONTEXT_BUILDER.createContextBuilder();
+      else builder ||= globalThis.LHG_CONTEXT_BUILDER.createContextBuilder();
       await builder.ingestConversation({ id: scope.id, platform: scope.platform, kind: scope.kind });
       if (scope.kind === 'email_thread') {
-        await seedGmailThreadHistory(scope, builder, el, current.text);
+        await seedGmailThreadHistory(scope, builder, history);
       }
       const context = await builder.buildPacket(scope.id, current);
-      if (remember) await builder.ingestMessage(scope.id, current);
-      return { ...payload, platform: scope.platform, context };
+      packetBuilders.set(context, builder);
+      if (remember && !history) await builder.ingestMessage(scope.id, current);
+      // Ephemeral conversation refs, version counters and wall-clock ages do
+      // not define content identity. Keep all semantic packet fields.
+      const cacheContext = JSON.parse(JSON.stringify(context, (key, value) =>
+        ['conversationRef', 'contextVersion', 'ageMinutes'].includes(key) ? undefined : value));
+      let historyFingerprint;
+      if (history) {
+        const raw = JSON.stringify(history);
+        if (globalThis.crypto?.subtle) {
+          const bytes = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(raw));
+          historyFingerprint = Array.from(new Uint8Array(bytes), x => x.toString(16).padStart(2, '0')).join('');
+        } else historyFingerprint = globalThis.LHG_CONTEXT_STORE?.hashText?.(raw);
+      }
+      return { ...payload, platform: scope.platform, context,
+        cacheContext: history ? { ...cacheContext, historyFingerprint } : cacheContext };
     });
     pending = work.catch(() => {});
     return work.catch(() => payload); // storage/DOM failure never breaks a check
@@ -145,17 +171,17 @@
   function send(payload, callback, el) {
     prepare(payload, el).then((message) => chrome.runtime.sendMessage(message, (r) => {
       // lastError stays readable: the callback runs synchronously in here.
-      callback(withLocalNames(r, message && message.context && message.context.conversationRef));
+      callback(withLocalNames(r, message && message.context && message.context.conversationRef, packetBuilders.get(message.context)));
     }));
   }
 
   // Resolve the analysis refs back to display names IN THE PAGE only, so the
   // panel can say who is speaking and about whom. Names never left the page.
-  function withLocalNames(r, convId) {
+  function withLocalNames(r, convId, localBuilder = builder) {
     try {
       const a = r && r.analysis;
-      if (!a || !builder || !convId) return r;
-      const name = (ref) => (ref && ref !== 'self' ? builder.displayForRef(convId, ref) : '');
+      if (!a || !localBuilder || !convId) return r;
+      const name = (ref) => (ref && ref !== 'self' ? localBuilder.displayForRef(convId, ref) : '');
       return { ...r, localNames: { speaker: name(a.speakerRef), subject: name(a.subjectRef) } };
     } catch (_) {
       return r;
@@ -171,5 +197,9 @@
       return null;
     }
   }
-  globalThis.LHG_CONTEXT_RUNTIME = { prepare, send, withLocalNames, conversationKey };
+  function contentKey(platform, el, text) {
+    return JSON.stringify([globalThis.LHG_MEMORY?.scopeFor?.(platform, el),
+      text, platform === 'gmail' ? gmailHistory(el, text) : null]);
+  }
+  globalThis.LHG_CONTEXT_RUNTIME = { prepare, send, withLocalNames, conversationKey, contentKey };
 })();

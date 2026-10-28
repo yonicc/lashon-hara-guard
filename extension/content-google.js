@@ -66,7 +66,6 @@
   // it explicitly rejects Gmail's compose body, so drafts were never checked
   // (bug 2026-10-27). E-mails are longer and typed in bursts: a longer pause.
   // The quoted history and signature under a reply are not the user's text.
-  const GMAIL_DRAFT_PAUSE_MS = 2500;
   function gmailComposeBox(el) {
     if (!el || !el.isContentEditable) return null;
     const box = S.closestMatch(el, S.gmail.compose);
@@ -86,8 +85,24 @@
       platform: 'gmail',
       composeBox: (el) => (active('gmail') ? gmailComposeBox(el) : null),
       findCompose: findGmailCompose,
-      pauseMs: GMAIL_DRAFT_PAUSE_MS,
       textOf: gmailDraftText,
+      sendAction: (e) => {
+        if (!active('gmail')) return null;
+        const shortcut = e.type === 'keydown' && e.key === 'Enter' && (e.ctrlKey || e.metaKey) && !e.isComposing;
+        const button = e.type === 'click'
+          ? S.closestMatch(e.target, S.gmail.sendButton)
+          : null;
+        if (!shortcut && !button) return null;
+        const root = (button || e.target)?.closest?.('[role="dialog"], .M9, .ip');
+        const box = shortcut ? gmailComposeBox(e.target) : root?.querySelector('[contenteditable="true"][role="textbox"]');
+        if (!box || !gmailComposeBox(box)) return null;
+        const sendButton = button || (root && S.first(root, S.gmail.sendButton));
+        if (!sendButton) return null;
+        return { box, button: sendButton, send: () => sendButton.click(), ready: async () => {
+          const deadline = Date.now() + 2100;
+          while (expandCollapsedGmail() && Date.now() < deadline) await new Promise(resolve => setTimeout(resolve, 50));
+        } };
+      },
     });
   }
 
@@ -130,9 +145,13 @@
     const bodies = S.all(root, S.gmail.messageBody).filter((el) => S.gmailIsMessageBody(el));
     return bodies
       .filter((el) => !bodies.some((o) => o !== el && o.contains && o.contains(el)))
-      // kind 'email': opened mail is tagged, never held (hold is for chat).
+      // Opened mail participates in the same hold policy as chat.
       .map((el) => ({ el, text: S.textWithout(el, S.gmail.quotedPart), sender: gmailSenderOf(el), kind: 'email' }))
-      .filter((r) => r.text && r.text.length >= MIN_CHARS);
+      .filter((r) => {
+        if (r.text && r.text.length >= MIN_CHARS) return true;
+        r.el.setAttribute('data-lhg-scanned', 'true'); // existing short-text policy: no remote check
+        return false;
+      });
   }
 
   // Chat (standalone or Gmail-embedded): bubbles are text-bearing leaves
@@ -203,9 +222,8 @@
   const scanner = globalThis.LHG_INCOMING.createScanner({
     platform: PLATFORM,
     findRows: (root) => decorateRows(findRows(root)),
+    beforeScan: () => !expandCollapsedGmail(),
   });
-  scanner.scan(); // baseline: history present at load is marked seen, never sent
-
   if (globalThis.LHG_PANEL) {
     globalThis.LHG_PANEL.bindManualShortcut({
       platform: PLATFORM,
@@ -285,8 +303,10 @@
   // picks it up as baseline history. Bounded: at most 5 unexpanded nodes
   // per call, tracked in a WeakSet so a failed expand is never retried.
   const expandedCollapsed = new WeakSet();
+  const expansionStarted = new WeakMap();
   function expandCollapsedGmail() {
     if (!onMailHost || !IS_TOP) return;
+    let waiting = false;
     try {
       const S2 = globalThis.LHG_SELECTORS;
       if (!S2 || !S2.gmail || typeof S2.all !== 'function') return;
@@ -294,7 +314,7 @@
       let n = 0;
       for (const handle of S2.all(root, S2.gmail.expandHandle)) {
         if (n >= 5) break;
-        if (!handle || expandedCollapsed.has(handle)) continue;
+        if (!handle) continue;
         if (handle.closest && handle.closest('[role="dialog"], form')) continue; // never inside compose
         let container = null;
         try { container = S2.closestMatch(handle, S2.gmail.messageContainer); } catch (_) { container = null; }
@@ -302,18 +322,33 @@
         let body = null;
         try { body = S2.first(container, S2.gmail.messageBody); } catch (_) { body = null; }
         if (body) continue; // already expanded
+        if (expandedCollapsed.has(handle)) {
+          if (Date.now() - expansionStarted.get(handle) < 2000) waiting = true;
+          continue;
+        }
         try {
           expandedCollapsed.add(handle);
+          expansionStarted.set(handle, Date.now());
           if (typeof handle.click === 'function') handle.click();
+          waiting = true;
           n++;
         } catch (_) { /* one failed expand never breaks the scan */ }
       }
     } catch (_) { /* never breaks the scan */ }
+    return waiting;
   }
 
   // Frame-synchronised scan: a new chat message is held before it is painted.
   const origScan = scanner.scan.bind(scanner);
-  scanner.scan = () => { expandCollapsedGmail(); return origScan(); };
+  let expansionTimer;
+  scanner.scan = () => {
+    if (expandCollapsedGmail()) {
+      clearTimeout(expansionTimer);
+      expansionTimer = setTimeout(() => scanner.scan(), 50);
+      return;
+    }
+    return origScan();
+  };
   scanner.scan(); // baseline: history present at load is marked seen, never sent
   globalThis.LHG_INCOMING.observe(scanner);
 })();

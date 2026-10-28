@@ -14,6 +14,10 @@
 
   const DICT = {
     en: {
+      'send.checking': 'Checking before sending…',
+      'send.anyway': 'Send anyway',
+      'check.again': 'Check again',
+      'send.waiting': 'Waiting for the check result; sending is paused.',
       'memory.title': 'Local context memory',
       'memory.enabled': 'Remember diagnosed text and collected context on this device',
       'memory.hint': 'Off by default. Stores unsent drafts and observed context for up to 14 days. Requires a recognized account and conversation. Install downloads about 135 MB of model data from Hugging Face; text embeddings and retrieval then run locally. No disk encryption is provided.',
@@ -165,6 +169,10 @@
       'status.hideOff': 'Hiding incoming messages: off',
     },
     he: {
+      'send.checking': 'בודק לפני שליחה…',
+      'send.anyway': 'שלח בכל זאת',
+      'check.again': 'בדוק שוב',
+      'send.waiting': 'ממתין לתוצאת הבדיקה; השליחה מושהית.',
       'memory.title': 'זיכרון קונטקסט מקומי',
       'memory.enabled': 'שמירת טקסט מאובחן וקונטקסט שנאסף במחשב הזה',
       'memory.hint': 'כבוי כברירת מחדל. שומר גם טיוטות שלא נשלחו וקונטקסט נצפה עד 14 יום, בזיהוי חשבון ושיחה בלבד. ההתקנה מורידה כ־135MB של קובצי מודל מ־Hugging Face; ההטמעה והשליפה מתבצעות מקומית. אין הצפנה עצמאית של הנתונים.',

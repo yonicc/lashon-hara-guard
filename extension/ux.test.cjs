@@ -354,6 +354,8 @@ test('incoming: a switched-off platform sends nothing and releases held messages
   for (const f of ['i18n.js', 'settings.js', 'incoming.js']) vm.runInContext(read(f), ctx);
   let rows = [];
   const sc = ctx.LHG_INCOMING.createScanner({ platform: 'google-chat', findRows: () => rows, hold: () => true });
+  await ctx.LHG_SETTINGS.ready();
+  await flush();
   sc.scan(); // baseline
   const live = holdEl();
   rows = [{ el: live, text: 'הודעה חדשה שעלולה להתפרש' }];
@@ -419,7 +421,10 @@ test('background: userNote (capped, one line) and the UI language reach POST /ch
 test('manifest: i18n.js and settings.js load first everywhere; the action opens the quick popup', () => {
   const m = JSON.parse(read('manifest.json'));
   for (const cs of m.content_scripts) {
-    assert.deepEqual(cs.js.slice(0, 2), ['i18n.js', 'settings.js']);
+    if (cs.run_at === 'document_start') {
+      assert.deepEqual(cs.js, ['early-incoming.js']);
+      assert.deepEqual(cs.matches, ['https://mail.google.com/*']);
+    } else assert.deepEqual(cs.js.slice(0, 2), ['i18n.js', 'settings.js']);
   }
   assert.equal(m.action.default_popup, 'popup.html');
   assert.equal(m.options_page, 'options.html');

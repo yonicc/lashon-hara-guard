@@ -19,6 +19,12 @@
   },
   "content_scripts": [
     {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["early-incoming.js"],
+      "css": ["early-incoming.css"],
+      "run_at": "document_start"
+    },
+    {
       "matches": ["https://web.whatsapp.com/*"],
       "js": ["i18n.js", "settings.js", "context-dom.js", "context-store.js", "context-builder.js", "context-runtime.js", "selectors.js", "memory-content.js", "rules.js", "panel.js", "compose-watch.js", "incoming.js", "content.js"],
       "css": ["content.css"],

@@ -31,8 +31,8 @@ function userNoteOf(raw) {
   return R && typeof R.userNote === 'function' ? R.userNote(raw) : null;
 }
 
-async function check(text, platform, direction, context, confirmedFacts, userNote) {
-  const { proxyUrl, accessKey, lang } = await settings();
+async function check(text, platform, direction, context, confirmedFacts, userNote, config) {
+  const { proxyUrl, accessKey, lang } = config || await settings();
   if (!accessKey) return { alert: 'not_configured' };
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), TIMEOUT_MS);
@@ -81,10 +81,52 @@ if (chrome.commands && chrome.commands.onCommand) {
   });
 }
 
+// Result cache belongs to extension storage, like the existing local memory;
+// it never stores message text or access keys. Hash the complete check inputs.
+const checksInFlight = new Map();
+function canonical(value) {
+  if (Array.isArray(value)) return value.map(canonical);
+  if (!value || typeof value !== 'object') return value;
+  return Object.fromEntries(Object.keys(value).sort().map(k => [k, canonical(value[k])]));
+}
+async function cachedCheck(msg) {
+  const config = await settings();
+  const facts = confirmedFactsOf(msg.confirmedFacts), note = userNoteOf(msg.userNote);
+  const identity = msg.cacheIdentity;
+  // Unknown mailbox identity is deliberately not a reusable cache scope.
+  const reusable = !!(identity?.accountId && identity?.conversationId);
+  const material = JSON.stringify(canonical({ config, identity, text: msg.text,
+    platform: msg.platform, direction: msg.direction, context: msg.cacheContext || msg.context,
+    facts, note, version: 'send-cache-v1' }));
+  const digest = reusable ? await crypto.subtle.digest('SHA-256', new TextEncoder().encode(material)) : null;
+  const key = digest ? 'lhg-check-v1-' + Array.from(new Uint8Array(digest), x => x.toString(16).padStart(2, '0')).join('') : material;
+  if (checksInFlight.has(key)) return checksInFlight.get(key);
+  const work = (async () => {
+    if (reusable && !msg.forceRecheck) {
+      let saved;
+      try { saved = (await chrome.storage.local.get(key))[key]; } catch (_) { /* storage failure is a cache miss */ }
+      if (saved?.expires > Date.now()) return saved.result;
+    }
+    const result = await check(msg.text, msg.platform || 'unknown', msg.direction, msg.context, facts, note, config);
+    if (reusable && ['none', 'warn', 'unsure'].includes(result?.alert) && !result.error && !result.rules?.notChecked) {
+      try {
+        await chrome.storage.local.set({ [key]: { expires: Date.now() + 14 * 86400000, result } });
+        const all = await chrome.storage.local.get(null);
+        const keys = Object.keys(all).filter(k => k.startsWith('lhg-check-v1-'))
+          .sort((a, b) => all[b].expires - all[a].expires);
+        const expired = keys.filter((k, i) => i >= 500 || all[k].expires <= Date.now());
+        if (expired.length) await chrome.storage.local.remove(expired);
+      } catch (_) { /* cache maintenance never replaces the check result */ }
+    }
+    return result;
+  })();
+  checksInFlight.set(key, work);
+  try { return await work; } finally { checksInFlight.delete(key); }
+}
+
 chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
   if (msg && msg.type === 'lhg-check' && typeof msg.text === 'string') {
-    check(msg.text, msg.platform || 'unknown', msg.direction, msg.context, confirmedFactsOf(msg.confirmedFacts), userNoteOf(msg.userNote))
-      .then(sendResponse);
+    cachedCheck(msg).then(sendResponse, () => sendResponse({ alert: 'not_checked' }));
     return true; // async response
   }
   if (msg && msg.type === 'lhg-warm') {

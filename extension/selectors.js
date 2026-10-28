@@ -121,6 +121,7 @@
     // thread renders each message as a [role="listitem"] under a role=list
     // thread root; legacy builds use div[role="main"] .adn rows.
     threadRoot: ['div[role="main"] div[role="list"]', 'div[role="main"]'],
+    sendButton: ['[data-tooltip^="Send"]', '[data-tooltip^="שלח"]', '[aria-label^="Send"]', '[aria-label^="שלח"]', '.T-I.aoO'],
     // One message body in the opened thread. Only treated as a message when
     // it lives inside a real message container (S.gmail.isMessageContainer):
     // a body in the folder LIST is a preview row (tr.zA), never a message.

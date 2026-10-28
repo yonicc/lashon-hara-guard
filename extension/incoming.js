@@ -258,6 +258,7 @@
     label.textContent = t('hold.' + st.phase) + (mech ? ' (' + mech + ')' : '');
     h.appendChild(label);
     if (REVEAL_PHASES.includes(st.phase)) holdButton(h, t('reveal.' + st.phase), onReveal);
+    if (st.phase !== 'pending' && st.recheck) holdButton(h, t('check.again'), st.recheck);
     if ((st.phase === 'warn' || st.phase === 'unsure') && globalThis.LHG_PANEL) {
       holdButton(h, t('hold.why'), () => {
         try { globalThis.LHG_PANEL.renderResult(st.result, { manual: true }); } catch (_e) { /* panel absent */ }
@@ -303,7 +304,7 @@
   // findRows(root) -> [{ el, text, kind? }] candidate message rows in the DOM;
   //   kind 'email' rows are never held (tag only).
   // hold() -> boolean: hide live chat messages until checked (default: setting).
-  function createScanner({ platform, findRows, root = document, hold = () => G.holdEnabled }) {
+  function createScanner({ platform, findRows, root = document, hold = () => G.holdEnabled, beforeScan = () => true }) {
     const S = globalThis.LHG_SELECTORS;
     const seen = new Set();
     // id -> { phase: pending|warn|unsure|not_checked|clear, result, revealed, held, el }
@@ -312,12 +313,13 @@
     // The queue receives a separate, redacted packet, never this local object.
     const localByEl = new WeakMap();
     let baselined = false;
+    let settingsLoaded = !globalThis.LHG_SETTINGS?.ready;
     // On/off switches (settings.js). Absent module = on (tests, old builds).
     const active = () => !globalThis.LHG_SETTINGS || globalThis.LHG_SETTINGS.isActive(platform);
     const queue = makeQueue(
       (job) =>
         Promise.resolve(job.message).then((message) => new Promise((resolve) => {
-          chrome.runtime.sendMessage(
+          (globalThis.LHG_CONTEXT_RUNTIME?.sendPrepared || chrome.runtime.sendMessage.bind(chrome.runtime))(
             message,
             (r) => resolve(chrome.runtime.lastError ? { alert: 'not_checked' } : r || { alert: 'not_checked' }),
           );
@@ -359,6 +361,8 @@
     }
 
     function scan() {
+      if (!settingsLoaded) return;
+      if (!beforeScan()) return;
       if (!active()) {
         baselined = false; // re-enabled later: what is on screen then is history
         return;
@@ -377,11 +381,12 @@
         const text = (row.text || '').trim();
         globalThis.LHG_MEMORY?.context(platform, row.el, text,
           S.isOutgoing?.(row.el, {localContext:row.localContext}) ? 'outgoing' : 'incoming');
-        if (text.length < MIN_CHARS) continue;
+        if (text.length < MIN_CHARS) { row.el?.setAttribute?.('data-lhg-scanned', 'true'); continue; }
         // The user's OWN message is never incoming (one rule: S.isOutgoing;
         // adapters also pre-filter, this guard covers every platform).
         if (row.kind !== 'email' && S.isOutgoing && S.isOutgoing(row.el, { localContext: row.localContext })) continue;
-        const id = S.weakId(platform, row.el, text);
+        const id = S.weakId(platform, row.el, text) + (globalThis.LHG_CONTEXT_RUNTIME?.contentKey
+          ? ':' + globalThis.LHG_CONTEXT_RUNTIME.contentKey(platform, row.el, text) : '');
         // Just sent from this frame's compose box (same text, last seconds):
         // the page's echo of the user's message. Marked seen so it is not
         // picked up as incoming once the window has passed.
@@ -410,14 +415,27 @@
       }
       if (!baselined) {
         baselined = true;
-        return; // history at load time: marked seen, never sent
+        // Mail opening is an explicit read action. Chat history remains baseline.
+        if (platform !== 'gmail') return;
+        for (let i = fresh.length - 1; i >= 0; i--) if (fresh[i].kind !== 'email') fresh.splice(i, 1);
       }
-      if (fresh.length > BURST_LIMIT) return; // another chat / older history rendered: not live
+      baselined = true;
+      if (fresh.length > BURST_LIMIT && !fresh.every(row => row.kind === 'email')) return; // chat burst remains history
       for (const row of fresh) {
-        const held = !!hold() && row.kind !== 'email';
+        const held = !!hold();
         state.set(row.id, { phase: 'pending', result: null, revealed: false, held, el: row.el, els: [row.el] });
+        state.get(row.id).recheck = () => {
+          const st = state.get(row.id);
+          if (!st || st.phase === 'pending') return;
+          st.phase = 'pending'; st.revealed = false; apply(row.id);
+          const payload = { type: 'lhg-check', platform, direction: 'incoming', text: row.text.slice(0, 2000), forceRecheck: true };
+          const done = r => { st.result = r; st.phase = phaseOf(r); apply(row.id); };
+          if (globalThis.LHG_CONTEXT_RUNTIME) globalThis.LHG_CONTEXT_RUNTIME.send(payload, done, row.el);
+          else chrome.runtime.sendMessage(payload, done);
+        };
         for (const d of pendingDup) if (d.id === row.id) addEl(row.id, d.el);
         apply(row.id); // before the next paint when called from observe()
+        row.el?.setAttribute?.('data-lhg-scanned', 'true');
         const accepted = queue.push({
           text: row.text.slice(0, 2000),
           message: row.message,
@@ -439,7 +457,7 @@
     try {
       if (globalThis.LHG_SETTINGS) {
         globalThis.LHG_SETTINGS.onChange(() => { if (!active()) repaintAll(); else scan(); });
-        globalThis.LHG_SETTINGS.ready?.().then(() => scan());
+        globalThis.LHG_SETTINGS.ready?.().then(() => { settingsLoaded = true; scan(); });
       }
     } catch (_e) { /* ignore */ }
     try { if (globalThis.LHG_I18N) globalThis.LHG_I18N.onChange(repaintAll); } catch (_e) { /* ignore */ }
@@ -477,6 +495,12 @@
       lastCost = lastEnd - t0;
     };
     new MutationObserver((records) => {
+      // Gmail's CSS guard covers unprocessed bodies even during throttling.
+      // Scan in the mutation microtask before paint, including text changes.
+      if (typeof location !== 'undefined' && location.hostname === 'mail.google.com') {
+        scanner.scan();
+        return;
+      }
       if (scheduled) return;
       for (const rec of records) {
         for (const n of rec.addedNodes) {
@@ -487,7 +511,7 @@
           }
         }
       }
-    }).observe(target, { childList: true, subtree: true });
+    }).observe(target, { childList: true, characterData: true, subtree: true });
     setInterval(() => scanner.scan(), 15000);
   }
 

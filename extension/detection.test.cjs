@@ -22,6 +22,7 @@ function load({ host, pathname = '/', top = true, html, adapter }) {
   const sent = [];
   const ctx = vm.createContext({
     setTimeout, clearTimeout, setInterval: () => 0, Date, URL,
+    KeyboardEvent: class { constructor(type, options) { this.type = type; Object.assign(this, options); } },
     document,
     location: { hostname: host, pathname, href: 'https://' + host + pathname },
     chrome: {
@@ -179,7 +180,12 @@ test('(5) Gmail: an e-mail draft is checked as outgoing (quoted history and sign
   typeInto(t.document, search, 'חיפוש טקסט כלשהו ארוך מספיק');
   await tick(2700);
   const out = t.checks('outgoing');
-  assert.equal(out.length, 1, 'exactly one draft check');
+  assert.equal(out.length, 0, 'typing is silent');
+  const send = append(dlg, '<div role="button" data-tooltip="Send">Send</div>');
+  t.document.dispatch('click', send);
+  await tick();
+  out.push(...t.checks('outgoing'));
+  assert.equal(out.length, 1, 'exactly one send check');
   assert.equal(out[0].platform, 'gmail');
   assert.equal(out[0].text, 'הוא תמיד מאחר ואי אפשר לסמוך עליו בכלל');
   assert.equal(t.checks('incoming').length, 0, 'the draft is not an incoming mail');
@@ -191,6 +197,10 @@ test('(5) Gmail: an inline reply textbox inside a compose container is a draft t
     '<div class="ip adB"><div id="r" role="textbox" contenteditable="true" g_editable="true"></div></div>');
   typeInto(t.document, reply.querySelector('#r'), 'תודה, אבל הוא באמת לא יודע כלום');
   await tick(2700);
+  assert.equal(t.checks('outgoing').length, 0, 'typing reply is silent');
+  append(reply, '<div role="button" data-tooltip="Send">Send</div>');
+  t.document.dispatch('keydown', reply.querySelector('#r'), { key: 'Enter', ctrlKey: true });
+  await tick();
   assert.equal(t.checks('outgoing').length, 1);
   assert.equal(t.checks('outgoing')[0].platform, 'gmail');
 });
@@ -237,6 +247,9 @@ test('(5) Gmail chat frame: Chat watcher still owns the Chat box; e-mail draft w
   const t = load({ host: 'mail.google.com', top: false, html: CHAT_AREA, adapter: 'content-google.js' });
   typeInto(t.document, t.document.querySelector('#compose'), 'וואו, איזה גאון, שוב באיחור');
   await tick(1400);
+  assert.equal(t.checks('outgoing').length, 0, 'typing Chat is silent');
+  t.document.dispatch('keydown', t.document.querySelector('#compose'), { key: 'Enter' });
+  await tick();
   const out = t.checks('outgoing');
   assert.equal(out.length, 1);
   assert.equal(out[0].platform, 'google-chat');

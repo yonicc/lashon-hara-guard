@@ -428,6 +428,15 @@
         else hide();
     }
     if (p) appendRules(p, r, opts);
+    if (p && (opts.onRecheck || (opts.onApprove && ['warn', 'unsure'].includes(r?.alert)))) {
+      const action = (key, fn) => {
+        const b = document.createElement('button');
+        b.type = 'button'; b.className = 'lhg-action'; b.textContent = t(key);
+        b.addEventListener('click', fn); p.appendChild(b);
+      };
+      if (opts.onRecheck) action('check.again', opts.onRecheck);
+      if (opts.onApprove && ['warn', 'unsure'].includes(r?.alert)) action('send.anyway', opts.onApprove);
+    }
   }
 
   // One check (compose, manual or free note) with the conversation's stored
@@ -441,18 +450,21 @@
     const conv = R ? R.conversationKey(payload.platform, el) : null;
     const current = () => (typeof opts.isCurrent === 'function' ? opts.isCurrent() : true);
     const { userNote, ...base } = payload;
-    lastCheck = { payload: base, el };
+    lastCheck = { payload: base, el, opts };
     if (parts) chromeText();
     // answered: a re-check after the user answered; its result is always shown
     // (even "none"), so the user sees the outcome of the answer.
-    const go = (facts, answered = false) => {
-      const msg = R ? R.withAnswers(payload, facts) : payload;
+    const go = (facts, answered = false, forceRecheck = false) => {
+      const msg = { ...(R ? R.withAnswers(payload, facts) : payload), ...(forceRecheck ? { forceRecheck: true } : {}) };
       send(msg, (r) => {
         if (!current()) return;
         const res = chrome.runtime.lastError ? { alert: 'not_checked' } : r || { alert: 'not_checked' };
+        if (typeof opts.onResult === 'function') opts.onResult(res);
         renderResult(res, {
           manual: !!opts.manual || answered || !!userNote,
           userNote: userNote || '',
+          onApprove: opts.onApprove,
+          onRecheck: () => { if (current()) { show('checking', t('recheck'), []); go(facts, true, true); } },
           onAnswer: R
             ? (factId, value) => {
                 Promise.resolve(R.saveAnswer(conv, factId, value, msg.confirmedFacts || {})).then((all) => {
@@ -478,7 +490,7 @@
     parts.note.value = '';
     if (lastCheck) {
       present(() => show('checking', t('note.sending'), []));
-      check({ ...lastCheck.payload, userNote: note }, lastCheck.el, { manual: true });
+      check({ ...lastCheck.payload, userNote: note }, lastCheck.el, { ...lastCheck.opts, manual: true });
       return;
     }
     present(() => show('checking', t('checkingText'), []));

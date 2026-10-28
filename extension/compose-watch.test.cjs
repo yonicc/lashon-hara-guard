@@ -94,7 +94,7 @@ test('incoming: the compose box is never scanned or tagged (Google Chat draft bu
   assert.equal(scanner.seenCount(), 0, 'the draft is not treated as an incoming message');
 });
 
-test('compose watcher: sends one outgoing check after the pause, nothing for short text', async () => {
+test('compose watcher: typing never checks; Enter starts an outgoing check', async () => {
   const listeners = {};
   const sent = [];
   const shown = [];
@@ -115,6 +115,8 @@ test('compose watcher: sends one outgoing check after the pause, nothing for sho
   listeners.input({ target: { isContentEditable: true } }); // not the compose box: ignored
   listeners.input({ target: box });
   await new Promise((r) => setTimeout(r, 1400));
+  assert.equal(sent.filter((m) => m.type === 'lhg-check').length, 0);
+  listeners.keydown({ type: 'keydown', key: 'Enter', target: box, preventDefault() {}, stopImmediatePropagation() {} });
   const checks = sent.filter((m) => m.type === 'lhg-check');
   assert.equal(checks.length, 1);
   assert.equal(checks[0].direction, 'outgoing');

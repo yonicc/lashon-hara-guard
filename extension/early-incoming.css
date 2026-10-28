@@ -1,0 +1,5 @@
+/* Installed at document_start: no unprocessed Gmail body is painted. */
+html:not([data-lhg-early="off"]) :is(.adn, [data-message-id], [data-legacy-message-id], .ii.gt) .a3s:not([data-lhg-scanned]):not([contenteditable], [contenteditable] *, .zA *),
+html:not([data-lhg-early="off"]) :is(.adn, [data-message-id], [data-legacy-message-id], .ii.gt) .a3s:not([data-lhg-scanned]):not([contenteditable], [contenteditable] *, .zA *) * {
+  visibility: hidden !important;
+}

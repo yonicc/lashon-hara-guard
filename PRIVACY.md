@@ -11,12 +11,13 @@ Updated: 2026-10-28. Applies to the browser extension and its default checking s
 ### What stays in your browser
 
 - Settings, access token, service URL, language, platform switches and panel position/size are stored in `chrome.storage.local`; LHG does not use Chrome storage sync for these settings.
+- Check results also use extension-local storage, with hashed account/message/content/context/configuration keys, a 14-day reuse limit and at most 500 entries after maintenance. Results can contain explanations or quoted evidence. Errors are not cached as successful results. Clear extension storage to delete this cache; explicit Check again bypasses it. Local-memory model installation is not required for result reuse.
 - The context component uses a local IndexedDB database named `lhg-context`, with an in-memory fallback. It can hold conversation identifiers, participant mappings, recent message excerpts, facts and relationships. IndexedDB used by content scripts is browser/site storage, not a separately encrypted extension vault.
 - Persisted message excerpts are limited to 1,000 characters and 30 messages per conversation. The current cleanup runs when the context runtime starts and removes message records older than 14 days. This is not a timed deletion guarantee for all local data: participant, conversation, fact and relationship records do not share that message expiry.
 
 ### What is sent and why
 
-When configured and enabled, LHG can automatically check incoming messages and drafts on supported platforms, as well as text you check manually. Platform monitoring is enabled by default. Checking is not limited to text you have already sent.
+When configured and enabled, LHG can automatically check incoming messages on supported platforms, drafts on an attempted send, and text you check manually. Typing alone does not start a draft check. Platform monitoring is enabled by default. Checking is not limited to text you have already sent.
 
 A `/check` request sends the message text, platform, direction, language, any supplied user note (up to 500 characters), answers to clarification questions, and available context. Context can include up to five previous message excerpts of up to 300 characters each, participant references, roles, relationships and facts.
 
@@ -49,6 +50,7 @@ For privacy questions or requests concerning remote records, contact **yoni@city
 ### מה נשמר בדפדפן
 
 - הגדרות, טוקן גישה, כתובת השירות, שפה, מתגי פלטפורמות ומיקום וגודל החלונית נשמרים ב־`chrome.storage.local`, ללא שימוש של LHG בסנכרון ההגדרות של Chrome.
+- תוצאות בדיקה נשמרות גם באחסון המקומי של התוסף, במפתחות מגובבים לפי חשבון, מזהי הודעה ושיחה, תוכן, הקשר והגדרות הבדיקה. שימוש חוזר מוגבל ל־14 יום ולעד 500 רשומות לאחר ניקוי; תוצאה עשויה לכלול הסבר או ציטוט. שגיאות אינן נשמרות כהצלחה. ניקוי אחסון התוסף מוחק מטמון זה, וכפתור בדיקה חוזרת עוקף אותו. שימוש חוזר בתוצאות אינו דורש התקנת מודל הזיכרון המקומי.
 - רכיב הקונטקסט משתמש ב־IndexedDB מקומי בשם `lhg-context`, עם חלופה בזיכרון. הוא עשוי להכיל מזהי שיחות, מיפוי משתתפים, קטעי הודעות אחרונות, עובדות ויחסים. אחסון IndexedDB מסקריפטי תוכן הוא אחסון דפדפן המשויך לאתר, ולא כספת נפרדת ומוצפנת של התוסף.
 - קטעי הודעות הנשמרים מוגבלים ל־1,000 תווים ול־30 הודעות לשיחה. בעת הפעלת רכיב הקונטקסט מופעל ניקוי רשומות הודעה בנות יותר מ־14 יום. אין בכך הבטחת מחיקה מתוזמנת לכל המידע: רשומות שיחות, משתתפים, עובדות ויחסים אינן כפופות לאותה תפוגה.
 - החל מגרסה 0.10 קיימת בנוסף אפשרות לזיכרון מקומי מרכזי של התוסף, כבויה כברירת מחדל. לאחר הפעלתה והתקנת מודל החיפוש נשמרים טקסטים משדות מאובחנים, כולל טיוטות שלא נשלחו, וקונטקסט שנאסף ממיילים ושיחות, רק כשזוהה חשבון. שיחה ללא מזהה מקבלת עבור טיוטה תחום מקומי ייחודי לשדה ולסשן; כותרת שיחה אינה משמשת מזהה.
@@ -57,7 +59,7 @@ For privacy questions or requests concerning remote records, contact **yoni@city
 
 ### מה נשלח ולשם מה
 
-לאחר הגדרת הגישה, כאשר הניטור פעיל, התוסף עשוי לבדוק אוטומטית הודעות נכנסות וטיוטות בפלטפורמות הנתמכות, וכן טקסט שנבחר לבדיקה ידנית. הניטור בפלטפורמות מופעל כברירת מחדל. הבדיקה אינה מוגבלת להודעות שכבר נשלחו.
+לאחר הגדרת הגישה, כאשר הניטור פעיל, התוסף עשוי לבדוק אוטומטית הודעות נכנסות בפלטפורמות הנתמכות, טיוטות בעת ניסיון שליחה, וכן טקסט שנבחר לבדיקה ידנית. הקלדה לבדה אינה מפעילה בדיקת טיוטה. הניטור בפלטפורמות מופעל כברירת מחדל. הבדיקה אינה מוגבלת להודעות שכבר נשלחו.
 
 בקשת `/check` כוללת את טקסט ההודעה, הפלטפורמה, הכיוון, השפה, הבהרת משתמש אם נמסרה (עד 500 תווים), תשובות לשאלות בירור והקשר זמין. ההקשר עשוי לכלול עד חמישה קטעי הודעות קודמות בני עד 300 תווים, מזהים חלופיים של משתתפים, תפקידים, יחסים ועובדות.
 
