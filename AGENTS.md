@@ -79,6 +79,7 @@
 
 - e8 (docs/39): a `modal run` WITHOUT `--detach` dies with the client: YONI-PC dropped off and both H100 apps stopped (`ConflictError: App state is APP_STATE_STOPPED`). Launch `--detach`, keep `checkpoint_every`, resume with `natural_modal.py --resume` (same tag, identical inputs), read `comparison.json` from the Volume.
 - Synthetic fact data: the blind verifier must use the gold's reading of a fact. The strict "do not infer" extractor prompt rejected natural warnings ("watch out for him") as purpose and filtered out exactly the rows needed. DictaLM-2.0 has no system role: `pilot_modal.prompt` folds it into the user turn.
+- Data-v2 integration: cherry-picking commits that add LF attributes after data files can leave pre-existing CRLF worktree bytes despite a clean Git diff. Verify `test_v2_pipeline.py` and `git ls-files --eol`; restore only clean, task-owned affected files from HEAD under the final attributes before trusting pinned hashes. Never change manifest hashes merely to match stale checkout endings.
 
 - GGUF (docs/40): convert_hf_to_gguf b4500 fails on DictaLM with `struct.error: required argument is not an integer` because transformers 4.55 saved null hparams; stage config.json without null keys (`gguf_modal.py`). Q4_K_M kept JSON intact (0 format errors) unlike Torch dynamic int8.
 
