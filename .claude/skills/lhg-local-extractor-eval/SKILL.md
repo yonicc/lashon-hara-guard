@@ -108,3 +108,13 @@ do not label fact precision as a percentage of complete cloud capability.
   measure against a frozen new set. More epochs alone are not an established fix.
 - CPU FP32 e4 parity held in only eight cases; median 31.9s and peak 21.4GiB
   are research measurements, not a usable installer or full local pipeline.
+
+## Improved-data 4B/7B comparison
+
+For management-only work from YONI-PC, richer synthetic phrases, or comparing
+the previous pilot with new LoRA candidates, use
+[docs/38-local-extractor-diverse-training.md](../../../docs/38-local-extractor-diverse-training.md).
+It owns the Linux launch/recovery commands, frozen v2 data, per-set results,
+checkpoint smoke test and lightweight-client JSON transport lessons.
+Heavy training and the real engine validator run in Modal; the host needs no
+Torch, model weights or npm dependencies for this workflow.

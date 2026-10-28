@@ -51,7 +51,7 @@ def translate(rows):
 
 @app.function(image=image,gpu="A10G",cpu=4,memory=16384,timeout=1800,retries=0,
               max_containers=1,volumes={"/models":vol})
-def extract(translated,contract,system,trained_tag=None):
+def extract(translated,contract,system,trained_tag=None,run_label=None):
     import torch
     from transformers import AutoTokenizer,AutoModelForCausalLM
     from huggingface_hub import model_info
@@ -68,22 +68,23 @@ def extract(translated,contract,system,trained_tag=None):
         mapped.append({**p,"english_raw":p["raw"],"upstream_errors":errs,
           "raw":json.dumps({k:[v[0],r["original_text"]] for k,v in accepted.items()},ensure_ascii=False),
           "evidence_mapping":"whole original message; coarse, not semantic verification"})
-    label="qwen3-4b-lora-via-english" if trained_tag else "qwen3-4b-via-english"
+    label=run_label or ("qwen3-4b-lora-via-english" if trained_tag else "qwen3-4b-via-english")
     return {"runs":{label:mapped},"revisions":{source:rev},"trained_tag":trained_tag,
       "gpu_function_seconds":time.time()-start,"prompt":system}
 
 @app.local_entrypoint()
 def main(tag: str="e3-20261028",reuse_translation: bool=False,translation_tag: str="",
-         trained_tag: str=""):
+         trained_tag: str="",candidate_label: str=""):
     load=lambda n:[json.loads(s) for s in (ROOT/n).read_text(encoding="utf-8").splitlines()]
     rows=[r for r in load("legacy.jsonl")+load("fresh.jsonl")+load("confirmation.jsonl") if r["language"]=="he"]
     contract=json.loads((ROOT/"contract.json").read_text(encoding="utf-8"))
     folder=ROOT/"results";folder.mkdir(exist_ok=True)
+    if (folder/f"{tag}-gpu.json").exists():raise ValueError("Refuse result overwrite")
     if not reuse_translation:
         t=translate.remote(rows)
         (folder/f"{tag}-translations.json").write_text(json.dumps(t,ensure_ascii=False,indent=1),encoding="utf-8")
     else:t=json.loads((folder/f"{translation_tag or tag}-translations.json").read_text(encoding="utf-8"))
-    r=extract.remote(t["rows"],contract,instruction(contract),trained_tag or None);r["tag"]=tag
+    r=extract.remote(t["rows"],contract,instruction(contract),trained_tag or None,candidate_label or None);r["tag"]=tag
     r["translation_tag"]=translation_tag or tag
     r["evaluation_rows"]=rows
     (folder/f"{tag}-gpu.json").write_text(json.dumps(r,ensure_ascii=False,indent=1),encoding="utf-8")

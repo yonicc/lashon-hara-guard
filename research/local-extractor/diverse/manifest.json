@@ -1,0 +1,12 @@
+{
+  "seed": 71,
+  "train_rows": 889,
+  "sealed_rows": 78,
+  "evaluation_families": 26,
+  "status": "Synthetic; same agent authors train/eval; agent_reviewed; human_review_pending. Sealed before new predictions.",
+  "data_strategy": "Natural authored phrases, explicit source spans, multi-fact combinations, quotation/hypothetical/question contrasts; 160 old templates.",
+  "sha256": {
+    "sealed.jsonl": "0fd948e27adfb86e999a0b91545ab889f104f6165f511618ca28e1241ebe6aa4",
+    "train.jsonl": "fe2ffc9a51fcdd75143296cad27634f37c34582bcfb1e766a2a7b8f41802df98"
+  }
+}

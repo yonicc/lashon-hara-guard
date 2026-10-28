@@ -1,5 +1,10 @@
 # Local fact extraction pilot
 
+Improved-data 4B/7B comparison from a lightweight YONI-PC client:
+[docs/38](../../docs/38-local-extractor-diverse-training.md), `diverse_modal.py`,
+`audit_diverse.py`, `compare_diverse.py`, and `validate_modal.py`.
+The original measurements and reproduction below remain unchanged.
+
 Offline research only. This folder neither installs a browser model nor changes
 the proxy, Oracle gate, extension, /check, or any deployed service.
 See docs/37-local-extractor-pilot.md for measured results and limitations.

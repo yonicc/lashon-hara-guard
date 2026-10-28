@@ -1,0 +1,570 @@
+{
+ "train": 889,
+ "evaluation": 78,
+ "families": 26,
+ "train_languages": {
+  "he": 379,
+  "en": 363,
+  "mixed": 147
+ },
+ "eval_languages": {
+  "he": 26,
+  "en": 26,
+  "mixed": 26
+ },
+ "empty_train": 436,
+ "empty_eval": 21,
+ "review_sample": [
+  {
+   "id": "scope-90-1",
+   "family": "scope-90",
+   "language": "en",
+   "text": "Imagine that I wrote \"I addressed him directly about this incident\". This is a hypothetical example only.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {}
+  },
+  {
+   "id": "neutral-0",
+   "family": "neutral-0",
+   "language": "he",
+   "text": "אני די בטוח שהוא עשה את זה, אבל אין לי פרטים נוספים.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {}
+  },
+  {
+   "id": "scope-123-2",
+   "family": "scope-123",
+   "language": "en",
+   "text": "Would it be accurate to say \"A private conversation can resolve it instead of publication\"? I am asking, not stating that this is true.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {}
+  },
+  {
+   "id": "scope-110-0",
+   "family": "scope-110",
+   "language": "en",
+   "text": "Someone in the group wrote: \"I have no doubt he will reject my rebuke\". I do not know their situation.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {}
+  },
+  {
+   "id": "scope-57-2",
+   "family": "scope-57",
+   "language": "en",
+   "text": "Would it be accurate to say \"I was not there; other people told me the story\"? I am asking, not stating that this is true.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {}
+  },
+  {
+   "id": "combo-49",
+   "family": "combo-49",
+   "language": "mixed",
+   "text": "פניתי אליו ישירות בנושא הזה.\nI only read the report; I did not see the event.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {
+    "rebuke": [
+     true,
+     "פניתי אליו ישירות בנושא הזה."
+    ],
+    "firsthand": [
+     false,
+     "I only read the report; I did not see the event."
+    ]
+   }
+  },
+  {
+   "id": "scope-57-1",
+   "family": "scope-57",
+   "language": "en",
+   "text": "Imagine that I wrote \"I was not there; other people told me the story\". This is a hypothetical example only.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {}
+  },
+  {
+   "id": "combo-190",
+   "family": "combo-190",
+   "language": "mixed",
+   "text": "I was there and saw the incident myself. רצוני שהנפגע יקבל סיוע.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {
+    "firsthand": [
+     true,
+     "I was there and saw the incident myself."
+    ],
+    "purpose": [
+     true,
+     "רצוני שהנפגע יקבל סיוע."
+    ]
+   }
+  },
+  {
+   "id": "scope-9-1",
+   "family": "scope-9",
+   "language": "en",
+   "text": "Imagine that I wrote \"I am sharing this solely for a laugh\". This is a hypothetical example only.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {}
+  },
+  {
+   "id": "scope-13-2",
+   "family": "scope-13",
+   "language": "en",
+   "text": "Would it be accurate to say \"I sent this for entertainment, not to help anyone\"? I am asking, not stating that this is true.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {}
+  },
+  {
+   "id": "train-he-326",
+   "language": "he",
+   "text": "העובד לא השלים את המשימה. אין לי שום רצון לנקום בו. אינני יודע מה המטרה שלי. הוא לא יקבל תוכחה.",
+   "gold": {
+    "revenge": [
+     false,
+     "אין לי שום רצון לנקום בו"
+    ],
+    "rejects": [
+     true,
+     "הוא לא יקבל תוכחה"
+    ]
+   },
+   "source": "synthetic_templates",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "train"
+  },
+  {
+   "id": "train-en-357",
+   "language": "en",
+   "text": "The supplier delivered a broken box. I do not know my purpose.",
+   "gold": {},
+   "source": "synthetic_templates",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "train"
+  },
+  {
+   "id": "combo-164",
+   "family": "combo-164",
+   "language": "mixed",
+   "text": "I am not acting out of revenge or hatred. עוד לא דיברתי איתו על ההתנהגות הזאת.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {
+    "revenge": [
+     false,
+     "I am not acting out of revenge or hatred."
+    ],
+    "rebuke": [
+     false,
+     "עוד לא דיברתי איתו על ההתנהגות הזאת."
+    ]
+   }
+  },
+  {
+   "id": "div-revenge-3-False-he",
+   "family": "div-revenge-3-False",
+   "language": "he",
+   "text": "אין בי רצון להחזיר לו.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {
+    "revenge": [
+     false,
+     "אין בי רצון להחזיר לו."
+    ]
+   }
+  },
+  {
+   "id": "div-rejects-2-True-he",
+   "family": "div-rejects-2-True",
+   "language": "he",
+   "text": "אני יודע ששום פנייה לתיקון לא תתקבל אצלו.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {
+    "rejects": [
+     true,
+     "אני יודע ששום פנייה לתיקון לא תתקבל אצלו."
+    ]
+   }
+  },
+  {
+   "id": "combo-200",
+   "family": "combo-200",
+   "language": "he",
+   "text": "העברתי הלאה בלי לברר את נכונות המידע. זו האפשרות היחידה שנותרה כדי למנוע את הנזק.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {
+    "verified": [
+     false,
+     "העברתי הלאה בלי לברר את נכונות המידע."
+    ],
+    "no_alternative": [
+     true,
+     "זו האפשרות היחידה שנותרה כדי למנוע את הנזק."
+    ]
+   }
+  },
+  {
+   "id": "combo-56",
+   "family": "combo-56",
+   "language": "he",
+   "text": "שלחתי את זה בשביל הצחוקים, לא בשביל לעזור. לפני שכתבתי, וידאתי שהפרטים בדיווח נכונים.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {
+    "purpose": [
+     false,
+     "שלחתי את זה בשביל הצחוקים, לא בשביל לעזור."
+    ],
+    "verified": [
+     true,
+     "לפני שכתבתי, וידאתי שהפרטים בדיווח נכונים."
+    ]
+   }
+  },
+  {
+   "id": "scope-87-0",
+   "family": "scope-87",
+   "language": "he",
+   "text": "מישהו בקבוצה כתב: \"לא שוחחתי עם האדם שעליו אני מספר\". איני יודע מה הרקע שלו.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {}
+  },
+  {
+   "id": "scope-81-2",
+   "family": "scope-81",
+   "language": "he",
+   "text": "האם נכון לכתוב \"עוד לא דיברתי איתו על ההתנהגות הזאת\"? אני שואל ולא טוען שזה המצב.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {}
+  },
+  {
+   "id": "combo-96",
+   "family": "combo-96",
+   "language": "en",
+   "text": "My intention is to make him look ridiculous. I checked the details of this report with the source.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {
+    "intent": [
+     true,
+     "My intention is to make him look ridiculous."
+    ],
+    "purpose": [
+     false,
+     "My intention is to make him look ridiculous."
+    ],
+    "verified": [
+     true,
+     "I checked the details of this report with the source."
+    ]
+   }
+  },
+  {
+   "id": "scope-98-0",
+   "family": "scope-98",
+   "language": "he",
+   "text": "מישהו בקבוצה כתב: \"ברור לי שהוא יסרב לשמוע תוכחה\". איני יודע מה הרקע שלו.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {}
+  },
+  {
+   "id": "scope-75-0",
+   "family": "scope-75",
+   "language": "en",
+   "text": "Someone in the group wrote: \"I have not checked the facts\". I do not know their situation.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {}
+  },
+  {
+   "id": "scope-53-2",
+   "family": "scope-53",
+   "language": "he",
+   "text": "האם נכון לכתוב \"אין לי ידיעה ממקור ראשון\"? אני שואל ולא טוען שזה המצב.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {}
+  },
+  {
+   "id": "combo-150",
+   "family": "combo-150",
+   "language": "en",
+   "text": "I only read the report; I did not see the event. I have not approached him about this matter so far.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {
+    "firsthand": [
+     false,
+     "I only read the report; I did not see the event."
+    ],
+    "rebuke": [
+     false,
+     "I have not approached him about this matter so far."
+    ]
+   }
+  },
+  {
+   "id": "div-rejects-2-False-he",
+   "family": "div-rejects-2-False",
+   "language": "he",
+   "text": "אני יודע שהוא מוכן להקשיב להערות.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {
+    "rejects": [
+     false,
+     "אני יודע שהוא מוכן להקשיב להערות."
+    ]
+   }
+  },
+  {
+   "id": "scope-126-1",
+   "family": "scope-126",
+   "language": "en",
+   "text": "Imagine that I wrote \"Only this warning can prevent the harm; there is no other way\". This is a hypothetical example only.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {}
+  },
+  {
+   "id": "combo-227",
+   "family": "combo-227",
+   "language": "mixed",
+   "text": "This happened to me personally.\nשלחתי את זה בשביל הצחוקים, לא בשביל לעזור.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {
+    "firsthand": [
+     true,
+     "This happened to me personally."
+    ],
+    "purpose": [
+     false,
+     "שלחתי את זה בשביל הצחוקים, לא בשביל לעזור."
+    ]
+   }
+  },
+  {
+   "id": "scope-69-1",
+   "family": "scope-69",
+   "language": "he",
+   "text": "נניח שאכתוב \"עדיין לא אימתתי דבר\". זו דוגמה היפותטית בלבד.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {}
+  },
+  {
+   "id": "scope-3-2",
+   "family": "scope-3",
+   "language": "he",
+   "text": "האם נכון לכתוב \"אין כאן שום ניסיון לתקן, בא לי לפרוק\"? אני שואל ולא טוען שזה המצב.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {}
+  },
+  {
+   "id": "div-rebuke-0-True-en",
+   "family": "div-rebuke-0-True",
+   "language": "en",
+   "text": "I already spoke to him about this conduct and asked him to fix it.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {
+    "rebuke": [
+     true,
+     "I already spoke to him about this conduct and asked him to fix it."
+    ]
+   }
+  },
+  {
+   "id": "div-verified-1-False-he",
+   "family": "div-verified-1-False",
+   "language": "he",
+   "text": "לא בדקתי את העובדות.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {
+    "verified": [
+     false,
+     "לא בדקתי את העובדות."
+    ]
+   }
+  },
+  {
+   "id": "scope-56-2",
+   "family": "scope-56",
+   "language": "en",
+   "text": "Would it be accurate to say \"I was there and saw the incident myself\"? I am asking, not stating that this is true.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {}
+  },
+  {
+   "id": "train-mixed-69",
+   "language": "mixed",
+   "text": "העובד left early. אין לי רצון for revenge. אני רוצה to humiliate him.",
+   "gold": {
+    "revenge": [
+     false,
+     "אין לי רצון for revenge"
+    ],
+    "intent": [
+     true,
+     "אני רוצה to humiliate him"
+    ]
+   },
+   "source": "synthetic_templates",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "train"
+  },
+  {
+   "id": "train-he-279",
+   "language": "he",
+   "text": "המרצה הפסיק באמצע השיעור. אולי אבדוק את הדיווח מחר. אולי ארצה לפגוע בו.",
+   "gold": {},
+   "source": "synthetic_templates",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "train"
+  },
+  {
+   "id": "scope-110-1",
+   "family": "scope-110",
+   "language": "en",
+   "text": "Imagine that I wrote \"I have no doubt he will reject my rebuke\". This is a hypothetical example only.",
+   "split": "diverse_train",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "source": "agent_authored_diverse_v2",
+   "gold": {}
+  },
+  {
+   "id": "train-mixed-137",
+   "language": "mixed",
+   "text": "העובד left early. אולי ארצה to hurt him. אולי אדבר איתו about this.",
+   "gold": {},
+   "source": "synthetic_templates",
+   "synthetic": true,
+   "agent_reviewed": true,
+   "human_review_pending": true,
+   "split": "train"
+  }
+ ],
+ "review_note": "Provisional same-agent authorship and review. Sample exported for semantic inspection; no human review.",
+ "sha256": {
+  "diverse/train.jsonl": "fe2ffc9a51fcdd75143296cad27634f37c34582bcfb1e766a2a7b8f41802df98",
+  "diverse/sealed.jsonl": "0fd948e27adfb86e999a0b91545ab889f104f6165f511618ca28e1241ebe6aa4"
+ }
+}

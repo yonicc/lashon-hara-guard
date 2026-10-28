@@ -1,0 +1,39 @@
+{
+  "scope": "Offline synthetic research; no deploy; no changes to proxy, gate, Oracle or extension.",
+  "credential_migration": "User-authorized copy of Modal profile from BI-1 to YONI-PC with RSA-OAEP encryption in transit; no credential content logged. Final file owner yoni, mode0600. Transfer key and runner temporary ciphertext removed.",
+  "management_client": "Isolated Modal-only venv on YONI-PC. No Torch/model/npm installation on host. nice15 CLI processes observed at ~1% CPU and ~67MB RSS each; not a historical CPU profile.",
+  "runs": [
+    {
+      "app": "ap-nTSZ5VqJVd9Q7IGy174p6q",
+      "tag": "e6-diverse-4b-20261028",
+      "status": "preempted during epoch0; automatic retry rejected existing partial tag",
+      "app_wall_seconds": 573
+    },
+    {
+      "app": "ap-BnrNl6XAEqlEP95z20eqIG",
+      "tag": "e6-diverse-7b-20261028",
+      "status": "training and Volume artifact complete; local RPC failed due TorchVersion metadata dependency. Recovered plain comparison.json from Volume; no retraining."
+    },
+    {
+      "app": "ap-ZL6KAqkIkmwa4thWePj5O5",
+      "status": "Duplicate 7B launch attempt rejected by local reserved-tag guard before experiment GPU call."
+    },
+    {
+      "app": "ap-a3aig2AozXBhclnqupNMTg",
+      "tag": "e6r-diverse-4b-20261028",
+      "status": "Completed restart with checkpoints. Comparison JSON recovered after the same TorchVersion RPC failure; no extra training."
+    }
+  ],
+  "infrastructure_tests": {
+    "checkpoint_import_failure": "Stopped exact smoke app ap-su94FMgzYSLMkyhE9DPuAk; explicitly mounted sibling module.",
+    "checkpoint_fixture_failure": "First executed tiny fixture omitted contract.facts; corrected, own test artifacts cleaned.",
+    "checkpoint_success": "ap-31MPWCny0M3Yo7Z5nahkMK; forced interruption/restoration yielded identical weights/losses; changed input refused.",
+    "validator_import_failure": "Stopped exact warmup app ap-0ijAdraCyzowY9Vd1BZ7gJ; container __file__ root differs from project layout. Fixed explicit /work layout.",
+    "validator_image_warmup": "ap-dRutw5fNd2chPyjLSCuvdo; completed, not claimed as result validation.",
+    "engine_validation": "ap-ukeR7GDKdhecOzCEFTGCom; 1474 prediction rows and 1348 candidate facts validated; 3 defense assertions per result file.",
+    "thin_client_json": "ap-SCVvGXYPRP3npoWRDBLA2x; actual TorchVersion passed via JSON to a client with no Torch installed."
+  },
+  "translation_followup": "ap-Z7LA0ULSiEG5cnZjbZmy8z; reused 114 existing translations with the trained 7B. No additional training or translation. Native output, completed.",
+  "budget_ceiling_usd": 15,
+  "cost_status": "List-rate estimate, not invoice. Include failed/preempted work and storage separately in docs/38."
+}

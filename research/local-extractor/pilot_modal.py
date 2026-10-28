@@ -53,27 +53,50 @@ def evaluate(model,tok,rows,contract,device,batch=8,max_new=256,instruction=None
 @app.function(image=image,gpu="A10G",cpu=4,memory=16384,timeout=7200,
               retries=0,max_containers=1,volumes={"/models":volume})
 def gpu_run(train, evaluation, contract, tag, base=BASE, big=BIG, instruction=None,
-            train_batch=4, prefix="qwen15", function_timeout_s=7200):
+            train_batch=4, prefix="qwen15", function_timeout_s=7200,
+            max_train_tokens=768, epochs=2, checkpoint_every=0):
     import gc
     import random
     import numpy as np
     import torch
     from huggingface_hub import model_info
     from transformers import AutoModelForCausalLM,AutoTokenizer
-    from peft import LoraConfig,get_peft_model
+    from peft import LoraConfig,get_peft_model,get_peft_model_state_dict,set_peft_model_state_dict
 
     started=time.time()
     random.seed(17); np.random.seed(17); torch.manual_seed(17)
     dest=pathlib.Path("/models/local-extractor")/tag
-    if dest.exists(): raise ValueError("Tag exists: never overwrite an experiment")
-    dest.mkdir(parents=True)
-    revisions={name:model_info(name).sha for name in [base]+([big] if big else [])}
+    identity=hashlib.sha256(json.dumps([train,evaluation,contract,base,big,instruction,
+      train_batch,max_train_tokens,epochs,prefix],sort_keys=True).encode()).hexdigest()
+    journal=dest/"run-journal.json"
+    if dest.exists():
+        if not checkpoint_every or not journal.exists():
+            raise ValueError("Tag exists: never overwrite an experiment")
+        saved=json.loads(journal.read_text())
+        if saved["identity"]!=identity:raise ValueError("Resume input mismatch")
+        if (dest/"gpu-results.json").exists():
+            return json.loads((dest/"gpu-results.json").read_text())
+        revisions=saved["revisions"]
+        print("RESUMING interrupted input",tag,flush=True)
+    else:
+        dest.mkdir(parents=True)
+        revisions={name:model_info(name).sha for name in [base]+([big] if big else [])}
+        if checkpoint_every:
+            journal.write_text(json.dumps({"identity":identity,"revisions":revisions}))
+            volume.commit()
     result={"tag":tag,"revisions":revisions,"gpu":torch.cuda.get_device_name(0),
-      "torch":torch.__version__,"resource_timeout_s":function_timeout_s,"train_rows":len(train),"runs":{}}
+      "torch":str(torch.__version__),"resource_timeout_s":function_timeout_s,"train_rows":len(train),"runs":{}}
     tok=AutoTokenizer.from_pretrained(base,revision=revisions[base])
     if tok.pad_token_id is None: tok.pad_token=tok.eos_token
     model=AutoModelForCausalLM.from_pretrained(base,revision=revisions[base],torch_dtype=torch.bfloat16).cuda().eval()
-    result["runs"][prefix+"-zero"]=evaluate(model,tok,evaluation,contract,"cuda",instruction=instruction)
+    baseline_path=dest/"baseline.json"
+    if checkpoint_every and baseline_path.exists():
+        result["runs"][prefix+"-zero"]=json.loads(baseline_path.read_text())
+    else:
+        result["runs"][prefix+"-zero"]=evaluate(model,tok,evaluation,contract,"cuda",instruction=instruction)
+        if checkpoint_every:
+            baseline_path.write_text(json.dumps(result["runs"][prefix+"-zero"],ensure_ascii=False))
+            volume.commit()
     print("BASELINE COMPLETE; training",len(train),flush=True)
     model=get_peft_model(model,LoraConfig(r=16,lora_alpha=32,lora_dropout=0.05,
       target_modules=["q_proj","k_proj","v_proj","o_proj"],task_type="CAUSAL_LM"))
@@ -86,7 +109,8 @@ def gpu_run(train, evaluation, contract, tag, base=BASE, big=BIG, instruction=No
         p=tok(prompt(tok,row["text"],contract,instruction),add_special_tokens=False).input_ids
         answer=tok(json.dumps(row["gold"],ensure_ascii=False,separators=(",",":"))+tok.eos_token,
                    add_special_tokens=False).input_ids
-        if len(p)+len(answer)>768: raise ValueError("Training sample exceeds 768 tokens")
+        if len(p)+len(answer)>max_train_tokens:
+            raise ValueError(f"Training sample exceeds {max_train_tokens} tokens")
         examples.append((p+answer,[-100]*len(p)+answer))
     optimizer=torch.optim.AdamW([p for p in model.parameters() if p.requires_grad],lr=1e-4)
     train_started=time.time()
@@ -94,10 +118,25 @@ def gpu_run(train, evaluation, contract, tag, base=BASE, big=BIG, instruction=No
     model.train()
     batch=train_batch; accumulation=4; steps=0
     optimizer.zero_grad()
-    for epoch in range(2):
-        random.shuffle(examples)
-        epoch_loss=[]
-        for i in range(0,len(examples),batch):
+    checkpoint_path=dest/"training-checkpoint.pt"
+    resume=None;prior_train_seconds=0
+    if checkpoint_every and checkpoint_path.exists():
+        resume=torch.load(checkpoint_path,map_location="cuda",weights_only=False)
+        set_peft_model_state_dict(model,resume["adapter"])
+        optimizer.load_state_dict(resume["optimizer"])
+        examples=resume["examples"];steps=resume["steps"];losses=resume["losses"]
+        prior_train_seconds=resume["training_seconds"]
+        random.setstate(resume["random_state"])
+        torch.set_rng_state(resume["torch_rng"].cpu())
+        torch.cuda.set_rng_state_all([r.cpu() for r in resume["cuda_rng"]])
+        print("CHECKPOINT RESTORED",resume["epoch"],steps,flush=True)
+    start_epoch=resume["epoch"] if resume else 0
+    for epoch in range(start_epoch,epochs):
+        restoring=resume is not None and epoch==start_epoch
+        if not restoring:random.shuffle(examples)
+        epoch_loss=resume["epoch_loss"] if restoring else []
+        start_index=resume["next_index"] if restoring else 0
+        for i in range(start_index,len(examples),batch):
             part=examples[i:i+batch]; length=max(len(x[0]) for x in part)
             ids=torch.tensor([x+[tok.pad_token_id]*(length-len(x)) for x,y in part],device="cuda")
             mask=torch.tensor([[1]*len(x)+[0]*(length-len(x)) for x,y in part],device="cuda")
@@ -109,9 +148,20 @@ def gpu_run(train, evaluation, contract, tag, base=BASE, big=BIG, instruction=No
             if steps%accumulation==0 or i+batch>=len(examples):
                 torch.nn.utils.clip_grad_norm_(model.parameters(),1)
                 optimizer.step();optimizer.zero_grad()
+                if checkpoint_every and (steps%checkpoint_every==0 or i+batch>=len(examples)):
+                    state={"adapter":get_peft_model_state_dict(model),"optimizer":optimizer.state_dict(),
+                      "examples":examples,"steps":steps,"losses":losses,"epoch":epoch,
+                      "next_index":i+batch,"epoch_loss":epoch_loss,"random_state":random.getstate(),
+                      "torch_rng":torch.get_rng_state(),"cuda_rng":torch.cuda.get_rng_state_all(),
+                      "training_seconds":prior_train_seconds+time.time()-train_started}
+                    temporary=checkpoint_path.with_suffix(".tmp")
+                    torch.save(state,temporary);temporary.replace(checkpoint_path);volume.commit()
+                    print("CHECKPOINT SAVED",epoch,steps,flush=True)
             if steps%25==0: print("train",epoch,steps,"loss",sum(epoch_loss[-25:])/len(epoch_loss[-25:]),flush=True)
         losses.append(sum(epoch_loss)/len(epoch_loss))
-    result["training"]={"seconds":time.time()-train_started,"epochs":2,"batch":batch,
+    result["training"]={"seconds":prior_train_seconds+time.time()-train_started,"epochs":epochs,"batch":batch,
+      "checkpoint_every":checkpoint_every,"restored_checkpoint":resume is not None,
+      "max_train_tokens":max_train_tokens,
       "accumulation":accumulation,"lr":1e-4,"seed":17,"loss":losses,
       "trainable_parameters":sum(p.numel() for p in model.parameters() if p.requires_grad)}
     model.gradient_checkpointing_disable();model.config.use_cache=True
@@ -127,6 +177,7 @@ def gpu_run(train, evaluation, contract, tag, base=BASE, big=BIG, instruction=No
         result["runs"]["qwen3-zero"]=evaluate(model,tok,evaluation,contract,"cuda",instruction=instruction)
     result["gpu_function_seconds"]=time.time()-started
     (dest/"gpu-results.json").write_text(json.dumps(result,ensure_ascii=False,indent=1))
+    if checkpoint_path.exists():checkpoint_path.unlink()
     volume.commit()
     return result
 

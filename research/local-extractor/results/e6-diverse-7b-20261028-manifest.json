@@ -1,0 +1,13 @@
+{
+  "tag": "e6-diverse-7b-20261028",
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "budget_ceiling_usd": 15,
+  "scope": "eight candidate facts, synthetic only; no deployment; no local heavy work",
+  "sha256": {
+    "contract.json": "9d09ef180dee81dca2bcba3e6f129677245e012676f17aeaa15457698dd9d2d2",
+    "diverse/train.jsonl": "fe2ffc9a51fcdd75143296cad27634f37c34582bcfb1e766a2a7b8f41802df98",
+    "diverse/sealed.jsonl": "0fd948e27adfb86e999a0b91545ab889f104f6165f511618ca28e1241ebe6aa4",
+    "pilot_modal.py": "f7d6756e203684cc8fccbe3f31360a0168e4ee52cbba4a557fd43f62f3f593fc",
+    "diverse_modal.py": "b08a151b89a316562143b6a2fba2e3d03b8b59d07b65a77be39f745c13db1bd6"
+  }
+}

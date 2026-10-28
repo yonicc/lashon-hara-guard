@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "model": "random tiny Qwen2, not a trained language model",
+  "tensor_count": 15,
+  "weights_identical": true,
+  "losses_identical": true,
+  "tests": [
+    "durable forced interruption",
+    "optimizer/RNG/order resume parity",
+    "idempotent completed result",
+    "reject changed input"
+  ],
+  "gpu": "NVIDIA A10"
+}
