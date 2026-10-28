@@ -1,27 +1,236 @@
 {
-  "version": 2,
-  "seed": 20261029,
-  "input": "train_v2.jsonl",
-  "splits": {
-    "train": {
-      "families": 1805,
-      "path": "C:\\Users\\dev\\worktrees\\research\\data-expansion-v2-20261028-215713\\research\\local-extractor\\train_v2.jsonl"
-    },
-    "dev": {
-      "families": 148,
-      "path": "C:\\Users\\dev\\worktrees\\research\\data-expansion-v2-20261028-215713\\research\\local-extractor\\dev_v2.jsonl"
-    },
-    "holdout": {
-      "families": 171,
-      "path": "C:\\Users\\dev\\worktrees\\research\\data-expansion-v2-20261028-215713\\research\\local-extractor\\holdout_v2.jsonl"
-    }
-  },
-  "provenance": "synthetic_templates_v2, family-grouped; contrast empty-gold; unknown omitted",
-  "review_status": "synthetic, human_review_pending (agent_reviewed false until synthetic verification runs)",
-  "note": "holdout is independent only if never inspected for tuning; otherwise development diagnostics",
-  "hashes": {
-    "train_v2": "f45f0d126506698b3a64984021088a40e339953c119fac8ee8a080ad93572126",
-    "dev_v2": "1880fcc0f01193ed6c7eb185fe6726676dfdb7921de5a261d4720f4c12ebba57",
-    "holdout_v2": "25170a5d685a7a71e60cc219b953acb542893a082b8f33660d47876c31cf657f"
+ "version": "v2.1",
+ "seed": 20261029,
+ "contract": "contract_v2.json",
+ "contract_sha256": "45bcb18a1d9f25627c90815eb897a15d4446a82b25c71f3ac6466a933a940b16",
+ "sources": {
+  "templates": {
+   "path": "all_v2.jsonl",
+   "sha256": "118dc0080c7bcdf4a14c993b3ec5d881fd22816dbb9ac7e190dbd0c2b07270ae",
+   "rows": 4374
   }
+ },
+ "generators": {
+  "templates": "make_data_v2.py --seed 20261029",
+  "natural": "gen_natural_modal.py --out diverse/natural_v2.jsonl --n 6000 --seed 20261030 --contract-file contract_v2.json"
+ },
+ "split_rule": {
+  "templates": "per semantic unit: fact variants v0,v1->train, v2->dev, v3->holdout; backgrounds split-scoped",
+  "natural": "sha256(family) % 100: <80 train, <90 dev, else holdout"
+ },
+ "splits": {
+  "train": {
+   "path": "train_v2.jsonl",
+   "sha256": "b5ef4ba89b3f9da6acca283f13e3aeae004ceffcda5d9dc8874f62f6c78d85ef",
+   "rows": 3012,
+   "families": 900,
+   "by_provenance": {
+    "synthetic_template": 2700,
+    "synthetic_template_contrast": 312
+   },
+   "by_language": {
+    "he": 1004,
+    "en": 1004,
+    "mixed": 1004
+   },
+   "empty_gold_rows": 462,
+   "coverage": {
+    "firsthand:false": 123,
+    "firsthand:true": 84,
+    "future_purpose:false": 165,
+    "future_purpose:true": 156,
+    "intent:false": 150,
+    "intent:true": 156,
+    "is_hint:false": 165,
+    "is_hint:true": 183,
+    "medium_written:false": 165,
+    "medium_written:true": 162,
+    "no_alternative:false": 150,
+    "no_alternative:true": 156,
+    "purpose:false": 138,
+    "purpose:true": 156,
+    "rebuke:false": 153,
+    "rebuke:true": 147,
+    "rejects:false": 150,
+    "rejects:true": 126,
+    "repeats_prior:false": 111,
+    "repeats_prior:true": 108,
+    "requested_disclosure:false": 165,
+    "requested_disclosure:true": 198,
+    "revenge:false": 168,
+    "revenge:true": 162,
+    "said_in_jest:false": 171,
+    "said_in_jest:true": 183,
+    "same_self_disparagement:false": 162,
+    "same_self_disparagement:true": 162,
+    "second_source:false": 129,
+    "second_source:true": 123,
+    "subject_self_disclosed:false": 180,
+    "subject_self_disclosed:true": 174,
+    "unverified_rumor:false": 162,
+    "unverified_rumor:true": 102,
+    "verified:false": 129,
+    "verified:true": 111
+   }
+  },
+  "dev": {
+   "path": "dev_v2.jsonl",
+   "sha256": "787b7c1dd1f16ba6d3e708706c86508422f3f35100c7dc6e798798ce2db1ea54",
+   "rows": 606,
+   "families": 154,
+   "by_provenance": {
+    "synthetic_template": 450,
+    "synthetic_template_contrast": 156
+   },
+   "by_language": {
+    "he": 202,
+    "en": 202,
+    "mixed": 202
+   },
+   "empty_gold_rows": 186,
+   "coverage": {
+    "firsthand:false": 21,
+    "firsthand:true": 24,
+    "future_purpose:false": 21,
+    "future_purpose:true": 12,
+    "intent:false": 24,
+    "intent:true": 39,
+    "is_hint:false": 36,
+    "is_hint:true": 27,
+    "medium_written:false": 18,
+    "medium_written:true": 33,
+    "no_alternative:false": 36,
+    "no_alternative:true": 24,
+    "purpose:false": 24,
+    "purpose:true": 12,
+    "rebuke:false": 33,
+    "rebuke:true": 27,
+    "rejects:false": 24,
+    "rejects:true": 24,
+    "repeats_prior:false": 24,
+    "repeats_prior:true": 12,
+    "requested_disclosure:false": 27,
+    "requested_disclosure:true": 21,
+    "revenge:false": 12,
+    "revenge:true": 15,
+    "said_in_jest:false": 27,
+    "said_in_jest:true": 18,
+    "same_self_disparagement:false": 24,
+    "same_self_disparagement:true": 12,
+    "second_source:false": 15,
+    "second_source:true": 21,
+    "subject_self_disclosed:false": 24,
+    "subject_self_disclosed:true": 27,
+    "unverified_rumor:false": 9,
+    "unverified_rumor:true": 21,
+    "verified:false": 21,
+    "verified:true": 18
+   }
+  },
+  "holdout": {
+   "path": "holdout_v2.jsonl",
+   "sha256": "03bbd5c6cd8172cba4cdbb0f6a81c296cad2d7fa7e5b3d3e04c076b5bbb165df",
+   "rows": 756,
+   "families": 204,
+   "by_provenance": {
+    "synthetic_template": 600,
+    "synthetic_template_contrast": 156
+   },
+   "by_language": {
+    "he": 252,
+    "en": 252,
+    "mixed": 252
+   },
+   "empty_gold_rows": 204,
+   "coverage": {
+    "firsthand:false": 30,
+    "firsthand:true": 24,
+    "future_purpose:false": 24,
+    "future_purpose:true": 33,
+    "intent:false": 24,
+    "intent:true": 45,
+    "is_hint:false": 39,
+    "is_hint:true": 39,
+    "medium_written:false": 45,
+    "medium_written:true": 24,
+    "no_alternative:false": 48,
+    "no_alternative:true": 30,
+    "purpose:false": 39,
+    "purpose:true": 27,
+    "rebuke:false": 30,
+    "rebuke:true": 45,
+    "rejects:false": 54,
+    "rejects:true": 21,
+    "repeats_prior:false": 24,
+    "repeats_prior:true": 18,
+    "requested_disclosure:false": 21,
+    "requested_disclosure:true": 15,
+    "revenge:false": 39,
+    "revenge:true": 30,
+    "said_in_jest:false": 39,
+    "said_in_jest:true": 42,
+    "same_self_disparagement:false": 45,
+    "same_self_disparagement:true": 21,
+    "second_source:false": 18,
+    "second_source:true": 18,
+    "subject_self_disclosed:false": 36,
+    "subject_self_disclosed:true": 42,
+    "unverified_rumor:false": 12,
+    "unverified_rumor:true": 18,
+    "verified:false": 15,
+    "verified:true": 33
+   }
+  }
+ },
+ "leakage": {
+  "train|dev": {
+   "family_overlap": 0,
+   "semantic_unit_overlap": 0,
+   "normalized_text_overlap": 0,
+   "shared_sentences_ge3_words": [
+    "if i wrote",
+    "is it accurate to say",
+    "someone else wrote",
+    "אם הייתי כותב",
+    "האם נכון לומר",
+    "מישהו אחר כתב"
+   ],
+   "shared_sentence_count": 6
+  },
+  "train|holdout": {
+   "family_overlap": 0,
+   "semantic_unit_overlap": 0,
+   "normalized_text_overlap": 0,
+   "shared_sentences_ge3_words": [
+    "if i wrote",
+    "is it accurate to say",
+    "someone else wrote",
+    "אם הייתי כותב",
+    "האם נכון לומר",
+    "מישהו אחר כתב"
+   ],
+   "shared_sentence_count": 6
+  },
+  "dev|holdout": {
+   "family_overlap": 0,
+   "semantic_unit_overlap": 0,
+   "normalized_text_overlap": 0,
+   "shared_sentences_ge3_words": [
+    "if i wrote",
+    "is it accurate to say",
+    "someone else wrote",
+    "אם הייתי כותב",
+    "האם נכון לומר",
+    "מישהו אחר כתב"
+   ],
+   "shared_sentence_count": 6
+  }
+ },
+ "review_status": {
+  "synthetic": true,
+  "agent_reviewed": false,
+  "human_review_pending": true,
+  "note": "No human has reviewed any row. Natural rows passed an automatic LLM blind-agreement filter only."
+ },
+ "evaluation_status": "dev and holdout are DEVELOPMENT sets: produced by the same author/pipeline that tuned the data; not an independent benchmark."
 }

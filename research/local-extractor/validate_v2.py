@@ -98,6 +98,18 @@ def main():
                     print(f"FAMILY LEAK {keys[i]} & {keys[j]}: {len(inter)} families overlap")
                     raise SystemExit(1)
         print(f"family disjoint OK: { {k: len(v) for k, v in by_split.items()} }")
+        units = {k: {u for r in load(p) for u in r.get("semantic_units", [])} for k, p in existing.items()}
+        for i in range(len(keys)):
+            for j in range(i+1, len(keys)):
+                inter = units[keys[i]] & units[keys[j]]
+                if inter:
+                    print(f"SEMANTIC UNIT LEAK {keys[i]} & {keys[j]}: {sorted(inter)[:10]}")
+                    raise SystemExit(1)
+        print(f"semantic units disjoint OK: { {k: len(v) for k, v in units.items()} }")
+    bad_contrast = [r["id"] for r in all_rows if r.get("provenance") == "synthetic_template_contrast" and r["gold"]]
+    assert not bad_contrast, f"contrast rows must have empty gold: {bad_contrast[:5]}"
+    bad_review = [r["id"] for r in all_rows if r.get("agent_reviewed") is not False]
+    assert not bad_review, f"agent_reviewed must stay False (no review pass performed): {bad_review[:5]}"
 
     # coverage
     counts = collections.Counter()

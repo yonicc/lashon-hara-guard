@@ -75,7 +75,10 @@ def summary(rows,predictions):
 
 def main():
     import argparse
-    p=argparse.ArgumentParser();p.add_argument("--tag",default="e1-20261028");a=p.parse_args()
+    global IDS
+    p=argparse.ArgumentParser();p.add_argument("--tag",default="e1-20261028")
+    p.add_argument("--contract",default="contract.json",help="contract_v2.json for the 18-fact e10 runs");a=p.parse_args()
+    IDS={x:y for x,y,_ in json.loads((ROOT/a.contract).read_text(encoding="utf-8"))["facts"]}
     load=lambda n:[json.loads(s) for s in (ROOT/n).read_text(encoding="utf-8").splitlines()]
     rows=load("legacy.jsonl")+load("fresh.jsonl")
     if a.tag.startswith("e2"):rows+=load("confirmation.jsonl")
@@ -84,7 +87,7 @@ def main():
     if "evaluation_rows" in gpu:rows=gpu["evaluation_rows"]
     out={name:summary(rows,r) for name,r in gpu["runs"].items()}
     historical={}
-    for name in ["v2_prompt","v2_prompt_rerun"]:
+    for name in (["v2_prompt","v2_prompt_rerun"] if a.contract=="contract.json" else []):
         path=ROOT.parents[1]/"classifier/results"/f"fact_extraction_{name}.json"
         old=json.loads(path.read_text(encoding="utf-8"))
         counts=collections.Counter()
