@@ -14,7 +14,8 @@ function element(tag = 'div') {
   return {
     tagName: tag.toUpperCase(), className: '', children: [], parent: null, _tc: '', listeners: {},
     disabled: false, href: '', target: '', rel: '', type: '', id: '',
-    setAttribute() {},
+    attrs: {},
+    setAttribute(k, v) { this.attrs[k] = v; },
     set textContent(v) { this._tc = String(v); this.children = []; },
     get textContent() { return this._tc + this.children.map((c) => c.textContent).join(''); },
     appendChild(c) { c.parent = this; this.children.push(c); return c; },
@@ -89,6 +90,68 @@ function setup(reply, { conv = 'whatsapp-web:שיחה סינתטית' } = {}) {
 
 const payload = (text = 'הוא שוב איחר לפגישה, תיזהרו ממנו בעסקה') => ({ type: 'lhg-check', text, platform: 'whatsapp-web', direction: 'outgoing' });
 
+for (const failure of [{ alert: 'not_checked' }, { alert: 'warn', error: 'offline' }, { alert: 'unsure', rules: { mode: 'live_draft', notChecked: true, findings: [] } }]) {
+  test('rules: failed submit retains editable answers and retries once: ' + JSON.stringify(failure), async () => {
+    const env = setup((calls) => mockProxy(calls));
+    const pending = [];
+    let valid = true;
+    env.ctx.LHG_CONTEXT_RUNTIME.send = (msg, cb) => pending.push({ msg: JSON.parse(JSON.stringify(msg)), cb });
+    env.P.check(payload(), null, { isCurrent: () => valid, onResult: (r) => { if (r.alert === 'not_checked' || r.error || r.rules?.notChecked) valid = false; } });
+    await flush();
+    const response = mockProxy([])(payload());
+    pending[0].cb(response);
+    click(byClass(env.panel(), 'lhg-answer')[2]);
+    click(byClass(env.panel(), 'lhg-answers-submit')[0]);
+    await flush();
+    pending[1].cb(failure);
+    assert.equal(valid, true, 'compose session remains retryable');
+    assert.equal(byClass(env.panel(), 'lhg-answer')[2].attrs['aria-pressed'], 'true');
+    click(byClass(env.panel(), 'lhg-answer')[1]);
+    assert.equal(pending.length, 2);
+    const submit = byClass(env.panel(), 'lhg-answers-submit')[0];
+    click(submit); click(submit);
+    await flush();
+    assert.equal(pending.length, 3);
+    assert.deepEqual(pending[2].msg.confirmedFacts, { toelet_purpose: false });
+    pending[2].cb({ alert: 'warn', evidence: 'retry-success' });
+    assert.match(env.panel().textContent, /retry-success/);
+  });
+}
+
+test('rules: new check supersedes a pending response and detached draft submit', async () => {
+  const env = setup((calls) => mockProxy(calls));
+  const pending = [];
+  env.ctx.LHG_CONTEXT_RUNTIME.send = (msg, cb) => pending.push({ msg, cb });
+  env.P.check(payload('first synthetic message'), null, {});
+  await flush();
+  pending[0].cb(mockProxy([])(payload()));
+  click(byClass(env.panel(), 'lhg-answer')[0]);
+  const oldSubmit = byClass(env.panel(), 'lhg-answers-submit')[0];
+  env.P.check(payload('second synthetic message'), null, {});
+  await flush();
+  click(oldSubmit);
+  await flush();
+  assert.equal(pending.length, 2);
+  pending[1].cb({ alert: 'warn', evidence: 'current-message' });
+  pending[0].cb({ alert: 'warn', evidence: 'old-message' });
+  assert.match(env.panel().textContent, /current-message/);
+  assert.ok(!env.panel().textContent.includes('old-message'));
+});
+
+test('rules: context changes invalidate the draft before persistence or request', async () => {
+  const env = setup((calls) => mockProxy(calls));
+  let key = 'context-one';
+  env.ctx.LHG_CONTEXT_RUNTIME.contentKey = () => key;
+  env.P.check(payload(), null, {});
+  await flush();
+  click(byClass(env.panel(), 'lhg-answer')[0]);
+  key = 'context-two';
+  click(byClass(env.panel(), 'lhg-answers-submit')[0]);
+  await flush();
+  assert.equal(env.calls.length, 1);
+  assert.equal(env.store[env.R.STORE_KEY], undefined);
+});
+
 test('rules: one question, answer stored per conversation, re-check with cumulative confirmedFacts', async () => {
   const env = setup((calls) => mockProxy(calls));
   env.P.check(payload(), null, {});
@@ -99,6 +162,8 @@ test('rules: one question, answer stored per conversation, re-check with cumulat
   assert.deepEqual(answers.map((b) => b.textContent), ['כן', 'לא', 'לא יודע']);
   assert.equal(env.calls[0].confirmedFacts, undefined, 'nothing to send before an answer');
   click(answers[1]); // "לא"
+  assert.equal(env.calls.length, 1);
+  click(byClass(p, 'lhg-answers-submit')[0]);
   await flush();
   assert.deepEqual(env.calls[1].confirmedFacts, { toelet_purpose: false });
   assert.match(env.panel().textContent, /לא הוצהרה תועלת לעתיד/);
@@ -132,6 +197,7 @@ test('rules: never "permitted/fine/approved" — after answering everything only
   env.P.check(payload(), null, {});
   await flush();
   click(byClass(env.panel(), 'lhg-answer')[0]); // "כן"
+  click(byClass(env.panel(), 'lhg-answers-submit')[0]);
   await flush();
   const text = env.panel().textContent;
   assert.ok(text.includes(env.P.NO_FURTHER_NOTE_HE), text);
@@ -178,6 +244,7 @@ test('rules: unknown conversation keeps nothing across checks but accumulates wi
   env.P.check(payload(), null, {});
   await flush();
   click(byClass(env.panel(), 'lhg-answer')[2]); // "לא יודע" = null, stays unknown
+  click(byClass(env.panel(), 'lhg-answers-submit')[0]);
   await flush();
   assert.deepEqual({ ...env.calls[1].confirmedFacts }, { toelet_purpose: null });
   assert.equal(env.store[env.R.STORE_KEY], undefined, 'nothing persisted without a conversation identity');
@@ -301,18 +368,27 @@ for (const conv of ['synthetic-thread', null]) {
     click(buttons[8]);
     click(buttons[9]);
     click(buttons[13]);
-    click(buttons[0]); // duplicate event from the disabled first row
+    click(buttons[1]); // changing a choice remains local
     await flush();
-    assert.equal(pending.length, 2, 'rapid answers coalesce into one cumulative recheck');
-    const expected = { 'q.first': true, 'q.second': false, 'q.third': null, 'q.fourth': true, 'q.fifth': false };
+    assert.equal(pending.length, 1, 'all choices and edits send zero requests until submit');
+    assert.equal(buttons[0].attrs['aria-pressed'], 'false');
+    assert.equal(buttons[1].attrs['aria-pressed'], 'true');
+    env.ctx.LHG_I18N.setLang('en', { persist: false });
+    const submit = byClass(env.panel(), 'lhg-answers-submit')[0];
+    assert.equal(byClass(env.panel(), 'lhg-answer')[1].attrs['aria-pressed'], 'true', 'language switch preserves selection');
+    click(submit);
+    click(submit);
+    await flush();
+    assert.equal(pending.length, 2, 'one cumulative recheck on submit, even with double click');
+    const expected = { 'q.first': false, 'q.second': false, 'q.third': null, 'q.fourth': true, 'q.fifth': false };
     assert.deepEqual(pending[1].msg.confirmedFacts, expected);
     pending[1].cb({ alert: 'warn', evidence: 'new-result' });
     const recheck = byClass(env.panel(), 'lhg-action').find((b) => b.textContent === env.ctx.LHG_I18N.t('check.again'));
     click(recheck);
     click(recheck);
-    assert.equal(pending.length, 4);
-    pending[3].cb({ alert: 'warn', evidence: 'new-result' });
-    pending[2].cb({ alert: 'warn', evidence: 'stale-result' });
+    assert.equal(pending.length, 3, 'duplicate recheck is suppressed while pending');
+    pending[2].cb({ alert: 'warn', evidence: 'new-result' });
+    pending[1].cb({ alert: 'warn', evidence: 'stale-result' });
     assert.ok(env.panel().textContent.includes('new-result'));
     assert.ok(!env.panel().textContent.includes('stale-result'));
     if (conv) assert.deepEqual(Object.values(env.store[env.R.STORE_KEY])[0].facts, expected);
@@ -356,6 +432,9 @@ test('rules: panel renders up to 5 questions, each with its own answer buttons',
   assert.match(p.textContent, /האם שאלה q.three\?/);
   // Answering the first question's "כן" sends only that fact.
   click(byClass(p, 'lhg-answer')[0]);
+  await flush();
+  assert.equal(env.calls.length, 1);
+  click(byClass(p, 'lhg-answers-submit')[0]);
   await flush();
   assert.deepEqual(env.calls[1].confirmedFacts, { 'q.one': true });
   // After the answer, q.one is gone; the remaining two questions render.

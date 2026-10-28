@@ -40,6 +40,7 @@
   let view = null; // () => void: re-renders the current view (language switch)
   let presenting = false; // show() called from inside present()
   let lastCheck = null; // { payload (without userNote), el }: target of the free note
+  let checkSession = 0;
   let boundPlatform = '';
   let geom = null; // user geometry {x, y, w, h?}; null = default bottom corner
 
@@ -323,8 +324,7 @@
   }
 
   // Draft Chafetz Chaim findings / up to 5 clarifying questions / limitations,
-  // under the main result. opts.onAnswer(factId, value) re-checks with the
-  // answer; without it the questions are shown as text only.
+  // Choices are local drafts. Only the explicit submit action persists and checks.
   function appendRules(p, r, opts = {}) {
     const R = globalThis.LHG_RULES;
     if (!R || !p) return;
@@ -357,30 +357,53 @@
         box.appendChild(d);
       }
       const questions = rules.questions && rules.questions.length ? rules.questions : (rules.question ? [rules.question] : []);
+      const draft = opts.answerDraft || (opts.answerDraft = {});
+      const answerButtons = [];
       if (!rules.notChecked && !rules.findings.length && !questions.length && !(rules.referrals && rules.referrals.length)) box.appendChild(lineEl(t('noFurtherNote')));
       for (const q of questions) {
         box.appendChild(lineEl(t('rules.question', { q: q.textHe }), 'lhg-line lhg-question'));
         if (typeof opts.onAnswer === 'function') {
           const row = document.createElement('div');
           row.className = 'lhg-answers';
-          const btns = [];
-          let submitted = false;
           for (const a of q.answers) {
             const b = document.createElement('button');
             b.type = 'button';
             b.className = 'lhg-action lhg-answer';
             b.textContent = a.labelHe;
+            const selected = () => Object.hasOwn(draft, q.factId) && draft[q.factId] === a.value;
+            const paint = () => {
+              b.setAttribute('aria-pressed', String(selected()));
+              b.style && (b.style.fontWeight = selected() ? '700' : '');
+              b.style && (b.style.outline = selected() ? '2px solid currentColor' : '');
+            };
+            paint();
+            answerButtons.push({ b, paint });
             b.addEventListener('click', () => {
-              if (submitted) return;
-              submitted = true;
-              for (const x of btns) x.disabled = true;
-              try { opts.onAnswer(q.factId, a.value); } catch (_e) { b.textContent = t('failed'); }
+              if (b.disabled) return;
+              draft[q.factId] = a.value;
+              opts.onAnswer(q.factId, a.value);
+              for (const x of answerButtons) x.paint();
+              if (submit) submit.disabled = false;
             });
-            btns.push(b);
             row.appendChild(b);
           }
           box.appendChild(row);
         }
+      }
+      let submit = null;
+      if (questions.length && typeof opts.onSubmit === 'function') {
+        submit = document.createElement('button');
+        submit.type = 'button';
+        submit.className = 'lhg-action lhg-answers-submit';
+        submit.textContent = t('answers.submit');
+        submit.disabled = !questions.some((q) => Object.hasOwn(draft, q.factId));
+        submit.addEventListener('click', () => {
+          if (submit.disabled) return;
+          submit.disabled = true;
+          for (const x of answerButtons) x.b.disabled = true;
+          opts.onSubmit();
+        });
+        box.appendChild(submit);
       }
       // Group-D rabbi referrals: a structured question to bring to a rabbi.
       // Never a ruling; rendered as an expandable packet, not a yes/no prompt.
@@ -487,14 +510,14 @@
         b.type = 'button'; b.className = 'lhg-action'; b.textContent = t(key);
         b.addEventListener('click', fn); p.appendChild(b);
       };
-      if (opts.onRecheck) action('check.again', opts.onRecheck);
+      if (opts.onRecheck && !(opts.onSubmit && globalThis.LHG_RULES?.readRules(r)?.questions.length)) action('check.again', opts.onRecheck);
       if (opts.onApprove && ['warn', 'unsure'].includes(r?.alert)) action('send.anyway', opts.onApprove);
     }
   }
 
   // One check (compose, manual or free note) with the conversation's stored
-  // answers; answering the clarifying question stores the answer and checks
-  // again with the cumulative confirmedFacts (<= 20). A free note rides along
+  // answers; explicit submission stores the drafted answers and checks
+  // once with cumulative confirmedFacts (<= 20). A free note rides along
   // as `userNote` on that same check: one request, one billed check.
   // opts: { manual, isCurrent() }.
   function check(payload, el, opts = {}) {
@@ -503,7 +526,15 @@
     const conv = R ? R.conversationKey(payload.platform, el) : null;
     const current = () => (typeof opts.isCurrent === 'function' ? opts.isCurrent() : true);
     const { userNote, ...base } = payload;
+    const session = ++checkSession;
+    const contextKey = () => globalThis.LHG_CONTEXT_RUNTIME?.contentKey?.(payload.platform, el, payload.text);
+    const capturedContext = contextKey();
+    const valid = () => current() && contextKey() === capturedContext && (!R || R.conversationKey(payload.platform, el) === conv);
+    const active = () => valid() && session === checkSession;
     let revision = 0;
+    let busy = false;
+    let questionResult = null;
+    const answerDraft = {};
     let answerChain = Promise.resolve();
     let latestFacts = payload.confirmedFacts || {};
     lastCheck = { payload: base, el, opts };
@@ -511,29 +542,51 @@
     // answered: a re-check after the user answered; its result is always shown
     // (even "none"), so the user sees the outcome of the answer.
     const go = (facts, answered = false, forceRecheck = false) => {
+      if (!valid() || busy) return;
+      busy = true;
       latestFacts = facts;
       const requestRevision = ++revision;
       const msg = { ...(R ? R.withAnswers(payload, facts) : payload), ...(forceRecheck ? { forceRecheck: true } : {}) };
       send(msg, (r) => {
-        if (!current() || requestRevision !== revision) return;
+        if (!valid() || requestRevision !== revision) return;
+        busy = false;
         const res = chrome.runtime.lastError ? { alert: 'not_checked' } : r || { alert: 'not_checked' };
-        if (typeof opts.onResult === 'function') opts.onResult(res);
-        renderResult(res, {
+        const failed = res.alert === 'not_checked' || res.error || res.rules?.notChecked;
+        if (res.rules && !failed) questionResult = res;
+        const display = failed && questionResult
+          ? { ...res, rules: questionResult.rules } : res;
+        // Keep the compose token alive when answer submission fails, for retry.
+        if (typeof opts.onResult === 'function' && !(answered && failed)) opts.onResult(res);
+        if (session !== checkSession) return; // another message owns the visible panel
+        renderResult(display, {
           manual: !!opts.manual || answered || !!userNote,
           userNote: userNote || '',
           onApprove: opts.onApprove,
-          onRecheck: () => { if (current()) { show('checking', t('recheck'), []); go(facts, true, true); } },
+          onRecheck: () => { if (active() && !busy) { show('checking', t('recheck'), []); go(latestFacts, true, true); } },
+          answerDraft,
           onAnswer: R
             ? (factId, value) => {
-                const answerRevision = ++revision;
-                answerChain = answerChain.then(() => R.saveAnswer(conv, factId, value, latestFacts)).then((all) => {
-                  latestFacts = all;
-                  if (!current() || answerRevision !== revision) return;
-                  show('checking', t('recheck'), []);
-                  go(all, true);
-                });
+                if (active() && !busy) answerDraft[factId] = value;
               }
             : null,
+          onSubmit: R ? function submitAnswers() {
+            if (!active() || busy) return;
+            busy = true;
+            const entries = Object.entries(answerDraft);
+            answerChain = answerChain.catch(() => {}).then(async () => {
+              for (const [id, value] of entries) {
+                if (!active()) return;
+                latestFacts = await R.saveAnswer(conv, id, value, latestFacts);
+              }
+              busy = false;
+              if (!active()) return;
+              show('checking', t('recheck'), []);
+              go(latestFacts, true, true);
+            }).catch(() => {
+              busy = false;
+              if (active()) renderResult({ ...display, alert: 'not_checked' }, { manual: true, answerDraft, onAnswer: (id, value) => { answerDraft[id] = value; }, onSubmit: submitAnswers });
+            });
+          } : null,
         });
       }, el);
     };
