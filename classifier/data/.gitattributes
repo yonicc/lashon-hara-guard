@@ -1,0 +1,2 @@
+# router_v3 sha256 (stats, docs/40) is of the LF bytes; keep LF on checkout (core.autocrlf=true on BI-1)
+router_v3_*.jsonl text eol=lf
