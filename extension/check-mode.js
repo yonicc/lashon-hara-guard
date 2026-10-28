@@ -44,6 +44,7 @@
     { id: 'gemini-3.7-flash', label: 'Gemini 3.7 Flash (OpenRouter)' },
     { id: 'mistral-medium-3.5', label: 'Mistral Medium 3.5 (OpenRouter)' },
     { id: 'gemini-3.6-flash', label: 'Gemini 3.6 Flash (OpenRouter)' },
+    { id: 'kimi-k3-modal', label: 'Kimi K3 (Modal)' },
   ];
   const MODEL_IDS = CLOUD_MODELS.map((m) => m.id);
 

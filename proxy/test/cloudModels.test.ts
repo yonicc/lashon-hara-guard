@@ -36,11 +36,11 @@ async function run(body: Record<string, unknown>, env: Env = ENV) {
 }
 
 test('cloudModels: ten unique ids, default first, stateless backends only', () => {
-  assert.equal(CLOUD_MODELS.length, 10);
-  assert.equal(new Set(CLOUD_MODELS.map((m) => m.id)).size, 10);
+  assert.equal(CLOUD_MODELS.length, 11);
+  assert.equal(new Set(CLOUD_MODELS.map((m) => m.id)).size, 11);
   assert.equal(CLOUD_MODELS[0]!.id, DEFAULT_CLOUD_MODEL_ID);
   assert.equal(CLOUD_MODELS[0]!.model, DEFAULT_BRAIN_MODEL);
-  for (const m of CLOUD_MODELS) assert.ok(['meta_api', 'openrouter'].includes(m.agentKind), m.id);
+  for (const m of CLOUD_MODELS) assert.ok(['meta_api', 'openrouter', 'modal'].includes(m.agentKind), m.id);
 });
 
 test('cloudModels: the extension picker lists exactly the server allow-list', () => {
@@ -90,6 +90,13 @@ test('/check with an allow-listed model routes backend, model and account from t
   assert.equal('account' in gem.brain[0]!, false);
 
   const muse = await run({ model: 'muse-spark-1.2' });
+
+  // Modal's Kimi: own backend, no account, reasoning effort 'low' (Brain rejects 'minimal' there).
+  const kimi = await run({ model: 'kimi-k3-modal' });
+  assert.deepEqual([kimi.brain[0]!['agent_kind'], kimi.brain[0]!['model'], kimi.brain[0]!['reasoning_effort']],
+    ['modal', 'moonshotai/Kimi-K3', 'low']);
+  assert.equal('account' in kimi.brain[0]!, false);
+  assert.equal(son.brain[0]!['reasoning_effort'], 'minimal');
   assert.deepEqual([muse.brain[0]!['agent_kind'], muse.brain[0]!['account']], ['meta_api', 'env-acct']);
   // Token, base URL and system prompt stay the Worker's.
   assert.equal(typeof muse.brain[0]!['system_prompt'], 'string');

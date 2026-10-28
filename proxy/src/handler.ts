@@ -205,6 +205,7 @@ export function providerFromEnv(
   const account = choice.agentKind === 'meta_api' ? envAccount : choice.account;
   return new BrainSendExtractorProvider({
     ...rest, agentKind: choice.agentKind, model: choice.model, ...(account ? { account } : {}),
+    ...(choice.reasoningEffort ? { reasoningEffort: choice.reasoningEffort } : {}),
   });
 }
 

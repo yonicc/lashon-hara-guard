@@ -24,7 +24,7 @@
  *   - The default id also maps to the env provider (LHG_BRAIN_MODEL /
  *     LHG_BRAIN_ACCOUNT), so choosing it changes nothing.
  */
-export type CloudAgentKind = 'meta_api' | 'openrouter';
+export type CloudAgentKind = 'meta_api' | 'openrouter' | 'modal';
 
 export interface CloudModel {
   /** Stable id the extension sends. */
@@ -37,6 +37,12 @@ export interface CloudModel {
    * applies, as for the default) and for openrouter (one global key).
    */
   account?: string;
+  /**
+   * Overrides the Worker's reasoning effort for this backend. Modal's Kimi
+   * accepts only low|medium|high (Brain answers 400 to 'minimal'), and
+   * without it took ~23 s (verified 2026-10-28).
+   */
+  reasoningEffort?: string;
 }
 
 export const DEFAULT_CLOUD_MODEL_ID = 'muse-spark-1.3';
@@ -53,6 +59,8 @@ export const CLOUD_MODELS: readonly CloudModel[] = Object.freeze([
   { id: 'mistral-medium-3.5', agentKind: 'openrouter', model: 'mistralai/mistral-medium-3-5' },
   // mistral-small-2603 failed fast in a repeat smoke (flaky JSON), replaced.
   { id: 'gemini-3.6-flash', agentKind: 'openrouter', model: 'google/gemini-3.6-flash' },
+  // Owner request 2026-10-28: Kimi K3 on the Brain's Modal backend (OpenAI-compatible, no account).
+  { id: 'kimi-k3-modal', agentKind: 'modal', model: 'moonshotai/Kimi-K3', reasoningEffort: 'low' },
 ].map((m) => Object.freeze(m as CloudModel)));
 
 /**
