@@ -5,115 +5,275 @@
    "family_overlap": 0,
    "semantic_unit_overlap": 0,
    "normalized_text_overlap": 0,
+   "evidence_span_overlap": 0,
    "shared_sentences_ge3_words": [
+    "do you think i should send this message",
+    "i heard him say",
+    "i hope this email finds you well",
+    "i hope you re doing well rabbi",
     "if i wrote",
     "is it accurate to say",
+    "should i go ahead and send it",
+    "should i go ahead and send this message",
     "someone else wrote",
+    "what do you think should i send this",
+    "what do you think should i send this message",
+    "you know how he likes to stir things up for a laugh",
+    "אולי כדאי שאשלח את ההודעה הזו",
+    "אולי כדאי שאשלח את זה",
     "אם הייתי כותב",
+    "אני מקווה שאת ה מרגיש ה טוב כבוד הרב ה",
     "האם נכון לומר",
     "מישהו אחר כתב"
    ],
-   "shared_sentence_count": 6
+   "shared_sentence_count": 18
   },
   "train|holdout": {
    "family_overlap": 0,
    "semantic_unit_overlap": 0,
    "normalized_text_overlap": 0,
+   "evidence_span_overlap": 0,
    "shared_sentences_ge3_words": [
+    "i m not hinting around i m saying it outright",
     "if i wrote",
     "is it accurate to say",
+    "should i go ahead and send it",
+    "should i go ahead and send this message",
+    "should i go ahead and send this out",
+    "should i send a message to the group about this",
+    "should i send this message",
     "someone else wrote",
+    "what do you think",
+    "אולי כדאי שאשלח את ההודעה הזו",
+    "אולי כדאי שאשלח את זה",
     "אם הייתי כותב",
     "האם נכון לומר",
     "מישהו אחר כתב"
    ],
-   "shared_sentence_count": 6
+   "shared_sentence_count": 15
   },
   "dev|holdout": {
    "family_overlap": 0,
    "semantic_unit_overlap": 0,
    "normalized_text_overlap": 0,
+   "evidence_span_overlap": 0,
    "shared_sentences_ge3_words": [
     "if i wrote",
     "is it accurate to say",
+    "should i go ahead and send it",
+    "should i go ahead and send this message",
     "someone else wrote",
+    "אולי כדאי שאשלח את ההודעה הזו",
+    "אולי כדאי שאשלח את זה",
     "אם הייתי כותב",
     "האם נכון לומר",
     "מישהו אחר כתב"
    ],
-   "shared_sentence_count": 6
+   "shared_sentence_count": 10
   }
  },
  "splits": {
   "train": {
-   "rows": 3012,
-   "families": 900,
+   "rows": 6151,
+   "families": 2557,
    "by_language": {
-    "he": 1004,
-    "en": 1004,
-    "mixed": 1004
+    "he": 1797,
+    "en": 2661,
+    "mixed": 1693
    },
    "by_provenance": {
     "synthetic_template": 2700,
-    "synthetic_template_contrast": 312
+    "synthetic_template_contrast": 312,
+    "natural_llm_blind_verified": 3139
    },
    "facts_per_row": {
-    "0": 462,
-    "1": 705,
-    "2": 1011,
-    "3": 678,
+    "0": 829,
+    "1": 1717,
+    "2": 2416,
+    "3": 1033,
     "4": 156
    },
-   "min_fact_value_count": 84,
+   "min_fact_value_count": 127,
    "missing_fact_values": [],
-   "natural_fact_values": {}
+   "natural_fact_values": {
+    "firsthand:false": 8,
+    "firsthand:true": 185,
+    "future_purpose:false": 48,
+    "future_purpose:true": 286,
+    "intent:false": 28,
+    "intent:true": 139,
+    "is_hint:false": 81,
+    "is_hint:true": 233,
+    "medium_written:false": 144,
+    "medium_written:true": 171,
+    "no_alternative:true": 158,
+    "purpose:false": 71,
+    "purpose:true": 484,
+    "rebuke:false": 38,
+    "rebuke:true": 290,
+    "rejects:false": 17,
+    "rejects:true": 159,
+    "repeats_prior:false": 16,
+    "repeats_prior:true": 170,
+    "requested_disclosure:false": 50,
+    "requested_disclosure:true": 201,
+    "revenge:false": 31,
+    "revenge:true": 170,
+    "said_in_jest:false": 65,
+    "said_in_jest:true": 229,
+    "same_self_disparagement:false": 67,
+    "same_self_disparagement:true": 166,
+    "second_source:false": 41,
+    "second_source:true": 206,
+    "subject_self_disclosed:false": 52,
+    "subject_self_disclosed:true": 286,
+    "unverified_rumor:false": 27,
+    "unverified_rumor:true": 341,
+    "verified:false": 35,
+    "verified:true": 194
+   }
   },
   "dev": {
-   "rows": 606,
-   "families": 154,
+   "rows": 999,
+   "families": 364,
    "by_language": {
-    "he": 202,
-    "en": 202,
-    "mixed": 202
+    "he": 302,
+    "en": 412,
+    "mixed": 285
    },
    "by_provenance": {
     "synthetic_template": 450,
-    "synthetic_template_contrast": 156
+    "synthetic_template_contrast": 156,
+    "natural_llm_blind_verified": 393
    },
    "facts_per_row": {
-    "0": 186,
-    "1": 159,
-    "2": 165,
-    "3": 66,
+    "0": 246,
+    "1": 293,
+    "2": 335,
+    "3": 95,
     "4": 30
    },
-   "min_fact_value_count": 9,
+   "min_fact_value_count": 10,
    "missing_fact_values": [],
-   "natural_fact_values": {}
+   "natural_fact_values": {
+    "firsthand:false": 4,
+    "firsthand:true": 18,
+    "future_purpose:false": 4,
+    "future_purpose:true": 45,
+    "intent:true": 17,
+    "is_hint:false": 5,
+    "is_hint:true": 18,
+    "medium_written:false": 8,
+    "medium_written:true": 12,
+    "no_alternative:true": 35,
+    "purpose:false": 21,
+    "purpose:true": 38,
+    "rebuke:false": 3,
+    "rebuke:true": 21,
+    "rejects:false": 1,
+    "rejects:true": 34,
+    "repeats_prior:false": 6,
+    "repeats_prior:true": 23,
+    "requested_disclosure:false": 6,
+    "requested_disclosure:true": 24,
+    "revenge:false": 3,
+    "revenge:true": 20,
+    "said_in_jest:false": 5,
+    "said_in_jest:true": 29,
+    "same_self_disparagement:false": 3,
+    "same_self_disparagement:true": 22,
+    "second_source:false": 3,
+    "second_source:true": 27,
+    "subject_self_disclosed:false": 8,
+    "subject_self_disclosed:true": 25,
+    "unverified_rumor:false": 1,
+    "unverified_rumor:true": 36,
+    "verified:false": 3,
+    "verified:true": 33
+   }
   },
   "holdout": {
-   "rows": 756,
-   "families": 204,
+   "rows": 1124,
+   "families": 399,
    "by_language": {
-    "he": 252,
-    "en": 252,
-    "mixed": 252
+    "he": 348,
+    "en": 447,
+    "mixed": 329
    },
    "by_provenance": {
     "synthetic_template": 600,
-    "synthetic_template_contrast": 156
+    "synthetic_template_contrast": 156,
+    "natural_llm_blind_verified": 368
    },
    "facts_per_row": {
-    "0": 204,
-    "1": 183,
-    "2": 225,
-    "3": 102,
+    "0": 279,
+    "1": 310,
+    "2": 367,
+    "3": 126,
     "4": 42
    },
-   "min_fact_value_count": 12,
+   "min_fact_value_count": 16,
    "missing_fact_values": [],
-   "natural_fact_values": {}
+   "natural_fact_values": {
+    "firsthand:true": 16,
+    "future_purpose:false": 10,
+    "future_purpose:true": 27,
+    "intent:false": 3,
+    "intent:true": 9,
+    "is_hint:false": 2,
+    "is_hint:true": 29,
+    "medium_written:false": 5,
+    "medium_written:true": 13,
+    "no_alternative:true": 18,
+    "purpose:false": 10,
+    "purpose:true": 43,
+    "rebuke:false": 4,
+    "rebuke:true": 28,
+    "rejects:true": 23,
+    "repeats_prior:false": 3,
+    "repeats_prior:true": 32,
+    "requested_disclosure:false": 9,
+    "requested_disclosure:true": 31,
+    "revenge:false": 1,
+    "revenge:true": 12,
+    "said_in_jest:false": 1,
+    "said_in_jest:true": 22,
+    "same_self_disparagement:false": 5,
+    "same_self_disparagement:true": 22,
+    "second_source:false": 2,
+    "second_source:true": 14,
+    "subject_self_disclosed:false": 6,
+    "subject_self_disclosed:true": 26,
+    "unverified_rumor:false": 4,
+    "unverified_rumor:true": 35,
+    "verified:false": 4,
+    "verified:true": 14
+   }
   }
+ },
+ "natural_generation": {
+  "stats": {
+   "generated": 5993,
+   "gen_fail": 7,
+   "en_disagree": 3254,
+   "en_bad": 675,
+   "dup": 2,
+   "eval_overlap": 0,
+   "he_bad": 0,
+   "he_disagree": 1073,
+   "rows": 3900,
+   "by_language": {
+    "he": 989,
+    "en": 2062,
+    "mixed": 849
+   }
+  },
+  "models": {
+   "gen_verify": "Qwen/Qwen2.5-32B-Instruct",
+   "translate": "dicta-il/dictalm2.0-instruct"
+  },
+  "seed": 20261030,
+  "n": 6000
  },
  "review_status": {
   "synthetic": true,
@@ -123,7 +283,7 @@
  },
  "review_export": {
   "path": "results/review_v2.csv",
-  "rows": 138,
+  "rows": 210,
   "status": "human_review_pending"
  }
 }
