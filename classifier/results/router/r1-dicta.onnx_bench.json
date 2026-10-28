@@ -1,0 +1,1 @@
+{"model": "r1-dicta", "cpu_threads": 1, "fp32_mb": 703.5, "int8_mb": 177.1, "fp32": {"p50_ms": 32.4, "p95_ms": 47.6, "max_prob_drift_vs_torch": 0.1636}, "int8": {"p50_ms": 17.9, "p95_ms": 28.4, "max_prob_drift_vs_torch": 0.8548}}

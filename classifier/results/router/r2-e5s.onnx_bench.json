@@ -1,0 +1,1 @@
+{"model": "r2-e5s", "cpu_threads": 1, "fp32": {"mb": 449.1, "p50_ms": 10.7, "p95_ms": 13.9, "max_prob_drift_vs_torch": 0.0}, "emb8": {"mb": 174.0, "p50_ms": 10.0, "p95_ms": 13.6, "max_prob_drift_vs_torch": 0.0811}, "shipped_as_model_quantized": "emb8"}

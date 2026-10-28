@@ -11,7 +11,7 @@
 (() => {
   if (globalThis.LHG_SETTINGS) return;
   const PLATFORMS = ['whatsapp-web', 'gmail', 'google-chat'];
-  const KEYS = ['lhgEnabled', 'lhgPlatforms', 'hideIncoming'];
+  const KEYS = ['lhgEnabled', 'lhgPlatforms', 'hideIncoming', 'lhgMemoryEnabled'];
   const listeners = [];
 
   function normalize(raw) {
@@ -19,7 +19,7 @@
     const rp = s.lhgPlatforms && typeof s.lhgPlatforms === 'object' ? s.lhgPlatforms : {};
     const lhgPlatforms = {};
     for (const p of PLATFORMS) lhgPlatforms[p] = rp[p] !== false;
-    return { lhgEnabled: s.lhgEnabled !== false, lhgPlatforms, hideIncoming: s.hideIncoming !== false };
+    return { lhgEnabled: s.lhgEnabled !== false, lhgPlatforms, hideIncoming: s.hideIncoming !== false, lhgMemoryEnabled: s.lhgMemoryEnabled === true };
   }
   let state = normalize({});
 

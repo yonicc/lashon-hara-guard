@@ -72,6 +72,16 @@
       <p class="hint"><a href="https://lhg.ysho.uk" target="_blank" rel="noopener noreferrer" data-i18n="opt.accountLink"></a></p>
     </section>
 
+    <section class="card">
+      <h2 data-i18n="memory.title"></h2>
+      <label class="toggle"><span data-i18n="memory.enabled"></span><input type="checkbox" class="switch" id="memoryEnabled"></label>
+      <p class="hint" data-i18n="memory.hint"></p>
+      <button class="btn" id="memoryInstall" type="button" data-i18n="memory.install"></button>
+      <label class="field" for="memoryImport" data-i18n="memory.import"></label>
+      <input id="memoryImport" type="file" webkitdirectory multiple>
+      <button class="btn" id="memoryClear" type="button" data-i18n="memory.clear"></button>
+      <div class="status" id="memoryStatus"></div>
+    </section>
     <footer class="note" data-i18n="opt.footer"></footer>
   </div>
   <script src="i18n.js"></script>

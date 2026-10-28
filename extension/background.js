@@ -17,6 +17,7 @@ async function settings() {
 // the content scripts). The proxy validates again against its catalog.
 try { if (typeof importScripts === 'function') importScripts('rules.js'); } catch (_e) { /* tests */ }
 try { if (typeof importScripts === 'function') importScripts('i18n.js'); } catch (_e) { /* tests */ }
+try { if (typeof importScripts === 'function') importScripts('memory-background.js'); } catch (_e) { /* tests */ }
 function confirmedFactsOf(raw) {
   const R = globalThis.LHG_RULES;
   if (!R || !raw) return null;

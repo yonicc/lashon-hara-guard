@@ -31,6 +31,6 @@ print(f"verified {meta['version']} @ {meta['commit']} sha256={digest}")
 PY
 if [ -d "$DEST" ]; then cp -a "$DEST" "$DEST.bak-$(date +%Y%m%d%H%M%S)"; fi
 mkdir -p "$DEST"
-cp -f "$TMP"/unpacked/* "$DEST"/
+cp -a "$TMP"/unpacked/. "$DEST"/
 chown -R "$OWNER:$OWNER" "$DEST" 2>/dev/null || true
 python3 -c "import json,sys;print('installed version', json.load(open(sys.argv[1]))['version'])" "$DEST/manifest.json"

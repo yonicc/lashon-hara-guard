@@ -1,0 +1,25 @@
+{
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.0.0 Safari/537.36",
+  "checks": [
+    "real MV3 extension loaded",
+    "offscreen WASM model install and initialization",
+    "model import rejects incorrect hashes",
+    "actual isolated content collector loaded",
+    "typing event persisted without send or check success",
+    "opened-mail baseline context persisted",
+    "model tool semantic Hebrew retrieval through service worker",
+    "draft edits replace text and vectors",
+    "cleared draft removed without sent inference",
+    "options cannot forge DOM ingestion",
+    "memory disabled gates read tools",
+    "offscreen restart reopens persistent vault",
+    "full browser restart preserves vault",
+    "account isolation across extension-wide vault",
+    "long text chunking and atomic source deletion",
+    "user clear removes text and vectors",
+    "no extension page errors"
+  ],
+  "errors": [],
+  "external": [],
+  "modelDownload": "options folder import"
+}

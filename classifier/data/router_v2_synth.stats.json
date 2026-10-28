@@ -1,0 +1,58 @@
+{
+ "families": 4941,
+ "no_label": 0,
+ "rows_in": 11181,
+ "holdout_overlap": 0,
+ "agree_with_32b_exact": 2721,
+ "timing": {
+  "load_s": 424,
+  "label_s": 57,
+  "total_s": 482
+ },
+ "kept": 11181,
+ "flips_vs_32b_en": {
+  "need_recent_history": {
+   "added": 334,
+   "removed": 168
+  },
+  "need_participants": {
+   "added": 254,
+   "removed": 124
+  },
+  "need_relationship": {
+   "added": 608,
+   "removed": 157
+  },
+  "need_event": {
+   "added": 337,
+   "removed": 783
+  },
+  "need_purpose": {
+   "added": 158,
+   "removed": 107
+  },
+  "need_prior_knowledge": {
+   "added": 58,
+   "removed": 236
+  }
+ },
+ "per_lang": {
+  "he": 4933,
+  "en": 4941,
+  "mixed": 1307
+ },
+ "per_split": {
+  "train": 9513,
+  "dev": 1668
+ },
+ "per_label": {
+  "need_recent_history": 1628,
+  "need_participants": 1120,
+  "need_relationship": 2227,
+  "need_event": 3454,
+  "need_purpose": 594,
+  "need_prior_knowledge": 1166
+ },
+ "none": 3887,
+ "sha256": "1b19644119daea0512aa9cca8884036224c19fb9d56f04f27d3eb8bce6f52919"
+}

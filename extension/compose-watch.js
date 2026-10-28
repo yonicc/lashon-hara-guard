@@ -105,6 +105,7 @@
     function schedule(box) {
       clearTimeout(timer);
       const text = textOf(box);
+      globalThis.LHG_MEMORY?.input(opts.platform, box, text);
       if (text.length < MIN_CHARS) {
         // Emptied after a send: the last typed text is what was sent.
         if (!text && lastTyped) noteTyped(lastTyped);

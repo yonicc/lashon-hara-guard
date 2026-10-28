@@ -1,0 +1,1076 @@
+{
+ "labels": [
+  "mem_recent",
+  "mem_search",
+  "ask_user"
+ ],
+ "target_recall": 0.9,
+ "dev_rows": 1668,
+ "holdout_rows": 153,
+ "candidates": {
+  "never": {
+   "dev": {
+    "all": {
+     "rows": 1668,
+     "per_label": {
+      "mem_recent": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 268
+      },
+      "mem_search": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 658
+      },
+      "ask_user": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 362
+      }
+     },
+     "missed_label_rate": 1.0,
+     "missed_all_rate": 1.0,
+     "missed_all_concern": 1.0,
+     "needless_rate": 0.0,
+     "getters_mean": 0.0
+    },
+    "he": {
+     "rows": 734,
+     "per_label": {
+      "mem_recent": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 118
+      },
+      "mem_search": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 288
+      },
+      "ask_user": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 161
+      }
+     },
+     "missed_label_rate": 1.0,
+     "missed_all_rate": 1.0,
+     "missed_all_concern": 1.0,
+     "needless_rate": 0.0,
+     "getters_mean": 0.0
+    },
+    "en": {
+     "rows": 735,
+     "per_label": {
+      "mem_recent": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 118
+      },
+      "mem_search": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 288
+      },
+      "ask_user": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 162
+      }
+     },
+     "missed_label_rate": 1.0,
+     "missed_all_rate": 1.0,
+     "missed_all_concern": 1.0,
+     "needless_rate": 0.0,
+     "getters_mean": 0.0
+    },
+    "mixed": {
+     "rows": 199,
+     "per_label": {
+      "mem_recent": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 32
+      },
+      "mem_search": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 82
+      },
+      "ask_user": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 39
+      }
+     },
+     "missed_label_rate": 1.0,
+     "missed_all_rate": 1.0,
+     "missed_all_concern": 1.0,
+     "needless_rate": 0.0,
+     "getters_mean": 0.0
+    }
+   },
+   "holdout": {
+    "all": {
+     "rows": 153,
+     "per_label": {
+      "mem_recent": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 37
+      },
+      "mem_search": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 50
+      },
+      "ask_user": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 34
+      }
+     },
+     "missed_label_rate": 1.0,
+     "missed_all_rate": 1.0,
+     "missed_all_concern": 1.0,
+     "needless_rate": 0.0,
+     "getters_mean": 0.0
+    },
+    "he": {
+     "rows": 59,
+     "per_label": {
+      "mem_recent": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 14
+      },
+      "mem_search": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 17
+      },
+      "ask_user": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 13
+      }
+     },
+     "missed_label_rate": 1.0,
+     "missed_all_rate": 1.0,
+     "missed_all_concern": 1.0,
+     "needless_rate": 0.0,
+     "getters_mean": 0.0
+    },
+    "en": {
+     "rows": 54,
+     "per_label": {
+      "mem_recent": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 13
+      },
+      "mem_search": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 17
+      },
+      "ask_user": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 12
+      }
+     },
+     "missed_label_rate": 1.0,
+     "missed_all_rate": 1.0,
+     "missed_all_concern": 1.0,
+     "needless_rate": 0.0,
+     "getters_mean": 0.0
+    },
+    "mixed": {
+     "rows": 40,
+     "per_label": {
+      "mem_recent": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 10
+      },
+      "mem_search": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 16
+      },
+      "ask_user": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 9
+      }
+     },
+     "missed_label_rate": 1.0,
+     "missed_all_rate": 1.0,
+     "missed_all_concern": 1.0,
+     "needless_rate": 0.0,
+     "getters_mean": 0.0
+    }
+   }
+  },
+  "always": {
+   "dev": {
+    "all": {
+     "rows": 1668,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.161,
+       "recall": 1.0,
+       "support": 268
+      },
+      "mem_search": {
+       "precision": 0.394,
+       "recall": 1.0,
+       "support": 658
+      },
+      "ask_user": {
+       "precision": 0.217,
+       "recall": 1.0,
+       "support": 362
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 1.0,
+     "getters_mean": 4.0
+    },
+    "he": {
+     "rows": 734,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.161,
+       "recall": 1.0,
+       "support": 118
+      },
+      "mem_search": {
+       "precision": 0.392,
+       "recall": 1.0,
+       "support": 288
+      },
+      "ask_user": {
+       "precision": 0.219,
+       "recall": 1.0,
+       "support": 161
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 1.0,
+     "getters_mean": 4.0
+    },
+    "en": {
+     "rows": 735,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.161,
+       "recall": 1.0,
+       "support": 118
+      },
+      "mem_search": {
+       "precision": 0.392,
+       "recall": 1.0,
+       "support": 288
+      },
+      "ask_user": {
+       "precision": 0.22,
+       "recall": 1.0,
+       "support": 162
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 1.0,
+     "getters_mean": 4.0
+    },
+    "mixed": {
+     "rows": 199,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.161,
+       "recall": 1.0,
+       "support": 32
+      },
+      "mem_search": {
+       "precision": 0.412,
+       "recall": 1.0,
+       "support": 82
+      },
+      "ask_user": {
+       "precision": 0.196,
+       "recall": 1.0,
+       "support": 39
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 1.0,
+     "getters_mean": 4.0
+    }
+   },
+   "holdout": {
+    "all": {
+     "rows": 153,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.242,
+       "recall": 1.0,
+       "support": 37
+      },
+      "mem_search": {
+       "precision": 0.327,
+       "recall": 1.0,
+       "support": 50
+      },
+      "ask_user": {
+       "precision": 0.222,
+       "recall": 1.0,
+       "support": 34
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 1.0,
+     "getters_mean": 4.0
+    },
+    "he": {
+     "rows": 59,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.237,
+       "recall": 1.0,
+       "support": 14
+      },
+      "mem_search": {
+       "precision": 0.288,
+       "recall": 1.0,
+       "support": 17
+      },
+      "ask_user": {
+       "precision": 0.22,
+       "recall": 1.0,
+       "support": 13
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 1.0,
+     "getters_mean": 4.0
+    },
+    "en": {
+     "rows": 54,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.241,
+       "recall": 1.0,
+       "support": 13
+      },
+      "mem_search": {
+       "precision": 0.315,
+       "recall": 1.0,
+       "support": 17
+      },
+      "ask_user": {
+       "precision": 0.222,
+       "recall": 1.0,
+       "support": 12
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 1.0,
+     "getters_mean": 4.0
+    },
+    "mixed": {
+     "rows": 40,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.25,
+       "recall": 1.0,
+       "support": 10
+      },
+      "mem_search": {
+       "precision": 0.4,
+       "recall": 1.0,
+       "support": 16
+      },
+      "ask_user": {
+       "precision": 0.225,
+       "recall": 1.0,
+       "support": 9
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 1.0,
+     "getters_mean": 4.0
+    }
+   }
+  },
+  "keywords": {
+   "dev": {
+    "all": {
+     "rows": 1668,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.479,
+       "recall": 0.504,
+       "support": 268
+      },
+      "mem_search": {
+       "precision": 0.624,
+       "recall": 0.321,
+       "support": 658
+      },
+      "ask_user": {
+       "precision": 0.471,
+       "recall": 0.133,
+       "support": 362
+      }
+     },
+     "missed_label_rate": 0.694,
+     "missed_all_rate": 0.528,
+     "missed_all_concern": 0.533,
+     "needless_rate": 0.248,
+     "getters_mean": 0.78
+    },
+    "he": {
+     "rows": 734,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.411,
+       "recall": 0.525,
+       "support": 118
+      },
+      "mem_search": {
+       "precision": 0.667,
+       "recall": 0.264,
+       "support": 288
+      },
+      "ask_user": {
+       "precision": 0.613,
+       "recall": 0.118,
+       "support": 161
+      }
+     },
+     "missed_label_rate": 0.723,
+     "missed_all_rate": 0.544,
+     "missed_all_concern": 0.553,
+     "needless_rate": 0.206,
+     "getters_mean": 0.73
+    },
+    "en": {
+     "rows": 735,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.563,
+       "recall": 0.492,
+       "support": 118
+      },
+      "mem_search": {
+       "precision": 0.608,
+       "recall": 0.382,
+       "support": 288
+      },
+      "ask_user": {
+       "precision": 0.407,
+       "recall": 0.148,
+       "support": 162
+      }
+     },
+     "missed_label_rate": 0.662,
+     "missed_all_rate": 0.519,
+     "missed_all_concern": 0.52,
+     "needless_rate": 0.303,
+     "getters_mean": 0.83
+    },
+    "mixed": {
+     "rows": 199,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.536,
+       "recall": 0.469,
+       "support": 32
+      },
+      "mem_search": {
+       "precision": 0.581,
+       "recall": 0.305,
+       "support": 82
+      },
+      "ask_user": {
+       "precision": 0.417,
+       "recall": 0.128,
+       "support": 39
+      }
+     },
+     "missed_label_rate": 0.706,
+     "missed_all_rate": 0.504,
+     "missed_all_concern": 0.505,
+     "needless_rate": 0.203,
+     "getters_mean": 0.75
+    }
+   },
+   "holdout": {
+    "all": {
+     "rows": 153,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.771,
+       "recall": 0.73,
+       "support": 37
+      },
+      "mem_search": {
+       "precision": 0.814,
+       "recall": 0.7,
+       "support": 50
+      },
+      "ask_user": {
+       "precision": 0.78,
+       "recall": 0.941,
+       "support": 34
+      }
+     },
+     "missed_label_rate": 0.223,
+     "missed_all_rate": 0.123,
+     "missed_all_concern": 0.136,
+     "needless_rate": 0.34,
+     "getters_mean": 1.25
+    },
+    "he": {
+     "rows": 59,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.714,
+       "recall": 0.714,
+       "support": 14
+      },
+      "mem_search": {
+       "precision": 0.846,
+       "recall": 0.647,
+       "support": 17
+      },
+      "ask_user": {
+       "precision": 0.688,
+       "recall": 0.846,
+       "support": 13
+      }
+     },
+     "missed_label_rate": 0.273,
+     "missed_all_rate": 0.179,
+     "missed_all_concern": 0.167,
+     "needless_rate": 0.35,
+     "getters_mean": 1.15
+    },
+    "en": {
+     "rows": 54,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.833,
+       "recall": 0.769,
+       "support": 13
+      },
+      "mem_search": {
+       "precision": 0.765,
+       "recall": 0.765,
+       "support": 17
+      },
+      "ask_user": {
+       "precision": 0.8,
+       "recall": 1.0,
+       "support": 12
+      }
+     },
+     "missed_label_rate": 0.167,
+     "missed_all_rate": 0.054,
+     "missed_all_concern": 0.071,
+     "needless_rate": 0.353,
+     "getters_mean": 1.31
+    },
+    "mixed": {
+     "rows": 40,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.778,
+       "recall": 0.7,
+       "support": 10
+      },
+      "mem_search": {
+       "precision": 0.846,
+       "recall": 0.688,
+       "support": 16
+      },
+      "ask_user": {
+       "precision": 0.9,
+       "recall": 1.0,
+       "support": 9
+      }
+     },
+     "missed_label_rate": 0.229,
+     "missed_all_rate": 0.133,
+     "missed_all_concern": 0.174,
+     "needless_rate": 0.3,
+     "getters_mean": 1.3
+    }
+   }
+  },
+  "r2-e5s-int8": {
+   "thresholds": {
+    "mem_recent": 0.0336,
+    "mem_search": 0.1139,
+    "ask_user": 0.0367
+   },
+   "meta": {
+    "run": "r2-e5s-int8",
+    "base_model": "intfloat/multilingual-e5-small",
+    "runtime": "transformers.js 2.17.2 (Node v24.11.1)",
+    "latency_node": {
+     "threads": 1,
+     "load_ms": 904,
+     "p50_ms": 6.4,
+     "p95_ms": 7.8,
+     "max_ms": 11.4
+    }
+   },
+   "dev": {
+    "all": {
+     "rows": 1668,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.368,
+       "recall": 0.899,
+       "support": 268
+      },
+      "mem_search": {
+       "precision": 0.685,
+       "recall": 0.901,
+       "support": 658
+      },
+      "ask_user": {
+       "precision": 0.349,
+       "recall": 0.901,
+       "support": 362
+      }
+     },
+     "missed_label_rate": 0.099,
+     "missed_all_rate": 0.036,
+     "missed_all_concern": 0.02,
+     "needless_rate": 0.38,
+     "getters_mean": 2.17
+    },
+    "he": {
+     "rows": 734,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.357,
+       "recall": 0.881,
+       "support": 118
+      },
+      "mem_search": {
+       "precision": 0.675,
+       "recall": 0.878,
+       "support": 288
+      },
+      "ask_user": {
+       "precision": 0.355,
+       "recall": 0.901,
+       "support": 161
+      }
+     },
+     "missed_label_rate": 0.115,
+     "missed_all_rate": 0.047,
+     "missed_all_concern": 0.029,
+     "needless_rate": 0.401,
+     "getters_mean": 2.15
+    },
+    "en": {
+     "rows": 735,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.378,
+       "recall": 0.907,
+       "support": 118
+      },
+      "mem_search": {
+       "precision": 0.683,
+       "recall": 0.927,
+       "support": 288
+      },
+      "ask_user": {
+       "precision": 0.352,
+       "recall": 0.92,
+       "support": 162
+      }
+     },
+     "missed_label_rate": 0.079,
+     "missed_all_rate": 0.021,
+     "missed_all_concern": 0.008,
+     "needless_rate": 0.371,
+     "getters_mean": 2.19
+    },
+    "mixed": {
+     "rows": 199,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.37,
+       "recall": 0.938,
+       "support": 32
+      },
+      "mem_search": {
+       "precision": 0.73,
+       "recall": 0.89,
+       "support": 82
+      },
+      "ask_user": {
+       "precision": 0.308,
+       "recall": 0.821,
+       "support": 39
+      }
+     },
+     "missed_label_rate": 0.118,
+     "missed_all_rate": 0.048,
+     "missed_all_concern": 0.03,
+     "needless_rate": 0.338,
+     "getters_mean": 2.11
+    }
+   },
+   "holdout": {
+    "all": {
+     "rows": 153,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.538,
+       "recall": 0.946,
+       "support": 37
+      },
+      "mem_search": {
+       "precision": 0.767,
+       "recall": 0.92,
+       "support": 50
+      },
+      "ask_user": {
+       "precision": 0.32,
+       "recall": 0.971,
+       "support": 34
+      }
+     },
+     "missed_label_rate": 0.058,
+     "missed_all_rate": 0.028,
+     "missed_all_concern": 0.037,
+     "needless_rate": 0.489,
+     "getters_mean": 2.14
+    },
+    "he": {
+     "rows": 59,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.52,
+       "recall": 0.929,
+       "support": 14
+      },
+      "mem_search": {
+       "precision": 0.762,
+       "recall": 0.941,
+       "support": 17
+      },
+      "ask_user": {
+       "precision": 0.293,
+       "recall": 0.923,
+       "support": 13
+      }
+     },
+     "missed_label_rate": 0.068,
+     "missed_all_rate": 0.051,
+     "missed_all_concern": 0.067,
+     "needless_rate": 0.6,
+     "getters_mean": 2.12
+    },
+    "en": {
+     "rows": 54,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.5,
+       "recall": 0.923,
+       "support": 13
+      },
+      "mem_search": {
+       "precision": 0.682,
+       "recall": 0.882,
+       "support": 17
+      },
+      "ask_user": {
+       "precision": 0.343,
+       "recall": 1.0,
+       "support": 12
+      }
+     },
+     "missed_label_rate": 0.071,
+     "missed_all_rate": 0.027,
+     "missed_all_concern": 0.036,
+     "needless_rate": 0.471,
+     "getters_mean": 2.2
+    },
+    "mixed": {
+     "rows": 40,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.625,
+       "recall": 1.0,
+       "support": 10
+      },
+      "mem_search": {
+       "precision": 0.882,
+       "recall": 0.938,
+       "support": 16
+      },
+      "ask_user": {
+       "precision": 0.333,
+       "recall": 1.0,
+       "support": 9
+      }
+     },
+     "missed_label_rate": 0.029,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.3,
+     "getters_mean": 2.1
+    }
+   }
+  },
+  "r2-xlmr-int8": {
+   "thresholds": {
+    "mem_recent": 0.0226,
+    "mem_search": 0.0314,
+    "ask_user": 0.01
+   },
+   "meta": {
+    "run": "r2-xlmr-int8",
+    "base_model": "xlm-roberta-base",
+    "runtime": "transformers.js 2.17.2 (Node v24.11.1)",
+    "latency_node": {
+     "threads": 1,
+     "load_ms": 1311,
+     "p50_ms": 17.1,
+     "p95_ms": 21.8,
+     "max_ms": 32.1
+    }
+   },
+   "dev": {
+    "all": {
+     "rows": 1668,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.346,
+       "recall": 0.903,
+       "support": 268
+      },
+      "mem_search": {
+       "precision": 0.606,
+       "recall": 0.901,
+       "support": 658
+      },
+      "ask_user": {
+       "precision": 0.314,
+       "recall": 0.895,
+       "support": 362
+      }
+     },
+     "missed_label_rate": 0.1,
+     "missed_all_rate": 0.015,
+     "missed_all_concern": 0.009,
+     "needless_rate": 0.561,
+     "getters_mean": 2.35
+    },
+    "he": {
+     "rows": 734,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.354,
+       "recall": 0.915,
+       "support": 118
+      },
+      "mem_search": {
+       "precision": 0.574,
+       "recall": 0.944,
+       "support": 288
+      },
+      "ask_user": {
+       "precision": 0.327,
+       "recall": 0.894,
+       "support": 161
+      }
+     },
+     "missed_label_rate": 0.076,
+     "missed_all_rate": 0.011,
+     "missed_all_concern": 0.005,
+     "needless_rate": 0.584,
+     "getters_mean": 2.41
+    },
+    "en": {
+     "rows": 735,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.339,
+       "recall": 0.898,
+       "support": 118
+      },
+      "mem_search": {
+       "precision": 0.638,
+       "recall": 0.851,
+       "support": 288
+      },
+      "ask_user": {
+       "precision": 0.309,
+       "recall": 0.901,
+       "support": 162
+      }
+     },
+     "missed_label_rate": 0.125,
+     "missed_all_rate": 0.017,
+     "missed_all_concern": 0.013,
+     "needless_rate": 0.551,
+     "getters_mean": 2.29
+    },
+    "mixed": {
+     "rows": 199,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.346,
+       "recall": 0.875,
+       "support": 32
+      },
+      "mem_search": {
+       "precision": 0.633,
+       "recall": 0.927,
+       "support": 82
+      },
+      "ask_user": {
+       "precision": 0.286,
+       "recall": 0.872,
+       "support": 39
+      }
+     },
+     "missed_label_rate": 0.098,
+     "missed_all_rate": 0.024,
+     "missed_all_concern": 0.01,
+     "needless_rate": 0.514,
+     "getters_mean": 2.34
+    }
+   },
+   "holdout": {
+    "all": {
+     "rows": 153,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.444,
+       "recall": 0.973,
+       "support": 37
+      },
+      "mem_search": {
+       "precision": 0.532,
+       "recall": 0.84,
+       "support": 50
+      },
+      "ask_user": {
+       "precision": 0.366,
+       "recall": 0.882,
+       "support": 34
+      }
+     },
+     "missed_label_rate": 0.107,
+     "missed_all_rate": 0.028,
+     "missed_all_concern": 0.037,
+     "needless_rate": 0.83,
+     "getters_mean": 2.41
+    },
+    "he": {
+     "rows": 59,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.467,
+       "recall": 1.0,
+       "support": 14
+      },
+      "mem_search": {
+       "precision": 0.444,
+       "recall": 0.941,
+       "support": 17
+      },
+      "ask_user": {
+       "precision": 0.323,
+       "recall": 0.769,
+       "support": 13
+      }
+     },
+     "missed_label_rate": 0.091,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.9,
+     "getters_mean": 2.53
+    },
+    "en": {
+     "rows": 54,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.414,
+       "recall": 0.923,
+       "support": 13
+      },
+      "mem_search": {
+       "precision": 0.565,
+       "recall": 0.765,
+       "support": 17
+      },
+      "ask_user": {
+       "precision": 0.393,
+       "recall": 0.917,
+       "support": 12
+      }
+     },
+     "missed_label_rate": 0.143,
+     "missed_all_rate": 0.054,
+     "missed_all_concern": 0.071,
+     "needless_rate": 0.765,
+     "getters_mean": 2.26
+    },
+    "mixed": {
+     "rows": 40,
+     "per_label": {
+      "mem_recent": {
+       "precision": 0.455,
+       "recall": 1.0,
+       "support": 10
+      },
+      "mem_search": {
+       "precision": 0.65,
+       "recall": 0.812,
+       "support": 16
+      },
+      "ask_user": {
+       "precision": 0.391,
+       "recall": 1.0,
+       "support": 9
+      }
+     },
+     "missed_label_rate": 0.086,
+     "missed_all_rate": 0.033,
+     "missed_all_concern": 0.043,
+     "needless_rate": 0.8,
+     "getters_mean": 2.42
+    }
+   }
+  }
+ }
+}

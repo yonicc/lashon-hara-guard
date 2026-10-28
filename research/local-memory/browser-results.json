@@ -1,0 +1,40 @@
+{
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+  "externalRequests": [],
+  "checks": [
+    "read-only tool allowlist",
+    "Hebrew semantic retrieval",
+    "retrieval does not confirm facts",
+    "account isolation",
+    "text input updates one draft",
+    "unsent input marked as draft",
+    "collected mail context ingested",
+    "conversation isolation",
+    "DOM replay deduplication",
+    "disabled ingestion rejected",
+    "tool budget enforced",
+    "unknown identity rejected",
+    "edit replaces original",
+    "persisted vectors with records",
+    "embedding failure preserves prior record",
+    "out-of-order update rejected",
+    "delete removes search result",
+    "in-flight ingestion deletion ordered",
+    "bounded search across 2000 records",
+    "conversation deletion includes benchmark vectors",
+    "conversation deletion preserves other account",
+    "IndexedDB survives browser process restart",
+    "expiry filters reads",
+    "purge physically removes text and vectors",
+    "clear completed",
+    "all browser requests restricted to loopback"
+  ],
+  "timings": {
+    "modelLoadMs": 2140,
+    "ingest3Ms": 112.5,
+    "batchSeed2000Ms": 154.19999992847443,
+    "endToEndQueryP50Ms": 57.700000047683716,
+    "endToEndQueryP95Ms": 64.30000007152557
+  },
+  "passed": true
+}

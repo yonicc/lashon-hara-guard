@@ -1,0 +1,3096 @@
+{
+ "labels": [
+  "need_recent_history",
+  "need_participants",
+  "need_relationship",
+  "need_event",
+  "need_purpose",
+  "need_prior_knowledge"
+ ],
+ "target_recall": 0.9,
+ "dev_rows": 1363,
+ "holdout_rows": 153,
+ "candidates": {
+  "never": {
+   "dev": {
+    "all": {
+     "rows": 1363,
+     "per_label": {
+      "need_recent_history": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 202
+      },
+      "need_participants": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 34
+      },
+      "need_relationship": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 137
+      },
+      "need_event": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 617
+      },
+      "need_purpose": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 35
+      },
+      "need_prior_knowledge": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 207
+      }
+     },
+     "missed_label_rate": 1.0,
+     "missed_all_rate": 1.0,
+     "missed_all_concern": 1.0,
+     "needless_rate": 0.0,
+     "getters_mean": 0.0
+    },
+    "he": {
+     "rows": 596,
+     "per_label": {
+      "need_recent_history": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 89
+      },
+      "need_participants": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 16
+      },
+      "need_relationship": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 62
+      },
+      "need_event": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 269
+      },
+      "need_purpose": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 17
+      },
+      "need_prior_knowledge": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 90
+      }
+     },
+     "missed_label_rate": 1.0,
+     "missed_all_rate": 1.0,
+     "missed_all_concern": 1.0,
+     "needless_rate": 0.0,
+     "getters_mean": 0.0
+    },
+    "en": {
+     "rows": 597,
+     "per_label": {
+      "need_recent_history": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 89
+      },
+      "need_participants": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 16
+      },
+      "need_relationship": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 63
+      },
+      "need_event": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 270
+      },
+      "need_purpose": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 17
+      },
+      "need_prior_knowledge": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 90
+      }
+     },
+     "missed_label_rate": 1.0,
+     "missed_all_rate": 1.0,
+     "missed_all_concern": 1.0,
+     "needless_rate": 0.0,
+     "getters_mean": 0.0
+    },
+    "mixed": {
+     "rows": 170,
+     "per_label": {
+      "need_recent_history": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 24
+      },
+      "need_participants": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 2
+      },
+      "need_relationship": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 12
+      },
+      "need_event": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 78
+      },
+      "need_purpose": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 1
+      },
+      "need_prior_knowledge": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 27
+      }
+     },
+     "missed_label_rate": 1.0,
+     "missed_all_rate": 1.0,
+     "missed_all_concern": 1.0,
+     "needless_rate": 0.0,
+     "getters_mean": 0.0
+    }
+   },
+   "holdout": {
+    "all": {
+     "rows": 153,
+     "per_label": {
+      "need_recent_history": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 37
+      },
+      "need_participants": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 20
+      },
+      "need_relationship": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 24
+      },
+      "need_event": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 27
+      },
+      "need_purpose": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 26
+      },
+      "need_prior_knowledge": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 29
+      }
+     },
+     "missed_label_rate": 1.0,
+     "missed_all_rate": 1.0,
+     "missed_all_concern": 1.0,
+     "needless_rate": 0.0,
+     "getters_mean": 0.0
+    },
+    "he": {
+     "rows": 59,
+     "per_label": {
+      "need_recent_history": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 14
+      },
+      "need_participants": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 8
+      },
+      "need_relationship": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 10
+      },
+      "need_event": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 9
+      },
+      "need_purpose": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 9
+      },
+      "need_prior_knowledge": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 10
+      }
+     },
+     "missed_label_rate": 1.0,
+     "missed_all_rate": 1.0,
+     "missed_all_concern": 1.0,
+     "needless_rate": 0.0,
+     "getters_mean": 0.0
+    },
+    "en": {
+     "rows": 54,
+     "per_label": {
+      "need_recent_history": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 13
+      },
+      "need_participants": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 7
+      },
+      "need_relationship": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 8
+      },
+      "need_event": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 9
+      },
+      "need_purpose": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 10
+      },
+      "need_prior_knowledge": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 10
+      }
+     },
+     "missed_label_rate": 1.0,
+     "missed_all_rate": 1.0,
+     "missed_all_concern": 1.0,
+     "needless_rate": 0.0,
+     "getters_mean": 0.0
+    },
+    "mixed": {
+     "rows": 40,
+     "per_label": {
+      "need_recent_history": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 10
+      },
+      "need_participants": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 5
+      },
+      "need_relationship": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 6
+      },
+      "need_event": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 9
+      },
+      "need_purpose": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 7
+      },
+      "need_prior_knowledge": {
+       "precision": null,
+       "recall": 0.0,
+       "support": 9
+      }
+     },
+     "missed_label_rate": 1.0,
+     "missed_all_rate": 1.0,
+     "missed_all_concern": 1.0,
+     "needless_rate": 0.0,
+     "getters_mean": 0.0
+    }
+   }
+  },
+  "always": {
+   "dev": {
+    "all": {
+     "rows": 1363,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.148,
+       "recall": 1.0,
+       "support": 202
+      },
+      "need_participants": {
+       "precision": 0.025,
+       "recall": 1.0,
+       "support": 34
+      },
+      "need_relationship": {
+       "precision": 0.101,
+       "recall": 1.0,
+       "support": 137
+      },
+      "need_event": {
+       "precision": 0.453,
+       "recall": 1.0,
+       "support": 617
+      },
+      "need_purpose": {
+       "precision": 0.026,
+       "recall": 1.0,
+       "support": 35
+      },
+      "need_prior_knowledge": {
+       "precision": 0.152,
+       "recall": 1.0,
+       "support": 207
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 1.0,
+     "getters_mean": 6.0
+    },
+    "he": {
+     "rows": 596,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.149,
+       "recall": 1.0,
+       "support": 89
+      },
+      "need_participants": {
+       "precision": 0.027,
+       "recall": 1.0,
+       "support": 16
+      },
+      "need_relationship": {
+       "precision": 0.104,
+       "recall": 1.0,
+       "support": 62
+      },
+      "need_event": {
+       "precision": 0.451,
+       "recall": 1.0,
+       "support": 269
+      },
+      "need_purpose": {
+       "precision": 0.029,
+       "recall": 1.0,
+       "support": 17
+      },
+      "need_prior_knowledge": {
+       "precision": 0.151,
+       "recall": 1.0,
+       "support": 90
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 1.0,
+     "getters_mean": 6.0
+    },
+    "en": {
+     "rows": 597,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.149,
+       "recall": 1.0,
+       "support": 89
+      },
+      "need_participants": {
+       "precision": 0.027,
+       "recall": 1.0,
+       "support": 16
+      },
+      "need_relationship": {
+       "precision": 0.106,
+       "recall": 1.0,
+       "support": 63
+      },
+      "need_event": {
+       "precision": 0.452,
+       "recall": 1.0,
+       "support": 270
+      },
+      "need_purpose": {
+       "precision": 0.028,
+       "recall": 1.0,
+       "support": 17
+      },
+      "need_prior_knowledge": {
+       "precision": 0.151,
+       "recall": 1.0,
+       "support": 90
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 1.0,
+     "getters_mean": 6.0
+    },
+    "mixed": {
+     "rows": 170,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.141,
+       "recall": 1.0,
+       "support": 24
+      },
+      "need_participants": {
+       "precision": 0.012,
+       "recall": 1.0,
+       "support": 2
+      },
+      "need_relationship": {
+       "precision": 0.071,
+       "recall": 1.0,
+       "support": 12
+      },
+      "need_event": {
+       "precision": 0.459,
+       "recall": 1.0,
+       "support": 78
+      },
+      "need_purpose": {
+       "precision": 0.006,
+       "recall": 1.0,
+       "support": 1
+      },
+      "need_prior_knowledge": {
+       "precision": 0.159,
+       "recall": 1.0,
+       "support": 27
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 1.0,
+     "getters_mean": 6.0
+    }
+   },
+   "holdout": {
+    "all": {
+     "rows": 153,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.242,
+       "recall": 1.0,
+       "support": 37
+      },
+      "need_participants": {
+       "precision": 0.131,
+       "recall": 1.0,
+       "support": 20
+      },
+      "need_relationship": {
+       "precision": 0.157,
+       "recall": 1.0,
+       "support": 24
+      },
+      "need_event": {
+       "precision": 0.176,
+       "recall": 1.0,
+       "support": 27
+      },
+      "need_purpose": {
+       "precision": 0.17,
+       "recall": 1.0,
+       "support": 26
+      },
+      "need_prior_knowledge": {
+       "precision": 0.19,
+       "recall": 1.0,
+       "support": 29
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 1.0,
+     "getters_mean": 6.0
+    },
+    "he": {
+     "rows": 59,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.237,
+       "recall": 1.0,
+       "support": 14
+      },
+      "need_participants": {
+       "precision": 0.136,
+       "recall": 1.0,
+       "support": 8
+      },
+      "need_relationship": {
+       "precision": 0.169,
+       "recall": 1.0,
+       "support": 10
+      },
+      "need_event": {
+       "precision": 0.153,
+       "recall": 1.0,
+       "support": 9
+      },
+      "need_purpose": {
+       "precision": 0.153,
+       "recall": 1.0,
+       "support": 9
+      },
+      "need_prior_knowledge": {
+       "precision": 0.169,
+       "recall": 1.0,
+       "support": 10
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 1.0,
+     "getters_mean": 6.0
+    },
+    "en": {
+     "rows": 54,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.241,
+       "recall": 1.0,
+       "support": 13
+      },
+      "need_participants": {
+       "precision": 0.13,
+       "recall": 1.0,
+       "support": 7
+      },
+      "need_relationship": {
+       "precision": 0.148,
+       "recall": 1.0,
+       "support": 8
+      },
+      "need_event": {
+       "precision": 0.167,
+       "recall": 1.0,
+       "support": 9
+      },
+      "need_purpose": {
+       "precision": 0.185,
+       "recall": 1.0,
+       "support": 10
+      },
+      "need_prior_knowledge": {
+       "precision": 0.185,
+       "recall": 1.0,
+       "support": 10
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 1.0,
+     "getters_mean": 6.0
+    },
+    "mixed": {
+     "rows": 40,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.25,
+       "recall": 1.0,
+       "support": 10
+      },
+      "need_participants": {
+       "precision": 0.125,
+       "recall": 1.0,
+       "support": 5
+      },
+      "need_relationship": {
+       "precision": 0.15,
+       "recall": 1.0,
+       "support": 6
+      },
+      "need_event": {
+       "precision": 0.225,
+       "recall": 1.0,
+       "support": 9
+      },
+      "need_purpose": {
+       "precision": 0.175,
+       "recall": 1.0,
+       "support": 7
+      },
+      "need_prior_knowledge": {
+       "precision": 0.225,
+       "recall": 1.0,
+       "support": 9
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 1.0,
+     "getters_mean": 6.0
+    }
+   }
+  },
+  "keywords": {
+   "dev": {
+    "all": {
+     "rows": 1363,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.461,
+       "recall": 0.554,
+       "support": 202
+      },
+      "need_participants": {
+       "precision": 0.48,
+       "recall": 0.353,
+       "support": 34
+      },
+      "need_relationship": {
+       "precision": 0.321,
+       "recall": 0.124,
+       "support": 137
+      },
+      "need_event": {
+       "precision": 0.633,
+       "recall": 0.193,
+       "support": 617
+      },
+      "need_purpose": {
+       "precision": 0.154,
+       "recall": 0.114,
+       "support": 35
+      },
+      "need_prior_knowledge": {
+       "precision": 0.595,
+       "recall": 0.333,
+       "support": 207
+      }
+     },
+     "missed_label_rate": 0.73,
+     "missed_all_rate": 0.519,
+     "missed_all_concern": 0.531,
+     "needless_rate": 0.236,
+     "getters_mean": 0.84
+    },
+    "he": {
+     "rows": 596,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.424,
+       "recall": 0.596,
+       "support": 89
+      },
+      "need_participants": {
+       "precision": 0.625,
+       "recall": 0.312,
+       "support": 16
+      },
+      "need_relationship": {
+       "precision": 0.238,
+       "recall": 0.081,
+       "support": 62
+      },
+      "need_event": {
+       "precision": 0.712,
+       "recall": 0.138,
+       "support": 269
+      },
+      "need_purpose": {
+       "precision": 0.333,
+       "recall": 0.118,
+       "support": 17
+      },
+      "need_prior_knowledge": {
+       "precision": 0.519,
+       "recall": 0.311,
+       "support": 90
+      }
+     },
+     "missed_label_rate": 0.761,
+     "missed_all_rate": 0.535,
+     "missed_all_concern": 0.551,
+     "needless_rate": 0.177,
+     "getters_mean": 0.79
+    },
+    "en": {
+     "rows": 597,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.516,
+       "recall": 0.539,
+       "support": 89
+      },
+      "need_participants": {
+       "precision": 0.4,
+       "recall": 0.375,
+       "support": 16
+      },
+      "need_relationship": {
+       "precision": 0.423,
+       "recall": 0.175,
+       "support": 63
+      },
+      "need_event": {
+       "precision": 0.598,
+       "recall": 0.237,
+       "support": 270
+      },
+      "need_purpose": {
+       "precision": 0.062,
+       "recall": 0.059,
+       "support": 17
+      },
+      "need_prior_knowledge": {
+       "precision": 0.667,
+       "recall": 0.333,
+       "support": 90
+      }
+     },
+     "missed_label_rate": 0.706,
+     "missed_all_rate": 0.515,
+     "missed_all_concern": 0.524,
+     "needless_rate": 0.311,
+     "getters_mean": 0.88
+    },
+    "mixed": {
+     "rows": 170,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.44,
+       "recall": 0.458,
+       "support": 24
+      },
+      "need_participants": {
+       "precision": 0.5,
+       "recall": 0.5,
+       "support": 2
+      },
+      "need_relationship": {
+       "precision": 0.167,
+       "recall": 0.083,
+       "support": 12
+      },
+      "need_event": {
+       "precision": 0.621,
+       "recall": 0.231,
+       "support": 78
+      },
+      "need_purpose": {
+       "precision": 0.25,
+       "recall": 1.0,
+       "support": 1
+      },
+      "need_prior_knowledge": {
+       "precision": 0.647,
+       "recall": 0.407,
+       "support": 27
+      }
+     },
+     "missed_label_rate": 0.701,
+     "missed_all_rate": 0.479,
+     "missed_all_concern": 0.479,
+     "needless_rate": 0.189,
+     "getters_mean": 0.85
+    }
+   },
+   "holdout": {
+    "all": {
+     "rows": 153,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.771,
+       "recall": 0.73,
+       "support": 37
+      },
+      "need_participants": {
+       "precision": 1.0,
+       "recall": 0.95,
+       "support": 20
+      },
+      "need_relationship": {
+       "precision": 0.714,
+       "recall": 0.833,
+       "support": 24
+      },
+      "need_event": {
+       "precision": 0.75,
+       "recall": 0.667,
+       "support": 27
+      },
+      "need_purpose": {
+       "precision": 0.909,
+       "recall": 0.769,
+       "support": 26
+      },
+      "need_prior_knowledge": {
+       "precision": 0.909,
+       "recall": 0.69,
+       "support": 29
+      }
+     },
+     "missed_label_rate": 0.239,
+     "missed_all_rate": 0.045,
+     "missed_all_concern": 0.035,
+     "needless_rate": 0.317,
+     "getters_mean": 1.39
+    },
+    "he": {
+     "rows": 59,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.714,
+       "recall": 0.714,
+       "support": 14
+      },
+      "need_participants": {
+       "precision": 1.0,
+       "recall": 0.875,
+       "support": 8
+      },
+      "need_relationship": {
+       "precision": 0.615,
+       "recall": 0.8,
+       "support": 10
+      },
+      "need_event": {
+       "precision": 0.833,
+       "recall": 0.556,
+       "support": 9
+      },
+      "need_purpose": {
+       "precision": 1.0,
+       "recall": 0.778,
+       "support": 9
+      },
+      "need_prior_knowledge": {
+       "precision": 0.875,
+       "recall": 0.7,
+       "support": 10
+      }
+     },
+     "missed_label_rate": 0.267,
+     "missed_all_rate": 0.098,
+     "missed_all_concern": 0.062,
+     "needless_rate": 0.333,
+     "getters_mean": 1.29
+    },
+    "en": {
+     "rows": 54,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.833,
+       "recall": 0.769,
+       "support": 13
+      },
+      "need_participants": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 7
+      },
+      "need_relationship": {
+       "precision": 0.778,
+       "recall": 0.875,
+       "support": 8
+      },
+      "need_event": {
+       "precision": 0.7,
+       "recall": 0.778,
+       "support": 9
+      },
+      "need_purpose": {
+       "precision": 0.8,
+       "recall": 0.8,
+       "support": 10
+      },
+      "need_prior_knowledge": {
+       "precision": 0.875,
+       "recall": 0.7,
+       "support": 10
+      }
+     },
+     "missed_label_rate": 0.193,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.357,
+     "getters_mean": 1.46
+    },
+    "mixed": {
+     "rows": 40,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.778,
+       "recall": 0.7,
+       "support": 10
+      },
+      "need_participants": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 5
+      },
+      "need_relationship": {
+       "precision": 0.833,
+       "recall": 0.833,
+       "support": 6
+      },
+      "need_event": {
+       "precision": 0.75,
+       "recall": 0.667,
+       "support": 9
+      },
+      "need_purpose": {
+       "precision": 1.0,
+       "recall": 0.714,
+       "support": 7
+      },
+      "need_prior_knowledge": {
+       "precision": 1.0,
+       "recall": 0.667,
+       "support": 9
+      }
+     },
+     "missed_label_rate": 0.261,
+     "missed_all_rate": 0.032,
+     "missed_all_concern": 0.042,
+     "needless_rate": 0.222,
+     "getters_mean": 1.45
+    }
+   }
+  },
+  "qwen32b-teacher": {
+   "thresholds": {
+    "need_recent_history": 0.9,
+    "need_participants": 0.9,
+    "need_relationship": 0.9,
+    "need_event": 0.9,
+    "need_purpose": 0.9,
+    "need_prior_knowledge": 0.9
+   },
+   "meta": {
+    "run": "qwen32b-teacher",
+    "base_model": "Qwen/Qwen2.5-32B-Instruct",
+    "note": "zero-shot LLM labeler = the training label source; dev probs are its own verify labels (circular), only the holdout is informative"
+   },
+   "dev": {
+    "all": {
+     "rows": 1363,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 202
+      },
+      "need_participants": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 34
+      },
+      "need_relationship": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 137
+      },
+      "need_event": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 617
+      },
+      "need_purpose": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 35
+      },
+      "need_prior_knowledge": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 207
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.0,
+     "getters_mean": 1.56
+    },
+    "he": {
+     "rows": 596,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 89
+      },
+      "need_participants": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 16
+      },
+      "need_relationship": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 62
+      },
+      "need_event": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 269
+      },
+      "need_purpose": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 17
+      },
+      "need_prior_knowledge": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 90
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.0,
+     "getters_mean": 1.57
+    },
+    "en": {
+     "rows": 597,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 89
+      },
+      "need_participants": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 16
+      },
+      "need_relationship": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 63
+      },
+      "need_event": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 270
+      },
+      "need_purpose": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 17
+      },
+      "need_prior_knowledge": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 90
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.0,
+     "getters_mean": 1.57
+    },
+    "mixed": {
+     "rows": 170,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 24
+      },
+      "need_participants": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 2
+      },
+      "need_relationship": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 12
+      },
+      "need_event": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 78
+      },
+      "need_purpose": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 1
+      },
+      "need_prior_knowledge": {
+       "precision": 1.0,
+       "recall": 1.0,
+       "support": 27
+      }
+     },
+     "missed_label_rate": 0.0,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.0,
+     "getters_mean": 1.51
+    }
+   },
+   "holdout": {
+    "all": {
+     "rows": 153,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.741,
+       "recall": 0.541,
+       "support": 37
+      },
+      "need_participants": {
+       "precision": 0.72,
+       "recall": 0.9,
+       "support": 20
+      },
+      "need_relationship": {
+       "precision": 0.583,
+       "recall": 0.875,
+       "support": 24
+      },
+      "need_event": {
+       "precision": 0.375,
+       "recall": 0.778,
+       "support": 27
+      },
+      "need_purpose": {
+       "precision": 1.0,
+       "recall": 0.577,
+       "support": 26
+      },
+      "need_prior_knowledge": {
+       "precision": 0.784,
+       "recall": 1.0,
+       "support": 29
+      }
+     },
+     "missed_label_rate": 0.239,
+     "missed_all_rate": 0.036,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.366,
+     "getters_mean": 1.8
+    },
+    "he": {
+     "rows": 59,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.643,
+       "recall": 0.643,
+       "support": 14
+      },
+      "need_participants": {
+       "precision": 0.7,
+       "recall": 0.875,
+       "support": 8
+      },
+      "need_relationship": {
+       "precision": 0.6,
+       "recall": 0.9,
+       "support": 10
+      },
+      "need_event": {
+       "precision": 0.318,
+       "recall": 0.778,
+       "support": 9
+      },
+      "need_purpose": {
+       "precision": 1.0,
+       "recall": 0.667,
+       "support": 9
+      },
+      "need_prior_knowledge": {
+       "precision": 0.769,
+       "recall": 1.0,
+       "support": 10
+      }
+     },
+     "missed_label_rate": 0.2,
+     "missed_all_rate": 0.024,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.389,
+     "getters_mean": 1.88
+    },
+    "en": {
+     "rows": 54,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.857,
+       "recall": 0.462,
+       "support": 13
+      },
+      "need_participants": {
+       "precision": 0.778,
+       "recall": 1.0,
+       "support": 7
+      },
+      "need_relationship": {
+       "precision": 0.583,
+       "recall": 0.875,
+       "support": 8
+      },
+      "need_event": {
+       "precision": 0.368,
+       "recall": 0.778,
+       "support": 9
+      },
+      "need_purpose": {
+       "precision": 1.0,
+       "recall": 0.5,
+       "support": 10
+      },
+      "need_prior_knowledge": {
+       "precision": 0.769,
+       "recall": 1.0,
+       "support": 10
+      }
+     },
+     "missed_label_rate": 0.263,
+     "missed_all_rate": 0.05,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.357,
+     "getters_mean": 1.7
+    },
+    "mixed": {
+     "rows": 40,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.833,
+       "recall": 0.5,
+       "support": 10
+      },
+      "need_participants": {
+       "precision": 0.667,
+       "recall": 0.8,
+       "support": 5
+      },
+      "need_relationship": {
+       "precision": 0.556,
+       "recall": 0.833,
+       "support": 6
+      },
+      "need_event": {
+       "precision": 0.467,
+       "recall": 0.778,
+       "support": 9
+      },
+      "need_purpose": {
+       "precision": 1.0,
+       "recall": 0.571,
+       "support": 7
+      },
+      "need_prior_knowledge": {
+       "precision": 0.818,
+       "recall": 1.0,
+       "support": 9
+      }
+     },
+     "missed_label_rate": 0.261,
+     "missed_all_rate": 0.032,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.333,
+     "getters_mean": 1.8
+    }
+   }
+  },
+  "r1-dicta": {
+   "thresholds": {
+    "need_recent_history": 0.04,
+    "need_participants": 0.0164,
+    "need_relationship": 0.0531,
+    "need_event": 0.2368,
+    "need_purpose": 0.09,
+    "need_prior_knowledge": 0.1162
+   },
+   "meta": {
+    "run": "r1-dicta",
+    "base_model": "dicta-il/dictabert",
+    "cfg": {
+     "base": "dicta-il/dictabert",
+     "lr": 3e-05,
+     "epochs": 4,
+     "bs": 32
+    },
+    "gpu": "A10G",
+    "train_rows": 7801,
+    "train_seconds": 109,
+    "container_seconds": 136,
+    "params": 184349958,
+    "container_cpu2_latency": {
+     "p50_ms": 38.2,
+     "p95_ms": 47.4
+    }
+   },
+   "dev": {
+    "all": {
+     "rows": 1363,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.449,
+       "recall": 0.896,
+       "support": 202
+      },
+      "need_participants": {
+       "precision": 0.042,
+       "recall": 0.912,
+       "support": 34
+      },
+      "need_relationship": {
+       "precision": 0.448,
+       "recall": 0.905,
+       "support": 137
+      },
+      "need_event": {
+       "precision": 0.8,
+       "recall": 0.901,
+       "support": 617
+      },
+      "need_purpose": {
+       "precision": 0.308,
+       "recall": 0.914,
+       "support": 35
+      },
+      "need_prior_knowledge": {
+       "precision": 0.81,
+       "recall": 0.903,
+       "support": 207
+      }
+     },
+     "missed_label_rate": 0.098,
+     "missed_all_rate": 0.006,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.617,
+     "getters_mean": 2.47
+    },
+    "he": {
+     "rows": 596,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.446,
+       "recall": 0.888,
+       "support": 89
+      },
+      "need_participants": {
+       "precision": 0.046,
+       "recall": 0.938,
+       "support": 16
+      },
+      "need_relationship": {
+       "precision": 0.475,
+       "recall": 0.903,
+       "support": 62
+      },
+      "need_event": {
+       "precision": 0.788,
+       "recall": 0.914,
+       "support": 269
+      },
+      "need_purpose": {
+       "precision": 0.32,
+       "recall": 0.941,
+       "support": 17
+      },
+      "need_prior_knowledge": {
+       "precision": 0.81,
+       "recall": 0.9,
+       "support": 90
+      }
+     },
+     "missed_label_rate": 0.092,
+     "missed_all_rate": 0.007,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.567,
+     "getters_mean": 2.48
+    },
+    "en": {
+     "rows": 597,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.441,
+       "recall": 0.888,
+       "support": 89
+      },
+      "need_participants": {
+       "precision": 0.043,
+       "recall": 0.875,
+       "support": 16
+      },
+      "need_relationship": {
+       "precision": 0.433,
+       "recall": 0.921,
+       "support": 63
+      },
+      "need_event": {
+       "precision": 0.79,
+       "recall": 0.893,
+       "support": 270
+      },
+      "need_purpose": {
+       "precision": 0.319,
+       "recall": 0.882,
+       "support": 17
+      },
+      "need_prior_knowledge": {
+       "precision": 0.794,
+       "recall": 0.9,
+       "support": 90
+      }
+     },
+     "missed_label_rate": 0.105,
+     "missed_all_rate": 0.007,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.665,
+     "getters_mean": 2.5
+    },
+    "mixed": {
+     "rows": 170,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.489,
+       "recall": 0.958,
+       "support": 24
+      },
+      "need_participants": {
+       "precision": 0.021,
+       "recall": 1.0,
+       "support": 2
+      },
+      "need_relationship": {
+       "precision": 0.4,
+       "recall": 0.833,
+       "support": 12
+      },
+      "need_event": {
+       "precision": 0.885,
+       "recall": 0.885,
+       "support": 78
+      },
+      "need_purpose": {
+       "precision": 0.143,
+       "recall": 1.0,
+       "support": 1
+      },
+      "need_prior_knowledge": {
+       "precision": 0.862,
+       "recall": 0.926,
+       "support": 27
+      }
+     },
+     "missed_label_rate": 0.097,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.623,
+     "getters_mean": 2.34
+    }
+   },
+   "holdout": {
+    "all": {
+     "rows": 153,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.493,
+       "recall": 0.892,
+       "support": 37
+      },
+      "need_participants": {
+       "precision": 0.202,
+       "recall": 0.9,
+       "support": 20
+      },
+      "need_relationship": {
+       "precision": 0.44,
+       "recall": 0.917,
+       "support": 24
+      },
+      "need_event": {
+       "precision": 0.537,
+       "recall": 0.815,
+       "support": 27
+      },
+      "need_purpose": {
+       "precision": 0.5,
+       "recall": 0.269,
+       "support": 26
+      },
+      "need_prior_knowledge": {
+       "precision": 0.8,
+       "recall": 0.69,
+       "support": 29
+      }
+     },
+     "missed_label_rate": 0.252,
+     "missed_all_rate": 0.027,
+     "missed_all_concern": 0.023,
+     "needless_rate": 0.61,
+     "getters_mean": 2.48
+    },
+    "he": {
+     "rows": 59,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.565,
+       "recall": 0.929,
+       "support": 14
+      },
+      "need_participants": {
+       "precision": 0.184,
+       "recall": 0.875,
+       "support": 8
+      },
+      "need_relationship": {
+       "precision": 0.455,
+       "recall": 1.0,
+       "support": 10
+      },
+      "need_event": {
+       "precision": 0.471,
+       "recall": 0.889,
+       "support": 9
+      },
+      "need_purpose": {
+       "precision": 0.375,
+       "recall": 0.333,
+       "support": 9
+      },
+      "need_prior_knowledge": {
+       "precision": 0.692,
+       "recall": 0.9,
+       "support": 10
+      }
+     },
+     "missed_label_rate": 0.167,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.611,
+     "getters_mean": 2.63
+    },
+    "en": {
+     "rows": 54,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.423,
+       "recall": 0.846,
+       "support": 13
+      },
+      "need_participants": {
+       "precision": 0.233,
+       "recall": 1.0,
+       "support": 7
+      },
+      "need_relationship": {
+       "precision": 0.4,
+       "recall": 0.75,
+       "support": 8
+      },
+      "need_event": {
+       "precision": 0.583,
+       "recall": 0.778,
+       "support": 9
+      },
+      "need_purpose": {
+       "precision": 0.667,
+       "recall": 0.2,
+       "support": 10
+      },
+      "need_prior_knowledge": {
+       "precision": 0.833,
+       "recall": 0.5,
+       "support": 10
+      }
+     },
+     "missed_label_rate": 0.333,
+     "missed_all_rate": 0.075,
+     "missed_all_concern": 0.067,
+     "needless_rate": 0.571,
+     "getters_mean": 2.33
+    },
+    "mixed": {
+     "rows": 40,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.5,
+       "recall": 0.9,
+       "support": 10
+      },
+      "need_participants": {
+       "precision": 0.19,
+       "recall": 0.8,
+       "support": 5
+      },
+      "need_relationship": {
+       "precision": 0.462,
+       "recall": 1.0,
+       "support": 6
+      },
+      "need_event": {
+       "precision": 0.583,
+       "recall": 0.778,
+       "support": 9
+      },
+      "need_purpose": {
+       "precision": 0.667,
+       "recall": 0.286,
+       "support": 7
+      },
+      "need_prior_knowledge": {
+       "precision": 1.0,
+       "recall": 0.667,
+       "support": 9
+      }
+     },
+     "missed_label_rate": 0.261,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.667,
+     "getters_mean": 2.45
+    }
+   }
+  },
+  "r1-e5lr": {
+   "thresholds": {
+    "need_recent_history": 0.359,
+    "need_participants": 0.1666,
+    "need_relationship": 0.2789,
+    "need_event": 0.3396,
+    "need_purpose": 0.3395,
+    "need_prior_knowledge": 0.3567
+   },
+   "meta": {
+    "run": "r1-e5lr",
+    "base_model": "intfloat/multilingual-e5-small",
+    "cfg": {
+     "base": "intfloat/multilingual-e5-small",
+     "frozen": true
+    },
+    "gpu": "A10G",
+    "train_rows": 7801,
+    "train_seconds": 7,
+    "container_seconds": 10,
+    "params": 117653760,
+    "container_cpu2_latency": {
+     "p50_ms": 21.0,
+     "p95_ms": 23.5
+    }
+   },
+   "dev": {
+    "all": {
+     "rows": 1363,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.361,
+       "recall": 0.901,
+       "support": 202
+      },
+      "need_participants": {
+       "precision": 0.042,
+       "recall": 0.912,
+       "support": 34
+      },
+      "need_relationship": {
+       "precision": 0.248,
+       "recall": 0.905,
+       "support": 137
+      },
+      "need_event": {
+       "precision": 0.688,
+       "recall": 0.901,
+       "support": 617
+      },
+      "need_purpose": {
+       "precision": 0.122,
+       "recall": 0.914,
+       "support": 35
+      },
+      "need_prior_knowledge": {
+       "precision": 0.51,
+       "recall": 0.903,
+       "support": 207
+      }
+     },
+     "missed_label_rate": 0.097,
+     "missed_all_rate": 0.008,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.703,
+     "getters_mean": 2.96
+    },
+    "he": {
+     "rows": 596,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.349,
+       "recall": 0.899,
+       "support": 89
+      },
+      "need_participants": {
+       "precision": 0.042,
+       "recall": 0.875,
+       "support": 16
+      },
+      "need_relationship": {
+       "precision": 0.232,
+       "recall": 0.903,
+       "support": 62
+      },
+      "need_event": {
+       "precision": 0.666,
+       "recall": 0.903,
+       "support": 269
+      },
+      "need_purpose": {
+       "precision": 0.119,
+       "recall": 0.941,
+       "support": 17
+      },
+      "need_prior_knowledge": {
+       "precision": 0.494,
+       "recall": 0.911,
+       "support": 90
+      }
+     },
+     "missed_label_rate": 0.096,
+     "missed_all_rate": 0.005,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.744,
+     "getters_mean": 3.08
+    },
+    "en": {
+     "rows": 597,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.379,
+       "recall": 0.899,
+       "support": 89
+      },
+      "need_participants": {
+       "precision": 0.051,
+       "recall": 0.938,
+       "support": 16
+      },
+      "need_relationship": {
+       "precision": 0.297,
+       "recall": 0.952,
+       "support": 63
+      },
+      "need_event": {
+       "precision": 0.699,
+       "recall": 0.911,
+       "support": 270
+      },
+      "need_purpose": {
+       "precision": 0.147,
+       "recall": 0.882,
+       "support": 17
+      },
+      "need_prior_knowledge": {
+       "precision": 0.567,
+       "recall": 0.889,
+       "support": 90
+      }
+     },
+     "missed_label_rate": 0.09,
+     "missed_all_rate": 0.012,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.659,
+     "getters_mean": 2.83
+    },
+    "mixed": {
+     "rows": 170,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.344,
+       "recall": 0.917,
+       "support": 24
+      },
+      "need_participants": {
+       "precision": 0.02,
+       "recall": 1.0,
+       "support": 2
+      },
+      "need_relationship": {
+       "precision": 0.138,
+       "recall": 0.667,
+       "support": 12
+      },
+      "need_event": {
+       "precision": 0.736,
+       "recall": 0.859,
+       "support": 78
+      },
+      "need_purpose": {
+       "precision": 0.037,
+       "recall": 1.0,
+       "support": 1
+      },
+      "need_prior_knowledge": {
+       "precision": 0.417,
+       "recall": 0.926,
+       "support": 27
+      }
+     },
+     "missed_label_rate": 0.132,
+     "missed_all_rate": 0.009,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.717,
+     "getters_mean": 3.0
+    }
+   },
+   "holdout": {
+    "all": {
+     "rows": 153,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.478,
+       "recall": 0.865,
+       "support": 37
+      },
+      "need_participants": {
+       "precision": 0.267,
+       "recall": 1.0,
+       "support": 20
+      },
+      "need_relationship": {
+       "precision": 0.353,
+       "recall": 1.0,
+       "support": 24
+      },
+      "need_event": {
+       "precision": 0.367,
+       "recall": 0.815,
+       "support": 27
+      },
+      "need_purpose": {
+       "precision": 0.654,
+       "recall": 0.654,
+       "support": 26
+      },
+      "need_prior_knowledge": {
+       "precision": 0.605,
+       "recall": 0.793,
+       "support": 29
+      }
+     },
+     "missed_label_rate": 0.153,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.902,
+     "getters_mean": 2.76
+    },
+    "he": {
+     "rows": 59,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.464,
+       "recall": 0.929,
+       "support": 14
+      },
+      "need_participants": {
+       "precision": 0.242,
+       "recall": 1.0,
+       "support": 8
+      },
+      "need_relationship": {
+       "precision": 0.345,
+       "recall": 1.0,
+       "support": 10
+      },
+      "need_event": {
+       "precision": 0.348,
+       "recall": 0.889,
+       "support": 9
+      },
+      "need_purpose": {
+       "precision": 0.583,
+       "recall": 0.778,
+       "support": 9
+      },
+      "need_prior_knowledge": {
+       "precision": 0.529,
+       "recall": 0.9,
+       "support": 10
+      }
+     },
+     "missed_label_rate": 0.083,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.833,
+     "getters_mean": 2.95
+    },
+    "en": {
+     "rows": 54,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.476,
+       "recall": 0.769,
+       "support": 13
+      },
+      "need_participants": {
+       "precision": 0.333,
+       "recall": 1.0,
+       "support": 7
+      },
+      "need_relationship": {
+       "precision": 0.364,
+       "recall": 1.0,
+       "support": 8
+      },
+      "need_event": {
+       "precision": 0.368,
+       "recall": 0.778,
+       "support": 9
+      },
+      "need_purpose": {
+       "precision": 0.625,
+       "recall": 0.5,
+       "support": 10
+      },
+      "need_prior_knowledge": {
+       "precision": 0.636,
+       "recall": 0.7,
+       "support": 10
+      }
+     },
+     "missed_label_rate": 0.228,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.929,
+     "getters_mean": 2.46
+    },
+    "mixed": {
+     "rows": 40,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.5,
+       "recall": 0.9,
+       "support": 10
+      },
+      "need_participants": {
+       "precision": 0.238,
+       "recall": 1.0,
+       "support": 5
+      },
+      "need_relationship": {
+       "precision": 0.353,
+       "recall": 1.0,
+       "support": 6
+      },
+      "need_event": {
+       "precision": 0.389,
+       "recall": 0.778,
+       "support": 9
+      },
+      "need_purpose": {
+       "precision": 0.833,
+       "recall": 0.714,
+       "support": 7
+      },
+      "need_prior_knowledge": {
+       "precision": 0.7,
+       "recall": 0.778,
+       "support": 9
+      }
+     },
+     "missed_label_rate": 0.152,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 1.0,
+     "getters_mean": 2.88
+    }
+   }
+  },
+  "r1-e5s": {
+   "thresholds": {
+    "need_recent_history": 0.05,
+    "need_participants": 0.0101,
+    "need_relationship": 0.0493,
+    "need_event": 0.1808,
+    "need_purpose": 0.0813,
+    "need_prior_knowledge": 0.0664
+   },
+   "meta": {
+    "run": "r1-e5s",
+    "base_model": "intfloat/multilingual-e5-small",
+    "cfg": {
+     "base": "intfloat/multilingual-e5-small",
+     "lr": 5e-05,
+     "epochs": 6,
+     "bs": 32
+    },
+    "gpu": "A10G",
+    "train_rows": 7801,
+    "train_seconds": 76,
+    "container_seconds": 101,
+    "params": 117656070,
+    "container_cpu2_latency": {
+     "p50_ms": 26.7,
+     "p95_ms": 30.5
+    }
+   },
+   "dev": {
+    "all": {
+     "rows": 1363,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.417,
+       "recall": 0.901,
+       "support": 202
+      },
+      "need_participants": {
+       "precision": 0.029,
+       "recall": 0.882,
+       "support": 34
+      },
+      "need_relationship": {
+       "precision": 0.325,
+       "recall": 0.905,
+       "support": 137
+      },
+      "need_event": {
+       "precision": 0.762,
+       "recall": 0.901,
+       "support": 617
+      },
+      "need_purpose": {
+       "precision": 0.225,
+       "recall": 0.886,
+       "support": 35
+      },
+      "need_prior_knowledge": {
+       "precision": 0.707,
+       "recall": 0.899,
+       "support": 207
+      }
+     },
+     "missed_label_rate": 0.1,
+     "missed_all_rate": 0.012,
+     "missed_all_concern": 0.004,
+     "needless_rate": 0.732,
+     "getters_mean": 2.84
+    },
+    "he": {
+     "rows": 596,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.405,
+       "recall": 0.888,
+       "support": 89
+      },
+      "need_participants": {
+       "precision": 0.033,
+       "recall": 0.938,
+       "support": 16
+      },
+      "need_relationship": {
+       "precision": 0.326,
+       "recall": 0.903,
+       "support": 62
+      },
+      "need_event": {
+       "precision": 0.742,
+       "recall": 0.896,
+       "support": 269
+      },
+      "need_purpose": {
+       "precision": 0.238,
+       "recall": 0.882,
+       "support": 17
+      },
+      "need_prior_knowledge": {
+       "precision": 0.689,
+       "recall": 0.911,
+       "support": 90
+      }
+     },
+     "missed_label_rate": 0.101,
+     "missed_all_rate": 0.012,
+     "missed_all_concern": 0.003,
+     "needless_rate": 0.689,
+     "getters_mean": 2.89
+    },
+    "en": {
+     "rows": 597,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.421,
+       "recall": 0.899,
+       "support": 89
+      },
+      "need_participants": {
+       "precision": 0.029,
+       "recall": 0.812,
+       "support": 16
+      },
+      "need_relationship": {
+       "precision": 0.364,
+       "recall": 0.937,
+       "support": 63
+      },
+      "need_event": {
+       "precision": 0.769,
+       "recall": 0.911,
+       "support": 270
+      },
+      "need_purpose": {
+       "precision": 0.242,
+       "recall": 0.882,
+       "support": 17
+      },
+      "need_prior_knowledge": {
+       "precision": 0.727,
+       "recall": 0.889,
+       "support": 90
+      }
+     },
+     "missed_label_rate": 0.095,
+     "missed_all_rate": 0.012,
+     "missed_all_concern": 0.006,
+     "needless_rate": 0.78,
+     "getters_mean": 2.81
+    },
+    "mixed": {
+     "rows": 170,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.451,
+       "recall": 0.958,
+       "support": 24
+      },
+      "need_participants": {
+       "precision": 0.016,
+       "recall": 1.0,
+       "support": 2
+      },
+      "need_relationship": {
+       "precision": 0.188,
+       "recall": 0.75,
+       "support": 12
+      },
+      "need_event": {
+       "precision": 0.812,
+       "recall": 0.885,
+       "support": 78
+      },
+      "need_purpose": {
+       "precision": 0.077,
+       "recall": 1.0,
+       "support": 1
+      },
+      "need_prior_knowledge": {
+       "precision": 0.706,
+       "recall": 0.889,
+       "support": 27
+      }
+     },
+     "missed_label_rate": 0.111,
+     "missed_all_rate": 0.017,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.717,
+     "getters_mean": 2.74
+    }
+   },
+   "holdout": {
+    "all": {
+     "rows": 153,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.44,
+       "recall": 0.892,
+       "support": 37
+      },
+      "need_participants": {
+       "precision": 0.158,
+       "recall": 0.95,
+       "support": 20
+      },
+      "need_relationship": {
+       "precision": 0.364,
+       "recall": 0.833,
+       "support": 24
+      },
+      "need_event": {
+       "precision": 0.458,
+       "recall": 0.815,
+       "support": 27
+      },
+      "need_purpose": {
+       "precision": 0.29,
+       "recall": 0.346,
+       "support": 26
+      },
+      "need_prior_knowledge": {
+       "precision": 0.475,
+       "recall": 0.655,
+       "support": 29
+      }
+     },
+     "missed_label_rate": 0.252,
+     "missed_all_rate": 0.009,
+     "missed_all_concern": 0.012,
+     "needless_rate": 0.683,
+     "getters_mean": 2.98
+    },
+    "he": {
+     "rows": 59,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.429,
+       "recall": 0.857,
+       "support": 14
+      },
+      "need_participants": {
+       "precision": 0.159,
+       "recall": 0.875,
+       "support": 8
+      },
+      "need_relationship": {
+       "precision": 0.381,
+       "recall": 0.8,
+       "support": 10
+      },
+      "need_event": {
+       "precision": 0.389,
+       "recall": 0.778,
+       "support": 9
+      },
+      "need_purpose": {
+       "precision": 0.2,
+       "recall": 0.222,
+       "support": 9
+      },
+      "need_prior_knowledge": {
+       "precision": 0.412,
+       "recall": 0.7,
+       "support": 10
+      }
+     },
+     "missed_label_rate": 0.283,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.611,
+     "getters_mean": 2.95
+    },
+    "en": {
+     "rows": 54,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.429,
+       "recall": 0.923,
+       "support": 13
+      },
+      "need_participants": {
+       "precision": 0.159,
+       "recall": 1.0,
+       "support": 7
+      },
+      "need_relationship": {
+       "precision": 0.421,
+       "recall": 1.0,
+       "support": 8
+      },
+      "need_event": {
+       "precision": 0.471,
+       "recall": 0.889,
+       "support": 9
+      },
+      "need_purpose": {
+       "precision": 0.357,
+       "recall": 0.5,
+       "support": 10
+      },
+      "need_prior_knowledge": {
+       "precision": 0.467,
+       "recall": 0.7,
+       "support": 10
+      }
+     },
+     "missed_label_rate": 0.175,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.714,
+     "getters_mean": 3.07
+    },
+    "mixed": {
+     "rows": 40,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.474,
+       "recall": 0.9,
+       "support": 10
+      },
+      "need_participants": {
+       "precision": 0.156,
+       "recall": 1.0,
+       "support": 5
+      },
+      "need_relationship": {
+       "precision": 0.267,
+       "recall": 0.667,
+       "support": 6
+      },
+      "need_event": {
+       "precision": 0.538,
+       "recall": 0.778,
+       "support": 9
+      },
+      "need_purpose": {
+       "precision": 0.286,
+       "recall": 0.286,
+       "support": 7
+      },
+      "need_prior_knowledge": {
+       "precision": 0.625,
+       "recall": 0.556,
+       "support": 9
+      }
+     },
+     "missed_label_rate": 0.304,
+     "missed_all_rate": 0.032,
+     "missed_all_concern": 0.042,
+     "needless_rate": 0.778,
+     "getters_mean": 2.9
+    }
+   }
+  },
+  "r1-qwen05": {
+   "thresholds": {
+    "need_recent_history": 0.01,
+    "need_participants": 0.01,
+    "need_relationship": 0.01,
+    "need_event": 0.0185,
+    "need_purpose": 0.01,
+    "need_prior_knowledge": 0.0432
+   },
+   "meta": {
+    "run": "r1-qwen05",
+    "base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "cfg": {
+     "base": "Qwen/Qwen2.5-0.5B-Instruct",
+     "lr": 2e-05,
+     "epochs": 3,
+     "bs": 16,
+     "decoder": true
+    },
+    "gpu": "A10G",
+    "train_rows": 7801,
+    "train_seconds": 253,
+    "container_seconds": 281,
+    "params": 494038144,
+    "container_cpu2_latency": {
+     "p50_ms": 168.4,
+     "p95_ms": 217.9
+    }
+   },
+   "dev": {
+    "all": {
+     "rows": 1363,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.552,
+       "recall": 0.837,
+       "support": 202
+      },
+      "need_participants": {
+       "precision": 0.389,
+       "recall": 0.618,
+       "support": 34
+      },
+      "need_relationship": {
+       "precision": 0.48,
+       "recall": 0.869,
+       "support": 137
+      },
+      "need_event": {
+       "precision": 0.741,
+       "recall": 0.901,
+       "support": 617
+      },
+      "need_purpose": {
+       "precision": 0.453,
+       "recall": 0.686,
+       "support": 35
+      },
+      "need_prior_knowledge": {
+       "precision": 0.773,
+       "recall": 0.903,
+       "support": 207
+      }
+     },
+     "missed_label_rate": 0.127,
+     "missed_all_rate": 0.031,
+     "missed_all_concern": 0.008,
+     "needless_rate": 0.244,
+     "getters_mean": 1.91
+    },
+    "he": {
+     "rows": 596,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.532,
+       "recall": 0.831,
+       "support": 89
+      },
+      "need_participants": {
+       "precision": 0.36,
+       "recall": 0.562,
+       "support": 16
+      },
+      "need_relationship": {
+       "precision": 0.46,
+       "recall": 0.839,
+       "support": 62
+      },
+      "need_event": {
+       "precision": 0.718,
+       "recall": 0.907,
+       "support": 269
+      },
+      "need_purpose": {
+       "precision": 0.414,
+       "recall": 0.706,
+       "support": 17
+      },
+      "need_prior_knowledge": {
+       "precision": 0.75,
+       "recall": 0.9,
+       "support": 90
+      }
+     },
+     "missed_label_rate": 0.131,
+     "missed_all_rate": 0.025,
+     "missed_all_concern": 0.006,
+     "needless_rate": 0.244,
+     "getters_mean": 1.96
+    },
+    "en": {
+     "rows": 597,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.587,
+       "recall": 0.831,
+       "support": 89
+      },
+      "need_participants": {
+       "precision": 0.455,
+       "recall": 0.625,
+       "support": 16
+      },
+      "need_relationship": {
+       "precision": 0.509,
+       "recall": 0.905,
+       "support": 63
+      },
+      "need_event": {
+       "precision": 0.749,
+       "recall": 0.896,
+       "support": 270
+      },
+      "need_purpose": {
+       "precision": 0.524,
+       "recall": 0.647,
+       "support": 17
+      },
+      "need_prior_knowledge": {
+       "precision": 0.81,
+       "recall": 0.9,
+       "support": 90
+      }
+     },
+     "missed_label_rate": 0.128,
+     "missed_all_rate": 0.03,
+     "missed_all_concern": 0.008,
+     "needless_rate": 0.25,
+     "getters_mean": 1.89
+    },
+    "mixed": {
+     "rows": 170,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.512,
+       "recall": 0.875,
+       "support": 24
+      },
+      "need_participants": {
+       "precision": 0.286,
+       "recall": 1.0,
+       "support": 2
+      },
+      "need_relationship": {
+       "precision": 0.435,
+       "recall": 0.833,
+       "support": 12
+      },
+      "need_event": {
+       "precision": 0.805,
+       "recall": 0.897,
+       "support": 78
+      },
+      "need_purpose": {
+       "precision": 0.333,
+       "recall": 1.0,
+       "support": 1
+      },
+      "need_prior_knowledge": {
+       "precision": 0.735,
+       "recall": 0.926,
+       "support": 27
+      }
+     },
+     "missed_label_rate": 0.104,
+     "missed_all_rate": 0.051,
+     "missed_all_concern": 0.011,
+     "needless_rate": 0.226,
+     "getters_mean": 1.84
+    }
+   },
+   "holdout": {
+    "all": {
+     "rows": 153,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.8,
+       "recall": 0.649,
+       "support": 37
+      },
+      "need_participants": {
+       "precision": 0.279,
+       "recall": 0.6,
+       "support": 20
+      },
+      "need_relationship": {
+       "precision": 0.429,
+       "recall": 0.625,
+       "support": 24
+      },
+      "need_event": {
+       "precision": 0.323,
+       "recall": 0.778,
+       "support": 27
+      },
+      "need_purpose": {
+       "precision": 0.5,
+       "recall": 0.308,
+       "support": 26
+      },
+      "need_prior_knowledge": {
+       "precision": 0.724,
+       "recall": 0.724,
+       "support": 29
+      }
+     },
+     "missed_label_rate": 0.38,
+     "missed_all_rate": 0.071,
+     "missed_all_concern": 0.07,
+     "needless_rate": 0.634,
+     "getters_mean": 2.01
+    },
+    "he": {
+     "rows": 59,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.7,
+       "recall": 0.5,
+       "support": 14
+      },
+      "need_participants": {
+       "precision": 0.214,
+       "recall": 0.375,
+       "support": 8
+      },
+      "need_relationship": {
+       "precision": 0.4,
+       "recall": 0.6,
+       "support": 10
+      },
+      "need_event": {
+       "precision": 0.261,
+       "recall": 0.667,
+       "support": 9
+      },
+      "need_purpose": {
+       "precision": 0.4,
+       "recall": 0.222,
+       "support": 9
+      },
+      "need_prior_knowledge": {
+       "precision": 0.7,
+       "recall": 0.7,
+       "support": 10
+      }
+     },
+     "missed_label_rate": 0.483,
+     "missed_all_rate": 0.146,
+     "missed_all_concern": 0.156,
+     "needless_rate": 0.722,
+     "getters_mean": 1.85
+    },
+    "en": {
+     "rows": 54,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.909,
+       "recall": 0.769,
+       "support": 13
+      },
+      "need_participants": {
+       "precision": 0.353,
+       "recall": 0.857,
+       "support": 7
+      },
+      "need_relationship": {
+       "precision": 0.462,
+       "recall": 0.75,
+       "support": 8
+      },
+      "need_event": {
+       "precision": 0.333,
+       "recall": 0.889,
+       "support": 9
+      },
+      "need_purpose": {
+       "precision": 0.625,
+       "recall": 0.5,
+       "support": 10
+      },
+      "need_prior_knowledge": {
+       "precision": 0.636,
+       "recall": 0.7,
+       "support": 10
+      }
+     },
+     "missed_label_rate": 0.263,
+     "missed_all_rate": 0.025,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.5,
+     "getters_mean": 2.15
+    },
+    "mixed": {
+     "rows": 40,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.778,
+       "recall": 0.7,
+       "support": 10
+      },
+      "need_participants": {
+       "precision": 0.25,
+       "recall": 0.6,
+       "support": 5
+      },
+      "need_relationship": {
+       "precision": 0.429,
+       "recall": 0.5,
+       "support": 6
+      },
+      "need_event": {
+       "precision": 0.389,
+       "recall": 0.778,
+       "support": 9
+      },
+      "need_purpose": {
+       "precision": 0.333,
+       "recall": 0.143,
+       "support": 7
+      },
+      "need_prior_knowledge": {
+       "precision": 0.875,
+       "recall": 0.778,
+       "support": 9
+      }
+     },
+     "missed_label_rate": 0.391,
+     "missed_all_rate": 0.032,
+     "missed_all_concern": 0.042,
+     "needless_rate": 0.667,
+     "getters_mean": 2.08
+    }
+   }
+  },
+  "r1-xlmr": {
+   "thresholds": {
+    "need_recent_history": 0.0511,
+    "need_participants": 0.0218,
+    "need_relationship": 0.0319,
+    "need_event": 0.2202,
+    "need_purpose": 0.0703,
+    "need_prior_knowledge": 0.1555
+   },
+   "meta": {
+    "run": "r1-xlmr",
+    "base_model": "xlm-roberta-base",
+    "cfg": {
+     "base": "xlm-roberta-base",
+     "lr": 2e-05,
+     "epochs": 5,
+     "bs": 32
+    },
+    "gpu": "A10G",
+    "train_rows": 7801,
+    "train_seconds": 146,
+    "container_seconds": 174,
+    "params": 278048262,
+    "container_cpu2_latency": {
+     "p50_ms": 44.6,
+     "p95_ms": 51.4
+    }
+   },
+   "dev": {
+    "all": {
+     "rows": 1363,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.501,
+       "recall": 0.901,
+       "support": 202
+      },
+      "need_participants": {
+       "precision": 0.055,
+       "recall": 0.912,
+       "support": 34
+      },
+      "need_relationship": {
+       "precision": 0.304,
+       "recall": 0.898,
+       "support": 137
+      },
+      "need_event": {
+       "precision": 0.813,
+       "recall": 0.901,
+       "support": 617
+      },
+      "need_purpose": {
+       "precision": 0.258,
+       "recall": 0.886,
+       "support": 35
+      },
+      "need_prior_knowledge": {
+       "precision": 0.823,
+       "recall": 0.899,
+       "support": 207
+      }
+     },
+     "missed_label_rate": 0.1,
+     "missed_all_rate": 0.018,
+     "missed_all_concern": 0.003,
+     "needless_rate": 0.444,
+     "getters_mean": 2.39
+    },
+    "he": {
+     "rows": 596,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.491,
+       "recall": 0.899,
+       "support": 89
+      },
+      "need_participants": {
+       "precision": 0.064,
+       "recall": 0.938,
+       "support": 16
+      },
+      "need_relationship": {
+       "precision": 0.315,
+       "recall": 0.919,
+       "support": 62
+      },
+      "need_event": {
+       "precision": 0.799,
+       "recall": 0.903,
+       "support": 269
+      },
+      "need_purpose": {
+       "precision": 0.269,
+       "recall": 0.824,
+       "support": 17
+      },
+      "need_prior_knowledge": {
+       "precision": 0.812,
+       "recall": 0.867,
+       "support": 90
+      }
+     },
+     "missed_label_rate": 0.103,
+     "missed_all_rate": 0.016,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.39,
+     "getters_mean": 2.38
+    },
+    "en": {
+     "rows": 597,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.513,
+       "recall": 0.888,
+       "support": 89
+      },
+      "need_participants": {
+       "precision": 0.055,
+       "recall": 0.875,
+       "support": 16
+      },
+      "need_relationship": {
+       "precision": 0.315,
+       "recall": 0.921,
+       "support": 63
+      },
+      "need_event": {
+       "precision": 0.817,
+       "recall": 0.907,
+       "support": 270
+      },
+      "need_purpose": {
+       "precision": 0.271,
+       "recall": 0.941,
+       "support": 17
+      },
+      "need_prior_knowledge": {
+       "precision": 0.847,
+       "recall": 0.922,
+       "support": 90
+      }
+     },
+     "missed_label_rate": 0.092,
+     "missed_all_rate": 0.016,
+     "missed_all_concern": 0.006,
+     "needless_rate": 0.463,
+     "getters_mean": 2.41
+    },
+    "mixed": {
+     "rows": 170,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.5,
+       "recall": 0.958,
+       "support": 24
+      },
+      "need_participants": {
+       "precision": 0.025,
+       "recall": 1.0,
+       "support": 2
+      },
+      "need_relationship": {
+       "precision": 0.2,
+       "recall": 0.667,
+       "support": 12
+      },
+      "need_event": {
+       "precision": 0.85,
+       "recall": 0.872,
+       "support": 78
+      },
+      "need_purpose": {
+       "precision": 0.111,
+       "recall": 1.0,
+       "support": 1
+      },
+      "need_prior_knowledge": {
+       "precision": 0.781,
+       "recall": 0.926,
+       "support": 27
+      }
+     },
+     "missed_label_rate": 0.118,
+     "missed_all_rate": 0.034,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.547,
+     "getters_mean": 2.33
+    }
+   },
+   "holdout": {
+    "all": {
+     "rows": 153,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.596,
+       "recall": 0.919,
+       "support": 37
+      },
+      "need_participants": {
+       "precision": 0.195,
+       "recall": 0.85,
+       "support": 20
+      },
+      "need_relationship": {
+       "precision": 0.302,
+       "recall": 0.792,
+       "support": 24
+      },
+      "need_event": {
+       "precision": 0.479,
+       "recall": 0.852,
+       "support": 27
+      },
+      "need_purpose": {
+       "precision": 0.409,
+       "recall": 0.346,
+       "support": 26
+      },
+      "need_prior_knowledge": {
+       "precision": 0.75,
+       "recall": 0.621,
+       "support": 29
+      }
+     },
+     "missed_label_rate": 0.264,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.561,
+     "getters_mean": 2.54
+    },
+    "he": {
+     "rows": 59,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.5,
+       "recall": 0.857,
+       "support": 14
+      },
+      "need_participants": {
+       "precision": 0.219,
+       "recall": 0.875,
+       "support": 8
+      },
+      "need_relationship": {
+       "precision": 0.346,
+       "recall": 0.9,
+       "support": 10
+      },
+      "need_event": {
+       "precision": 0.389,
+       "recall": 0.778,
+       "support": 9
+      },
+      "need_purpose": {
+       "precision": 0.375,
+       "recall": 0.333,
+       "support": 9
+      },
+      "need_prior_knowledge": {
+       "precision": 0.7,
+       "recall": 0.7,
+       "support": 10
+      }
+     },
+     "missed_label_rate": 0.25,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.611,
+     "getters_mean": 2.64
+    },
+    "en": {
+     "rows": 54,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.632,
+       "recall": 0.923,
+       "support": 13
+      },
+      "need_participants": {
+       "precision": 0.182,
+       "recall": 0.857,
+       "support": 7
+      },
+      "need_relationship": {
+       "precision": 0.273,
+       "recall": 0.75,
+       "support": 8
+      },
+      "need_event": {
+       "precision": 0.5,
+       "recall": 0.889,
+       "support": 9
+      },
+      "need_purpose": {
+       "precision": 0.444,
+       "recall": 0.4,
+       "support": 10
+      },
+      "need_prior_knowledge": {
+       "precision": 0.7,
+       "recall": 0.7,
+       "support": 10
+      }
+     },
+     "missed_label_rate": 0.246,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.5,
+     "getters_mean": 2.54
+    },
+    "mixed": {
+     "rows": 40,
+     "per_label": {
+      "need_recent_history": {
+       "precision": 0.714,
+       "recall": 1.0,
+       "support": 10
+      },
+      "need_participants": {
+       "precision": 0.182,
+       "recall": 0.8,
+       "support": 5
+      },
+      "need_relationship": {
+       "precision": 0.267,
+       "recall": 0.667,
+       "support": 6
+      },
+      "need_event": {
+       "precision": 0.571,
+       "recall": 0.889,
+       "support": 9
+      },
+      "need_purpose": {
+       "precision": 0.4,
+       "recall": 0.286,
+       "support": 7
+      },
+      "need_prior_knowledge": {
+       "precision": 1.0,
+       "recall": 0.444,
+       "support": 9
+      }
+     },
+     "missed_label_rate": 0.304,
+     "missed_all_rate": 0.0,
+     "missed_all_concern": 0.0,
+     "needless_rate": 0.556,
+     "getters_mean": 2.38
+    }
+   }
+  }
+ }
+}

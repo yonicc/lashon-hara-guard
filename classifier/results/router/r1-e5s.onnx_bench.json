@@ -1,0 +1,1 @@
+{"model": "r1-e5s", "cpu_threads": 1, "fp32_mb": 449.1, "int8_mb": 113.1, "fp32": {"p50_ms": 9.7, "p95_ms": 12.6, "max_prob_drift_vs_torch": 0.0001}, "int8": {"p50_ms": 6.3, "p95_ms": 8.2, "max_prob_drift_vs_torch": 0.4967}}

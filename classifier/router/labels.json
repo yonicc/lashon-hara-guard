@@ -1,0 +1,56 @@
+{
+ "version": "router-labels-v1",
+ "status": "synthetic research schema; human_review_pending",
+ "note": "The router never rules and never returns 'permitted'. A label only says which LOCAL context to collect before the normal /check. All-zero = the message alone is enough (docs/32 group A). External/expert evidence (docs/32 group D) is not a router label: no local context can resolve it, it stays unknown.",
+ "learned": [
+  {
+   "id": "need_recent_history",
+   "getter": "get_recent",
+   "docs32": "B",
+   "definition": "The message cannot be understood without the preceding messages of THIS conversation: it points back to something said earlier (he did it again / like I said / see above / so what do you think of her now?), answers an earlier question, or whether it is sarcastic or sincere depends on what came before."
+  },
+  {
+   "id": "need_participants",
+   "getter": "get_participants",
+   "docs32": "C",
+   "definition": "Who is in this conversation matters: whether the person spoken about is a member or the recipient, who else will read it, or how far it spreads (between us / don't forward / everyone here / a remark about someone who may be in the group)."
+  },
+  {
+   "id": "need_relationship",
+   "getter": "propose_question",
+   "docs32": "C",
+   "definition": "The relationship between writer, recipient and the person spoken about matters: manager-employee, parent-teacher, family, landlord-tenant, prospective business partner, employer or match, so the recipient may or may not have a real need to know."
+  },
+  {
+   "id": "need_event",
+   "getter": "get_event",
+   "docs32": "C",
+   "definition": "The message refers to a specific event or incident whose details are not in the message itself (what happened at the meeting / after yesterday's party / the thing on the trip / the lesson today)."
+  },
+  {
+   "id": "need_purpose",
+   "getter": "propose_question",
+   "docs32": "C",
+   "definition": "Whether there is a constructive purpose matters: warning someone of real harm, asking advice how to deal with a person, reporting to someone who can fix it, seeking help or protection (to-elet)."
+  },
+  {
+   "id": "need_prior_knowledge",
+   "getter": "search_history",
+   "docs32": "C",
+   "definition": "Whether the information is already known, public, or was said before matters: everyone already knows / it was in the news / I heard that / rumour / he told everyone himself / as was discussed last month."
+  }
+ ],
+ "derived": {
+  "need_thread_identity": {
+   "getter": "get_thread",
+   "rule": "any of need_recent_history, need_prior_knowledge, need_event",
+   "why": "A thread/space identity is the prerequisite for looking up any stored conversation context (AGENTS.md: Google context requires a thread/space identity). It has no textual signal of its own, so it is derived, not learned."
+  }
+ },
+ "heads_note": "Owner scope 2026-10-28: the router decides ONLY one of: context is enough / expand from local memory (which kind) / ask the user one question. The six fine labels above stay as data annotations; the model is trained on these three heads. need_participants is not a head: the participant refs are a deterministic packet read, no model decision.",
+ "heads": [
+  {"id": "mem_recent", "from": ["need_recent_history"], "getter": "get_recent"},
+  {"id": "mem_search", "from": ["need_prior_knowledge", "need_event"], "getter": "search_history"},
+  {"id": "ask_user", "from": ["need_relationship", "need_purpose"], "getter": "propose_question"}
+ ]
+}

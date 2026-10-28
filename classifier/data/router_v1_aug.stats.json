@@ -1,0 +1,126 @@
+{
+ "generated_en": 2922,
+ "no_verify": 0,
+ "disagree_gt1": 2010,
+ "filtered_en": 3,
+ "dup": 0,
+ "holdout_overlap": 0,
+ "exact_agree": 95,
+ "he_dropped": 1,
+ "mixed_dropped": 111,
+ "kept": 2017,
+ "families": 909,
+ "timing": {
+  "load_s": 50,
+  "gen_s": 81,
+  "verify_s": 72,
+  "total_s": 203,
+  "tr_load_s": 97,
+  "he_s": 78,
+  "tr_total_s": 174,
+  "mix_total_s": 350
+ },
+ "per_lang": {
+  "he": 908,
+  "en": 909,
+  "mixed": 200
+ },
+ "per_split": {
+  "train": 1712,
+  "dev": 305
+ },
+ "per_label": {
+  "need_recent_history": 52,
+  "need_participants": 478,
+  "need_relationship": 198,
+  "need_event": 443,
+  "need_purpose": 212,
+  "need_prior_knowledge": 178
+ },
+ "none": 935,
+ "fail_samples": [
+  {
+   "finish": "stop",
+   "raw": "```json\n[\n    \"Noa really messed up her explanation of that Gemara again...\",\n    \"Avi forgot his kippah for the third time this week, how embarrassing...\",\n    \"Moshe's davening is so loud, it's like he's trying to drown everyone out...\",\n    \"Shira keeps interrupting everyone during shiur, it's getting old...\",\n    \"Yossi didn't even know the answer to that simple question, how did he pass the t"
+  },
+  {
+   "finish": "length",
+   "raw": "```json\n[\n    \"כ\"כ אכזבني שלום(Book Club Member)这次没来，他的书评每次都那么无聊。\",\n    \"/movie night/ yo, why did Tamar even invite Moshe again? He's such a downer every time, always complaining about the movies we pick.\",\n    \"Noa still hasn't read a single book we chose... seriously, what's the point of even having her in the club?\",\n    \"Shira's comments are always so off-topic. It's like she doesn't even rea"
+  },
+  {
+   "finish": "stop",
+   "raw": "```json\n[\n  \"Ran's lesson was so boring, I think the plants fell asleep!\",\n  \"Did you see how Dina handled that issue? Total disaster!\",\n  \"Moshe is always bragging about his 'amazing' projects, but they're a mess.\",\n  \"Shira's explanation was so confusing, even I couldn't follow it.\",\n  \"Avi's presentation was a complete fail. Everyone was yawning!\",\n  \"Noa's class is so unorganized, it's like he"
+  },
+  {
+   "finish": "stop",
+   "raw": "[\n  \"Seriously, Noa totally messed up the presentation again, can't believe she's still here.\",\n  \"Shira already told everyone she's not靠谱，我们需要将其转换为恰当的负面评价，并保持语境合理。以下是重新编写的JSON数组：\n\n```json\n[\n  \"Seriously, Noa totally messed up the presentation again, can't believe she's still here.\",\n  \"Shira already told everyone she's not pulling her weight on this project.\",\n  \"Moshe's been late three times thi"
+  },
+  {
+   "finish": "length",
+   "raw": "[\n  \"Why are we even talking about Tamar? She's always causing trouble, nothing new there...\",\n  \"Avi still didn't learn his lesson from last week? Typical...\",\n  \"Shira's excuses are getting old. Remember last time she said the same thing?\",\n  \"Moshe really thinks he can get away with this again? What a joke...\",\n  \"Noa's behavior at the family gathering was so embarrassing. We talked about this "
+  }
+ ],
+ "drop_samples": [
+  {
+   "lang": "mixed",
+   "en": "Moshe totally forgot to fix the leak again. I don't know why we keep reporting it.",
+   "out": "Moshe שוב שכח לתקן את הנזילה, לא ברור למה אנחנו ממשיכים לדווח."
+  },
+  {
+   "lang": "mixed",
+   "en": "Moshe, it would be great if we could touch base with the manager about the new safety protocols.",
+   "out": "Moshe, יהיה great if we could touch base עם המנהל关于安全新协议的。Moshe, יהיה great if we could touch base עם המנהל关于安全新协议的。"
+  },
+  {
+   "lang": "mixed",
+   "en": "Hey guys, remind me who was absent today? I wanted to send them the notes.",
+   "out": "Hey guys, תזכиру לי מי לא הגיע היום? I wantedToSend them the notes."
+  },
+  {
+   "lang": "mixed",
+   "en": "Remember when Shira spilled the coffee on herself at the meeting last week? Still thinking about it...",
+   "out": "Remember when שירה spilled the coffee על עצמה בישיבה上周她在会议上的时候把咖啡洒在自己身上了吗？这仍然让我印象深刻..."
+  },
+  {
+   "lang": "mixed",
+   "en": "Moshe still hasn't paid his invoice from last month... He's really putting us in an awkward spot.",
+   "out": "Moshe עדיין לא שילם את החשבון מהחודש שעבר, זה שם אותנו במצב לא נעים."
+  },
+  {
+   "lang": "mixed",
+   "en": "Tamar's presentation was so off this morning. I hope she didn't come here.",
+   "out": "Tamar's.presentation של תמר הבוקר была ממש לא בכיוון. מקווה שהיא לא הגיעה לכאן."
+  },
+  {
+   "lang": "mixed",
+   "en": "Noa, can you forward the guest list update only to those who haven't seen it yet?",
+   "out": "Noa, can you forward את רשימת האורחים המעודכנת only ל那些还未看到的人吗？"
+  },
+  {
+   "lang": "mixed",
+   "en": "Noa's solo was terrible. I don't know how she thinks she's ready for the upcoming concert.",
+   "out": "Noa's סולו היה נוראי, לא ברור לי איך היא חושבת שהיא מוכנה להופעה הקרובה."
+  },
+  {
+   "lang": "mixed",
+   "en": "Tamar, I wanted to let you know that the client called again about the delivery delay. They're getting worried and might need some reassurance.",
+   "out": "Tamar, רציתי לעדכן אותך שהלקוח התקשר שוב关于交付延迟。他们很担心，可能需要一些 reassurance."
+  },
+  {
+   "lang": "mixed",
+   "en": "Yossi's project is way behind. We need to help him catch up before the deadline.",
+   "out": "Yossi's проект is way behind.我们需要帮助他赶上进度，在截止日期之前。"
+  },
+  {
+   "lang": "mixed",
+   "en": "Moshe is so bossy, always telling everyone what to do. I don't know why they even listen to him.",
+   "out": "Moshe כזה שתלטן, כל הזמן אומר לכולם מה לעשות. לא ברור לי למה מקשיבים לו בכלל."
+  },
+  {
+   "lang": "mixed",
+   "en": "Moshe, you never call Mom, but you always ask me for updates. What's the point of that?",
+   "out": "Moshe, אתה לא מתקשר לאמא, אבל שואל אותי כל הזמן על עדכונים. מה הקטע?"
+  }
+ ],
+ "sha256": "cd8c3076c5e4242e10a4191d49c7faed63fc8b14d8b07a2c9c7d7ee4c4eb0a30"
+}
