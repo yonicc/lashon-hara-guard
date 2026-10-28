@@ -110,12 +110,28 @@
   // mails is an empty spacer or only the first line, so the row was dropped
   // as "too short" and opened mail looked undetected (bug 2026-10-27).
   // Nested matches (.a3s inside .a3s.aiL) keep only the outermost body.
+  // The sender comes from the message header next to the body (local-only,
+  // anonymised to a ref by the builder before POST /check). A collapsed
+  // ("..."/trimmed) older message with no body in the DOM still counts:
+  // content-google.js expands it on open before the scanner checks it.
+  function gmailSenderOf(body) {
+    try {
+      const container = S.closestMatch(body, S.gmail.messageContainer);
+      const sender = container && S.first(container, S.gmail.messageSender);
+      if (!sender) return '';
+      const v = sender.getAttribute('name') || sender.getAttribute('email')
+        || sender.getAttribute('data-hovercard-id') || sender.textContent || '';
+      return String(v).replace(/\s+/g, ' ').trim().slice(0, 80);
+    } catch (_) {
+      return '';
+    }
+  }
   function gmailRows(root) {
     const bodies = S.all(root, S.gmail.messageBody).filter((el) => S.gmailIsMessageBody(el));
     return bodies
       .filter((el) => !bodies.some((o) => o !== el && o.contains && o.contains(el)))
       // kind 'email': opened mail is tagged, never held (hold is for chat).
-      .map((el) => ({ el, text: S.textWithout(el, S.gmail.quotedPart), kind: 'email' }))
+      .map((el) => ({ el, text: S.textWithout(el, S.gmail.quotedPart), sender: gmailSenderOf(el), kind: 'email' }))
       .filter((r) => r.text && r.text.length >= MIN_CHARS);
   }
 
@@ -174,6 +190,9 @@
       return rows.map((row) => {
         let localContext = null;
         try { localContext = api.attach(row.el); } catch (_e) { localContext = null; }
+        // Gmail senders come from the message header (content-google.js),
+        // not from a chat bubble: attach() finds no bubble author there.
+        if (!localContext && row.sender) localContext = { authorDisplayName: row.sender };
         return localContext ? { ...row, localContext } : row;
       });
     } catch (_e) {
@@ -259,6 +278,42 @@
     };
   }
 
+  // Collapsed ("..."/trimmed) older messages have no body in the DOM, so
+  // they can never seed thread context. Expand each collapsed node ONCE
+  // (a programmatic click on the expand handle, never on a draft/send
+  // button): Gmail then renders the body and the MutationObserver scan
+  // picks it up as baseline history. Bounded: at most 5 unexpanded nodes
+  // per call, tracked in a WeakSet so a failed expand is never retried.
+  const expandedCollapsed = new WeakSet();
+  function expandCollapsedGmail() {
+    if (!onMailHost || !IS_TOP) return;
+    try {
+      const S2 = globalThis.LHG_SELECTORS;
+      if (!S2 || !S2.gmail || typeof S2.all !== 'function') return;
+      const root = S2.first(document, S2.gmail.threadRoot) || document;
+      let n = 0;
+      for (const handle of S2.all(root, S2.gmail.expandHandle)) {
+        if (n >= 5) break;
+        if (!handle || expandedCollapsed.has(handle)) continue;
+        if (handle.closest && handle.closest('[role="dialog"], form')) continue; // never inside compose
+        let container = null;
+        try { container = S2.closestMatch(handle, S2.gmail.messageContainer); } catch (_) { container = null; }
+        if (!container) continue;
+        let body = null;
+        try { body = S2.first(container, S2.gmail.messageBody); } catch (_) { body = null; }
+        if (body) continue; // already expanded
+        try {
+          expandedCollapsed.add(handle);
+          if (typeof handle.click === 'function') handle.click();
+          n++;
+        } catch (_) { /* one failed expand never breaks the scan */ }
+      }
+    } catch (_) { /* never breaks the scan */ }
+  }
+
   // Frame-synchronised scan: a new chat message is held before it is painted.
+  const origScan = scanner.scan.bind(scanner);
+  scanner.scan = () => { expandCollapsedGmail(); return origScan(); };
+  scanner.scan(); // baseline: history present at load is marked seen, never sent
   globalThis.LHG_INCOMING.observe(scanner);
 })();

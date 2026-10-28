@@ -32,10 +32,24 @@
         const ids = new Set(Array.from(all, (n) => n.getAttribute('data-group-id')));
         if (ids.size === 1) root = all[0];
       }
+      if (!root && platform === 'gmail') {
+        // Gmail's thread view has no data-thread-id on the message nodes.
+        // The thread root ([role="main"] div[role="list"] or [role="main"])
+        // is the conversation identity; location.href pins it to one thread
+        // (folder-list rows are excluded by gmailIsMessageBody downstream).
+        try {
+          root = S?.first(document, S.gmail.threadRoot) || null;
+        } catch (_) { root = null; }
+      }
       if (!root) return null;
       key = root.getAttribute('data-thread-id') || root.getAttribute('data-space-id') || root.getAttribute('data-group-id');
-      kind = root.getAttribute('data-thread-id') ? 'email_thread' : 'unknown';
-      if (root.getAttribute('data-space-id') || root.getAttribute('data-group-id')) platform = 'google-chat';
+      if (!key && platform === 'gmail' && root && typeof location !== 'undefined' && location.href) {
+        key = 'gmail:' + String(location.href).split('?')[0];
+      }
+      if (!key) return null;
+      kind = root.getAttribute && root.getAttribute('data-thread-id') ? 'email_thread' : kind;
+      if ((!kind || kind === 'unknown') && platform === 'gmail') kind = 'email_thread';
+      if (root.getAttribute && (root.getAttribute('data-space-id') || root.getAttribute('data-group-id'))) platform = 'google-chat';
     }
     if (!key) return null;
     let scope = scopes.get(root);
@@ -48,6 +62,53 @@
       scopes.set(root, scope);
     }
     return scope;
+  }
+
+  // Gmail thread history (bug 2026-10-28): seed the builder with the older
+  // messages already rendered in the opened thread (chronological, before
+  // the current one). Runs ONLY for scope.kind === 'email_thread', and only
+  // ONCE per conversation scope: every check in the same thread reuses the
+  // seeded history (the builder dedups the current message itself in
+  // buildPacket). Skips the current message itself and the outgoing draft
+  // by text containment. Names stay local: ingestMessage takes display
+  // names, the builder only exports anonymised refs + scrubbed text
+  // (MAX_TEXT_OUT 300 chars). One billed check per user action is unchanged:
+  // seeding only fills the builder's local window before that same packet.
+  const seededScopes = new Set();
+  async function seedGmailThreadHistory(scope, builder, currentEl, currentText) {
+    try {
+      if (seededScopes.has(scope.id)) return;
+      seededScopes.add(scope.id);
+      const S = globalThis.LHG_SELECTORS;
+      if (!S || !S.gmail || typeof S.all !== 'function') return;
+      const root = S.first(document, S.gmail.threadRoot) || document;
+      const bodies = S.all(root, S.gmail.messageBody)
+        .filter((el) => el !== currentEl && S.gmailIsMessageBody(el));
+      const norm = (t) => String(t || '').replace(/\s+/g, ' ').trim();
+      const curNorm = norm(currentText);
+      let n = 0;
+      for (const body of bodies) {
+        if (n >= 5) break; // builder window is MAX_RECENT (5)
+        let text = '';
+        try { text = norm(S.textWithout(body, S.gmail.quotedPart)); } catch (_) { continue; }
+        if (!text || text.length < 6) continue;
+        if (curNorm && (text === curNorm || curNorm.includes(text))) continue;
+        let author = '';
+        try {
+          const container = S.closestMatch(body, S.gmail.messageContainer);
+          const sender = container && S.first(container, S.gmail.messageSender);
+          author = (sender && (sender.getAttribute('name') || sender.getAttribute('email') || sender.getAttribute('data-hovercard-id') || sender.textContent)) || '';
+          author = norm(author).slice(0, 80);
+        } catch (_) { author = ''; }
+        try {
+          await builder.ingestMessage(scope.id, {
+            text, direction: 'incoming', timestamp: Date.now() - (bodies.length - n) * 60000,
+            authorDisplayName: author,
+          });
+          n++;
+        } catch (_) { /* one bad row never breaks the check */ }
+      }
+    } catch (_) { /* DOM/bulder failure: check proceeds without history */ }
   }
 
   function prepare(payload, el, remember = false) {
@@ -69,6 +130,9 @@
     const work = pending.then(async () => {
       builder ||= globalThis.LHG_CONTEXT_BUILDER.createContextBuilder();
       await builder.ingestConversation({ id: scope.id, platform: scope.platform, kind: scope.kind });
+      if (scope.kind === 'email_thread') {
+        await seedGmailThreadHistory(scope, builder, el, current.text);
+      }
       const context = await builder.buildPacket(scope.id, current);
       if (remember) await builder.ingestMessage(scope.id, current);
       return { ...payload, platform: scope.platform, context };

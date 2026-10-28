@@ -110,6 +110,11 @@
   S.gmail = {
     // Reading pane of an opened conversation.
     thread: ['[role="main"] .a3s', '[role="main"]'],
+    // The opened thread root: chronological container of the message nodes.
+    // Fallbacks for current Gmail builds (real DOM 2026-10-28): an expanded
+    // thread renders each message as a [role="listitem"] under a role=list
+    // thread root; legacy builds use div[role="main"] .adn rows.
+    threadRoot: ['div[role="main"] div[role="list"]', 'div[role="main"]'],
     // One message body in the opened thread. Only treated as a message when
     // it lives inside a real message container (S.gmail.isMessageContainer):
     // a body in the folder LIST is a preview row (tr.zA), never a message.
@@ -120,6 +125,18 @@
       '[data-legacy-message-id] .a3s',
       '.ii.gt .a3s',
       '[role="listitem"] .a3s',
+    ],
+    // Sender (author) shown in the collapsed/expanded message header row.
+    // DOM order around a body is: header (sender + time) then body; the
+    // sender span carries a name/email attribute. Never guessed.
+    messageSender: ['[email]', '[data-hovercard-id]', '[name]'],
+    // A collapsed ("..."/trimmed) older message: expanding it puts its body
+    // in the DOM. Click targets only, used from content-google.js when the
+    // text is missing (never auto-clicked twice, never a draft button).
+    expandHandle: [
+      '[role="button"][aria-expanded="false"]',
+      '.adB [role="button"]',
+      '.adA [role="button"]',
     ],
     // Quoted history / signature inside a body or a draft: never the text
     // of THIS message (dropped only when something else remains).
