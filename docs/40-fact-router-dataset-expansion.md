@@ -114,7 +114,8 @@ system prompt (`--max-train-tokens 2048`), plus a zero-shot and LoRA evaluation 
 H100-minutes per candidate, about $2-4. The router r3 cost is that of r2 on 1.7× the rows. Data generation in this
 round used about 1 H100-hour plus short A100 runs (estimate, not a billed figure).
 
-## Owner decisions still open (unchanged)
+## Related runtime contracts
 
-A. Question budget 1 → up to 5 is a breaking `/check` wire change (docs/18; proxy, panel, router ranking). Not done.
-B. Group D → structured rabbi-referral packet, never a verdict. A design is needed; not done.
+The up-to-5-question contract and the group-D rabbi-referral artifact are specified on `main` in
+[docs/41](41-five-question-contract.md) and [docs/42](42-rabbi-referral-artifact.md) (toelet rules: docs/18).
+This data round does not change them; it only supplies extractor/router training data.

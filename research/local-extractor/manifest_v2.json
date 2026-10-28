@@ -2,7 +2,7 @@
  "version": "v2.1",
  "seed": 20261029,
  "contract": "contract_v2.json",
- "contract_sha256": "61d0d33aa17b13b1493099f27217fc55991629151300dfe473206356474f9725",
+ "contract_sha256": "043298a51d9e09cc15db549e77446b767d9dd621fcbacc6aa4104cb3f30950cd",
  "sources": {
   "templates": {
    "path": "all_v2.jsonl",
