@@ -50,28 +50,30 @@ function post(body: unknown, env: Env = ENV): Request {
 type Body = Record<string, unknown> & {
   alert: string; limitationsHe: string[];
   rules?: { mode: string; notChecked?: boolean; findings: Array<Record<string, string>>;
+    referrals?: Array<{sectionKey:string; gatheredFacts: Array<{id:string;valueHe:string}>}>;
     question?: { factId: string; textHe: string; answers: Array<{ value: boolean | null; labelHe: string }> } };
 };
 
 const BANNED = /(^|[^א-ת])(מותר|אסור)([^א-ת]|$)/;
 
-test('rules: a draft finding raises the alert to warn and adds the draft limitation', async () => {
+test('rules: group-D to-elet becomes a referral and keeps the check unresolved', async () => {
   const r = await handle(post({ text: TEXT, confirmedFacts: {
     'toelet.purpose_is_constructive': true,
     'toelet.knows_subject_will_not_accept_rebuke': false,
   } }), ENV, provider(NO_CONCERN_WITH_FACTS));
   const b = (await r.json()) as Body;
-  assert.equal(b.alert, 'warn');
+  assert.equal(b.alert, 'unsure');
   assert.equal(b.rules?.mode, 'live_draft');
   assert.equal(b.rules?.notChecked, undefined);
   const ids = b.rules!.findings.map((f) => f['ruleId']);
-  assert.ok(ids.includes('cc-toelet.10-02c.rebuke-first'), ids.join(','));
+  assert.ok(!ids.includes('cc-toelet.10-02c.rebuke-first'), ids.join(','));
+  assert.ok(b.rules?.referrals?.some(r=>r.sectionKey==='p1_prin10:2'));
   for (const f of b.rules!.findings) {
     assert.deepEqual(Object.keys(f).sort(), ['code', 'messageHe', 'ruleId', 'sourceRef', 'sourceUrl']);
     assert.match(f['sourceUrl']!, /^https:\/\/www\.sefaria\.org\/Chafetz_Chaim/);
     assert.ok(!BANNED.test(f['messageHe']!), f['messageHe']);
   }
-  assert.ok(b.limitationsHe.includes(DRAFT_RULES_LIMITATION_HE));
+  assert.ok(!b.limitationsHe.includes(DRAFT_RULES_LIMITATION_HE));
 });
 
 test('rules: an unknown rebuke exception is not an absent exception in the real handler', async () => {
@@ -87,7 +89,7 @@ test('rules: an unknown rebuke exception is not an absent exception in the real 
     'a user answer of unknown must not be asked again');
 });
 
-test('rules: the live adapter asks the missing rebuke exception rather than a resolved OR alternative', () => {
+test('rules: the live adapter refers the missing rebuke exception to a rabbi', () => {
   const message = { id: 'synthetic', revision: 1, direction: 'outgoing', authorRef: 'user',
     platform: 'test', conversationId: 'synthetic', audienceSnapshot: {}, text: TEXT } as MessageEnvelope;
   const result = runLiveRules(message, undefined, {
@@ -101,7 +103,8 @@ test('rules: the live adapter asks the missing rebuke exception rather than a re
   } }));
   assert.equal(result.notChecked, undefined);
   assert.equal(result.findings.length, 0);
-  assert.equal(result.question?.factId, 'toelet.knows_subject_will_not_accept_rebuke');
+  assert.equal(result.question, undefined);
+  assert.ok(result.referrals?.some(r=>r.sectionKey==='p1_prin10:2'));
 });
 
 test('rules: findings never lower an alert; no finding leaves the extraction alert as is', () => {
@@ -189,8 +192,9 @@ test('rules: a user answer makes a rule fire and is never re-asked; "don\'t know
     'toelet.knows_subject_will_not_accept_rebuke': false,
   } }),
     ENV, provider(raw))).json()) as Body;
-  assert.equal(yes.alert, 'warn');
-  assert.ok(yes.rules!.findings.some((f) => f['ruleId'] === 'cc-toelet.10-02c.rebuke-first'));
+  assert.equal(yes.alert, 'unsure');
+  assert.ok(!yes.rules!.findings.some((f) => f['ruleId'] === 'cc-toelet.10-02c.rebuke-first'));
+  assert.ok(yes.rules?.referrals?.some(r=>r.sectionKey==='p1_prin10:2'));
   assert.notEqual(yes.rules!.question?.factId, 'toelet.rebuke_attempted');
 
   const dunno = (await (await handle(post({ text: TEXT, confirmedFacts: {

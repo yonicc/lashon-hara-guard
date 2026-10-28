@@ -1,11 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+// Predicate fixtures; actual referral boundaries are asserted by this helper too.
+import { evaluatePredicates as evaluate } from './predicateFixture.js';
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   CC_ALL_DRAFT_PACK, CC_DRAFT_PACKS, CC_TOELET_CONDITIONS, FACT_CATALOG,
-  evaluate, evalExpr, exprFactIds, validateRulePack,
+  evalExpr, exprFactIds, validateRulePack,
   type FactMap, type Rule, type MessageEnvelope,
 } from '../src/index.js';
 

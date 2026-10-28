@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { CC_ALL_DRAFT_PACK, CC_TOELET_CONDITIONS, FACT_CATALOG, evaluate, evalExpr,
+// Predicate fixtures; actual referral boundaries are asserted by this helper too.
+import { evaluatePredicates as evaluate } from './predicateFixture.js';
+import { CC_ALL_DRAFT_PACK, CC_TOELET_CONDITIONS, FACT_CATALOG, evalExpr,
  factStoreFromExtraction, type EvaluationInput } from '../src/index.js';
 import { validateExtraction } from '../src/extractor/validate.js';
 const message: EvaluationInput['message']={id:'synthetic',revision:1,direction:'outgoing',

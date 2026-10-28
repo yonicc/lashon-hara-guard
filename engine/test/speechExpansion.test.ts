@@ -1,7 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+// Predicate fixtures; actual referral boundaries are asserted by this helper too.
+import { evaluatePredicates as evaluate } from './predicateFixture.js';
 import { readFileSync } from 'node:fs';
-import { evaluate, FACT_CATALOG, factStoreFromExtraction,
+import { FACT_CATALOG, factStoreFromExtraction,
   type FactCatalogEntry, type FactRecord, type EvaluationInput } from '../src/index.js';
 import { validateExtraction } from '../src/extractor/validate.js';
 import { exprFactIds } from '../src/evalExpr.js';

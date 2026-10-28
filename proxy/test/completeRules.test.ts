@@ -3,6 +3,14 @@ import assert from 'node:assert/strict';
 import { handle, type Env } from '../src/handler.js';
 import worker from '../src/index.js';
 import type { ExtractorProvider } from '../../engine/src/index.js';
+import { CC_ALL_DRAFT_PACK, coverageKeyOfSource, isGroupDSource } from '../../engine/src/index.js';
+function assertRouted(result: { rules: { findings: {ruleId:string}[]; referrals?: {sectionKey:string}[] } }, id:string) {
+ const rule=CC_ALL_DRAFT_PACK.rules.find(r=>r.id===id)!;
+ if(isGroupDSource(rule.source)) {
+  assert.ok(!result.rules.findings.some(f=>f.ruleId===id),id+' must not be a finding');
+  assert.ok(result.rules.referrals?.some(r=>r.sectionKey===coverageKeyOfSource(rule.source)),id+' referral');
+ } else assert.ok(result.rules.findings.some(f=>f.ruleId===id),id);
+}
 const env:Env={LHG_BRAIN_BASE_URL:'https://synthetic.test',LHG_BRAIN_TOKEN:'synthetic',LHG_ACCESS_KEY:'synthetic-key'};
 test('final pack reaches real handler without disparagement or direct-against-listener classification',async()=>{
  const result=await check({'subject.identifiable':true,'message.content_is_disparaging':false,
@@ -19,7 +27,7 @@ test('integrated child chain distinguishes event knowledge from original publica
  'context.repeats_prior_report':true,'speaker.knows_first_hand':true,
  'speaker.heard_original_report_before_three':false,'matter.already_known_to_many':false});
  assert.ok(!result.rules.notChecked);
- assert.ok(result.rules.findings.some(f=>f.ruleId==='cc-speech-expansion.2-04.transmission-chain'));
+ assertRouted(result,'cc-speech-expansion.2-04.transmission-chain');
  assert.ok(Number(!!result.rules.question)+(result.analysis?.questionsHe?.length??0)<=1);
 });
 test('new source-specific context remains unknown rather than inferred false or a permit',async()=>{
@@ -39,7 +47,7 @@ async function check(confirmedFacts:Record<string,boolean|null>){
  headers:{'content-type':'application/json','x-lhg-key':env.LHG_ACCESS_KEY},
  body:JSON.stringify({text:'synthetic expansion boundary',confirmedFacts})}),env,provider);
  assert.equal(response.status,200);
- return await response.json() as {alert:string;rules:{mode:string;notChecked?:boolean;findings:{ruleId:string}[];question?:unknown};analysis?:{questionsHe?:string[]}};
+ return await response.json() as {alert:string;rules:{mode:string;notChecked?:boolean;findings:{ruleId:string}[];referrals?:{sectionKey:string}[];question?:unknown};analysis?:{questionsHe?:string[]}};
 }
 test('complete pack reaches handler: truthful non-disparaging report with no hostile intent',async()=>{
  const result=await check({'subject.identifiable':true,'subject.is_fellow':true,
@@ -48,7 +56,7 @@ test('complete pack reaches handler: truthful non-disparaging report with no hos
  'speaker.intent_to_disparage':false,'message.content_is_true':true});
  assert.equal(result.rules.mode,'live_draft');assert.ok(!result.rules.notChecked);
  const ids=result.rules.findings.map(f=>f.ruleId);
- for(const id of ['cc-rechilut.1-02.report','cc-rechilut.1-03.no-intent','cc-rechilut.1-04.truth'])assert.ok(ids.includes(id),id);
+ for(const id of ['cc-rechilut.1-02.report','cc-rechilut.1-03.no-intent','cc-rechilut.1-04.truth'])assertRouted(result,id);
  assert.equal(result.alert,'warn');
  assert.ok(Number(!!result.rules.question)+(result.analysis?.questionsHe?.length??0)<=1);
 });
@@ -75,8 +83,8 @@ test('handler asks about publicity exceptions and respects confirmed fear withou
  assert.ok(Number(!!unknown.rules.question)+(unknown.analysis?.questionsHe?.length??0)<=1);
  const fear=await check({...base,'speaker.fears_retaliation_from_subject':true});
  assert.ok(!fear.rules.findings.some(f=>f.ruleId==='cc-context.10-07.public-rebuke-exception'));
- assert.ok(fear.rules.findings.some(f=>f.ruleId==='cc-context.10-08.retaliation-review'));
- assert.equal(fear.alert,'warn');
+ assertRouted(fear,'cc-context.10-08.retaliation-review');
+ assert.equal(fear.alert,'unsure');
 });
 test('deployed worker entrypoint identifies the exact build and rejects malformed version headers',async()=>{
  const sha='a'.repeat(40);
@@ -106,7 +114,7 @@ test('handler separates actual delivery and receiver signs from speaker first-ha
  'listener.role_is_receiving':true,'evidence.has_recognizable_signs':true,
  'listener.personally_observed_signs':false,'evidence.signs_directly_relate_to_report':false});
  for(const id of ['cc-clarification.3-02.delivery','cc-clarification.7-11.personal-signs','cc-clarification.7-11.direct-signs'])
-  assert.ok(result.rules.findings.some(f=>f.ruleId===id),id);
+  assertRouted(result,id);
  assert.ok(Number(!!result.rules.question)+(result.analysis?.questionsHe?.length??0)<=1);
 });
 test('handler checks inquiry source independently of constructive purpose',async()=>{

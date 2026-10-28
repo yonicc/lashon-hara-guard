@@ -118,7 +118,10 @@ export interface CheckResponse {
  */
 export function alertFor(outcome: ExtractionOutcome, rules?: RulesResult): AlertLevel {
   if (rules && rules.findings.length > 0) return 'warn';
-  return extractionAlert(outcome);
+  const alert = extractionAlert(outcome);
+  // A pending rabbi referral is unresolved, never a clean check. Preserve
+  // stronger concerns and failures from extraction.
+  return alert === 'none' && rules?.referrals?.length ? 'unsure' : alert;
 }
 
 function extractionAlert(outcome: ExtractionOutcome): AlertLevel {

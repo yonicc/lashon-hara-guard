@@ -13,6 +13,8 @@
 // - a failed condition surfaces as a draft observation naming the condition.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+// Predicate fixtures; actual referral boundaries are asserted by this helper too.
+import { evaluatePredicates as evaluate } from './predicateFixture.js';
 import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -20,7 +22,6 @@ import {
   CC_TOELET_DRAFT_PACK,
   FACT_CATALOG,
   FactStore,
-  evaluate,
   toeletPackFactIds,
   validateRulePack,
   type MessageEnvelope,

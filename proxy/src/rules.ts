@@ -50,11 +50,31 @@ export interface RulesQuestion {
   answers: Array<{ value: boolean | null; labelHe: string }>;
 }
 
+/**
+ * A group-D rabbi referral (docs/32, docs/40 §B, owner 2026-10-29): a
+ * structured question to a qualified rabbi, never a ruling. Additive to the
+ * fixed /check contract — the extension renders it only when present.
+ */
+export interface RulesReferral {
+  sectionKey: string;
+  sourceRef: string;
+  sourceUrl: string;
+  category: string;
+  questionHe: string;
+  howToAskHe: string;
+  backgroundHe: string;
+  quotesHe: string[];
+  gatheredFacts: Array<{ id: string; questionHe: string; valueHe: string; provenanceHe: string }>;
+  uncertainHe: string[];
+  whyNotCheckedHe: string;
+}
+
 export interface RulesResult {
   mode: 'live_draft';
   notChecked?: boolean;
   findings: RulesFinding[];
   question?: RulesQuestion;
+  referrals?: RulesReferral[];
 }
 
 /** `LHG_CC_RULES`: 'off' disables; anything else (incl. unset) = 'live'. */
@@ -127,7 +147,29 @@ export function runLiveRules(
     const question: RulesQuestion | undefined = q
       ? { factId: q.factId, textHe: q.questionHe, answers: ANSWER_LABELS_HE.map((a) => ({ ...a })) }
       : undefined;
-    return { mode: 'live_draft', findings, ...(question ? { question } : {}) };
+    // Group-D referrals are additive: findings stay draft reminders; a
+    // referral is the only artifact for a section the device cannot rule on.
+    const referrals: RulesReferral[] | undefined = r.referrals.length
+      ? r.referrals.map((x) => ({
+          sectionKey: x.sectionKey,
+          sourceRef: x.sourceRef,
+          sourceUrl: x.sourceUrl,
+          category: x.category,
+          questionHe: x.questionHe,
+          howToAskHe: x.howToAskHe,
+          backgroundHe: x.backgroundHe,
+          quotesHe: x.quotesHe,
+          gatheredFacts: x.gatheredFacts,
+          uncertainHe: x.uncertainHe,
+          whyNotCheckedHe: x.whyNotCheckedHe,
+        }))
+      : undefined;
+    return {
+      mode: 'live_draft',
+      findings,
+      ...(question ? { question } : {}),
+      ...(referrals ? { referrals } : {}),
+    };
   } catch {
     return notCheckedRules();
   }

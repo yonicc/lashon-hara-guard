@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {evaluate,FACT_CATALOG,factStoreFromExtraction,type FactRecord} from '../src/index.js';
+// Predicate fixtures; actual referral boundaries are asserted by this helper too.
+import { evaluatePredicates as evaluate } from './predicateFixture.js';
+import {FACT_CATALOG,factStoreFromExtraction,type FactRecord} from '../src/index.js';
 import {validateExtraction} from '../src/extractor/validate.js';
 import {CC_ALL_DRAFT_PACK} from '../src/chafetzChaim/allPacks.js';
 import {CC_FINAL_DRAFT_PACK,FINAL_CASES} from '../src/chafetzChaim/finalPack.js';
