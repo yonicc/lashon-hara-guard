@@ -1,0 +1,696 @@
+{
+ "stats": {
+  "generated": 60,
+  "gen_fail": 0,
+  "en_disagree": 35,
+  "en_bad": 7,
+  "dup": 0,
+  "eval_overlap": 0,
+  "he_bad": 0,
+  "he_disagree": 6,
+  "rows": 42,
+  "by_language": {
+   "he": 12,
+   "en": 18,
+   "mixed": 12
+  }
+ },
+ "timing": {
+  "gen_s": 119,
+  "verify_s": 4,
+  "translate_s": 44,
+  "verify_he_s": 53
+ },
+ "models": {
+  "gen_verify": "Qwen/Qwen2.5-32B-Instruct",
+  "translate": "dicta-il/dictalm2.0-instruct"
+ },
+ "n": 60,
+ "seed": 808,
+ "reject_sample": [
+  {
+   "why": "en_disagree",
+   "target": {
+    "rebuke": false
+   },
+   "verify": {},
+   "en": "I noticed Eli has been cheating in the league games, and it’s really disappointing to see. We haven’t had a chance to talk to him about it yet, so I’m not sure how he’ll react when we do."
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "revenge": false,
+    "purpose": true
+   },
+   "verify": {
+    "purpose": true,
+    "intent": false,
+    "revenge": false,
+    "firsthand": true,
+    "verified": false,
+    "rebuke": false,
+    "rejects": false,
+    "no_alternative": false
+   },
+   "en": "Hey team, I'm really concerned about what's happening on site and not out of anger or revenge, but to protect the next worker who might get hurt. Michal, you know how unsafe it is when you ignore the safety rules, like 'I've seen you skip the hard hat multiple times.' We need to keep everyone safe and prevent any accidents from happening."
+  },
+  {
+   "why": "en_bad",
+   "target": {},
+   "segments": [
+    {
+     "text": "Orly, I'm really worried about the electrical work you've been doing in the building, it's dangerous and needs to be addressed.",
+     "fact": "purpose"
+    },
+    {
+     "text": "I haven't talked to you about it directly yet, but I've heard from other residents that you're not taking the proper safety measures.",
+     "fact": "rebuke"
+    },
+    {
+     "text": "Eli said to me, 'I've seen Orly plug in too many extension cords, and it's just not safe.'",
+     "fact": null
+    },
+    {
+     "text": "I hope you'll listen and make the necessary changes because I believe you can be convinced to do the right thing.",
+     "fact": "rejects"
+    }
+   ]
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "verified": true,
+    "revenge": false
+   },
+   "verify": {
+    "purpose": true,
+    "revenge": false,
+    "verified": true
+   },
+   "en": "Rabbi, I wanted to bring to your attention something I've noticed about Yossi's driving, after carefully comparing some documents and confirming it. Please understand, this is not coming from a place of anger, grudge, or revenge, but from a genuine concern for safety. I hope we can find a way to help him drive more safely."
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "verified": true,
+    "intent": true,
+    "firsthand": true
+   },
+   "verify": {
+    "purpose": true,
+    "intent": true,
+    "firsthand": true,
+    "verified": true
+   },
+   "en": "Dana keeps the tenants' deposits and it happened to me personally, she never returned my money even after I asked multiple times. I checked with other people who were in the same situation and they confirmed it, so we're definitely not imagining this. I really want to shame him and make sure everyone knows what's going on."
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "verified": false
+   },
+   "verify": {
+    "firsthand": false
+   },
+   "en": "I heard Yael has been spreading some lies about our colleagues, but I haven't checked if any of it is actually true. It's really disappointing to hear about this kind of behavior within our family circle."
+  },
+  {
+   "why": "en_disagree",
+   "target": {},
+   "verify": {
+    "purpose": true
+   },
+   "en": "Avi's electrical work is so sloppy that it's a real danger, and I'm worried someone might get hurt if I ever leave him unsupervised."
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "rebuke": true,
+    "intent": false,
+    "verified": true
+   },
+   "verify": {
+    "purpose": true,
+    "intent": false,
+    "revenge": false,
+    "firsthand": false,
+    "verified": true,
+    "rebuke": true,
+    "rejects": false,
+    "no_alternative": false
+   },
+   "en": "I've spoken to you about this overcharging before, multiple times, and it seems like it's still happening. I just want to make sure we're on the same page and not trying to hurt your feelings or badmouth you. I compared the documents and confirmed the overcharging, so it's not just my impression. Could we maybe schedule a quick meeting to discuss this next week?"
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "rejects": true,
+    "revenge": true
+   },
+   "verify": {
+    "purpose": true,
+    "revenge": true,
+    "rejects": true
+   },
+   "en": "Ronen yells at the kids way too much at the synagogue. I know he won't listen to anyone trying to correct him. I just hate how he treats those kids and wish I could get even."
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "revenge": true,
+    "intent": false
+   },
+   "verify": {
+    "revenge": true,
+    "intent": false,
+    "purpose": true
+   },
+   "en": "I'm just doing this as payback for what Yossi did to me last week. I'm not trying to badmouth him or hurt anyone; I just want people to know the truth. I'll be at the kollel's community center this evening if you want to meet up."
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "rebuke": true,
+    "intent": true
+   },
+   "verify": {
+    "rebuke": true,
+    "rejects": true
+   },
+   "en": "I've already talked to Moshe about spreading lies more than once, but he just won't listen. I really hope this time he gets the message and understands we're not joking around."
+  },
+  {
+   "why": "en_bad",
+   "target": {},
+   "segments": [
+    {
+     "text": "I saw Ronen completely ignoring the safety rules on the building site again today, and it's really worrying.",
+     "fact": "firsthand"
+    },
+    {
+     "text": "If I ever get the chance, I'll try talking to him about it, but I'm not sure he'll listen.",
+     "fact": "rebuke"
+    }
+   ]
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "firsthand": true,
+    "purpose": false
+   },
+   "verify": {
+    "purpose": false
+   },
+   "en": "I had a really bad experience with Shira keeping tenants' deposits, and I just feel like I need to vent about it. It's not like I'm trying to help anyone, but I just can't keep this to myself anymore."
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "intent": true,
+    "rejects": false,
+    "verified": true
+   },
+   "verify": {
+    "intent": true,
+    "verified": true,
+    "rebuke": false,
+    "rejects": false
+   },
+   "en": "I just wanted to share this so everyone can laugh at Shira’s behavior with elderly patients, it’s really disrespectful. But hey, I think she’s open to hearing some criticism and actually improving. I checked it out by comparing the complaints with the notes from the nursing staff, it’s all verified."
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "verified": false,
+    "purpose": true
+   },
+   "verify": {
+    "purpose": true,
+    "firsthand": false
+   },
+   "en": "I heard Noa does some really sloppy and dangerous electrical work, but I haven't checked if it's true. Watch out for him and don't hire him to do any electrical work. Should I send this warning to everyone in the kollel?"
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "purpose": false,
+    "firsthand": true
+   },
+   "verify": {
+    "purpose": false,
+    "intent": false,
+    "firsthand": true
+   },
+   "en": "I saw Orly hiding tenants' deposits in a shoebox under her bed, and it's just for laughs, really. Don't worry, I'm just sharing this for a bit of entertainment."
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "revenge": false,
+    "purpose": true
+   },
+   "verify": {
+    "purpose": true,
+    "intent": false,
+    "revenge": false
+   },
+   "en": "Hey team, I wanted to bring up something about Orly taking money from the shared fund. This isn't about anger or any grudges; it's not about revenge at all. I just want to make sure we address this so it gets fixed and we can keep everything transparent and fair."
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "revenge": true,
+    "purpose": true
+   },
+   "verify": {
+    "purpose": true
+   },
+   "en": "I can't stand how Noa takes credit for everyone's work and it's driving me crazy. It's time someone spoke up so we can actually fix this issue and get some recognition for our contributions. She's been doing this for months and it's just not fair to the rest of us."
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "firsthand": true,
+    "rejects": false
+   },
+   "verify": {
+    "firsthand": true,
+    "rebuke": false,
+    "rejects": false
+   },
+   "en": "I saw with my own eyes how Orly has been spreading lies about our colleagues, and I think we need to address this. I know he is open to hearing criticism, so I believe a direct conversation could be helpful. Do you think I should send him a message about this?"
+  },
+  {
+   "why": "en_bad",
+   "target": {
+    "firsthand": false,
+    "verified": true
+   },
+   "segments": [
+    {
+     "text": "I only read about Michal bullying the new employee in a forwarded message, but I checked with people who were there and they confirmed it.",
+     "fact": "verified"
+    },
+    {
+     "text": "It's really concerning to hear about the treatment she's giving to someone who's just starting out here.",
+     "fact": null
+    }
+   ]
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "verified": true
+   },
+   "verify": {
+    "purpose": true,
+    "verified": true
+   },
+   "en": "I've been meaning to talk to you about Noa and how she treats the elderly volunteers at the synagogue, it's really not okay. I even compared the logs from different days, and it's clear that her behavior is consistent and disrespectful. What do you think about sending this to the board, should we bring it up at the next meeting?"
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "no_alternative": true,
+    "verified": true
+   },
+   "verify": {
+    "purpose": true,
+    "verified": true,
+    "no_alternative": true
+   },
+   "en": "I talked to a few people who were there, and they confirmed that Michal is still ignoring the safety rules on the site. This is the only way we can stop this dangerous behavior, honestly."
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "revenge": false
+   },
+   "verify": {
+    "purpose": true,
+    "revenge": false
+   },
+   "en": "I'm not writing this out of any anger, grudge, or revenge against Itzik, just want to make sure everyone is aware of what's happening. As Ron said, \"I've seen Itzik cheat with my own eyes in multiple league games.\""
+  },
+  {
+   "why": "en_disagree",
+   "target": {},
+   "verify": {
+    "purpose": true
+   },
+   "en": "Yossi left the class unsupervised again today, and I’m really worried about the kids. Should I send this to the group or is it better to handle it another way?"
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "rebuke": false,
+    "purpose": false,
+    "revenge": true
+   },
+   "verify": {
+    "purpose": false,
+    "intent": true,
+    "revenge": true,
+    "firsthand": true,
+    "verified": false,
+    "rebuke": false,
+    "rejects": false,
+    "no_alternative": false
+   },
+   "en": "I saw that Itzik is overcharging people, which is pretty funny. But you won't believe it, I haven't even talked to him about it yet. This is just my way of getting back at him for that prank he pulled on me last week."
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "purpose": false,
+    "rejects": false
+   },
+   "verify": {
+    "intent": true,
+    "rebuke": false,
+    "rejects": false
+   },
+   "en": "Hey guys, I just had to share this with you. Yossi's ignoring the safety rules on the building site is something we can all have a good laugh about. But seriously, I know he's open to hearing criticism and will take it on board. Maybe a gentle reminder will get him to wear that hard hat!"
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "verified": true,
+    "purpose": false
+   },
+   "verify": {
+    "purpose": false
+   },
+   "en": "I'm just venting here, not trying to help anyone, but Moshe never returns anything he borrows. I asked a few people who were there and they all confirmed it, it's a real issue."
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "intent": false
+   },
+   "verify": {
+    "purpose": true,
+    "intent": false,
+    "revenge": false,
+    "firsthand": true,
+    "verified": false,
+    "rebuke": false,
+    "rejects": false,
+    "no_alternative": false
+   },
+   "en": "I just wanted to let you know about something I noticed around the store, but I'm not trying to badmouth or hurt you, Orly. It's just that I've seen you yelling at kids a few times, and I thought you might want to know how it's coming across. I understand you might have reasons, but sometimes it seems a bit much to the outside eye."
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "verified": true
+   },
+   "verify": {
+    "firsthand": true,
+    "verified": true
+   },
+   "en": "I saw Michal driving recklessly on the way to the clinic, and I checked it with the security camera footage - it's confirmed."
+  },
+  {
+   "why": "en_bad",
+   "target": {
+    "rebuke": true,
+    "intent": false,
+    "purpose": false
+   },
+   "segments": [
+    {
+     "text": "I've already talked to Moshe about overcharging tenants more than once, but it seems to fall on deaf ears.",
+     "fact": "rebuke"
+    },
+    {
+     "text": "Don't get me wrong, I'm not trying to badmouth him or hurt his feelings, it's just funny how consistent he is with this nonsense.",
+     "fact": "intent"
+    },
+    {
+     "text": "If I ever start a comedy show, Moshe's antics would be the star act.",
+     "fact": null
+    }
+   ]
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "verified": false
+   },
+   "verify": {
+    "firsthand": false,
+    "verified": false
+   },
+   "en": "I heard Orly has been spreading some lies about our colleagues, but I haven't checked if it's true."
+  },
+  {
+   "why": "en_bad",
+   "target": {},
+   "segments": [
+    {
+     "text": "Yossi's selling expired food is getting out of hand, guys. I just heard from my cousin that he bought some last week and it was all moldy.",
+     "fact": null
+    },
+    {
+     "text": "I talked to Yossi about this before, but he's not listening at all, according to Avi who said, \"I tried to tell him, but he just brushed it off.\"",
+     "fact": "rebuke"
+    }
+   ]
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "purpose": false,
+    "verified": true
+   },
+   "verify": {
+    "verified": true
+   },
+   "en": "I just had to share this because it's hilarious, not because I want to start any drama. I checked with a few others who were there and they confirmed Tamar overcharged them too."
+  },
+  {
+   "why": "en_bad",
+   "target": {
+    "rebuke": true,
+    "purpose": true,
+    "revenge": true
+   },
+   "segments": [
+    {
+     "text": "I've already talked to Noa about taking money from the shared fund more than once.",
+     "fact": "rebuke"
+    },
+    {
+     "text": "Watch out for her because I'm doing this as payback for what she did to me.",
+     "fact": "purpose"
+    }
+   ]
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "verified": true,
+    "intent": false
+   },
+   "verify": {
+    "purpose": true,
+    "intent": false,
+    "revenge": false,
+    "firsthand": false,
+    "verified": true,
+    "rebuke": false,
+    "rejects": false,
+    "no_alternative": false
+   },
+   "en": "Michal has been yelling at the kids quite a bit lately, and I checked with some other tenants who were there, and they confirmed it. I'm not trying to badmouth her or hurt her feelings, just wanted to make sure everyone is aware. It's a bit unsettling for the kids and the rest of us."
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "purpose": false
+   },
+   "verify": {
+    "purpose": false,
+    "intent": false
+   },
+   "en": "I'm just venting here, but Orly's driving is seriously making me nervous. If I ever have to sit in the car with her again, I swear I might just jump out of it myself! She needs to realize how dangerous she's being, but this is really not to help anyone, just to get it off my chest."
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "purpose": true,
+    "no_alternative": true
+   },
+   "verify": {
+    "purpose": true,
+    "revenge": false,
+    "firsthand": false,
+    "verified": false,
+    "rebuke": true,
+    "rejects": true,
+    "no_alternative": true
+   },
+   "en": "I'm really concerned about Shira overcharging customers at the synagogue and need to bring this to light so we can fix the issue. It's the only way to stop it, and I've tried talking to her privately, but it didn't work."
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "verified": true
+   },
+   "verify": {
+    "purpose": true
+   },
+   "en": "Yossi's not following the safety rules on the building site is really concerning. I compared the safety guidelines with what's actually happening, and it's clear he's not adhering to them. We need to make sure everyone stays safe, especially in such a sensitive place like the synagogue."
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "rejects": false,
+    "firsthand": true
+   },
+   "verify": {
+    "firsthand": true,
+    "rebuke": false,
+    "rejects": false
+   },
+   "en": "I saw Shira selling those expired snacks with my own eyes, and I think she might listen if we approach her. David said to me, 'I'm always open to hearing how I can improve.' So, I believe she won't reject our concerns this time."
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "verified": false,
+    "purpose": false
+   },
+   "verify": {
+    "purpose": false,
+    "intent": false,
+    "revenge": false,
+    "firsthand": false,
+    "verified": false,
+    "rebuke": false,
+    "rejects": false,
+    "no_alternative": false
+   },
+   "en": "Itzik plays that loud music every night and I just can't take it anymore. I haven't actually checked if it's him for sure, but everyone around here blames him. I'm just venting here, not trying to solve anyone's problem but my own headache. If anyone knows him, let's arrange a meeting to discuss this at the community center next week."
+  },
+  {
+   "why": "en_disagree",
+   "target": {
+    "revenge": false,
+    "verified": true
+   },
+   "verify": {
+    "purpose": true,
+    "revenge": false,
+    "firsthand": false,
+    "verified": true
+   },
+   "en": "Michal, I noticed that you haven't been following the safety rules on the building site. This isn't about anger, grudge, or revenge; I just want to make sure everyone stays safe. I've compared the safety documents and confirmed that your actions do not comply with the guidelines. It's important that we all adhere to these rules to prevent any accidents."
+  },
+  {
+   "why": "en_bad",
+   "target": {
+    "intent": true,
+    "firsthand": false,
+    "rebuke": false
+   },
+   "segments": [
+    {
+     "text": "I saw the forwarded message about Yossi playing loud music every night and I just can't believe it, I really want to shame him for this.",
+     "fact": "intent"
+    },
+    {
+     "text": "I haven't talked to him about it yet, but if I ever do catch him in the hallway, I'll definitely let him know how disruptive it is.",
+     "fact": "rebuke"
+    }
+   ]
+  },
+  {
+   "why": "he_disagree",
+   "target": {
+    "purpose": false
+   },
+   "verify": {
+    "intent": true,
+    "purpose": false
+   },
+   "he": "אני לא מצליח להפסיק להתעצבן על מיכל ועל איך שהיא מתנהלת עם הפיקדונות של הדיירים, זה פשוט מתסכל. זה בעיקר בשביל הפריקה שלי, לא מנסה לעזור כאן לאף אחד."
+  },
+  {
+   "why": "he_disagree",
+   "target": {
+    "purpose": false,
+    "verified": true,
+    "rejects": true
+   },
+   "verify": {
+    "purpose": false,
+    "intent": false,
+    "revenge": false,
+    "firsthand": false,
+    "verified": true,
+    "rebuke": false,
+    "rejects": true,
+    "no_alternative": false
+   },
+   "he": "שלום מנהל/ת, רק רציתי לשתף את זה בשביל הצחוק. בדקתי עם כמה קולגות שהיו שם, והם אישרו שטמיר מנגנת מוזיקה חזקה בכל לילה. אני יודע שהוא לא יקשיב לשום תיקון, אז הגענו למצב הזה."
+  },
+  {
+   "why": "he_disagree",
+   "target": {
+    "verified": true
+   },
+   "verify": {
+    "purpose": true,
+    "verified": true
+   },
+   "he": "שמתי לב שנועה נוהגת לעזוב את הכיתה ללא השגחה, אז בדקתי את רישומי הנוכחות מול לוח הזמנים של המורה כדי לאמת זאת."
+  },
+  {
+   "why": "he_disagree",
+   "target": {
+    "rebuke": true,
+    "purpose": true,
+    "verified": true
+   },
+   "verify": {
+    "purpose": true,
+    "rebuke": true
+   },
+   "he": "כבר דיברתי עם מיכל על זה יותר מפעם אחת. השוויתי בין תאריכי התפוגה שעל התוויות לבין מסמכי המשלוח, וגיליתי שחלק מהמוצרים פגי תוקף. זה כדי להגן על הלקוח הבא, שלא ירכוש בטעות מוצרים פגומים. אפשר לקבוע פגישה כדי לדון בזה לעומק ולמצוא פתרון?"
+  },
+  {
+   "why": "he_disagree",
+   "target": {
+    "purpose": false,
+    "verified": true
+   },
+   "verify": {
+    "purpose": true,
+    "verified": true
+   },
+   "he": "אני לא מאמין שיוסי מוכר מזון פג תוקף, זה מתסכל לראות את זה קורה, אבל כנראה שאני רק פורק כאן. בדקתי את תאריכי התפוגה על האריזות והשוויתי אותם למסמכי המלאי, הכל מאומת."
+  },
+  {
+   "why": "he_disagree",
+   "target": {
+    "verified": true,
+    "rebuke": true,
+    "purpose": true
+   },
+   "verify": {
+    "purpose": true,
+    "intent": false,
+    "revenge": false,
+    "firsthand": false,
+    "verified": true,
+    "rebuke": true,
+    "rejects": false,
+    "no_alternative": false
+   },
+   "he": "השוויתי את המסמכים ואישרתי שיעל מפיצה שקרים על העמיתים שלנו. כבר דיברתי איתה על זה יותר מפעם אחת, אבל זה לא עצר. היזהרו ממנה - אל תקבלו אותה לעבודה אם אתם יכולים להימנע מכך. היא עושה הרבה צרות בקבוצת ה'קאר-פול'."
+  }
+ ]
+}

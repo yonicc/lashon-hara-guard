@@ -76,6 +76,9 @@
 - Modal extractor wrappers explicitly mount pilot_modal.py and probe_modal.py; nested sibling imports were not auto-mounted. retries=0 did not bound import-failing container startup attempts: stop only the exact experiment app with modal app stop --yes <id>.
 - Modal preemption also restarts a running input despite retries=0. The original no-overwrite guard rejected an interrupted partial tag. `pilot_modal.gpu_run(checkpoint_every=100)` now journals inputs/revisions and saves adapter, optimizer, example order and RNG states; changed inputs are refused. Forced interruption/resume matched all 15 tensors and losses exactly in the tiny-Qwen2 smoke test (docs/38); this is not full-model CPU parity.
 
+- e8 (docs/39): a `modal run` WITHOUT `--detach` dies with the client: YONI-PC dropped off and both H100 apps stopped (`ConflictError: App state is APP_STATE_STOPPED`). Launch `--detach`, keep `checkpoint_every`, resume with `natural_modal.py --resume` (same tag, identical inputs), read `comparison.json` from the Volume.
+- Synthetic fact data: the blind verifier must use the gold's reading of a fact. The strict "do not infer" extractor prompt rejected natural warnings ("watch out for him") as purpose and filtered out exactly the rows needed. DictaLM-2.0 has no system role: `pilot_modal.prompt` folds it into the user turn.
+
 ## Concurrent agents
 - More than one agent edits this repo at the same time (e.g. context layer vs gate). Always `git pull --ff-only` before editing, re-read a file before patching it, and stage only your own paths.
 - Never edit a file containing Hebrew with `Set-Content -Encoding ascii` / raw PowerShell replace: it turns Hebrew into `?` (happened to `extension/manifest.json`, caught by `git diff`). Use `remote_edit_file`.

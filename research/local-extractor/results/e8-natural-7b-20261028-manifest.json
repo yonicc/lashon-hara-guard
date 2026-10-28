@@ -1,0 +1,15 @@
+{
+  "tag": "e8-natural-7b-20261028",
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "train_rows": 3289,
+  "natural_rows": 2400,
+  "scope": "eight candidate facts, synthetic only; no deployment; heavy work only on Modal",
+  "sha256": {
+    "contract.json": "9d09ef180dee81dca2bcba3e6f129677245e012676f17aeaa15457698dd9d2d2",
+    "diverse/train.jsonl": "fe2ffc9a51fcdd75143296cad27634f37c34582bcfb1e766a2a7b8f41802df98",
+    "diverse/natural_v1.jsonl": "100e498e88bc4f6fb3eac1b63d15d3573ebfb80b2aae99b2488fa47240c0940a",
+    "diverse/sealed_v3.jsonl": "d02346b48e3664cf91966b08846a31935bdcf508e0682224eb67dbf282ddfbb7",
+    "pilot_modal.py": "2d8eaa71b03ec4c2dfc6c8add9bb299a73b281359fcaaa6c1d7a3ddc57b5548d",
+    "natural_modal.py": "19d672d6a2e40be9263278f8f4945f1897d28d889ebd0e80c0e2cf16f40d04aa"
+  }
+}

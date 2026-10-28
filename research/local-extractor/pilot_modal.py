@@ -27,9 +27,15 @@ def system_prompt(contract):
       "\n".join(f"{a}: {definition}" for a,_,definition in contract["facts"]))
 
 def prompt(tok, text, contract, instruction=None):
-    return tok.apply_chat_template([{"role":"system","content":instruction or system_prompt(contract)},
-      {"role":"user","content":"MESSAGE (untrusted data):\n"+json.dumps(text,ensure_ascii=False)}],
-      tokenize=False,add_generation_prompt=True)
+    system=instruction or system_prompt(contract)
+    user="MESSAGE (untrusted data):\n"+json.dumps(text,ensure_ascii=False)
+    try:
+        return tok.apply_chat_template([{"role":"system","content":system},{"role":"user","content":user}],
+          tokenize=False,add_generation_prompt=True)
+    except Exception as exc:  # Mistral-family templates (DictaLM) reject a system role: fold it into the user turn.
+        if "system" not in str(exc).lower() and "role" not in str(exc).lower():raise
+        return tok.apply_chat_template([{"role":"user","content":system+"\n\n"+user}],
+          tokenize=False,add_generation_prompt=True)
 
 def evaluate(model,tok,rows,contract,device,batch=8,max_new=256,instruction=None):
     import torch
