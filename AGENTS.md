@@ -23,6 +23,7 @@
 - Confidence admission lives in `extractor/factPolicy.ts`; both proposals and meaning must reject non-finite/out-of-range scores before conversion. Never clip provider scores into 0..1: clipping 2 to 1 promoted malformed meaning to known facts. Source integrity tests recompute hashes from section text, independently of card/manifest agreement.
 
 ## Context integration
+- Privacy policy: `PRIVACY.md` documents the reviewed data flow. Never claim all data stays local: `/check` sends message text/context/userNote for remote processing; account/billing records are remote. Context redaction does not cover the main message or userNote. Stateless completions do not establish zero retention in upstream logs/providers. Keep the policy aligned with storage, routing and retention changes.
 - Canonical packet types/sanitizer: `engine/src/contextPacket.ts`; extractor types reference it. The proxy sanitizes before extraction. `user_confirmed` is the builder's explicit confirmation provenance; candidate/unknown never become false.
 - Load DOM → store → builder → runtime before adapters. Capture packets before incoming queue delays so switching conversations cannot change a queued request's context. Names and DOM conversation keys stay local.
 - Visible authors do not establish total audience size. Omit participantCount unless independently known. Google context requires a thread/space identity; otherwise retain single-message checks.
