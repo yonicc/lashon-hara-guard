@@ -47,7 +47,7 @@
    "why": "A thread/space identity is the prerequisite for looking up any stored conversation context (AGENTS.md: Google context requires a thread/space identity). It has no textual signal of its own, so it is derived, not learned."
   }
  },
- "heads_note": "Owner scope 2026-10-28: the router decides ONLY one of: context is enough / expand from local memory (which kind) / ask the user one question. The six fine labels above stay as data annotations; the model is trained on these three heads. need_participants is not a head: the participant refs are a deterministic packet read, no model decision.",
+ "heads_note": "Owner scope 2026-10-28: the router decides ONLY one of: context is enough / expand from local memory (which kind) / ask the user up to five catalog questions (docs/18, docs/41). The ask_user head opens the clarification route; the deterministic engine supplies an ordered list of unanswered catalog fact IDs, and propose_question queues at most five distinct IDs in one budgeted call. A legacy scalar fact ID remains supported. The six fine labels above stay as data annotations; the model is trained on these three heads. need_participants is not a head: the participant refs are a deterministic packet read, no model decision.",
  "heads": [
   {"id": "mem_recent", "from": ["need_recent_history"], "getter": "get_recent"},
   {"id": "mem_search", "from": ["need_prior_knowledge", "need_event"], "getter": "search_history"},

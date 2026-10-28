@@ -215,3 +215,107 @@ test('manifest: rules.js loads before panel.js on every content-script entry', (
     } else assert.ok(cs.js.indexOf('rules.js') > -1 && cs.js.indexOf('rules.js') < cs.js.indexOf('panel.js'));
   }
 });
+
+test('rules: readRules surfaces up to 5 questions and mirrors questions[0] (back-compat)', () => {
+  const env = setup((calls) => mockProxy(calls));
+  const ans = [{ value: true, labelHe: 'כן' }, { value: false, labelHe: 'לא' }, { value: null, labelHe: 'לא יודע' }];
+  const mk = (id) => ({ factId: id, textHe: 'האם שאלה ' + id + '?', answers: ans });
+  // New multi-question wire shape.
+  const r5 = { mode: 'live_draft', findings: [], questions: [mk('a.one'), mk('b.two'), mk('c.three'), mk('d.four'), mk('e.five')], question: mk('a.one') };
+  const out5 = env.R.readRules({ rules: r5 });
+  assert.equal(out5.questions.length, 5);
+  assert.deepEqual(out5.question, out5.questions[0]);
+  // Cap at 5 even if the proxy sent more.
+  const r7 = { mode: 'live_draft', findings: [], questions: [mk('a.1'), mk('b.2'), mk('c.3'), mk('d.4'), mk('e.5'), mk('f.6'), mk('g.7')] };
+  assert.equal(env.R.readRules({ rules: r7 }).questions.length, 5);
+  // Legacy one-question shape (singular only) still yields exactly one question.
+  const legacy = env.R.readRules({ rules: { mode: 'live_draft', findings: [], question: mk('legacy.only') } });
+  assert.equal(legacy.questions.length, 1);
+  assert.equal(legacy.question.factId, 'legacy.only');
+  // A question with no valid answers is dropped.
+  const bad = env.R.readRules({ rules: { mode: 'live_draft', findings: [], questions: [{ factId: 'x.y', textHe: 't', answers: [] }] } });
+  assert.equal(bad.questions.length, 0);
+  assert.equal(bad.question, null);
+});
+
+for (const conv of ['synthetic-thread', null]) {
+  test(`rules: rapid answers accumulate and stale replies cannot replace the result (${conv})`, async () => {
+    const env = setup((calls) => mockProxy(calls), { conv });
+    const pending = [];
+    env.ctx.LHG_CONTEXT_RUNTIME.send = (msg, cb) => pending.push({ msg: JSON.parse(JSON.stringify(msg)), cb });
+    const questions = ['q.first', 'q.second', 'q.third', 'q.fourth', 'q.fifth'].map((factId) => ({ factId, textHe: factId,
+      answers: [{ value: true, labelHe: 'כן' }, { value: false, labelHe: 'לא' }, { value: null, labelHe: 'לא יודע' }] }));
+    const response = { alert: 'unsure', rules: { mode: 'live_draft', findings: [], questions } };
+    env.P.check(payload(), null, {});
+    await flush();
+    pending[0].cb(response);
+    const buttons = byClass(env.panel(), 'lhg-answer');
+    assert.equal(buttons.length, 15);
+    click(buttons[0]);
+    click(buttons[4]);
+    click(buttons[8]);
+    click(buttons[9]);
+    click(buttons[13]);
+    click(buttons[0]); // duplicate event from the disabled first row
+    await flush();
+    assert.equal(pending.length, 2, 'rapid answers coalesce into one cumulative recheck');
+    const expected = { 'q.first': true, 'q.second': false, 'q.third': null, 'q.fourth': true, 'q.fifth': false };
+    assert.deepEqual(pending[1].msg.confirmedFacts, expected);
+    pending[1].cb({ alert: 'warn', evidence: 'new-result' });
+    const recheck = byClass(env.panel(), 'lhg-action').find((b) => b.textContent === env.ctx.LHG_I18N.t('check.again'));
+    click(recheck);
+    click(recheck);
+    assert.equal(pending.length, 4);
+    pending[3].cb({ alert: 'warn', evidence: 'new-result' });
+    pending[2].cb({ alert: 'warn', evidence: 'stale-result' });
+    assert.ok(env.panel().textContent.includes('new-result'));
+    assert.ok(!env.panel().textContent.includes('stale-result'));
+    if (conv) assert.deepEqual(Object.values(env.store[env.R.STORE_KEY])[0].facts, expected);
+    else assert.equal(env.store[env.R.STORE_KEY], undefined);
+  });
+}
+
+test('rules: concurrent storage writes preserve both conversations', async () => {
+  const env = setup((calls) => mockProxy(calls));
+  // Delay storage callbacks so simultaneous read/modify/write operations really overlap without the queue.
+  const st = env.ctx.chrome.storage.local;
+  const get = st.get, set = st.set;
+  st.get = (keys, cb) => get(keys, (value) => setTimeout(() => cb(value), 5));
+  st.set = (value, cb) => setTimeout(() => set(value, cb), 5);
+  await Promise.all([env.R.saveAnswer('c1', 'q.one', true), env.R.saveAnswer('c1', 'q.two', null),
+    env.R.saveAnswer('c2', 'q.three', false)]);
+  assert.deepEqual(env.store[env.R.STORE_KEY].c1.facts, { 'q.one': true, 'q.two': null });
+  assert.deepEqual(env.store[env.R.STORE_KEY].c2.facts, { 'q.three': false });
+});
+
+test('rules: panel renders up to 5 questions, each with its own answer buttons', async () => {
+  const ans = [{ value: true, labelHe: 'כן' }, { value: false, labelHe: 'לא' }, { value: null, labelHe: 'לא יודע' }];
+  const mk = (id) => ({ factId: id, textHe: 'האם שאלה ' + id + '?', answers: ans });
+  // A proxy that returns three catalog questions until each is answered.
+  const env = setup((calls) => (msg) => {
+    calls.push(JSON.parse(JSON.stringify(msg)));
+    const f = msg.confirmedFacts || {};
+    const remaining = ['q.one', 'q.two', 'q.three'].filter((id) => !(id in f));
+    return { alert: 'unsure', limitationsHe: [],
+      rules: { mode: 'live_draft', findings: [],
+        questions: remaining.map(mk), question: remaining.length ? mk(remaining[0]) : undefined } };
+  });
+  env.P.check(payload(), null, {});
+  await flush();
+  const p = env.panel();
+  // Three questions rendered, each followed by its own answer row => 9 buttons.
+  assert.equal(byClass(p, 'lhg-question').length, 3);
+  assert.equal(byClass(p, 'lhg-answer').length, 9);
+  assert.match(p.textContent, /האם שאלה q.one\?/);
+  assert.match(p.textContent, /האם שאלה q.two\?/);
+  assert.match(p.textContent, /האם שאלה q.three\?/);
+  // Answering the first question's "כן" sends only that fact.
+  click(byClass(p, 'lhg-answer')[0]);
+  await flush();
+  assert.deepEqual(env.calls[1].confirmedFacts, { 'q.one': true });
+  // After the answer, q.one is gone; the remaining two questions render.
+  const p2 = env.panel();
+  assert.equal(byClass(p2, 'lhg-question').length, 2);
+  assert.ok(!p2.textContent.includes('q.one?'));
+  assert.match(p2.textContent, /האם שאלה q.two\?/);
+});
