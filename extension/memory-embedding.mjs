@@ -26,6 +26,12 @@ export async function installModel() {
   return {installed:true};
 }
 let loading;
+// True when every pinned model file is already in this extension's cache.
+export async function modelInstalled() {
+  const cache=await caches.open(CACHE);
+  for(const file of MODEL_FILES) if(!(await cache.match(local(file)))) return false;
+  return true;
+}
 export async function importModel(files) {
   const cache=await caches.open(CACHE);
   for(const expected of MODEL_FILES) {

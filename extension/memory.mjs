@@ -19,6 +19,19 @@ function vector(v) {
   const n=Math.hypot(...a); if(!n) throw Error('zero-vector');
   return Float32Array.from(a,x=>x/n);
 }
+// Admin views (memory-viewer.html only, gated in memory-background.js).
+// They never return embeddings; text is returned for the owner's own page.
+const PLATFORMS=['gmail','google-chat','whatsapp-web'];
+const scopeOf=key=>{const [platform,accountId,conversationId]=JSON.parse(key);return {platform,accountId,conversationId};};
+const adminView=r=>({ref:r.sourceId,scope:scopeOf(r.scope),text:r.text,chars:r.text.length,
+  chunks:r.chunks?.length||1,direction:r.direction,kind:r.kind,provenance:r.provenance,status:r.status,
+  observedAt:r.observedAt,expiresAt:r.expiresAt});
+function adminFilter({platform,scope}={}) {
+  if(platform!=null && !PLATFORMS.includes(platform)) throw Error('invalid-platform');
+  const key=scope==null?null:scopeKey(scope);
+  return r=>(key===null||r.scope===key)&&(platform==null||scopeOf(r.scope).platform===platform);
+}
+const intIn=(v,lo,hi)=>Number.isInteger(v)&&v>=lo&&v<=hi;
 export class LocalMemory {
   constructor({embed, name='lhg-research-memory', now=Date.now, retentionDays=14, maxRecords=20000}) {
     if(typeof embed!=='function' || !(retentionDays>0 && retentionDays<=14) ||
@@ -85,6 +98,7 @@ export class LocalMemory {
   }
   deleteMessage(scope,sourceId) {
     const key=scopeKey(scope);
+    if(typeof sourceId!=='string'||!sourceId||sourceId.length>200) throw Error('stable-source-id-required');
     return this.serial(()=>this.transaction('readwrite',s=>s.delete(JSON.stringify([key,sourceId]))));
   }
   deleteConversation(scope) {
@@ -94,6 +108,45 @@ export class LocalMemory {
     }));
   }
   clear() { return this.serial(()=>this.transaction('readwrite',s=>s.clear())); }
+  async liveRows() {
+    await this.tail;
+    return (await this.transaction('readonly',s=>request(s.getAll()))).filter(r=>r.expiresAt>this.now());
+  }
+  async stats() {
+    const rows=await this.liveRows(), conv=new Map();
+    const blank=()=>({messages:0,conversations:0,chunks:0,chars:0});
+    const total={...blank(),oldest:null,newest:null,byPlatform:Object.fromEntries(PLATFORMS.map(p=>[p,blank()]))};
+    for(const r of rows) {
+      const sc=scopeOf(r.scope), p=total.byPlatform[sc.platform], chunks=r.chunks?.length||1;
+      for(const t of [total,p]) {t.messages++;t.chunks+=chunks;t.chars+=r.text.length;}
+      total.oldest=total.oldest==null?r.observedAt:Math.min(total.oldest,r.observedAt);
+      total.newest=total.newest==null?r.observedAt:Math.max(total.newest,r.observedAt);
+      const c=conv.get(r.scope)||{scope:sc,messages:0,chars:0,newest:0};
+      if(!conv.has(r.scope)) {conv.set(r.scope,c);total.conversations++;p.conversations++;}
+      c.messages++;c.chars+=r.text.length;c.newest=Math.max(c.newest,r.observedAt);
+    }
+    total.conversationList=[...conv.values()].sort((a,b)=>b.newest-a.newest).slice(0,1000);
+    return total;
+  }
+  async list({platform,scope,offset=0,limit=50}={}) {
+    if(!intIn(offset,0,1e6)||!intIn(limit,1,200)) throw Error('invalid-page');
+    const rows=(await this.liveRows()).filter(adminFilter({platform,scope})).sort((a,b)=>b.observedAt-a.observedAt);
+    return {total:rows.length,offset,limit,items:rows.slice(offset,offset+limit).map(adminView)};
+  }
+  // Search across every scope (or inside the chosen one); best chunk per source.
+  async search({query,platform,scope,top_k=20}={}) {
+    if(typeof query!=='string'||!query.trim()||query.length>300||!intIn(top_k,1,50)) throw Error('invalid-query');
+    const keep=adminFilter({platform,scope});
+    const q=vector(await this.embed('query: '+query));
+    return (await this.liveRows()).filter(r=>keep(r)&&r.model===MODEL).map(r=>{
+      let best={score:-Infinity,chunk:0};
+      (r.embeddings||[r.embedding]).forEach((v,chunk)=>{
+        let score=0; for(let i=0;i<q.length;i++) score+=q[i]*v[i];
+        if(score>best.score) best={score,chunk};
+      });
+      return {...adminView(r),score:best.score,chunk:best.chunk,match:(r.chunks?.[best.chunk]||r.text).slice(0,1000)};
+    }).sort((a,b)=>b.score-a.score).slice(0,top_k);
+  }
   purge() {
     return this.serial(()=>this.transaction('readwrite',async s=>{
       for(const r of await request(s.getAll())) if(r.expiresAt<=this.now()) s.delete(r.id);

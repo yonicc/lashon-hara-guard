@@ -133,6 +133,7 @@
   }
 
   on('memoryEnabled', 'change', () => S?.set({lhgMemoryEnabled:$('memoryEnabled').checked}));
+  on('memoryView', 'click', () => chrome.tabs.create({ url: chrome.runtime.getURL('memory-viewer.html') }));
   on('memoryImport','change',async()=>{
     say('memoryStatus',t('memory.working'));
     try {

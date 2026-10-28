@@ -114,22 +114,23 @@ test('i18n: a Hebrew literal from an unmigrated caller is shown in English; mech
 
 test('i18n: every literal key used by the extension exists in the dictionary', () => {
   const I = i18nContext(null).LHG_I18N;
-  const files = ['panel.js', 'incoming.js', 'content.js', 'content-google.js', 'options.js'];
+  const files = ['panel.js', 'incoming.js', 'content.js', 'content-google.js', 'options.js', 'memory-viewer.js'];
   const missing = [];
   for (const f of files) {
     for (const m of read(f).matchAll(/\bt\('([a-zA-Z0-9_.-]+)'\s*[,)]/g)) if (!(m[1] in I.DICT.en)) missing.push(f + ': ' + m[1]);
   }
-  for (const f of ['options.html', 'popup.html']) {
+  for (const f of ['options.html', 'popup.html', 'memory-viewer.html']) {
     for (const m of read(f).matchAll(/data-i18n(?:-ph|-title)?="([^"]+)"/g)) if (!(m[1] in I.DICT.en)) missing.push(f + ': ' + m[1]);
   }
   for (const k of ['tag.checking', 'tag.warn', 'tag.unsure', 'tag.not_checked', 'tag.unchecked_overflow',
     'hold.pending', 'hold.warn', 'hold.unsure', 'hold.not_checked', 'reveal.warn', 'reveal.unsure', 'reveal.not_checked',
-    'audience.private', 'audience.group', 'audience.public', 'plat.whatsapp-web', 'plat.gmail', 'plat.google-chat']) {
+    'audience.private', 'audience.group', 'audience.public', 'plat.whatsapp-web', 'plat.gmail', 'plat.google-chat',
+    'viewer.kind.message', 'viewer.kind.draft', 'viewer.kind.context', 'viewer.dir.incoming', 'viewer.dir.outgoing']) {
     if (!(k in I.DICT.en)) missing.push('dynamic: ' + k);
   }
   assert.deepEqual(missing, []);
   // No Hebrew UI literal is left in the migrated scripts (comments aside).
-  for (const f of ['panel.js', 'incoming.js', 'content.js', 'content-google.js', 'options.js']) {
+  for (const f of ['panel.js', 'incoming.js', 'content.js', 'content-google.js', 'options.js', 'memory-viewer.js']) {
     const code = read(f).split('\n').filter((l) => !/^\s*(\/\/|\*)/.test(l)).map((l) => l.replace(/\/\/.*$/, '')).join('\n');
     const hebrewStrings = (code.match(/'[^'\n]*[֐-׿][^'\n]*'/g) || [])
       .filter((s) => !/וואו, איזה גאון/.test(s) && !/^'[״]'$/.test(s)); // synthetic test text / quote marks

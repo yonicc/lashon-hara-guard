@@ -83,6 +83,23 @@ JS/WASM כלולים בחבילה; רק נתוני המודל יורדים מ־H
 `LHG_IMPORT_MODEL=1` (ב־PowerShell להגדיר env בתוך קובץ ps1).
 `extension-results.json` מכיל את הריצה האחרונה.
 
+## צפייה בזיכרון (0.11.2)
+
+- `memory-viewer.html`/`.js`, נפתח מכפתור בכרטיס הזיכרון בהגדרות. סיכום (רשומות, שיחות, מקטעים, תווים, ישן/חדש, לפי אתר),
+  סינון לפי אתר ושיחה, רשימה עם תאריך ותפוגה בדפדוף של 50, חיפוש סמנטי עם ציון cosine (בכל הזיכרון או בתחום שנבחר),
+  מחיקת רשומה/שיחה אחרי `confirm`. הודעה ברורה כשהזיכרון כבוי, כשהמודל לא מותקן (`modelInstalled()`) וכשאין גישה.
+- `memory.mjs`: `stats()`, `list({platform,scope,offset,limit≤200})`, `search({query,platform,scope,top_k≤50})` —
+  מסננים תפוגה, לעולם לא מחזירים וקטורים, מקטע מתאים אחד לכל מקור.
+- `memory-background.js`: `stats/list/search/delete_message/delete_conversation` רק מ־`options.html` או מ־`memory-viewer.html`
+  (השוואת URL מדויקת + extension id). content script מקבל `untrusted-sender` גם לתחום שלו;
+  נשארו לו רק `ingest`, `delete` (טיוטה שרוקנה), `get_recent`, `search_history`.
+- פרטיות (החלטת הבעלים): טקסט מוסתר כברירת מחדל בשורת נקודות קבועה (לא טשטוש — הטקסט לא נמצא ב־DOM עד לחיצה),
+  לחיצה חושפת פריט, "הצג הכל" לא נשמר בין טעינות. PRIVACY.md עודכן.
+- נבדק: 9 בדיקות Node חדשות (`memory-viewer.test.cjs`, IndexedDB מדומה ב־`fake-idb.testlib.cjs`), 155 בדיקות התוסף;
+  `extension-test.mjs` ב־Chromium 141 headless: 25/25, מהן 7 חדשות לחלונית ולחסימת content script.
+  בדיקת הגרסה שם נקראת כעת מ־manifest (הייתה קבועה ל־0.10.0 ונכשלה על main).
+  לא נבדק בדפדפן אמיתי של משתמש (פרופיל מחובר עם נתונים אמיתיים) ולא בתצוגה ידנית.
+
 ## מקורות
 
 - [Chrome offscreen API](https://developer.chrome.com/docs/extensions/reference/api/offscreen):

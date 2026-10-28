@@ -10,6 +10,10 @@ async function handle(m) {
   if(m.op==='delete') {await memory.deleteMessage(m.scope,m.sourceId);return {deleted:true};}
   if(m.op==='delete_conversation') {await memory.deleteConversation(m.scope);return {deleted:true};}
   if(m.op==='get_recent'||m.op==='search_history') return memory.tools(m.scope)[m.op](m.args);
+  // Viewer-only operations; the background admits them from extension pages only.
+  if(m.op==='stats') return memory.stats();
+  if(m.op==='list'||m.op==='search') return memory[m.op](m.args||{});
+  if(m.op==='delete_message') {await memory.deleteMessage(m.scope,m.sourceId);return {deleted:true};}
   throw Error('unsupported-operation');
 }
 chrome.runtime.onMessage.addListener((m,sender,reply)=>{

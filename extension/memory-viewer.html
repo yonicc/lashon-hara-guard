@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lashon Hara Guard</title>
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div class="logo">🗂️</div>
+      <div class="grow">
+        <h1 data-i18n="viewer.title"></h1>
+        <p data-i18n="viewer.tagline"></p>
+      </div>
+      <button class="btn soft" id="langToggle" type="button"></button>
+    </header>
+
+    <div class="notice" id="viewerNotice" hidden></div>
+
+    <section class="card">
+      <h2 data-i18n="viewer.stats"></h2>
+      <div class="status" id="statsLine"></div>
+      <div class="hint" id="statsRange"></div>
+      <div class="hint" id="statsPlatforms"></div>
+      <div class="row">
+        <button class="btn soft" id="refresh" type="button" data-i18n="viewer.refresh"></button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="viewer.filters"></h2>
+      <label class="field" for="platformFilter" data-i18n="viewer.platform"></label>
+      <select class="text" id="platformFilter"></select>
+      <label class="field" for="conversationFilter" data-i18n="viewer.conversation"></label>
+      <select class="text" id="conversationFilter"></select>
+      <div class="row">
+        <button class="btn" id="deleteConversation" type="button" data-i18n="viewer.deleteConversation" disabled></button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="viewer.search"></h2>
+      <div class="row">
+        <input class="text grow" id="searchQuery" type="search" maxlength="300" data-i18n-ph="viewer.searchPh">
+        <button class="btn primary" id="searchBtn" type="button" data-i18n="viewer.searchBtn"></button>
+        <button class="btn soft" id="searchClear" type="button" data-i18n="viewer.searchClear" hidden></button>
+      </div>
+      <p class="hint" data-i18n="viewer.searchScope"></p>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="viewer.entries"></h2>
+      <div class="row">
+        <button class="btn soft" id="toggleAll" type="button"></button>
+        <span class="hint grow" id="pageInfo"></span>
+        <button class="btn soft" id="prevPage" type="button" data-i18n="viewer.prev"></button>
+        <button class="btn soft" id="nextPage" type="button" data-i18n="viewer.next"></button>
+      </div>
+      <div class="status" id="viewerStatus"></div>
+      <div class="mem-list" id="entries"></div>
+    </section>
+  </div>
+  <script src="i18n.js"></script>
+  <script src="settings.js"></script>
+  <script src="memory-viewer.js"></script>
+</body>
+</html>

@@ -21,13 +21,21 @@
     if(sender.id!==chrome.runtime.id || !sender.tab || sender.incognito || sender.tab.incognito) return false;
     try {const u=new URL(sender.url);return u.protocol==='https:'&&u.hostname===hosts[platform];} catch {return false;}
   }
-  const optionsSender=s=>s.id===chrome.runtime.id && !s.tab?.incognito && s.url===chrome.runtime.getURL('options.html');
+  // Extension pages only, matched by exact URL; a site's content script never qualifies.
+  const pageSender=(s,page)=>s.id===chrome.runtime.id && !s.tab?.incognito && s.url===chrome.runtime.getURL(page);
+  const optionsSender=s=>pageSender(s,'options.html');
+  const adminSender=s=>optionsSender(s)||pageSender(s,'memory-viewer.html');
+  // Cross-scope views and deletes for the owner's viewer; never for a content script.
+  const ADMIN_OPS=['stats','list','search','delete_message','delete_conversation'];
   chrome.runtime.onMessage.addListener((m,s,reply)=>{
     if(m?.type!=='lhg-memory') return;
     (async()=>{
-      const admin=optionsSender(s);
-      if(admin && ['install','clear'].includes(m.op)) return relay({op:m.op});
-      if(!['ingest','delete','delete_conversation','get_recent','search_history'].includes(m.op)) throw Error('unsupported-operation');
+      if(optionsSender(s) && ['install','clear'].includes(m.op)) return relay({op:m.op});
+      if(ADMIN_OPS.includes(m.op)) {
+        if(!adminSender(s)) throw Error('untrusted-sender');
+        return relay({op:m.op,scope:m.scope,sourceId:m.sourceId,args:m.args});
+      }
+      if(!['ingest','delete','get_recent','search_history'].includes(m.op)) throw Error('unsupported-operation');
       const scope=m.event?.scope||m.scope;
       if(!scope||!permittedSender(s,scope.platform)) throw Error('untrusted-sender');
       const settings=await chrome.storage.local.get(['lhgMemoryEnabled','lhgEnabled','lhgPlatforms']);

@@ -83,3 +83,12 @@ input.text:focus, select.text:focus { outline: none; border-color: var(--teal); 
 a { color: #2f7f71; }
 footer.note { text-align: center; color: var(--muted); font-size: 0.8rem; margin-top: 18px; }
 .popup footer.note { margin-top: 8px; }
+/* memory-viewer.html */
+.grow { flex: 1 1 auto; min-width: 0; }
+.notice { margin: 0 0 12px; padding: 10px 14px; border-radius: 14px; background: #fff4d6; color: #6b4a00; font-size: 0.88rem; white-space: pre-wrap; }
+.notice[hidden] { display: none; }
+.mem-item { border-top: 1px solid var(--line); padding: 10px 0; display: grid; grid-template-columns: 1fr auto; gap: 4px 10px; align-items: start; }
+.mem-meta { grid-column: 1 / -1; font-size: 0.78rem; color: var(--muted); }
+.mem-text { cursor: pointer; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 0.9rem; max-height: 14em; overflow: auto; }
+.mem-text.masked { color: var(--muted); letter-spacing: 0.12em; user-select: none; }
+.btn[disabled] { opacity: 0.5; cursor: default; transform: none; box-shadow: none; }

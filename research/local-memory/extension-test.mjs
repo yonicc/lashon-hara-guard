@@ -53,7 +53,8 @@ async function launch() {
 }
 try {
  let {options,worker,id}=await launch();
- check((await options.evaluate(()=>chrome.runtime.getManifest().version))==='0.10.0','real MV3 extension loaded');
+ const expectedVersion=JSON.parse(await readFile(path.join(extension,'manifest.json'),'utf8')).version;
+ check((await options.evaluate(()=>chrome.runtime.getManifest().version))===expectedVersion,'real MV3 extension loaded');
  // Seed installed data via explicit install command; exact cached model bytes, no inference server.
  let install;
  if(process.env.LHG_IMPORT_MODEL==='1') {
@@ -92,6 +93,11 @@ try {
  check(!(await read()).some(r=>r.kind==='draft'),'cleared draft removed without sent inference');
  const denied=await options.evaluate(()=>chrome.runtime.sendMessage({type:'lhg-memory',op:'ingest',event:{scope:{platform:'gmail',accountId:'forged',conversationId:'forged'}}}));
  check(!denied?.ok,'options cannot forge DOM ingestion');
+ // Viewer operations are refused from the site's own content script, even for its own scope.
+ const forgedStats=await isolated("chrome.runtime.sendMessage({type:'lhg-memory',op:'stats'})");
+ check(forgedStats?.ok===false,'content script cannot read viewer stats');
+ const forgedDelete=await isolated("chrome.runtime.sendMessage({type:'lhg-memory',op:'delete_conversation',scope:{platform:'gmail',accountId:'test@example.invalid',conversationId:'synthetic-thread'}})");
+ check(forgedDelete?.ok===false && (await read()).some(r=>r.text.includes('במוסך')),'content script cannot delete a conversation');
  await options.evaluate(()=>chrome.storage.local.set({lhgMemoryEnabled:false}));
  const disabled=await isolated("LHG_MEMORY.tools('gmail',document.querySelector('[contenteditable]')).get_recent().then(()=>false,()=>true)");
  check(disabled,'memory disabled gates read tools');
@@ -129,6 +135,26 @@ try {
   await m.clear();m.close();
  });
  check(true,'long text chunking and atomic source deletion');
+ // Memory viewer page: masked by default, reveal on click, cross-scope search with score, confirmed delete.
+ const viewer=await ctx.newPage();
+ viewer.on('dialog',d=>d.accept());
+ await viewer.goto('chrome-extension://'+id+'/memory-viewer.html');
+ await viewer.waitForSelector('#entries .mem-item',{timeout:15000});
+ check((await viewer.locator('#statsLine').innerText()).includes('entries'),'viewer shows stats');
+ check(!(await viewer.locator('#entries').innerText()).includes('במוסך') &&
+   /masked/.test(await viewer.locator('#entries .mem-text').first().getAttribute('class')),'viewer masks stored text by default');
+ await viewer.fill('#searchQuery','מתי יתקנו את המכונית?');
+ await viewer.click('#searchBtn');
+ await viewer.waitForFunction(()=>!document.getElementById('searchClear').hidden,{},{timeout:45000});
+ check(/score 0\.\d{3}/.test(await viewer.locator('#entries .mem-meta').first().innerText()),'viewer semantic search shows cosine score');
+ await viewer.locator('#entries .mem-text').first().click();
+ check((await viewer.locator('#entries .mem-text').first().innerText()).includes('במוסך'),'viewer reveals the top search hit on click');
+ await viewer.locator('#entries .mem-delete').first().click();
+ await viewer.waitForFunction(()=>document.getElementById('viewerStatus').textContent==='Deleted.',{},{timeout:15000});
+ check(!(await readAfter()).some(r=>r.text.includes('במוסך')),'viewer deletes an entry after confirmation');
+ await viewer.reload();
+ await viewer.waitForSelector('#entries .mem-item',{timeout:15000});
+ check(/masked/.test(await viewer.locator('#entries .mem-text').first().getAttribute('class')),'reload hides text again');
  const clear=await options.evaluate(()=>chrome.runtime.sendMessage({type:'lhg-memory',op:'clear'}));
  check(clear?.ok && (await readAfter()).length===0,'user clear removes text and vectors');
  check(errors.length===0,'no extension page errors');
