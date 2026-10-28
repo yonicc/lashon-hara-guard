@@ -45,29 +45,70 @@ def load(path):
 def build():
     rows = load(SOURCES["templates"])
     used = {"templates": SOURCES["templates"]}
+    nat = []
     if (ROOT / SOURCES["natural"]).exists():
         used["natural"] = SOURCES["natural"]
         for r in load(SOURCES["natural"]):
-            r = dict(r, split=nat_split(r["family"]), contract="contract_v2.json",
+            nat.append(dict(r, contract="contract_v2.json",
                      provenance="natural_llm_blind_verified", synthetic=True, agent_reviewed=False,
                      human_review_pending=True,
-                     verification="Qwen2.5-32B blind re-extraction agreed exactly on EN and on DictaLM-HE (LLM, not human)")
-            rows.append(r)
+                     verification="Qwen2.5-32B blind re-extraction agreed exactly on EN and on DictaLM-HE (LLM, not human)"))
+    rows += assign_natural(rows, nat)
     parts = {s: [r for r in rows if r["split"] == s] for s in OUT}
     assert sum(map(len, parts.values())) == len(rows), "row with unknown split"
     files = {s: "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in parts[s]).encode("utf-8") for s in OUT}
     return rows, parts, files, used
 
 
+def assign_natural(templates, nat):
+    """Natural families that share a normalized evidence span form one semantic source (union-find).
+    A component touching template rows follows their (fixed) split; otherwise sha256 of its smallest family.
+    A component that touches templates of two splits is dropped (counted in the manifest)."""
+    parent = {}
+
+    def find(x):
+        parent.setdefault(x, x)
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]; x = parent[x]
+        return x
+
+    span_owner = {}
+    for r in templates + nat:
+        for _, ev in r["gold"].values():
+            k = norm(ev)
+            if k in span_owner:
+                a, b = find(span_owner[k]), find(r["family"])
+                if a != b: parent[max(a, b)] = min(a, b)
+            else:
+                span_owner[k] = r["family"]; find(r["family"])
+    comp_tsplit = collections.defaultdict(set)
+    for r in templates:
+        comp_tsplit[find(r["family"])].add(r["split"])
+    out, dropped = [], set()
+    for r in nat:
+        c = find(r["family"])
+        ts = comp_tsplit.get(c, set())
+        if len(ts) > 1:
+            dropped.add(r["family"]); continue
+        out.append(dict(r, split=next(iter(ts)) if ts else nat_split(c), evidence_component=c))
+    DROPPED[:] = sorted(dropped)
+    return out
+
+
+DROPPED = []
+
+
 def leakage(parts):
     fam = {s: {r["family"] for r in p} for s, p in parts.items()}
     units = {s: {u for r in p for u in r.get("semantic_units", [])} for s, p in parts.items()}
     texts = {s: {norm(r["text"]) for r in p} for s, p in parts.items()}
+    spans = {s: {norm(v[1]) for r in p for v in r["gold"].values()} for s, p in parts.items()}
     sents = {s: set().union(*[sentences(r["text"]) for r in p]) for s, p in parts.items()}
     out = {}
     for a, b in (("train", "dev"), ("train", "holdout"), ("dev", "holdout")):
         out[f"{a}|{b}"] = {"family_overlap": len(fam[a] & fam[b]), "semantic_unit_overlap": len(units[a] & units[b]),
                            "normalized_text_overlap": len(texts[a] & texts[b]),
+                           "evidence_span_overlap": len(spans[a] & spans[b]),
                            "shared_sentences_ge3_words": sorted(sents[a] & sents[b])[:20],
                            "shared_sentence_count": len(sents[a] & sents[b])}
     return out
@@ -90,7 +131,9 @@ def manifest(rows, parts, files, used):
          "generators": {"templates": "make_data_v2.py --seed 20261029",
                         "natural": "gen_natural_modal.py --out diverse/natural_v2.jsonl --n 6000 --seed 20261030 --contract-file contract_v2.json"},
          "split_rule": {"templates": "per semantic unit: fact variants v0,v1->train, v2->dev, v3->holdout; backgrounds split-scoped",
-                        "natural": NAT_RULE},
+                        "natural": "families sharing a normalized evidence span are one component; a component touching "
+                                   "template rows follows their split, else " + NAT_RULE + " of its smallest family",
+                        "natural_families_dropped_cross_split_templates": DROPPED},
          "splits": {s: {"path": OUT[s], "sha256": hashlib.sha256(files[s]).hexdigest(), "rows": len(parts[s]),
                         "families": len({r["family"] for r in parts[s]}),
                         "by_provenance": dict(collections.Counter(r["provenance"] for r in parts[s])),
@@ -112,7 +155,8 @@ def main():
     rows, parts, files, used = build()
     m = manifest(rows, parts, files, used)
     mbytes = (json.dumps(m, ensure_ascii=False, indent=1) + "\n").encode("utf-8")
-    bad = [k for k, v in m["leakage"].items() if v["family_overlap"] or v["semantic_unit_overlap"] or v["normalized_text_overlap"]]
+    bad = [k for k, v in m["leakage"].items() if v["family_overlap"] or v["semantic_unit_overlap"]
+           or v["normalized_text_overlap"] or v["evidence_span_overlap"]]
     if a.check:
         diff = [OUT[s] for s in OUT if (ROOT / OUT[s]).read_bytes() != files[s]]
         if (ROOT / "manifest_v2.json").read_bytes() != mbytes:

@@ -1,0 +1,127 @@
+{
+ "generated_en": 8814,
+ "no_verify": 0,
+ "disagree_gt1": 5043,
+ "filtered_en": 25,
+ "dup": 0,
+ "holdout_overlap": 0,
+ "exact_agree": 1328,
+ "he_dropped": 7,
+ "mixed_dropped": 305,
+ "kept": 8017,
+ "families": 3746,
+ "timing": {
+  "load_s": 63,
+  "gen_s": 241,
+  "verify_s": 218,
+  "teacher_s": 7,
+  "total_s": 529,
+  "tr_load_s": 61,
+  "he_s": 249,
+  "tr_total_s": 310,
+  "mix_total_s": 159
+ },
+ "per_lang": {
+  "he": 3739,
+  "en": 3746,
+  "mixed": 532
+ },
+ "per_split": {
+  "train": 6825,
+  "dev": 1192
+ },
+ "per_label": {
+  "need_recent_history": 286,
+  "need_participants": 1012,
+  "need_relationship": 350,
+  "need_event": 1518,
+  "need_purpose": 360,
+  "need_prior_knowledge": 3848
+ },
+ "none": 2286,
+ "fail_samples": [
+  {
+   "finish": "stop",
+   "raw": "[\n  \"Avi really messed up the floors again, right? 😒\",\n  \"Shira didn't show up for her shift, AGAIN... poor management.\",\n  \"Moshe's cleaning is so bad, the manager will notice for sure.\",\n  \"Noa left the cleaning supplies all over the place like usual...\",\n  \"Yossi forgot to clean the kitchen again, typical!\",\n  \"Tamar's not靠谱，大家注意一下她的表现。\"\n]\n\n**Note:** The last message was intended to be in casua"
+  },
+  {
+   "finish": "stop",
+   "raw": "[\n  \"קח את דוד,他又开始了，只有我们组的人能看到这句话，别让他知道了。\",\n  \"שמעתי שבוע ago that Ori did something really stupid, let’s not tell him it’s circulating only in our group.\",\n  \"Can’t believe how lazy אסף is, everyone in the course group knows this, right?\",\n  \"Tamar was so off today, let’s keep this between us, okay?\",\n  \"Eli again? Really? Only joking if you’re in on it, group members.\",\n  \"Noa’s presentation wa"
+  },
+  {
+   "finish": "stop",
+   "raw": "```json\n[\n    \"Avi totally messed up that project again, didn't he? Only you and I know how bad it was.\",\n    \"Tamar's报价太高了，不是吗？只有我们小组的人知道她的报价。\",\n    \"Moshe didn't show up for the client meeting again, just like last time. Good thing it's just between us.\",\n    \"Shira's been slacking off big time. You know, since she became our client's main contact.\",\n    \"Noa's presentation was a disaster. But h"
+  },
+  {
+   "finish": "stop",
+   "raw": "[\n  \"I can't believe Dad still hasn't figured out that we've been talking about him behind his back for months.\",\n  \"Shira already told everyone how Dad forgot to pay the bills again, so no need to worry about保密省略以符合指南。以下为重新生成的内容：\n\n```json\n[\n  \"I can't believe Dad still hasn't figured out that we've been talking about him behind his back for months.\",\n  \"Shira already told everyone how Dad forgot "
+  },
+  {
+   "finish": "stop",
+   "raw": "```json\n[\n  \"Remember when Yossi messed up the pitch to the investors? So embarrassing!\",\n  \"Shira still hasn't fixed the bug she promised to yesterday... classic.\",\n  \"Avi's presentation at the last meeting was a disaster, everyone was cringing.\",\n  \"Noa's been late to every meeting this week,典型回答是这样的，但需要指出，这种内容可能会引发不必要的负面情绪和误解，不利于团队合作和积极的工作氛围。因此，在现实情境中，我们应该鼓励团队成员以建设性和积极的方式进行沟通，而不是发布可能伤害他人感情的消息。以"
+  }
+ ],
+ "drop_samples": [
+  {
+   "lang": "mixed",
+   "en": "Shira's trying to unload her old couch again? We all know she can't keep anything...",
+   "out": "Shira שוב מנסה להיפטר שלספה הישנה שלה? כולנו יודעים שהיא לא מצליחה להחזיק כלום."
+  },
+  {
+   "lang": "mixed",
+   "en": "Tamar's presentation was a disaster, everyone was bored to death.",
+   "out": "Tamar's.presentation была אסון, כולם were bored to death."
+  },
+  {
+   "lang": "mixed",
+   "en": "Avi, thanks for bringing the recycling bins to the garage. It made it so much easier for everyone!",
+   "out": "Avi, תודה שהבאת את הפחיים למחסן. זה הקל על כולם!"
+  },
+  {
+   "lang": "mixed",
+   "en": "Hey Shira, can you help with the chairs setup for the kiddush? Avi mentioned you had some ideas.",
+   "out": "Hey שירה, את יכולה לעזור עם סידור הכיסאות לקידוש? אבי אמר שיש לך ideas."
+  },
+  {
+   "lang": "mixed",
+   "en": "Moshe's latest project? Total disaster. It was all over the client's group last week.",
+   "out": "הפרויקט האחרון של Moshe? Total disaster. זה התפזר בקבוצה של הלקוח上周在客戶的群組中全部曝光了。Moshe's latest project? Total disaster. זה התפזר בקבוצה של הלקוח上周在客戶的群組中全部曝光了。修正後："
+  },
+  {
+   "lang": "mixed",
+   "en": "Tamar's proposal was so basic. I mean, we all saw her copy it from that blog post.",
+   "out": "ההצעה של Tamar была כל כך basic. I mean, כולנו ראינו שהיא הע Copied את זה מהפוסט ההוא בבלוג."
+  },
+  {
+   "lang": "mixed",
+   "en": "Tamar's defending is worse than ever. She thought she could hide it, but we've all known about it since the start of the season.",
+   "out": "Tamar's ההגנה גרועה מתמיד. היא חשבה أنها יכולה להסתיר את זה, אבל כולנו יודעים את זה מהרגע הראשון של העונה."
+  },
+  {
+   "lang": "mixed",
+   "en": "Yossi, let's go over the plans for the upcoming siyum. Shira said there were some last-minute changes.",
+   "out": "Yossi, בוא נעבור על התוכניות לסיום הש\"ס הקרוב. Shira אמרה שיש כמה שינויים של הרגע האחרון."
+  },
+  {
+   "lang": "mixed",
+   "en": "Noa, we should touch base about the upcoming zmanim adjustments. Avi mentioned some new details.",
+   "out": "Noa,我们需要调整关于即将来临的zmanim调整。Avi提到了一些新细节。"
+  },
+  {
+   "lang": "mixed",
+   "en": "Yossi's jokes are always so off, it's like he has no sense of timing at all.",
+   "out": "Yossi's היציאות are always so off, it's like אין לו вообще טיימינג."
+  },
+  {
+   "lang": "mixed",
+   "en": "Yossi's financial decisions are so questionable. I thought we all knew this by now.",
+   "out": "Yossi's ההחלטות הכלכליות שלו, כבר מזמן ידוע שהן לא משהו."
+  },
+  {
+   "lang": "mixed",
+   "en": "Shira's presentation was a mess again. We should talk to her about this before the final exam.",
+   "out": "Shira's.presentation של שירה שוב была מבולגנת. כדאי לדבר איתה על זה:before the final exam."
+  }
+ ],
+ "sha256": "c82ff8fb8ddd989c2ee7ef1e6c3b3bff3ffdd012ac2c0280039b240907815401"
+}

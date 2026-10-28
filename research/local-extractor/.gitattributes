@@ -1,0 +1,4 @@
+# manifest_v2.json pins sha256 of the exact LF bytes; keep them LF on every checkout (core.autocrlf=true on BI-1)
+*_v2.jsonl text eol=lf
+manifest_v2.json text eol=lf
+diverse/natural_v2.jsonl text eol=lf
