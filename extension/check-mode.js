@@ -6,9 +6,7 @@
 //   lhgCloudFallback  boolean, default false: a local mode that cannot run goes to the cloud
 //   lhgCloudModel     an id from CLOUD_MODELS, default DEFAULT_CLOUD_MODEL
 //
-// Local models are NOT integrated yet: they exist only as research (docs/39,
-// docs/40; GGUF files in Modal Volume lhg-models, local-extractor/<tag>/gguf/).
-// No local engine is registered, so every local mode is "not installed". A
+// background.js registers loopback Ollama engines (docs/45). A
 // local mode that cannot run is NOT CHECKED (error 'local_unavailable'), and
 // it reaches the cloud only when the user turned on lhgCloudFallback. It
 // never becomes 'none', and it never silently replaces the user's choice.

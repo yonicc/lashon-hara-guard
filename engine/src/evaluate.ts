@@ -1,4 +1,5 @@
-import { createHash } from 'node:crypto';
+import { sha256 } from '@noble/hashes/sha256';
+import { bytesToHex } from '@noble/hashes/utils';
 import type {
   DraftObservation,
   EvaluationInput,
@@ -23,7 +24,7 @@ function cacheKey(input: EvaluationInput): string {
     input.rulePack.version,
     input.modelVersion,
   ].join('\n');
-  return createHash('sha256').update(raw, 'utf8').digest('hex');
+  return bytesToHex(sha256(new TextEncoder().encode(raw)));
 }
 
 /** Only unresolved expression branches can change its three-valued result. */
