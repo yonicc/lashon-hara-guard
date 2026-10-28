@@ -6,7 +6,7 @@
   "permissions": ["storage", "tabs", "offscreen"],
   "minimum_chrome_version": "116",
   "content_security_policy": {"extension_pages":"script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"},
-  "host_permissions": ["https://lhg-proxy.yonicc.workers.dev/*", "https://huggingface.co/*", "https://*.hf.co/*"],
+  "host_permissions": ["https://lhg-proxy.yonicc.workers.dev/*", "https://huggingface.co/*", "https://*.hf.co/*", "http://127.0.0.1:11434/*"],
   "background": { "service_worker": "background.js" },
   "commands": {
     "open-panel": {
