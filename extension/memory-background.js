@@ -30,18 +30,20 @@
   chrome.runtime.onMessage.addListener((m,s,reply)=>{
     if(m?.type!=='lhg-memory') return;
     (async()=>{
-      if(optionsSender(s) && ['install','clear'].includes(m.op)) return relay({op:m.op});
+      if(optionsSender(s) && ['install','clear','router_install'].includes(m.op)) return relay({op:m.op});
       if(ADMIN_OPS.includes(m.op)) {
         if(!adminSender(s)) throw Error('untrusted-sender');
         return relay({op:m.op,scope:m.scope,sourceId:m.sourceId,args:m.args});
       }
-      if(!['ingest','delete','get_recent','search_history'].includes(m.op)) throw Error('unsupported-operation');
+      if(!['ingest','delete','get_recent','search_history','route_context'].includes(m.op)) throw Error('unsupported-operation');
       const scope=m.event?.scope||m.scope;
       if(!scope||!permittedSender(s,scope.platform)) throw Error('untrusted-sender');
-      const settings=await chrome.storage.local.get(['lhgMemoryEnabled','lhgEnabled','lhgPlatforms']);
+      const settings=await chrome.storage.local.get(['lhgMemoryEnabled','lhgEnabled','lhgPlatforms','lhgRouterEnabled']);
+      if(m.op==='route_context' && settings.lhgRouterEnabled!==true) return {ok:false,error:'disabled'};
       if(settings.lhgMemoryEnabled!==true||settings.lhgEnabled===false||settings.lhgPlatforms?.[scope.platform]===false)
         return {ok:false,error:'disabled'};
       if(m.op==='ingest') return relay({op:m.op,event:{...m.event,enabled:true}});
+      if(m.op==='route_context') return relay({op:m.op,scope,text:typeof m.text==='string'?m.text.slice(0,10000):''});
       return relay({op:m.op,scope,sourceId:m.sourceId,args:m.args});
     })().then(reply,e=>{console.warn('Local memory bridge:',e.message);reply({ok:false,error:'memory-unavailable'});});
     return true;

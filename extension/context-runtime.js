@@ -146,8 +146,22 @@
       if (scope.kind === 'email_thread') {
         await seedGmailThreadHistory(scope, builder, history);
       }
-      const context = await builder.buildPacket(scope.id, current);
-      packetBuilders.set(context, builder);
+      let context = await builder.buildPacket(scope.id, current);
+      const localBuilder = builder;
+      if (identity && globalThis.LHG_SETTINGS?.get().lhgMemoryEnabled === true &&
+          globalThis.LHG_SETTINGS?.get().lhgRouterEnabled === true) {
+        let timer;
+        try {
+          const response = await Promise.race([
+            chrome.runtime.sendMessage({type:'lhg-memory',op:'route_context',scope:identity,text:payload.text}),
+            new Promise(resolve => { timer=setTimeout(()=>resolve(null),450); })
+          ]);
+          if (response?.ok && response.result?.status === 'ok')
+            context = localBuilder.mergeMemory(context,response.result.candidates);
+        } catch (_) { /* router failure leaves the normal packet unchanged */ }
+        finally {clearTimeout(timer);}
+      }
+      packetBuilders.set(context, localBuilder);
       if (remember && !history) await builder.ingestMessage(scope.id, current);
       // Ephemeral conversation refs, version counters and wall-clock ages do
       // not define content identity. Keep all semantic packet fields.

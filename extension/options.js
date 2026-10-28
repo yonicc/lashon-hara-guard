@@ -41,6 +41,7 @@
     const hide = $('hideIncoming');
     if (hide) hide.checked = s.hideIncoming;
     if ($('memoryEnabled')) $('memoryEnabled').checked = s.lhgMemoryEnabled === true;
+    if ($('routerEnabled')) $('routerEnabled').checked = s.lhgRouterEnabled === true;
   }
 
   // --- language ---------------------------------------------------------------
@@ -133,6 +134,17 @@
   }
 
   on('memoryEnabled', 'change', () => S?.set({lhgMemoryEnabled:$('memoryEnabled').checked}));
+  on('routerEnabled', 'change', () => S?.set({lhgRouterEnabled:$('routerEnabled').checked}));
+  on('routerImport','change',async()=>{
+    say('routerStatus',t('memory.working'));
+    try {
+      await (await import('./memory-router-model.mjs')).importRouter($('routerImport').files);
+      const ready=await chrome.runtime.sendMessage({type:'lhg-memory',op:'router_install'});
+      if(!ready?.ok) throw Error('router-unavailable');
+      say('routerStatus',t('router.ready'));
+    } catch {say('routerStatus',t('memory.failed'));}
+    finally {$('routerImport').value='';}
+  });
   on('memoryView', 'click', () => chrome.tabs.create({ url: chrome.runtime.getURL('memory-viewer.html') }));
   on('memoryImport','change',async()=>{
     say('memoryStatus',t('memory.working'));

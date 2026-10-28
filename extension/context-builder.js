@@ -479,6 +479,25 @@
       markUnknown: markUnknown,
       deleteConversation: deleteConversation,
       buildPacket: buildPacket,
+      // Memory excerpts are unverified quoted context. Preserve provenance in the
+      // excerpt, since ContextPacket v1 has no message provenance field.
+      mergeMemory: function (packet, candidates) {
+        var names = localDisplayNames(packet.conversationRef);
+        var out = [], seen = new Set();
+        for (var row of (Array.isArray(candidates) ? candidates : []).slice(0, 5)) {
+          if (row.status !== 'candidate' || row.provenance !== 'dom_observed') continue;
+          var kind = ['draft', 'context', 'message'].includes(row.kind) ? row.kind : 'context';
+          var text = trunc(scrubExportText('[local memory; candidate; dom_observed; ' + kind + '] ' + row.text, names), MAX_TEXT_OUT);
+          if (seen.has(text)) continue;
+          seen.add(text);
+          out.push({ authorRef: 'unknown', direction: ['incoming','outgoing'].includes(row.direction) ? row.direction : 'unknown',
+            text: text, ...(Number.isFinite(row.ageMinutes) ? { ageMinutes: row.ageMinutes } : {}) });
+        }
+        for (var row of packet.recentMessages || []) {
+          if (!seen.has(row.text)) { seen.add(row.text); out.push(row); }
+        }
+        return { ...packet, recentMessages: out.slice(0, MAX_RECENT) };
+      },
       readDomHints: readDomHints,
       displayForRef: displayForRef,
       getContextVersion: function (convId) { return getVersion(String(convId)); },
