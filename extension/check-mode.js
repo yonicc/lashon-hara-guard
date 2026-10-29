@@ -30,8 +30,11 @@
   };
 
   // Product names, not translated (i18n.js holds the surrounding texts).
-  const DEFAULT_CLOUD_MODEL = 'muse-spark-1.3';
-  const CLOUD_MODELS = [
+  const PUBLIC_BUILD = globalThis.LHG_PUBLIC_BUILD === true;
+  const DEFAULT_CLOUD_MODEL = PUBLIC_BUILD ? 'muse-spark-open-1026' : 'muse-spark-1.3';
+  const CLOUD_MODELS = PUBLIC_BUILD ? [
+    { id: 'muse-spark-open-1026', label: 'Muse Spark Open 1026 (Baseten)' },
+  ] : [
     { id: 'muse-spark-1.3', label: 'Muse Spark 1.3 (Meta)' },
     { id: 'muse-spark-1.3-contributor', label: 'Muse Spark 1.3 Contributor (Meta)' },
     { id: 'muse-spark-1.2', label: 'Muse Spark 1.2 (Meta)' },

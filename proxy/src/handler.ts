@@ -1,4 +1,5 @@
 import { personalCheck } from './accountAccess.js';
+import { BasetenExtractorProvider } from './baseten.js';
 import { throttle } from './throttle.js';
 import { pickCloudModel, type CloudModel } from './cloudModels.js';
 import {
@@ -32,6 +33,9 @@ export interface Env {
   LHG_BUILD_SHA?: string;
   LHG_ACCOUNT_BASE?: string;
   LHG_ACCOUNT_KEY?: string;
+  LHG_BASETEN_KEY?: string;
+  /** Internal account-auth result; never read from request headers/body. */
+  LHG_PUBLIC_CHECK?: '1';
   LHG_BRAIN_BASE_URL: string;
   LHG_BRAIN_TOKEN: string;
   /** Shared access key the extension sends in `x-lhg-key`. */
@@ -201,6 +205,9 @@ export function pickLang(raw: unknown): 'he' | 'en' {
 export function providerFromEnv(
   env: Env, choice?: CloudModel | null, fetchImpl?: typeof fetch,
 ): ExtractorProvider | null {
+  if (env.LHG_PUBLIC_CHECK === '1') {
+    return env.LHG_BASETEN_KEY ? new BasetenExtractorProvider(env.LHG_BASETEN_KEY, fetchImpl) : null;
+  }
   const opts = brainSendOptionsFromEnv(env as unknown as NodeJS.ProcessEnv, fetchImpl);
   if (!opts) return null;
   if (!choice) return new BrainSendExtractorProvider(opts);

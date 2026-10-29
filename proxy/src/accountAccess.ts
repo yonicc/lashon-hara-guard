@@ -50,7 +50,7 @@ export async function personalCheck(
  const headers=new Headers(request.headers);headers.set('x-lhg-key',identity.userId);
  const authorized=new Request(request,{headers});
  let response:Response;
- try { response=await next(authorized,{...env,LHG_ACCESS_KEY:identity.userId,LIMITER:undefined}); }
+ try { response=await next(authorized,{...env,LHG_ACCESS_KEY:identity.userId,LIMITER:undefined,LHG_PUBLIC_CHECK:'1'}); }
  catch { response=err('check_failed',503); }
  if(mode==='validate')return response;
  let success=false;

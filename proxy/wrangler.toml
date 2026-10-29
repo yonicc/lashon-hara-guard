@@ -5,6 +5,7 @@ compatibility_flags = ["nodejs_compat"]
 workers_dev = true
 
 # Secrets (set with `wrangler secret put`, never committed):
+#   LHG_BASETEN_KEY - direct Baseten credential for all central-account tokens
 #   LHG_BRAIN_TOKEN  - Brain service token (brk_..., scope chat:send)
 #   LHG_ACCESS_KEY   - shared key the extension sends as x-lhg-key
 #   LHG_GATE_KEY     - key for the Modal gate classifier (Modal secret lhg-gate)
