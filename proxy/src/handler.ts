@@ -353,6 +353,8 @@ async function handleAuthorized(
     platform, conversationId: 'ext', audienceSnapshot: {}, text,
   } as MessageEnvelope;
 
+  // Routing diagnostics only: never log message text, context or credentials.
+  console.log('lhg-check route', JSON.stringify({ model: provider.modelVersion, explicitModel: modelRequested }));
   const outcome = await runExtraction(message, {
     round,
     provider, catalog: FACT_CATALOG, alwaysCallProvider: round > 1 || (env.LHG_ALWAYS_EXTRACT ?? '1') === '1',

@@ -123,6 +123,7 @@
     const active = settingsNow ? P.presetOf(modePrefs, settingsNow) : null;
     for (const b of grid.querySelectorAll('button.preset')) {
       const id = b.getAttribute('data-preset');
+      b.setAttribute('data-label', t('preset.col.' + b.getAttribute('data-col')) + ' / ' + t('preset.row.' + b.getAttribute('data-row')));
       b.setAttribute('aria-pressed', String(id === active));
       b.querySelector('.preset-name').textContent = t('preset.' + id + '.name');
       b.title = id === 'B' ? t('preset.B.hint') : '';

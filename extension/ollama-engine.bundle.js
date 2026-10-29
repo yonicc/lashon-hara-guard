@@ -6419,6 +6419,8 @@ Example MESSAGE: \u05E9\u05DC\u05D5\u05DD, \u05E0\u05D9\u05E4\u05D2\u05E9 \u05D1
 
   // proxy/src/cloudModels.ts
   var CLOUD_MODELS = Object.freeze([
+    // Baseten: this model only (owner rule 2026-10-28). First = default (owner 2026-10-29).
+    { id: "muse-spark-open-1026", agentKind: "baseten", model: "meta-models/muse-spark-open-1026", account: "yoni" },
     { id: "muse-spark-1.3", agentKind: "meta_api", model: "muse-spark-1.3" },
     { id: "muse-spark-1.3-contributor", agentKind: "meta_api", model: "muse-spark-1.3-contributor" },
     { id: "muse-spark-1.2", agentKind: "meta_api", model: "muse-spark-1.2" },
@@ -6431,10 +6433,9 @@ Example MESSAGE: \u05E9\u05DC\u05D5\u05DD, \u05E0\u05D9\u05E4\u05D2\u05E9 \u05D1
     // mistral-small-2603 failed fast in a repeat smoke (flaky JSON), replaced.
     { id: "gemini-3.6-flash", agentKind: "openrouter", model: "google/gemini-3.6-flash" },
     // Owner request 2026-10-28: Kimi K3 on the Brain's Modal backend (OpenAI-compatible, no account).
-    { id: "kimi-k3-modal", agentKind: "modal", model: "moonshotai/Kimi-K3", reasoningEffort: "low" },
-    // Baseten: this model only (owner rule 2026-10-28).
-    { id: "muse-spark-open-1026", agentKind: "baseten", model: "meta-models/muse-spark-open-1026", account: "yoni" }
+    { id: "kimi-k3-modal", agentKind: "modal", model: "moonshotai/Kimi-K3", reasoningEffort: "low" }
   ].map((m) => Object.freeze(m)));
+  var DEFAULT_CLOUD_MODEL = CLOUD_MODELS[0];
 
   // proxy/src/handler.ts
   function alertFor(outcome, rules, needs) {
