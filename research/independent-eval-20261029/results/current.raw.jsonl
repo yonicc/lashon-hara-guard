@@ -1,0 +1,700 @@
+{"id": "lhg-ind-0001", "raw": "{\"verified\":[false,\"I'm repeating a report I heard about the guide; the guide herself spoke of it only to one person.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0002", "raw": "{\"verified\":[false,\"אני מעביר את הדיווח ששמעתי מאחר על הטבח.\"],\"firsthand\":[false,\"הטבח עצמו סיפר את העניין רק לאדם אחד.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0003", "raw": "{\"intent\":[true,\"I want the usher embarrassed.\"],\"revenge\":[false,\"There is no payback motive here.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0004", "raw": "{\"rebuke\":[true,\"כבר הערתי למדריך על הצעקות, והוא מוכן לקבל תיקון.\"],\"rejects\":[false,\"כבר הערתי למדריך על הצעקות, והוא מוכן לקבל תיקון.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0005", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0006", "raw": "{\"rebuke\":[true,\"אמרתי בצורה מפורשת שהעורך חסר אחריות.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0007", "raw": "{\"purpose\":[true,\"הבירור על הרכזת הוא בשביל שותפות שמתוכננת; לא אמא, אבא או רב ביקשו את הדיווח.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0008", "raw": "{\"verified\":[true,\"ביררתי ואישרתי את פרטי החיוב השגוי.\"],\"rebuke\":[false,\"לא פניתי לקופאית בעניין.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0009", "raw": "{\"rebuke\":[true,\"שני שכתבת עליו בעייתי.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0010", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0011", "raw": "{\"purpose\":[true,\"באתי לבקש עצה על היחס של המדריך, ואין לי כוונה לבייש אותו.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0012", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0013", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0014", "raw": "{\"purpose\":[false,\"הלעג למאמן יעבור רק בטון הדיבור, לא בכתב.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0015", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0016", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0017", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0018", "raw": "{\"verified\":[true,\"הטענה הובהרה, זו לא שמועה לא מבוררת.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0019", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0020", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0021", "raw": "{\"verified\":[false,\"השמועה על עצלנות המדריך עוד לא התבררה, ואינני מאשר את הדיווח הקודם אליך.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0022", "raw": "{\"purpose\":[false,\"My intention is to mock the editor's sloppiness\"],\"revenge\":[false,\"I hold no grudge against her\"]}", "hit_limit": false}
+{"id": "lhg-ind-0023", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0024", "raw": "{\"firsthand\":[true,\"נכחתי כשהמנחה העליב את האורח, בלי שבדקתי מה בדיוק נאמר.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0025", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0026", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0027", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0028", "raw": "{\"purpose\":[false,\"My purpose in sharing is just entertainment\"]}", "hit_limit": false}
+{"id": "lhg-ind-0029", "raw": "{\"verified\":[true,\"I confirm the report you already received from another person about the usher.\"],\"purpose\":[false,\"This inquiry is curiosity only, with no future dealing.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0030", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0031", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0032", "raw": "{\"rebuke\":[true,\"אני חוזר בי מהתגובה הקודמת עליו, אחרי ההבהרה שלך.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0033", "raw": "{\"purpose\":[false,\"את הביקורת על המארחת אעביר רק ברמיזה בעל פה; לא תהיה הודעה כתובה.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0034", "raw": "{\"firsthand\":[false,\"I'm relaying another's account of the editor; הוא עצמו גילה את העניין רק לשני אנשים.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0035", "raw": "{\"purpose\":[true,\"לבקשת אמי אני מספר על הזלזול של המארח; אלה דבריי שלי, לא סיפור שהועבר אלי.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0036", "raw": "{\"intent\":[true,\"I called the host lazy outright; it was a joke.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0037", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0038", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0039", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0040", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0041", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0042", "raw": "{\"firsthand\":[true,\"I witnessed the guide leave the gate open, but did no fact-checking.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0043", "raw": "{\"revenge\":[true,\"I'm doing this out of a grudge against the host\"],\"firsthand\":[false,\"I only read about the incident\"]}", "hit_limit": false}
+{"id": "lhg-ind-0044", "raw": "{\"firsthand\":[true,\"ראיתי בעצמי את המחסנאי זורק את החבילה, אבל לא עשיתי בירור.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0045", "raw": "{\"purpose\":[false,\"I mean to make fun of the organiser\"],\"revenge\":[false,\"I bear him no resentment\"]}", "hit_limit": false}
+{"id": "lhg-ind-0046", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0047", "raw": "{\"revenge\":[true,\"בא לי להחזיר לסדרן על מה שעשה לי.\"],\"firsthand\":[false,\"לא נכחתי במקרה, רק סיפרו לי.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0048", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0049", "raw": "{\"rejects\":[true,\"הרכזת תדחה כל הערה, אבל אפשר גם לפתור את העניין בלי החשיפה.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0050", "raw": "{\"verified\":[false,\"I have not verified the details\"]}", "hit_limit": false}
+{"id": "lhg-ind-0051", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0052", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0053", "raw": "{\"purpose\":[false,\"אני מוסר את החשבון שלי בלבד ולא מעביר דיווח ששמעתי.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0054", "raw": "{\"verified\":[true,\"I checked the allegation about the clerk; איתה על ההתנהגות עוד לא דיברתי.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0055", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0056", "raw": "{\"verified\":[false,\"זו unverified rumor על השומר, לא הובררה; אני לא מאשר את מה ששמעת קודם.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0057", "raw": "{\"purpose\":[false,\"I called the porter sloppy במילים מפורשות, בצחוק כמובן.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0058", "raw": "{\"rebuke\":[true,\"כבר נתתי למתאם feedback על היחס; הוא מוכן לקבל תוכחה.\"],\"rejects\":[false,\"כבר נתתי למתאם feedback על היחס; הוא מוכן לקבל תוכחה.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0059", "raw": "{\"verified\":[true,\"קראתי את מה שהדבקת.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0060", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0061", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0062", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0063", "raw": "{\"no_alternative\":[true,\"No alternative to disclosing the host's behaviour exists.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0064", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0065", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0066", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0067", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0068", "raw": "{\"purpose\":[false,\"I'm saying it simply to gripe\"]}", "hit_limit": false}
+{"id": "lhg-ind-0069", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0070", "raw": "{\"no_alternative\":[true,\"אין מסלול אחר מלבד מסירת הטענה על המדריכה.\"],\"purpose\":[true,\"אני מתכוון לכל מילה ברצינות.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0071", "raw": "{\"rebuke\":[true,\"I spoke to the caretaker about his conduct; he will listen to criticism.\"],\"rejects\":[false,\"I spoke to the caretaker about his conduct; he will listen to criticism.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0072", "raw": "{\"purpose\":[false,\"I said the tutor was careless, plainly rather than by implication; I was joking.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0073", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0074", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0075", "raw": "{\"purpose\":[true,\"I'm seeking information to protect people on a future trip\"]}", "hit_limit": false}
+{"id": "lhg-ind-0076", "raw": "{\"firsthand\":[false,\"This is a story someone told me about the clerk, passed along.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0077", "raw": "{\"purpose\":[false,\"את העלבון על המנחה אמרתי בגלוי, אבל כקטע הומוריסטי.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0078", "raw": "{\"verified\":[true,\"the matter was clarified and isn't just hearsay\"]}", "hit_limit": false}
+{"id": "lhg-ind-0079", "raw": "{\"firsthand\":[true,\"I watched the porter drop the parcel myself; I haven't checked the facts.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0080", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0081", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0082", "raw": "{\"firsthand\":[true,\"זה קרה לי אישית עם הטכנאי\"],\"verified\":[false,\"עדיין לא אימתתי את הסיפור\"]}", "hit_limit": false}
+{"id": "lhg-ind-0083", "raw": "{\"revenge\":[true,\"I hate that caretaker, that's my motive.\"],\"firsthand\":[false,\"My knowledge of this event is hearsay only.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0084", "raw": "{\"firsthand\":[true,\"The porter personally disclosed it in front of five listeners; I only want to make fun of him.\"],\"purpose\":[false,\"I only want to make fun of him.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0085", "raw": "{\"verified\":[true,\"I checked and confirmed the host's error\"],\"rebuke\":[false,\"I haven't raised it with him\"]}", "hit_limit": false}
+{"id": "lhg-ind-0086", "raw": "{\"purpose\":[true,\"אני מספר אך ורק כדי לפרוק תסכול.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0087", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0088", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0089", "raw": "{\"rebuke\":[true,\"פניתי לעורכת על ההשמטה.\"],\"rejects\":[false,\"היא מקבלת ביקורת ולא דוחה אותה.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0090", "raw": "{\"verified\":[true,\"הטענה הזאת התבררה ואינה שמועה.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0091", "raw": "{\"intent\":[true,\"I want to humiliate the lazy host, though this isn't revenge or hatred.\"],\"revenge\":[false,\"I want to humiliate the lazy host, though this isn't revenge or hatred.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0092", "raw": "{\"purpose\":[false,\"זה התיאור האישי שלי, לא חזרה על סיפור של מישהו.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0093", "raw": "{\"verified\":[false,\"אין ממני אישור לדיווח שכבר קיבלת\"],\"rebuke\":[false,\"Still unresolved gossip about the editor;\"]}", "hit_limit": false}
+{"id": "lhg-ind-0094", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0095", "raw": "{\"no_alternative\":[true,\"No other way exists to resolve the clerk's conduct; התיאור שלי רציני לגמרי.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0096", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0097", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0098", "raw": "{\"firsthand\":[false,\"זה סיפור שקיבלתי ממישהי על הרכזת ואני מעביר הלאה; היא עצמה חשפה אותו רק בפני שניים.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0099", "raw": "{\"rebuke\":[false,\"אימתתי שהעורך השמיט את העמוד, אבל טרם הערתי לו.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0100", "raw": "{\"firsthand\":[true,\"I directly called the usher incompetent.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0101", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0102", "raw": "{\"verified\":[true,\"עשיתי verification לטענה על האופה\"],\"rebuke\":[false,\"עוד לא הערתי לו בעניין\"]}", "hit_limit": false}
+{"id": "lhg-ind-0103", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0104", "raw": "{\"purpose\":[true,\"My criticism of the porter will be a hint, delivered only orally, not written.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0105", "raw": "{\"no_alternative\":[true,\"בדקתי אפשרויות ואין חלופה לספר על הרשלנות; אני אומר את הביקורת ברצינות.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0106", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0107", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0108", "raw": "{\"verified\":[true,\"I can confirm the account you heard from another about the tutor.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0109", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0110", "raw": "{\"purpose\":[true,\"אני מעלה את ההערה כדי לשפר את השירות, לא כדי לפגוע בנציגה.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0111", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0112", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0113", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0114", "raw": "{\"purpose\":[true,\"אני מבקש help לתקן את היחס של המאמן\"],\"intent\":[false,\"אין לי כוונה לפגוע\"]}", "hit_limit": false}
+{"id": "lhg-ind-0115", "raw": "{\"rejects\":[true,\"I know the usher will refuse criticism.\"],\"no_alternative\":[false,\"We can resolve this without passing it on.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0116", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0117", "raw": "{\"rebuke\":[true,\"Find the discussion we had months ago about the usher's conduct.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0118", "raw": "{\"verified\":[true,\"My rabbi requested this disclosure about the host; I'm giving my own account rather than relaying another person's story.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0119", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0120", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0121", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0122", "raw": "{\"firsthand\":[false,\"This is a retelling of what I heard about the tutor.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0123", "raw": "{\"purpose\":[false,\"The insult about the baker was stated openly, as a joke.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0124", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0125", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0126", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0127", "raw": "{\"firsthand\":[true,\"זה התיאור שלי ולא העתקה של סיפור ששמעתי\"]}", "hit_limit": false}
+{"id": "lhg-ind-0128", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0129", "raw": "{\"rejects\":[true,\"The caretaker won't hear a word of correction.\"],\"no_alternative\":[false,\"Disclosure isn't the only option.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0130", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0131", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0132", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0133", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0134", "raw": "{\"purpose\":[true,\"My aim is to get the rude service corrected, without humiliating the clerk.\"],\"intent\":[false,\"My aim is to get the rude service corrected, without humiliating the clerk.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0135", "raw": "{\"firsthand\":[true,\"I was there כשהסדרן דחף, אבל לא בדקתי את פרטי המקרה.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0136", "raw": "{\"verified\":[true,\"בדקתי את הטענה שהמפיק איחר והיא נכונה\"],\"rebuke\":[false,\"עם אותו על זה עוד לא דיברתי\"]}", "hit_limit": false}
+{"id": "lhg-ind-0137", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0138", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0139", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0140", "raw": "{\"purpose\":[false,\"המידע על העורכת נועד לבירור שידוך עתידי.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0141", "raw": "{\"verified\":[true,\"אני המקור השני שמאשר לך שהטבח התרשל; הבירור הוא רק רכילות מסקרנות, לא לצורך עתידי.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0142", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0143", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0144", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0145", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0146", "raw": "{\"intent\":[false,\"אם הייתי רוצה לבייש מישהו, זו הייתה בעיה.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0147", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0148", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0149", "raw": "{\"rebuke\":[true,\"את השליח כבר העמדתי על הטעות, והוא יסכים לשמוע הערה.\"],\"rejects\":[false,\"את השליח כבר העמדתי על הטעות, והוא יסכים לשמוע הערה.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0150", "raw": "{\"no_alternative\":[true,\"האפשרות היחידה שנותרה היא לדווח על הצעקות.\"],\"purpose\":[false,\"התיאור שלי לא נאמר בצחוק.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0151", "raw": "{\"rebuke\":[true,\"I already addressed the tutor's interruptions with her; she will accept correction.\"],\"rejects\":[false,\"I already addressed the tutor's interruptions with her; she will accept correction.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0152", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0153", "raw": "{\"rejects\":[true,\"The guide will reject any rebuke.\"],\"no_alternative\":[false,\"There is another way besides disclosing his behaviour.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0154", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0155", "raw": "{\"verified\":[false,\"It's still unverified gossip about the porter; I'm not corroborating your earlier source.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0156", "raw": "{\"purpose\":[true,\"My mother asked me to pass on the complaint about the tutor.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0157", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0158", "raw": "{\"verified\":[true,\"My rabbi asked for the editor report.\"],\"firsthand\":[true,\"It's my own account; I'm not passing on anyone else's allegation.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0159", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0160", "raw": "{\"purpose\":[true,\"My mother requested the disclosure; הסיפור על הרכז הוא שלי, לא דיווח של אחר.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0161", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0162", "raw": "{\"purpose\":[false,\"אני מתכוון לרמז על העצלנות של השומר בשיחה בלבד, בלי לכתוב זאת.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0163", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0164", "raw": "{\"verified\":[true,\"I'm checking the host for a prospective rental.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0165", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0166", "raw": "{\"purpose\":[false,\"I'm sharing this merely to vent\"]}", "hit_limit": false}
+{"id": "lhg-ind-0167", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0168", "raw": "{\"verified\":[true,\"I confirmed the editor's omission against the original.\"],\"rebuke\":[false,\"I haven't addressed her about it.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0169", "raw": "{\"purpose\":[false,\"אני מעביר את זה לשעשוע בלבד.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0170", "raw": "{\"rebuke\":[true,\"כן, בדיוק על ההתנהגות שתיארת עכשיו אני מתלונן.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0171", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0172", "raw": "{\"intent\":[true,\"I'd like to shame that careless guide, but I'm not acting out of hate.\"],\"revenge\":[false,\"I'd like to shame that careless guide, but I'm not acting out of hate.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0173", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0174", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0175", "raw": "{\"verified\":[true,\"Consider me a second source confirming the porter report.\"],\"purpose\":[false,\"There's no future purpose to my inquiry, just curiosity.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0176", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0177", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0178", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0179", "raw": "{\"verified\":[false,\"זה עדיין בגדר שמועה שלא נבדקה על הטבח; אין ממני אישור לדיווח שקיבלת.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0180", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0181", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0182", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0183", "raw": "{\"rebuke\":[true,\"I raised the sloppy work with the baker;\"], \"rejects\":[false,\"הוא דווקא יקשיב להערה.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0184", "raw": "{\"revenge\":[true,\"אני מעביר את מה ששמעתי על הטבח כדי לנקום בו; לא הייתי שם בעצמי.\"],\"firsthand\":[false,\"אני מעביר את מה ששמעתי על הטבח כדי לנקום בו; לא הייתי שם בעצמי.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0185", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0186", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0187", "raw": "{\"verified\":[true,\"The report about the cleaner is verified.\"],\"rebuke\":[false,\"I have not spoken to her about her conduct.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0188", "raw": "{\"firsthand\":[true,\"זו העדות שלי ולא חזרה על דברי אחר.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0189", "raw": "{\"firsthand\":[false,\"מעביר הלאה report ששמעתי על המאמן; הוא עצמו סיפר רק לאדם אחד.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0190", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0191", "raw": "{\"firsthand\":[true,\"I personally experienced the mechanic's rudeness.\"],\"verified\":[false,\"No verification done yet.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0192", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0193", "raw": "{\"purpose\":[false,\"I'm writing this dig in the chat; התיאור של עצלנות הוא רק על המאמן, לא עלי.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0194", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0195", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0196", "raw": "{\"firsthand\":[false,\"I'm passing on another person's account of the porter.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0197", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0198", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0199", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0200", "raw": "{\"no_alternative\":[false,\"גם אני וגם השומר חסרי אחריות; הסיפור כבר הובהר ואינו שמועה.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0201", "raw": "{\"verified\":[true,\"גם ממני יש אישור לדיווח שקיבלת על המארח.\"],\"purpose\":[false,\"אנחנו רק סקרנים, אין שום התקשרות צפויה.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0202", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0203", "raw": "{\"no_alternative\":[true,\"There is no other way to address the tutor's conduct.\"],\"purpose\":[true,\"My criticism is meant seriously.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0204", "raw": "{\"purpose\":[true,\"אמא ביקשה שאספר על היחס של המורה\"],\"firsthand\":[true,\"זה הסיפור שלי עצמי, לא דיווח שאני מעביר מאחר.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0205", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0206", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0207", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0208", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0209", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0210", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0211", "raw": "{\"rejects\":[true,\"הסדרן לא מוכן לקבל תיקון\"],\"no_alternative\":[false,\"יש חלופה למסירת הסיפור\"]}", "hit_limit": false}
+{"id": "lhg-ind-0212", "raw": "{\"rejects\":[true,\"המאמן ידחה תוכחה; אפשר במקום הפרסום לבקש החלפת קבוצה.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0213", "raw": "{\"verified\":[true,\"I've verified the guide's incorrect charge, but have not brought it up with him.\"],\"rebuke\":[false,\"I've verified the guide's incorrect charge, but have not brought it up with him.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0214", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0215", "raw": "{\"no_alternative\":[true,\"אין שום דרך אחרת לתקן את היחס של המארח.\"],\"purpose\":[true,\"דבריי עליו רציניים, לא בדיחה.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0216", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0217", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0218", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0219", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0220", "raw": "{\"firsthand\":[false,\"זו חזרה על סיפור ששמעתי על העורך.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0221", "raw": "{\"purpose\":[true,\"Please help me resolve the tutor's behaviour.\"],\"intent\":[false,\"I have no wish to shame her.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0222", "raw": "{\"purpose\":[false,\"The line about the coach being useless was explicit, and said in jest.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0223", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0224", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0225", "raw": "{\"no_alternative\":[true,\"Passing on the complaint is the sole remaining way.\"],\"purpose\":[true,\"I mean the criticism, no kidding.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0226", "raw": "{\"revenge\":[true,\"אני עושה את זה מתוך שנאה לשליח\"],\"firsthand\":[false,\"הסיפור הגיע אלי משמיעה בלבד\"]}", "hit_limit": false}
+{"id": "lhg-ind-0227", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0228", "raw": "{\"intent\":[false,\"The mockery will be indirect; I'll say it aloud only and won't write it down.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0229", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0230", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0231", "raw": "{\"firsthand\":[false,\"על האירוע רק קראתי, לא ראיתי אותו\"]}", "hit_limit": false}
+{"id": "lhg-ind-0232", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0233", "raw": "{\"rebuke\":[true,\"I've confronted the host about the insult.\"],\"rejects\":[false,\"He is receptive to rebuke.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0234", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0235", "raw": "{\"firsthand\":[true,\"הייתי ליד הקופה כשהקופאית צעקה.\"],\"verified\":[false,\"לא בדקתי את הפרטים.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0236", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0237", "raw": "{\"purpose\":[true,\"המטרה שלי לעזור לשכנה להתמודד עם הזלזול; אני לא רוצה להשפיל אותו.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0238", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0239", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0240", "raw": "{\"purpose\":[false,\"אני רוצה לעשות מהמתאם בדיחה.\"],\"revenge\":[false,\"זה לא בגלל טינה כלפיו.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0241", "raw": "{\"purpose\":[false,\"I'm passing it along just for amusement.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0242", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0243", "raw": "{\"purpose\":[true,\"את הביקורת על הרכז אני שולח בכתב, email; היא עליו בלבד ולא עלי.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0244", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0245", "raw": "{\"verified\":[true,\"I'm confirming your earlier source about the clerk; שואל מסקרנות בלבד, בלי קשר עתידי.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0246", "raw": "{\"no_alternative\":[true,\"אין חלופה לדיווח על המפיקה.\"],\"purpose\":[true,\"My criticism is serious, לא בצחוק.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0247", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0248", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0249", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0250", "raw": "{\"rebuke\":[true,\"המארח בעצמו סיפר על העצלנות שלו בפני ארבעה מאזינים.\"],\"purpose\":[true,\"אני מספר את זה רק כדי לפרוק.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0251", "raw": "{\"verified\":[true,\"וידאתי שהטכנאי לא הגיע בזמן.\"],\"rebuke\":[false,\"לא שוחחתי איתו על האיחור.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0252", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0253", "raw": "{\"firsthand\":[false,\"The host himself disclosed the matter to only one listener.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0254", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0255", "raw": "{\"firsthand\":[false,\"את האירוע לא ראיתי, רק קראתי עליו.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0256", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0257", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0258", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0259", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0260", "raw": "{\"purpose\":[false,\"את ההקנטה לא אכתוב\"]}", "hit_limit": false}
+{"id": "lhg-ind-0261", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0262", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0263", "raw": "{\"rebuke\":[true,\"דיברתי עם הקופאי על היחס; הוא דווקא יקשיב לתוכחה.\"],\"rejects\":[false,\"דיברתי עם הקופאי על היחס; הוא דווקא יקשיב לתוכחה.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0264", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0265", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0266", "raw": "{\"purpose\":[false,\"אני קורא לטבח רשלן בלי רמזים; זו בדיחה.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0267", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0268", "raw": "{\"purpose\":[true,\"אני רוצה לסייע בתיקון הטעות של הרכזת.\"],\"intent\":[false,\"לא מעוניין ללעוג לה.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0269", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0270", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0271", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0272", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0273", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0274", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0275", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0276", "raw": "{\"firsthand\":[true,\"I was in the room when the tutor insulted the learner; I haven't investigated.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0277", "raw": "{\"purpose\":[false,\"כן, הכוונה שלי ללעוג לסדרן\"],\"revenge\":[false,\"אני לא שונא אותו ולא נוקם בו\"]}", "hit_limit": false}
+{"id": "lhg-ind-0278", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0279", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0280", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0281", "raw": "{\"purpose\":[true,\"I'm asking for help fixing the caretaker's conduct\"],\"intent\":[false,\"I don't want to hurt him\"]}", "hit_limit": false}
+{"id": "lhg-ind-0282", "raw": "{\"verified\":[true,\"אני מברר על הטבח כדי להגן על משתתפים באירוע עתידי; לא לבקשת הורה או רב.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0283", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0284", "raw": "{\"firsthand\":[true,\"If I had only heard a story, I wouldn't call that witnessing it.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0285", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0286", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0287", "raw": "{\"rejects\":[true,\"אני יודע שהטכנאי לא יקשיב לביקורת.\"],\"no_alternative\":[false,\"דרכים אחרות קיימות, פשוט לא נוחות.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0288", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0289", "raw": "{\"verified\":[true,\"הצלבתי ובדקתי את הסיפור על הסדרן; עדיין לא הוכחתי אותו על ההתנהגות.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0290", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0291", "raw": "{\"verified\":[true,\"הדבר הובהר כעובדה, לא כשמועה.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0292", "raw": "{\"verified\":[true,\"זה כבר הוברר, לא סתם שמועה.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0293", "raw": "{\"no_alternative\":[true,\"Reporting the porter's carelessness is the only option left; this isn't a joke.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0294", "raw": "{\"rejects\":[true,\"הרכז לא יקבל feedback\"],\"no_alternative\":[false,\"יש דרך אחרת מלספר על ההתנהגות.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0295", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0296", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0297", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0298", "raw": "{\"rejects\":[true,\"The editor won't accept correction, but an alternative to telling the story exists.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0299", "raw": "{\"intent\":[true,\"אני רוצה לבייש את השליח, אבל לא מתוך נקמה או שנאה.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0300", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0301", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0302", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0303", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0304", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0305", "raw": "{\"rejects\":[true,\"המנהל לא יקבל שום תוכחה.\"],\"no_alternative\":[false,\"עדיין יש דרך אחרת לטפל בזלזול בלי לספר עליו.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0306", "raw": "{\"rebuke\":[true,\"אמרתי ישירות שהמנהל ליצן; it was a joke.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0307", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0308", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0309", "raw": "{\"purpose\":[false,\"The aim is to embarrass the cashier\"],\"revenge\":[false,\"זה לא מתוך שנאה או טינה\"]}", "hit_limit": false}
+{"id": "lhg-ind-0310", "raw": "{\"firsthand\":[true,\"אני עצמי קיבלתי מהאופה את המוצר המקולקל.\"],\"verified\":[false,\"לא ביררתי את העובדות.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0311", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0312", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0313", "raw": "{\"intent\":[true,\"The dig at the editor will be implied only, spoken aloud and never put in writing.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0314", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0315", "raw": "{\"firsthand\":[true,\"These are my own details, not a report heard from someone else.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0316", "raw": "{\"purpose\":[true,\"I want advice on repairing this team conflict\"],\"intent\":[false,\"hurting the coordinator isn't my intention\"]}", "hit_limit": false}
+{"id": "lhg-ind-0317", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0318", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0319", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0320", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0321", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0322", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0323", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0324", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0325", "raw": "{\"purpose\":[true,\"My goal is תיקון היחס במוקד, בלי רצון להשפיל את הנציגה.\"],\"intent\":[false,\"My goal is תיקון היחס במוקד, בלי רצון להשפיל את הנציגה.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0326", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0327", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0328", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0329", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0330", "raw": "{\"purpose\":[false,\"אני רק רוצה לצחוק עליו.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0331", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0332", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0333", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0334", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0335", "raw": "{\"purpose\":[false,\"על הטבח אעקוץ ברמז בשיחה קולית בלבד, שום דבר מזה לא ייכתב.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0336", "raw": "{\"purpose\":[false,\"כבר כתבתי שהשומר עצלן, וזה נאמר כבדיחה.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0337", "raw": "{\"rejects\":[true,\"She will reject rebuke, אבל קיימת חלופה להעברת הסיפור על הנציגה.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0338", "raw": "{\"firsthand\":[true,\"השומר סיפר בעצמו את העניין בפני שלושה לפחות.\"],\"purpose\":[false,\"אני משתף רק כדי לקטר.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0339", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0340", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0341", "raw": "{\"rebuke\":[true,\"The rude reply has been raised with the agent.\"],\"rejects\":[false,\"She is willing to take correction.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0342", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0343", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0344", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0345", "raw": "{\"purpose\":[true,\"אני עושה background check לקראת העסקת המאמן; אף הורה או רב לא ביקש שאספר.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0346", "raw": "{\"revenge\":[true,\"This is payback for the editor.\"],\"firsthand\":[false,\"I wasn't there; someone told me the story.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0347", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0348", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0349", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0350", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0351", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0352", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0353", "raw": "{\"revenge\":[true,\"Revenge is why I'm sharing the clerk story, which I know only from a report.\"],\"firsthand\":[false,\"Revenge is why I'm sharing the clerk story, which I know only from a report.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0354", "raw": "{\"revenge\":[true,\"אני נוקם במדריך דרך הסיפור הזה, שאותו אני מכיר רק מהודעות.\"],\"firsthand\":[false,\"אני נוקם במדריך דרך הסיפור הזה, שאותו אני מכיר רק מהודעות.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0355", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0356", "raw": "{\"no_alternative\":[true,\"There is simply no other route to fixing the usher's rudeness.\"],\"purpose\":[true,\"These words aren't in jest.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0357", "raw": "{\"rebuke\":[true,\"I have told the instructor about the problem; I know he won't reject a rebuke.\"],\"rejects\":[false,\"I have told the instructor about the problem; I know he won't reject a rebuke.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0358", "raw": "{\"firsthand\":[true,\"ראיתי את הנהג עוקף בעצמי;\"],\"verified\":[false,\"fact check עוד לא עשיתי.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0359", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0360", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0361", "raw": "{\"firsthand\":[true,\"העורכת חשפה את הסיפור שלה בעצמה מול שישה מאזינים; אני מספר בשביל הבידור.\"],\"purpose\":[false,\"אני מספר בשביל הבידור.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0362", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0363", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0364", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0365", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0366", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0367", "raw": "{\"verified\":[true,\"I fact-checked the coach's absence; no, I haven't confronted him about it.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0368", "raw": "{\"purpose\":[true,\"אני מבקש עזרה לתקן את התנהלות הגבאי, בלי רצון לפגוע בו.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0369", "raw": "{\"purpose\":[false,\"אני מעלה בצ'אט את העצלנות של השומר; לא כולל את עצמי בתיאור הזה.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0370", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0371", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0372", "raw": "{\"intent\":[true,\"בא לי שיצחקו על המנהל בגלל העצלנות שלו.\"],\"rebuke\":[false,\"אין לי שום חשבון ישן איתו.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0373", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0374", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0375", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0376", "raw": "{\"rebuke\":[true,\"שוחחתי עם הרכז על הזלזול שלו; אני יודע שהוא יקשיב לתיקון.\"],\"rejects\":[false,\"שוחחתי עם הרכז על הזלזול שלו; אני יודע שהוא יקשיב לתיקון.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0377", "raw": "{\"purpose\":[true,\"The point of raising the cook's carelessness is to fix it.\"],\"intent\":[false,\"I don't mean to mock him.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0378", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0379", "raw": "{\"rebuke\":[true,\"על זה עניתי ״לא מתאים״, לא על הבן אדם השני.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0380", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0381", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0382", "raw": "{\"revenge\":[true,\"זה payback למאמן\"],\"firsthand\":[false,\"על המקרה רק שמעתי ולא נכחתי בו\"]}", "hit_limit": false}
+{"id": "lhg-ind-0383", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0384", "raw": "{\"rejects\":[true,\"אני לא מאשר לך את מה שכבר שמעת.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0385", "raw": "{\"rejects\":[true,\"The agent is not receptive to rebuke\"],\"no_alternative\":[false,\"there is a different route to fixing the problem\"]}", "hit_limit": false}
+{"id": "lhg-ind-0386", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0387", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0388", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0389", "raw": "{\"revenge\":[false,\"מתחשק לי להשפיל את העורך על הרשלנות, בלי מניע של נקמה.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0390", "raw": "{\"revenge\":[true,\"I'm settling a score with the tutor; I did not witness this, just heard about it.\"],\"firsthand\":[false,\"I'm settling a score with the tutor; I did not witness this, just heard about it.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0391", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0392", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0393", "raw": "{\"no_alternative\":[true,\"בלי לספר על הקופאי אין דרך לטפל בזה.\"],\"purpose\":[true,\"העלבון שאני מתאר אינו בדיחה.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0394", "raw": "{}", "hit_limit": false}
+{"id": "lhg-ind-0395", "raw": "{\"verified\":[true,\"מחקתי את התגובה שלי כי קראתי שוב את השאלה שלך.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0396", "raw": "{\"verified\":[true,\"כן, אני מאשר לך את הדיווח של האחר על המדריך.\"],\"purpose\":[false,\"אני שואל רק כי מסקרן, בלי עסקה או קשר בהמשך.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0397", "raw": "{\"firsthand\":[true,\"המאמן עצמו סיפר מול ארבעה אנשים; אני משתף רק בשביל ה-fun.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0398", "raw": "{\"purpose\":[false,\"הוא עליה בלבד ולא עלי.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0399", "raw": "{\"intent\":[true,\"אני רוצה roast על החשמלאי, ממש ללעוג לו; אין פה נקמה.\"],\"revenge\":[false,\"אין פה נקמה.\"]}", "hit_limit": false}
+{"id": "lhg-ind-0400", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0001", "raw": "{\"verified\":[true,\"השוויתי ליומן הכניסות ואישרתי עם השומר שאכן לא הגיע.\"],\"rejects\":[false,\"הוא כן מסוגל לקבל הערה ולתקן.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0002", "raw": "{\"rebuke\":[true,\"כבר אמרתי לו בשיחה שהצעקות על הילדות לא מקובלות.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0003", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0004", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0005", "raw": "{\"purpose\":[true,\"I'm asking you to step in so people can collect their medicine without being frightened.\"],\"no_alternative\":[false,\"We could also change the queue system without circulating a complaint about her.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0006", "raw": "{\"purpose\":[true,\"Re the handyman: I'm putting the complaint about his sloppy work into an email.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0007", "raw": "{\"firsthand\":[false,\"אני מעביר הלאה את מה שסיפרו לי בחנות על בעל הבית.\"],\"purpose\":[false,\"אין בי רצון להשפיל אותו.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0008", "raw": "{\"intent\":[false,\"אני ממש לא רוצה לפגוע בו.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0009", "raw": "{\"revenge\":[true,\"כן, אני מנסה להחזיר לו על איך שהתייחס אליי.\"],\"purpose\":[false,\"כל המטרה שלי היא להוציא עליו עצבים.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0010", "raw": "{\"intent\":[true,\"השכנה אמרה: ״אני רוצה שהיא תתבייש״.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0011", "raw": "{\"verified\":[false,\"ללא לפתוח אותה לבדוק אפילו, לא פתחתי אותה לבדוק אפילו.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0012", "raw": "{\"intent\":[false,\"אני לא רוצה לבזות אותו\"]}", "hit_limit": false}
+{"id": "lhg-indB-0013", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0014", "raw": "{\"firsthand\":[false,\"המדריכת עצמה סיפרה על זה רק לחברה אחת, בארבע עיניים.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0015", "raw": "{\"no_alternative\":[true,\"אחרי כל הפניות שנכשלו, אין לנו איך להגן על המשתתפים אלא להזהיר אותם מהמארגן.\"],\"purpose\":[true,\"תעזרי לי לחשוב למי קודם.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0016", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0017", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0018", "raw": "{\"firsthand\":[true,\"השליח זרק את השקית ליד הפח; עמדתי ליד הדלת וראיתי אותו זורק.\"],\"verified\":[false,\"לעומת הטענה שחסר גם כסף, את זה עדיין לא בדקתי.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0019", "raw": "{\"purpose\":[true,\"את התלונה עליו אני שולחת כמכתב, כדי שתהיה כתובה.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0020", "raw": "{\"purpose\":[false,\"I'm just venting here, not trying to help anyone or solve it.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0021", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0022", "raw": "{\"purpose\":[true,\"אני מתכוון לשים במייל את הביקורת על ההתנהלות של המתווך.\"],\"verified\":[false,\"לגבי מה שסיפרו לך קודם, אני לא נותן לזה גיבוי.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0023", "raw": "{\"purpose\":[true,\"על השליח שמקלל לקוחות אני פונה אלייך כדי שתעצרי את היחס הזה בסניף.\"],\"verified\":[false,\"עוד לא עשיתי בירור אם הפרטים שנשלחו מדויקים.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0024", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0025", "raw": "{\"purpose\":[true,\"אני אכתוב בקבוצת הדיירים שבעל המקצוע גבה פעמיים.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0026", "raw": "{\"rejects\":[true,\"The flat owner won't take any criticism of his repairs, end of.\"],\"purpose\":[false,\"I'm asking just because I'm curious, not because of a rental or anything else coming up.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0027", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0028", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0029", "raw": "{\"purpose\":[true,\"אני מעלה את זה כדי שהקטנים לא יפחדו להגיע מחר; אין בינינו שום טינה.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0030", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0031", "raw": "{\"verified\":[true,\"עברתי עם המזכירה על הקבלות והסכום החסר אכן נשאר אצלו.\"],\"rebuke\":[false,\"אליהו עוד לא פניתי בעניין.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0032", "raw": "{\"verified\":[false,\"עוד לא בדקתי את המספרים.\"],\"firsthand\":[false,\"אני מכירה את החוב רק מהמכתב שקיבלתי.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0033", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0034", "raw": "{\"intent\":[true,\"I want to knock him down a peg in front of his clients\"],\"no_alternative\":[false,\"There is a quieter option, I could settle the paperwork through his assistant\"]}", "hit_limit": false}
+{"id": "lhg-indB-0035", "raw": "{\"purpose\":[true,\"בוקר טוב, לגבי הבחור מהמחסן: אני מבקשת שהאחראי יטפל בזה לפני שעוד עובדת תיפגע ממנו.\"],\"firsthand\":[false,\"לא הייתי במשמרת הזאת, שמעתי עליה רק בטלפון.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0036", "raw": "{\"revenge\":[true,\"עכשיו אני מחזיר לו עם הסיפור על הקמצנות שלו.\"],\"rebuke\":[false,\"עוד לא העליתי את זה מולו.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0037", "raw": "{\"purpose\":[false,\"כשזה מתחיל עם ״אני רק אומר״ אפשר להכין קפה, כי אחר כך מגיעה שעה של עקיצות.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0038", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0039", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0040", "raw": "{\"rebuke\":[true,\"המזכיר כבר אמר לך שהרכז מסתיר ביטולים; גם אני אומר לך שהמזכיר צודק, הביטולים באמת מוסתרים ביומן שבידי.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0041", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0042", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0043", "raw": "{\"intent\":[true,\"אני ממש רוצה שהשכנים ילעגו לו על הקמצנות.\"],\"rebuke\":[false,\"לא אמרתי לו בעצמי כלום על זה.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0044", "raw": "{\"purpose\":[false,\"I just want a place to grumble, I'm not aiming to do any good with it.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0045", "raw": "{\"intent\":[true,\"זה היה בצחוק על אחותי.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0046", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0047", "raw": "{\"purpose\":[true,\"The new supervisor keeps sending small kids out to the gate alone.\"],\"rebuke\":[false,\"I'm raising this so none of them ends up out on the road, but I haven't taken it up with her yet.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0048", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0049", "raw": "{\"purpose\":[false,\"אני רק פורק פה, אין לי תכנית לעזור או לשנות משהו.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0050", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0051", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0052", "raw": "{\"purpose\":[true,\"אגיד לה במפורש שהיא מקללת ילדים, לא רמזים.\"],\"rebuke\":[true,\"כבר דיברתי איתה על הקללות.\"],\"rejects\":[false,\"היא מסוגלת לשמוע הערה ולשנות.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0053", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0054", "raw": "{\"verified\":[true,\"I pulled the original timesheets and confirmed the manager changed those hours.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0055", "raw": "{\"revenge\":[true,\"את הסיפור על הגבאי אני מוציא עכשיו כי לא סלחתי לו על מה שעשה לי.\"],\"firsthand\":[false,\"אני בכלל לא הייתי שם, מכיר את זה רק מההקלטה שהעבירו.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0056", "raw": "{\"verified\":[true,\"אני מברר על הבחור כי הבת שלי עומדת לצאת איתו.\"],\"purpose\":[false,\"אין לי כוונה לעזור למישהו עם השאלה, זה נטו רכילות בשביל הסקרנות שלי.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0057", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0058", "raw": "{\"revenge\":[true,\"After how he treated me, telling this story is my little payback.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0059", "raw": "{\"rejects\":[true,\"על האיחורים שלה אין עם מי לדבר, היא לא מוכנה לקבל הערות.\"],\"purpose\":[false,\"אני אגיד את זה בשיחה בלבד, בלי הודעות ובלי מיילים.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0060", "raw": "{\"rejects\":[true,\"The fund collector will dismiss any criticism you bring him, he simply won't listen.\"],\"verified\":[true,\"His fiddling with the envelopes has been established, it's not just a floating story anymore.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0061", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0062", "raw": "{\"no_alternative\":[true,\"About your last message: אין לנו כבר שום דרך אחרת חוץ מלספר להורים על המאבטח שנעלם.\"],\"purpose\":[true,\"זה בשביל לשמור על הילדים בהסעה של השבוע הבא.\"],\"rebuke\":[false,\"את הביקורת נגיד רק בטלפון, בלי מסר כתוב.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0063", "raw": "{\"rejects\":[true,\"אין טעם להסביר לבעל הדירה, הוא לא מוכן לשמוע שום הערה על העובשים.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0064", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0065", "raw": "{\"purpose\":[true,\"אנחנו עוד רגע סוגרים איתו חוזה שכירות, בגלל זה חשוב לי לברר את עניין הפיקדונות.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0066", "raw": "{\"no_alternative\":[true,\"Nothing except telling the other parents about the escort's drinking can keep the children safe now.\"],\"verified\":[false,\"About that earlier account from the driver, I'm not in a position to confirm it.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0067", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0068", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0069", "raw": "{\"firsthand\":[true,\"The tutor called a child stupid. I was sitting beside the desk when she said it.\"],\"purpose\":[true,\"This is serious, I'm not making a joke about her.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0070", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0071", "raw": "{\"revenge\":[true,\"I'm bringing up the coordinator's mess to get him back for freezing me out.\"],\"no_alternative\":[false,\"I could just have his deputy sort the rota instead of talking about him.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0072", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0073", "raw": "{\"verified\":[true,\"I've compared the invoices and confirmed the maintenance officer charged us twice.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0074", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0075", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0076", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0077", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0078", "raw": "{\"intent\":[true,\"אני רוצה שכולם יצחקו על השכן הנפוח הזה.\"],\"verified\":[false,\"על הפיצוץ עם הוועד קראתי רק אצלכם, לא נכחתי בו.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0079", "raw": "{\"purpose\":[true,\"ה-Agent הוא עומד לטפל במכירת הדירה שלנו ולכן אני בודק את עניין השקרים שלו.\"],\"verified\":[true,\"בדקתי מול ההסכם והסעיף שהוא ציטט פשוט לא קיים.\"],\"rejects\":[false,\"הוא דווקא מוכן לשמוע תיקון.\"],\"no_alternative\":[false,\"אפשר להסתדר דרך עורך הדין בלי לפרסם עליו כלום.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0080", "raw": "{\"firsthand\":[false,\"I'm forwarding what the caretaker told me about the noisy tenant.\"],\"rebuke\":[false,\"I haven't raised the noise with the tenant himself.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0081", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0082", "raw": "{\"purpose\":[true,\"אני מנסה לדאוג שלא יקרה שם אסון.\"],\"rebuke\":[true,\"כבר תפסתי אותו ואמרתי לו שזה מסוכן.\"],\"rejects\":[true,\"הוא לא מוכן לקבל הערות בעניין.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0083", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0084", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0085", "raw": "{\"firsthand\":[false,\"I only know from the cleaning log, I didn't see her doing it.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0086", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0087", "raw": "{\"firsthand\":[false,\"מה שהשכן סיפר לי על המלמד, אני מוסר לכם כמו שקיבלתי.\"],\"purpose\":[false,\"לא מנסה לתקן כלום, רק להוציא קצת קיטור.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0088", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0089", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0090", "raw": "{\"rebuke\":[false,\"לא דיברתי איתה עדיין על הצעקות.\"],\"rejects\":[false,\"אני מאמין שהיא תקשיב אם נגיד לה בצורה נורמלית.\"],\"purpose\":[false,\"אני לא בא לבייש אותה.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0091", "raw": "{\"purpose\":[true,\"I want the head of the club to stop those kids getting treated like that.\"],\"rejects\":[false,\"She'll listen if someone sits her down and explains it.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0092", "raw": "{\"verified\":[true,\"I checked the camera log and the entry record; the guard really did leave his post.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0093", "raw": "{\"purpose\":[false,\"Re: אותה מטפלת.\"],\"verified\":[false,\"לא בדקתי את הפרטים עדיין.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0094", "raw": "{\"rejects\":[true,\"לא לא, אל תכתוב לה את מה שהצעת.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0095", "raw": "{\"no_alternative\":[true,\"עם האח הזה כבר אין שום פתרון מלבד לספר למי שמפקיד אצלו כסף.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0096", "raw": "{\"rebuke\":[true,\"Regarding the nursery worker, I have already spoken to her about the way she mocks the little ones.\"],\"verified\":[false,\"I can't confirm the other parent's earlier account of her.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0097", "raw": "{\"purpose\":[false,\"המסר שלי על העצלנות שלו היה רק רמז, בלי להגיד את זה.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0098", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0099", "raw": "{\"firsthand\":[true,\"I watched the coach shove the boy off the bench, I was right beside them.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0100", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0101", "raw": "{\"verified\":[true,\"הוצאתי את העותק המקורי והשוויתי, הוא אכן שינה את הציון של הבן שלו.\"],\"purpose\":[false,\"על ה״אבא המשקיע״ לא צחקתי, זה היה בכובד ראש.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0102", "raw": "{\"rebuke\":[true,\"I've already told her to stop commenting on mine.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0103", "raw": "{\"firsthand\":[true,\"זה מה שהשוכר הקודם אמר לי על בעלת הדירה, ואני מספר לך הלאה.\"],\"revenge\":[false,\"אני לא שומר לה שום חשבון, אין כאן נקמה.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0104", "raw": "{\"rebuke\":[true,\"כבר אמרתי לו שהערות על הגוף של הילדות לא במקום.\"],\"rejects\":[true,\"הוא לא יקבל ממני ביקורת על זה.\"],\"no_alternative\":[true,\"לא נשאר לנו מוצא חוץ מלספר למשפחות.\"],\"purpose\":[true,\"אני רוצה שהילדות יוכלו להגיע בלי לפחד.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0105", "raw": "{\"rejects\":[false,\"אני חושבת שהוא דווקא יסכים לשמוע מה מפריע לנו.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0106", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0107", "raw": "{\"firsthand\":[false,\"I'm telling you what the piano teacher's former pupil told me about the yelling.\"],\"rejects\":[false,\"The teacher will listen if somebody points out what she's doing.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0108", "raw": "{\"intent\":[false,\"אני לא מעוניין לבייש את המשגיח.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0109", "raw": "{\"purpose\":[true,\"לגבי הסייעת, אני כותבת כי אני לא רוצה שעוד ילד יישאר בחוץ בלי השגחה.\"],\"intent\":[false,\"אין לי רצון לפגוע בה, באמת.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0110", "raw": "{\"intent\":[true,\"I want him to feel embarrassed in front of his own crowd.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0111", "raw": "{\"firsthand\":[true,\"הייתי בחדר כשהמנהלת צרחה על המזכירה עד שבכתה.\"],\"rebuke\":[false,\"עם המנהלת עוד לא דיברתי על הצרחות.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0112", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0113", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0114", "raw": "{\"intent\":[false,\"No, הכינוי לשכן היה על הניקיון: רק רמזתי על הלכלוך שלו, לא אמרתי את הגנאי בגלוי.\"],\"purpose\":[true,\"אני סתם מתלונן כדי לפרוק.\"],\"rebuke\":[true,\"זה חוזר לדיון הישן, תראה את התשובה שלך.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0115", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0116", "raw": "{\"revenge\":[false,\"Nope, לא אמרתי שהיא גנבת.\"],\"verified\":[false,\"אין לי איך לאשר את הטענה שהשכנה כבר שלחה לך.\"],\"firsthand\":[false,\"אני רק מעביר את מה שהשומר סיפר לי על הארון.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0117", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0118", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0119", "raw": "{\"rejects\":[true,\"Our cousin thinks he owns the conversation. He won't hear a word of criticism about that.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0120", "raw": "{\"firsthand\":[true,\"עמדתי לידו כשהוא צעק על הילד.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0121", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0122", "raw": "{\"verified\":[false,\"על מנהל המוסד שכולם מדברים עליו, אני עוד לא בדקתי אפילו פרט אחד מהסיפור.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0123", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0124", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0125", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0126", "raw": "{\"verified\":[true,\"השוויתי לתלושים ובדקתי שאכן הכסף לא הועבר.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0127", "raw": "{\"purpose\":[false,\"ה״מומחה לחניה כפולה״ זה סתם צחוק שלי על הנהג.\"],\"verified\":[true,\"לגבי שלילת הרישיון, זה כבר אושר בבית הדין לתעבורה, לא שמועה.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0128", "raw": "{\"verified\":[true,\"זה הדיווח שלי, לא סיפור שאני מפיץ ממישהו.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0129", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0130", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0131", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0132", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0133", "raw": "{\"purpose\":[true,\"We're about to hire her to look after Dad, so I need to understand the missed visits.\"],\"revenge\":[false,\"I have no old score to settle with her.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0134", "raw": "{\"purpose\":[true,\"בעניין החובות של החתן אכתוב רק ״כדאי להתעניין בבנק״, שיבינו לבד.\"],\"verified\":[true,\"החובות כבר התבררו作为一种JSON对象输出，以下是处理后的结果：\n```json\n{\"purpose\":[true,\"בעניין החובות של החתן אכתוב רק ״כדאי להתעניין בבנק״, שיבינו לבד.\"],\"verified\":[true,\"החובות כבר התבררו作为一种JSON对象输出，以下是处理后的结果：]}\n```", "hit_limit": false}
+{"id": "lhg-indB-0135", "raw": "{\"firsthand\":[true,\"כן כן, ראיתי מה כתבת על ״הדור שלנו״.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0136", "raw": "{\"no_alternative\":[false,\"That's where I'd start.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0137", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0138", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0139", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0140", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0141", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0142", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0143", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0144", "raw": "{\"firsthand\":[true,\"The committee chair told five of us himself that he padded the maintenance bill.\"],\"verified\":[false,\"I haven't checked the bill against anything yet.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0145", "raw": "{\"verified\":[false,\"You heard from the shop assistant that the owner shortchanges people.\"],\"purpose\":[false,\"I'm not trying to fix anything with this, just having a moan.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0146", "raw": "{\"purpose\":[false,\"It's just a wink at the coach's drinking, I leave people to fill in the blanks.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0147", "raw": "{\"rejects\":[true,\"הוא לא יקבל מאף אחד הערה על השקרים שלו, תוותרו על השיחה.\"],\"purpose\":[false,\"אני גם אומר לו ״אתה משקר״, ככה, בלי מסביב.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0148", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0149", "raw": "{\"no_alternative\":[true,\"עם המדריך הזה כבר לא נשארה דרך לעצור את הנסיעות המסוכנות חוץ מלספר להורים.\"],\"purpose\":[true,\"וההודעה שהוא מסכן ילדים, אני אומרת את זה ברצינות גמורה.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0150", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0151", "raw": "{\"purpose\":[true,\"באמא ביקשה שאספר לכם על העמלות שהוא מסתיר.\"],\"rebuke\":[false,\"הוא בעצמו דיבר על זה מול חמישה אנשים.\"],\"revenge\":[false,\"אני לא כועס עליו ולא מחפש להחזיר לו.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0152", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0153", "raw": "{\"firsthand\":[true,\"הדברים כאן הם הסיפור שלי איתה ולא משהו ששמעתי מאחרים.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0154", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0155", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0156", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0157", "raw": "{\"firsthand\":[false,\"I wasn't in that shop, I've only read the staff message.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0158", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0159", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0160", "raw": "{\"rebuke\":[true,\"לא, התשובה לשאלה שלך היא שדיברתי עם הבן שלה על ההצקות כבר ביום ראשון.\"],\"revenge\":[true,\"ועל המילה ״בריון״, אני לא מתבדח, אני מתכוון לזה לגמרי.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0161", "raw": "{\"rejects\":[true,\"גם אם תגידו לו אלף פעם הוא לא יסכים לקבל ביקורת.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0162", "raw": "{\"no_alternative\":[true,\"רק אם נספר לחברי הוועד שהוא מזייף הצבעות נוכל לעצור את זה, כל שאר האפשרויות נגמרו.\"],\"purpose\":[true,\"אני כותב בפירוש שהוא מזייף, בלי קודים.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0163", "raw": "{\"no_alternative\":[false,\"נו ברור שהוא בחר באפשרות השלישית.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0164", "raw": "{\"intent\":[true,\"The dig at the matchmaker's honesty stays between the lines, let them join the dots.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0165", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0166", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0167", "raw": "{\"verified\":[false,\"העניין עוד לא בורר, כרגע זו שמועה.\"],\"rebuke\":[false,\"אני לא יכולה לחזק את מה שהאמא השנייה כבר אמרה לך.\"],\"revenge\":[false,\"אין לי איתה חשבון פתוח.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0168", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0169", "raw": "{\"purpose\":[true,\"בפורוורד כתוב ״רק כדי להגן על הילדים״\"]}", "hit_limit": false}
+{"id": "lhg-indB-0170", "raw": "{\"firsthand\":[true,\"הבייביסיטר התעסקה בנייד בזמן שהקטנה טיפסה על השיש, הייתי במטבח וראיתי את זה.\"],\"rejects\":[false,\"אם תעירו לה היא דווקא תקשיב.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0171", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0172", "raw": "{\"purpose\":[false,\"I want people laughing at the manager's incompetence.\"],\"intent\":[true,\"I'm being perfectly serious about that, no punchline.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0173", "raw": "{\"rejects\":[true,\"The rehearsal leader won't accept a correction from anyone, however gently you put it.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0174", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0175", "raw": "{\"verified\":[true,\"בדקתי מול שני הרישומים והמחסנאי באמת הוציא ציוד בלי אישור.\"],\"no_alternative\":[false,\"אפשר לטפל בזה דרך ספירת מלאי שקטה, בלי לנקוב בשמו לכל החברה.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0176", "raw": "{\"verified\":[false,\"קראתי את מה ששלחת עכשיו פעמיים ועדיין לא ברור לי איך האיש הזה מקבל משכורת.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0177", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0178", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0179", "raw": "{\"intent\":[true,\"בברכה שלי-rocketsrc-רכז אני עוקץ אותו על העצלנות בין השורות, מי שיבין יבין.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0180", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0181", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0182", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0183", "raw": "{\"purpose\":[true,\"My mother asked me to tell you the driver keeps leaving the children unattended.\"],\"revenge\":[false,\"I'm not holding anything against him personally.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0184", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0185", "raw": "{\"no_alternative\":[true,\"The only route left is to tell the other families, everything else has been exhausted.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0186", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0187", "raw": "{\"revenge\":[false,\"I've got no grudge against him\"]}", "hit_limit": false}
+{"id": "lhg-indB-0188", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0189", "raw": "{\"verified\":[false,\"השמועה שהבחור הסתיר חובות עדיין לא נבדקה.\"],\"purpose\":[false,\"אני לא בודק אותו בשביל שידוך או עסק, סתם מסקרן אותי הרעש.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0190", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0191", "raw": "{\"verified\":[false,\"מדברים על זה שהאחראית לוקחת מהתרומות, אבל עוד לא ביררו כלום.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0192", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0193", "raw": "{\"firsthand\":[true,\"My brother is hopeless with bills; so am I, exactly the same kind of hopeless.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0194", "raw": "{\"purpose\":[false,\"אני רק פורק, לא מנסה להועיל פה.\"],\"intent\":[false,\"לא רוצה לפגוע בו.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0195", "raw": "{\"rebuke\":[true,\"אמרתי לו כבר שהחיבורים החשופים מסוכנים.\"],\"purpose\":[true,\"אני אומר עליו רשלן בפה מלא, שלא יחפשו איזה קוד.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0196", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0197", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0198", "raw": "{\"rejects\":[false,\"He's open to being corrected on how he handles it\"]}", "hit_limit": false}
+{"id": "lhg-indB-0199", "raw": "{\"purpose\":[true,\"I'm putting the complaint that the tutor insults pupils into the email.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0200", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0201", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0202", "raw": "{\"purpose\":[false,\"אין לי מטרה מועילה פה, פשוט בא לי לפרוק על החוצפן הזה.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0203", "raw": "{\"verified\":[false,\"בקשר לנהג של ההסעה, בינתיים זה סיפור שרץ ולא ביררו אם קרה בכלל.\"],\"rebuke\":[false,\"על מה שהאבא השני אמר לך אל תבנה עליי, אין לי אישור לזה.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0204", "raw": "{\"firsthand\":[true,\"I was holding the other door and watched it happen.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0205", "raw": "{\"intent\":[false,\"I don't want to humiliate him\"]}", "hit_limit": false}
+{"id": "lhg-indB-0206", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0207", "raw": "{\"firsthand\":[false,\"אני לא הייתי שם, שמעתי רק את ההודעה הקולית מהמפגש.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0208", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0209", "raw": "{\"purpose\":[false,\"No great mission here, I just want to moan about him.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0210", "raw": "{\"rebuke\":[false,\"I haven't spoken to her about leaving them\"]}", "hit_limit": false}
+{"id": "lhg-indB-0211", "raw": "{\"purpose\":[false,\"אני לא רוצה להעליב אותו.\"],\"revenge\":[false,\"אין לי שום טינה אליו.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0212", "raw": "{\"purpose\":[false,\"אני רק צחקתי עליה\"]}", "hit_limit": false}
+{"id": "lhg-indB-0213", "raw": "{\"firsthand\":[false,\"I wasn't involved, all I know of it is her message.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0214", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0215", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0216", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0217", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0218", "raw": "{\"intent\":[true,\"בא לי להקטין אותה קצת מול החברות שלה.\"],\"verified\":[false,\"לא טרחתי לבדוק את המספרים שהיא מסרה.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0219", "raw": "{\"verified\":[true,\"אני יכול לחזק את הדיווח שלה על היחס המשפיל שלו.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0220", "raw": "{\"rebuke\":[false,\"I haven't approached the helper about the swearing.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0221", "raw": "{\"firsthand\":[true,\"No mystery source here, this is my own story about him.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0222", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0223", "raw": "{\"purpose\":[false,\"לגבי איחורים, פה אני אומר עליו במפורש: הוא תמיד מאחר.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0224", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0225", "raw": "{\"firsthand\":[true,\"Yes, אותה רופאת שיניים: אני הייתי בכיסא כשהיא לעגה לילד שלי; אמרתי לה במקום שזה לא מקובל.\"],\"intent\":[false,\"אני לא רוצה להשפיל אותה.\"],\"purpose\":[true,\"אני רוצה שהמרפאה תדאג שזה לא יקרה לעוד ילדים.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0226", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0227", "raw": "{\"purpose\":[true,\"אני מספר את זה בשביל לסגור איתו חשבון על הפיטורים שלי.\"],\"rejects\":[false,\"אבל הוא כן יודע להקשיב כשמעירים לו על זה.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0228", "raw": "{\"rebuke\":[true,\"I've knocked on his door twice and told him about it.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0229", "raw": "{\"verified\":[true,\"I went through the signed forms and established that the club secretary forged the approvals.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0230", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0231", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0232", "raw": "{\"rebuke\":[true,\"I took her aside and told her those words upset the kids.\"],\"verified\":[true,\"The bit about hitting someone, though, has already been cleared up as a real incident, not a rumour.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0233", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0234", "raw": "{\"rebuke\":[true,\"על ההערות לילד שלי כבר ישבתי עם המורה לשיחה.\"],\"no_alternative\":[false,\"יש גם אפשרות לבקש מהיועצת להתערב בלי להפיץ את זה.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0235", "raw": "{\"intent\":[true,\"Calling the treasurer our resident magician was me kidding at his expense.\"],\"verified\":[false,\"As for what the secretary already told you about the cash, I can't back her story up.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0236", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0237", "raw": "{\"purpose\":[false,\"אני לא מתכנן איתו שום קשר עסקי, פשוט מסקרן אותי מה הולך איתו.\"],\"verified\":[false,\"לא בדקתי את החשבונות.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0238", "raw": "{\"verified\":[true,\"אשר לעניין החוב שלו, זה כבר הוכח במסמכים, לא סתם דיבור שמתגלגל.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0239", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0240", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0241", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0242", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0243", "raw": "{\"purpose\":[true,\"אבא ביקש ממני לעדכן את ועד הכיתה שהמלווה נרדם בנסיעות.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0244", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0245", "raw": "{\"purpose\":[true,\"With the caretaker I'm leaving it at a nudge and a wink, they'll get the dig.\"],\"firsthand\":[true,\"This is coming from me.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0246", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0247", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0248", "raw": "{\"purpose\":[false,\"בא לי שיתבייש מול כל הצוות כשישמעו איך הוא מדבר, אבל זה לא חשבון ישן שלי איתו.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0249", "raw": "{\"verified\":[false,\"At this point the talk about the coach's gambling is still unclarified gossip.\"],\"intent\":[false,\"I don't want him embarrassed.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0250", "raw": "{\"rebuke\":[true,\"בדיוק על המשפט האחרון שלו דיברתי.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0251", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0252", "raw": "{\"revenge\":[false,\"אני לא נוטר לה כלום, זה לא בא מנקמה.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0253", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0254", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0255", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0256", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0257", "raw": "{\"purpose\":[false,\"I'm not out to make him feel small.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0258", "raw": "{\"firsthand\":[true,\"Re: בעלת הבית מהצילום שלך, היא סיפרה בעצמה רק לשני דיירים על הפיקדון.\"],\"verified\":[true,\"זה מה שיש לי לומר משלי, לא העברה של דיווח של אחר.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0259", "raw": "{\"verified\":[true,\"עברתי על דוחות הנוכחות ואכן יש רישום שעות כפול שלו.\"],\"no_alternative\":[false,\"אפשר פשוט לבקש בדיקת שכר בלי להפיץ עליו סיפור.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0260", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0261", "raw": "{\"revenge\":[true,\"I'm telling the family about my uncle's stinginess because I'm still bitter over what he did to me.\"],\"purpose\":[false,\"And I mean every word, this isn't a funny little dig.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0262", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0263", "raw": "{\"revenge\":[true,\"I'm doing this to get even with the uncle who ruined my weekend.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0264", "raw": "{\"verified\":[true,\"זה כבר התברר כמשהו שקרה, לא שמועה.\"],\"purpose\":[true,\"אני מתכוון ברצינות כשאני אומר שזה חצוף.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0265", "raw": "{\"rebuke\":[true,\"You already got the account of the chef's tantrum from the waiter.\"],\"revenge\":[false,\"There isn't any resentment driving me.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0266", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0267", "raw": "{\"intent\":[true,\"את העקיצה אני אגיד לו בטלפון בלבד ולא אשאיר בכתב.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0268", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0269", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0270", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0271", "raw": "{\"rejects\":[true,\"דיברתי איתה כבר פעמיים על זה שהיא קוראת לו עצלן.\"],\"rebuke\":[true,\"בפעם השנייה אפילו הכנתי מראש מה להגיד, ובסוף נתקעתי.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0272", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0273", "raw": "{\"purpose\":[true,\"רציתי שתדע.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0274", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0275", "raw": "{\"intent\":[false,\"I'm not trying to hurt her feelings.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0276", "raw": "{\"no_alternative\":[false,\"I'll stick to a little hint about the gardener being lazy, people can work it out.\"],\"firsthand\":[true,\"Nobody fed me this story, this one's mine.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0277", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0278", "raw": "{\"no_alternative\":[true,\"We've run out of options except telling the people about to pay him.\"],\"verified\":[true,\"The missing money has been established now, it's past the rumour stage.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0279", "raw": "{\"purpose\":[false,\"דיברתי רק על הבלגן שלו, לא על עצמי.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0280", "raw": "{\"verified\":[true,\"מה שהמזכירה אמרה לכם על המזכיר הקודם, כן, אני מגבה את הדיווח שלה על המחיקות ביומן.\"],\"firsthand\":[true,\"זה לא הגיע דרך אף אחד, זה הסיפור שלי.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0281", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0282", "raw": "{\"verified\":[true,\"עמדתי לידו כשהקליד שעות של משמרת שלא עשה.\"],\"rebuke\":[false,\"עוד לא דיברתי איתו על זה.\"],\"intent\":[false,\"אני לא מנסה לפגוע בו.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0283", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0284", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0285", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0286", "raw": "{\"no_alternative\":[true,\"Telling the residents about the chair's spending is the only option left, we've tried everything else.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0287", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0288", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0289", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0290", "raw": "{\"firsthand\":[true,\"I was at the counter and saw the owner swap the price label after the customer paid.\"],\"purpose\":[true,\"I'll only describe that dishonesty aloud, I won't put the criticism in a message.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0291", "raw": "{\"purpose\":[true,\"I'm sending this so the home can put a stop to it.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0292", "raw": "{\"verified\":[false,\"אבל לגבי מה שסיפרה לך השכנה על הבת שלה, אין לי אישור לתת לך לסיפור הזה.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0293", "raw": "{\"verified\":[false,\"אף אחד לא בירר את זה.\"],\"rebuke\":[false,\"אמא ואבא והרב לא ביקשו ממני להגיד מילה, שלא יפילו את זה עליהם.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0294", "raw": "{\"firsthand\":[false,\"I know it only from reading the notice, I wasn't there.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0295", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0296", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0297", "raw": "{}", "hit_limit": false}
+{"id": "lhg-indB-0298", "raw": "{\"intent\":[true,\"I'd love to make him look tiny in front of the residents.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0299", "raw": "{\"verified\":[false,\"I haven't checked the allegation yet.\"]}", "hit_limit": false}
+{"id": "lhg-indB-0300", "raw": "{\"firsthand\":[true,\"ישבתי מול הפקידה כשהיא דחפה את הטופס של הזקנה לפח.\"]}", "hit_limit": false}

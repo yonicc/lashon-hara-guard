@@ -1,0 +1,300 @@
+{"id":"lhg-indB-0001","facts_v2":{"verified":[true,"השוויתי ליומן הכניסות ואישרתי עם השומר שאכן לא הגיע"],"rejects":[false,"הוא כן מסוגל לקבל הערה ולתקן"]},"router":["ask_user"]}
+{"id":"lhg-indB-0002","facts_v2":{"rebuke":[true,"כבר אמרתי לו בשיחה שהצעקות על הילדות לא מקובלות"],"rejects":[false,"אם נסביר בשקט הוא ייקח לתשומת לבו"]},"router":["mem_recent"]}
+{"id":"lhg-indB-0003","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0004","facts_v2":{},"router":[]}
+{"id":"lhg-indB-0005","facts_v2":{"purpose":[true,"I'm asking you to step in so people can collect their medicine without being frightened"],"no_alternative":[false,"We could also change the queue system without circulating a complaint about her"]},"router":["ask_user"]}
+{"id":"lhg-indB-0006","facts_v2":{"medium_written":[true,"I'm putting the complaint about his sloppy work into an email"],"requested_disclosure":[false,"Leave my folks and my rabbi out of it, they didn't send me"]},"router":["ask_user"]}
+{"id":"lhg-indB-0007","facts_v2":{"repeats_prior":[true,"אני מעביר הלאה את מה שסיפרו לי בחנות על בעל הבית"],"intent":[false,"אין בי רצון להשפיל אותו"]},"router":["mem_recent","mem_search"]}
+{"id":"lhg-indB-0008","facts_v2":{"intent":[false,"אני ממש לא רוצה לפגוע בו"]},"router":["ask_user"]}
+{"id":"lhg-indB-0009","facts_v2":{"revenge":[true,"אני מנסה להחזיר לו על איך שהתייחס אליי"],"purpose":[false,"כל המטרה שלי היא להוציא עליו עצבים"],"is_hint":[false,"אני אומר בפירוש שהוא רמאי, בלי לעטוף"]},"router":["mem_recent","mem_search"]}
+{"id":"lhg-indB-0010","facts_v2":{},"router":[]}
+{"id":"lhg-indB-0011","facts_v2":{"revenge":[true,"אני מחכה להחזיר לו דרך הסיפור הזה"],"verified":[false,"לא פתחתי אותה לבדוק אפילו"]},"router":["mem_search"]}
+{"id":"lhg-indB-0012","facts_v2":{"subject_self_disclosed":[true,"החשמלאי אמר בעצמו ליד חמישה דיירים"],"intent":[false,"אני לא רוצה לבזות אותו"]},"router":["mem_recent"]}
+{"id":"lhg-indB-0013","facts_v2":{},"router":["ask_user"]}
+{"id":"lhg-indB-0014","facts_v2":{"repeats_prior":[true,"אני מעביר לך כאן את מה שאחת האמהות סיפרה לי על ההשפלות"],"subject_self_disclosed":[false,"המדריכה עצמה סיפרה על זה רק לחברה אחת, בארבע עיניים"]},"router":["mem_search"]}
+{"id":"lhg-indB-0015","facts_v2":{"no_alternative":[true,"אין לנו איך להגן על המשתתפים אלא להזהיר אותם מהמארגן"],"purpose":[true,"להגן על המשתתפים"],"medium_written":[false,"את האזהרה אמסור רק בשיחה, לא תהיה גרסה כתובה שלה"]},"router":["mem_search"]}
+{"id":"lhg-indB-0016","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0017","facts_v2":{},"router":["mem_search"]}
+{"id":"lhg-indB-0018","facts_v2":{"firsthand":[true,"עמדתי ליד הדלת וראיתי אותו זורק"],"verified":[false,"את זה עדיין לא בדקתי"]},"router":["mem_search"]}
+{"id":"lhg-indB-0019","facts_v2":{"medium_written":[true,"את התלונה עליו אני שולחת כמכתב, כדי שתהיה כתובה"],"future_purpose":[false,"לא מתכננת להזמין אותו לכלום, סתם סקרנות לגבי הבנאדם"]},"router":[]}
+{"id":"lhg-indB-0020","facts_v2":{"same_self_disparagement":[true,"I can be horribly blunt in exactly that way too"],"purpose":[false,"I'm just venting here, not trying to help anyone or solve it"]},"router":[]}
+{"id":"lhg-indB-0021","facts_v2":{"future_purpose":[true,"אני שואלת כי הוא אמור לעבור אלינו בחודש הבא"]},"router":["mem_recent"]}
+{"id":"lhg-indB-0022","facts_v2":{"medium_written":[true,"אני מתכוון לשים במייל את הביקורת על ההתנהלות של המתווך"],"second_source":[false,"לגבי מה שסיפרו לך קודם, אני לא נותן לזה גיבוי"]},"router":["mem_search"]}
+{"id":"lhg-indB-0023","facts_v2":{"purpose":[true,"אני פונה אלייך כדי שתעצרי את היחס הזה בסניף"],"verified":[false,"עוד לא עשיתי בירור אם הפרטים שנשלחו מדויקים"]},"router":["mem_recent"]}
+{"id":"lhg-indB-0024","facts_v2":{},"router":["mem_search"]}
+{"id":"lhg-indB-0025","facts_v2":{"medium_written":[true,"אני אכתוב בקבוצת הדיירים שבעל המקצוע גבה פעמיים"],"unverified_rumor":[false,"זה לא נשאר בגדר שמועה, העניין הוכרע עם החשבוניות"]},"router":["ask_user"]}
+{"id":"lhg-indB-0026","facts_v2":{"rejects":[true,"The flat owner won't take any criticism of his repairs, end of"],"future_purpose":[false,"I'm asking just because I'm curious, not because of a rental or anything else coming up"]},"router":["ask_user"]}
+{"id":"lhg-indB-0027","facts_v2":{"future_purpose":[true,"לפני שאשאיר אצלה את התינוק בספטמבר אני צריכה להבין"],"subject_self_disclosed":[false,"היא דיברה על זה רק איתי, כשאף אחד אחר לא היה בחדר"]},"router":["mem_search"]}
+{"id":"lhg-indB-0028","facts_v2":{},"router":["ask_user"]}
+{"id":"lhg-indB-0029","facts_v2":{"purpose":[true,"אני מעלה את זה כדי שהקטנים לא יפחדו להגיע מחר"],"revenge":[false,"אין בינינו שום טינה"]},"router":["ask_user"]}
+{"id":"lhg-indB-0030","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0031","facts_v2":{"verified":[true,"עברתי עם המזכירה על הקבלות והסכום החסר אכן נשאר אצלו"],"rebuke":[false,"אליו עוד לא פניתי בעניין"]},"router":["ask_user"]}
+{"id":"lhg-indB-0032","facts_v2":{"future_purpose":[true,"אני מבררת כי אנחנו רוצים לצרף אותה לעסק"],"requested_disclosure":[true,"אבא ביקש שאמסור לך את עניין החובות שלה"],"verified":[false,"עוד לא בדקתי את המספרים"],"firsthand":[false,"אני מכירה את החוב רק מהמכתב שקיבלתי"]},"router":["mem_recent"]}
+{"id":"lhg-indB-0033","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0034","facts_v2":{"intent":[true,"I want to knock him down a peg in front of his clients"],"no_alternative":[false,"There is a quieter option, I could settle the paperwork through his assistant"]},"router":[]}
+{"id":"lhg-indB-0035","facts_v2":{"purpose":[true,"אני מבקשת שהאחראי יטפל בזה לפני שעוד עובדת תיפגע ממנו"],"firsthand":[false,"לא הייתי במשמרת הזאת, שמעתי עליה רק בטלפון"]},"router":["mem_search"]}
+{"id":"lhg-indB-0036","facts_v2":{"revenge":[true,"עכשיו אני מחזיר לו עם הסיפור על הקמצנות שלו"],"rebuke":[false,"עוד לא העליתי את זה מולו"]},"router":["mem_search"]}
+{"id":"lhg-indB-0037","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0038","facts_v2":{},"router":["mem_search"]}
+{"id":"lhg-indB-0039","facts_v2":{},"router":["mem_search"]}
+{"id":"lhg-indB-0040","facts_v2":{"second_source":[true,"גם אני אומר לך שהמזכיר צודק"],"subject_self_disclosed":[false,"הרכז סיפר את זה בעצמו רק לשני אנשי צוות"]},"router":["mem_search"]}
+{"id":"lhg-indB-0041","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0042","facts_v2":{},"router":["ask_user"]}
+{"id":"lhg-indB-0043","facts_v2":{"intent":[true,"אני ממש רוצה שהשכנים ילעגו לו על הקמצנות"],"rebuke":[false,"לא אמרתי לו בעצמי כלום על זה"]},"router":[]}
+{"id":"lhg-indB-0044","facts_v2":{"unverified_rumor":[true,"The chatter about the cleaner stealing hasn't been sorted out by anyone yet"],"purpose":[false,"I just want a place to grumble, I'm not aiming to do any good with it"]},"router":["mem_search"]}
+{"id":"lhg-indB-0045","facts_v2":{"said_in_jest":[true,"זה היה בצחוק על אחותי"]},"router":["mem_recent"]}
+{"id":"lhg-indB-0046","facts_v2":{"said_in_jest":[true,"The bit about my brother running on one brain cell was a joke about him"],"requested_disclosure":[false,"this didn't come from Mum or Dad or my rabbi, none of them asked me to tell it"]},"router":["mem_recent"]}
+{"id":"lhg-indB-0047","facts_v2":{"purpose":[true,"I'm raising this so none of them ends up out on the road"],"rebuke":[false,"I haven't taken it up with her yet"]},"router":["ask_user"]}
+{"id":"lhg-indB-0048","facts_v2":{},"router":["ask_user"]}
+{"id":"lhg-indB-0049","facts_v2":{"requested_disclosure":[true,"אמא שלחה אותי להגיד לך שהמורה הזה נוגע בילדים בצורה לא מתאימה"],"purpose":[false,"אני רק פורק פה, אין לי תכנית לעזור או לשנות משהו"]},"router":[]}
+{"id":"lhg-indB-0050","facts_v2":{"unverified_rumor":[true,"that's still loose talk that nobody has cleared up"],"subject_self_disclosed":[false,"She only mentioned the incident herself to one person in private"]},"router":["mem_search"]}
+{"id":"lhg-indB-0051","facts_v2":{"medium_written":[true,"אני מכניס למייל את הטענה שהרכזת מזניחה את המשמרות"],"same_self_disparagement":[false,"כשאני אומר מזניחה אני מתכוון אליה, אל תדביקו את זה גם לי"]},"router":["ask_user"]}
+{"id":"lhg-indB-0052","facts_v2":{"medium_written":[false,"את הביקורת עליה אשמיע רק בעל פה, לא אכתוב אותה"],"is_hint":[false,"אגיד לה במפורש שהיא מקללת ילדים, לא רמזים"],"rebuke":[true,"כבר דיברתי איתה על הקללות"],"rejects":[false,"היא מסוגלת לשמוע הערה ולשנות"]},"router":["mem_recent"]}
+{"id":"lhg-indB-0053","facts_v2":{},"router":[]}
+{"id":"lhg-indB-0054","facts_v2":{"verified":[true,"I pulled the original timesheets and confirmed the manager changed those hours"],"is_hint":[false,"I'm calling it falsifying records outright, no wink or coded language"]},"router":[]}
+{"id":"lhg-indB-0055","facts_v2":{"revenge":[true,"כי לא סלחתי לו על מה שעשה לי"],"firsthand":[false,"אני בכלל לא הייתי שם, מכיר את זה רק מההקלטה שהעבירו"]},"router":["mem_search"]}
+{"id":"lhg-indB-0056","facts_v2":{"future_purpose":[true,"אני מברר על הבחור כי הבת שלי עומדת לצאת איתו"],"purpose":[false,"אין לי כוונה לעזור למישהו עם השאלה, זה נטו רכילות בשביל הסקרנות שלי"]},"router":[]}
+{"id":"lhg-indB-0057","facts_v2":{"same_self_disparagement":[true,"אני דחיין לא פחות ממנה"],"future_purpose":[false,"לא הולך לצאת מזה שום שיתוף פעולה בינינו, סתם רציתי לדעת עוד עליה"]},"router":[]}
+{"id":"lhg-indB-0058","facts_v2":{"revenge":[true,"telling this story is my little payback"],"is_hint":[false,"I'm saying directly that he's careless with money, not suggesting it between the lines"]},"router":[]}
+{"id":"lhg-indB-0059","facts_v2":{"rejects":[true,"היא לא מוכנה לקבל הערות"],"medium_written":[false,"אני אגיד את זה בשיחה בלבד, בלי הודעות ובלי מיילים"]},"router":[]}
+{"id":"lhg-indB-0060","facts_v2":{"rejects":[true,"he simply won't listen"],"unverified_rumor":[false,"His fiddling with the envelopes has been established, it's not just a floating story anymore"]},"router":["mem_search"]}
+{"id":"lhg-indB-0061","facts_v2":{},"router":["mem_search","ask_user"]}
+{"id":"lhg-indB-0062","facts_v2":{"no_alternative":[true,"אין לנו כבר שום דרך אחרת חוץ מלספר להורים על המאבטח שנעלם"],"future_purpose":[true,"זה בשביל לשמור על הילדים בהסעה של השבוע הבא"],"purpose":[true,"בשביל לשמור על הילדים"],"medium_written":[false,"את הביקורת נגיד רק בטלפון, בלי מסר כתוב"]},"router":["mem_recent"]}
+{"id":"lhg-indB-0063","facts_v2":{"rejects":[true,"הוא לא מוכן לשמוע שום הערה על העובש"],"no_alternative":[false,"אפשר עדיין לשלוח רק את התמונות לחברת הניהול במקום לדבר עליו בקבוצה"]},"router":["ask_user"]}
+{"id":"lhg-indB-0064","facts_v2":{"repeats_prior":[true,"Here's what the electrician told me about the builder cutting corners, passed on as he said it"],"verified":[false,"I haven't gone through the figures to see if they hold up"]},"router":["ask_user"]}
+{"id":"lhg-indB-0065","facts_v2":{"future_purpose":[true,"אנחנו עוד רגע סוגרים איתו חוזה שכירות"],"requested_disclosure":[false,"אף אחד מהם לא שלח אותי"]},"router":["mem_search"]}
+{"id":"lhg-indB-0066","facts_v2":{"no_alternative":[true,"Nothing except telling the other parents about the escort's drinking can keep the children safe now"],"purpose":[true,"can keep the children safe now"],"second_source":[false,"I'm not in a position to confirm it"]},"router":["mem_search"]}
+{"id":"lhg-indB-0067","facts_v2":{"is_hint":[true,"רק משאיר רמזים שיבינו לבד"],"second_source":[false,"אל תחשבו שאני מאשר את הסיפור שהשומר כבר סיפר לכם"]},"router":["mem_search"]}
+{"id":"lhg-indB-0068","facts_v2":{"requested_disclosure":[true,"הרב שלי ביקש שאעביר לך את הפרטים על הזיוף שלה"]},"router":["mem_recent","mem_search"]}
+{"id":"lhg-indB-0069","facts_v2":{"firsthand":[true,"I was sitting beside the desk when she said it"],"said_in_jest":[false,"I'm not making a joke about her"]},"router":[]}
+{"id":"lhg-indB-0070","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0071","facts_v2":{"revenge":[true,"to get him back for freezing me out"],"no_alternative":[false,"I could just have his deputy sort the rota instead of talking about him"]},"router":[]}
+{"id":"lhg-indB-0072","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0073","facts_v2":{"verified":[true,"I've compared the invoices and confirmed the maintenance officer charged us twice"],"same_self_disparagement":[false,"When I call him a cheat I mean him, don't drag me into that description"]},"router":[]}
+{"id":"lhg-indB-0074","facts_v2":{},"router":[]}
+{"id":"lhg-indB-0075","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0076","facts_v2":{},"router":["mem_search"]}
+{"id":"lhg-indB-0077","facts_v2":{},"router":["mem_search"]}
+{"id":"lhg-indB-0078","facts_v2":{"intent":[true,"אני רוצה שכולם יצחקו על השכן הנפוח הזה"],"firsthand":[false,"על הפיצוץ עם הוועד קראתי רק אצלכם, לא נכחתי בו"]},"router":["mem_search"]}
+{"id":"lhg-indB-0079","facts_v2":{"future_purpose":[true,"הוא עומד לטפל במכירת הדירה שלנו ולכן אני בודק את עניין השקרים שלו"],"verified":[true,"בדקתי מול ההסכם והסעיף שהוא ציטט פשוט לא קיים"],"rejects":[false,"הוא דווקא מוכן לשמוע תיקון"],"no_alternative":[false,"אפשר להסתדר דרך עורך הדין בלי לפרסם עליו כלום"]},"router":["mem_recent","mem_search"]}
+{"id":"lhg-indB-0080","facts_v2":{"repeats_prior":[true,"I'm forwarding what the caretaker told me about the noisy tenant"],"rebuke":[false,"I haven't raised the noise with the tenant himself"]},"router":["ask_user"]}
+{"id":"lhg-indB-0081","facts_v2":{},"router":["mem_search","ask_user"]}
+{"id":"lhg-indB-0082","facts_v2":{"purpose":[true,"אני מנסה לדאוג שלא יקרה שם אסון"],"rebuke":[true,"כבר תפסתי אותו ואמרתי לו שזה מסוכן"],"rejects":[true,"הוא לא מוכן לקבל הערות בעניין"]},"router":["mem_recent"]}
+{"id":"lhg-indB-0083","facts_v2":{},"router":["mem_search"]}
+{"id":"lhg-indB-0084","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0085","facts_v2":{"second_source":[true,"Count me as another person saying your friend's got that right"],"firsthand":[false,"I only know from the cleaning log, I didn't see her doing it"]},"router":["mem_search"]}
+{"id":"lhg-indB-0086","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0087","facts_v2":{"repeats_prior":[true,"מה שהשכן סיפר לי על המלמד, אני מוסר לכם כמו שקיבלתי"],"purpose":[false,"לא מנסה לתקן כלום, רק להוציא קצת קיטור"]},"router":[]}
+{"id":"lhg-indB-0088","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0089","facts_v2":{},"router":["mem_recent","mem_search"]}
+{"id":"lhg-indB-0090","facts_v2":{"rebuke":[false,"לא דיברתי איתה עדיין על הצעקות"],"rejects":[false,"אני מאמין שהיא תקשיב אם נגיד לה בצורה נורמלית"],"intent":[false,"אני לא בא לבייש אותה"]},"router":["mem_recent"]}
+{"id":"lhg-indB-0091","facts_v2":{"purpose":[true,"I want the head of the club to stop those kids getting treated like that"]},"router":["ask_user"]}
+{"id":"lhg-indB-0092","facts_v2":{"verified":[true,"I checked the camera log and the entry record; the guard really did leave his post"],"medium_written":[false,"The criticism will be spoken over the phone, I won't write it anywhere"]},"router":[]}
+{"id":"lhg-indB-0093","facts_v2":{"future_purpose":[true,"אנחנו רוצים להעסיק אותה עם התאומים אחרי החגים"],"firsthand":[false,"את עניין הנעילה שמעתי רק מהאבא בקבוצה"],"verified":[false,"לא בדקתי את הפרטים עדיין"]},"router":["mem_recent"]}
+{"id":"lhg-indB-0094","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0095","facts_v2":{"no_alternative":[true,"כבר אין שום פתרון מלבד לספר למי שמפקיד אצלו כסף"],"same_self_disparagement":[false,"אני לא כולל את עצמי"]},"router":["ask_user"]}
+{"id":"lhg-indB-0096","facts_v2":{"rebuke":[true,"I have already spoken to her about the way she mocks the little ones"],"second_source":[false,"I can't confirm the other parent's earlier account of her"]},"router":["mem_search"]}
+{"id":"lhg-indB-0097","facts_v2":{"said_in_jest":[true,"סתם צחקתי על המנהל"],"is_hint":[true,"המסר שלי על העצלנות שלו היה רק רמז, בלי להגיד את זה"],"medium_written":[false,"אני אגיד את העקיצה רק בקול, לא אשאיר אותה כתובה"]},"router":["mem_recent","mem_search"]}
+{"id":"lhg-indB-0098","facts_v2":{},"router":[]}
+{"id":"lhg-indB-0099","facts_v2":{"firsthand":[true,"I watched the coach shove the boy off the bench, I was right beside them"],"is_hint":[false,"I'm saying he shoved a child, plain as that"]},"router":[]}
+{"id":"lhg-indB-0100","facts_v2":{},"router":["mem_search"]}
+{"id":"lhg-indB-0101","facts_v2":{"verified":[true,"הוצאתי את העותק המקורי והשוויתי, הוא אכן שינה את הציון של הבן שלו"],"said_in_jest":[false,"על ה״אבא המשקיע״ לא צחקתי, זה היה בכובד ראש"]},"router":[]}
+{"id":"lhg-indB-0102","facts_v2":{"rebuke":[true,"I've already told her to stop commenting on mine"],"same_self_disparagement":[false,"That nastiness is hers, I'm not describing myself with it"]},"router":[]}
+{"id":"lhg-indB-0103","facts_v2":{"repeats_prior":[true,"זה מה שהשוכר הקודם אמר לי על בעלת הדירה, ואני מספר לך הלאה"],"revenge":[false,"אני לא שומר לה שום חשבון, אין כאן נקמה"]},"router":["mem_search"]}
+{"id":"lhg-indB-0104","facts_v2":{"rebuke":[true,"כבר אמרתי לו שהערות על הגוף של הילדות לא במקום"],"rejects":[true,"הוא לא יקבל ממני ביקורת על זה"],"no_alternative":[true,"לא נשאר לנו מוצא חוץ מלספר למשפחות"],"purpose":[true,"אני רוצה שהילדות יוכלו להגיע בלי לפחד"]},"router":["mem_recent"]}
+{"id":"lhg-indB-0105","facts_v2":{"rejects":[false,"אני חושבת שהוא דווקא יסכים לשמוע מה מפריע לנו"]},"router":["mem_recent"]}
+{"id":"lhg-indB-0106","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0107","facts_v2":{"repeats_prior":[true,"I'm telling you what the piano teacher's former pupil told me about the yelling"],"rejects":[false,"The teacher will listen if somebody points out what she's doing"]},"router":["mem_search"]}
+{"id":"lhg-indB-0108","facts_v2":{"requested_disclosure":[true,"הרב ביקש שאמסור לך שהמשגיח מסלף את רשימת המנות"],"intent":[false,"אני לא מעוניין לבייש את המשגיח"]},"router":[]}
+{"id":"lhg-indB-0109","facts_v2":{"purpose":[true,"אני כותבת כי אני לא רוצה שעוד ילד יישאר בחוץ בלי השגחה"],"intent":[false,"אין לי רצון לפגוע בה, באמת"]},"router":["ask_user"]}
+{"id":"lhg-indB-0110","facts_v2":{"intent":[true,"I want him to feel embarrassed in front of his own crowd"],"is_hint":[false,"I'm calling him dishonest, right to his face, no code words"]},"router":[]}
+{"id":"lhg-indB-0111","facts_v2":{"firsthand":[true,"הייתי בחדר כשהמנהלת צרחה על המזכירה עד שבכתה"],"rebuke":[false,"עם המנהלת עוד לא דיברתי על הצרחות"]},"router":["ask_user"]}
+{"id":"lhg-indB-0112","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0113","facts_v2":{},"router":["ask_user"]}
+{"id":"lhg-indB-0114","facts_v2":{"is_hint":[true,"רק רמזתי על הלכלוך שלו, לא אמרתי את הגנאי בגלוי"],"same_self_disparagement":[false,"אני מדבר על הלכלוך שלו, לא כולל את עצמי"],"purpose":[false,"אני סתם מתלונן כדי לפרוק"],"said_in_jest":[false,"לא התבדחתי כשהערתי עליו"]},"router":["mem_recent","mem_search"]}
+{"id":"lhg-indB-0115","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0116","facts_v2":{"second_source":[false,"אין לי איך לאשר את הטענה שהשכנה כבר שלחה לך"],"repeats_prior":[true,"אני רק מעביר את מה שהשומר סיפר לי על הארון"],"unverified_rumor":[true,"הסיפור עדיין מסתובב בלי שמישהו בירר אותו"]},"router":["mem_recent","mem_search"]}
+{"id":"lhg-indB-0117","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0118","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0119","facts_v2":{"rejects":[true,"He won't hear a word of criticism about that"],"same_self_disparagement":[false,"The arrogant one in this rant is him, leave me out of that description"]},"router":[]}
+{"id":"lhg-indB-0120","facts_v2":{"firsthand":[true,"עמדתי לידו כשהוא צעק על הילד"]},"router":["mem_recent"]}
+{"id":"lhg-indB-0121","facts_v2":{},"router":["ask_user"]}
+{"id":"lhg-indB-0122","facts_v2":{"verified":[false,"אני עוד לא בדקתי אפילו פרט אחד מהסיפור"]},"router":["mem_search","ask_user"]}
+{"id":"lhg-indB-0123","facts_v2":{},"router":["mem_search"]}
+{"id":"lhg-indB-0124","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0125","facts_v2":{"said_in_jest":[true,"That was just me teasing her"],"future_purpose":[false,"I'm only asking out of curiosity, we won't be making any plans together in future"]},"router":["mem_recent"]}
+{"id":"lhg-indB-0126","facts_v2":{"unverified_rumor":[false,"הסיפור על המשכורת שהחזיק כבר הוכרע, זה לא סתם שמועה"],"second_source":[true,"אני מחזק את מה שהמלווה כבר סיפרה לך על זה"],"verified":[true,"השוויתי לתלושים ובדקתי שאכן הכסף לא הועבר"]},"router":["mem_recent"]}
+{"id":"lhg-indB-0127","facts_v2":{"said_in_jest":[true,"ה״מומחה לחניה כפולה״ זה סתם צחוק שלי על הנהג"],"unverified_rumor":[false,"זה כבר אושר בבית הדין לתעבורה, לא שמועה"]},"router":[]}
+{"id":"lhg-indB-0128","facts_v2":{"medium_written":[true,"אני אשים במכתב את הטענה שהוא מעלים קבלות"],"repeats_prior":[false,"זה הדיווח שלי, לא סיפור שאני מפיץ ממישהו"],"subject_self_disclosed":[false,"הוא סיפר את זה בעצמו לאדם אחד בלבד"],"requested_disclosure":[false,"לא ההורים ולא הרב שלחו אותי להגיד את זה"]},"router":["mem_recent","mem_search"]}
+{"id":"lhg-indB-0129","facts_v2":{},"router":["ask_user"]}
+{"id":"lhg-indB-0130","facts_v2":{},"router":["mem_search"]}
+{"id":"lhg-indB-0131","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0132","facts_v2":{},"router":["mem_recent","ask_user"]}
+{"id":"lhg-indB-0133","facts_v2":{"future_purpose":[true,"We're about to hire her to look after Dad"],"revenge":[false,"I have no old score to settle with her"]},"router":["mem_search"]}
+{"id":"lhg-indB-0134","facts_v2":{"is_hint":[true,"שיבינו לבד"],"medium_written":[true,"בעניין החובות של החתן אכתוב רק"],"unverified_rumor":[false,"החובות כבר התבררו כאמיתיים, זה מעבר לשמועה"]},"router":["ask_user"]}
+{"id":"lhg-indB-0135","facts_v2":{"same_self_disparagement":[true,"אני לא פחות מלכלך ממנה"]},"router":["mem_recent","mem_search"]}
+{"id":"lhg-indB-0136","facts_v2":{"subject_self_disclosed":[true,"The landlord said in front of six tenants"],"no_alternative":[false,"There is another option besides telling more people"]},"router":[]}
+{"id":"lhg-indB-0137","facts_v2":{},"router":["mem_search"]}
+{"id":"lhg-indB-0138","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0139","facts_v2":{},"router":["mem_recent","mem_search"]}
+{"id":"lhg-indB-0140","facts_v2":{},"router":[]}
+{"id":"lhg-indB-0141","facts_v2":{},"router":[]}
+{"id":"lhg-indB-0142","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0143","facts_v2":{},"router":["mem_search"]}
+{"id":"lhg-indB-0144","facts_v2":{"subject_self_disclosed":[true,"The committee chair told five of us himself"],"verified":[false,"I haven't checked the bill against anything yet"]},"router":[]}
+{"id":"lhg-indB-0145","facts_v2":{"second_source":[true,"I can back that up as another person reporting the same thing"],"purpose":[false,"I'm not trying to fix anything with this, just having a moan"]},"router":["mem_search"]}
+{"id":"lhg-indB-0146","facts_v2":{"is_hint":[true,"It's just a wink at the coach's drinking, I leave people to fill in the blanks"],"subject_self_disclosed":[false,"He told just one person about it himself, in private"]},"router":[]}
+{"id":"lhg-indB-0147","facts_v2":{"rejects":[true,"הוא לא יקבל מאף אחד הערה על השקרים שלו"],"is_hint":[false,"אני גם אומר לו ״אתה משקר״, ככה, בלי מסביב"]},"router":[]}
+{"id":"lhg-indB-0148","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0149","facts_v2":{"no_alternative":[true,"כבר לא נשארה דרך לעצור את הנסיעות המסוכנות חוץ מלספר להורים"],"said_in_jest":[false,"אני אומרת את זה ברצינות גמורה"],"purpose":[true,"לעצור את הנסיעות המסוכנות"]},"router":[]}
+{"id":"lhg-indB-0150","facts_v2":{},"router":[]}
+{"id":"lhg-indB-0151","facts_v2":{"requested_disclosure":[true,"אמא ביקשה שאספר לכם על העמלות שהוא מסתיר"],"subject_self_disclosed":[true,"הוא בעצמו דיבר על זה מול חמישה אנשים"],"revenge":[false,"אני לא כועס עליו ולא מחפש להחזיר לו"]},"router":["mem_recent"]}
+{"id":"lhg-indB-0152","facts_v2":{"requested_disclosure":[true,"הרב שלי אמר לי להעביר לכם את עניין הסחיטה של הגבאי"],"subject_self_disclosed":[false,"הגבאי עצמו סיפר את זה רק לשני אנשים"]},"router":[]}
+{"id":"lhg-indB-0153","facts_v2":{"future_purpose":[true,"לפני שנכניס אותה כשותפה לסטודיו"],"repeats_prior":[false,"הדברים כאן הם הסיפור שלי איתה ולא משהו ששמעתי מאחרים"]},"router":[]}
+{"id":"lhg-indB-0154","facts_v2":{"subject_self_disclosed":[true,"הוא סיפר על העמלה בעצמו ליד ארבעה אנשים"]},"router":["mem_recent","mem_search"]}
+{"id":"lhg-indB-0155","facts_v2":{},"router":["mem_search","ask_user"]}
+{"id":"lhg-indB-0156","facts_v2":{},"router":["mem_recent","ask_user"]}
+{"id":"lhg-indB-0157","facts_v2":{"future_purpose":[true,"We're looking at becoming partners with her"],"firsthand":[false,"I wasn't in that shop, I've only read the staff message"]},"router":[]}
+{"id":"lhg-indB-0158","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0159","facts_v2":{},"router":[]}
+{"id":"lhg-indB-0160","facts_v2":{"rebuke":[true,"דיברתי עם הבן שלה על ההצקות כבר ביום ראשון"],"said_in_jest":[false,"אני לא מתבדח, אני מתכוון לזה לגמרי"]},"router":["mem_recent"]}
+{"id":"lhg-indB-0161","facts_v2":{"rejects":[true,"גם אם תגידו לו אלף פעם הוא לא יסכים לקבל ביקורת"],"said_in_jest":[false,"״שר המשפחה״ היה תיאור רציני לגמרי, בלי צחוק"]},"router":[]}
+{"id":"lhg-indB-0162","facts_v2":{"no_alternative":[true,"כל שאר האפשרויות נגמרו"],"is_hint":[false,"אני כותב בפירוש שהוא מזייף, בלי קודים"],"medium_written":[true,"אני כותב בפירוש שהוא מזייף"]},"router":["ask_user"]}
+{"id":"lhg-indB-0163","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0164","facts_v2":{"is_hint":[true,"The dig at the matchmaker's honesty stays between the lines, let them join the dots"],"future_purpose":[false,"there's no future introduction or business with him behind my questions"]},"router":[]}
+{"id":"lhg-indB-0165","facts_v2":{},"router":[]}
+{"id":"lhg-indB-0166","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0167","facts_v2":{"repeats_prior":[true,"אני מעבירה את מה שהתלמידה סיפרה לי על ההשפלות"],"unverified_rumor":[true,"העניין עוד לא בורר, כרגע זו שמועה"],"second_source":[false,"אני לא יכולה לחזק את מה שהאמא השנייה כבר אמרה לך"],"revenge":[false,"אין לי איתה חשבון פתוח"]},"router":["mem_recent","mem_search"]}
+{"id":"lhg-indB-0168","facts_v2":{},"router":["mem_recent","ask_user"]}
+{"id":"lhg-indB-0169","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0170","facts_v2":{"firsthand":[true,"הייתי במטבח וראיתי את זה"],"rejects":[false,"אם תעירו לה היא דווקא תקשיב"]},"router":[]}
+{"id":"lhg-indB-0171","facts_v2":{},"router":["mem_recent","ask_user"]}
+{"id":"lhg-indB-0172","facts_v2":{"intent":[true,"I want people laughing at the manager's incompetence"],"said_in_jest":[false,"I'm being perfectly serious about that, no punchline"]},"router":[]}
+{"id":"lhg-indB-0173","facts_v2":{"rejects":[true,"The rehearsal leader won't accept a correction from anyone"],"second_source":[false,"I can't vouch for that one"]},"router":["mem_search"]}
+{"id":"lhg-indB-0174","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0175","facts_v2":{"verified":[true,"בדקתי מול שני הרישומים והמחסנאי באמת הוציא ציוד בלי אישור"],"no_alternative":[false,"אפשר לטפל בזה דרך ספירת מלאי שקטה, בלי לנקוב בשמו לכל החברה"]},"router":["ask_user"]}
+{"id":"lhg-indB-0176","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0177","facts_v2":{},"router":[]}
+{"id":"lhg-indB-0178","facts_v2":{},"router":["ask_user"]}
+{"id":"lhg-indB-0179","facts_v2":{"is_hint":[true,"אני עוקץ אותו על העצלנות בין השורות, מי שיבין יבין"],"same_self_disparagement":[false,"העצלנות הזאת עליו, אל תכניסו גם אותי לעניין"]},"router":[]}
+{"id":"lhg-indB-0180","facts_v2":{},"router":["mem_search"]}
+{"id":"lhg-indB-0181","facts_v2":{"medium_written":[true,"I'm writing the criticism of the caterer's dirty kitchen in the letter itself"],"repeats_prior":[false,"Don't go hunting for an informant, this one's mine"]},"router":[]}
+{"id":"lhg-indB-0182","facts_v2":{},"router":["mem_search"]}
+{"id":"lhg-indB-0183","facts_v2":{"requested_disclosure":[true,"My mother asked me to tell you the driver keeps leaving the children unattended"],"revenge":[false,"I'm not holding anything against him personally"]},"router":[]}
+{"id":"lhg-indB-0184","facts_v2":{},"router":[]}
+{"id":"lhg-indB-0185","facts_v2":{"no_alternative":[true,"The only route left is to tell the other families, everything else has been exhausted"],"future_purpose":[false,"I'm not asking because of any future involvement myself, I'm simply curious about him"]},"router":[]}
+{"id":"lhg-indB-0186","facts_v2":{"same_self_disparagement":[true,"ואני מבריזנית בדיוק כמוה"],"requested_disclosure":[false,"הם בכלל לא ביקשו ממני לספר"]},"router":[]}
+{"id":"lhg-indB-0187","facts_v2":{"unverified_rumor":[true,"The story about the driver taking fuel money is still a rumour nobody has straightened out"],"revenge":[false,"I've got no grudge against him"]},"router":["mem_search"]}
+{"id":"lhg-indB-0188","facts_v2":{},"router":[]}
+{"id":"lhg-indB-0189","facts_v2":{"unverified_rumor":[true,"השמועה שהבחור הסתיר חובות עדיין לא נבדקה"],"future_purpose":[false,"אני לא בודק אותו בשביל שידוך או עסק, סתם מסקרן אותי הרעש"]},"router":["mem_search"]}
+{"id":"lhg-indB-0190","facts_v2":{},"router":["mem_recent","ask_user"]}
+{"id":"lhg-indB-0191","facts_v2":{"unverified_rumor":[true,"מדברים על זה שהאחראית לוקחת מהתרומות, אבל עוד לא ביררו כלום"],"repeats_prior":[false,"מה שאני אומר כאן עליה לא לקוח מאף אחד, זה שלי"]},"router":["mem_search"]}
+{"id":"lhg-indB-0192","facts_v2":{},"router":[]}
+{"id":"lhg-indB-0193","facts_v2":{"same_self_disparagement":[true,"so am I, exactly the same kind of hopeless"],"repeats_prior":[false,"Nobody's been feeding me stories about him, this one is mine"]},"router":[]}
+{"id":"lhg-indB-0194","facts_v2":{"same_self_disparagement":[true,"ואני דרמטי בדיוק כמוהו"],"purpose":[false,"אני רק פורק, לא מנסה להועיל פה"],"intent":[false,"לא רוצה לפגוע בו"]},"router":[]}
+{"id":"lhg-indB-0195","facts_v2":{"rebuke":[true,"אמרתי לו כבר שהחיבורים החשופים מסוכנים"],"is_hint":[false,"אני אומר עליו רשלן בפה מלא, שלא יחפשו איזה קוד"]},"router":[]}
+{"id":"lhg-indB-0196","facts_v2":{"same_self_disparagement":[true,"and I'm a gossip too, just like her"],"subject_self_disclosed":[false,"She only spoke about the fallout to her sister, with nobody else around"]},"router":[]}
+{"id":"lhg-indB-0197","facts_v2":{},"router":["mem_search"]}
+{"id":"lhg-indB-0198","facts_v2":{"subject_self_disclosed":[true,"The fundraiser told three listeners himself"],"rejects":[false,"He's open to being corrected on how he handles it"]},"router":[]}
+{"id":"lhg-indB-0199","facts_v2":{"medium_written":[true,"I'm putting the complaint that the tutor insults pupils into the email"],"subject_self_disclosed":[false,"The tutor herself told only her partner about it, privately"]},"router":[]}
+{"id":"lhg-indB-0200","facts_v2":{},"router":["mem_recent","ask_user"]}
+{"id":"lhg-indB-0201","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0202","facts_v2":{"subject_self_disclosed":[true,"המתווך סיפר בעצמו מול ארבעתנו"],"purpose":[false,"אין לי מטרה מועילה פה, פשוט בא לי לפרוק על החוצפן הזה"]},"router":[]}
+{"id":"lhg-indB-0203","facts_v2":{"unverified_rumor":[true,"בינתיים זה סיפור שרץ ולא ביררו אם קרה בכלל"],"second_source":[false,"על מה שהאבא השני אמר לך אל תבנה עליי, אין לי אישור לזה"]},"router":["mem_search"]}
+{"id":"lhg-indB-0204","facts_v2":{"firsthand":[true,"I was holding the other door and watched it happen"],"same_self_disparagement":[false,"He's the bully in what I'm saying, not me, don't lump us together"]},"router":[]}
+{"id":"lhg-indB-0205","facts_v2":{"future_purpose":[true,"We're considering him as our next housemate, that's why I'm asking about the angry outbursts"],"intent":[false,"I don't want to humiliate him"]},"router":[]}
+{"id":"lhg-indB-0206","facts_v2":{},"router":["mem_recent","ask_user"]}
+{"id":"lhg-indB-0207","facts_v2":{"subject_self_disclosed":[true,"המדריך סיפר על ההימורים שלו בעצמו מול שישה מהחבר'ה"],"firsthand":[false,"אני לא הייתי שם, שמעתי רק את ההודעה הקולית מהמפגש"]},"router":[]}
+{"id":"lhg-indB-0208","facts_v2":{},"router":["mem_search","ask_user"]}
+{"id":"lhg-indB-0209","facts_v2":{"medium_written":[true,"I'm writing into the review that the photographer bullies customers"],"purpose":[false,"No great mission here, I just want to moan about him"]},"router":[]}
+{"id":"lhg-indB-0210","facts_v2":{"subject_self_disclosed":[true,"The playgroup owner admitted to four parents together"],"rebuke":[false,"I haven't spoken to her about leaving them"]},"router":[]}
+{"id":"lhg-indB-0211","facts_v2":{"same_self_disparagement":[true,"הוא נודניק ואני נודניק בדיוק באותה צורה"],"said_in_jest":[true,"הכינוי ״שר החפירות״ היה בדיחה עליו"],"intent":[false,"אני לא רוצה להעליב אותו"],"revenge":[false,"אין לי שום טינה אליו"]},"router":["mem_recent","mem_search"]}
+{"id":"lhg-indB-0212","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0213","facts_v2":{"repeats_prior":[true,"I'm passing on what the downstairs tenant told me about the landlord keeping her deposit"],"firsthand":[false,"I wasn't involved, all I know of it is her message"]},"router":["mem_search"]}
+{"id":"lhg-indB-0214","facts_v2":{},"router":["mem_recent","ask_user"]}
+{"id":"lhg-indB-0215","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0216","facts_v2":{},"router":["mem_search"]}
+{"id":"lhg-indB-0217","facts_v2":{},"router":[]}
+{"id":"lhg-indB-0218","facts_v2":{"intent":[true,"בא לי להקטין אותה קצת מול החברות שלה"],"verified":[false,"לא טרחתי לבדוק את המספרים שהיא מסרה"]},"router":[]}
+{"id":"lhg-indB-0219","facts_v2":{"second_source":[true,"אני יכול לחזק את הדיווח שלה על היחס המשפיל שלו"],"future_purpose":[false,"אין לי שום עבודה מתוכננת איתו, אני שואל רק מסקרנות"]},"router":["mem_search"]}
+{"id":"lhg-indB-0220","facts_v2":{"requested_disclosure":[true,"Mum asked me to tell the school office the lunchtime helper swears at children"],"rebuke":[false,"I haven't approached the helper about the swearing"]},"router":[]}
+{"id":"lhg-indB-0221","facts_v2":{"said_in_jest":[true,"I was joking about the cousin being the family's biggest freeloader"],"repeats_prior":[false,"this is my own story about him"]},"router":[]}
+{"id":"lhg-indB-0222","facts_v2":{},"router":["mem_search"]}
+{"id":"lhg-indB-0223","facts_v2":{"said_in_jest":[true,"חח סתם צוחק עליו"],"is_hint":[false,"פה אני אומר עליו במפורש: הוא תמיד מאחר"]},"router":[]}
+{"id":"lhg-indB-0224","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0225","facts_v2":{"firsthand":[true,"אני הייתי בכיסא כשהיא לעגה לילד שלי"],"rebuke":[true,"אמרתי לה במקום שזה לא מקובל"],"intent":[false,"אני לא רוצה להשפיל אותה"],"purpose":[true,"אני רוצה שהמרפאה תדאג שזה לא יקרה לעוד ילדים"]},"router":["mem_recent","mem_search"]}
+{"id":"lhg-indB-0226","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0227","facts_v2":{"revenge":[true,"אני מספר את זה בשביל לסגור איתו חשבון על הפיטורים שלי"],"rejects":[false,"הוא כן יודע להקשיב כשמעירים לו על זה"]},"router":[]}
+{"id":"lhg-indB-0228","facts_v2":{"rebuke":[true,"I've knocked on his door twice and told him about it"],"medium_written":[false,"I'll say the criticism to him on the phone only, nothing on paper or chat"]},"router":[]}
+{"id":"lhg-indB-0229","facts_v2":{"verified":[true,"I went through the signed forms and established that the club secretary forged the approvals"],"unverified_rumor":[false,"It's been resolved as fact now, not hearsay"]},"router":[]}
+{"id":"lhg-indB-0230","facts_v2":{"requested_disclosure":[true,"Dad asked me to let you know the accountant keeps losing receipts"],"verified":[false,"I haven't checked those receipts myself"]},"router":[]}
+{"id":"lhg-indB-0231","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0232","facts_v2":{"rebuke":[true,"I took her aside and told her those words upset the kids"],"unverified_rumor":[false,"has already been cleared up as a real incident, not a rumour"]},"router":[]}
+{"id":"lhg-indB-0233","facts_v2":{},"router":["mem_recent","ask_user"]}
+{"id":"lhg-indB-0234","facts_v2":{"rebuke":[true,"על ההערות לילד שלי כבר ישבתי עם המורה לשיחה"],"no_alternative":[false,"יש גם אפשרות לבקש מהיועצת להתערב בלי להפיץ את זה"]},"router":["mem_recent"]}
+{"id":"lhg-indB-0235","facts_v2":{"said_in_jest":[true,"Calling the treasurer our resident magician was me kidding at his expense"],"second_source":[false,"I can't back her story up"]},"router":["mem_search"]}
+{"id":"lhg-indB-0236","facts_v2":{"second_source":[false,"אני לא מאשרת את הסיפור ששמעת מהשכנה"]},"router":["mem_recent"]}
+{"id":"lhg-indB-0237","facts_v2":{"requested_disclosure":[true,"הרב ביקש שאספר לכם שהוא משחק בכספי אחרים"],"future_purpose":[false,"אני לא מתכנן איתו שום קשר עסקי, פשוט מסקרן אותי מה הולך איתו"],"repeats_prior":[true,"אני מוסר את מה שהשותף שלו סיפר לי"],"verified":[false,"לא בדקתי את החשבונות"]},"router":["mem_recent","mem_search"]}
+{"id":"lhg-indB-0238","facts_v2":{"same_self_disparagement":[true,"וגם אני קמצן בדיוק כמוהו"],"unverified_rumor":[false,"זה כבר הוכח במסמכים, לא סתם דיבור שמתגלגל"]},"router":[]}
+{"id":"lhg-indB-0239","facts_v2":{},"router":["mem_search"]}
+{"id":"lhg-indB-0240","facts_v2":{},"router":["mem_search"]}
+{"id":"lhg-indB-0241","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0242","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0243","facts_v2":{"requested_disclosure":[true,"אבא ביקש ממני לעדכן את ועד הכיתה שהמלווה נרדם בנסיעות"],"repeats_prior":[false,"אל תחפשו מי הדליף לי, זה סיפור שלי"]},"router":[]}
+{"id":"lhg-indB-0244","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0245","facts_v2":{"is_hint":[true,"I'm leaving it at a nudge and a wink, they'll get the dig"],"requested_disclosure":[false,"Don't go asking my parents or my rabbi why they sent me, they didn't"]},"router":[]}
+{"id":"lhg-indB-0246","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0247","facts_v2":{},"router":["mem_recent","ask_user"]}
+{"id":"lhg-indB-0248","facts_v2":{"intent":[true,"בא לי שיתבייש מול כל הצוות כשישמעו איך הוא מדבר"],"revenge":[false,"זה לא חשבון ישן שלי איתו"]},"router":[]}
+{"id":"lhg-indB-0249","facts_v2":{"unverified_rumor":[true,"the talk about the coach's gambling is still unclarified gossip"],"intent":[false,"I don't want him embarrassed"]},"router":["mem_search"]}
+{"id":"lhg-indB-0250","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0251","facts_v2":{},"router":["ask_user"]}
+{"id":"lhg-indB-0252","facts_v2":{"subject_self_disclosed":[true,"מנהלת החוג הודתה בפני שלוש האמהות"],"revenge":[false,"אני לא נוטר לה כלום, זה לא בא מנקמה"]},"router":[]}
+{"id":"lhg-indB-0253","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0254","facts_v2":{},"router":["mem_recent","ask_user"]}
+{"id":"lhg-indB-0255","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0256","facts_v2":{},"router":["mem_search"]}
+{"id":"lhg-indB-0257","facts_v2":{"second_source":[true,"Put me down as another person saying your colleague's right about him"],"intent":[false,"I'm not out to make him feel small"]},"router":["mem_search"]}
+{"id":"lhg-indB-0258","facts_v2":{"subject_self_disclosed":[false,"היא סיפרה בעצמה רק לשני דיירים על הפיקדון"],"repeats_prior":[false,"זה מה שיש לי לומר משלי, לא העברה של דיווח של אחר"],"said_in_jest":[false,"אני לא צוחק כשאני אומר שהיא מתחמקת"]},"router":["mem_recent","mem_search"]}
+{"id":"lhg-indB-0259","facts_v2":{"verified":[true,"עברתי על דוחות הנוכחות ואכן יש רישום שעות כפול שלו"],"no_alternative":[false,"אפשר פשוט לבקש בדיקת שכר בלי להפיץ עליו סיפור"],"medium_written":[true,"את הביקורת עליו אני מכניס למייל הזה"]},"router":["mem_recent"]}
+{"id":"lhg-indB-0260","facts_v2":{},"router":[]}
+{"id":"lhg-indB-0261","facts_v2":{"revenge":[true,"because I'm still bitter over what he did to me"],"said_in_jest":[false,"I mean every word, this isn't a funny little dig"]},"router":[]}
+{"id":"lhg-indB-0262","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0263","facts_v2":{"revenge":[true,"I'm doing this to get even with the uncle who ruined my weekend"],"medium_written":[false,"The dig at him will be face to face only, I won't leave a written version"]},"router":[]}
+{"id":"lhg-indB-0264","facts_v2":{"subject_self_disclosed":[true,"הוא סיפר בעצמו לשבעה דיירים"],"unverified_rumor":[false,"זה כבר התברר כמשהו שקרה, לא שמועה"],"said_in_jest":[false,"אני מתכוון ברצינות כשאני אומר שזה חצוף"],"is_hint":[false,"אני אומר חצוף ישר, אין כאן רמז"]},"router":["mem_recent","mem_search"]}
+{"id":"lhg-indB-0265","facts_v2":{"second_source":[true,"You can add me to the people saying the waiter's got it right"],"revenge":[false,"There isn't any resentment driving me"]},"router":["mem_search"]}
+{"id":"lhg-indB-0266","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0267","facts_v2":{"said_in_jest":[true,"זו הייתה בדיחה עליו"],"medium_written":[false,"את העקיצה אני אגיד לו בטלפון בלבד ולא אשאיר בכתב"]},"router":[]}
+{"id":"lhg-indB-0268","facts_v2":{},"router":["mem_recent","ask_user"]}
+{"id":"lhg-indB-0269","facts_v2":{},"router":["mem_search"]}
+{"id":"lhg-indB-0270","facts_v2":{},"router":["mem_search"]}
+{"id":"lhg-indB-0271","facts_v2":{"rebuke":[true,"דיברתי איתה כבר פעמיים על זה שהיא קוראת לו עצלן"]},"router":["mem_recent","ask_user"]}
+{"id":"lhg-indB-0272","facts_v2":{},"router":["mem_recent","ask_user"]}
+{"id":"lhg-indB-0273","facts_v2":{"second_source":[true,"את הדיווח של אחותך על המטפלת אני מצטרף לאחותך"],"requested_disclosure":[false,"לא נשלחתי על ידי ההורים או הרב שלי"]},"router":["mem_search"]}
+{"id":"lhg-indB-0274","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0275","facts_v2":{"same_self_disparagement":[true,"and I'm just as much of a show-off myself"],"intent":[false,"I'm not trying to hurt her feelings"]},"router":[]}
+{"id":"lhg-indB-0276","facts_v2":{"is_hint":[true,"I'll stick to a little hint about the gardener being lazy, people can work it out"],"repeats_prior":[false,"Nobody fed me this story, this one's mine"]},"router":[]}
+{"id":"lhg-indB-0277","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0278","facts_v2":{"no_alternative":[true,"We've run out of options except telling the people about to pay him"],"unverified_rumor":[false,"The missing money has been established now, it's past the rumour stage"]},"router":[]}
+{"id":"lhg-indB-0279","facts_v2":{"said_in_jest":[true,"זה היה בצחוק"],"same_self_disparagement":[false,"דיברתי רק על הבלגן שלו, לא על עצמי"]},"router":[]}
+{"id":"lhg-indB-0280","facts_v2":{"second_source":[true,"אני מגבה את הדיווח שלה על המחיקות ביומן"],"repeats_prior":[false,"זה לא הגיע דרך אף אחד, זה הסיפור שלי"]},"router":["mem_search"]}
+{"id":"lhg-indB-0281","facts_v2":{},"router":[]}
+{"id":"lhg-indB-0282","facts_v2":{"second_source":[true,"אני מאשר לך את מה שהעמית כבר סיפר על זיוף השעות שלו"],"firsthand":[true,"עמדתי לידו כשהקליד שעות של משמרת שלא עשה"],"rebuke":[false,"עוד לא דיברתי איתו על זה"],"intent":[false,"אני לא מנסה לפגוע בו"]},"router":["mem_recent","mem_search"]}
+{"id":"lhg-indB-0283","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0284","facts_v2":{},"router":["mem_recent"]}
+{"id":"lhg-indB-0285","facts_v2":{},"router":["ask_user"]}
+{"id":"lhg-indB-0286","facts_v2":{"no_alternative":[true,"Telling the residents about the chair's spending is the only option left"],"requested_disclosure":[false,"none of them asked me to speak"]},"router":["ask_user"]}
+{"id":"lhg-indB-0287","facts_v2":{"is_hint":[false,"אני אומר חד וחלק שהוא בזבזן, בלי רמזים"]},"router":[]}
+{"id":"lhg-indB-0288","facts_v2":{"is_hint":[true,"על השדכן אני זורק רק קריצה, לא אומר בקול מה אני חושב עליו"],"medium_written":[false,"זה יישאר בשיחה בעל פה, לא אכתוב את זה בשום הודעה"]},"router":[]}
+{"id":"lhg-indB-0289","facts_v2":{},"router":["mem_search"]}
+{"id":"lhg-indB-0290","facts_v2":{"firsthand":[true,"I was at the counter and saw the owner swap the price label after the customer paid"],"medium_written":[false,"I won't put the criticism in a message"]},"router":[]}
+{"id":"lhg-indB-0291","facts_v2":{"purpose":[true,"I'm sending this so the home can put a stop to it"],"said_in_jest":[false,"I'm deadly serious about what I'm saying about him"]},"router":[]}
+{"id":"lhg-indB-0292","facts_v2":{"same_self_disparagement":[true,"היא רכלנית וגם אני רכלנית, באותה מידה"],"second_source":[false,"אין לי אישור לתת לך לסיפור הזה"]},"router":["mem_recent"]}
+{"id":"lhg-indB-0293","facts_v2":{"unverified_rumor":[true,"ככה לוחשים, ובינתיים אף אחד לא בירר את זה"],"requested_disclosure":[false,"אמא ואבא והרב לא ביקשו ממני להגיד מילה"]},"router":["mem_search"]}
+{"id":"lhg-indB-0294","facts_v2":{"requested_disclosure":[true,"Our rabbi asked me to pass you the news about the dishonest fundraiser"],"firsthand":[false,"I know it only from reading the notice, I wasn't there"]},"router":[]}
+{"id":"lhg-indB-0295","facts_v2":{},"router":["mem_search"]}
+{"id":"lhg-indB-0296","facts_v2":{},"router":["mem_search"]}
+{"id":"lhg-indB-0297","facts_v2":{},"router":["mem_recent","mem_search"]}
+{"id":"lhg-indB-0298","facts_v2":{"intent":[true,"I'd love to make him look tiny in front of the residents"],"rejects":[false,"he does take criticism on board when someone actually talks to him"]},"router":[]}
+{"id":"lhg-indB-0299","facts_v2":{"future_purpose":[true,"Before we take him on as our bookkeeper"],"verified":[false,"I haven't checked the allegation yet"]},"router":["mem_search"]}
+{"id":"lhg-indB-0300","facts_v2":{"firsthand":[true,"ישבתי מול הפקידה כשהיא דחפה את הטופס של הזקנה לפח"],"no_alternative":[false,"אפשר גם להתלונן בלי להזכיר את שמה"]},"router":[]}
