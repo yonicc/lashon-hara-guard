@@ -19,3 +19,8 @@ Modal profile yonicc, detached. No serving endpoints changed.
 - Preserve tag/input hashes; checkpoint every 100 extractor steps. No automatic relaunch. Results pending.
 - Runtime still rejects scoreless extractor candidates via canonical factPolicy; training does not resolve confidence admission or add meaning assessment.
 - No merge to main, release or live-model inference verified yet.
+
+## Results and release (2026-10-29)
+- Both Modal apps finished. Extractor e10-v2 LoRA on v2 dev+holdout (synthetic, development only): precision 0.984, recall 0.906, 84 rows with a dropped pair (81 evidence_not_verbatim, 4 invalid_json); zero-shot base 0.534/0.429. Router r3 summary: `classifier/results/router/summary_r3-supervisor.json`. `classifier/data/router_v3_train.jsonl` (sha256 above) is regenerable and not committed.
+- Neither v2 model is promoted: no independent evaluation, no GGUF/ONNX export, no comparison with the shipped models. The extension still ships the 8-fact GGUF and the existing router.
+- Runtime fixes in 0.11.4 (docs/45): per-pair drop instead of failing the whole extraction, and model token probability as the admission score. Live Ollama inference verified on BI-1.

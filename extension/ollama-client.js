@@ -85,12 +85,60 @@
         if (typeof prompt !== 'string' || prompt.length > 65536) throw new Error('ollama_bad_prompt');
         const data = await request('/api/generate', {
           model: MODELS[id], prompt, raw: true, stream: false,
-          options: { temperature: 0, num_predict: 256 },
+          logprobs: true, options: { temperature: 0, num_predict: 256 },
         });
         if (data.done !== true || typeof data.response !== 'string') throw new Error('ollama_incomplete');
-        return parse(data.response);
+        // A truncated generation is not a complete extraction.
+        if (data.done_reason === 'length') throw new Error('ollama_token_limit');
+        const output = parse(data.response);
+        return { output, scores: scoreKeys(data.response, data.logprobs) };
       },
     };
+  }
+  // Per-key model probability, read from the server's own token logprobs:
+  // min(P(first token of the key), P(token deciding true/false)). Nothing is
+  // invented: if logprobs are absent or do not line up with the response,
+  // no score is returned and canonical factPolicy rejects the proposal.
+  function scoreKeys(response, logprobs) {
+    if (!Array.isArray(logprobs) || !logprobs.length) return {};
+    const enc = new TextEncoder();
+    const starts = []; let pos = 0;
+    for (const t of logprobs) {
+      if (!t || typeof t.logprob !== 'number' || !Number.isFinite(t.logprob) || t.logprob > 0) return {};
+      const len = Array.isArray(t.bytes) ? t.bytes.length
+        : typeof t.token === 'string' ? enc.encode(t.token).length : -1;
+      if (len < 0) return {};
+      starts.push(pos); pos += len;
+    }
+    const raw = enc.encode(response);
+    // The tokens must reproduce the response byte for byte; otherwise offsets are unknown.
+    if (pos !== raw.length) return {};
+    const shift = 0;
+    if (logprobs.every(t => Array.isArray(t.bytes))) {
+      const all = new Uint8Array(pos); let o = 0;
+      for (const t of logprobs) { all.set(t.bytes, o); o += t.bytes.length; }
+      for (let i = 0; i < raw.length; i++) if (all[i] !== raw[i]) return {};
+    } else if (logprobs.map(t => t.token).join('') !== response) {
+      return {};
+    }
+    const tokenAt = byte => {
+      const b = byte + shift; let lo = 0, hi = starts.length - 1;
+      while (lo < hi) { const mid = (lo + hi + 1) >> 1; if (starts[mid] <= b) lo = mid; else hi = mid - 1; }
+      return Math.exp(logprobs[lo].logprob);
+    };
+    const byteOf = index => enc.encode(response.slice(0, index)).length;
+    const scores = {};
+    const re = /"([A-Za-z0-9_]+)"\s*:\s*\[\s*(true|false)/g;
+    for (let m; (m = re.exec(response));) {
+      const key = m[1];
+      const keyAt = m.index + 1;
+      const valueAt = m.index + m[0].length - m[2].length;
+      const p = Math.min(tokenAt(byteOf(keyAt)), tokenAt(byteOf(valueAt)));
+      // A duplicated key is ambiguous: keep no score for it.
+      scores[key] = Object.prototype.hasOwnProperty.call(scores, key) ? NaN : p;
+    }
+    for (const k of Object.keys(scores)) if (!Number.isFinite(scores[k])) delete scores[k];
+    return scores;
   }
   function parse(raw) {
     if (typeof raw !== 'string' || raw.length > 32768) throw new Error('ollama_bad_output');
@@ -99,5 +147,5 @@
     if (!parsed || Array.isArray(parsed) || typeof parsed !== 'object') throw new Error('ollama_bad_output');
     return parsed;
   }
-  globalThis.LHG_OLLAMA_CLIENT = { MODELS, create, parse };
+  globalThis.LHG_OLLAMA_CLIENT = { MODELS, create, parse, scoreKeys };
 })();

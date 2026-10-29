@@ -1,0 +1,16 @@
+{
+  "tag": "e10-v2-7b-20261029-supervisor",
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "train_rows": 6151,
+  "eval_rows": 2123,
+  "max_train_tokens": 2048,
+  "evaluation_status": "dev_v2/holdout_v2 are development sets; diagnostics only",
+  "scope": "18 candidate facts, synthetic only; no deployment; heavy work only on Modal",
+  "sha256": {
+    "contract_v2.json": "043298a51d9e09cc15db549e77446b767d9dd621fcbacc6aa4104cb3f30950cd",
+    "train_v2.jsonl": "fdc3c2d9b8d96c572bfdfdf199f30b2286c8fe96e57132ac9e642fd388f89e00",
+    "dev_v2.jsonl": "bcdf9c9648bea0a1f483b35c6104525c191f94e932e85cf1cf134b630cee17c4",
+    "holdout_v2.jsonl": "facc6afdcedb4d272c5517a9f47e490cd438665e883a1e1523ccf11769c567ca",
+    "manifest_v2.json": "79973c673def322db2871beb6a566b38ad75f682dfbb4d8ce20381597e4153f4"
+  }
+}

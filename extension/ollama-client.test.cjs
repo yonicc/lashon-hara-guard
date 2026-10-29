@@ -1,7 +1,7 @@
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
 require('./ollama-client.js');
-const { create, parse, MODELS } = globalThis.LHG_OLLAMA_CLIENT;
+const { create, parse, scoreKeys, MODELS } = globalThis.LHG_OLLAMA_CLIENT;
 const id = 'extractor-7b-q4';
 const reply = data => ({ ok: true, text: async () => JSON.stringify(data) });
 test('loopback-only raw request with no credentials or redirects', async () => {
@@ -10,9 +10,32 @@ test('loopback-only raw request with no credentials or redirects', async () => {
     assert.equal(init.credentials, 'omit'); assert.equal(init.redirect, 'error');
     const body = JSON.parse(init.body);
     assert.equal(body.model, MODELS[id]); assert.equal(body.raw, true);
+    assert.equal(body.logprobs, true);
     return reply({ done: true, response: '{"verified":[true,"checked"]}' });
   } });
-  assert.deepEqual(await client.generate(id, 'prompt'), { verified: [true, 'checked'] });
+  assert.deepEqual(await client.generate(id, 'prompt'), { output: { verified: [true, 'checked'] }, scores: {} });
+});
+const toks = (parts) => parts.map(([token, p]) => ({ token, logprob: Math.log(p),
+  bytes: Array.from(new TextEncoder().encode(token)) }));
+test('scores come from the model token probabilities of key and value', () => {
+  const lp = toks([['{"', 1], ['verified', 0.9], ['":[', 1], ['true', 0.8], [',"', 1], ['בדקתי', 1], ['"]', 1],
+    [',"', 1], ['rumor', 0.4], ['":[', 1], ['false', 0.99], [',"x"]}', 1]]);
+  const response = lp.map(t => t.token).join('');
+  const s = scoreKeys(response, lp);
+  assert.ok(Math.abs(s.verified - 0.8) < 1e-9);
+  assert.ok(Math.abs(s.rumor - 0.4) < 1e-9);
+});
+test('scores fail closed when logprobs are missing or misaligned', () => {
+  assert.deepEqual(scoreKeys('{"a":[true,"x"]}', undefined), {});
+  const lp = toks([['{"', 1], ['a', 0.9], ['":[', 1], ['true', 0.9], [',"x"]}', 1]]);
+  assert.deepEqual(scoreKeys('{"a":[false,"x"]}', lp), {});
+  assert.deepEqual(scoreKeys('{"a":[true,"x"]} ', lp), {});
+  const dup = toks([['{"a":[', 0.9], ['true', 0.9], [',"x"],"a":[', 1], ['true', 0.9], [',"x"]}', 1]]);
+  assert.deepEqual(scoreKeys(dup.map(t => t.token).join(''), dup), {});
+});
+test('a generation cut by the token limit is rejected', async () => {
+  await assert.rejects(create({ fetchImpl: async () => reply({ done: true, done_reason: 'length', response: '{}' }) })
+    .generate(id, 'p'), /ollama_token_limit/);
 });
 test('availability requires installed exact model', async () => {
   assert.equal(await create({ fetchImpl: async () => reply({ models: [] }) }).available(id), false);
