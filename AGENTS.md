@@ -44,6 +44,7 @@
 - Worker server calls must use `redirect:'manual'` and explicitly reject 3xx:
   Cloudflare Workers does not implement `redirect:'error'` (it throws before
   making any request). Never follow redirects carrying partner credentials.
+- Native Worker `fetch` must retain its global receiver: use a wrapper when storing/injecting it in a class, never `this.fetchImpl` with raw `fetch` as the default. Node mocks missed the direct Baseten failure; `proxy/test/basetenWorker.test.ts` reproduces it in workerd with synthetic outbound interception.
 - Personal `lap_...` tokens are managed at `https://lhg.ysho.uk` (legacy `lap.ysho.uk` redirects there; TZ repo,
   `src/lap-access.js`). `proxy/src/accountAccess.ts` verifies/reserves via
   central LAP partner endpoints before extraction and captures/releases after.

@@ -8,7 +8,9 @@ export const BASETEN_URL = 'https://inference.baseten.co/v1/chat/completions';
 export class BasetenExtractorProvider implements ExtractorProvider {
   id = 'baseten-direct-extractor';
   modelVersion = PUBLIC_MODEL;
-  constructor(private readonly key: string, private readonly fetchImpl: typeof fetch = fetch) {}
+  // Worker fetch requires its global receiver; never store it as an unbound method.
+  constructor(private readonly key: string,
+    private readonly fetchImpl: typeof fetch = (input, init) => fetch(input, init)) {}
   async extract(req: ExtractorRequest): Promise<unknown> {
     const response = await this.fetchImpl(BASETEN_URL, {
       method: 'POST', redirect: 'manual', signal: AbortSignal.timeout(20000),
