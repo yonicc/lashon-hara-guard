@@ -105,7 +105,17 @@
     const chip = document.createElement('div');
     chip.className = 'lhg-tag lhg-tag-' + kind;
     chip.setAttribute('dir', uiDir());
-    chip.textContent = tagText(kind);
+    if (kind === 'checking') {
+      const spin = document.createElement('span');
+      spin.className = 'lhg-spinner lhg-spinner-sm';
+      spin.setAttribute('aria-hidden', 'true');
+      chip.appendChild(spin);
+    }
+    // A span, not a bare text node: the test DOM and Gmail's React render pass
+    // both keep element children intact.
+    const txt = document.createElement('span');
+    txt.textContent = tagText(kind);
+    chip.appendChild(txt);
     chip.title = t('tag.title');
     el.appendChild(chip);
   }
@@ -253,6 +263,15 @@
     h.setAttribute('data-lang', uiLang());
     h.setAttribute('dir', uiDir());
     h.textContent = '';
+    if (st.phase === 'pending') {
+      // Owner request 2026-10-29: while a check runs the user must SEE the
+      // state, not a blank. An animated spinner + label ("⏳ …בודקת") instead
+      // of a flat placeholder, which reads as "nothing there" when it hangs.
+      const spin = document.createElement('span');
+      spin.className = 'lhg-spinner';
+      spin.setAttribute('aria-hidden', 'true');
+      h.appendChild(spin);
+    }
     const label = document.createElement('span');
     const mech = st.result && st.result.mechanism ? mechText(st.result.mechanism) : '';
     label.textContent = t('hold.' + st.phase) + (mech ? ' (' + mech + ')' : '');

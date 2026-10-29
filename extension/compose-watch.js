@@ -14,6 +14,10 @@
   // incoming one (bug 2026-10-27: a just-sent Google Chat message was held as
   // incoming). One registry per frame, shared by every watcher in it.
   const SENT_WINDOW_MS = 20 * 1000;
+  // Max time a send waits for the check before the user is told to resend to
+  // skip it (owner 2026-10-29). A second Enter bypasses at ANY time; the cap
+  // only makes that explicit once the wait is long. One definition, exported.
+  const SEND_CAP_MS = 30 * 1000;
   const RECENT_MAX = 8;
   const recent = []; // { text (normalised), at }
 
@@ -91,6 +95,7 @@
       if (button) { button.setAttribute('aria-busy', 'true'); }
       token.cancel = () => {
         pending.delete(box);
+        if (typeof token.cancelCap === 'function') token.cancelCap();
         if (button) button.removeAttribute('aria-busy');
       };
       const contextKey = () => globalThis.LHG_CONTEXT_RUNTIME?.contentKey?.(opts.platform, box, text);
@@ -99,6 +104,7 @@
       token.isCurrent = current;
       const done = (r) => {
         if (pending.get(box) !== token) return;
+        if (typeof token.cancelCap === 'function') token.cancelCap();
         if (button) button.removeAttribute('aria-busy');
         token.result = r;
         if (!current()) { token.cancel(); return; }
@@ -124,6 +130,23 @@
         try { action.send(); } finally { replaying = false; }
       };
       show('checking', t('send.checking'), [t('send.waiting')], [{ label: t('send.anyway'), onClick: token.bypass }]);
+      // Owner request 2026-10-29: the wait is BOUNDED. After CAP_MS the panel
+      // explains the cap and that pressing Enter again (or Send anyway) sends
+      // immediately without the result. The background request still finishes
+      // (it may be billed); only the gate opens.
+      let capTimer = null;
+      // Guarded: a bare test context may lack timers; the bypass path never
+      // depends on the cap.
+      if (typeof setTimeout === 'function' && typeof clearTimeout === 'function') {
+        token.cancelCap = () => { if (capTimer) { clearTimeout(capTimer); capTimer = null; } };
+        capTimer = setTimeout(() => {
+          capTimer = null;
+          if (!current()) return;
+          show('checking', t('send.checking'), [t('send.cap')], [{ label: t('send.anyway'), onClick: token.bypass }]);
+        }, SEND_CAP_MS);
+      } else {
+        token.cancelCap = () => {};
+      }
       const begin = () => {
         if (pending.get(box) !== token || textOf(box) !== text) return;
         capturedContext = contextKey();
@@ -205,5 +228,5 @@
     return { readText: () => textOf(opts.findCompose()) };
   }
 
-  globalThis.LHG_COMPOSE = { createComposeWatcher, MIN_CHARS, noteTyped, recentlySent, SENT_WINDOW_MS };
+  globalThis.LHG_COMPOSE = { createComposeWatcher, MIN_CHARS, noteTyped, recentlySent, SENT_WINDOW_MS, SEND_CAP_MS };
 })();

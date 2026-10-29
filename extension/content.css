@@ -204,3 +204,21 @@
   padding: 2px 10px; border: 1px solid #a9b0c2; border-radius: 10px; background: #fff; color: #333; cursor: pointer;
 }
 .lhg-hold-note { font-size: 11px !important; opacity: 0.75; }
+
+/* Loading indicator while an incoming check runs (owner request 2026-10-29):
+   a held message must show an animated state, never an unmarked blank. Pure
+   CSS, one keyframe; honours reduced-motion. */
+.lhg-spinner {
+  visibility: visible !important;
+  display: inline-block;
+  width: 14px; height: 14px; flex: 0 0 auto;
+  border: 2px solid rgba(120, 130, 160, 0.35);
+  border-top-color: #4a6a8a;
+  border-radius: 50%;
+  animation: lhg-spin 0.9s linear infinite;
+}
+.lhg-spinner-sm { width: 11px; height: 11px; border-width: 1.5px; margin-inline-end: 5px; vertical-align: -1px; }
+@keyframes lhg-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .lhg-spinner { animation-duration: 2.4s; }
+}
