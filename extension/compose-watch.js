@@ -4,7 +4,8 @@
 // stale-response guard and "cleared after send" handling live here.
 // Typing alone never opens the panel: a check starts from an explicit send
 // action (send button / keyboard shortcut). Native send is held until a
-// current check permits it; progress is indeterminate, never a fake percent.
+// current check completes or the user explicitly bypasses it (a second send
+// or Send anyway). Progress is indeterminate, never a fake percent.
 (() => {
   const MIN_CHARS = 6;
   const WARM_EVERY_MS = 4 * 60 * 1000; // the gate container sleeps after 5 idle minutes
@@ -66,43 +67,44 @@
       })();
       if (!action || !action.box) return;
       if (!textOf(action.box)) return; // attachments-only send has no message text to check
+      const existing = pending.get(action.box);
+      if (existing && existing.isCurrent()) {
+        // A second deliberate send is an explicit bypass, even while the
+        // request is pending. Let the original native event through once.
+        noteTyped(textOf(action.box));
+        existing.cancel();
+        hide();
+        return;
+      }
       e.preventDefault();
       e.stopImmediatePropagation();
       const box = action.box;
-      const previous = pending.get(box);
-      if (previous) {
-        if (previous.isCurrent()) {
-          if (previous.result && P) P.renderResult(previous.result, { manual: true, onApprove: previous.approve });
-          return;
-        }
-        previous.cancel();
-      }
+      pending.get(box)?.cancel();
       const text = textOf(box);
       if (!text) return;
+      noteTyped(text);
       const token = {};
       token.text = text;
       pending.set(box, token);
       const button = action.button;
-      const label = button && button.textContent;
       const t = (key) => globalThis.LHG_I18N?.t(key) || key;
-      if (button) { button.textContent = t('send.checking'); button.setAttribute('aria-busy', 'true'); }
+      if (button) { button.setAttribute('aria-busy', 'true'); }
       token.cancel = () => {
         pending.delete(box);
-        if (button) { button.textContent = label; button.removeAttribute('aria-busy'); }
+        if (button) button.removeAttribute('aria-busy');
       };
-      show('checking', t('send.checking'), [t('send.waiting')]);
       const contextKey = () => globalThis.LHG_CONTEXT_RUNTIME?.contentKey?.(opts.platform, box, text);
       let capturedContext = contextKey();
       const current = () => pending.get(box) === token && textOf(box) === text && contextKey() === capturedContext;
       token.isCurrent = current;
       const done = (r) => {
         if (pending.get(box) !== token) return;
-        if (button) { button.textContent = label; button.removeAttribute('aria-busy'); }
+        if (button) button.removeAttribute('aria-busy');
         token.result = r;
-        if (!current() || !r || r.error || r.rules?.notChecked || !['none', 'warn', 'unsure'].includes(r.alert)) {
-          pending.delete(box);
-          return;
-        }
+        if (!current()) { token.cancel(); return; }
+        // Failure is unresolved; keep the explicit bypass available without
+        // interpreting it as a clean result or automatically sending.
+        if (!r || r.error || r.rules?.notChecked || !['none', 'warn', 'unsure'].includes(r.alert)) return;
         if (r.alert !== 'none') return; // explicit panel approval or a clarifying answer is required
         pending.delete(box);
         noteTyped(text);
@@ -113,11 +115,20 @@
       token.approve = () => {
         if (current() && ['warn', 'unsure'].includes(token.result?.alert)) done({ alert: 'none' });
       };
+      token.bypass = () => {
+        if (!current()) return;
+        noteTyped(text);
+        token.cancel();
+        hide();
+        replaying = true;
+        try { action.send(); } finally { replaying = false; }
+      };
+      show('checking', t('send.checking'), [t('send.waiting')], [{ label: t('send.anyway'), onClick: token.bypass }]);
       const begin = () => {
         if (pending.get(box) !== token || textOf(box) !== text) return;
         capturedContext = contextKey();
         if (P && typeof P.check === 'function') {
-          P.check(payload, box, { isCurrent: current, onResult: done, onApprove: token.approve });
+          P.check(payload, box, { isCurrent: current, onResult: done, onApprove: token.approve, onBypass: token.bypass });
         } else {
           const send = globalThis.LHG_CONTEXT_RUNTIME?.send || ((msg, cb) => chrome.runtime.sendMessage(msg, cb));
           send(payload, (r) => { render(r); done(chrome.runtime.lastError ? null : r); }, box);
@@ -130,7 +141,7 @@
     document.addEventListener('keydown', intercept, true);
 
     const hide = () => P && P.hide();
-    const show = (kind, title, lines) => P && P.show(kind, title, lines);
+    const show = (kind, title, lines, actions) => P && P.show(kind, title, lines, actions);
     const render = (r) => P && P.renderResult(r);
     const rawText = (box) => (box && (box.innerText || box.textContent) || '').trim();
     const textOf = (box) => {

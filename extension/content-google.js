@@ -58,6 +58,24 @@
       platform: 'google-chat',
       composeBox: (el) => (active('google-chat') ? chatComposeBox(el) : null),
       findCompose: findChatCompose,
+      sendAction: (e) => {
+        const button = e.type === 'click' ? S.closestMatch(e.target, S.googleChat.sendButton) : null;
+        const keyboard = e.type === 'keydown' && e.key === 'Enter' && !e.shiftKey && !e.isComposing;
+        if (!button && !keyboard) return null;
+        // Resolve the compose in the button's own conversation, never the
+        // first compose from another simultaneously open chat.
+        let box = keyboard ? chatComposeBox(e.target) : null;
+        for (let root = button?.parentElement; !box && root && root !== document.body; root = root.parentElement) {
+          const boxes = S.all(root, S.googleChat.compose).map(chatComposeBox).filter(Boolean);
+          const unique = [...new Set(boxes)];
+          if (unique.length > 1) return null;
+          if (unique.length === 1) box = unique[0];
+        }
+        if (!box || !active('google-chat')) return null;
+        return { box, button, send: () => button ? button.click() : box.dispatchEvent(new KeyboardEvent('keydown', {
+          key: 'Enter', code: 'Enter', bubbles: true, cancelable: true, ctrlKey: !!e.ctrlKey, metaKey: !!e.metaKey,
+        })) };
+      },
     });
   }
 

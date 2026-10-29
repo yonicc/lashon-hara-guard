@@ -307,6 +307,9 @@
   function createScanner({ platform, findRows, root = document, hold = () => G.holdEnabled, beforeScan = () => true }) {
     const S = globalThis.LHG_SELECTORS;
     const seen = new Set();
+    // Preserve direction across context-fingerprint changes, while allowing
+    // a virtualised node reused for different text to be checked normally.
+    const ownEchoes = new WeakMap();
     // id -> { phase: pending|warn|unsure|not_checked|clear, result, revealed, held, el }
     const state = new Map();
     // Local-only bubble context (checkpoint 3b): WeakMap el -> attach() result.
@@ -379,8 +382,9 @@
         if (row.el && isEditable(row.el)) continue; // the user's own draft is not an incoming message
         if (row.el && inHold(row.el)) continue; // our own placeholder, never a message
         const text = (row.text || '').trim();
+        const ownEcho = row.kind !== 'email' && (ownEchoes.get(row.el) === text || G.recentlySent(text));
         globalThis.LHG_MEMORY?.context(platform, row.el, text,
-          S.isOutgoing?.(row.el, {localContext:row.localContext}) ? 'outgoing' : 'incoming');
+          ownEcho || S.isOutgoing?.(row.el, {localContext:row.localContext}) ? 'outgoing' : 'incoming');
         if (text.length < MIN_CHARS) { row.el?.setAttribute?.('data-lhg-scanned', 'true'); continue; }
         // The user's OWN message is never incoming (one rule: S.isOutgoing;
         // adapters also pre-filter, this guard covers every platform).
@@ -390,7 +394,8 @@
         // Just sent from this frame's compose box (same text, last seconds):
         // the page's echo of the user's message. Marked seen so it is not
         // picked up as incoming once the window has passed.
-        if (!seen.has(id) && row.kind !== 'email' && G.recentlySent(text)) {
+        if (ownEcho) {
+          if (row.el) ownEchoes.set(row.el, text);
           seen.add(id);
           continue;
         }

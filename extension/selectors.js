@@ -12,6 +12,7 @@
   };
 
   S.whatsapp = {
+    sendButton: ['button[aria-label="Send"]', 'button[aria-label="שליחה"]', '[data-icon="send"]'],
     // Compose box at the bottom of the open chat.
     compose: [
       'footer [contenteditable="true"]',
@@ -73,6 +74,7 @@
   };
 
   S.googleChat = {
+    sendButton: ['button[aria-label^="Send"]', 'button[aria-label^="שלח"]', '[role="button"][aria-label^="Send"]', '[role="button"][aria-label^="שלח"]', '[data-tooltip^="Send"]', '[data-tooltip^="שלח"]'],
     // GROUPS/DMs (not single messages): a message in Google Chat — including
     // the Chat panel embedded in Gmail (mail.google.com) — lives inside a
     // c-wiz conversation container, NOT in a dedicated id'd stream root.

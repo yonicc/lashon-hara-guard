@@ -504,14 +504,15 @@
         else hide();
     }
     if (p) appendRules(p, r, opts);
-    if (p && (opts.onRecheck || (opts.onApprove && ['warn', 'unsure'].includes(r?.alert)))) {
+    if (p && (opts.onRecheck || opts.onBypass || (opts.onApprove && ['warn', 'unsure'].includes(r?.alert)))) {
       const action = (key, fn) => {
         const b = document.createElement('button');
         b.type = 'button'; b.className = 'lhg-action'; b.textContent = t(key);
         b.addEventListener('click', fn); p.appendChild(b);
       };
       if (opts.onRecheck && !(opts.onSubmit && globalThis.LHG_RULES?.readRules(r)?.questions.length)) action('check.again', opts.onRecheck);
-      if (opts.onApprove && ['warn', 'unsure'].includes(r?.alert)) action('send.anyway', opts.onApprove);
+      if (opts.onBypass) action('send.anyway', opts.onBypass);
+      else if (opts.onApprove && ['warn', 'unsure'].includes(r?.alert)) action('send.anyway', opts.onApprove);
     }
   }
 
@@ -537,6 +538,8 @@
     const answerDraft = {};
     let answerChain = Promise.resolve();
     let latestFacts = payload.confirmedFacts || {};
+    const showProgress = (title) => show('checking', title, [], opts.onBypass
+      ? [{ label: t('send.anyway'), onClick: () => { if (active()) opts.onBypass(); } }] : []);
     lastCheck = { payload: base, el, opts };
     if (parts) chromeText();
     // answered: a re-check after the user answered; its result is always shown
@@ -561,8 +564,9 @@
         renderResult(display, {
           manual: !!opts.manual || answered || !!userNote,
           userNote: userNote || '',
-          onApprove: opts.onApprove,
-          onRecheck: () => { if (active() && !busy) { show('checking', t('recheck'), []); go(latestFacts, true, true); } },
+          onApprove: opts.onBypass || opts.onApprove,
+          onBypass: opts.onBypass,
+          onRecheck: () => { if (active() && !busy) { showProgress(t('recheck')); go(latestFacts, true, true); } },
           answerDraft,
           onAnswer: R
             ? (factId, value) => {
@@ -580,7 +584,7 @@
               }
               busy = false;
               if (!active()) return;
-              show('checking', t('recheck'), []);
+              showProgress(t('recheck'));
               go(latestFacts, true, true);
             }).catch(() => {
               busy = false;
@@ -589,7 +593,7 @@
           } : null,
         });
       }, el, { current: active, progress: round => {
-        if (active() && busy) show('checking', t('checkingRound', { n: round }), []);
+        if (active() && busy) showProgress(t('checkingRound', { n: round }));
       } });
     };
     if (!R || !conv) { go({}); return; } // nothing stored: send at once

@@ -31,11 +31,13 @@ introduced. Changes to Gmail selectors require live validation.
 
 ## Send
 Gmail's adapter resolves the button and compose within the same dialog/reply.
-Capture listeners block click and Ctrl/Cmd+Enter while checking. Repeated send
-attempts share the pending check. Text/context changes invalidate approval;
-warnings require explicit Send anyway (or a new clear result after answering).
-Errors do not release send. The button uses aria-busy and checking text because
-the API supplies no measured progress percentage. No message text is rewritten.
+The first click or Ctrl/Cmd+Enter starts an asynchronous check. Send anyway is
+available immediately, including during context rounds and after failures. A
+second native send explicitly skips checking. Bypass revokes the pending token
+before replay; late replies cannot send again or start a follow-up. Text/context
+changes revoke stale actions. A failure never sends automatically. The native
+button remains intact (aria-busy only); progress is indeterminate. No message
+text is rewritten. This behavior follows the owner's 2026-10-29 decision.
 
 ## Read and cache
 A document_start Gmail CSS guard hides unprocessed bodies until settings and
@@ -59,6 +61,6 @@ server cannot be detected until expiry or explicit recheck.
 ## Installation verification
 Read the Chrome profile's extension path and hash the files there; a git branch
 or commit alone does not show what a loaded tab runs. BI-1 Profile 2 points to
-the main checkout, not this worktree. This task does not copy, release, deploy,
-bump the extension version, or merge to main. Existing tabs need an extension
-reload and page refresh after a future authorized installation.
+the main checkout, not a development worktree. Every extension release follows
+AGENTS.md's three-target distribution. Existing tabs need an extension reload
+and page refresh after installation.

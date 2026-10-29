@@ -17,13 +17,14 @@ const src = (f) => fs.readFileSync(path.join(__dirname, f), 'utf8');
 const tick = (ms = 30) => new Promise((r) => setTimeout(r, ms));
 
 // Loads selectors + compose-watch + incoming + the adapter into one context.
-function load({ host, pathname = '/', top = true, html, adapter }) {
+function load({ host, pathname = '/', top = true, html, adapter, runtime }) {
   const document = createDocument(html);
   const sent = [];
   const ctx = vm.createContext({
     setTimeout, clearTimeout, setInterval: () => 0, Date, URL,
     KeyboardEvent: class { constructor(type, options) { this.type = type; Object.assign(this, options); } },
     document,
+    LHG_CONTEXT_RUNTIME: runtime,
     location: { hostname: host, pathname, href: 'https://' + host + pathname },
     chrome: {
       runtime: {
@@ -64,6 +65,38 @@ const OWN_BUBBLES = [
   ['sender chip says "You"', '<div jsname="m3"><span data-member-id="u1">You</span><div jsname="t3">הנה ההודעה ששלחתי לקבוצה הזאת</div></div>'],
   ['Hebrew sender chip "את/ה"', '<div jsname="m3"><span data-name="me">את/ה</span><div jsname="t3">הנה ההודעה ששלחתי לקבוצה הזאת</div></div>'],
 ];
+
+test('own echo stays outgoing after the registry expires and context fingerprint changes', async () => {
+  let fingerprint = 'before';
+  const t = load({ host: 'chat.google.com', html: CHAT_AREA, adapter: 'content-google.js',
+    runtime: { contentKey: (_p, _el, text) => text.startsWith('Synthetic sent') ? fingerprint : 'stable', prepare: p => p } });
+  t.scan();
+  t.ctx.LHG_COMPOSE.noteTyped('Synthetic sent message with details.');
+  const row = append(t.document.querySelector('#area'), '<div jsname="new"><div jsname="body">Synthetic sent message with details.</div></div>');
+  t.scan();
+  t.ctx.LHG_COMPOSE.recentlySent = () => false;
+  fingerprint = 'after';
+  t.scan(); await tick();
+  assert.deepEqual(t.checks('incoming').map(x => x.text), []);
+  assert.equal(row.querySelector('.lhg-hold'), null);
+  row.querySelector('[jsname="body"]').textContent = 'Different synthetic incoming message.';
+  t.scan(); await tick();
+  assert.equal(t.checks('incoming').length, 1, 'a recycled node with different text is still checked');
+});
+
+test('Google Chat send-button click refreshes outgoing echo even without an input event', async () => {
+  const t = load({ host: 'chat.google.com', html: CHAT_AREA, adapter: 'content-google.js' });
+  t.scan();
+  const area = t.document.querySelector('#area');
+  const box = t.document.querySelector('#compose');
+  box.textContent = 'Synthetic outgoing button message.';
+  const button = append(area, '<button aria-label="Send message">Send</button>');
+  t.document.dispatch('click', button);
+  assert.equal(t.checks('outgoing').length, 1);
+  append(area, '<div jsname="new"><div jsname="body">Synthetic outgoing button message.</div></div>');
+  t.scan(); await tick();
+  assert.equal(t.checks('incoming').length, 0);
+});
 
 for (const [frame, opts] of [
   ['chat.google.com', { host: 'chat.google.com', top: true }],

@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const vm = require('node:vm');
 const fs = require('node:fs');
 const path = require('node:path');
-test('send interception: typing is silent, duplicate send held, stale approval rejected, current safe result sends once', () => {
+test('send interception: typing is silent, stale approval rejected, current safe result sends once', () => {
   const listeners = {}, calls = [];
   let sends = 0;
   const box = { innerText: 'original draft' };
@@ -22,10 +22,10 @@ test('send interception: typing is silent, duplicate send held, stale approval r
   const event = () => ({ target: box, preventDefault() { this.blocked = true; }, stopImmediatePropagation() {} });
   listeners.input(event());
   assert.equal(calls.length, 0);
-  const e = event(); listeners.click(e); listeners.click(event());
+  const e = event(); listeners.click(e);
   assert.equal(e.blocked, true);
   assert.equal(calls.length, 1);
-  assert.equal(button.textContent, 'send.checking');
+  assert.equal(button.textContent, 'Send');
   box.innerText = 'changed draft';
   listeners.input(event());
   calls[0].o.onResult({ alert: 'none' });

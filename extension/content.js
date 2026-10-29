@@ -116,6 +116,18 @@
       platform: PLATFORM,
       composeBox: (el) => (active() ? composeBox(el) : null),
       findCompose,
+      sendAction: (e) => {
+        if (!active()) return null;
+        const marker = e.type === 'click' ? S.closestMatch(e.target, S.whatsapp.sendButton) : null;
+        const keyboard = e.type === 'keydown' && e.key === 'Enter' && !e.shiftKey && !e.isComposing;
+        if (!marker && !keyboard) return null;
+        const box = keyboard ? composeBox(e.target) : findCompose();
+        if (!box) return null;
+        const button = marker && (marker.closest('button, [role="button"]') || marker);
+        return { box, button, send: () => button ? button.click() : box.dispatchEvent(new KeyboardEvent('keydown', {
+          key: 'Enter', code: 'Enter', bubbles: true, cancelable: true, ctrlKey: !!e.ctrlKey, metaKey: !!e.metaKey,
+        })) };
+      },
     });
   }
 
