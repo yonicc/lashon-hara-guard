@@ -8,7 +8,8 @@ import modal
 ROOT=pathlib.Path(__file__).parent
 sys.path.insert(0,str(ROOT))
 REPOS={"7b":("yonicc/lhg-extractor-qwen7b-gguf","e8-natural-7b-20261028","Qwen/Qwen2.5-7B-Instruct"),
-       "dicta":("yonicc/lhg-extractor-dictalm-gguf","e8-natural-dicta-20261028","dicta-il/dictalm2.0-instruct")}
+       "dicta":("yonicc/lhg-extractor-dictalm-gguf","e8-natural-dicta-20261028","dicta-il/dictalm2.0-instruct"),
+       "7b-v2":("yonicc/lhg-extractor-qwen7b-v2-gguf","e10-v2-7b-20261029-supervisor","Qwen/Qwen2.5-7B-Instruct")}
 QUANTS=["Q4_K_M","Q8_0"]
 app=modal.App("lhg-extractor-hf-publish")
 vol=modal.Volume.from_name("lhg-models")
@@ -54,7 +55,7 @@ def publish(model,card,prompt_text,contract_text):
     who=api.whoami()["name"]
     api.create_repo(repo,repo_type="model",private=False,exist_ok=True)
     name=repo.split("/")[1].replace("-gguf","")
-    for q in QUANTS:
+    for q in (["Q4_K_M"] if model=="7b-v2" else QUANTS):
         src=pathlib.Path("/models/local-extractor")/tag/"gguf"/f"model-{q}.gguf"
         api.upload_file(path_or_fileobj=str(src),path_in_repo=f"{name}-{q}.gguf",repo_id=repo,
                         commit_message=f"Add {q} GGUF")
@@ -79,12 +80,64 @@ def ollama_check(repo,cases):
     return {"ref":ref,"pull_s":round(pull_s),"rows":out}
 
 @app.local_entrypoint()
-def main():
+def main(model:str=""):
     from probe_modal import instruction
+    if model not in ("", "7b-v2"): raise ValueError("Unknown publication target")
+    if model=="7b-v2":
+        parity=json.loads((ROOT/"results/e11-v2-parity.json").read_text(encoding="utf-8"))
+        if not parity["gate_pass"] or parity["prompt_parity_rows"]!=700:
+            raise ValueError("V2 parity release gate failed")
+        contract_text=(ROOT/"contract_v2.json").read_text(encoding="utf-8")
+        prompt_text=instruction(json.loads(contract_text))
+        repo,tag,base=REPOS[model]
+        lines=["| Set (18 facts) | bf16 P/R | Q4_K_M P/R | format-error rows bf16/Q4 | decision flips |",
+               "|---|---|---|---|---|"]
+        for name,scopes in parity["sets"].items():
+            c=scopes["18"]; a=c["bf16"]; b=c["gguf"]
+            lines.append(f"| {name} | {a['precision']:.4f}/{a['recall']:.4f} | {b['precision']:.4f}/{b['recall']:.4f} | "
+                         f"{a['format_error_rows']}/{b['format_error_rows']} | {c['decision_flips']}/{c['rows']} |")
+        card=f"""---
+license: apache-2.0
+base_model: {base}
+language: [he, en]
+tags: [gguf, llama.cpp, ollama, lashon-hara-guard]
+---
+# LHG extractor v2 (18 facts)
+LoRA fine-tune of {base}, checkpoint {tag}, converted with llama.cpp b4500 to Q4_K_M.
+All training and evaluation text is synthetic. Not human-reviewed. No rulings, no meaning assessment,
+no real-world verification and never an assertion that a message is permitted.
+Output: JSON alias:[boolean, exact quote from MESSAGE]; unknown facts are omitted.
+The contract and exact instruction are included. Use the Qwen chat template with raw:true,
+temperature 0 and num_predict 256. User turn: MESSAGE (untrusted data): followed by a newline
+and the JSON-quoted text. Additional-context quality was not measured.
+
+## Development results (not independent)
+Synthetic v2 dev+holdout: bf16 P=0.984, R=0.906 (docs/46). These are development metrics,
+not a benchmark of the complete extension.
+
+## Independent measurement
+Set B: 300 synthetic natural messages, different generator, blind double labeling, no human review.
+Set A: 400 supplementary messages close to contract definitions, generator-only labels.
+Neither set was used for tuning this conversion. Frozen labels and scorer: project docs/47 and docs/49.
+Metrics count validated fact pairs before the extension's confidence/user-only admission policy;
+six facts remain user-confirmation-only in the extension. Token probabilities do not prove correctness.
+
+{chr(10).join(lines)}
+
+## Ollama
+ollama pull hf.co/{repo}:Q4_K_M
+Use extractor_prompt.txt with the Qwen raw chat template; see project extension/ollama-engine.ts.
+The older eight-fact repositories are separate and unchanged.
+"""
+        result=publish.remote(model,card,prompt_text,contract_text)
+        (ROOT/"results/e11-v2-hf.json").write_text(json.dumps(result,indent=2),encoding="utf-8")
+        print("PUBLISHED",json.dumps(result),flush=True)
+        return
     contract_text=(ROOT/"contract.json").read_text(encoding="utf-8");contract=json.loads(contract_text)
     prompt_text=instruction(contract)
     R=ROOT/"results"
     for model,(repo,tag,base) in REPOS.items():
+        if model=="7b-v2": continue
         lines=["| quant | GGUF | peak RSS | p50 / p95 per message | legacy P/R | sealed_v3 he P/R |","|---|---|---|---|---|---|"]
         for q in QUANTS:
             c=json.loads((R/f"e9-gguf-{model}-{q}-compare.json").read_text())

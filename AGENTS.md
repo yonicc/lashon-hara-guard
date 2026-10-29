@@ -75,7 +75,7 @@
 
 ## Local extractor R&D (docs/37)
 - Local extractor R&D: docs/37 and research/local-extractor/. Torch dynamic int8 corrupted decoder JSON on CPU in both the 1.5B and 4B pilots; model load success is not output parity. Retain an uncompressed CPU comparison.
-- Modal extractor wrappers explicitly mount pilot_modal.py and probe_modal.py; nested sibling imports were not auto-mounted. retries=0 did not bound import-failing container startup attempts: stop only the exact experiment app with modal app stop --yes <id>.
+- Modal extractor wrappers explicitly mount every imported sibling (pilot_modal.py, probe_modal.py, and gguf_modal.py for GGUF parity); nested sibling imports were not auto-mounted. retries=0 did not bound import-failing container startup attempts: stop only the exact experiment app with modal app stop --yes <id>.
 - Modal preemption also restarts a running input despite retries=0. The original no-overwrite guard rejected an interrupted partial tag. `pilot_modal.gpu_run(checkpoint_every=100)` now journals inputs/revisions and saves adapter, optimizer, example order and RNG states; changed inputs are refused. Forced interruption/resume matched all 15 tensors and losses exactly in the tiny-Qwen2 smoke test (docs/38); this is not full-model CPU parity.
 
 - e8 (docs/39): a `modal run` WITHOUT `--detach` dies with the client: YONI-PC dropped off and both H100 apps stopped (`ConflictError: App state is APP_STATE_STOPPED`). Launch `--detach`, keep `checkpoint_every`, resume with `natural_modal.py --resume` (same tag, identical inputs), read `comparison.json` from the Volume.
@@ -89,6 +89,7 @@
 - Ollama setup UI: `ollama-setup.html` is the sole authorized download requester (exact port sender URL); never expose `/api/pull` to content scripts. Keep model IDs in ollama-client and mode membership in check-mode. `scripts/test-ollama-setup-browser.mjs` covers Hebrew/RTL, download/cancel/retry, failed inference and explicit activation in real MV3. Closing the page cancels setup; retries reuse Ollama files. docs/45.
 
 - Independent eval (docs/47, `research/independent-eval-20261029/`): never train, calibrate or fix data on it. Different-vendor generator + blind second labeler (freeze labels by hash before opening the sealed file). Judge the router only on per-head labeler consensus. On it the shipped e8 extractor hallucinated facts (P 0.60, `purpose`/`verified` ~0.4) while e10-v2 reached P 0.94 on the same 8 facts; r3 router did not beat r2. A generator told to "write naturally" still paraphrased the contract (Set A): check 4-gram overlap with definitions before using a set.
+- e10-v2 Q4_K_M failed the release parity gate (docs/49): Set A recall fell ~0.035 and Set B 18-fact precision ~0.024 versus bf16. Do not promote that artifact. All 18 contract IDs exist, but six remain confirmedByUserOnly; training scope never overrides catalog admission. A stopped Modal function can commit a final journal row after a resume snapshot: require all unique IDs, verify prompt hashes, and accept repeated measurements only when raw output/prompt/stop reason are identical (score_v2_parity.py).
 
 ## Concurrent agents
 - More than one agent edits this repo at the same time (e.g. context layer vs gate). Always `git pull --ff-only` before editing, re-read a file before patching it, and stage only your own paths.

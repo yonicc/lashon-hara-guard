@@ -1,0 +1,256 @@
+{
+  "prompt_parity_rows": 700,
+  "checkpoint": "e10-v2-7b-20261029-supervisor",
+  "duplicate_measurements": [
+    {
+      "id": "lhg-ind-0241",
+      "first_chunk": "chunk-2.json",
+      "repeat_chunk": "chunk-12.json",
+      "repeat": {
+        "id": "lhg-ind-0241",
+        "raw": "{\"subject_self_disclosed\":[true,\"The tutor herself told the matter to three people at once.\"],\"purpose\":[false,\"I'm passing it along just for amusement\"]}",
+        "hit_limit": false,
+        "elapsed_s": 29.201743014000044,
+        "usage": {
+          "prompt_tokens": 841,
+          "completion_tokens": 34,
+          "total_tokens": 875
+        },
+        "prompt_sha256": "88960532f45edb13941d5e3ebd2c4c7d5e2fe7a861d6159f9b8a505a5e1f5bb5"
+      }
+    }
+  ],
+  "input_commit": "0d31b54cad6ba98d578428d753a0a09477149487",
+  "quant": "Q4_K_M",
+  "sets": {
+    "A": {
+      "8": {
+        "rows": 400,
+        "gguf": {
+          "precision": 0.9577464788732394,
+          "recall": 0.5938864628820961,
+          "format_error_rows": 2,
+          "hit_limit": 0,
+          "missed": 91,
+          "tp": 136,
+          "unsupported": 4,
+          "wrong": 2,
+          "errors": {
+            "evidence_not_verbatim": 3
+          }
+        },
+        "bf16": {
+          "precision": 0.972972972972973,
+          "recall": 0.62882096069869,
+          "format_error_rows": 3,
+          "hit_limit": 0,
+          "missed": 83,
+          "tp": 144,
+          "wrong": 2,
+          "unsupported": 2,
+          "errors": {
+            "evidence_not_verbatim": 4
+          }
+        },
+        "decision_flips": 15,
+        "flip_ids": [
+          "lhg-ind-0011",
+          "lhg-ind-0032",
+          "lhg-ind-0070",
+          "lhg-ind-0079",
+          "lhg-ind-0151",
+          "lhg-ind-0213",
+          "lhg-ind-0237",
+          "lhg-ind-0240",
+          "lhg-ind-0276",
+          "lhg-ind-0309",
+          "lhg-ind-0337",
+          "lhg-ind-0338",
+          "lhg-ind-0367",
+          "lhg-ind-0372",
+          "lhg-ind-0385"
+        ],
+        "delta_precision": -0.015226494099733645,
+        "delta_recall": -0.03493449781659386
+      },
+      "18": {
+        "rows": 400,
+        "gguf": {
+          "precision": 0.9683908045977011,
+          "recall": 0.6991701244813278,
+          "format_error_rows": 2,
+          "hit_limit": 0,
+          "missed": 143,
+          "tp": 337,
+          "unsupported": 9,
+          "wrong": 2,
+          "errors": {
+            "evidence_not_verbatim": 3
+          }
+        },
+        "bf16": {
+          "precision": 0.9698630136986301,
+          "recall": 0.7344398340248963,
+          "format_error_rows": 3,
+          "hit_limit": 0,
+          "tp": 354,
+          "missed": 126,
+          "unsupported": 9,
+          "wrong": 2,
+          "errors": {
+            "evidence_not_verbatim": 4
+          }
+        },
+        "decision_flips": 27,
+        "flip_ids": [
+          "lhg-ind-0001",
+          "lhg-ind-0011",
+          "lhg-ind-0014",
+          "lhg-ind-0032",
+          "lhg-ind-0056",
+          "lhg-ind-0063",
+          "lhg-ind-0066",
+          "lhg-ind-0070",
+          "lhg-ind-0079",
+          "lhg-ind-0093",
+          "lhg-ind-0105",
+          "lhg-ind-0141",
+          "lhg-ind-0151",
+          "lhg-ind-0155",
+          "lhg-ind-0179",
+          "lhg-ind-0213",
+          "lhg-ind-0234",
+          "lhg-ind-0237",
+          "lhg-ind-0240",
+          "lhg-ind-0276",
+          "lhg-ind-0293",
+          "lhg-ind-0309",
+          "lhg-ind-0337",
+          "lhg-ind-0338",
+          "lhg-ind-0367",
+          "lhg-ind-0372",
+          "lhg-ind-0385"
+        ],
+        "delta_precision": -0.001472209100929045,
+        "delta_recall": -0.03526970954356856
+      }
+    },
+    "B": {
+      "8": {
+        "rows": 300,
+        "gguf": {
+          "precision": 0.9259259259259259,
+          "recall": 0.8426966292134831,
+          "format_error_rows": 7,
+          "hit_limit": 0,
+          "tp": 150,
+          "missed": 27,
+          "wrong": 1,
+          "unsupported": 11,
+          "errors": {
+            "evidence_not_verbatim": 7
+          }
+        },
+        "bf16": {
+          "precision": 0.9433962264150944,
+          "recall": 0.8426966292134831,
+          "format_error_rows": 12,
+          "hit_limit": 0,
+          "tp": 150,
+          "missed": 27,
+          "wrong": 1,
+          "unsupported": 8,
+          "errors": {
+            "evidence_not_verbatim": 12,
+            "invalid_json": 1
+          }
+        },
+        "decision_flips": 10,
+        "flip_ids": [
+          "lhg-indB-0036",
+          "lhg-indB-0043",
+          "lhg-indB-0112",
+          "lhg-indB-0134",
+          "lhg-indB-0145",
+          "lhg-indB-0175",
+          "lhg-indB-0211",
+          "lhg-indB-0229",
+          "lhg-indB-0245",
+          "lhg-indB-0282"
+        ],
+        "delta_precision": -0.017470300489168422,
+        "delta_recall": 0.0
+      },
+      "18": {
+        "rows": 300,
+        "gguf": {
+          "precision": 0.899736147757256,
+          "recall": 0.8743589743589744,
+          "format_error_rows": 7,
+          "hit_limit": 0,
+          "tp": 341,
+          "missed": 44,
+          "unsupported": 33,
+          "wrong": 5,
+          "errors": {
+            "evidence_not_verbatim": 7
+          }
+        },
+        "bf16": {
+          "precision": 0.9239130434782609,
+          "recall": 0.8717948717948718,
+          "format_error_rows": 12,
+          "hit_limit": 0,
+          "tp": 340,
+          "missed": 47,
+          "unsupported": 25,
+          "wrong": 3,
+          "errors": {
+            "evidence_not_verbatim": 12,
+            "invalid_json": 1
+          }
+        },
+        "decision_flips": 22,
+        "flip_ids": [
+          "lhg-indB-0014",
+          "lhg-indB-0036",
+          "lhg-indB-0043",
+          "lhg-indB-0079",
+          "lhg-indB-0095",
+          "lhg-indB-0112",
+          "lhg-indB-0134",
+          "lhg-indB-0138",
+          "lhg-indB-0145",
+          "lhg-indB-0146",
+          "lhg-indB-0150",
+          "lhg-indB-0175",
+          "lhg-indB-0181",
+          "lhg-indB-0211",
+          "lhg-indB-0223",
+          "lhg-indB-0229",
+          "lhg-indB-0245",
+          "lhg-indB-0258",
+          "lhg-indB-0280",
+          "lhg-indB-0282",
+          "lhg-indB-0288",
+          "lhg-indB-0293"
+        ],
+        "delta_precision": -0.0241768957210049,
+        "delta_recall": 0.002564102564102555
+      }
+    }
+  },
+  "gate_pass": false,
+  "failures": [
+    "A/8: recall drop >0.02",
+    "A/18: recall drop >0.02",
+    "B/18: precision drop >0.02"
+  ],
+  "git_bytes_sha256": {
+    "setA_messages.jsonl": "9687f1717b8a7bb376f05c0de265d59e07ef110828fe678dfb278127ed714034",
+    "setB/messages.jsonl": "b1db40e4d7233c417bcb360cbf9142d7b297732d714b963b2ca99b88634e2029",
+    "gold/setA_gold_generator.jsonl": "d0bf27e9f0d43fed4cec87a09e74af173b77e9767b549090b638121bc6819568",
+    "gold/setB_gold_final.jsonl": "db59748950afd4280fe4893f537917fcfcdb49a6846e5354d8c8061a7b94f759",
+    "results/e10v2.raw.jsonl": "5fcf6a336115f3519384c04b5f259e247fca16ee0eefb682347663c2ba6175c3"
+  }
+}

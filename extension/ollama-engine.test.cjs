@@ -7,6 +7,38 @@ const E = globalThis.LHG_OLLAMA_ENGINE;
 const M = globalThis.LHG_CHECK_MODE;
 const id = 'extractor-7b-q4';
 const req = { text: 'I checked the invoice.', platform: 'manual', direction: 'outgoing' };
+test('all 18 v2 facts reach catalog admission; user-only facts stay guarded; DictaLM stays v1', () => {
+  const fs = require('node:fs'), path = require('node:path');
+  const contract = name => JSON.parse(fs.readFileSync(path.join(__dirname, '../research/local-extractor/', name)));
+  const v2 = contract('contract_v2.json'), v1 = contract('contract.json');
+  const raw = Object.fromEntries(v2.facts.map(([a]) => [a, [true, req.text]]));
+  const scores = Object.fromEntries(v2.facts.map(([a]) => [a, 0.99]));
+  const ex = E.adapt(raw, req.text, scores, id);
+  assert.equal(ex.proposedFacts.length, 12);
+  assert.equal(ex.droppedFacts.length, 6);
+  assert.ok(ex.droppedFacts.every(f => f.reason === 'confirmed_by_user_only'));
+  assert.deepEqual([...ex.proposedFacts, ...ex.droppedFacts].map(f => f.id).sort(), v2.facts.map(f => f[1]).sort());
+  const dicta = E.adapt(raw, req.text, scores, 'dictalm-q4');
+  assert.equal(dicta.proposedFacts.length, 8);
+  assert.equal(dicta.invalidPairs.length, 10);
+  const v1Instruction = E.render('dictalm-q4', req.text);
+  assert.ok(v1Instruction.startsWith('<s>[INST] '));
+  assert.ok(v1Instruction.includes('Allowed keys: ' + v1.facts.map(f => f[0]).join(', ') + '.'));
+  assert.ok(!v1Instruction.includes('subject_self_disclosed:'));
+  assert.ok(E.render(id, req.text).includes('subject_self_disclosed:'));
+});
+test('v2 scores and invalid pairs retain independent admission; follow-up needs still execute', async () => {
+  const raw = { said_in_jest: [true, req.text], is_hint: [true, 'invented'], medium_written: [true, req.text] };
+  const ex = E.adapt(raw, req.text, { said_in_jest: 0.99, is_hint: 0.99, medium_written: 0.2 }, id);
+  assert.deepEqual(ex.proposedFacts.map(f => f.id), ['message.said_in_jest']);
+  assert.equal(ex.invalidPairs[0].alias, 'is_hint');
+  assert.equal(ex.droppedFacts[0].reason, 'confidence_below_threshold');
+  const r = await E.check({ ...req, round: 2, routerHeads: ['mem_recent', 'mem_search'] }, id,
+    { generate: async () => ({ output: raw, scores: { said_in_jest: 0.99 } }) });
+  assert.equal(r.needs.round, 2);
+  assert.notEqual(r.alert, 'none');
+  assert.deepEqual(r.needs.requests.map(x => x.kind).sort(), ['get_recent', 'search_history']);
+});
 test('training aliases retain canonical confidence admission; no fabricated score', () => {
   const ex = E.adapt({ verified: [true, req.text] }, req.text);
   assert.equal(ex.proposedFacts.length, 0);

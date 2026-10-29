@@ -11,7 +11,8 @@ import modal
 ROOT=pathlib.Path(__file__).parent
 sys.path.insert(0,str(ROOT))
 from pilot_modal import prompt
-TAGS={"7b":"e8-natural-7b-20261028","dicta":"e8-natural-dicta-20261028"}
+TAGS={"7b":"e8-natural-7b-20261028","dicta":"e8-natural-dicta-20261028",
+      "7b-v2":"e10-v2-7b-20261029-supervisor"}
 LLAMA_TAG="b4500"
 app=modal.App("lhg-extractor-gguf")
 vol=modal.Volume.from_name("lhg-models")

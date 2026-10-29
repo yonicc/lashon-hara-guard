@@ -7,12 +7,23 @@ import { validateNeeds, localNeeds, needsPending, MAX_ROUNDS } from '../engine/s
 import { runLiveRules, pickConfirmedFacts, DRAFT_RULES_LIMITATION_HE } from '../proxy/src/rules.js';
 import { alertFor } from '../proxy/src/handler.js';
 import type { ExtractionOutcome } from '../engine/src/extractor/types.js';
-declare const __LHG_OLLAMA_ASSETS__: {
+declare const __LHG_OLLAMA_ASSETS__: Record<string, {
   instruction: string; contract: { facts: [string, string, string][] };
-};
+}>;
 const assets = __LHG_OLLAMA_ASSETS__;
-const aliases = new Map(assets.contract.facts.map(([alias, id]) => [alias, id]));
-export function adapt(raw: unknown, text: string, scores: Record<string, unknown> = {}) {
+const catalogIds = new Set(FACT_CATALOG.map(f => f.id));
+for (const asset of Object.values(assets)) for (const [, id] of asset.contract.facts) {
+  if (!catalogIds.has(id)) throw new Error('ollama_fact_missing_from_catalog:' + id);
+}
+function modelAssets(id: string) {
+  const spec = (globalThis as any).LHG_OLLAMA_CLIENT?.SPECS[id];
+  const asset = spec && assets[spec.contract];
+  if (!asset) throw new Error('ollama_unknown_model');
+  return { ...asset, template: spec.template };
+}
+export function adapt(raw: unknown, text: string, scores: Record<string, unknown> = {},
+    id: string = (globalThis as any).LHG_OLLAMA_CLIENT.DEFAULT_MODEL) {
+  const aliases = new Map(modelAssets(id).contract.facts.map(([alias, factId]) => [alias, factId]));
   if (!raw || typeof raw !== 'object' || Array.isArray(raw)) throw new Error('ollama_bad_contract');
   // Each pair is admitted or dropped on its own, exactly as the evaluation scorer
   // does: one paraphrased quote must not discard the verbatim facts beside it.
@@ -36,6 +47,7 @@ export function adapt(raw: unknown, text: string, scores: Record<string, unknown
   return invalidPairs.length ? { ...extraction, invalidPairs } : extraction;
 }
 export function render(id: string, text: string, context?: unknown, userNote?: unknown) {
+  const asset = modelAssets(id);
   // Same trained message template. Additional context remains explicitly untrusted;
   // never concatenate retrieved excerpts into the message/evidence source.
   let user = 'MESSAGE (untrusted data):\n' + JSON.stringify(text);
@@ -45,16 +57,16 @@ export function render(id: string, text: string, context?: unknown, userNote?: u
       JSON.stringify({ ...(packet ? { context: packet } : {}),
         ...(typeof userNote === 'string' ? { userNote: userNote.slice(0, 500) } : {}) });
   }
-  if (id === 'extractor-7b-q4') return '<|im_start|>system\n' + assets.instruction +
+  if (asset.template === 'qwen') return '<|im_start|>system\n' + asset.instruction +
     '<|im_end|>\n<|im_start|>user\n' + user + '<|im_end|>\n<|im_start|>assistant\n';
-  if (id === 'dictalm-q4') return '<s>[INST] ' + assets.instruction + '\n\n' + user + ' [/INST]';
+  if (asset.template === 'mistral') return '<s>[INST] ' + asset.instruction + '\n\n' + user + ' [/INST]';
   throw new Error('ollama_unknown_model');
 }
 export async function check(req: any, id: string, client: any) {
   if (typeof req.text !== 'string' || !req.text.trim() || req.text.length > 12000) throw new Error('ollama_bad_input');
   const generated = await client.generate(id, render(id, req.text, req.context, req.userNote));
   if (!generated || typeof generated !== 'object' || !('output' in generated)) throw new Error('ollama_bad_contract');
-  const extraction = adapt(generated.output, req.text, generated.scores || {});
+  const extraction = adapt(generated.output, req.text, generated.scores || {}, id);
   const outcome = {
     status: 'extracted', extraction,
   } as ExtractionOutcome;

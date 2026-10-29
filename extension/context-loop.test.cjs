@@ -1,5 +1,6 @@
 const test = require('node:test'), assert = require('node:assert/strict');
 const { run } = require('./context-loop.js');
+require('./ollama-client.js');
 require('./ollama-engine.bundle.js');
 const schema = globalThis.LHG_NEEDS;
 const pending = { alert: 'none', needs: { requests: [{ id: 'r', kind: 'get_recent', args: { n: 5 } }],
