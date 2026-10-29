@@ -1,6 +1,6 @@
 # Lashon Hara Guard — Privacy Policy / מדיניות פרטיות
 
-Updated: 2026-10-28. Applies to the browser extension and its default checking service. This describes the implementation reviewed on this date; provider configuration may change.
+Updated: 2026-10-29. Applies to the browser extension and its default checking service. This describes the implementation reviewed on this date; provider configuration may change.
 
 ## English
 
@@ -17,6 +17,8 @@ Updated: 2026-10-28. Applies to the browser extension and its default checking s
 - Local memory viewer (0.11.2): when the optional extension-wide local memory (`lhg-memory-v1`, off by default) holds data, the "Open memory viewer" button in its settings card opens an extension page that shows counts, dates, expiry, stored text and local semantic search scores, and deletes single entries or whole conversations after a confirmation. Only that page and the options page may call these views; a website's content script cannot. Stored text is hidden by default (a fixed row of dots, not the text length); one click reveals one entry, and "Show all text" lasts only until the page is reloaded — that choice is never saved. Vectors are never shown. Everything runs locally; the viewer sends nothing to a server.
 
 ### What is sent and why
+
+The cloud checker may request selected recent or searched local-memory excerpts in an automatic context loop of at most three checks. Each follow-up is a separate billed check and may send the selected excerpts to the configured cloud service. The same five-by-300-character packet budget and masking apply; the full memory archive is never sent. Retrieved text is untrusted context, never a confirmed answer. With memory disabled, missing details remain user questions. Local checks use the same protocol; remote fallback still requires the user's existing fallback setting.
 
 An optional experimental local context router has a separate switch, off by default. It requires local memory and explicit import of the pinned r2-e5s emb8 model folder (about 191 MiB); inference uses cached model files only. It may select recent or semantically relevant history from the current account and conversation, including unsent drafts. Up to five redacted 300-character excerpts share the existing context budget and can reach the selected checking service, including the cloud. They retain candidate/dom_observed and draft/context/message labels and are never confirmed facts. A missing model, router failure or timeout keeps the normal check without expansion.
 
@@ -63,6 +65,8 @@ For privacy questions or requests concerning remote records, contact **yoni@city
 - צפייה בזיכרון (0.11.2): הכפתור "פתיחת צפייה בזיכרון" בכרטיס הזיכרון בהגדרות פותח דף של התוסף המציג ספירות, תאריכים, תפוגה, הטקסט השמור וציון חיפוש סמנטי מקומי, ומאפשר מחיקת רשומה בודדת או שיחה שלמה לאחר אישור. רק הדף הזה ודף ההגדרות רשאים לקרוא לפעולות אלה; סקריפט תוכן באתר אינו יכול. הטקסט מוסתר כברירת מחדל (שורת נקודות קבועה, לא באורך הטקסט); לחיצה מציגה רשומה אחת, ו"הצג את כל הטקסט" תקף רק עד טעינה מחדש של הדף ואינו נשמר. הווקטורים אינם מוצגים. הכול מקומי; הדף אינו שולח דבר לשרת.
 
 ### מה נשלח ולשם מה
+
+בודק הענן עשוי לבקש קטעים נבחרים מהזיכרון המקומי, לפי זמן או חיפוש, בלולאה אוטומטית של עד שלוש בדיקות. כל בדיקת המשך מחויבת בנפרד ועשויה לשלוח את הקטעים הנבחרים לשירות הענן המוגדר. חלים אותו מיסוך ואותו תקציב של חמישה קטעים בני עד 300 תווים; ארכיון הזיכרון המלא אינו נשלח. הטקסט שנשלף הוא הקשר לא מהימן ולא תשובת משתמש מאומתת. כשהזיכרון כבוי, פרטים חסרים נשארים לשאלות משתמש. בדיקה מקומית משתמשת באותו פרוטוקול; מעבר חלופי לענן עדיין תלוי בהגדרה הקיימת של המשתמש.
 
 לאחר הגדרת הגישה, כאשר הניטור פעיל, התוסף עשוי לבדוק אוטומטית הודעות נכנסות בפלטפורמות הנתמכות, טיוטות בעת ניסיון שליחה, וכן טקסט שנבחר לבדיקה ידנית. הקלדה לבדה אינה מפעילה בדיקת טיוטה. הניטור בפלטפורמות מופעל כברירת מחדל. הבדיקה אינה מוגבלת להודעות שכבר נשלחו.
 

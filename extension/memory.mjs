@@ -159,13 +159,13 @@ export class LocalMemory {
       provenance:r.provenance,status:r.status,observedAt:r.observedAt});
     return Object.freeze({
       get_recent:async({k=5}={})=>{
-        if(!Number.isInteger(k)||k<1||k>5) throw Error('invalid-budget');
+        if(!Number.isInteger(k)||k<1||k>20) throw Error('invalid-budget');
         await this.tail;
         return (await this.rows(key)).filter(valid).sort((a,b)=>b.observedAt-a.observedAt).slice(0,k).map(snippet);
       },
       search_history:async({query,top_k=3}={})=>{
         if(typeof query!=='string'||!query.trim()||query.length>300||
-          !Number.isInteger(top_k)||top_k<1||top_k>3) throw Error('invalid-budget');
+          !Number.isInteger(top_k)||top_k<1||top_k>5) throw Error('invalid-budget');
         const q=vector(await this.embed('query: '+query));
         await this.tail;
         return (await this.rows(key)).filter(r=>valid(r)&&r.model===MODEL).flatMap(r=>{

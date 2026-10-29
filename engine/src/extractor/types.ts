@@ -37,6 +37,7 @@ export interface ExtractionAnalysis {
 }
 
 export interface ValidatedExtraction {
+  needs?: import('../needs.js').Needs;
   proposedFacts: ProposedFact[];
   meaning?: MeaningAssessmentInput;
   directAssessment: 'concern' | 'no_concern' | 'unsure' | null;
@@ -46,6 +47,7 @@ export interface ValidatedExtraction {
 }
 
 export interface ExtractorRequest {
+  round?: number;
   messageId: string;
   platform: string;
   direction: MessageEnvelope['direction'];

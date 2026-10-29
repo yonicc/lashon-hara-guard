@@ -5,6 +5,7 @@ export * from './validatePack.js';
 export * from './questionPlanner.js';
 export * from './evaluate.js';
 export * from './liveFacts.js';
+export * from './needs.js';
 export * from './lessonScenario.js';
 export * from './meaning.js';
 export * from './chafetzChaim/toeletPack.js';

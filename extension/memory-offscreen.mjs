@@ -2,6 +2,7 @@ import {LocalMemory} from './memory.mjs';
 import {loadEmbed} from './memory-embedding.mjs';
 import {loadRouter} from './memory-router-model.mjs';
 import {expandMemory} from './memory-router.mjs';
+import {bounded} from './memory-router.mjs';
 const memory=new LocalMemory({name:'lhg-memory-v1',embed:async text=>(await loadEmbed())(text)});
 let operations=Promise.resolve();
 async function handle(m) {
@@ -12,6 +13,11 @@ async function handle(m) {
   if(m.op==='ingest') return memory.ingest(m.event);
   if(m.op==='route_context') return expandMemory({memory,scope:m.scope,text:m.text,
     route:async text=>(await loadRouter())(text)});
+  if(m.op==='plan_context') {
+    memory.tools(m.scope); // same scope validation, inference is read-only
+    const labels = await bounded(async () => (await loadRouter())(m.text), 150);
+    return {status:'ok', labels, candidates:[]};
+  }
   if(m.op==='delete') {await memory.deleteMessage(m.scope,m.sourceId);return {deleted:true};}
   if(m.op==='delete_conversation') {await memory.deleteConversation(m.scope);return {deleted:true};}
   if(m.op==='get_recent'||m.op==='search_history') return memory.tools(m.scope)[m.op](m.args);

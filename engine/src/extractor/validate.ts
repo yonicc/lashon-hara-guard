@@ -1,6 +1,7 @@
 import type { FactCatalogEntry } from '../types.js';
 import type { RawExtraction, ValidatedExtraction, ProposedFact, ExtractionAnalysis } from './types.js';
 import { normalizeHebrewText } from './normalize.js';
+import { validateNeeds } from '../needs.js';
 import { isBoundedConfidence, proposalRejection } from './factPolicy.js';
 
 const MECHANISMS = new Set(['irony', 'praise', 'hint', 'mockery', 'omission', 'direct', 'other']);
@@ -71,7 +72,7 @@ export function validateExtraction(
   raw: unknown,
   catalog: FactCatalogEntry[],
   messageText: string,
-  opts: { participantRefs?: Iterable<string> } = {},
+  opts: { participantRefs?: Iterable<string>; round?: number } = {},
 ): ValidatedExtraction {
   const warnings: string[] = [];
   const droppedFacts: ValidatedExtraction['droppedFacts'] = [];
@@ -142,6 +143,7 @@ export function validateExtraction(
 
   return {
     proposedFacts, ...(meaning ? { meaning } : {}), directAssessment,
+    needs: validateNeeds(raw.needs, opts.round),
     ...(analysis ? { analysis } : {}), droppedFacts, warnings,
   };
 }

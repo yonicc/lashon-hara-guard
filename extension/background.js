@@ -25,6 +25,7 @@ try { if (typeof importScripts === 'function') importScripts('check-mode.js'); }
 try { if (typeof importScripts === 'function') importScripts('ollama-client.js', 'ollama-engine.bundle.js', 'ollama-register.js'); } catch (_e) { /* local failure remains not_checked */ }
 try { if (typeof importScripts === 'function') importScripts('ollama-setup.js'); } catch (_e) { /* setup unavailable */ }
 try { if (typeof importScripts === 'function') importScripts('memory-background.js'); } catch (_e) { /* tests */ }
+try { if (typeof importScripts === 'function') importScripts('context-loop.js'); } catch (_e) { /* fails closed */ }
 function confirmedFactsOf(raw) {
   const R = globalThis.LHG_RULES;
   if (!R || !raw) return null;
@@ -40,7 +41,7 @@ function userNoteOf(raw) {
 
 // `model`: optional cloud model id (check-mode.js CLOUD_MODELS); null/absent
 // keeps the request identical to older extensions (proxy default model).
-async function check(text, platform, direction, context, confirmedFacts, userNote, config, model) {
+async function check(text, platform, direction, context, confirmedFacts, userNote, config, model, round = 1) {
   const { proxyUrl, accessKey, lang } = config || await settings();
   if (!accessKey) return { alert: 'not_configured' };
   const ctrl = new AbortController();
@@ -55,7 +56,7 @@ async function check(text, platform, direction, context, confirmedFacts, userNot
         ...(confirmedFacts ? { confirmedFacts } : {}),
         ...(userNote ? { userNote } : {}),
         ...(model ? { model } : {}),
-        lang,
+        lang, round,
       }),
       signal: ctrl.signal,
     });
@@ -99,7 +100,7 @@ function canonical(value) {
   if (!value || typeof value !== 'object') return value;
   return Object.fromEntries(Object.keys(value).sort().map(k => [k, canonical(value[k])]));
 }
-async function cachedCheck(msg) {
+async function cachedCheck(msg, sender = {}) {
   const config = await settings();
   const facts = confirmedFactsOf(msg.confirmedFacts), note = userNoteOf(msg.userNote);
   const identity = msg.cacheIdentity;
@@ -107,27 +108,47 @@ async function cachedCheck(msg) {
   const reusable = !!(identity?.accountId && identity?.conversationId);
   const material = JSON.stringify(canonical({ config, identity, text: msg.text,
     platform: msg.platform, direction: msg.direction, context: msg.cacheContext || msg.context,
-    facts, note, version: 'send-cache-v1' }));
+    facts, note, version: 'context-loop-v1' }));
   const digest = reusable ? await crypto.subtle.digest('SHA-256', new TextEncoder().encode(material)) : null;
   const key = digest ? 'lhg-check-v1-' + Array.from(new Uint8Array(digest), x => x.toString(16).padStart(2, '0')).join('') : material;
-  if (checksInFlight.has(key)) return checksInFlight.get(key);
+  const flightKey = key + ':' + (msg.loopToken || '');
+  if (checksInFlight.has(flightKey)) return checksInFlight.get(flightKey);
   const work = (async () => {
     if (reusable && !msg.forceRecheck) {
       let saved;
       try { saved = (await chrome.storage.local.get(key))[key]; } catch (_) { /* storage failure is a cache miss */ }
       if (saved?.expires > Date.now()) return saved.result;
     }
-    const cloud = (model) => check(msg.text, msg.platform || 'unknown', msg.direction, msg.context, facts, note, config, model);
     const M = globalThis.LHG_CHECK_MODE;
-    const result = M && config.mode
-      ? await M.route({ text: msg.text, platform: msg.platform || 'unknown',
+    const request = { text: msg.text, platform: msg.platform || 'unknown',
         direction: msg.direction === 'incoming' ? 'incoming' : 'outgoing', context: msg.context,
-        confirmedFacts: facts, userNote: note, lang: config.lang }, config.mode, cloud)
-      : await cloud(null);
+        confirmedFacts: facts, userNote: note, lang: config.lang, routerHeads: msg.routerHeads };
+    const once = req => {
+      const cloud = model => check(req.text, req.platform, req.direction, req.context, facts, note, config, model, req.round);
+      return M && config.mode ? M.route(req, config.mode, cloud) : cloud(null);
+    };
+    const exchange = async (op, data = {}) => {
+      if (!sender.tab || !msg.loopToken) throw Error('no-context-bridge');
+      const response = await chrome.tabs.sendMessage(sender.tab.id,
+        { type: 'lhg-context-loop', token: msg.loopToken, op, ...data }, { frameId: sender.frameId ?? 0 });
+      if (!response?.current) throw Error('superseded');
+      return response;
+    };
+    const L = globalThis.LHG_CONTEXT_LOOP, schema = globalThis.LHG_NEEDS;
+    const result = L && schema ? await L.run({ request, check: once, schema,
+      current: async round => {
+        // A single-message caller without a bridge can check, never retrieve.
+        if (!msg.loopToken) return round === 1;
+        try { return (await exchange('current', { round })).current; } catch { return false; }
+      },
+      retrieve: r => globalThis.LHG_MEMORY_READ(r, identity, sender),
+      exchange: async (candidates, context) => (await exchange('merge', { candidates, context })).context,
+    }) : await once(request);
     // A cloud-fallback answer is not cached under the local mode's key: once
     // the local engine is installed, the same message must reach it.
     if (reusable && ['none', 'warn', 'unsure'].includes(result?.alert) && !result.error && !result.rules?.notChecked &&
-        result.checkedBy !== 'cloud-fallback') {
+        result.checkedBy !== 'cloud-fallback' && !result.loopStopped &&
+        !globalThis.LHG_NEEDS?.needsPending(result.needs)) {
       try {
         await chrome.storage.local.set({ [key]: { expires: Date.now() + 14 * 86400000, result } });
         const all = await chrome.storage.local.get(null);
@@ -139,13 +160,13 @@ async function cachedCheck(msg) {
     }
     return result;
   })();
-  checksInFlight.set(key, work);
-  try { return await work; } finally { checksInFlight.delete(key); }
+  checksInFlight.set(flightKey, work);
+  try { return await work; } finally { checksInFlight.delete(flightKey); }
 }
 
 chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
   if (msg && msg.type === 'lhg-check' && typeof msg.text === 'string') {
-    cachedCheck(msg).then(sendResponse, () => sendResponse({ alert: 'not_checked' }));
+    cachedCheck(msg, _sender).then(sendResponse, () => sendResponse({ alert: 'not_checked' }));
     return true; // async response
   }
   if (msg && msg.type === 'lhg-check-mode-status') {

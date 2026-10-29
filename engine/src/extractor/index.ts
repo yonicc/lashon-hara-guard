@@ -14,6 +14,7 @@ export * from './brainSend.js';
 export * from './pipeline.js';
 
 export interface RunExtractionOptions {
+  round?: number;
   provider: ExtractorProvider;
   catalog: FactCatalogEntry[];
   /** When false (default), provider is called only if the local gate triages in. */
@@ -53,6 +54,7 @@ export async function runExtraction(
   try {
     raw = await opts.provider.extract({
       messageId: message.id,
+      round: opts.round ?? 1,
       platform: message.platform,
       direction: message.direction,
       text: message.text,
@@ -74,7 +76,7 @@ export async function runExtraction(
   const participantRefs = (opts.context?.participants ?? [])
     .map((p) => (p && typeof p.ref === 'string' ? p.ref : ''))
     .filter((r) => r);
-  const extraction = validateExtraction(raw, opts.catalog, message.text, { participantRefs });
+  const extraction = validateExtraction(raw, opts.catalog, message.text, { participantRefs, round: opts.round });
   if (extraction.warnings.length) limitationsHe.push(...extraction.warnings);
 
   const meaningFacts = extraction.meaning ? buildMeaningFacts(extraction.meaning) : undefined;

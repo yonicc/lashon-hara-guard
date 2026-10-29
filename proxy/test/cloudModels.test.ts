@@ -73,7 +73,7 @@ test('/check without model: Brain request and response are exactly as before', a
   assert.equal(brain[0]!['account'], 'env-acct');
   assert.equal(brain[0]!['reasoning_effort'], 'minimal');
   assert.equal('model' in res, false);
-  assert.equal(res['alert'], 'none');
+  assert.equal(res['alert'], 'unsure'); // unanswered catalog facts keep the check unresolved
 });
 
 test('/check without model keeps an env model override', async () => {

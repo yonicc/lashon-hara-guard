@@ -11,6 +11,7 @@ import {
   FACT_CATALOG,
   runExtraction,
   sanitizeContextPacket,
+  validateNeeds, validRound, needsPending, type Needs,
   type ExtractionAnalysis,
   type ExtractionOutcome,
   type ExtractorContextPacket,
@@ -95,6 +96,7 @@ export const MAX_CONTEXT_JSON_CHARS = 6000;
 export type AlertLevel = 'warn' | 'unsure' | 'none' | 'not_checked';
 
 export interface CheckResponse {
+  needs?: Needs;
   alert: AlertLevel;
   status: ExtractionOutcome['status'];
   mechanism: string | null;
@@ -122,12 +124,13 @@ export interface CheckResponse {
  * Draft rule findings can only RAISE the level to 'warn'; they never lower it,
  * and a rules failure (`rules.notChecked`) leaves it as it was.
  */
-export function alertFor(outcome: ExtractionOutcome, rules?: RulesResult): AlertLevel {
+export function alertFor(outcome: ExtractionOutcome, rules?: RulesResult, needs?: Needs): AlertLevel {
   if (rules && rules.findings.length > 0) return 'warn';
   const alert = extractionAlert(outcome);
   // A pending rabbi referral is unresolved, never a clean check. Preserve
   // stronger concerns and failures from extraction.
-  return alert === 'none' && rules?.referrals?.length ? 'unsure' : alert;
+  return alert === 'none' && (rules?.referrals?.length || rules?.questions?.length ||
+    needsPending(needs ?? outcome.extraction?.needs)) ? 'unsure' : alert;
 }
 
 function extractionAlert(outcome: ExtractionOutcome): AlertLevel {
@@ -311,6 +314,8 @@ async function handleAuthorized(
   // over-cap serialized size => ignore (documented above). Either way the
   // request stays a valid single-message check with identical shape.
   const context = pickContext(body['context']);
+  const round = validRound(body['round']);
+  if (round === null) return json({ error: 'invalid_round', maxRounds: 3 }, 400);
   // Optional explicit answers to rule questions; invalid entries are dropped silently.
   const confirmedFacts = pickConfirmedFacts(body['confirmedFacts']);
   const userNote = pickUserNote(body['userNote']);
@@ -327,7 +332,7 @@ async function handleAuthorized(
   const gate = g?.p ?? null;
   const gateBy = g?.by ?? null;
   const threshold = Number(env.LHG_GATE_THRESHOLD) || 0.2;
-  if (gate !== null && gate < threshold) {
+  if (round === 1 && gate !== null && gate < threshold) {
     const res: CheckResponse = {
       alert: 'none', status: 'skipped_local_gate', mechanism: null, evidence: null,
       limitationsHe: ['המסווג המהיר לא מצא סימנים; זה אינו קובע שאין חשש.'],
@@ -342,7 +347,8 @@ async function handleAuthorized(
   } as MessageEnvelope;
 
   const outcome = await runExtraction(message, {
-    provider, catalog: FACT_CATALOG, alwaysCallProvider: (env.LHG_ALWAYS_EXTRACT ?? '1') === '1',
+    round,
+    provider, catalog: FACT_CATALOG, alwaysCallProvider: round > 1 || (env.LHG_ALWAYS_EXTRACT ?? '1') === '1',
     ...(context ? { context } : {}),
     ...(userNote ? { userNote } : {}),
     ...(lang === 'en' ? { lang } : {}),
@@ -364,10 +370,12 @@ async function handleAuthorized(
       : notCheckedRules();
   }
   const meaning = outcome.extraction?.meaning;
+  const needs = validateNeeds(outcome.extraction?.needs, round, rules?.questions ?? [], confirmedFacts);
   const evidence =
     meaning?.evidenceExcerpt || outcome.extraction?.proposedFacts.find((f) => f.evidenceExcerpt)?.evidenceExcerpt || null;
   const res: CheckResponse = {
-    alert: alertFor(outcome, rules),
+    alert: alertFor(outcome, rules, needs),
+    needs,
     status: outcome.status,
     mechanism: meaning?.mechanism ?? null,
     evidence,

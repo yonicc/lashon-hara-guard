@@ -1,5 +1,6 @@
 import {
   CC_ALL_DRAFT_PACK,
+  catalogQuestions, MAX_NEEDS_QUESTIONS, type NeedsQuestion,
   evaluate,
   FACT_BY_ID,
   FACT_CATALOG,
@@ -29,17 +30,13 @@ export type RulesMode = 'live' | 'off';
 export const MAX_CONFIRMED_FACTS = 20;
 
 /** Up to 5 clarifying questions per check (owner's decision 2026-10-29, docs/40 §A). */
-export const MAX_QUESTIONS = 5;
+export const MAX_QUESTIONS = MAX_NEEDS_QUESTIONS;
 
 /** Added to limitationsHe whenever at least one draft finding is returned. */
 export const DRAFT_RULES_LIMITATION_HE =
   'לפי כללי טיוטה מספר חפץ חיים — לא נבדקו בידי מומחה; אינו פסק הלכה.';
 
-export const ANSWER_LABELS_HE: ReadonlyArray<{ value: boolean | null; labelHe: string }> = [
-  { value: true, labelHe: 'כן' },
-  { value: false, labelHe: 'לא' },
-  { value: null, labelHe: 'לא יודע' },
-];
+export { ANSWER_LABELS_HE } from '../../engine/src/needs.js';
 
 export interface RulesFinding {
   ruleId: string;
@@ -49,11 +46,7 @@ export interface RulesFinding {
   sourceUrl: string;
 }
 
-export interface RulesQuestion {
-  factId: string;
-  textHe: string;
-  answers: Array<{ value: boolean | null; labelHe: string }>;
-}
+export type RulesQuestion = NeedsQuestion;
 
 /**
  * A group-D rabbi referral (docs/32, docs/40 §B, owner 2026-10-29): a
@@ -140,10 +133,7 @@ export function runLiveRules(
       sourceRef: sourceRefOf(f.source),
       sourceUrl: f.source?.url ?? '',
     }));
-    const questions: RulesQuestion[] = r.questions
-      .filter((x) => !(x.factId in confirmed))
-      .slice(0, MAX_QUESTIONS)
-      .map((x) => ({ factId: x.factId, textHe: x.questionHe, answers: ANSWER_LABELS_HE.map((a) => ({ ...a })) }));
+    const questions = catalogQuestions(r.questions, confirmed);
     // `question` mirrors the first unanswered question so a one-question client
     // (pre-0.10 extension) still works unchanged against the new proxy.
     return {

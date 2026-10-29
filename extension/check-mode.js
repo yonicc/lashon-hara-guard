@@ -103,6 +103,14 @@
       const r = r0 && RANK[r0.alert] ? r0 : { alert: 'not_checked', error: 'local_bad_result' };
       if (!best || RANK[r.alert] > RANK[best.alert]) best = r;
     }
+    const schema = globalThis.LHG_NEEDS;
+    if (best && schema && results.some(r => r?.needs)) {
+      const needs = schema.validateNeeds({
+        requests: results.flatMap(r => r?.needs?.requests || []),
+        questions: results.flatMap(r => r?.needs?.questions || []),
+      }, results.find(r => r?.needs)?.needs.round);
+      return { ...best, needs, alert: best.alert === 'none' && schema.needsPending(needs) ? 'unsure' : best.alert };
+    }
     return best || { alert: 'not_checked', error: 'local_unavailable' };
   }
 

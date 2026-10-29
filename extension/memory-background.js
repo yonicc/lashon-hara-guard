@@ -27,6 +27,17 @@
   const adminSender=s=>optionsSender(s)||pageSender(s,'memory-viewer.html');
   // Cross-scope views and deletes for the owner's viewer; never for a content script.
   const ADMIN_OPS=['stats','list','search','delete_message','delete_conversation'];
+  // Internal loop entry: same sender/settings/scope admission as content reads.
+  globalThis.LHG_MEMORY_READ = async (request, scope, sender) => {
+    if (!scope || !permittedSender(sender, scope.platform)) throw Error('untrusted-sender');
+    const settings = await chrome.storage.local.get(['lhgMemoryEnabled','lhgEnabled','lhgPlatforms']);
+    if (settings.lhgMemoryEnabled !== true || settings.lhgEnabled === false ||
+        settings.lhgPlatforms?.[scope.platform] === false) throw Error('disabled');
+    const response = await relay({ op: request.kind, scope,
+      args: request.kind === 'get_recent' ? { k: request.args.n } : request.args });
+    if (!response?.ok) throw Error('memory-unavailable');
+    return response.result;
+  };
   chrome.runtime.onMessage.addListener((m,s,reply)=>{
     if(m?.type!=='lhg-memory') return;
     (async()=>{
@@ -35,15 +46,15 @@
         if(!adminSender(s)) throw Error('untrusted-sender');
         return relay({op:m.op,scope:m.scope,sourceId:m.sourceId,args:m.args});
       }
-      if(!['ingest','delete','get_recent','search_history','route_context'].includes(m.op)) throw Error('unsupported-operation');
+      if(!['ingest','delete','get_recent','search_history','route_context','plan_context'].includes(m.op)) throw Error('unsupported-operation');
       const scope=m.event?.scope||m.scope;
       if(!scope||!permittedSender(s,scope.platform)) throw Error('untrusted-sender');
       const settings=await chrome.storage.local.get(['lhgMemoryEnabled','lhgEnabled','lhgPlatforms','lhgRouterEnabled']);
-      if(m.op==='route_context' && settings.lhgRouterEnabled!==true) return {ok:false,error:'disabled'};
+      if(['route_context','plan_context'].includes(m.op) && settings.lhgRouterEnabled!==true) return {ok:false,error:'disabled'};
       if(settings.lhgMemoryEnabled!==true||settings.lhgEnabled===false||settings.lhgPlatforms?.[scope.platform]===false)
         return {ok:false,error:'disabled'};
       if(m.op==='ingest') return relay({op:m.op,event:{...m.event,enabled:true}});
-      if(m.op==='route_context') return relay({op:m.op,scope,text:typeof m.text==='string'?m.text.slice(0,10000):''});
+      if(['route_context','plan_context'].includes(m.op)) return relay({op:m.op,scope,text:typeof m.text==='string'?m.text.slice(0,10000):''});
       return relay({op:m.op,scope,sourceId:m.sourceId,args:m.args});
     })().then(reply,e=>{console.warn('Local memory bridge:',e.message);reply({ok:false,error:'memory-unavailable'});});
     return true;

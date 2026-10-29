@@ -66,7 +66,7 @@ test('handler does not flag an authorized non-disparaging confidence',async()=>{
  'message.may_be_understood_as_disparagement':false,'message.content_may_cause_harm':false,
  'message.reports_what_someone_said_or_did_against_listener':false});
  assert.ok(!result.rules.findings.some(f=>/secret|confidence|authorization/.test(f.ruleId)));
- assert.equal(result.alert,'none');
+ assert.equal(result.alert,'unsure'); // no finding, but unanswered catalog facts remain
 });
 test('handler exposes new preventive-benefit distinction even when purpose is constructive',async()=>{
  const result=await check({'subject.identifiable':true,'toelet.purpose_is_constructive':true,

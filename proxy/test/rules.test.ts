@@ -174,7 +174,7 @@ test('rules: confirmedFacts — invalid ids/values dropped silently, max 20, nul
     ENV, provider({ directAssessment: 'no_concern', proposedFacts: [] }));
   assert.equal(r.status, 200);
   const b = (await r.json()) as Body;
-  assert.equal(b.alert, 'none');
+  assert.equal(b.alert, 'unsure'); // invalid answers do not resolve the catalog
   assert.deepEqual(b.rules?.findings, []);
 });
 

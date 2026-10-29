@@ -588,7 +588,9 @@
             });
           } : null,
         });
-      }, el);
+      }, el, { current: active, progress: round => {
+        if (active() && busy) show('checking', t('checkingRound', { n: round }), []);
+      } });
     };
     if (!R || !conv) { go({}); return; } // nothing stored: send at once
     Promise.resolve(R.loadAnswers(conv)).then((f) => go(f), () => go({}));

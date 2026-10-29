@@ -7,6 +7,27 @@
   let builder;
   const packetBuilders = new WeakMap();
   let pending = Promise.resolve();
+  const loopStates = new Map(), elementTokens = new WeakMap();
+  chrome.runtime?.onMessage?.addListener((msg, sender, reply) => {
+    if (msg?.type !== 'lhg-context-loop') return;
+    if (sender.id !== chrome.runtime.id || sender.tab) return;
+    const state = loopStates.get(msg.token);
+    const current = !!state && state.current();
+    if (!current) { reply({ current: false }); return; }
+    if (msg.op === 'current') {
+      state.progress?.(msg.round);
+      if (!state.progress) {
+        const label = state.el?.querySelector?.(':scope > .lhg-hold > span, :scope > .lhg-tag');
+        if (label) label.textContent = globalThis.LHG_I18N?.t('checkingRound', { n: msg.round }) || '';
+      }
+      reply({ current: true }); return;
+    }
+    if (msg.op === 'merge' && state.builder && state.context) {
+      state.context = state.builder.mergeMemory(state.context, msg.candidates);
+      reply({ current: true, context: state.context }); return;
+    }
+    reply({ current: false });
+  });
   // Bound persisted message retention as well as the builder's memory window.
   try { Promise.resolve(globalThis.LHG_CONTEXT_STORE?.purgeExpired?.()).catch(() => {}); } catch (_) {}
 
@@ -116,6 +137,18 @@
   }
 
   function prepare(payload, el, remember = false) {
+    if (el && typeof el === 'object') {
+      const token = session + '-loop-' + (++serial);
+      elementTokens.set(el, token);
+      const textNow = () => globalThis.LHG_SELECTORS?.textWithout?.(el) ?? el.textContent;
+      const raw = textNow(), captured = contentKey(payload.platform, el, payload.text);
+      loopStates.set(token, { el, current: () => elementTokens.get(el) === token &&
+        el.isConnected !== false && textNow() === raw &&
+        contentKey(payload.platform, el, payload.text) === captured });
+      // Bound registrations; old queued checks safely stop when evicted.
+      if (loopStates.size > 200) loopStates.delete(loopStates.keys().next().value);
+      payload = { ...payload, loopToken: token };
+    }
     const identity = globalThis.LHG_MEMORY?.scopeFor?.(payload.platform, el);
     const source = el?.closest?.('[data-message-id], [data-legacy-message-id], [data-id]');
     const messageId = source?.getAttribute('data-message-id') || source?.getAttribute('data-legacy-message-id') || source?.getAttribute('data-id');
@@ -148,20 +181,28 @@
       }
       let context = await builder.buildPacket(scope.id, current);
       const localBuilder = builder;
+      let routerHeads = [];
       if (identity && globalThis.LHG_SETTINGS?.get().lhgMemoryEnabled === true &&
           globalThis.LHG_SETTINGS?.get().lhgRouterEnabled === true) {
         let timer;
         try {
+          const checkPrefs = await chrome.storage?.local?.get?.('lhgCheckMode');
           const response = await Promise.race([
-            chrome.runtime.sendMessage({type:'lhg-memory',op:'route_context',scope:identity,text:payload.text}),
+            chrome.runtime.sendMessage({type:'lhg-memory',
+              op: !checkPrefs?.lhgCheckMode || checkPrefs.lhgCheckMode === 'cloud' ? 'route_context' : 'plan_context',
+              scope:identity,text:payload.text}),
             new Promise(resolve => { timer=setTimeout(()=>resolve(null),450); })
           ]);
-          if (response?.ok && response.result?.status === 'ok')
+          if (response?.ok && response.result?.status === 'ok') {
+            routerHeads = response.result.labels || [];
             context = localBuilder.mergeMemory(context,response.result.candidates);
+          }
         } catch (_) { /* router failure leaves the normal packet unchanged */ }
         finally {clearTimeout(timer);}
       }
       packetBuilders.set(context, localBuilder);
+      const state = loopStates.get(payload.loopToken);
+      if (state) { state.builder = localBuilder; state.context = context; }
       if (remember && !history) await builder.ingestMessage(scope.id, current);
       // Ephemeral conversation refs, version counters and wall-clock ages do
       // not define content identity. Keep all semantic packet fields.
@@ -175,18 +216,30 @@
           historyFingerprint = Array.from(new Uint8Array(bytes), x => x.toString(16).padStart(2, '0')).join('');
         } else historyFingerprint = globalThis.LHG_CONTEXT_STORE?.hashText?.(raw);
       }
-      return { ...payload, platform: scope.platform, context,
+      return { ...payload, routerHeads, platform: scope.platform, context,
         cacheContext: history ? { ...cacheContext, historyFingerprint } : cacheContext };
     });
     pending = work.catch(() => {});
     return work.catch(() => payload); // storage/DOM failure never breaks a check
   }
 
-  function send(payload, callback, el) {
-    prepare(payload, el).then((message) => chrome.runtime.sendMessage(message, (r) => {
+  function send(payload, callback, el, controls = {}) {
+    prepare(payload, el).then((message) => {
+      const state = loopStates.get(message.loopToken);
+      if (state) {
+        const before = state.current;
+        state.current = () => before() && (!controls.current || controls.current());
+        state.progress = controls.progress;
+      }
+      sendPrepared(message, callback);
+    });
+  }
+  function sendPrepared(message, callback) {
+    chrome.runtime.sendMessage(message, (r) => {
+      loopStates.delete(message.loopToken);
       // lastError stays readable: the callback runs synchronously in here.
       callback(withLocalNames(r, message && message.context && message.context.conversationRef, packetBuilders.get(message.context)));
-    }));
+    });
   }
 
   // Resolve the analysis refs back to display names IN THE PAGE only, so the
@@ -215,5 +268,5 @@
     return JSON.stringify([globalThis.LHG_MEMORY?.scopeFor?.(platform, el),
       text, platform === 'gmail' ? gmailHistory(el, text) : null]);
   }
-  globalThis.LHG_CONTEXT_RUNTIME = { prepare, send, withLocalNames, conversationKey, contentKey };
+  globalThis.LHG_CONTEXT_RUNTIME = { prepare, send, sendPrepared, withLocalNames, conversationKey, contentKey };
 })();

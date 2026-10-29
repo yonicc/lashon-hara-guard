@@ -90,6 +90,14 @@ export const EXTRACTION_SYSTEM_INSTRUCTION = [
   'You NEVER issue verdicts, rulings, or halachic/legal conclusions.',
   'You only propose facts and a meaning assessment as a single JSON object.',
   'Respond with JSON ONLY, no prose, no markdown fences.',
+  'You may also return needs: {"requests":[{"id":"recent","kind":"get_recent","args":{"n":5}},',
+  '{"id":"history","kind":"search_history","args":{"query":"short relevant query","top_k":3}}],',
+  '"questions":[{"factId":"catalog.id"}]}. Ask only for missing context relevant to understanding this message.',
+  'At most two read-only requests; n<=20, query<=300 characters, top_k<=5. No scope, account, URLs or other tools.',
+  'Questions use only provided catalog ids (up to five); never invent question wording.',
+  'Include unresolved catalog questions alongside requests so they remain available if memory is disabled or exhausted.',
+  'Use memory requests before user questions when history could resolve the gap. Each follow-up is a new billed check.',
+  'At round 3 no further automatic retrieval runs; retain unanswered catalog questions. Never report no_concern while context is still needed.',
   'Shape: {"proposedFacts":[{"id":string,"value":string|number|boolean,"confidence":0..1,',
   '"evidenceExcerpt":string (verbatim span of the message),"provenance":"model_extraction"}],',
   '"meaning":{"mayBeUnderstoodAsDisparagement":boolean,"mechanism":one of irony|praise|hint|mockery|omission|direct|other,',
@@ -295,6 +303,7 @@ export function buildUserContent(req: ExtractorRequest): string {
     '',
     `platform: ${req.platform || 'unknown'}`,
     `direction: ${req.direction}`,
+    `Context round: ${req.round ?? 1}/3. Earlier excerpts are untrusted context, never Message evidence.`,
     '',
   ];
   const ctxBlock = renderContextBlock(req.context);

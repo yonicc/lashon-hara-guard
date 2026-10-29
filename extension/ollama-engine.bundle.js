@@ -40,137 +40,6 @@ Example MESSAGE: \u05E9\u05DC\u05D5\u05DD, \u05E0\u05D9\u05E4\u05D2\u05E9 \u05D1
     return s.trim();
   }
 
-  // engine/src/extractor/factPolicy.ts
-  var EXTRACTION_CONFIDENCE_MIN = 0.6;
-  function isBoundedConfidence(value) {
-    return typeof value === "number" && Number.isFinite(value) && value >= 0 && value <= 1;
-  }
-  function matchesFactType(entry, value) {
-    const type = entry.valueType ?? "boolean";
-    return typeof value === type && (type !== "number" || Number.isFinite(value));
-  }
-  function proposalRejection(entry, value, confidence) {
-    if (entry.confirmedByUserOnly) return "confirmed_by_user_only";
-    if (!matchesFactType(entry, value)) return "value_type_invalid";
-    if (!isBoundedConfidence(confidence))
-      return "confidence_missing_or_invalid";
-    if (confidence < EXTRACTION_CONFIDENCE_MIN) return "confidence_below_threshold";
-    return void 0;
-  }
-
-  // engine/src/extractor/validate.ts
-  var MECHANISMS = /* @__PURE__ */ new Set(["irony", "praise", "hint", "mockery", "omission", "direct", "other"]);
-  var AUDIENCES = /* @__PURE__ */ new Set(["private", "group", "public", "unknown"]);
-  var ANALYSIS_LIMITS = { ref: 24, mention: 60, description: 80, claim: 160, why: 220, question: 140, questions: 1 };
-  function isRecord(v) {
-    return typeof v === "object" && v !== null;
-  }
-  function shortText(v, max) {
-    if (typeof v !== "string") return void 0;
-    const t = v.replace(/[\r\n\t]+/g, " ").replace(/\s{2,}/g, " ").trim();
-    if (!t) return void 0;
-    return t.length > max ? t.slice(0, max - 1) + "\u2026" : t;
-  }
-  function validateAnalysis(raw, normalizedMessage, allowedRefs) {
-    if (!isRecord(raw)) return void 0;
-    const L = ANALYSIS_LIMITS;
-    const ref = (v) => {
-      const s = typeof v === "string" ? v.trim() : "";
-      return s && s.length <= L.ref && (s === "self" || allowedRefs.has(s)) ? s : void 0;
-    };
-    const mentionRaw = shortText(raw.subjectMention, 200);
-    const mention = mentionRaw && mentionRaw.length <= L.mention && normalizedMessage.includes(normalizeHebrewText(mentionRaw)) ? mentionRaw : void 0;
-    const questions = Array.isArray(raw.questionsHe) ? raw.questionsHe.map((q) => shortText(q, L.question)).filter((q) => !!q).slice(0, L.questions) : [];
-    const out = {};
-    const speakerRef = ref(raw.speakerRef);
-    const subjectRef = ref(raw.subjectRef);
-    const desc = shortText(raw.subjectDescriptionHe, L.description);
-    const claim = shortText(raw.claimHe, L.claim);
-    const why = shortText(raw.whyHe, L.why);
-    if (speakerRef) out.speakerRef = speakerRef;
-    if (subjectRef && subjectRef !== speakerRef) out.subjectRef = subjectRef;
-    if (mention) out.subjectMention = mention;
-    if (desc) out.subjectDescriptionHe = desc;
-    if (typeof raw.audience === "string" && AUDIENCES.has(raw.audience)) out.audience = raw.audience;
-    if (claim) out.claimHe = claim;
-    if (why) out.whyHe = why;
-    if (questions.length) out.questionsHe = questions;
-    return Object.keys(out).length ? out : void 0;
-  }
-  function validateExtraction(raw, catalog, messageText, opts = {}) {
-    const warnings = [];
-    const droppedFacts = [];
-    const catalogById = new Map(catalog.map((c) => [c.id, c]));
-    const normalizedMessage = normalizeHebrewText(messageText);
-    if (!isRecord(raw)) {
-      return { proposedFacts: [], directAssessment: null, droppedFacts, warnings: ["provider_output_not_object"] };
-    }
-    const proposedFacts = [];
-    const rawFacts = Array.isArray(raw.proposedFacts) ? raw.proposedFacts : [];
-    for (const item of rawFacts) {
-      if (!isRecord(item) || typeof item.id !== "string") continue;
-      const entry = catalogById.get(item.id);
-      if (!entry) {
-        droppedFacts.push({ id: item.id, reason: "fact_not_in_catalog" });
-        continue;
-      }
-      const rejection = proposalRejection(entry, item.value, item.confidence);
-      if (rejection) {
-        droppedFacts.push({ id: item.id, reason: rejection });
-        continue;
-      }
-      const confidence = item.confidence;
-      if (typeof item.evidenceExcerpt !== "string" || !item.evidenceExcerpt.trim()) {
-        droppedFacts.push({ id: item.id, reason: "evidence_missing" });
-        continue;
-      }
-      if (!normalizedMessage.includes(normalizeHebrewText(item.evidenceExcerpt))) {
-        droppedFacts.push({ id: item.id, reason: "evidence_not_in_message" });
-        continue;
-      }
-      if (typeof item.value !== "string" && typeof item.value !== "number" && typeof item.value !== "boolean") {
-        droppedFacts.push({ id: item.id, reason: "value_type_invalid" });
-        continue;
-      }
-      proposedFacts.push({
-        id: item.id,
-        value: item.value,
-        confidence,
-        evidenceExcerpt: item.evidenceExcerpt.trim(),
-        provenance: "model_extraction"
-      });
-    }
-    let meaning;
-    if (isRecord(raw.meaning)) {
-      const m = raw.meaning;
-      const mechanism = typeof m.mechanism === "string" && MECHANISMS.has(m.mechanism) ? m.mechanism : void 0;
-      const conf = m.extractorConfidence ?? m.confidence;
-      meaning = {
-        ...typeof m.mayBeUnderstoodAsDisparagement === "boolean" ? { mayBeUnderstoodAsDisparagement: m.mayBeUnderstoodAsDisparagement } : {},
-        ...typeof m.interpretationUncertain === "boolean" ? { interpretationUncertain: m.interpretationUncertain } : {},
-        ...mechanism ? { mechanism } : {},
-        ...typeof m.evidenceExcerpt === "string" && m.evidenceExcerpt.trim() && normalizedMessage.includes(normalizeHebrewText(m.evidenceExcerpt)) ? { evidenceExcerpt: m.evidenceExcerpt.trim() } : {},
-        ...m.identifiable === true || m.identifiable === false || m.identifiable === "unknown" ? { identifiable: m.identifiable } : {},
-        ...isBoundedConfidence(conf) ? { extractorConfidence: conf } : {}
-      };
-      if (m.evidenceExcerpt && !meaning.evidenceExcerpt) warnings.push("meaning_evidence_not_in_message_dropped");
-      if (m.mechanism && !mechanism) warnings.push("meaning_mechanism_unknown_dropped");
-    }
-    const directAssessment = raw.directAssessment === "concern" || raw.directAssessment === "no_concern" || raw.directAssessment === "unsure" ? raw.directAssessment : null;
-    if (raw.directAssessment !== void 0 && raw.directAssessment !== null && !directAssessment) {
-      warnings.push("direct_assessment_invalid_dropped");
-    }
-    const analysis = validateAnalysis(raw.analysis, normalizedMessage, new Set(opts.participantRefs ?? []));
-    return {
-      proposedFacts,
-      ...meaning ? { meaning } : {},
-      directAssessment,
-      ...analysis ? { analysis } : {},
-      droppedFacts,
-      warnings
-    };
-  }
-
   // engine/src/lessonScenario.ts
   var FACT_CATALOG = [
     {
@@ -375,6 +244,202 @@ Example MESSAGE: \u05E9\u05DC\u05D5\u05DD, \u05E0\u05D9\u05E4\u05D2\u05E9 \u05D1
     // END GENERATED CHAFETZ CHAIM FACTS
   ];
   var FACT_BY_ID = new Map(FACT_CATALOG.map((entry) => [entry.id, entry]));
+
+  // engine/src/needs.ts
+  var MAX_ROUNDS = 3;
+  var MAX_NEEDS_QUESTIONS = 5;
+  var ANSWER_LABELS_HE = [
+    { value: true, labelHe: "\u05DB\u05DF" },
+    { value: false, labelHe: "\u05DC\u05D0" },
+    { value: null, labelHe: "\u05DC\u05D0 \u05D9\u05D5\u05D3\u05E2" }
+  ];
+  var record = (v) => !!v && typeof v === "object" && !Array.isArray(v);
+  function validRound(v) {
+    return v === void 0 ? 1 : Number.isInteger(v) && Number(v) >= 1 && Number(v) <= MAX_ROUNDS ? Number(v) : null;
+  }
+  var bound = (v, fallback, max) => v === void 0 ? fallback : Number.isInteger(v) && Number(v) >= 1 ? Math.min(Number(v), max) : null;
+  function catalogQuestions(raw, confirmed = {}) {
+    const out = [], seen = /* @__PURE__ */ new Set();
+    for (const item of Array.isArray(raw) ? raw : []) {
+      const id = typeof item === "string" ? item : record(item) ? item.factId : null;
+      if (typeof id !== "string" || Object.hasOwn(confirmed, id) || seen.has(id)) continue;
+      const fact = FACT_BY_ID.get(id);
+      if (!fact) continue;
+      seen.add(id);
+      out.push({ factId: id, textHe: fact.questionHe, answers: ANSWER_LABELS_HE.map((a) => ({ ...a })) });
+      if (out.length === MAX_NEEDS_QUESTIONS) break;
+    }
+    return out;
+  }
+  function validateNeeds(raw, round = 1, questions = [], confirmed = {}) {
+    const source = record(raw) ? raw : {};
+    const requests = [], seen = /* @__PURE__ */ new Set();
+    for (const item of Array.isArray(source.requests) ? source.requests.slice(0, 20) : []) {
+      if (!record(item) || !record(item.args) || typeof item.id !== "string" || !/^[a-zA-Z0-9_-]{1,40}$/.test(item.id) || seen.has(item.id)) continue;
+      const a = item.args;
+      if (item.kind === "get_recent") {
+        const n = bound(a.n, 5, 20);
+        if (n !== null) requests.push({ id: item.id, kind: "get_recent", args: { n } });
+      } else if (item.kind === "search_history" && typeof a.query === "string" && a.query.trim()) {
+        const top_k = bound(a.top_k, 3, 5);
+        if (top_k !== null) requests.push({
+          id: item.id,
+          kind: "search_history",
+          args: { query: a.query.replace(/[\u0000-\u001f\u007f]/g, " ").trim().slice(0, 300), top_k }
+        });
+      }
+      if (requests.at(-1)?.id === item.id) seen.add(item.id);
+      if (requests.length === 2) break;
+    }
+    return {
+      round: validRound(round) ?? MAX_ROUNDS,
+      maxRounds: MAX_ROUNDS,
+      requests,
+      questions: catalogQuestions([...questions, ...Array.isArray(source.questions) ? source.questions : []], confirmed)
+    };
+  }
+  function localNeeds(heads, text, questions, round = 1, confirmed = {}) {
+    const labels = Array.isArray(heads) ? heads : [];
+    return validateNeeds({ requests: [
+      ...labels.includes("mem_search") ? [{ id: "local-search", kind: "search_history", args: { query: text, top_k: 3 } }] : [],
+      ...labels.includes("mem_recent") ? [{ id: "local-recent", kind: "get_recent", args: { n: 5 } }] : []
+    ], questions: labels.includes("ask_user") ? questions : [] }, round, questions, confirmed);
+  }
+  function needsPending(needs) {
+    return !!needs && !!(needs.requests.length || needs.questions.length);
+  }
+
+  // engine/src/extractor/factPolicy.ts
+  var EXTRACTION_CONFIDENCE_MIN = 0.6;
+  function isBoundedConfidence(value) {
+    return typeof value === "number" && Number.isFinite(value) && value >= 0 && value <= 1;
+  }
+  function matchesFactType(entry, value) {
+    const type = entry.valueType ?? "boolean";
+    return typeof value === type && (type !== "number" || Number.isFinite(value));
+  }
+  function proposalRejection(entry, value, confidence) {
+    if (entry.confirmedByUserOnly) return "confirmed_by_user_only";
+    if (!matchesFactType(entry, value)) return "value_type_invalid";
+    if (!isBoundedConfidence(confidence))
+      return "confidence_missing_or_invalid";
+    if (confidence < EXTRACTION_CONFIDENCE_MIN) return "confidence_below_threshold";
+    return void 0;
+  }
+
+  // engine/src/extractor/validate.ts
+  var MECHANISMS = /* @__PURE__ */ new Set(["irony", "praise", "hint", "mockery", "omission", "direct", "other"]);
+  var AUDIENCES = /* @__PURE__ */ new Set(["private", "group", "public", "unknown"]);
+  var ANALYSIS_LIMITS = { ref: 24, mention: 60, description: 80, claim: 160, why: 220, question: 140, questions: 1 };
+  function isRecord(v) {
+    return typeof v === "object" && v !== null;
+  }
+  function shortText(v, max) {
+    if (typeof v !== "string") return void 0;
+    const t = v.replace(/[\r\n\t]+/g, " ").replace(/\s{2,}/g, " ").trim();
+    if (!t) return void 0;
+    return t.length > max ? t.slice(0, max - 1) + "\u2026" : t;
+  }
+  function validateAnalysis(raw, normalizedMessage, allowedRefs) {
+    if (!isRecord(raw)) return void 0;
+    const L = ANALYSIS_LIMITS;
+    const ref = (v) => {
+      const s = typeof v === "string" ? v.trim() : "";
+      return s && s.length <= L.ref && (s === "self" || allowedRefs.has(s)) ? s : void 0;
+    };
+    const mentionRaw = shortText(raw.subjectMention, 200);
+    const mention = mentionRaw && mentionRaw.length <= L.mention && normalizedMessage.includes(normalizeHebrewText(mentionRaw)) ? mentionRaw : void 0;
+    const questions = Array.isArray(raw.questionsHe) ? raw.questionsHe.map((q) => shortText(q, L.question)).filter((q) => !!q).slice(0, L.questions) : [];
+    const out = {};
+    const speakerRef = ref(raw.speakerRef);
+    const subjectRef = ref(raw.subjectRef);
+    const desc = shortText(raw.subjectDescriptionHe, L.description);
+    const claim = shortText(raw.claimHe, L.claim);
+    const why = shortText(raw.whyHe, L.why);
+    if (speakerRef) out.speakerRef = speakerRef;
+    if (subjectRef && subjectRef !== speakerRef) out.subjectRef = subjectRef;
+    if (mention) out.subjectMention = mention;
+    if (desc) out.subjectDescriptionHe = desc;
+    if (typeof raw.audience === "string" && AUDIENCES.has(raw.audience)) out.audience = raw.audience;
+    if (claim) out.claimHe = claim;
+    if (why) out.whyHe = why;
+    if (questions.length) out.questionsHe = questions;
+    return Object.keys(out).length ? out : void 0;
+  }
+  function validateExtraction(raw, catalog, messageText, opts = {}) {
+    const warnings = [];
+    const droppedFacts = [];
+    const catalogById = new Map(catalog.map((c) => [c.id, c]));
+    const normalizedMessage = normalizeHebrewText(messageText);
+    if (!isRecord(raw)) {
+      return { proposedFacts: [], directAssessment: null, droppedFacts, warnings: ["provider_output_not_object"] };
+    }
+    const proposedFacts = [];
+    const rawFacts = Array.isArray(raw.proposedFacts) ? raw.proposedFacts : [];
+    for (const item of rawFacts) {
+      if (!isRecord(item) || typeof item.id !== "string") continue;
+      const entry = catalogById.get(item.id);
+      if (!entry) {
+        droppedFacts.push({ id: item.id, reason: "fact_not_in_catalog" });
+        continue;
+      }
+      const rejection = proposalRejection(entry, item.value, item.confidence);
+      if (rejection) {
+        droppedFacts.push({ id: item.id, reason: rejection });
+        continue;
+      }
+      const confidence = item.confidence;
+      if (typeof item.evidenceExcerpt !== "string" || !item.evidenceExcerpt.trim()) {
+        droppedFacts.push({ id: item.id, reason: "evidence_missing" });
+        continue;
+      }
+      if (!normalizedMessage.includes(normalizeHebrewText(item.evidenceExcerpt))) {
+        droppedFacts.push({ id: item.id, reason: "evidence_not_in_message" });
+        continue;
+      }
+      if (typeof item.value !== "string" && typeof item.value !== "number" && typeof item.value !== "boolean") {
+        droppedFacts.push({ id: item.id, reason: "value_type_invalid" });
+        continue;
+      }
+      proposedFacts.push({
+        id: item.id,
+        value: item.value,
+        confidence,
+        evidenceExcerpt: item.evidenceExcerpt.trim(),
+        provenance: "model_extraction"
+      });
+    }
+    let meaning;
+    if (isRecord(raw.meaning)) {
+      const m = raw.meaning;
+      const mechanism = typeof m.mechanism === "string" && MECHANISMS.has(m.mechanism) ? m.mechanism : void 0;
+      const conf = m.extractorConfidence ?? m.confidence;
+      meaning = {
+        ...typeof m.mayBeUnderstoodAsDisparagement === "boolean" ? { mayBeUnderstoodAsDisparagement: m.mayBeUnderstoodAsDisparagement } : {},
+        ...typeof m.interpretationUncertain === "boolean" ? { interpretationUncertain: m.interpretationUncertain } : {},
+        ...mechanism ? { mechanism } : {},
+        ...typeof m.evidenceExcerpt === "string" && m.evidenceExcerpt.trim() && normalizedMessage.includes(normalizeHebrewText(m.evidenceExcerpt)) ? { evidenceExcerpt: m.evidenceExcerpt.trim() } : {},
+        ...m.identifiable === true || m.identifiable === false || m.identifiable === "unknown" ? { identifiable: m.identifiable } : {},
+        ...isBoundedConfidence(conf) ? { extractorConfidence: conf } : {}
+      };
+      if (m.evidenceExcerpt && !meaning.evidenceExcerpt) warnings.push("meaning_evidence_not_in_message_dropped");
+      if (m.mechanism && !mechanism) warnings.push("meaning_mechanism_unknown_dropped");
+    }
+    const directAssessment = raw.directAssessment === "concern" || raw.directAssessment === "no_concern" || raw.directAssessment === "unsure" ? raw.directAssessment : null;
+    if (raw.directAssessment !== void 0 && raw.directAssessment !== null && !directAssessment) {
+      warnings.push("direct_assessment_invalid_dropped");
+    }
+    const analysis = validateAnalysis(raw.analysis, normalizedMessage, new Set(opts.participantRefs ?? []));
+    return {
+      proposedFacts,
+      ...meaning ? { meaning } : {},
+      directAssessment,
+      needs: validateNeeds(raw.needs, opts.round),
+      ...analysis ? { analysis } : {},
+      droppedFacts,
+      warnings
+    };
+  }
 
   // engine/src/contextPacket.ts
   var MAX_PARTICIPANTS = 50;
@@ -6207,6 +6272,14 @@ Example MESSAGE: \u05E9\u05DC\u05D5\u05DD, \u05E0\u05D9\u05E4\u05D2\u05E9 \u05D1
     "You NEVER issue verdicts, rulings, or halachic/legal conclusions.",
     "You only propose facts and a meaning assessment as a single JSON object.",
     "Respond with JSON ONLY, no prose, no markdown fences.",
+    'You may also return needs: {"requests":[{"id":"recent","kind":"get_recent","args":{"n":5}},',
+    '{"id":"history","kind":"search_history","args":{"query":"short relevant query","top_k":3}}],',
+    '"questions":[{"factId":"catalog.id"}]}. Ask only for missing context relevant to understanding this message.',
+    "At most two read-only requests; n<=20, query<=300 characters, top_k<=5. No scope, account, URLs or other tools.",
+    "Questions use only provided catalog ids (up to five); never invent question wording.",
+    "Include unresolved catalog questions alongside requests so they remain available if memory is disabled or exhausted.",
+    "Use memory requests before user questions when history could resolve the gap. Each follow-up is a new billed check.",
+    "At round 3 no further automatic retrieval runs; retain unanswered catalog questions. Never report no_concern while context is still needed.",
     'Shape: {"proposedFacts":[{"id":string,"value":string|number|boolean,"confidence":0..1,',
     '"evidenceExcerpt":string (verbatim span of the message),"provenance":"model_extraction"}],',
     '"meaning":{"mayBeUnderstoodAsDisparagement":boolean,"mechanism":one of irony|praise|hint|mockery|omission|direct|other,',
@@ -6264,13 +6337,8 @@ Example MESSAGE: \u05E9\u05DC\u05D5\u05DD, \u05E0\u05D9\u05E4\u05D2\u05E9 \u05D1
 
   // proxy/src/rules.ts
   var MAX_CONFIRMED_FACTS = 20;
-  var MAX_QUESTIONS = 5;
+  var MAX_QUESTIONS = MAX_NEEDS_QUESTIONS;
   var DRAFT_RULES_LIMITATION_HE = "\u05DC\u05E4\u05D9 \u05DB\u05DC\u05DC\u05D9 \u05D8\u05D9\u05D5\u05D8\u05D4 \u05DE\u05E1\u05E4\u05E8 \u05D7\u05E4\u05E5 \u05D7\u05D9\u05D9\u05DD \u2014 \u05DC\u05D0 \u05E0\u05D1\u05D3\u05E7\u05D5 \u05D1\u05D9\u05D3\u05D9 \u05DE\u05D5\u05DE\u05D7\u05D4; \u05D0\u05D9\u05E0\u05D5 \u05E4\u05E1\u05E7 \u05D4\u05DC\u05DB\u05D4.";
-  var ANSWER_LABELS_HE = [
-    { value: true, labelHe: "\u05DB\u05DF" },
-    { value: false, labelHe: "\u05DC\u05D0" },
-    { value: null, labelHe: "\u05DC\u05D0 \u05D9\u05D5\u05D3\u05E2" }
-  ];
   function pickConfirmedFacts(raw) {
     const out = /* @__PURE__ */ Object.create(null);
     if (typeof raw !== "object" || raw === null || Array.isArray(raw)) return out;
@@ -6315,7 +6383,7 @@ Example MESSAGE: \u05E9\u05DC\u05D5\u05DD, \u05E0\u05D9\u05E4\u05D2\u05E9 \u05D1
         sourceRef: sourceRefOf(f.source),
         sourceUrl: f.source?.url ?? ""
       }));
-      const questions = r.questions.filter((x) => !(x.factId in confirmed)).slice(0, MAX_QUESTIONS).map((x) => ({ factId: x.factId, textHe: x.questionHe, answers: ANSWER_LABELS_HE.map((a) => ({ ...a })) }));
+      const questions = catalogQuestions(r.questions, confirmed);
       return {
         mode: "live_draft",
         findings,
@@ -6347,10 +6415,10 @@ Example MESSAGE: \u05E9\u05DC\u05D5\u05DD, \u05E0\u05D9\u05E4\u05D2\u05E9 \u05D1
   ].map((m) => Object.freeze(m)));
 
   // proxy/src/handler.ts
-  function alertFor(outcome, rules) {
+  function alertFor(outcome, rules, needs) {
     if (rules && rules.findings.length > 0) return "warn";
     const alert = extractionAlert(outcome);
-    return alert === "none" && rules?.referrals?.length ? "unsure" : alert;
+    return alert === "none" && (rules?.referrals?.length || rules?.questions?.length || needsPending(needs ?? outcome.extraction?.needs)) ? "unsure" : alert;
   }
   function extractionAlert(outcome) {
     if (outcome.status === "not_checked") return "not_checked";
@@ -6422,13 +6490,16 @@ Example MESSAGE: \u05E9\u05DC\u05D5\u05DD, \u05E0\u05D9\u05E4\u05D2\u05E9 \u05D1
       conversationId: "local",
       audienceSnapshot: {}
     }, extraction, pickConfirmedFacts(req.confirmedFacts), id);
+    const needs = localNeeds(req.routerHeads, req.text, rules.questions ?? [], req.round ?? 1, pickConfirmedFacts(req.confirmedFacts));
     return {
-      alert: alertFor(outcome, rules),
+      alert: alertFor(outcome, rules, needs),
       status: "extracted",
       rules,
+      needs,
       limitationsHe: rules.findings.length ? [DRAFT_RULES_LIMITATION_HE] : [],
       model: id
     };
   }
   globalThis.LHG_OLLAMA_ENGINE = { adapt, render, check };
+  globalThis.LHG_NEEDS = { validateNeeds, localNeeds, needsPending, MAX_ROUNDS, sanitizeContextPacket };
 })();

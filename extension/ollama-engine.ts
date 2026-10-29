@@ -3,6 +3,7 @@ import { validateExtraction } from '../engine/src/extractor/validate.js';
 import { normalizeHebrewText } from '../engine/src/extractor/normalize.js';
 import { FACT_CATALOG } from '../engine/src/lessonScenario.js';
 import { sanitizeContextPacket } from '../engine/src/contextPacket.js';
+import { validateNeeds, localNeeds, needsPending, MAX_ROUNDS } from '../engine/src/needs.js';
 import { runLiveRules, pickConfirmedFacts, DRAFT_RULES_LIMITATION_HE } from '../proxy/src/rules.js';
 import { alertFor } from '../proxy/src/handler.js';
 import type { ExtractionOutcome } from '../engine/src/extractor/types.js';
@@ -64,8 +65,10 @@ export async function check(req: any, id: string, client: any) {
     conversationId: 'local', audienceSnapshot: {},
   }, extraction, pickConfirmedFacts(req.confirmedFacts), id);
   // Null directAssessment => canonical alertFor returns unsure (or a rule warning).
-  return { alert: alertFor(outcome, rules), status: 'extracted', rules,
+  const needs = localNeeds(req.routerHeads, req.text, rules.questions ?? [], req.round ?? 1, pickConfirmedFacts(req.confirmedFacts));
+  return { alert: alertFor(outcome, rules, needs), status: 'extracted', rules, needs,
     limitationsHe: rules.findings.length ? [DRAFT_RULES_LIMITATION_HE] : [],
     model: id };
 }
 (globalThis as any).LHG_OLLAMA_ENGINE = { adapt, render, check };
+(globalThis as any).LHG_NEEDS = { validateNeeds, localNeeds, needsPending, MAX_ROUNDS, sanitizeContextPacket };

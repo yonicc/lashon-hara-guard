@@ -65,7 +65,7 @@ test('proxy: concern/meaning becomes alert=warn with mechanism and evidence', as
 test('proxy: no_concern -> none, unsure -> unsure', async () => {
   const none = await handle(post({ text: 'תודה רבה לדוד' }), ENV,
     provider({ proposedFacts: [], directAssessment: 'no_concern' }));
-  assert.equal(((await none.json()) as Record<string, unknown>)['alert'], 'none');
+  assert.equal(((await none.json()) as Record<string, unknown>)['alert'], 'unsure'); // unanswered catalog facts
   const unsure = await handle(post({ text: 'כולם יודעים למה הוא עזב' }), ENV,
     provider({ proposedFacts: [], directAssessment: 'unsure' }));
   assert.equal(((await unsure.json()) as Record<string, unknown>)['alert'], 'unsure');
