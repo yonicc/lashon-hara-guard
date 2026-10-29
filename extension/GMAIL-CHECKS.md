@@ -38,13 +38,20 @@ before replay; late replies cannot send again or start a follow-up. Text/context
 changes revoke stale actions. A failure never sends automatically. The native
 button remains intact (aria-busy only); progress is indeterminate. No message
 text is rewritten. This behavior follows the owner's 2026-10-29 decision.
+Owner 2026-10-29 (send cap): the wait is bounded by SEND_CAP_MS (30s, one
+definition in compose-watch.js). After the cap the panel says pressing Enter
+again (or Send anyway) sends immediately without the check result. A second
+deliberate send bypasses at any time; a late result cannot replay the send.
 
 ## Read and cache
 A document_start Gmail CSS guard hides unprocessed bodies until settings and
 scanner state are available. Editable drafts and folder previews are excluded.
 Loaded mail is checked on opening; chat baseline/burst behavior is preserved.
 hideIncoming and platform/master switches control cover. Warning/error holds
-offer reveal and explicit recheck.
+offer reveal and explicit recheck. Owner 2026-10-29 (loading): a held
+(pending) message shows an animated loading indicator (.lhg-spinner, pure
+CSS, honours reduced-motion) beside the "checking" label, never a bare blank;
+the unheld checking tag gets the same spinner.
 
 Result reuse is in chrome.storage.local (the existing extension-local storage,
 independent of the optional embedding memory), with SHA-256 keys including
