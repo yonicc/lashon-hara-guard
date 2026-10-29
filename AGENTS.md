@@ -8,6 +8,7 @@
 - Working directory: C:\Users\dev\lashon-hara-guard on BI-1.
 
 ## Scope and conventions
+- Technical debt register: docs/TECH-DEBT.md; retry idempotency remains canonical in docs/50. Keep extractor meaning training separate from the local classifier decider; neither allows missing facts to become false.
 - Phase: the user approved building the MVP on 2026-10-26 (extension → proxy → Brain, see docs/11). Other proposed architecture is still not user-approved.
 - Read README.md and docs/06-decisions.md before changes.
 - Keep requirements, proposals, and questions distinct; preserve incoming-message scanning as a core user requirement.
