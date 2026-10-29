@@ -13,18 +13,25 @@ const cases = [
   'I checked the invoice myself before writing this, and I am telling only his manager so it can be fixed.',
   'שמעתי מחבר שהשכן שלנו גנב מהקופה, אבל לא ראיתי את זה במו עיניי.',
   'Reminder: the meeting moved to 4pm.',
+  'I am only joking about his late arrival. I am putting this criticism in writing.',
+  'This is a rumor I have not checked. I am passing on what a colleague told me.',
+  'My rabbi asked me to pass this on. This inquiry concerns a future business partnership.',
+  'He told this himself in front of five listeners. I am confirming the report you already heard.',
+  'I have the same bad habit myself. I am only hinting at his conduct.',
 ];
 (async () => {
   const client = C.create({ timeoutMs: 240000 });
   if (!(await client.available(id))) { console.error('model not installed:', C.MODELS[id]); process.exit(2); }
-  let scored = 0, failed = 0;
+  let scored = 0, failed = 0, expandedAccepted = 0;
   for (const text of cases) {
     const started = Date.now();
     try {
       const gen = await client.generate(id, E.render(id, text));
-      const ex = E.adapt(gen.output, text, gen.scores);
+      const ex = E.adapt(gen.output, text, gen.scores, id);
       const r = await E.check({ text, platform: 'manual', direction: 'outgoing' }, id,
         { generate: async () => gen });
+      if (r.alert === 'none') throw new Error('narrow_extractor_must_remain_unresolved');
+      expandedAccepted += ex.proposedFacts.filter(f => f.id.startsWith('message.') || f.id.startsWith('context.')).length;
       if (Object.keys(gen.scores).length) scored++;
       console.log(JSON.stringify({ ms: Date.now() - started, text: text.slice(0, 40), output: gen.output,
         scores: gen.scores, accepted: ex.proposedFacts.map(f => [f.id, f.value, +f.confidence.toFixed(3)]),
@@ -34,6 +41,7 @@ const cases = [
       failed++; console.log(JSON.stringify({ ms: Date.now() - started, text: text.slice(0, 40), error: String(e.message || e) }));
     }
   }
-  console.log(JSON.stringify({ model: id, cases: cases.length, withScores: scored, failed }));
-  process.exit(failed || !scored ? 1 : 0);
+  console.log(JSON.stringify({ model: id, cases: cases.length, withScores: scored, expandedAccepted, failed }));
+  const expandedRequired = C.SPECS[id].contract === 'v2';
+  process.exit(failed || !scored || (expandedRequired && !expandedAccepted) ? 1 : 0);
 })();

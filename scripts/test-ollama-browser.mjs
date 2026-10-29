@@ -10,8 +10,8 @@ const { chromium } = require('playwright');
 const profile = await mkdtemp(path.join(os.tmpdir(), 'lhg-ollama-'));
 let output = '{}';
 const calls = [];
-const models = ['hf.co/yonicc/lhg-extractor-qwen7b-gguf:Q4_K_M',
-  'hf.co/yonicc/lhg-extractor-dictalm-gguf:Q4_K_M'];
+await import('../extension/ollama-client.js');
+const models = Object.values(globalThis.LHG_OLLAMA_CLIENT.MODELS);
 const server = createServer(async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   let body = ''; for await (const part of req) body += part;
@@ -60,6 +60,11 @@ try {
   assert.equal(failed.result.alert, 'not_checked'); assert.equal(failed.cloudCalls, 0);
   assert.equal(calls.filter(c => c.path === '/api/generate').length, 5);
   assert.ok(calls.filter(c => c.body).every(c => c.body.raw === true && c.body.stream === false));
+  for (const c of calls.filter(c => c.path === '/api/generate')) {
+    const spec = Object.values(globalThis.LHG_OLLAMA_CLIENT.SPECS).find(s => s.ref === c.body.model);
+    assert.ok(spec);
+    assert.equal(c.body.prompt.includes('subject_self_disclosed:'), spec.contract === 'v2');
+  }
   console.log('PASS real MV3: both registrations, all modes, browser bundle/rules, invalid output, no cloud fallback');
 } finally {
   if (browser) await browser.close();

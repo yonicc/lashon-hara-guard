@@ -1,10 +1,16 @@
 // Loopback-only Ollama transport. No credentials, redirects or remote fallback.
 (() => {
   const BASE = 'http://127.0.0.1:11434';
-  const MODELS = Object.freeze({
-    'extractor-7b-q4': 'hf.co/yonicc/lhg-extractor-qwen7b-gguf:Q4_K_M',
-    'dictalm-q4': 'hf.co/yonicc/lhg-extractor-dictalm-gguf:Q4_K_M',
+  const DEFAULT_MODEL = 'extractor-7b-q4';
+  const SPECS = Object.freeze({
+    'extractor-7b-q4': Object.freeze({
+      ref: 'hf.co/yonicc/lhg-extractor-qwen7b-v2-gguf:Q4_K_M', contract: 'v2', template: 'qwen',
+    }),
+    'dictalm-q4': Object.freeze({
+      ref: 'hf.co/yonicc/lhg-extractor-dictalm-gguf:Q4_K_M', contract: 'v1', template: 'mistral',
+    }),
   });
+  const MODELS = Object.freeze(Object.fromEntries(Object.entries(SPECS).map(([id, spec]) => [id, spec.ref])));
   function create({ fetchImpl = globalThis.fetch, timeoutMs = 60000 } = {}) {
     async function request(path, body, budget = timeoutMs) {
       const abort = new AbortController();
@@ -147,5 +153,5 @@
     if (!parsed || Array.isArray(parsed) || typeof parsed !== 'object') throw new Error('ollama_bad_output');
     return parsed;
   }
-  globalThis.LHG_OLLAMA_CLIENT = { MODELS, create, parse, scoreKeys };
+  globalThis.LHG_OLLAMA_CLIENT = { MODELS, SPECS, DEFAULT_MODEL, create, parse, scoreKeys };
 })();

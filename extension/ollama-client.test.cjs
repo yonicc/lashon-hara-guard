@@ -41,6 +41,13 @@ test('availability requires installed exact model', async () => {
   assert.equal(await create({ fetchImpl: async () => reply({ models: [] }) }).available(id), false);
   assert.equal(await create({ fetchImpl: async () => reply({ models: [{ name: MODELS[id] }] }) }).available(id), true);
 });
+test('an installed e8 model cannot satisfy the v2 engine or setup inspection', async () => {
+  const client = create({ fetchImpl: async () => reply({ models: [
+    { name: 'hf.co/yonicc/lhg-extractor-qwen7b-gguf:Q4_K_M' },
+  ] }) });
+  assert.equal(await client.available(id), false);
+  assert.equal((await client.inspect())[id], false);
+});
 test('invalid and incomplete output fail closed', async () => {
   for (const s of ['null', '[]', 'not JSON']) assert.throws(() => parse(s));
   await assert.rejects(create({ fetchImpl: async () => reply({ done: false, response: '{}' }) }).generate(id, 'p'));
