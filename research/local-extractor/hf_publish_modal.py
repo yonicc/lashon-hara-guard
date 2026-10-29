@@ -1,6 +1,8 @@
 """Publish the e9 GGUF extractors to Hugging Face from Modal (no local download), then verify with Ollama.
 
     modal run research/local-extractor/hf_publish_modal.py            # upload + Ollama check
+    modal run research/local-extractor/hf_publish_modal.py --model 7b-v2 --allow-parity-regression
+    # Explicit owner exception only (docs/49); default gate remains enforced.
 Token: Modal secret `lhg-hf-upload` (HF_TOKEN). Repos are public so Ollama/llama.cpp can pull without a token.
 """
 import json,pathlib,sys
@@ -80,13 +82,15 @@ def ollama_check(repo,cases):
     return {"ref":ref,"pull_s":round(pull_s),"rows":out}
 
 @app.local_entrypoint()
-def main(model:str=""):
+def main(model:str="", allow_parity_regression:bool=False):
     from probe_modal import instruction
     if model not in ("", "7b-v2"): raise ValueError("Unknown publication target")
     if model=="7b-v2":
         parity=json.loads((ROOT/"results/e11-v2-parity.json").read_text(encoding="utf-8"))
-        if not parity["gate_pass"] or parity["prompt_parity_rows"]!=700:
-            raise ValueError("V2 parity release gate failed")
+        if parity["prompt_parity_rows"]!=700:
+            raise ValueError("V2 parity report incomplete; cannot override")
+        if not parity["gate_pass"] and not allow_parity_regression:
+            raise ValueError("V2 parity release gate failed; explicit owner approval requires --allow-parity-regression (docs/49)")
         contract_text=(ROOT/"contract_v2.json").read_text(encoding="utf-8")
         prompt_text=instruction(json.loads(contract_text))
         repo,tag,base=REPOS[model]
@@ -123,6 +127,15 @@ Metrics count validated fact pairs before the extension's confidence/user-only a
 six facts remain user-confirmation-only in the extension. Token probabilities do not prove correctness.
 
 {chr(10).join(lines)}
+
+## Q4 parity and owner release decision (2026-10-29)
+The default parity gate FAILED: maximum allowed P/R drop is 0.02 per set/scope.
+Set A / 8: bf16 P/R 0.9730/0.6288; Q4 0.9577/0.5939.
+Set A / 18: recall 0.7344 to 0.6992. Set B / 18: precision 0.9239 to 0.8997.
+The owner explicitly accepted this regression for this artifact (option A).
+Set B / 8 Q4 P/R is 0.9259/0.8427, compared with e8 bf16 0.596/0.854
+(docs/47; different artifact precision, similar recall). The gate remains for future swaps.
+Publication used --allow-parity-regression; incomplete reports cannot be overridden.
 
 ## Ollama
 ollama pull hf.co/{repo}:Q4_K_M

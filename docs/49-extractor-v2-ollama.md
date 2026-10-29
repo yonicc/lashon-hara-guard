@@ -1,8 +1,12 @@
 # 49 — Qwen extractor v2 GGUF release qualification
 
 Owner approved the model swap on 2026-10-29. Base: 0d31b54 (extension 0.12.0).
-Status: **BLOCKED by the Q4_K_M parity gate**. No HF publication, live v2 pull,
-merge to main, manifest bump or extension release. The active 0.12.0/e8 installation is unchanged.
+Status: **Owner authorized release despite failed parity (option A, 2026-10-29)**.
+The owner accepted Set B/18 precision 0.9239→0.8997 and Set A/8 recall
+0.6288→0.5939 (also A/18 0.7344→0.6992): Q4-v2 Set B/8 precision 0.9259
+at recall 0.8427 is substantially better than shipped e8 precision 0.596
+at similar recall (e8 bf16 0.854, docs/47). The gate remains for future swaps.
+Publication requires explicit --allow-parity-regression; incomplete prompt reports stay blocked.
 
 ## Final parity results
 
@@ -45,9 +49,10 @@ Only identical repeats are deduplicated; conflicting repeats abort scoring. Both
   scopes are reported separately per set, including pair-set decision flips.
 - Release gate: neither P nor R may drop by more than 0.02 on either set/scope;
   format-error rows and token-limit hits may not increase. The scorer exits 2 on failure;
-  hf_publish_modal.py --model 7b-v2 refuses a failed/incomplete parity report.
+  hf_publish_modal.py --model 7b-v2 refuses a failed parity report unless the owner-authorized
+  --allow-parity-regression flag is supplied; incomplete reports cannot be overridden.
 
-## Candidate per-model integration (unreleased)
+## Per-model integration
 
 ollama-client.js owns model references, contract version and template in SPECS; check-mode.js
 owns mode membership. Qwen uses contract v2; DictaLM retains its trained contract v1 (no v2 retrain).
@@ -64,7 +69,7 @@ These are reported as confirmed_by_user_only, never silently treated as unknown 
 The existing confidence threshold, scoreKeys token probabilities and per-pair drops remain in force.
 The installed e8 reference cannot satisfy v2 availability; the setup wizard must download v2.
 
-## Verification before publication
+## Verification before publication (original qualification)
 
 - Extension: 199 passed, including e8-to-v2 availability and v2/user-only admission.
 - Engine: 370 passed, one live test skipped; proxy: 78 passed; both typechecks passed.
@@ -73,6 +78,32 @@ The installed e8 reference cannot satisfy v2 availability; the setup wizard must
 - Ollama was restored after the mock-server tests. Live v2 smoke and release were not attempted:
   the earlier parity gate failed, as the owner required.
 - No proxy source was changed; the lhg-proxy Worker needs no deployment.
+
+## Release verification (2026-10-29, extension 0.12.2)
+
+- Published new public repository: https://huggingface.co/yonicc/lhg-extractor-qwen7b-v2-gguf
+  at HF commit 550702a4bbaf33b0bb85eb14cb9ac81d3cb24f7b. Anonymous HTTP range download
+  returned 206, GGUF magic and total size 4,683,070,784 bytes. Model card separates
+  development/independent metrics and states the failed parity gate and owner exception.
+  Publication receipt: results/e11-v2-hf.json. e8 repositories were not changed.
+- BI-1 Ollama 0.40.12 pulled exactly hf.co/yonicc/lhg-extractor-qwen7b-v2-gguf:Q4_K_M
+  (manifest digest c7e7883513e0796e1d8d396bf595cc875e08a12ccf2e00fe8ec8c134e06fd470).
+- Live smoke: nine synthetic cases, eight nonempty scored outputs, zero failures;
+  all output keys had aligned finite token scores (0.94356–0.999999).
+  Four expanded-contract facts admitted; all six user-only facts rejected by canonical policy.
+  End-to-end case latency 0.670–32.583 s (cold first case); warm nonempty 4.961–5.850 s.
+  The local needs executor completed two real inference rounds with synthetic untrusted
+  retrieval, no confirmed-fact promotion, five catalog questions, unsure, and stopped
+  at no_new_information. Evidence: results/e11-v2-live.jsonl.
+- Both Ollama Chromium suites and shared context-loop Chromium suite passed.
+  Initial regression: extension 199, engine 370 + one live skip, proxy 78 including
+  workerd, both typechecks and build/freshness passed. Explicit publication-guard
+  checks confirmed default refusal, authorized override, and refusal of incomplete reports.
+- Release rebased onto bda154a (concurrent 0.12.1 send-check fix), retaining that change.
+  Final regression: extension 205 passed, engine 370 passed + one live skip, proxy 78 passed
+  including workerd; both typechecks, bundle build/freshness and all three Chromium suites passed.
+  Three-target publication uses scripts/release-extension.ps1 and scripts/install-from-lap.sh;
+  verification compares each packaged/installed file to git show HEAD bytes using Python subprocess.
 
 ## Commands
 
@@ -84,8 +115,8 @@ py -m modal run --detach research/local-extractor/gguf_v2_parity_modal.py --mess
 py -m modal volume get --force lhg-models local-extractor/e11-v2-parity D:\lhg-v2-parity
 py -m modal run --detach research/local-extractor/gguf_v2_parity_modal.py --messages D:\lhg-independent-eval --resume D:\lhg-v2-parity\e11-v2-parity
 py research/local-extractor/score_v2_parity.py --chunks D:\lhg-v2-parity\e11-v2-parity
-# Only after the gate passes:
-py -m modal run --detach research/local-extractor/hf_publish_modal.py --model 7b-v2
+# Owner-authorized exception for this artifact only (otherwise require a passing gate):
+py -m modal run --detach research/local-extractor/hf_publish_modal.py --model 7b-v2 --allow-parity-regression
 node scripts/test-ollama-live.cjs extractor-7b-q4
 ```
 

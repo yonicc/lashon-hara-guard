@@ -2,6 +2,8 @@
 // Synthetic texts only. Usage: node scripts/test-ollama-live.cjs [extractor-7b-q4|dictalm-q4]
 // Exits non-zero if the server returns no usable logprobs or any check fails closed unexpectedly.
 const path = require('node:path');
+const assert = require('node:assert/strict');
+const { run } = require('../extension/context-loop.js');
 const ext = path.join(__dirname, '..', 'extension');
 require(path.join(ext, 'check-mode.js'));
 require(path.join(ext, 'ollama-client.js'));
@@ -27,6 +29,9 @@ const cases = [
     const started = Date.now();
     try {
       const gen = await client.generate(id, E.render(id, text));
+      for (const key of Object.keys(gen.output)) {
+        assert.ok(Number.isFinite(gen.scores[key]), 'missing/misaligned token score: ' + key);
+      }
       const ex = E.adapt(gen.output, text, gen.scores, id);
       const r = await E.check({ text, platform: 'manual', direction: 'outgoing' }, id,
         { generate: async () => gen });
@@ -41,6 +46,31 @@ const cases = [
       failed++; console.log(JSON.stringify({ ms: Date.now() - started, text: text.slice(0, 40), error: String(e.message || e) }));
     }
   }
+  // Exercise the shared executor with this real engine, including a second inference
+  // with untrusted context. Synthetic retrieval is injected; model output is live.
+  try {
+    const checks = [], prompts = [];
+    const text = 'I checked the invoice myself before writing this.';
+    const result = await run({ request: { text, platform: 'gmail', direction: 'outgoing', routerHeads: ['mem_recent'] },
+      schema: globalThis.LHG_NEEDS,
+      check: async req => { checks.push(req); return E.check(req, id, {
+        generate: async (model, prompt) => { prompts.push(prompt); return client.generate(model, prompt); }
+      }); },
+      retrieve: async () => [{ text: 'Synthetic maintenance record from earlier.' }],
+      exchange: async rows => ({ version: 1, platform: 'gmail', direction: 'outgoing',
+        conversationRef: 'synthetic', currentAuthorRef: 'self', recentMessages: [
+          { text: rows[0].text, authorRef: 'unknown', direction: 'incoming' }
+        ] }) });
+    assert.equal(checks.length, 2);
+    assert.equal(checks[1].round, 2);
+    assert.equal(checks[1].confirmedFacts, undefined);
+    assert.match(prompts[1], /ADDITIONAL CONTEXT/);
+    assert.match(prompts[1], /Synthetic maintenance record/);
+    assert.equal(result.loopStopped, 'no_new_information');
+    assert.notEqual(result.alert, 'none');
+    console.log(JSON.stringify({ localNeeds: 'PASS', rounds: checks.length,
+      stopped: result.loopStopped, alert: result.alert, questions: result.rules.questions.length }));
+  } catch (e) { failed++; console.log(JSON.stringify({ localNeeds: 'FAIL', error: String(e.message || e) })); }
   console.log(JSON.stringify({ model: id, cases: cases.length, withScores: scored, expandedAccepted, failed }));
   const expandedRequired = C.SPECS[id].contract === 'v2';
   process.exit(failed || !scored || (expandedRequired && !expandedAccepted) ? 1 : 0);

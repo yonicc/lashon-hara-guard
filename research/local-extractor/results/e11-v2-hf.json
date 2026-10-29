@@ -1,0 +1,12 @@
+{
+  "user": "yonicc",
+  "repo": "yonicc/lhg-extractor-qwen7b-v2-gguf",
+  "files": [
+    ".gitattributes",
+    "README.md",
+    "contract.json",
+    "extractor_prompt.txt",
+    "lhg-extractor-qwen7b-v2-Q4_K_M.gguf"
+  ],
+  "sha": "550702a4bbaf33b0bb85eb14cb9ac81d3cb24f7b"
+}

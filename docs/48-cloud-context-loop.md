@@ -27,7 +27,7 @@ Content token liveness is checked before a request, after every response (includ
 
 The Ollama model is a narrow fact extractor (`alias:[bool,quote]`), not a tool-request model. Local needs are produced by router heads (mem_recent -> get_recent; mem_search -> search_history with the message as query; ask_user -> catalog questions) plus the deterministic engine's unanswered catalog facts. The optional router remains off by default and needs its pinned installed model. In local mode plan_context obtains heads without pre-retrieval; the common executor retrieves after the first result. Missing/failing router leaves deterministic questions.
 
-The extractor consumes returned excerpts next round as untrusted ADDITIONAL CONTEXT through its existing render(). It was not trained with context; this is no quality/parity claim. Its evidence is still restricted to the primary message, and missing meaning assessment stays unresolved. GGUF/Ollama ids and the eight-fact trained contract were not changed. Model e10-v2 replacement is separate work.
+The extractor consumes returned excerpts next round as untrusted ADDITIONAL CONTEXT through its existing render(). It was not trained with context; this is no quality/parity claim. Its evidence is still restricted to the primary message, and missing meaning assessment stays unresolved. This loop originally shipped with e8; the e10-v2 Qwen replacement and its live local-loop verification are recorded in docs/49. DictaLM retains the eight-fact v1 contract.
 
 ## Verification commands
 
