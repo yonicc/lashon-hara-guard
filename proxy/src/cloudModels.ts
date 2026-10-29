@@ -19,11 +19,15 @@
  * gpt-oss-120b, qwen3.8-flash and grok-4.7 timed out, gemini-3.5-flash-lite
  * missed the irony.
  *
- * Contract (docs/18, backward compatible):
- *   - `model` absent, not a string, or not an allow-listed id => the default
- *     provider from the Worker env, exactly as before this field existed.
- *   - The default id also maps to the env provider (LHG_BRAIN_MODEL /
- *     LHG_BRAIN_ACCOUNT), so choosing it changes nothing.
+ * Contract (docs/18):
+ *   - `model` absent, not a string, or not an allow-listed id => the DEFAULT
+ *     entry, Baseten muse-spark-open-1026 (owner, 2026-10-29: "Spark of
+ *     Baseten is the default"). This also moves older extensions, which send
+ *     no `model`, to Baseten. Before 2026-10-29 the default was the env
+ *     provider (meta_api LHG_BRAIN_MODEL); muse-spark-1.3 is now an explicit
+ *     entry on the Worker's meta_api account.
+ *   - Public (lap_ token) checks ignore this list: accountAccess fixes them to
+ *     direct Baseten (docs/50).
  */
 export type CloudAgentKind = 'meta_api' | 'openrouter' | 'modal' | 'baseten';
 
@@ -46,9 +50,11 @@ export interface CloudModel {
   reasoningEffort?: string;
 }
 
-export const DEFAULT_CLOUD_MODEL_ID = 'muse-spark-1.3';
+export const DEFAULT_CLOUD_MODEL_ID = 'muse-spark-open-1026';
 
 export const CLOUD_MODELS: readonly CloudModel[] = Object.freeze([
+  // Baseten: this model only (owner rule 2026-10-28). First = default (owner 2026-10-29).
+  { id: 'muse-spark-open-1026', agentKind: 'baseten', model: 'meta-models/muse-spark-open-1026', account: 'yoni' },
   { id: 'muse-spark-1.3', agentKind: 'meta_api', model: 'muse-spark-1.3' },
   { id: 'muse-spark-1.3-contributor', agentKind: 'meta_api', model: 'muse-spark-1.3-contributor' },
   { id: 'muse-spark-1.2', agentKind: 'meta_api', model: 'muse-spark-1.2' },
@@ -62,16 +68,16 @@ export const CLOUD_MODELS: readonly CloudModel[] = Object.freeze([
   { id: 'gemini-3.6-flash', agentKind: 'openrouter', model: 'google/gemini-3.6-flash' },
   // Owner request 2026-10-28: Kimi K3 on the Brain's Modal backend (OpenAI-compatible, no account).
   { id: 'kimi-k3-modal', agentKind: 'modal', model: 'moonshotai/Kimi-K3', reasoningEffort: 'low' },
-  // Baseten: this model only (owner rule 2026-10-28).
-  { id: 'muse-spark-open-1026', agentKind: 'baseten', model: 'meta-models/muse-spark-open-1026', account: 'yoni' },
 ].map((m) => Object.freeze(m as CloudModel)));
 
+export const DEFAULT_CLOUD_MODEL: CloudModel = CLOUD_MODELS[0]!;
+
 /**
- * The allow-listed choice for a raw request value, or null for "use the env
- * default" (absent, malformed, unknown, or the default id itself).
+ * The allow-listed choice for a raw request value; the default entry for
+ * anything else (absent, malformed, unknown).
  * Exact match on own entries only: no prototype keys, no trimming, no case folding.
  */
-export function pickCloudModel(raw: unknown): CloudModel | null {
-  if (typeof raw !== 'string' || raw === DEFAULT_CLOUD_MODEL_ID) return null;
-  return CLOUD_MODELS.find((m) => m.id === raw) ?? null;
+export function pickCloudModel(raw: unknown): CloudModel {
+  if (typeof raw !== 'string') return DEFAULT_CLOUD_MODEL;
+  return CLOUD_MODELS.find((m) => m.id === raw) ?? DEFAULT_CLOUD_MODEL;
 }

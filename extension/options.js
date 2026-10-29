@@ -6,6 +6,7 @@
   const I = globalThis.LHG_I18N;
   const S = globalThis.LHG_SETTINGS;
   const M = globalThis.LHG_CHECK_MODE;
+  const P = globalThis.LHG_CHECK_PRESETS; // options page only (the popup does not load it)
   const t = (k, v) => (I ? I.t(k, v) : k);
   const $ = (id) => document.getElementById(id);
   const on = (id, ev, fn) => { const el = $(id); if (el) el.addEventListener(ev, fn); };
@@ -42,6 +43,8 @@
     if (hide) hide.checked = s.hideIncoming;
     if ($('memoryEnabled')) $('memoryEnabled').checked = s.lhgMemoryEnabled === true;
     if ($('routerEnabled')) $('routerEnabled').checked = s.lhgRouterEnabled === true;
+    settingsNow = s;
+    renderPresets();
   }
 
   // --- language ---------------------------------------------------------------
@@ -74,8 +77,83 @@
   // --- check mode (check-mode.js is the one home of modes and models) --------
   let modePrefs = M ? M.normalize({}) : null;
   let localReady = {}; // { 'local-fast': bool, ... } from the background worker
+  let localKnown = false; // the background answered (until then: no install badges)
+  let settingsNow = null; // LHG_SETTINGS state, for the memory part of a preset
+
+  // --- presets grid (check-presets.js is the one home of the presets) ------
+  function buildPresetGrid(grid) {
+    const el = (tag, cls, attrs) => {
+      const n = document.createElement(tag);
+      if (cls) n.className = cls;
+      for (const [k, v] of Object.entries(attrs || {})) n.setAttribute(k, v);
+      return n;
+    };
+    const scale = el('div', 'preset-scale');
+    scale.append(el('span', 'scale-start'), el('span', 'scale-end'));
+    grid.appendChild(scale);
+    for (const col of P.COLS) grid.appendChild(el('div', 'preset-colhead', { 'data-col': col }));
+    for (const row of P.ROWS) {
+      grid.appendChild(el('div', 'preset-rowhead', { 'data-row': row }));
+      for (const col of P.COLS) {
+        const p = P.PRESETS.find((x) => x.col === col && x.row === row);
+        const b = el('button', 'preset', { type: 'button', 'data-preset': p.id, 'data-col': col, 'data-row': row, 'aria-pressed': 'false' });
+        const badge = el('span', 'preset-badge');
+        badge.hidden = true;
+        const meta = el('dl', 'preset-meta');
+        for (const k of P.AXES) {
+          const m = el('div', 'meta', { 'data-k': k, 'data-level': String(p.levels[k]) });
+          m.append(el('dt'), el('dd'));
+          meta.appendChild(m);
+        }
+        b.append(el('span', 'preset-name'), badge, meta);
+        b.addEventListener('click', () => choosePreset(p.id));
+        grid.appendChild(b);
+      }
+    }
+  }
+  function renderPresets() {
+    const grid = $('presetGrid');
+    if (!P || !M || !grid || !modePrefs) return;
+    if (!grid.childElementCount) buildPresetGrid(grid);
+    const q = (sel) => grid.querySelector(sel);
+    q('.scale-start').textContent = t('preset.scaleStart');
+    q('.scale-end').textContent = t('preset.scaleEnd');
+    for (const h of grid.querySelectorAll('.preset-colhead')) h.textContent = t('preset.col.' + h.getAttribute('data-col'));
+    for (const h of grid.querySelectorAll('.preset-rowhead')) h.textContent = t('preset.row.' + h.getAttribute('data-row'));
+    const active = settingsNow ? P.presetOf(modePrefs, settingsNow) : null;
+    for (const b of grid.querySelectorAll('button.preset')) {
+      const id = b.getAttribute('data-preset');
+      b.setAttribute('aria-pressed', String(id === active));
+      b.querySelector('.preset-name').textContent = t('preset.' + id + '.name');
+      b.title = id === 'B' ? t('preset.B.hint') : '';
+      const badge = b.querySelector('.preset-badge');
+      badge.hidden = !(localKnown && P.needsInstall(id, localReady));
+      badge.textContent = t('preset.badge');
+      for (const m of b.querySelectorAll('.meta')) {
+        const k = m.getAttribute('data-k');
+        m.querySelector('dt').textContent = t('preset.k.' + k);
+        m.querySelector('dd').textContent = t('preset.' + id + '.' + k);
+      }
+    }
+    const custom = $('presetCustom');
+    if (custom) custom.hidden = !settingsNow || active !== null;
+  }
+  function choosePreset(id) {
+    if (P.needsInstall(id, localReady)) {
+      // Switching now would leave messages unchecked: install first, choose after.
+      try { chrome.tabs.create({ url: chrome.runtime.getURL('ollama-setup.html') }); } catch (_e) { location.href = 'ollama-setup.html'; }
+      say('presetStatus', t('preset.installFirst'));
+      return;
+    }
+    const patch = P.patchFor(id);
+    if (patch.settings && S) { S.set(patch.settings); settingsNow = { ...(settingsNow || {}), ...patch.settings }; }
+    saveMode(patch.mode);
+    say('presetStatus', t('preset.applied', { name: t('preset.' + id + '.name') }));
+  }
+
   function renderMode() {
     if (!M || !modePrefs) return;
+    renderPresets();
     for (const r of document.querySelectorAll('input[name="checkMode"]')) r.checked = r.value === modePrefs.lhgCheckMode;
     for (const b of document.querySelectorAll('[data-mode-badge]')) {
       const mode = b.getAttribute('data-mode-badge');
@@ -112,6 +190,7 @@
       chrome.runtime.sendMessage({ type: 'lhg-check-mode-status' }, (r) => {
         void chrome.runtime.lastError;
         localReady = (r && typeof r === 'object') ? r : {};
+        localKnown = true;
         renderMode();
       });
     } catch (_e) { /* no background: every local mode stays "not installed" */ }

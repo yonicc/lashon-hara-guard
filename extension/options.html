@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lashon Hara Guard</title>
   <link rel="stylesheet" href="ui.css">
+  <link rel="stylesheet" href="preset-grid.css">
 </head>
 <body>
   <div class="wrap">
@@ -25,7 +26,15 @@
     </section>
 
     <section class="card" id="checkModeCard">
-      <h2 data-i18n="mode.title"></h2>
+      <h2 id="presetTitle" data-i18n="preset.title"></h2>
+      <!-- Filled by options.js from check-presets.js (DOM contract: preset-grid.css). -->
+      <div class="preset-grid" id="presetGrid" role="group" aria-labelledby="presetTitle"></div>
+      <p class="preset-note" data-i18n="preset.note"></p>
+      <span class="preset-custom" id="presetCustom" data-i18n="preset.custom" hidden></span>
+      <div class="status" id="presetStatus" role="status"></div>
+      <details class="preset-advanced">
+      <summary data-i18n="preset.advanced"></summary>
+      <h3 data-i18n="mode.title"></h3>
       <div class="modes" role="radiogroup">
         <label class="mode-opt"><input type="radio" name="checkMode" value="cloud"><span data-i18n="mode.cloud"></span> <span class="badge" data-mode-badge="cloud"></span></label>
         <label class="mode-opt"><input type="radio" name="checkMode" value="local-fast"><span data-i18n="mode.local-fast"></span> <span class="badge" data-mode-badge="local-fast"></span></label>
@@ -42,6 +51,7 @@
       <select class="text" id="cloudModel"></select>
       <p class="hint" data-i18n="mode.cloudModelHint"></p>
       <div class="status" id="modeStatus"></div>
+      </details>
     </section>
 
     <section class="card">
@@ -115,6 +125,7 @@
   <script src="i18n.js"></script>
   <script src="settings.js"></script>
   <script src="check-mode.js"></script>
+  <script src="check-presets.js"></script>
   <script src="options.js"></script>
 </body>
 </html>

@@ -26,13 +26,24 @@ const engine = (id, check, available = async () => true) => ({ id, check, availa
 test('check-mode: defaults are cloud, no fallback, default model; junk normalizes to defaults', () => {
   const M = modeModule();
   assert.deepEqual(plain(M.normalize(undefined)),
-    { lhgCheckMode: 'cloud', lhgCloudFallback: false, lhgCloudModel: 'muse-spark-1.3' });
+    { lhgCheckMode: 'cloud', lhgCloudFallback: false, lhgCloudModel: 'muse-spark-open-1026' });
   assert.deepEqual(plain(M.normalize({ lhgCheckMode: 'local-x', lhgCloudFallback: 'yes', lhgCloudModel: 'evil' })),
-    { lhgCheckMode: 'cloud', lhgCloudFallback: false, lhgCloudModel: 'muse-spark-1.3' });
+    { lhgCheckMode: 'cloud', lhgCloudFallback: false, lhgCloudModel: 'muse-spark-open-1026' });
   assert.equal(M.CLOUD_MODELS.length, 12);
   assert.equal(new Set(M.CLOUD_MODELS.map((m) => m.id)).size, 12);
   assert.equal(M.modelParam({}), null);
   assert.equal(M.modelParam({ lhgCloudModel: 'claude-haiku-5.5' }), 'claude-haiku-5.5');
+  assert.equal(M.modelParam({ lhgCloudModel: 'muse-spark-1.3' }), 'muse-spark-1.3'); // no longer the default
+});
+
+test('check-mode: the old stored default moves to Baseten exactly once', () => {
+  const M = modeModule();
+  assert.deepEqual(plain(M.migrateDefault({ lhgCloudModel: 'muse-spark-1.3' })),
+    { lhgCloudDefaultV: 2, lhgCloudModel: 'muse-spark-open-1026' });
+  assert.deepEqual(plain(M.migrateDefault({ lhgCloudModel: 'claude-haiku-5.5' })), { lhgCloudDefaultV: 2 });
+  assert.deepEqual(plain(M.migrateDefault({})), { lhgCloudDefaultV: 2 });
+  // After the marker, choosing 1.3 again is respected.
+  assert.equal(M.migrateDefault({ lhgCloudModel: 'muse-spark-1.3', lhgCloudDefaultV: 2 }), null);
 });
 
 test('check-mode: cloud sends the chosen model, and nothing for the default', async () => {

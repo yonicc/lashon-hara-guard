@@ -327,7 +327,7 @@ async function handleAuthorized(
   const confirmedFacts = pickConfirmedFacts(body['confirmedFacts']);
   const userNote = pickUserNote(body['userNote']);
   const lang = pickLang(body['lang']);
-  // Optional cloud model id (allow-list in cloudModels.ts); anything else = env default.
+  // Optional cloud model id (allow-list in cloudModels.ts); anything else = its default (Baseten).
   const modelRequested = 'model' in body;
   const cloudModel = pickCloudModel(body['model']);
 

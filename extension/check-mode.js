@@ -13,8 +13,8 @@
 //
 // The cloud model id list must equal the proxy's allow-list
 // (proxy/src/cloudModels.ts, the real gate); proxy/test/cloudModels.test.ts
-// fails when the two differ. The default model sends NO `model` field, so the
-// request stays byte-identical to what older extensions send.
+// fails when the two differ. The default model (Baseten Spark, owner
+// 2026-10-29) sends NO `model` field; the proxy maps an absent field to it.
 (() => {
   if (globalThis.LHG_CHECK_MODE) return;
 
@@ -30,11 +30,12 @@
   };
 
   // Product names, not translated (i18n.js holds the surrounding texts).
+  // Public builds (docs/50) list only the default; the server enforces it.
   const PUBLIC_BUILD = globalThis.LHG_PUBLIC_BUILD === true;
-  const DEFAULT_CLOUD_MODEL = PUBLIC_BUILD ? 'muse-spark-open-1026' : 'muse-spark-1.3';
-  const CLOUD_MODELS = PUBLIC_BUILD ? [
-    { id: 'muse-spark-open-1026', label: 'Muse Spark Open 1026 (Baseten)' },
-  ] : [
+  const DEFAULT_CLOUD_MODEL = 'muse-spark-open-1026';
+  const BASETEN = { id: 'muse-spark-open-1026', label: 'Muse Spark Open 1026 (Baseten)' };
+  const CLOUD_MODELS = PUBLIC_BUILD ? [BASETEN] : [
+    BASETEN,
     { id: 'muse-spark-1.3', label: 'Muse Spark 1.3 (Meta)' },
     { id: 'muse-spark-1.3-contributor', label: 'Muse Spark 1.3 Contributor (Meta)' },
     { id: 'muse-spark-1.2', label: 'Muse Spark 1.2 (Meta)' },
@@ -46,7 +47,6 @@
     { id: 'mistral-medium-3.5', label: 'Mistral Medium 3.5 (OpenRouter)' },
     { id: 'gemini-3.6-flash', label: 'Gemini 3.6 Flash (OpenRouter)' },
     { id: 'kimi-k3-modal', label: 'Kimi K3 (Modal)' },
-    { id: 'muse-spark-open-1026', label: 'Muse Spark Open 1026 (Baseten)' },
   ];
   const MODEL_IDS = CLOUD_MODELS.map((m) => m.id);
 
@@ -63,6 +63,19 @@
   function modelParam(prefs) {
     const m = normalize(prefs).lhgCloudModel;
     return m === DEFAULT_CLOUD_MODEL ? null : m;
+  }
+
+  // One-time move to the new default (owner 2026-10-29). Saving any mode in
+  // options stored the whole normalized prefs, so 'muse-spark-1.3' in storage
+  // is almost always the OLD DEFAULT, not a choice. Returns the storage patch,
+  // or null. The marker makes it run once: choosing 1.3 again later sticks.
+  const MIGRATION_KEY = 'lhgCloudDefaultV';
+  function migrateDefault(stored) {
+    const s = stored && typeof stored === 'object' ? stored : {};
+    if (s[MIGRATION_KEY] === 2) return null;
+    const patch = { [MIGRATION_KEY]: 2 };
+    if (s.lhgCloudModel === 'muse-spark-1.3') patch.lhgCloudModel = DEFAULT_CLOUD_MODEL;
+    return patch;
   }
 
   // --- the interface the future local implementation plugs into -------------
@@ -141,6 +154,7 @@
 
   globalThis.LHG_CHECK_MODE = {
     MODES, DEFAULT_MODE, KEYS, LOCAL_ENGINES, CLOUD_MODELS, DEFAULT_CLOUD_MODEL,
+    MIGRATION_KEY, migrateDefault,
     normalize, modelParam, registerLocalEngine, unregisterLocalEngine, status, combine, route,
   };
 })();

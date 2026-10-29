@@ -26,7 +26,7 @@ When configured and enabled, LHG can automatically check incoming messages on su
 
 A `/check` request sends the message text, platform, direction, language, any supplied user note (up to 500 characters), answers to clarification questions, and available context. Context can include up to five previous message excerpts of up to 300 characters each, participant references, roles, relationships and facts.
 
-The default route uses a Cloudflare Worker, an Oracle-hosted classifier (with a Modal fallback), and, when model extraction runs, the Brain machine API and Meta's model API. The classifier receives the message text; model extraction can also receive the contextual excerpts and user note. A warm-up request contains authentication information but no conversation text. A custom service URL changes who receives the request.
+The default route uses a Cloudflare Worker, an Oracle-hosted classifier (with a Modal fallback), and, when model extraction runs, Baseten's model API (Meta's open Muse Spark model), reached through the Brain machine API or, for account tokens, directly. Choosing another cloud model in the advanced settings sends the request to that model's provider instead. The classifier receives the message text; model extraction can also receive the contextual excerpts and user note. A warm-up request contains authentication information but no conversation text. A custom service URL changes who receives the request.
 
 The context builder uses participant references and attempts to redact known display names, email addresses and phone-like strings from exported context. **This does not guarantee anonymity.** The main message and free-text user note are sent without that context redaction, and identifying information can remain in any text.
 
@@ -72,7 +72,7 @@ For privacy questions or requests concerning remote records, contact **yoni@city
 
 בקשת `/check` כוללת את טקסט ההודעה, הפלטפורמה, הכיוון, השפה, הבהרת משתמש אם נמסרה (עד 500 תווים), תשובות לשאלות בירור והקשר זמין. ההקשר עשוי לכלול עד חמישה קטעי הודעות קודמות בני עד 300 תווים, מזהים חלופיים של משתתפים, תפקידים, יחסים ועובדות.
 
-מסלול ברירת המחדל כולל Cloudflare Worker, מסווג ב־Oracle עם חלופה ב־Modal, ובעת הפעלת חילוץ באמצעות מודל — API מכונה של Brain ו־API המודלים של Meta. המסווג מקבל את טקסט ההודעה; המודל עשוי לקבל גם קטעי הקשר והבהרת משתמש. בקשת חימום כוללת אימות אך אינה כוללת תוכן שיחה. הגדרת כתובת שירות אחרת משנה את הגורם המקבל.
+מסלול ברירת המחדל כולל Cloudflare Worker, מסווג ב־Oracle עם חלופה ב־Modal, ובעת הפעלת חילוץ באמצעות מודל — API המודלים של Baseten (מודל Muse Spark הפתוח של Meta), דרך API מכונה של Brain או, עבור טוקן חשבון, ישירות. בחירת מודל ענן אחר בהגדרות המתקדמות שולחת את הבקשה לספק של אותו מודל. המסווג מקבל את טקסט ההודעה; המודל עשוי לקבל גם קטעי הקשר והבהרת משתמש. בקשת חימום כוללת אימות אך אינה כוללת תוכן שיחה. הגדרת כתובת שירות אחרת משנה את הגורם המקבל.
 
 בונה ההקשר משתמש במזהים חלופיים ומנסה להסיר שמות תצוגה מוכרים, כתובות דוא״ל ומספרים דמויי טלפון מהקשר מיוצא. **אין בכך הבטחת אנונימיות.** טקסט ההודעה הראשית והבהרת המשתמש נשלחים ללא מנגנון ההסרה הזה, ובכל טקסט עלולים להישאר פרטים מזהים.
 

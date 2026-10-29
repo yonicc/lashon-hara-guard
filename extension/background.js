@@ -22,6 +22,16 @@ async function settings() {
 try { if (typeof importScripts === 'function') importScripts('rules.js'); } catch (_e) { /* tests */ }
 try { if (typeof importScripts === 'function') importScripts('i18n.js'); } catch (_e) { /* tests */ }
 try { if (typeof importScripts === 'function') importScripts('check-mode.js'); } catch (_e) { /* tests */ }
+// One-time move of a stored old-default cloud model to Baseten (check-mode.js).
+try {
+  const CM = globalThis.LHG_CHECK_MODE;
+  if (CM && CM.migrateDefault && globalThis.chrome?.storage?.local) {
+    chrome.storage.local.get(['lhgCloudModel', CM.MIGRATION_KEY], (s) => {
+      const patch = CM.migrateDefault(s || {});
+      if (patch) chrome.storage.local.set(patch);
+    });
+  }
+} catch (_e) { /* storage unavailable: the user can pick the model in options */ }
 try { if (typeof importScripts === 'function') importScripts('ollama-client.js', 'ollama-engine.bundle.js', 'ollama-register.js'); } catch (_e) { /* local failure remains not_checked */ }
 try { if (typeof importScripts === 'function') importScripts('ollama-setup.js'); } catch (_e) { /* setup unavailable */ }
 try { if (typeof importScripts === 'function') importScripts('memory-background.js'); } catch (_e) { /* tests */ }
