@@ -1,0 +1,31 @@
+{
+  "input_hashes": {
+    "classifier/data/multilingual_expansion_v1.jsonl": "8fa45a20efb3d86dab4af440b88b5a4dd3abe1826aa864ef2ce3e99c172008ed",
+    "research/independent-eval-20261029/setB/messages.jsonl": "446ea8508bc84af9c8bff56a0619f9e01738f1c2449ea3e7d01dc363e3d70d5a"
+  },
+  "hash_basis": "Canonical Git LF blobs for labels/policy; original frozen input bytes for dev/Set B",
+  "labels_sha256": "952c9dedd827caca8c89e628aa26c8d72a14edde8a236580273f96aa99445a36",
+  "policy_sha256": "13cea48bd618d4814c28ccbf2539b22c1b4db1686f86657b387a70924a331a47",
+  "artifact_files": {
+    "v2/config.json": "49631aa7680e84805fbdd9adb461e6a85ac3861222aec465a30892dac66c1185",
+    "v2/tokenizer.json": "b1faf82c632db3edf3de246e9e3f5e0c3bc08f27b5e068145d035624af574353",
+    "v2/tokenizer_config.json": "579472d2d9a66c7535240b866249658ace6a5dabe86d26bb7cd8371a249180f7",
+    "v2/onnx/model.onnx": "9034b921f628687c8a174761bab40315050cca9a3f1f466d10e4b622b7f3b7f7",
+    "v4-xlmr-ml/config.json": "748c901a91cc9ec637e11f963d5a2f69861e3d727e5c2c80aeb57ca1e7e486ac",
+    "v4-xlmr-ml/tokenizer.json": "78ee41145ef272eb8ea77690c625c1de5513b02c34a1d976f95ade373c6422f7",
+    "v4-xlmr-ml/tokenizer_config.json": "e2065942e3282d0490f65e1beb16a2098689d4c67a6201ab589df9f9d9616cad",
+    "v4-xlmr-ml/onnx/model_quantized.onnx": "fb36463e55605132381f7cdf9ca4b4970a87d97c3176c1f3163d3bc1728247b4"
+  },
+  "artifact_bytes": 1285522041,
+  "hf_revision": "10fdd53ae2a9f34641cd12e8c37ca625b6478fac",
+  "browser": {
+    "n": 510,
+    "decision_flips": 0,
+    "max_probability_drift": 1.0283447094416864e-06,
+    "p50_ms": 224.60000002384186,
+    "p95_ms": 670.8999999761581,
+    "first_ms": 3691.899999976158,
+    "external_requests": []
+  },
+  "browser_state": "Real MV3 explicit import, all 510 cached-only offscreen checks, HE/EN UI and mobile screenshots, cautious merge with a synthetic fact engine; no HTTP requests"
+}

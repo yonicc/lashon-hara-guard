@@ -1,11 +1,14 @@
 import {LocalMemory} from './memory.mjs';
 import {loadEmbed} from './memory-embedding.mjs';
 import {loadRouter} from './memory-router-model.mjs';
+import {loadDecider} from './decider-model.mjs';
 import {expandMemory} from './memory-router.mjs';
 import {bounded} from './memory-router.mjs';
 const memory=new LocalMemory({name:'lhg-memory-v1',embed:async text=>(await loadEmbed())(text)});
 let operations=Promise.resolve();
 async function handle(m) {
+  if(m.op==='decider_install') {await loadDecider();return {installed:true};}
+  if(m.op==='decider_check') return (await loadDecider())(m.text);
   if(m.op==='install') {await loadEmbed();return {installed:true};}
   if(m.op==='router_install') {await loadRouter();return {installed:true};}
   if(m.op==='clear') {await memory.clear();return {cleared:true};}

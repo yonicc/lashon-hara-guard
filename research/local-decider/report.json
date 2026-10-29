@@ -1,0 +1,78 @@
+{
+  "calibration": "development only; warning P>=0.95 with >=20 predictions; low FNR<=0.01; low remains unsure. The initial 0.98 objective had no eligible band and was revised using development data only.",
+  "thresholds": {
+    "low": 0.000522539983057867,
+    "high": 0.9998533564805935
+  },
+  "dev": {
+    "low": {
+      "tp": 90,
+      "fp": 85,
+      "fn": 0,
+      "tn": 5,
+      "precision": 0.5142857142857142,
+      "recall": 1.0,
+      "fnr": 0.0
+    },
+    "high": {
+      "tp": 20,
+      "fp": 1,
+      "fn": 70,
+      "tn": 89,
+      "precision": 0.9523809523809523,
+      "recall": 0.2222222222222222,
+      "fnr": 0.7777777777777778
+    }
+  },
+  "setB": {
+    "n": 289,
+    "ambiguous": 11,
+    "high": {
+      "tp": 60,
+      "fp": 0,
+      "fn": 227,
+      "tn": 2,
+      "precision": 1.0,
+      "recall": 0.20905923344947736,
+      "fnr": 0.7909407665505227
+    },
+    "low": {
+      "tp": 287,
+      "fp": 2,
+      "fn": 0,
+      "tn": 0,
+      "precision": 0.9930795847750865,
+      "recall": 1.0,
+      "fnr": 0.0
+    },
+    "note": "287 concern, 2 no_concern, 11 ambiguous; agent-only labels. Precision/false positives have only two negative controls, not population estimates."
+  },
+  "parity": {
+    "dev": {
+      "n": 210,
+      "warning_flips": 0,
+      "low_flips": 0
+    },
+    "setB": {
+      "n": 300,
+      "warning_flips": 0,
+      "low_flips": 0
+    }
+  },
+  "latency": {
+    "v2": {
+      "token_mismatches": 0,
+      "max_probability_drift": 4.562945759900572e-06,
+      "p50_ms": 48.954899999997,
+      "p95_ms": 98.89500000000044,
+      "synthetic_token_parity": 10
+    },
+    "v4-xlmr-ml": {
+      "token_mismatches": 0,
+      "max_probability_drift": 0.03635613318121034,
+      "p50_ms": 51.33090000000084,
+      "p95_ms": 95.72119999999995,
+      "synthetic_token_parity": 10
+    }
+  }
+}

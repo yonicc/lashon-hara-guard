@@ -11,7 +11,7 @@ with checkpointing and `--detach`; export GGUF Q4 for Ollama.
 Gate release on the independent evaluation in [docs/47](47-independent-eval-20261029.md)
 and the 0.02 parity rule in [docs/49](49-extractor-v2-ollama.md); never train or calibrate on independent sets.
 Estimate: several days plus Modal credits. Longer outputs mean slower local checks.
-A separate local meaning classifier is being implemented; it does not complete
+A separate local meaning classifier is documented in [docs/51](51-local-decider.md); it does not complete
 this extractor-contract work or authorize missing facts as false.
 
 ## DictaLM union model remains old-generation

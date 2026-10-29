@@ -313,6 +313,22 @@
     );
   });
 
+  async function deciderStatus(){
+    try {say('deciderStatus',t(await (await import('./decider-model.mjs')).deciderInstalled()?'decider.installed':'decider.missing'));}
+    catch {say('deciderStatus',t('decider.missing'));}
+  }
+  on('deciderImport','change',async()=>{
+    say('deciderStatus',t('memory.working'));
+    try {
+      await (await import('./decider-model.mjs')).importDecider($('deciderImport').files);
+      const r=await chrome.runtime.sendMessage({type:'lhg-memory',op:'decider_install'});
+      if(!r?.ok)throw Error('decider-unavailable');
+      await deciderStatus();
+    }catch(e){console.warn('Local meaning import:',e.message);say('deciderStatus',t('memory.failed'));}
+    finally{$('deciderImport').value='';}
+  });
+  if(I) I.onChange?.(deciderStatus);
+  deciderStatus();
   renderTexts();
   if (I) I.ready().then(renderTexts);
 })();

@@ -47,6 +47,8 @@ try {
   const unexpected = [];
   page.on('request', req => { if (/^https?:/.test(req.url())) unexpected.push(req.url()); });
   await page.goto(base + '/options.html');
+  // The setup link lives in Advanced since the preset-grid release.
+  await page.locator('.preset-advanced > summary').click();
   await page.locator('a[href="ollama-setup.html"]').click();
   await page.waitForFunction(() => !document.getElementById('choices').disabled);
   assert.equal(await page.locator('html').getAttribute('dir'), 'rtl');

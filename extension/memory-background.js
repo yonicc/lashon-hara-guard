@@ -27,6 +27,12 @@
   const adminSender=s=>optionsSender(s)||pageSender(s,'memory-viewer.html');
   // Cross-scope views and deletes for the owner's viewer; never for a content script.
   const ADMIN_OPS=['stats','list','search','delete_message','delete_conversation'];
+  // Internal local-check path. Does not depend on memory/router consent: it stores no text.
+  globalThis.LHG_LOCAL_MEANING=async req=>{
+    const r=await relay({op:'decider_check',text:req.text});
+    if(!r?.ok)throw Error('decider-unavailable');
+    return r.result;
+  };
   // Internal loop entry: same sender/settings/scope admission as content reads.
   globalThis.LHG_MEMORY_READ = async (request, scope, sender) => {
     if (!scope || !permittedSender(sender, scope.platform)) throw Error('untrusted-sender');
@@ -41,7 +47,7 @@
   chrome.runtime.onMessage.addListener((m,s,reply)=>{
     if(m?.type!=='lhg-memory') return;
     (async()=>{
-      if(optionsSender(s) && ['install','clear','router_install'].includes(m.op)) return relay({op:m.op});
+      if(optionsSender(s) && ['install','clear','router_install','decider_install'].includes(m.op)) return relay({op:m.op});
       if(ADMIN_OPS.includes(m.op)) {
         if(!adminSender(s)) throw Error('untrusted-sender');
         return relay({op:m.op,scope:m.scope,sourceId:m.sourceId,args:m.args});

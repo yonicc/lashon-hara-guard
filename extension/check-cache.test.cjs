@@ -9,7 +9,7 @@ function worker(store, network) {
   const c = vm.createContext({
     crypto: webcrypto, TextEncoder, setTimeout, clearTimeout, AbortController,
     chrome: { storage: { local: {
-      get: async key => Array.isArray(key) ? { accessKey: 'synthetic-key' } : { [key]: store[key] },
+      get: async key => Array.isArray(key) ? { accessKey: 'synthetic-key', lhgDeciderArtifact: store.lhgDeciderArtifact } : { [key]: store[key] },
       set: async value => Object.assign(store, value)
     } }, runtime: { onMessage: { addListener: fn => handler = fn } } },
     fetch: async (url, init) => ({ ok: true, status: 200, json: async () => network(JSON.parse(init.body)) })
@@ -54,4 +54,13 @@ test('cache: unknown account does not persist an approval', async () => {
   const ask = worker(store, () => { count++; return { alert: 'none' }; });
   await ask({ cacheIdentity: null }); await ask({ cacheIdentity: null });
   assert.equal(count, 2); assert.equal(Object.keys(store).length, 0);
+});
+test('cache: importing a decider invalidates a fact-only result; transient meaning failure is retried', async () => {
+ const store={};let count=0;
+ const ask=worker(store,()=>{count++;return {alert:'unsure'};});
+ await ask({});await ask({});assert.equal(count,1);
+ store.lhgDeciderArtifact='synthetic-decider-v1';
+ await ask({});assert.equal(count,2);
+ const failed=worker(store,()=>{count++;return {alert:'unsure',meaning:{status:'unavailable'}};});
+ await failed({text:'new synthetic'});await failed({text:'new synthetic'});assert.equal(count,4);
 });

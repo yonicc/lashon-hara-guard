@@ -7,13 +7,13 @@ const TIMEOUT_MS = 25000;
 async function settings() {
   const I = globalThis.LHG_I18N;
   const M = globalThis.LHG_CHECK_MODE;
-  const s = await chrome.storage.local.get(['proxyUrl', 'accessKey', I ? I.STORE_KEY : 'lhgLang', ...(M ? M.KEYS : [])]);
+  const s = await chrome.storage.local.get(['proxyUrl', 'accessKey', 'lhgDeciderArtifact', I ? I.STORE_KEY : 'lhgLang', ...(M ? M.KEYS : [])]);
   // The explanation language follows the UI language (i18n.js is its one home).
   const lang = I ? I.normalize(s[I.STORE_KEY]) || I.DEFAULT_LANG : 'en';
   // Check mode and cloud model (check-mode.js is their one home). Part of the
   // config, so they are part of the result-cache key as well.
   const mode = M ? M.normalize(s) : null;
-  return { proxyUrl: (s.proxyUrl || DEFAULT_PROXY).replace(/\/+$/, ''), accessKey: s.accessKey || '', lang, ...(mode ? { mode } : {}) };
+  return { proxyUrl: (s.proxyUrl || DEFAULT_PROXY).replace(/\/+$/, ''), accessKey: s.accessKey || '', lang, decider:s.lhgDeciderArtifact||null, ...(mode ? { mode } : {}) };
 }
 
 // Draft-rules answers (docs/18 wire contract): { factId: true|false|null },
@@ -157,6 +157,7 @@ async function cachedCheck(msg, sender = {}) {
     // A cloud-fallback answer is not cached under the local mode's key: once
     // the local engine is installed, the same message must reach it.
     if (reusable && ['none', 'warn', 'unsure'].includes(result?.alert) && !result.error && !result.rules?.notChecked &&
+        (!config.decider || result.meaning?.status !== 'unavailable') &&
         result.checkedBy !== 'cloud-fallback' && !result.loopStopped &&
         !globalThis.LHG_NEEDS?.needsPending(result.needs)) {
       try {

@@ -6,9 +6,11 @@ Updated: 2026-10-29. Applies to the browser extension and its default checking s
 
 ### Local storage and remote processing
 
-**LHG is not an entirely offline service.** Conversation context is stored locally in the browser, but checking a message sends its text and relevant context to remote services. Do not submit content you are not comfortable sending for remote processing.
+**LHG is not an entirely offline service.** Cloud checks and enabled cloud fallback send message text and relevant context to remote services. Local checks without fallback process the message on your computer; model downloads and remote account/billing data are separate. Do not submit cloud checks you are not comfortable sending for remote processing.
 
 ### What stays in your browser
+
+The optional local meaning classifier requires explicit SHA-256-verified folder import (about 1.3 GB) in options. Its cached-only offscreen CPU inference sends no message to a server and creates no separate message archive. It can add a concern warning; low scores remain unsure. Model download traffic is separate from inference. Clearing extension storage removes its model cache.
 
 - Settings, access token, service URL, language, platform switches and panel position/size are stored in `chrome.storage.local`; LHG does not use Chrome storage sync for these settings.
 - Check results also use extension-local storage, with hashed account/message/content/context/configuration keys, a 14-day reuse limit and at most 500 entries after maintenance. Results can contain explanations or quoted evidence. Errors are not cached as successful results. Clear extension storage to delete this cache; explicit Check again bypasses it. Local-memory model installation is not required for result reuse.
@@ -50,9 +52,11 @@ For privacy questions or requests concerning remote records, contact **yoni@city
 
 ### אחסון מקומי ועיבוד מרוחק
 
-**LHG אינו שירות שפועל כולו במחשב המקומי.** הקונטקסט נשמר בדפדפן, אך בדיקת הודעה שולחת את הטקסט וההקשר הרלוונטי לשירותים מרוחקים. אין למסור לבדיקה תוכן שאינכם מעוניינים לשלוח לעיבוד מרוחק.
+**LHG אינו שירות שפועל כולו במחשב המקומי.** בדיקות ענן וגיבוי ענן שהופעל שולחים את הטקסט וההקשר הרלוונטי לשירותים מרוחקים. בדיקה מקומית ללא גיבוי מעבדת את ההודעה במחשב; הורדות מודלים ונתוני חשבון וחיוב מרוחקים הם פעולות נפרדות. אין למסור לבדיקת ענן תוכן שאינכם מעוניינים לשלוח לעיבוד מרוחק.
 
 ### מה נשמר בדפדפן
+
+מסווג המשמעות המקומי הוא רכיב רשות הדורש ייבוא תיקייה מפורש בהגדרות ואימות SHA-256 (כ־1.3GB). הרצת CPU בחלונית offscreen משתמשת במטמון בלבד, ללא שליחת הודעה לשרת וללא ארכיון הודעות נוסף. הוא יכול להוסיף אזהרת חשש; ציונים נמוכים נשארים לא בטוחים. תעבורת הורדת המודל נפרדת מהרצה. ניקוי אחסון התוסף מוחק את מטמון המודל.
 
 - הגדרות, טוקן גישה, כתובת השירות, שפה, מתגי פלטפורמות ומיקום וגודל החלונית נשמרים ב־`chrome.storage.local`, ללא שימוש של LHG בסנכרון ההגדרות של Chrome.
 - תוצאות בדיקה נשמרות גם באחסון המקומי של התוסף, במפתחות מגובבים לפי חשבון, מזהי הודעה ושיחה, תוכן, הקשר והגדרות הבדיקה. שימוש חוזר מוגבל ל־14 יום ולעד 500 רשומות לאחר ניקוי; תוצאה עשויה לכלול הסבר או ציטוט. שגיאות אינן נשמרות כהצלחה. ניקוי אחסון התוסף מוחק מטמון זה, וכפתור בדיקה חוזרת עוקף אותו. שימוש חוזר בתוצאות אינו דורש התקנת מודל הזיכרון המקומי.

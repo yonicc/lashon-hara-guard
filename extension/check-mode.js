@@ -144,7 +144,17 @@
         try { return await engines.get(id).check(req); } catch (_e) { return { alert: 'not_checked', error: 'local_failed' }; }
       }));
       const out = combine(results);
-      if (out.alert !== 'not_checked') return { ...out, checkedBy: 'local', localMode };
+      if (out.alert !== 'not_checked') {
+        let meaning=null;
+        try {meaning=await globalThis.LHG_LOCAL_MEANING?.(req);} catch (_) { /* unavailable = no signal */ }
+        // Never admit a decider 'none', missing facts, or a failed meaning check as an approval.
+        const valid=meaning&&['warn','unsure'].includes(meaning.alert)&&Number.isFinite(meaning.p)&&meaning.p>=0&&meaning.p<=1;
+        const merged=valid?combine([out,{alert:meaning.alert}]):out;
+        const raised=merged.alert==='warn'&&out.alert!=='warn';
+        const why=raised?globalThis.LHG_I18N?.t('decider.warning'):null;
+        return {...out,alert:merged.alert,...(why?{analysis:{...out.analysis,whyHe:why}}:{}),
+          meaning:valid?meaning:{status:'unavailable'},checkedBy:'local',localMode};
+      }
       error = out.error || 'local_failed';
     }
     if (!p.lhgCloudFallback) return { alert: 'not_checked', error, checkedBy: 'none', localMode };

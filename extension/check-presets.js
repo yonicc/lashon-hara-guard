@@ -7,7 +7,8 @@
 // Levels are 1..5, higher = better for the user on that axis (cost 5 = free).
 // The numbers behind them: docs/45 (warm 7B ~5-6 s on BI-1), docs/40 (local
 // union vs single model), docs/36/44 (memory + router excerpts sent with a
-// cloud check). Local engines extract facts only; they do not assess meaning.
+// cloud check). Extractors assess facts; the optional imported meaning classifier
+// adds warnings separately (docs/51). Keep levels unchanged: union quality is unmeasured.
 (() => {
   if (globalThis.LHG_CHECK_PRESETS) return;
 
