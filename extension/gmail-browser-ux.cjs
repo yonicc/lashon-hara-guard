@@ -64,6 +64,13 @@ const assert = require('node:assert/strict');
     await page.locator('#send').click();
     await page.waitForSelector('text=שלח בכל זאת', { timeout: 10000 });
     assert.equal(await page.evaluate(() => nativeSends), 0, 'first send is held');
+    await page.waitForSelector('#lhg-panel.lhg-checking .lhg-title', { timeout: 10000 });
+    const outSpin = await page.evaluate(() => {
+      const s = getComputedStyle(document.querySelector('#lhg-panel.lhg-checking .lhg-title'), '::before');
+      return s.animationName + '|' + s.width;
+    });
+    assert.ok(/^lhg-spin\|1[0-9]/.test(outSpin), 'outgoing panel title has a visible animated spinner: ' + outSpin);
+    console.log('PASS outgoing panel spinner (' + outSpin + ')');
     await page.waitForSelector('text=מקסימום כ־30 שניות', { timeout: 40000 });
     await page.screenshot({ path: path.join(shots, 'send-cap-he.png') });
     console.log('PASS cap text after ~30s (shot: send-cap-he.png)');

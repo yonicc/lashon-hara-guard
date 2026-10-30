@@ -52,6 +52,9 @@ offer reveal and explicit recheck. Owner 2026-10-29 (loading): a held
 (pending) message shows an animated loading indicator (.lhg-spinner, pure
 CSS, honours reduced-motion) beside the "checking" label, never a bare blank;
 the unheld checking tag gets the same spinner.
+Owner 2026-10-30: the shared panel's "checking" state (outgoing "checking
+before send", Gmail and Chat) shows the same spinner in its title via
+`#lhg-panel.lhg-checking .lhg-title::before` (CSS only; panel.js untouched).
 
 Result reuse is in chrome.storage.local (the existing extension-local storage,
 independent of the optional embedding memory), with SHA-256 keys including

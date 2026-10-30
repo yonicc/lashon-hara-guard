@@ -218,7 +218,19 @@
   animation: lhg-spin 0.9s linear infinite;
 }
 .lhg-spinner-sm { width: 11px; height: 11px; border-width: 1.5px; margin-inline-end: 5px; vertical-align: -1px; }
+/* The panel's running check ("checking before send") shows the same spinner
+   in its title, not only the small corner dot (owner 2026-10-30). */
+#lhg-panel.lhg-checking .lhg-title::before {
+  content: '';
+  display: inline-block;
+  width: 14px; height: 14px;
+  margin-inline-end: 8px; vertical-align: -2px;
+  border: 2px solid rgba(120, 130, 160, 0.35);
+  border-top-color: #4a6a8a;
+  border-radius: 50%;
+  animation: lhg-spin 0.9s linear infinite;
+}
 @keyframes lhg-spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) {
-  .lhg-spinner { animation-duration: 2.4s; }
+  .lhg-spinner, #lhg-panel.lhg-checking .lhg-title::before { animation-duration: 2.4s; }
 }
