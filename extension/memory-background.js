@@ -1,6 +1,17 @@
 // Private bridge: validates senders/settings before waking the one vault owner.
 (() => {
   let creating;
+  // Firefox has no offscreen documents; its MV3 background is an event page
+  // (a real document), so embeddings run there directly (memory-firefox.mjs).
+  // Positive detection: Chrome and the Node test contexts never define `browser`.
+  const isFirefox = typeof globalThis.browser?.runtime?.getBrowserInfo === 'function';
+  let ffModule;
+  async function firefoxRelay(data) {
+    try {
+      ffModule ||= import(chrome.runtime.getURL('memory-firefox.mjs'));
+      return {ok:true, result: await (await ffModule).handleDirect(data)};
+    } catch(e) { return {ok:false, error:String((e&&e.message)||e)}; }
+  }
   const hosts={gmail:'mail.google.com','google-chat':'chat.google.com','whatsapp-web':'web.whatsapp.com'};
   async function offscreen() {
     const url=chrome.runtime.getURL('memory-offscreen.html');
@@ -9,6 +20,7 @@
     await creating;
   }
   async function relay(data) {
+    if(isFirefox) return firefoxRelay(data);
     await offscreen();
     // Listener registration follows module loading; ping/retry only the missing receiver.
     for(let i=0;i<20;i++) {

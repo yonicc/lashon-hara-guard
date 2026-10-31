@@ -313,7 +313,33 @@
     );
   });
 
+  // --- optional host permissions (Firefox only; the card stays hidden elsewhere)
+  (() => {
+    const P = globalThis.LHG_PERMISSIONS;
+    const card = $('permCard');
+    if (!card || !P || !P.isFirefox()) return;
+    card.hidden = false;
+    async function renderPerm() {
+      try {
+        const st = await P.status();
+        say('permStatus', t(st.missing.length ? 'perm.missing' : 'perm.granted'));
+      } catch (_e) { say('permStatus', t('perm.missing')); }
+    }
+    on('permGrant', 'click', async () => {
+      say('permStatus', t('memory.working'));
+      try { await P.ensureAll(); } catch (_e) { /* the status line below says it */ }
+      renderPerm();
+    });
+    renderPerm();
+  })();
+
   async function deciderStatus(){
+    if (globalThis.LHG_PERMISSIONS?.isFirefox?.()) {
+      const di = $('deciderImport');
+      if (di) di.disabled = true;
+      say('deciderStatus', t('perm.deciderUnsupported'));
+      return;
+    }
     try {say('deciderStatus',t(await (await import('./decider-model.mjs')).deciderInstalled()?'decider.installed':'decider.missing'));}
     catch {say('deciderStatus',t('decider.missing'));}
   }

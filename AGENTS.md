@@ -5,7 +5,7 @@
 - Push account: yonicc; commit identity: yonicc <yonicc@gmail.com> (owner's rule 2026-10-27; repo-local git config on BI-1 is set to it — commits before ea07a34 inclusive were made as Yoni <yoni@citycar.co.il> and were not rewritten).
 - BI-1: set GH_TOKEN per command/script using gh auth token --user yonicc. Never switch the shared active account.
 - YONI-PC: run Git as the checkout owner (`runuser -u yoni -- ...` from the root runner); use yonicc credentials per command. Modal management-only CLI: `/home/yoni/.local/share/lhg-modal-cli/bin/python`, `MODAL_CONFIG_PATH=/home/yoni/.modal.toml`; keep model inference/training in Modal unless local CPU work is explicitly requested.
-- Working directory: C:\Users\dev\lashon-hara-guard on BI-1.
+- Working directory: D:\projects\lashon-hara-guard on BI-1 (moved from C:\Users\dev\lashon-hara-guard on 2026-10-31; the C: checkout keeps its in-progress work — do not delete it).
 
 ## Scope and conventions
 - Technical debt register: docs/TECH-DEBT.md; retry idempotency remains canonical in docs/50. Keep extractor meaning training separate from the local classifier decider; neither allows missing facts to become false.
@@ -99,6 +99,8 @@
 - Never edit a file containing Hebrew with `Set-Content -Encoding ascii` / raw PowerShell replace: it turns Hebrew into `?` (happened to `extension/manifest.json`, caught by `git diff`). Use `remote_edit_file`.
 
 ## Extension distribution
+- Firefox (AMO) build: docs/52-firefox.md (branch feat/firefox-mv3). Same version in both manifests; `node scripts/build-firefox.mjs` builds the AMO zip. Event-page script order must mirror the background.js importScripts chain.
+  New AMO submissions declare data_collection_permissions (messages/auth/context); use Firefox >=140 for built-in consent. Request optional origins before awaiting contains() so Firefox retains the click gesture. Real Gecko selector smoke: `node scripts/test-selectors-firefox.mjs <playwright-package.json>`.
 - Preset UI: check-presets.js owns the six combinations; options.js consumes it and preset-grid.css supplies layout. Rebuild Ollama after cloudModels.ts changes too: alertFor imports can include that module in the local bundle. Browser regression: node scripts/test-check-presets-browser.mjs <playwright-package.json> <shots-dir> (real MV3; absent local engines are a synthetic fixture). Describe local message processing precisely; downloads/account records are separate remote flows.
 - Public/personal release: docs/50. Authenticated lap_ checks always use direct Baseten with a fixed server-side model (LHG_PUBLIC_CHECK is derived only by accountAccess); legacy owner key retains the personal picker. Public package prepends LHG_PUBLIC_BUILD=true to check-mode.js; never install it over the owner's personal source tree. Never bundle credentials, hidden files, tests or Git metadata. Retry double-charge idempotency is explicitly deferred debt in docs/50.
 - WhatsApp selectors live only in `extension/selectors.js`. Never add a bare `#main header [title]`-style selector for the conversation title: it can match an icon button and give every chat the same key, mixing conversation context. The manual panel (Ctrl+Shift+L) shows what was detected (chat, visible messages, compose) and has a "copy diagnostics" button that copies DOM structure only (no message text) — ask the user for it when selectors fail.
