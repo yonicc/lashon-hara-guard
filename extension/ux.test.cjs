@@ -356,6 +356,9 @@ test('incoming: a switched-off platform sends nothing and releases held messages
   let rows = [];
   const sc = ctx.LHG_INCOMING.createScanner({ platform: 'google-chat', findRows: () => rows, hold: () => true });
   await ctx.LHG_SETTINGS.ready();
+  // This test covers the on/off switches under automatic checking; the
+  // manual "Send for check" default is covered in simple-pro-manual.test.cjs.
+  await ctx.LHG_SETTINGS.set({ lhgIncomingManual: false });
   await flush();
   sc.scan(); // baseline
   const live = holdEl();

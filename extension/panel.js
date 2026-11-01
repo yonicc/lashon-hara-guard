@@ -43,6 +43,22 @@
   let checkSession = 0;
   let boundPlatform = '';
   let geom = null; // user geometry {x, y, w, h?}; null = default bottom corner
+  // Rabbi-referral view (owner 2026-11-01): 'simple' (default, kid-friendly:
+  // no source quotes, no open doubts, no provenance labels) or 'pro'
+  // (the full packet). Persisted as lhgReferralMode via settings.js.
+  let referralMode = 'simple';
+  try {
+    const S0 = globalThis.LHG_SETTINGS;
+    if (S0) referralMode = S0.get().lhgReferralMode === 'pro' ? 'pro' : 'simple';
+  } catch (_e) { /* tests / no settings: simple */ }
+  function saveReferralMode() {
+    try {
+      const S1 = globalThis.LHG_SETTINGS;
+      if (S1) { S1.set({ lhgReferralMode: referralMode }); return; }
+      const st = storage();
+      if (st) st.set({ lhgReferralMode: referralMode });
+    } catch (_e) { /* storage unavailable: keep for this page only */ }
+  }
 
   function css(el, styles) {
     if (el && el.style) Object.assign(el.style, styles);
@@ -261,6 +277,10 @@
     view = visible ? fn : null;
   }
 
+  // Re-run the current view without losing it: show() clears view when not
+  // presenting, so a bare view() call would re-render only once.
+  function rerender() { if (view) present(view); }
+
   // The proxy's "analysis" as display lines. Explanation only: it never
   // changes the alert level. Names come from r.localNames (resolved in-page).
   function detailLines(r) {
@@ -416,6 +436,24 @@
   // One expandable referral packet per group-D section. Emphasises "not a
   // ruling": the question and the gathered facts are shown for a rabbi.
   function appendReferrals(box, referrals) {
+    const pro = referralMode === 'pro';
+    // Simple / PRO switch: one row above the packets; switching re-renders
+    // the current result in the chosen view.
+    const toggle = document.createElement('div');
+    toggle.className = 'lhg-referral-toggle';
+    for (const m of ['simple', 'pro']) {
+      const b = button('lhg-action lhg-referral-mode lhg-referral-' + m, t('referral.' + m), () => {
+        if (referralMode === m) return;
+        referralMode = m;
+        saveReferralMode();
+        rerender();
+      });
+      b.setAttribute('aria-pressed', String(referralMode === m));
+      if (b.style) b.style.fontWeight = referralMode === m ? '700' : '';
+      toggle.appendChild(b);
+    }
+    box.appendChild(toggle);
+    if (!pro) box.appendChild(lineEl(t('referral.simpleHint'), 'lhg-line lhg-referral-simplehint'));
     for (const ref of referrals) {
       const det = document.createElement('details');
       det.className = 'lhg-referral';
@@ -431,14 +469,16 @@
       if (ref.gatheredFacts && ref.gatheredFacts.length) {
         det.appendChild(lineEl(t('referral.facts'), 'lhg-line lhg-referral-sub'));
         for (const g of ref.gatheredFacts) {
-          det.appendChild(lineEl('• ' + g.questionHe + ' — ' + g.valueHe + ' (' + g.provenanceHe + ')', 'lhg-line lhg-referral-fact'));
+          // Simple: what was asked and the answer only. PRO adds where the
+          // answer came from (provenance).
+          det.appendChild(lineEl('• ' + g.questionHe + ' — ' + g.valueHe + (pro && g.provenanceHe ? ' (' + g.provenanceHe + ')' : ''), 'lhg-line lhg-referral-fact'));
         }
       }
-      if (ref.quotesHe && ref.quotesHe.length) {
+      if (pro && ref.quotesHe && ref.quotesHe.length) {
         det.appendChild(lineEl(t('referral.source'), 'lhg-line lhg-referral-sub'));
         for (const q2 of ref.quotesHe) det.appendChild(lineEl('״' + q2 + '״', 'lhg-line lhg-referral-quote'));
       }
-      if (ref.uncertainHe && ref.uncertainHe.length) {
+      if (pro && ref.uncertainHe && ref.uncertainHe.length) {
         det.appendChild(lineEl(t('referral.doubts'), 'lhg-line lhg-referral-sub'));
         for (const u of ref.uncertainHe) det.appendChild(lineEl('• ' + u, 'lhg-line lhg-referral-doubt'));
       }
@@ -775,11 +815,15 @@
       globalThis.LHG_I18N.onChange(() => {
         if (!panel) return;
         chromeText();
-        if (visible && view) view();
+        if (visible) rerender();
       });
     }
     if (globalThis.LHG_SETTINGS) {
-      globalThis.LHG_SETTINGS.onChange(() => { if (visible && boundPlatform && !siteActive(boundPlatform)) hide(); });
+      globalThis.LHG_SETTINGS.onChange((s) => {
+        if (visible && boundPlatform && !siteActive(boundPlatform)) hide();
+        const m = s && s.lhgReferralMode === 'pro' ? 'pro' : 'simple';
+        if (m !== referralMode) { referralMode = m; if (visible) rerender(); }
+      });
     }
     const st = storage();
     if (st) {
@@ -815,5 +859,7 @@
     sendNote,
     GEOM_KEY,
     isVisible: () => visible,
+    getReferralMode: () => referralMode,
+    setReferralMode: (m) => { referralMode = m === 'pro' ? 'pro' : 'simple'; saveReferralMode(); rerender(); },
   };
 })();
