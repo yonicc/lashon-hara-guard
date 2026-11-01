@@ -43,9 +43,9 @@
   let checkSession = 0;
   let boundPlatform = '';
   let geom = null; // user geometry {x, y, w, h?}; null = default bottom corner
-  // Rabbi-referral view (owner 2026-11-01): 'simple' (default, kid-friendly:
-  // no source quotes, no open doubts, no provenance labels) or 'pro'
-  // (the full packet). Persisted as lhgReferralMode via settings.js.
+  // Rabbi-referral view (owner 2026-11-01): 'simple' (default: only the
+  // questions themselves, all open, as bullets) or 'pro' (the full packet).
+  // Persisted as lhgReferralMode via settings.js; also set in options.
   let referralMode = 'simple';
   try {
     const S0 = globalThis.LHG_SETTINGS;
@@ -453,7 +453,14 @@
       toggle.appendChild(b);
     }
     box.appendChild(toggle);
-    if (!pro) box.appendChild(lineEl(t('referral.simpleHint'), 'lhg-line lhg-referral-simplehint'));
+    if (!pro) {
+      // Simple (owner 2026-11-01): only the questions themselves, nothing
+      // else, all open, one bullet under another.
+      for (const ref of referrals) {
+        if (ref.questionHe) box.appendChild(lineEl('• ' + ref.questionHe, 'lhg-line lhg-referral-question'));
+      }
+      return;
+    }
     for (const ref of referrals) {
       const det = document.createElement('details');
       det.className = 'lhg-referral';
@@ -469,8 +476,7 @@
       if (ref.gatheredFacts && ref.gatheredFacts.length) {
         det.appendChild(lineEl(t('referral.facts'), 'lhg-line lhg-referral-sub'));
         for (const g of ref.gatheredFacts) {
-          // Simple: what was asked and the answer only. PRO adds where the
-          // answer came from (provenance).
+          // PRO: the gathered fact plus where the answer came from.
           det.appendChild(lineEl('• ' + g.questionHe + ' — ' + g.valueHe + (pro && g.provenanceHe ? ' (' + g.provenanceHe + ')' : ''), 'lhg-line lhg-referral-fact'));
         }
       }

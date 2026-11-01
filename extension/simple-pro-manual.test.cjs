@@ -2,8 +2,8 @@
 //  1. Incoming messages send NOTHING to the server until the user presses
 //     "Send for check"; "Show without check" reveals with zero sends, and
 //     "Send for check" sends exactly once.
-//  2. The rabbi referral has a Simple view (kid-friendly: no source quotes,
-//     no open doubts, no provenance labels) and a PRO view (everything).
+//  2. The rabbi referral has a Simple view (only the questions themselves,
+//     all open, as bullets) and a PRO view (everything).
 // These tests FAIL on origin/main: incoming auto-sends on scan, and the
 // referral always renders the full PRO packet with no toggle.
 const test = require('node:test');
@@ -199,7 +199,7 @@ function panelSetup() {
 }
 const clickEl = (b) => (b.listeners.click || []).forEach((fn) => fn({}));
 
-test('referral Simple hides quotes/doubts/provenance; PRO shows everything', async () => {
+test('referral Simple shows only the questions as open bullets; PRO shows everything', async () => {
   const { panel, P } = panelSetup();
   const referral = {
     sectionKey: 'p1_prin1:2', sourceRef: 'Chafetz Chaim, Part One, Principle 1:2',
@@ -213,11 +213,19 @@ test('referral Simple hides quotes/doubts/provenance; PRO shows everything', asy
     uncertainHe: ['נדרשת הכרעה מוסמכת'],
     whyNotCheckedHe: 'סעיף זה מסווג כהכרעת מומחה (קבוצה ד׳) — אינו מוכרע אוטומטית.',
   };
-  P.renderResult({ alert: 'warn', rules: { mode: 'live_draft', findings: [], referrals: [referral] } }, { manual: true });
+  const referral2 = { ...referral, sectionKey: 'p1_prin1:3', questionHe: 'שאלה שניה לרב, לדוגמה סינתטית?' };
+  P.renderResult({ alert: 'warn', rules: { mode: 'live_draft', findings: [], referrals: [referral, referral2] } }, { manual: true });
   await tick(10);
   let text = panel().textContent;
-  assert.match(text, /האם נסיבות המקרה נכנסות לכלל/, 'the question itself stays in Simple');
-  assert.match(text, /האם אפשר לזהות במי מדובר\?/, 'gathered facts stay in Simple');
+  assert.ok(text.includes('• ' + referral.questionHe), 'Simple shows the first question as a bullet');
+  assert.ok(text.includes('• ' + referral2.questionHe), 'Simple shows the second question as a bullet');
+  assert.ok(text.indexOf(referral.questionHe) < text.indexOf(referral2.questionHe), 'bullets keep referral order');
+  assert.equal(all(panel()).filter((n) => n.tagName === 'DETAILS').length, 0, 'Simple is fully open (no collapsible packet)');
+  assert.ok(!text.includes('האם אפשר לזהות במי מדובר?'), 'Simple hides gathered facts');
+  assert.ok(!text.includes('רקע סינתטי'), 'Simple hides background');
+  assert.ok(!text.includes('יש להציג את המקרה בפני רב מוסמך'), 'Simple hides how-to-ask');
+  assert.ok(!text.includes('Chafetz Chaim, Part One'), 'Simple hides the source reference');
+  assert.ok(!text.includes('אינו מוכרע אוטומטית'), 'Simple hides why-not-checked');
   assert.ok(!text.includes('לא תלך רכיל בעמיך'), 'Simple hides source quotes');
   assert.ok(!text.includes('נדרשת הכרעה מוסמכת'), 'Simple hides open doubts');
   assert.ok(!text.includes('חולץ מהטקסט'), 'Simple hides provenance labels');
@@ -229,10 +237,22 @@ test('referral Simple hides quotes/doubts/provenance; PRO shows everything', asy
   assert.ok(text.includes('לא תלך רכיל בעמיך'), 'PRO shows source quotes');
   assert.ok(text.includes('נדרשת הכרעה מוסמכת'), 'PRO shows open doubts');
   assert.ok(text.includes('חולץ מהטקסט'), 'PRO shows provenance labels');
+  assert.ok(text.includes('האם אפשר לזהות במי מדובר?'), 'PRO shows gathered facts');
   const simpleBtn = byClass(panel(), 'lhg-referral-simple')[0];
   assert.ok(simpleBtn, 'a Simple toggle is offered');
   clickEl(simpleBtn);
   await tick(10);
   text = panel().textContent;
   assert.ok(!text.includes('לא תלך רכיל בעמיך'), 'switching back to Simple hides quotes again');
+  assert.ok(!text.includes('האם אפשר לזהות במי מדובר?'), 'switching back to Simple hides gathered facts again');
+  assert.ok(text.includes('• ' + referral.questionHe), 'switching back keeps the question bullet');
+});
+
+test('options page offers the same Simple/PRO referral switch', () => {
+  const html = fs.readFileSync(path.join(__dirname, 'options.html'), 'utf8');
+  const js = fs.readFileSync(path.join(__dirname, 'options.js'), 'utf8');
+  assert.ok(html.includes('data-referral-mode="simple"'), 'options page has a Simple button');
+  assert.ok(html.includes('data-referral-mode="pro"'), 'options page has a PRO button');
+  assert.ok(js.includes('data-referral-mode'), 'options.js wires the referral buttons');
+  assert.ok(js.includes('lhgReferralMode'), 'options.js writes the shared lhgReferralMode setting');
 });

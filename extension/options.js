@@ -43,6 +43,11 @@
     if (hide) hide.checked = s.hideIncoming;
     const manualIn = $('manualIncoming');
     if (manualIn) manualIn.checked = s.lhgIncomingManual !== false;
+    for (const b of document.querySelectorAll('[data-referral-mode]')) {
+      const active = b.getAttribute('data-referral-mode') === s.lhgReferralMode;
+      b.classList.toggle('active', active);
+      b.setAttribute('aria-pressed', String(active));
+    }
     if ($('memoryEnabled')) $('memoryEnabled').checked = s.lhgMemoryEnabled === true;
     if ($('routerEnabled')) $('routerEnabled').checked = s.lhgRouterEnabled === true;
     settingsNow = s;
@@ -76,6 +81,9 @@
       S.set({ lhgIncomingManual: v });
       say('generalStatus', v ? t('status.manualOn') : t('status.manualOff'));
     });
+    for (const b of document.querySelectorAll('[data-referral-mode]')) {
+      b.addEventListener('click', () => S.set({ lhgReferralMode: b.getAttribute('data-referral-mode') === 'pro' ? 'pro' : 'simple' }));
+    }
     S.onChange(renderSwitches);
     S.ready().then(renderSwitches);
   }
