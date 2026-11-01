@@ -24,6 +24,7 @@
   const t = (k, v) => (globalThis.LHG_I18N ? globalThis.LHG_I18N.t(k, v) : k);
   const loc = (s) => (globalThis.LHG_I18N ? globalThis.LHG_I18N.localize(s) : s);
   const uiDir = () => (globalThis.LHG_I18N ? globalThis.LHG_I18N.dir() : 'rtl');
+  const uiLang = () => (globalThis.LHG_I18N ? globalThis.LHG_I18N.lang() : 'he');
   const noteMax = () => (globalThis.LHG_RULES && globalThis.LHG_RULES.USER_NOTE_MAX) || 500;
 
   const GEOM_KEY = 'lhgPanelGeom';
@@ -43,8 +44,8 @@
   let checkSession = 0;
   let boundPlatform = '';
   let geom = null; // user geometry {x, y, w, h?}; null = default bottom corner
-  // Rabbi-referral view (owner 2026-11-01): 'simple' (default: only the
-  // questions themselves, all open, as bullets) or 'pro' (the full packet).
+  // Rabbi-referral view (owner 2026-11-01): 'simple' (default: one
+  // kid-simple line per question, all open, as bullets) or 'pro' (packet).
   // Persisted as lhgReferralMode via settings.js; also set in options.
   let referralMode = 'simple';
   try {
@@ -433,6 +434,35 @@
     p.appendChild(box);
   }
 
+  // Short section number ("10:16") from the structured key/ref; never the
+  // full citation. Empty when nothing parses.
+  function shortSectionNum(ref) {
+    const fromKey = /prin(\d+):(\d+)/.exec((ref && ref.sectionKey) || '');
+    if (fromKey) return fromKey[1] + ':' + fromKey[2];
+    const fromRef = /Principle\s+(\d+):(\d+)/.exec((ref && ref.sourceRef) || '');
+    if (fromRef) return fromRef[1] + ':' + fromRef[2];
+    const fromQ = /(\d+):(\d+)/.exec((ref && ref.questionHe) || '');
+    return fromQ ? fromQ[1] + ':' + fromQ[2] : '';
+  }
+
+  // Kid-simple referral line (owner 2026-11-01): just what it is about and
+  // its number, e.g. one short topic plus (10:16). No repeated framing, no
+  // full citation, no trailing explanation; the full question lives in PRO.
+  // In English UI the line is built only from i18n phrases plus the number,
+  // so no Hebrew server text appears in English mode.
+  function simpleReferralLine(ref) {
+    const num = shortSectionNum(ref);
+    const suffix = num ? ' (' + num + ')' : '';
+    const named = ['expert_ruling', 'external_evidence', 'not_representable'].includes(ref.category);
+    if (uiLang() === 'he' && !named) {
+      const m = /\(([^()]*)\)/.exec(ref.questionHe || '');
+      const topic = m ? m[1].split(';')[0].trim() : '';
+      if (topic) return '• ' + topic + suffix;
+    }
+    const key = ref.category === 'external_evidence' ? 'referral.kid.outside' : 'referral.kid.ask';
+    return '• ' + t(key) + suffix;
+  }
+
   // One expandable referral packet per group-D section. Emphasises "not a
   // ruling": the question and the gathered facts are shown for a rabbi.
   function appendReferrals(box, referrals) {
@@ -454,10 +484,14 @@
     }
     box.appendChild(toggle);
     if (!pro) {
-      // Simple (owner 2026-11-01): only the questions themselves, nothing
-      // else, all open, one bullet under another.
+      // Simple (owner 2026-11-01): one kid-simple line per question, all
+      // open, one bullet under another; identical lines are shown once.
+      const seen = new Set();
       for (const ref of referrals) {
-        if (ref.questionHe) box.appendChild(lineEl('• ' + ref.questionHe, 'lhg-line lhg-referral-question'));
+        const line = simpleReferralLine(ref);
+        if (seen.has(line)) continue;
+        seen.add(line);
+        box.appendChild(lineEl(line, 'lhg-line lhg-referral-question'));
       }
       return;
     }

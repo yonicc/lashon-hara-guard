@@ -199,13 +199,13 @@ function panelSetup() {
 }
 const clickEl = (b) => (b.listeners.click || []).forEach((fn) => fn({}));
 
-test('referral Simple shows only the questions as open bullets; PRO shows everything', async () => {
+test('referral Simple shows kid-simple short lines; PRO shows everything', async () => {
   const { panel, P } = panelSetup();
   const referral = {
-    sectionKey: 'p1_prin1:2', sourceRef: 'Chafetz Chaim, Part One, Principle 1:2',
-    sourceUrl: 'https://www.sefaria.org/Chafetz_Chaim,_Part_One,_Principle_1:2',
-    category: 'expert_ruling',
-    questionHe: 'האם נסיבות המקרה נכנסות לכלל, וכיצד נוהגים?',
+    sectionKey: 'p1_prin10:16', sourceRef: 'Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:16',
+    sourceUrl: 'https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:16',
+    category: 'external_evidence_partial',
+    questionHe: 'האם המקרה (תגובה לגנות קודמת) עומד בתנאי סעיף Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:16? חלק מהתנאים דורשים בירור מחוץ להודעה.',
     howToAskHe: 'יש להציג את המקרה בפני רב מוסמך.',
     backgroundHe: 'רקע סינתטי',
     quotesHe: ['לא תלך רכיל בעמיך'],
@@ -213,13 +213,16 @@ test('referral Simple shows only the questions as open bullets; PRO shows everyt
     uncertainHe: ['נדרשת הכרעה מוסמכת'],
     whyNotCheckedHe: 'סעיף זה מסווג כהכרעת מומחה (קבוצה ד׳) — אינו מוכרע אוטומטית.',
   };
-  const referral2 = { ...referral, sectionKey: 'p1_prin1:3', questionHe: 'שאלה שניה לרב, לדוגמה סינתטית?' };
+  const referral2 = { ...referral, sectionKey: 'p1_prin1:3', questionHe: 'האם המקרה (נושא שני קצר) עומד בתנאי סעיף Chafetz Chaim, Part One, Principle 1:3? חלק מהתנאים דורשים בירור מחוץ להודעה.' };
   P.renderResult({ alert: 'warn', rules: { mode: 'live_draft', findings: [], referrals: [referral, referral2] } }, { manual: true });
   await tick(10);
   let text = panel().textContent;
-  assert.ok(text.includes('• ' + referral.questionHe), 'Simple shows the first question as a bullet');
-  assert.ok(text.includes('• ' + referral2.questionHe), 'Simple shows the second question as a bullet');
-  assert.ok(text.indexOf(referral.questionHe) < text.indexOf(referral2.questionHe), 'bullets keep referral order');
+  assert.ok(text.includes('• תגובה לגנות קודמת (10:16)'), 'Simple shows only the topic and the short number');
+  assert.ok(text.includes('• נושא שני קצר (1:3)'), 'Simple shows the second short line');
+  assert.ok(text.indexOf('תגובה לגנות קודמת') < text.indexOf('נושא שני קצר'), 'bullets keep referral order');
+  assert.ok(!text.includes(referral.questionHe), 'Simple never shows the full long question');
+  assert.ok(!text.includes('עומד בתנאי'), 'Simple drops the repeated framing');
+  assert.ok(!text.includes('חלק מהתנאים דורשים בירור מחוץ להודעה'), 'Simple drops the repeated tail');
   assert.equal(all(panel()).filter((n) => n.tagName === 'DETAILS').length, 0, 'Simple is fully open (no collapsible packet)');
   assert.ok(!text.includes('האם אפשר לזהות במי מדובר?'), 'Simple hides gathered facts');
   assert.ok(!text.includes('רקע סינתטי'), 'Simple hides background');
@@ -245,7 +248,44 @@ test('referral Simple shows only the questions as open bullets; PRO shows everyt
   text = panel().textContent;
   assert.ok(!text.includes('לא תלך רכיל בעמיך'), 'switching back to Simple hides quotes again');
   assert.ok(!text.includes('האם אפשר לזהות במי מדובר?'), 'switching back to Simple hides gathered facts again');
-  assert.ok(text.includes('• ' + referral.questionHe), 'switching back keeps the question bullet');
+  assert.ok(text.includes('• תגובה לגנות קודמת (10:16)'), 'switching back keeps the short bullet');
+});
+
+test('referral Simple in English contains no Hebrew at all', async () => {
+  const { ctx, panel, P } = panelSetup();
+  ctx.LHG_I18N.setLang('en', { persist: false });
+  const referral = {
+    sectionKey: 'p1_prin10:16', sourceRef: 'Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:16',
+    sourceUrl: 'https://www.sefaria.org/Chafetz_Chaim,_Part_One,_The_Prohibition_Against_Lashon_Hara,_Principle_10:16',
+    category: 'external_evidence_partial',
+    questionHe: 'האם המקרה (תגובה לגנות קודמת) עומד בתנאי סעיף Chafetz Chaim, Part One, The Prohibition Against Lashon Hara, Principle 10:16? חלק מהתנאים דורשים בירור מחוץ להודעה.',
+    howToAskHe: 'יש להציג את המקרה בפני רב מוסמך.',
+    backgroundHe: 'רקע סינתטי',
+    quotesHe: ['לא תלך רכיל בעמיך'],
+    gatheredFacts: [{ id: 'subject.identifiable', questionHe: 'האם אפשר לזהות במי מדובר?', valueHe: 'ידוע: כן', provenanceHe: 'חולץ מהטקסט' }],
+    uncertainHe: ['נדרשת הכרעה מוסמכת'],
+    whyNotCheckedHe: 'סעיף זה מסווג כהכרעת מומחה (קבוצה ד׳) — אינו מוכרע אוטומטית.',
+  };
+  P.renderResult({ alert: 'warn', rules: { mode: 'live_draft', findings: [], referrals: [referral] } }, { manual: true });
+  await tick(10);
+  const bullets = byClass(panel(), 'lhg-referral-question').map((n) => n.textContent);
+  assert.equal(bullets.length, 1, 'one Simple bullet');
+  assert.equal(bullets[0], '• Ask a rabbi (10:16)');
+  assert.ok(!/[\u0590-\u05FF]/.test(bullets[0]), 'English Simple bullet has no Hebrew');
+  const rulesBox = byClass(panel(), 'lhg-rules')[0];
+  assert.ok(rulesBox && !/[\u0590-\u05FF]/.test(rulesBox.textContent), 'English Simple rules box has no Hebrew anywhere');
+});
+
+test('referral Simple shows an identical line only once', async () => {
+  const { panel, P } = panelSetup();
+  const referral = {
+    sectionKey: 'p1_prin10:16', sourceRef: 'Chafetz Chaim, Part One, Principle 10:16',
+    category: 'external_evidence_partial',
+    questionHe: 'האם המקרה (תגובה לגנות קודמת) עומד בתנאי סעיף Chafetz Chaim, Part One, Principle 10:16? חלק מהתנאים דורשים בירור מחוץ להודעה.',
+  };
+  P.renderResult({ alert: 'warn', rules: { mode: 'live_draft', findings: [], referrals: [referral, { ...referral }] } }, { manual: true });
+  await tick(10);
+  assert.equal(byClass(panel(), 'lhg-referral-question').length, 1, 'duplicate short lines are shown once');
 });
 
 test('options page offers the same Simple/PRO referral switch', () => {
