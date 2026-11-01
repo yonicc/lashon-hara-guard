@@ -45,8 +45,8 @@
   Cloudflare Workers does not implement `redirect:'error'` (it throws before
   making any request). Never follow redirects carrying partner credentials.
 - Native Worker `fetch` must retain its global receiver: use a wrapper when storing/injecting it in a class, never `this.fetchImpl` with raw `fetch` as the default. Node mocks missed the direct Baseten failure; `proxy/test/basetenWorker.test.ts` reproduces it in workerd with synthetic outbound interception.
-- Personal `lap_...` tokens are managed at `https://lhg.ysho.uk` (legacy `lap.ysho.uk` redirects there; TZ repo,
-  `src/lap-access.js`). `proxy/src/accountAccess.ts` verifies/reserves via
+- Personal `lap_...` tokens are managed at `https://lhg.ysho.uk` (legacy `lap.ysho.uk` redirects there; site repo
+  `yonicc/lhg-site`, server side `src/lap-access.js` in tizkoret-ze). `proxy/src/accountAccess.ts` verifies/reserves via
   central LAP partner endpoints before extraction and captures/releases after.
   `LHG_ACCOUNT_KEY` is a Worker secret; no message text goes to accounts.
   Legacy access key remains valid for the owner's existing installation.
@@ -113,9 +113,9 @@
 - DOM-level tests: `extension/mini-dom.testlib.cjs` (no jsdom in the repo) runs the real content scripts on HTML fixtures (`detection.test.cjs`). Do not end fixture text with a time word such as "עכשיו": `S.isMessageHeader` drops "≤3 words + time" lines as an author header, so the row silently vanishes and the test passes vacuously — check that new regression tests FAIL on `origin/main` (`git archive origin/main extension`).
 - Source of truth is `extension/` in this repo (on BI-1). Every extension change must also be copied to the active unpacked copy on YONI-PC: `/home/yoni/lashon-hara-guard-gmail/extension` (Linux, user `yoni`; Chrome profile `Default`, extension id `naggldcglajoihfllgnboobgkfaknkoj`). Verify the copied files' SHA-256 match the repo's and that `manifest.json` parses.
 - **Every extension release goes to three places (owner rule, 2026-10-27): BI-1, https://lhg.ysho.uk (the public download; formerly lap.ysho.uk) and YONI-PC — and includes the Firefox build of the same version/commit (owner rule, 2026-11-01; runbook: `.claude/skills/lhg-firefox-release/SKILL.md`).** It is part of "done", not optional. Bump `manifest.json` `version`, commit, push, then:
-  1. BI-1: `powershell -NoProfile -File scripts\release-extension.ps1` — refuses unless HEAD == origin/main and `extension/` is clean, runs the extension tests, publishes that exact commit to LAP (TZ repo `lap-worker/package-extension.py <sha>` → commit/push as yonicc → `wrangler deploy`) and verifies live that `/downloads/version.json` names the commit and the ZIP's SHA-256 matches. BI-1's Chrome loads the unpacked extension from this checkout, so nothing else to copy there.
+  1. BI-1: `powershell -NoProfile -File scripts\release-extension.ps1` — refuses unless HEAD == origin/main and `extension/` is clean, runs the extension tests, publishes that exact commit to LAP (lhg-site repo `package-extension.py <sha>` → commit/push as yonicc → `wrangler deploy`) and verifies live that `/downloads/version.json` names the commit and the ZIP's SHA-256 matches. BI-1's Chrome loads the unpacked extension from this checkout, so nothing else to copy there.
   2. YONI-PC (runner, as root): `bash scripts/install-from-lap.sh` — installs the published ZIP into `/home/yoni/lashon-hara-guard-gmail/extension` after the SHA-256 check, keeping a backup. (BI-1 has no SSH route to YONI-PC, so this step runs there.)
-  3. The user reloads the extension and refreshes the tab. Manual fallback and details: TZ repo `docs/lap.md`. The private TZ repo answers `Repository not found` to a fetch without `GH_TOKEN` of yonicc.
+  3. The user reloads the extension and refreshes the tab. Manual fallback and details: lhg-site repo `docs/lap.md`. The private lhg-site repo answers `Repository not found` to a fetch without `GH_TOKEN` of yonicc.
 - Never copy secrets or the user's access key to YONI-PC; the options page stores it locally in that Chrome profile.
 - The manual panel shortcut is a native Chrome command `open-panel` (manifest `commands`, default `Ctrl+Shift+L`); Chromium's command parser has no valid `Equal`/`Plus` key name, so never reintroduce `Ctrl+Shift++` as a Chrome command — the old in-page handler is only a non-zoom-safe fallback.
 - After updating that directory, the user reloads the extension in `chrome://extensions` (there is no hot-reload for an unpacked extension whose `manifest.json` changed).

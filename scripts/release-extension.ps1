@@ -3,14 +3,14 @@
 # 1. Refuses unless HEAD == origin/main and extension/ is clean (the release
 #    is always an exact pushed commit).
 # 2. Runs the extension tests.
-# 3. Publishes that commit to https://lhg.ysho.uk (TZ repo lap-worker:
+# 3. Publishes that commit to https://lhg.ysho.uk (lhg-site repo:
 #    package-extension.py -> commit -> push as yonicc -> wrangler deploy),
 #    unless LAP already serves this commit.
 # 4. Verifies live: version.json commit == HEAD and the ZIP's SHA-256 matches.
 # BI-1 itself loads the unpacked extension from this checkout (nothing to copy).
 # YONI-PC / any Linux box then installs from LAP: scripts/install-from-lap.sh
 param(
-  [string]$TzRepo = 'C:\Users\dev\worktrees\tz-lap',   # any checkout/worktree of yonicc/tizkoret-ze
+  [string]$SiteRepo = 'D:\projects\lhg-site',   # checkout of yonicc/lhg-site
   [string]$Wrangler = 'C:\Users\dev\lashon-hara-guard\proxy\node_modules\.bin\wrangler.cmd'
 )
 $ErrorActionPreference = 'Stop'
@@ -44,19 +44,19 @@ try {
   if ($live -and $live.commit -eq $head) {
     Write-Host "LAP already serves $head - nothing to publish."
   } else {
-    $wt = Join-Path $env:TEMP ('tz-lap-release-' + [DateTime]::Now.ToString('yyyyMMddHHmmss'))
-    Invoke-Git -C $TzRepo fetch -q origin
-    Invoke-Git -C $TzRepo worktree add --detach $wt origin/main
+    $wt = Join-Path $env:TEMP ('lhg-site-release-' + [DateTime]::Now.ToString('yyyyMMddHHmmss'))
+    Invoke-Git -C $SiteRepo fetch -q origin
+    Invoke-Git -C $SiteRepo worktree add --detach $wt origin/main
     try {
       Set-Location $wt
-      & python lap-worker\package-extension.py $head
+      & python package-extension.py $head
       if ($LASTEXITCODE -ne 0) { Fail 'package-extension.py failed' }
-      Invoke-Git add lap-worker/public/downloads/lap-extension.zip lap-worker/public/downloads/version.json
+      Invoke-Git add public/downloads/lap-extension.zip public/downloads/version.json
       $msg = Join-Path $env:TEMP 'lhg-lap-release-msg.txt'
       [IO.File]::WriteAllText($msg, "LAP download: publish extension $version (lashon-hara-guard $($head.Substring(0,7)))`n", (New-Object Text.UTF8Encoding $false))
       Invoke-Git -c user.name=yoni -c user.email=yonicc@gmail.com commit -q -F $msg
       Invoke-Git push -q origin HEAD:main
-      Set-Location (Join-Path $wt 'lap-worker')
+      Set-Location $wt
       $ErrorActionPreference = 'Continue'
       & $Wrangler deploy 2>&1 | Select-String -Pattern 'Current Version ID|Deployed|error' 
       $deployExit = $LASTEXITCODE
@@ -64,7 +64,7 @@ try {
       if ($deployExit -ne 0) { Fail 'wrangler deploy failed' }
     } finally {
       Set-Location $repo
-      & git -C $TzRepo worktree remove --force $wt 2>$null
+      & git -C $SiteRepo worktree remove --force $wt 2>$null
     }
   }
 

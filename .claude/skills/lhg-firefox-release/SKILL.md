@@ -48,18 +48,17 @@ elements; normalize it with Array.from rather than weakening a runtime rule.
 ## Publish the exact pushed artifact
 
 Commit/push the selected LHG revision, verify its remote SHA, then build from
-that clean revision. Site code belongs to yonicc/tizkoret-ze, not lhg-proxy.
-The verified site worktree was D:\projects\tz-firefox-publish; first read
-its applicable AGENTS.md, docs/lap.md and lap-worker/package-firefox.py.
+that clean revision. Site code belongs to yonicc/lhg-site (private; split from tizkoret-ze
+on 2026-11-01), not lhg-proxy. The site checkout is D:\projects\lhg-site;
+first read its AGENTS.md, docs/lap.md and package-firefox.py.
 
 From that site's checkout, the verified packaging interface is:
 
 ```powershell
-py lap-worker/package-firefox.py <absolute-versioned-zip-path> <pushed-LHG-commit-sha>
+py package-firefox.py <absolute-versioned-zip-path> <pushed-LHG-commit-sha>
 ```
 
-Follow docs/lap.md for the site's tests, commit/push and existing lap-worker
-Wrangler deployment. Re-read the current deployment configuration rather
+Follow docs/lap.md for the site's tests, commit/push and Wrangler deployment. Re-read the current deployment configuration rather
 than assuming its branch or credentials. No proxy deployment is needed.
 
 After deployment download /downloads/lhg-firefox.zip from https://lhg.ysho.uk
@@ -75,13 +74,10 @@ Verified 2026-11-01 (0.17.0): both manifests at the same version;
 `node scripts/build-firefox.mjs` -> FIREFOX BUILD OK; web-ext lint exit 0
 (documented warnings only); published via package-firefox.py and verified live.
 
-Clobber trap: every lap-worker deploy uploads the whole
-`lap-worker/public/downloads/` of the deploying checkout. Deploying Chrome
-(from a TZ main worktree) after Firefox (from the FF branch worktree) — or
-vice versa — silently reverts the other browser's assets. Keep BOTH asset
-sets on TZ main: merge TZ main into the FF worktree before packaging, then
-fast-forward TZ main to the FF branch, and deploy once. After any deploy,
-verify BOTH /downloads/version.json and /downloads/firefox-version.json live.
+Clobber trap: every site deploy uploads the whole `public/downloads/`
+of the deploying checkout, so deploy only from lhg-site main with BOTH
+browsers' assets committed. After any deploy, verify BOTH
+/downloads/version.json and /downloads/firefox-version.json live.
 
 ## Signing boundary
 
