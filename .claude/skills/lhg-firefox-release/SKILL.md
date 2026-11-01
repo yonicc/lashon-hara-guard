@@ -70,6 +70,10 @@ HTTP 200 alone is not verification. Report source/site SHAs and actual QA.
 
 A Chrome extension release is not done until the Firefox ZIP of the SAME
 version/commit is built and published too (AGENTS.md, Extension distribution).
+Since 2026-11-01 `scripts\release-extension.ps1` does this automatically:
+it builds, lints and publishes Firefox with Chrome in one lhg-site commit
+and deploy, and verifies both live. The manual steps above remain for a
+Firefox-only rebuild.
 Verified 2026-11-01 (0.17.0): both manifests at the same version;
 `node scripts/build-firefox.mjs` -> FIREFOX BUILD OK; web-ext lint exit 0
 (documented warnings only); published via package-firefox.py and verified live.
