@@ -67,6 +67,22 @@ and hash the response bytes; compare with the local ZIP, then inspect
 /downloads/firefox-version.json for the source SHA, version and signing status.
 HTTP 200 alone is not verification. Report source/site SHAs and actual QA.
 
+## Every extension release includes Firefox (owner rule, 2026-11-01)
+
+A Chrome extension release is not done until the Firefox ZIP of the SAME
+version/commit is built and published too (AGENTS.md, Extension distribution).
+Verified 2026-11-01 (0.17.0): both manifests at the same version;
+`node scripts/build-firefox.mjs` -> FIREFOX BUILD OK; web-ext lint exit 0
+(documented warnings only); published via package-firefox.py and verified live.
+
+Clobber trap: every lap-worker deploy uploads the whole
+`lap-worker/public/downloads/` of the deploying checkout. Deploying Chrome
+(from a TZ main worktree) after Firefox (from the FF branch worktree) — or
+vice versa — silently reverts the other browser's assets. Keep BOTH asset
+sets on TZ main: merge TZ main into the FF worktree before packaging, then
+fast-forward TZ main to the FF branch, and deploy once. After any deploy,
+verify BOTH /downloads/version.json and /downloads/firefox-version.json live.
+
 ## Signing boundary
 
 The preparation ZIP is unsigned; normal Firefox installation requires AMO
