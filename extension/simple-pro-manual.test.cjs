@@ -127,6 +127,35 @@ test('manual incoming: scan sends nothing; reveal sends nothing; Send sends exac
   assert.equal(sent.length, 1, 'Send for check sends exactly once');
 });
 
+test('manual incoming: an opened e-mail also sends nothing until "Send for check" is pressed', async () => {
+  // The 0.17.0 bug the owner caught: row.kind === 'email' skipped the manual
+  // gate, so Gmail kept auto-sending on scan (⏳ "נבדקת לפני הצגה").
+  const { G, sent, win } = incomingSetup(() => ({ alert: 'warn', mechanism: 'mockery' }));
+  let rows = [];
+  const sc = G.createScanner({ platform: 'gmail', findRows: () => rows, hold: () => false, manual: () => true });
+  sc.scan(); // baseline
+  const mail = h('div', 'גוף של מייל נכנס שמחכה לאישור בדיקה');
+  rows = [{ el: mail, text: 'גוף של מייל נכנס שמחכה לאישור בדיקה', kind: 'email' }];
+  sc.scan();
+  await tick();
+  assert.equal(sent.length, 0, 'opening an e-mail must not send anything');
+  const chip = mail.querySelector(':scope > .lhg-tag');
+  assert.ok(chip, 'manual tag rendered on the e-mail');
+  assert.ok(chip.classList.contains('lhg-tag-not_checked'), 'manual state is the not_checked tag, never checking');
+  const btn = chip.children.find((c) => c.tagName === 'BUTTON');
+  assert.ok(btn, 'the tag carries a Send for check button');
+  assert.equal(btn.textContent, 'שלח לבדיקה');
+  assert.equal(mail.querySelector(':scope > .lhg-hold'), null, 'e-mail is still never held');
+  dispatch(win, btn, 'click');
+  await tick(80);
+  assert.equal(sent.length, 1, 'Send for check sends exactly once');
+  assert.equal(sent[0].type, 'lhg-check');
+  assert.equal(sent[0].direction, 'incoming');
+  dispatch(win, btn, 'click'); // a second press while pending is a no-op
+  await tick(40);
+  assert.equal(sent.length, 1, 'no duplicate send from the same press path');
+});
+
 // --- 2. Simple / PRO referral --------------------------------------------------
 
 function panelSetup() {

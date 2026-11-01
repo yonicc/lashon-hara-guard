@@ -334,11 +334,12 @@
   function createScanner({ platform, findRows, root = document, hold = () => G.holdEnabled, beforeScan = () => true, manual }) {
     const S = globalThis.LHG_SELECTORS;
     const seen = new Set();
-    // Manual incoming check (owner 2026-11-01): chat messages wait for an
-    // explicit "Send for check" press; nothing is sent on scan. Opening an
-    // e-mail is already an explicit read action, so e-mail rows keep the
-    // automatic check. Without settings.js and without an explicit option
-    // the legacy automatic behaviour stays (existing test harnesses).
+    // Manual incoming check (owner 2026-11-01): EVERY incoming message,
+    // e-mail included, waits for an explicit "Send for check" press; nothing
+    // is sent on scan. E-mail rows are still never held (tag only), so the
+    // tag carries the "Send for check" button. Without settings.js and
+    // without an explicit option the legacy automatic behaviour stays
+    // (existing test harnesses).
     const manualMode = () => {
       if (typeof manual === 'function') return !!manual();
       if (typeof manual === 'boolean') return manual;
@@ -482,7 +483,9 @@
       if (fresh.length > BURST_LIMIT && !fresh.every(row => row.kind === 'email')) return; // chat burst remains history
       for (const row of fresh) {
         const held = !!hold();
-        const isManual = row.kind !== 'email' && manualMode();
+        // Owner 2026-11-01: NOTHING incoming is sent on scan, e-mail too.
+        // Opening a mail is not an approval to send its body to the server.
+        const isManual = manualMode();
         state.set(row.id, { phase: isManual ? 'manual' : 'pending', result: null, revealed: false, held, el: row.el, els: [row.el] });
         state.get(row.id).recheck = () => {
           const st = state.get(row.id);
