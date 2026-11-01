@@ -41,6 +41,8 @@
     }
     const hide = $('hideIncoming');
     if (hide) hide.checked = s.hideIncoming;
+    const manualIn = $('manualIncoming');
+    if (manualIn) manualIn.checked = s.lhgIncomingManual !== false;
     if ($('memoryEnabled')) $('memoryEnabled').checked = s.lhgMemoryEnabled === true;
     if ($('routerEnabled')) $('routerEnabled').checked = s.lhgRouterEnabled === true;
     settingsNow = s;
@@ -68,6 +70,11 @@
       const v = $('hideIncoming').checked;
       S.set({ hideIncoming: v });
       say('generalStatus', v ? t('status.hideOn') : t('status.hideOff'));
+    });
+    on('manualIncoming', 'change', () => {
+      const v = $('manualIncoming').checked;
+      S.set({ lhgIncomingManual: v });
+      say('generalStatus', v ? t('status.manualOn') : t('status.manualOff'));
     });
     S.onChange(renderSwitches);
     S.ready().then(renderSwitches);

@@ -303,6 +303,10 @@ test('rules: a group-D referral renders as a question for a rabbi, never a rulin
   env.P.check(payload(), null, { manual: true });
   await flush();
   const p = env.panel();
+  // Default view is Simple (no quotes/doubts/provenance); PRO shows all.
+  assert.ok(!p.textContent.includes('נדרשת הכרעה מוסמכת'), 'Simple hides open doubts');
+  click(byClass(p, 'lhg-referral-pro')[0]);
+  await flush();
   const text = p.textContent;
   assert.match(text, /שאלה לרב \(לא פסק\)/);
   assert.match(text, /האם נסיבות המקרה נכנסות לכלל/);

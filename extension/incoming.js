@@ -37,19 +37,26 @@
   // to "not checked" while a check was still running (Google Chat 2026-10-27).
   const TAG_KINDS = ['checking', 'warn', 'unsure', 'not_checked', 'unchecked_overflow'];
   // Placeholder per phase (i18n "hold.<phase>"), shown INSTEAD of the message.
-  const HOLD_PHASES = ['pending', 'warn', 'unsure', 'not_checked'];
+  const HOLD_PHASES = ['pending', 'warn', 'unsure', 'not_checked', 'manual'];
   // Phases with a "show" button (i18n "reveal.<phase>").
-  const REVEAL_PHASES = ['warn', 'unsure', 'not_checked'];
+  const REVEAL_PHASES = ['warn', 'unsure', 'not_checked', 'manual'];
   const tagText = (kind) => t('tag.' + (TAG_KINDS.includes(kind) ? kind : 'not_checked'));
 
   // Setting: hide incoming chat messages until checked. Default ON.
   G.holdEnabled = true;
+  // Setting: check incoming chat messages only on an explicit "Send for
+  // check" press (lhgIncomingManual, default ON via settings.js). Null here
+  // means "not stored": scanners without settings.js keep the legacy
+  // automatic behaviour so existing test harnesses stay valid.
+  G.manualStored = null;
   try {
-    chrome.storage.local.get(['hideIncoming'], (s) => {
+    chrome.storage.local.get(['hideIncoming', 'lhgIncomingManual'], (s) => {
       if (s && typeof s.hideIncoming === 'boolean') G.holdEnabled = s.hideIncoming;
+      if (s && typeof s.lhgIncomingManual === 'boolean') G.manualStored = s.lhgIncomingManual;
     });
     chrome.storage.onChanged.addListener((ch) => {
       if (ch.hideIncoming && typeof ch.hideIncoming.newValue === 'boolean') G.holdEnabled = ch.hideIncoming.newValue;
+      if (ch.lhgIncomingManual && typeof ch.lhgIncomingManual.newValue === 'boolean') G.manualStored = ch.lhgIncomingManual.newValue;
     });
   } catch (_e) { /* tests / no storage: keep default */ }
 
@@ -276,8 +283,9 @@
     const mech = st.result && st.result.mechanism ? mechText(st.result.mechanism) : '';
     label.textContent = t('hold.' + st.phase) + (mech ? ' (' + mech + ')' : '');
     h.appendChild(label);
+    if (st.phase === 'manual' && st.sendCheck) holdButton(h, t('hold.sendCheck'), st.sendCheck);
     if (REVEAL_PHASES.includes(st.phase)) holdButton(h, t('reveal.' + st.phase), onReveal);
-    if (st.phase !== 'pending' && st.recheck) holdButton(h, t('check.again'), st.recheck);
+    if (st.phase !== 'pending' && st.phase !== 'manual' && st.recheck) holdButton(h, t('check.again'), st.recheck);
     if ((st.phase === 'warn' || st.phase === 'unsure') && globalThis.LHG_PANEL) {
       holdButton(h, t('hold.why'), () => {
         try { globalThis.LHG_PANEL.renderResult(st.result, { manual: true }); } catch (_e) { /* panel absent */ }
@@ -323,9 +331,20 @@
   // findRows(root) -> [{ el, text, kind? }] candidate message rows in the DOM;
   //   kind 'email' rows are never held (tag only).
   // hold() -> boolean: hide live chat messages until checked (default: setting).
-  function createScanner({ platform, findRows, root = document, hold = () => G.holdEnabled, beforeScan = () => true }) {
+  function createScanner({ platform, findRows, root = document, hold = () => G.holdEnabled, beforeScan = () => true, manual }) {
     const S = globalThis.LHG_SELECTORS;
     const seen = new Set();
+    // Manual incoming check (owner 2026-11-01): chat messages wait for an
+    // explicit "Send for check" press; nothing is sent on scan. Opening an
+    // e-mail is already an explicit read action, so e-mail rows keep the
+    // automatic check. Without settings.js and without an explicit option
+    // the legacy automatic behaviour stays (existing test harnesses).
+    const manualMode = () => {
+      if (typeof manual === 'function') return !!manual();
+      if (typeof manual === 'boolean') return manual;
+      if (globalThis.LHG_SETTINGS) return globalThis.LHG_SETTINGS.get().lhgIncomingManual !== false;
+      return G.manualStored === true;
+    };
     // Preserve direction across context-fingerprint changes, while allowing
     // a virtualised node reused for different text to be checked normally.
     const ownEchoes = new WeakMap();
@@ -348,6 +367,21 @@
         })),
     );
 
+    // Unholded manual state: the text is already visible ("show immediately"
+    // is the default here); the tag carries the explicit check action.
+    function renderManualTag(el, st) {
+      tag(el, 'not_checked');
+      const chip = el.querySelector && el.querySelector(':scope > .lhg-tag');
+      if (!chip || typeof document.createElement !== 'function') return;
+      if (chip.querySelector && chip.querySelector(':scope > .lhg-tag-btn')) return;
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'lhg-tag-btn';
+      b.textContent = t('hold.sendCheck');
+      if (typeof b.addEventListener === 'function') b.addEventListener('click', () => { if (st.sendCheck) st.sendCheck(); });
+      chip.appendChild(b);
+    }
+
     // Paint the current state of one message onto every element that shows it
     // (a re-mount, or the same text rendered twice: all copies are covered,
     // not just the first one found).
@@ -369,6 +403,7 @@
         }
         unhold(el);
         if (st.phase === 'pending') tag(el, 'checking');
+        else if (st.phase === 'manual') renderManualTag(el, st);
         else renderResult(el, st.result);
       }
     }
@@ -447,7 +482,8 @@
       if (fresh.length > BURST_LIMIT && !fresh.every(row => row.kind === 'email')) return; // chat burst remains history
       for (const row of fresh) {
         const held = !!hold();
-        state.set(row.id, { phase: 'pending', result: null, revealed: false, held, el: row.el, els: [row.el] });
+        const isManual = row.kind !== 'email' && manualMode();
+        state.set(row.id, { phase: isManual ? 'manual' : 'pending', result: null, revealed: false, held, el: row.el, els: [row.el] });
         state.get(row.id).recheck = () => {
           const st = state.get(row.id);
           if (!st || st.phase === 'pending') return;
@@ -458,9 +494,7 @@
           else chrome.runtime.sendMessage(payload, done);
         };
         for (const d of pendingDup) if (d.id === row.id) addEl(row.id, d.el);
-        apply(row.id); // before the next paint when called from observe()
-        row.el?.setAttribute?.('data-lhg-scanned', 'true');
-        const accepted = queue.push({
+        const enqueue = () => queue.push({
           text: row.text.slice(0, 2000),
           message: row.message,
           done: (r) => {
@@ -471,7 +505,21 @@
             apply(row.id);
           },
         });
-        if (!accepted) { /* done() already ran with not_checked */ }
+        if (isManual) {
+          // Exactly one send, only from this explicit press; a second press
+          // while pending (or after a result) is a no-op.
+          state.get(row.id).sendCheck = () => {
+            const st = state.get(row.id);
+            if (!st || st.phase !== 'manual') return;
+            st.phase = 'pending';
+            st.revealed = false;
+            apply(row.id);
+            enqueue();
+          };
+        }
+        apply(row.id); // before the next paint when called from observe()
+        row.el?.setAttribute?.('data-lhg-scanned', 'true');
+        if (!isManual) enqueue();
       }
     }
 
