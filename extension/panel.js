@@ -448,13 +448,18 @@
   // Kid-simple referral line (owner 2026-11-01): just what it is about and
   // its number, e.g. one short topic plus (10:16). No repeated framing, no
   // full citation, no trailing explanation; the full question lives in PRO.
-  // In English UI the line is built only from i18n phrases plus the number,
-  // so no Hebrew server text appears in English mode.
+  // The topic comes from referral-topics.js (one home, every group-D section
+  // has an English topic); in Hebrew the server's own topic is kept when the
+  // table has no Hebrew override. English never shows Hebrew server text.
   function simpleReferralLine(ref) {
     const num = shortSectionNum(ref);
     const suffix = num ? ' (' + num + ')' : '';
+    const lang = uiLang() === 'he' ? 'he' : 'en';
+    const table = globalThis.LHG_REFERRAL_TOPICS;
+    const mapped = table ? table.topic(ref.sectionKey, lang) : '';
+    if (mapped) return '• ' + mapped + suffix;
     const named = ['expert_ruling', 'external_evidence', 'not_representable'].includes(ref.category);
-    if (uiLang() === 'he' && !named) {
+    if (lang === 'he' && !named) {
       const m = /\(([^()]*)\)/.exec(ref.questionHe || '');
       const topic = m ? m[1].split(';')[0].trim() : '';
       if (topic) return '• ' + topic + suffix;

@@ -192,7 +192,7 @@ function panelSetup() {
     },
   });
   ctx.globalThis = ctx;
-  for (const f of ['i18n.js', 'rules.js', 'panel.js']) vm.runInContext(fs.readFileSync(path.join(__dirname, f), 'utf8'), ctx);
+  for (const f of ['i18n.js', 'rules.js', 'referral-topics.js', 'panel.js']) vm.runInContext(fs.readFileSync(path.join(__dirname, f), 'utf8'), ctx);
   ctx.LHG_I18N.setLang('he', { persist: false });
   const panel = () => all(body).find((n) => n.id === 'lhg-panel') || body.children[0];
   return { ctx, panel, P: ctx.LHG_PANEL };
@@ -270,7 +270,7 @@ test('referral Simple in English contains no Hebrew at all', async () => {
   await tick(10);
   const bullets = byClass(panel(), 'lhg-referral-question').map((n) => n.textContent);
   assert.equal(bullets.length, 1, 'one Simple bullet');
-  assert.equal(bullets[0], '• Ask a rabbi (10:16)');
+  assert.equal(bullets[0], '• Answering gossip about you (10:16)', 'English shows the real topic, not a generic phrase');
   assert.ok(!/[\u0590-\u05FF]/.test(bullets[0]), 'English Simple bullet has no Hebrew');
   const rulesBox = byClass(panel(), 'lhg-rules')[0];
   assert.ok(rulesBox && !/[\u0590-\u05FF]/.test(rulesBox.textContent), 'English Simple rules box has no Hebrew anywhere');
