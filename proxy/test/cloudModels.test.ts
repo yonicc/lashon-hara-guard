@@ -5,7 +5,7 @@ import path from 'node:path';
 import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
 import { handle, providerFromEnv, type Env } from '../src/handler.js';
-import { CLOUD_MODELS, DEFAULT_CLOUD_MODEL_ID, pickCloudModel } from '../src/cloudModels.js';
+import { CLOUD_MODELS, DEACTIVATED_CLOUD_MODEL_IDS, DEFAULT_CLOUD_MODEL_ID, pickCloudModel } from '../src/cloudModels.js';
 import { DEFAULT_BRAIN_MODEL } from '../../engine/src/index.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -35,12 +35,13 @@ async function run(body: Record<string, unknown>, env: Env = ENV) {
   return { brain: sent, res: (await r.json()) as Record<string, unknown> };
 }
 
-test('cloudModels: ten unique ids, default first, stateless backends only', () => {
+test('cloudModels: twelve unique ids, default listed, stateless backends only', () => {
   assert.equal(CLOUD_MODELS.length, 12);
   assert.equal(new Set(CLOUD_MODELS.map((m) => m.id)).size, 12);
-  assert.equal(CLOUD_MODELS[0]!.id, DEFAULT_CLOUD_MODEL_ID);
-  // Owner 2026-10-29: Baseten Spark is the default.
-  assert.deepEqual([CLOUD_MODELS[0]!.agentKind, CLOUD_MODELS[0]!.model], ['baseten', 'meta-models/muse-spark-open-1026']);
+  // Owner 2026-11-07: muse-spark-1.3 (meta_api) is the default; Baseten's deployment is deactivated.
+  assert.equal(DEFAULT_CLOUD_MODEL_ID, 'muse-spark-1.3');
+  assert.equal(pickCloudModel(DEFAULT_CLOUD_MODEL_ID).agentKind, 'meta_api');
+  assert.deepEqual([...DEACTIVATED_CLOUD_MODEL_IDS], ['muse-spark-open-1026']);
   for (const m of CLOUD_MODELS) assert.ok(['meta_api', 'openrouter', 'modal', 'baseten'].includes(m.agentKind), m.id);
   // Baseten: one model only (owner rule 2026-10-28).
   assert.deepEqual(CLOUD_MODELS.filter((m) => m.agentKind === 'baseten').map((m) => m.model),
@@ -55,23 +56,25 @@ test('cloudModels: the extension picker lists exactly the server allow-list', ()
   // JSON round-trip: the vm realm has its own Array prototype.
   assert.deepEqual(JSON.parse(JSON.stringify(M.CLOUD_MODELS.map((m: { id: string }) => m.id))),
     CLOUD_MODELS.map((m) => m.id));
-  assert.equal(M.DEFAULT_CLOUD_MODEL, DEFAULT_CLOUD_MODEL_ID);
+  // The extension sends no `model` for its own default, so whatever it calls
+  // default must run the server default (a deactivated id does).
+  assert.equal(pickCloudModel(M.DEFAULT_CLOUD_MODEL).id, DEFAULT_CLOUD_MODEL_ID);
 });
 
 test('cloudModels: only exact allow-listed ids are picked; everything else means default', () => {
   for (const raw of [undefined, null, 1, {}, [], '', DEFAULT_CLOUD_MODEL_ID, 'unknown', 'GPT-5.4-MINI', ' gpt-5.4-mini',
-    '__proto__', 'constructor', 'toString', 'openai/gpt-5.4-mini']) {
+    '__proto__', 'constructor', 'toString', 'openai/gpt-5.4-mini', 'muse-spark-open-1026']) {
     assert.equal(pickCloudModel(raw).id, DEFAULT_CLOUD_MODEL_ID, String(raw));
   }
   assert.equal(pickCloudModel('gpt-5.4-mini')?.model, 'openai/gpt-5.4-mini');
 });
 
-test('/check without model: Baseten Spark (the default), no model echoed', async () => {
+test('/check without model: muse-spark-1.3 (the default), no model echoed', async () => {
   const { brain, res } = await run({});
   assert.equal(brain.length, 1);
-  assert.equal(brain[0]!['agent_kind'], 'baseten');
-  assert.equal(brain[0]!['model'], 'meta-models/muse-spark-open-1026');
-  assert.equal(brain[0]!['account'], 'yoni');
+  assert.equal(brain[0]!['agent_kind'], 'meta_api');
+  assert.equal(brain[0]!['model'], 'muse-spark-1.3');
+  assert.equal(brain[0]!['account'], 'env-acct');
   assert.equal(brain[0]!['reasoning_effort'], 'minimal');
   assert.equal('model' in res, false);
   assert.equal(res['alert'], 'unsure'); // unanswered catalog facts keep the check unresolved
@@ -103,20 +106,21 @@ test('/check with an allow-listed model routes backend, model and account from t
     ['modal', 'moonshotai/Kimi-K3', 'low']);
   assert.equal('account' in kimi.brain[0]!, false);
   const open = await run({ model: 'muse-spark-open-1026' });
+  // Deactivated on Baseten (2026-11-07): runs the default instead.
   assert.deepEqual([open.brain[0]!['agent_kind'], open.brain[0]!['model'], open.brain[0]!['account']],
-    ['baseten', 'meta-models/muse-spark-open-1026', 'yoni']);
+    ['meta_api', 'muse-spark-1.3', 'env-acct']);
   assert.equal(son.brain[0]!['reasoning_effort'], 'minimal');
   assert.deepEqual([muse.brain[0]!['agent_kind'], muse.brain[0]!['account']], ['meta_api', 'env-acct']);
   // Token, base URL and system prompt stay the Worker's.
   assert.equal(typeof muse.brain[0]!['system_prompt'], 'string');
 });
 
-test('/check with an unknown or default model falls back to Baseten and says which model ran', async () => {
+test('/check with an unknown or default model falls back to muse-spark-1.3 and says which model ran', async () => {
   for (const model of ['evil/model', 42, DEFAULT_CLOUD_MODEL_ID]) {
     const { brain, res } = await run({ model });
-    assert.equal(brain[0]!['agent_kind'], 'baseten');
-    assert.equal(brain[0]!['model'], 'meta-models/muse-spark-open-1026');
-    assert.equal(res['model'], 'meta-models/muse-spark-open-1026');
+    assert.equal(brain[0]!['agent_kind'], 'meta_api');
+    assert.equal(brain[0]!['model'], 'muse-spark-1.3');
+    assert.equal(res['model'], 'muse-spark-1.3');
   }
 });
 

@@ -50,7 +50,19 @@ export interface CloudModel {
   reasoningEffort?: string;
 }
 
-export const DEFAULT_CLOUD_MODEL_ID = 'muse-spark-open-1026';
+/**
+ * Owner 2026-11-07: muse-spark-1.3 is the default again. Baseten answered 400
+ * "Model version wpgy40e is deactivated" for meta-models/muse-spark-open-1026,
+ * so every check that passed the gate came back not_checked.
+ */
+export const DEFAULT_CLOUD_MODEL_ID = 'muse-spark-1.3';
+
+/**
+ * Picker ids whose backend is currently unavailable: requests for them run on
+ * the default instead (extensions ≤0.17.x store muse-spark-open-1026 and may
+ * still send it). Remove an id once its deployment is reactivated.
+ */
+export const DEACTIVATED_CLOUD_MODEL_IDS: readonly string[] = Object.freeze(['muse-spark-open-1026']);
 
 export const CLOUD_MODELS: readonly CloudModel[] = Object.freeze([
   // Baseten: this model only (owner rule 2026-10-28). First = default (owner 2026-10-29).
@@ -70,7 +82,7 @@ export const CLOUD_MODELS: readonly CloudModel[] = Object.freeze([
   { id: 'kimi-k3-modal', agentKind: 'modal', model: 'moonshotai/Kimi-K3', reasoningEffort: 'low' },
 ].map((m) => Object.freeze(m as CloudModel)));
 
-export const DEFAULT_CLOUD_MODEL: CloudModel = CLOUD_MODELS[0]!;
+export const DEFAULT_CLOUD_MODEL: CloudModel = CLOUD_MODELS.find((m) => m.id === DEFAULT_CLOUD_MODEL_ID)!;
 
 /**
  * The allow-listed choice for a raw request value; the default entry for
@@ -79,5 +91,6 @@ export const DEFAULT_CLOUD_MODEL: CloudModel = CLOUD_MODELS[0]!;
  */
 export function pickCloudModel(raw: unknown): CloudModel {
   if (typeof raw !== 'string') return DEFAULT_CLOUD_MODEL;
+  if (DEACTIVATED_CLOUD_MODEL_IDS.includes(raw)) return DEFAULT_CLOUD_MODEL;
   return CLOUD_MODELS.find((m) => m.id === raw) ?? DEFAULT_CLOUD_MODEL;
 }
