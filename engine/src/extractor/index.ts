@@ -3,6 +3,7 @@ import { buildMeaningFacts } from '../meaning.js';
 import { normalizeHebrewText } from './normalize.js';
 import { localGate } from './localGate.js';
 import { validateExtraction } from './validate.js';
+import { providerFailure } from './providerError.js';
 import type { ExtractorProvider, ExtractionOutcome, ExtractorContextPacket } from './types.js';
 
 export * from './types.js';
@@ -12,6 +13,7 @@ export * from './validate.js';
 export * from './providers.js';
 export * from './brainSend.js';
 export * from './pipeline.js';
+export * from './providerError.js';
 
 export interface RunExtractionOptions {
   round?: number;
@@ -66,9 +68,11 @@ export async function runExtraction(
       ...(opts.lang === 'en' ? { lang: 'en' as const } : {}),
     });
   } catch (e) {
+    const checkError = providerFailure(e, opts.provider.id);
     return {
       status: 'not_checked', providerCalled: true, normalizedText, gate,
-      errors: [`provider_error:${e instanceof Error ? e.message : String(e)}`],
+      errors: [`provider_error:${checkError.code}`],
+      checkError,
       limitationsHe: ['החילוץ נכשל; המצב הוא לא נבדק, לא נקי.'],
     };
   }

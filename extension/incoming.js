@@ -282,11 +282,14 @@
     const label = document.createElement('span');
     const mech = st.result && st.result.mechanism ? mechText(st.result.mechanism) : '';
     label.textContent = t('hold.' + st.phase) + (mech ? ' (' + mech + ')' : '');
+    if (st.phase === 'not_checked' && globalThis.LHG_I18N?.errorReason) {
+      label.textContent += ' — ' + globalThis.LHG_I18N.errorReason(st.result);
+    }
     h.appendChild(label);
     if (st.phase === 'manual' && st.sendCheck) holdButton(h, t('hold.sendCheck'), st.sendCheck);
     if (REVEAL_PHASES.includes(st.phase)) holdButton(h, t('reveal.' + st.phase), onReveal);
     if (st.phase !== 'pending' && st.phase !== 'manual' && st.recheck) holdButton(h, t('check.again'), st.recheck);
-    if ((st.phase === 'warn' || st.phase === 'unsure') && globalThis.LHG_PANEL) {
+    if (REVEAL_PHASES.includes(st.phase) && globalThis.LHG_PANEL) {
       holdButton(h, t('hold.why'), () => {
         try { globalThis.LHG_PANEL.renderResult(st.result, { manual: true }); } catch (_e) { /* panel absent */ }
       });

@@ -173,7 +173,15 @@
       'unsure.ask': 'How would the person being spoken about understand this?',
       'reminderOnly': 'This is only a reminder, not a halachic ruling.',
       'notChecked.title': 'The message was not checked',
-      'notChecked.body': 'There is no connection to the checking server right now. That does not mean it has no problem.',
+      'notChecked.body': 'The check failed. This does not mean the message has no problem.',
+      'error.provider': 'Model provider ({provider}) returned error {status}: {message}',
+      'error.providerFailed': 'Model provider ({provider}) could not complete the check.',
+      'error.rateLimited': 'Too many checks (429). Try again shortly.',
+      'error.timeout': 'The check timed out.',
+      'error.network': 'Could not connect to the checking server.',
+      'error.server': 'Server error {status}.',
+      'error.http': 'The check failed (HTTP {status}).',
+      'error.account': 'Account check failed: {code}',
       'notConfigured.title': 'Lashon Hara Guard is not set up',
       'notConfigured.body': 'Open the extension settings and paste your access key.',
       'none.title': 'No alert in this check',
@@ -514,7 +522,15 @@
       'unsure.ask': 'איך יבין את זה מי שמדברים עליו?',
       'reminderOnly': 'זו תזכורת בלבד, לא פסיקה הלכתית.',
       'notChecked.title': 'ההודעה לא נבדקה',
-      'notChecked.body': 'אין חיבור לשרת הבדיקה כרגע. זה לא אומר שאין בה בעיה.',
+      'notChecked.body': 'הבדיקה נכשלה. אין בכך קביעה שאין בהודעה בעיה.',
+      'error.provider': 'ספק המודל ({provider}) החזיר שגיאה {status}: {message}',
+      'error.providerFailed': 'ספק המודל ({provider}) לא הצליח להשלים את הבדיקה.',
+      'error.rateLimited': 'עומס בדיקות (429). נסה שוב בעוד מעט.',
+      'error.timeout': 'פסק זמן בבדיקת ההודעה.',
+      'error.network': 'לא ניתן להתחבר לשרת הבדיקה.',
+      'error.server': 'שגיאת שרת {status}.',
+      'error.http': 'הבדיקה נכשלה (HTTP {status}).',
+      'error.account': 'בדיקת החשבון נכשלה: {code}',
       'notConfigured.title': 'Lashon Hara Guard לא מוגדר',
       'notConfigured.body': 'פתח את הגדרות התוסף והדבק את מפתח הגישה.',
       'none.title': 'לא התקבלה התראה בבדיקה זו',
@@ -785,7 +801,25 @@
     readyResolve(lang); // tests / no storage: keep the default
   }
 
+  // One reason formatter for panel, incoming tags and the settings probe.
+  function errorReason(result) {
+    const d = result?.checkError;
+    const code = d?.code || result?.error || '';
+    const status = d?.status || Number(/^http_(\d+)$/.exec(code)?.[1]) || result?.httpStatus;
+    if (code === 'rate_limited' || status === 429) return t('error.rateLimited');
+    if (code === 'timeout') return t('error.timeout');
+    if (code === 'network') return t('error.network');
+    if (d) return t(status ? 'error.provider' : 'error.providerFailed',
+      { provider: d.provider, status, message: d.message || d.code });
+    if (/^local_/.test(code)) return t('notChecked.local');
+    if (status >= 500) return t('error.server', { status });
+    if (status) return t('error.http', { status });
+    if (code) return t('error.account', { code });
+    return t('notChecked.body');
+  }
+
   globalThis.LHG_I18N = {
+    errorReason,
     t, dir, mechanism, localize, setLang, onChange, apply, normalize,
     lang: () => lang, ready: () => ready, DICT, LANGS, STORE_KEY, DEFAULT_LANG,
   };

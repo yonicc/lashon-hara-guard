@@ -91,6 +91,7 @@ export interface ExtractorProvider {
 }
 
 export interface ExtractionOutcome {
+  checkError?: import('./providerError.js').CheckError;
   status: 'extracted' | 'skipped_local_gate' | 'not_checked';
   providerCalled: boolean;
   normalizedText: string;

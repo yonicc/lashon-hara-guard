@@ -42,6 +42,16 @@ test('memory disabled exposes catalog questions immediately, no follow-up', asyn
   assert.equal(calls.length, 1); assert.equal(result.loopStopped, 'memory_disabled');
   assert.equal(result.alert, 'unsure'); assert.equal(result.rules.questions[0].factId, 'speaker.knows_first_hand');
 });
+test('follow-up failure retains provider diagnostic alongside the earlier warning', async () => {
+  const detail = {code:'baseten_http_400',provider:'baseten',status:400,message:'Model version is deactivated'};
+  const { options } = fixture({ check: async req => req.round === 1 ? { ...pending, alert:'warn' }
+    : {alert:'not_checked',checkError:detail} });
+  const r = await run(options);
+  assert.equal(r.alert, 'warn');
+  assert.deepEqual(r.checkError, detail);
+  assert.equal(r.loopStopped, 'error');
+  assert.equal(r.rules.questions.length, 1);
+});
 test('error preserves last questions and warning; never approves', async () => {
   const { options } = fixture({ check: async req => req.round === 1 ? { ...pending, alert: 'warn' } : { alert: 'not_checked', error: 'network' } });
   const r = await run(options); assert.equal(r.alert, 'warn'); assert.equal(r.loopStopped, 'error'); assert.equal(r.rules.questions.length, 1);

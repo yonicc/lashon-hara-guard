@@ -322,7 +322,7 @@
         if (!r) return say('status', t('opt.noReply'));
         if (r.alert === 'warn') say('status', t('opt.testOk'));
         else if (r.alert === 'not_configured') say('status', t('opt.keyBad'));
-        else if (r.alert === 'not_checked') say('status', t('opt.noConn', { e: r.error || '' }));
+        else if (r.alert === 'not_checked') say('status', globalThis.LHG_I18N.errorReason(r));
         else say('status', t('opt.reply', { r: JSON.stringify(r) }));
       },
     );

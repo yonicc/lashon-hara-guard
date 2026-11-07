@@ -71,8 +71,13 @@ async function check(text, platform, direction, context, confirmedFacts, userNot
       signal: ctrl.signal,
     });
     if (res.status === 401) return { alert: 'not_configured', error: 'unauthorized' };
-    if (res.status === 429) return { alert: 'not_checked', error: 'rate_limited' };
-    if (!res.ok) return { alert: 'not_checked', error: 'http_' + res.status };
+    if (!res.ok) {
+      let data;
+      try { data = await res.json(); } catch (_) { /* HTTP status is still useful */ }
+      return { alert: 'not_checked',
+        error: res.status === 429 ? 'rate_limited' : (typeof data?.error === 'string' ? data.error : 'http_' + res.status),
+        httpStatus: res.status, ...(data?.checkError ? { checkError: data.checkError } : {}) };
+    }
     return await res.json();
   } catch (e) {
     return { alert: 'not_checked', error: e && e.name === 'AbortError' ? 'timeout' : 'network' };

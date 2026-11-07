@@ -16,7 +16,8 @@
       try { result = await check(req); } catch { result = { alert: 'not_checked', error: 'context_loop_failed' }; }
       if (!await current(round)) return { ...safe(last || result || { alert: 'not_checked' }), loopStopped: 'superseded' };
       if (result?.error || !result || result.alert === 'not_checked' || result.rules?.notChecked) {
-        return last ? { ...safe(last), loopStopped: 'error' } : result;
+        return last ? { ...safe(last), error: result?.error,
+          checkError: result?.checkError, httpStatus: result?.httpStatus, loopStopped: 'error' } : result;
       }
       const needs = schema.validateNeeds(result.needs, round, result.rules?.questions || [], req.confirmedFacts || {});
       last = { ...result, needs };

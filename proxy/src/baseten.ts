@@ -1,5 +1,6 @@
 import type { ExtractorProvider, ExtractorRequest } from '../../engine/src/extractor/types.js';
 import { buildUserContent, EXTRACTION_SYSTEM_INSTRUCTION } from '../../engine/src/extractor/brainSend.js';
+import { providerHttpError } from '../../engine/src/extractor/providerError.js';
 
 export const PUBLIC_MODEL = 'meta-models/muse-spark-open-1026';
 export const BASETEN_URL = 'https://inference.baseten.co/v1/chat/completions';
@@ -24,7 +25,7 @@ export class BasetenExtractorProvider implements ExtractorProvider {
         ],
       }),
     });
-    if (!response.ok || response.status >= 300) throw new Error('baseten_http_' + response.status);
+    if (!response.ok || response.status >= 300) throw await providerHttpError(response, 'baseten', [this.key]);
     const data = await response.json() as { choices?: { finish_reason?: string; message?: { content?: string } }[] };
     const choice = data.choices?.[0];
     if (choice?.finish_reason !== 'stop') throw new Error('baseten_incomplete');

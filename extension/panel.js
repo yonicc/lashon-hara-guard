@@ -572,7 +572,7 @@
       case 'not_checked':
         // A local mode that could not run (check-mode.js) says so explicitly.
         p = show('muted', t('notChecked.title'),
-          [t(/^local_/.test(r.error || '') ? 'notChecked.local' : 'notChecked.body')]);
+          [globalThis.LHG_I18N?.errorReason(r) || t('notChecked.body')]);
         break;
       case 'not_configured':
         show('muted', t('notConfigured.title'), [t('notConfigured.body')]);
@@ -589,6 +589,9 @@
         else hide();
     }
     if (p) appendRules(p, r, opts);
+    if (p && r?.alert !== 'not_checked' && (r?.checkError || r?.error)) {
+      p.appendChild(lineEl(globalThis.LHG_I18N?.errorReason(r) || t('notChecked.body'), 'lhg-line lhg-limit'));
+    }
     if (p && (opts.onRecheck || opts.onBypass || (opts.onApprove && ['warn', 'unsure'].includes(r?.alert)))) {
       const action = (key, fn) => {
         const b = document.createElement('button');

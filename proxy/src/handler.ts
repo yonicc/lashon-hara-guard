@@ -100,6 +100,8 @@ export const MAX_CONTEXT_JSON_CHARS = 6000;
 export type AlertLevel = 'warn' | 'unsure' | 'none' | 'not_checked';
 
 export interface CheckResponse {
+  /** Additive, sanitized provider diagnostic; never changes rules or facts. */
+  checkError?: import('../../engine/src/extractor/providerError.js').CheckError | null;
   needs?: Needs;
   alert: AlertLevel;
   status: ExtractionOutcome['status'];
@@ -342,6 +344,7 @@ async function handleAuthorized(
   if (round === 1 && gate !== null && gate < threshold) {
     const res: CheckResponse = {
       alert: 'none', status: 'skipped_local_gate', mechanism: null, evidence: null,
+      checkError: null,
       limitationsHe: ['המסווג המהיר לא מצא סימנים; זה אינו קובע שאין חשש.'],
       ms: Date.now() - started, gate, gateBy,
     };
@@ -363,8 +366,7 @@ async function handleAuthorized(
     ...(lang === 'en' ? { lang } : {}),
   });
   if (outcome.status === 'not_checked') {
-    // Diagnostics for `wrangler tail`: error codes, model and timing only —
-    // never message text, context or keys (BrainSendError messages are codes).
+    // HTTP provider bodies are separately logged after redaction in providerHttpError.
     console.log('lhg-check not_checked', JSON.stringify({
       errors: (outcome.errors ?? []).map((e) => String(e).slice(0, 160)),
       model: provider.modelVersion, platform, direction,
@@ -384,6 +386,7 @@ async function handleAuthorized(
     meaning?.evidenceExcerpt || outcome.extraction?.proposedFacts.find((f) => f.evidenceExcerpt)?.evidenceExcerpt || null;
   const res: CheckResponse = {
     alert: alertFor(outcome, rules, needs),
+    checkError: outcome.checkError ?? null,
     needs,
     status: outcome.status,
     mechanism: meaning?.mechanism ?? null,

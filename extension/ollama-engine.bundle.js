@@ -898,7 +898,7 @@ Example MESSAGE: \u05E9\u05DC\u05D5\u05DD, \u05E0\u05D9\u05E4\u05D2\u05E9 \u05D1
     });
   }
 
-  // engine/node_modules/@noble/hashes/esm/utils.js
+  // ../../projects/lashon-hara-guard/engine/node_modules/@noble/hashes/esm/utils.js
   /*! noble-hashes - MIT License (c) 2022 Paul Miller (paulmillr.com) */
   function isBytes(a) {
     return a instanceof Uint8Array || ArrayBuffer.isView(a) && a.constructor.name === "Uint8Array";
@@ -970,7 +970,7 @@ Example MESSAGE: \u05E9\u05DC\u05D5\u05DD, \u05E0\u05D9\u05E4\u05D2\u05E9 \u05D1
     return hashC;
   }
 
-  // engine/node_modules/@noble/hashes/esm/_md.js
+  // ../../projects/lashon-hara-guard/engine/node_modules/@noble/hashes/esm/_md.js
   function setBigUint64(view, byteOffset, value, isLE) {
     if (typeof view.setBigUint64 === "function")
       return view.setBigUint64(byteOffset, value, isLE);
@@ -1090,7 +1090,7 @@ Example MESSAGE: \u05E9\u05DC\u05D5\u05DD, \u05E0\u05D9\u05E4\u05D2\u05E9 \u05D1
     1541459225
   ]);
 
-  // engine/node_modules/@noble/hashes/esm/sha2.js
+  // ../../projects/lashon-hara-guard/engine/node_modules/@noble/hashes/esm/sha2.js
   var SHA256_K = /* @__PURE__ */ Uint32Array.from([
     1116352408,
     1899447441,
@@ -1230,7 +1230,7 @@ Example MESSAGE: \u05E9\u05DC\u05D5\u05DD, \u05E0\u05D9\u05E4\u05D2\u05E9 \u05D1
   };
   var sha256 = /* @__PURE__ */ createHasher(() => new SHA256());
 
-  // engine/node_modules/@noble/hashes/esm/sha256.js
+  // ../../projects/lashon-hara-guard/engine/node_modules/@noble/hashes/esm/sha256.js
   var sha2562 = sha256;
 
   // engine/src/chafetzChaim/referralData.ts
@@ -6418,6 +6418,8 @@ Example MESSAGE: \u05E9\u05DC\u05D5\u05DD, \u05E0\u05D9\u05E4\u05D2\u05E9 \u05D1
   }
 
   // proxy/src/cloudModels.ts
+  var DEFAULT_CLOUD_MODEL_ID = "muse-spark-1.3";
+  var DEACTIVATED_CLOUD_MODEL_IDS = Object.freeze(["muse-spark-open-1026"]);
   var CLOUD_MODELS = Object.freeze([
     // Baseten: this model only (owner rule 2026-10-28). First = default (owner 2026-10-29).
     { id: "muse-spark-open-1026", agentKind: "baseten", model: "meta-models/muse-spark-open-1026", account: "yoni" },
@@ -6435,7 +6437,7 @@ Example MESSAGE: \u05E9\u05DC\u05D5\u05DD, \u05E0\u05D9\u05E4\u05D2\u05E9 \u05D1
     // Owner request 2026-10-28: Kimi K3 on the Brain's Modal backend (OpenAI-compatible, no account).
     { id: "kimi-k3-modal", agentKind: "modal", model: "moonshotai/Kimi-K3", reasoningEffort: "low" }
   ].map((m) => Object.freeze(m)));
-  var DEFAULT_CLOUD_MODEL = CLOUD_MODELS[0];
+  var DEFAULT_CLOUD_MODEL = CLOUD_MODELS.find((m) => m.id === DEFAULT_CLOUD_MODEL_ID);
 
   // proxy/src/handler.ts
   function alertFor(outcome, rules, needs) {

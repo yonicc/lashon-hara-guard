@@ -1,5 +1,6 @@
 import type { ExtractorProvider, ExtractorRequest, ExtractorContextPacket } from './types.js';
 import { FACT_BY_ID } from '../lessonScenario.js';
+import { providerHttpError, ProviderRequestError } from './providerError.js';
 
 /**
  * Brain-backed extractor provider.
@@ -399,7 +400,7 @@ export class BrainSendExtractorProvider implements ExtractorProvider {
         body: JSON.stringify(body),
         signal: ctrl.signal,
       });
-      if (!res.ok) throw new BrainSendError(`completions_http_${res.status}`);
+      if (!res.ok) throw await providerHttpError(res, this.opts.agentKind, [this.opts.token]);
       try {
         data = await res.json();
       } catch (e) {
@@ -407,7 +408,7 @@ export class BrainSendExtractorProvider implements ExtractorProvider {
         throw new BrainSendError('completions_bad_json');
       }
     } catch (e) {
-      if (e instanceof BrainSendError) throw e;
+      if (e instanceof BrainSendError || e instanceof ProviderRequestError) throw e;
       if (e instanceof Error && e.name === 'AbortError') throw new BrainSendError('brain_request_timeout');
       throw new BrainSendError(`brain_request_failed:${e instanceof Error ? e.message : String(e)}`);
     } finally {

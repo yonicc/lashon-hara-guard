@@ -421,6 +421,24 @@ test('background: userNote (capped, one line) and the UI language reach POST /ch
 });
 
 // --- manifest / pages --------------------------------------------------------
+test('check failures show the real reason in the panel in both languages', () => {
+  for (const lang of ['he', 'en']) {
+    const env = panelEnv({lang});
+    env.P.renderResult({alert:'not_checked', checkError:{code:'baseten_http_400',
+      provider:'baseten',status:400,message:'Model version wpgy40e is deactivated'}}, {manual:true});
+    assert.match(env.panel().textContent, /400.*Model version wpgy40e is deactivated/);
+    for (const [result, expected] of [
+      [{error:'rate_limited'}, /429/],
+      [{error:'http_503'}, /503/],
+      [{error:'timeout'}, lang === 'he' ? /פסק זמן/ : /timed out/],
+      [{error:'network'}, lang === 'he' ? /להתחבר/ : /connect/],
+    ]) {
+      env.P.renderResult({alert:'not_checked', ...result}, {manual:true});
+      assert.match(env.panel().textContent, expected);
+    }
+  }
+});
+
 
 test('manifest: i18n.js and settings.js load first everywhere; the action opens the quick popup', () => {
   const m = JSON.parse(read('manifest.json'));
