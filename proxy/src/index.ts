@@ -11,7 +11,8 @@ export default {
     } catch (e) {
       // Never leak internals; the extension renders this as "not checked".
       console.log('lhg-proxy error', e instanceof Error ? e.message : String(e));
-      return new Response(JSON.stringify({ error: 'internal' }), {
+      return new Response(JSON.stringify({ error: 'internal',
+        ...(new URL(request.url).pathname === '/check' ? { billing: { status:'unknown',chargedAgorot:null } } : {}) }), {
         status: 500,
         headers: { 'content-type': 'application/json', 'access-control-allow-origin': '*' },
       });

@@ -34,6 +34,7 @@
 - Regression commands: `node --test extension/*.test.cjs`; in both `engine/` and `proxy/`: `npm run typecheck`, `npm test`. `proxy/test/contextIntegration.test.ts` exercises the real browser scripts through the Worker handler with a synthetic provider.
 
 ## MVP runtime (verified 2026-10-26)
+- Billing receipts: central `yonicc/ysho-account-center` `src/lap-access.js` finish returns the captured hold's actual `chargedAgorot` (released = 0). Proxy accountAccess adds `billing:{status,chargedAgorot}` to /check; unknown settlement is null, never zero. Extension billing.js aggregates context rounds and panel follow-ups; cache hits override old receipts with cached/0. Never hard-code the central price in the extension.
 - Provider failures: `engine/src/extractor/providerError.ts` owns bounded, secret/URL-redacted provider diagnostics. `/check.checkError` is additive (code/provider/message <=200/status); preserve confirmedFacts/rules. Never substitute a generic connection message for HTTP, timeout or rate-limit failures. Central LAP begin/finish currently return no amount; do not infer a captured price from configured pricing.
 - Both POST /check and /warm consume EDGE_LIMITER (120/min/IP) before
   central calls, then LIMITER (30/min/full account id) after validate but

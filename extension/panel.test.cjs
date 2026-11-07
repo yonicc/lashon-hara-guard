@@ -19,7 +19,8 @@ function element(tag = 'div') {
     get textContent() { return this._tc || ''; },
     append(...items) { for (const i of items) { i.parent = this; this.children.push(i); } },
     appendChild(item) { item.parent = this; this.children.push(item); return item; },
-    addEventListener() {},
+    events: {},
+    addEventListener(type, fn) { this.events[type] = fn; },
     closest(sel) {
       for (let n = this; n; n = n.parent) {
         if (matchesSel(n, sel)) return n;
@@ -102,6 +103,9 @@ function harness() {
   };
   context.globalThis = context;
   vm.createContext(context);
+  vm.runInContext(fs.readFileSync(path.join(__dirname, 'i18n.js'), 'utf8'), context);
+  vm.runInContext(fs.readFileSync(path.join(__dirname, 'billing.js'), 'utf8'), context);
+  context.LHG_I18N.setLang('he', {persist:false});
   vm.runInContext(fs.readFileSync(path.join(__dirname, 'panel.js'), 'utf8'), context);
   return { context, listeners, msgListeners, sent };
 }
@@ -114,6 +118,19 @@ test('panel: one display question with priority for the catalog question, includ
   response.rules = { question: { factId: 'synthetic', textHe: 'Catalog question?' } };
   const withRule = context.LHG_PANEL.detailLines(response);
   assert.equal(withRule.filter((line) => line.startsWith('• ')).length, 0);
+});
+
+test('panel: displays the receipt from the server', () => {
+  const { context } = harness();
+  context.chrome.runtime.sendMessage = (_msg, cb) => cb({alert:'warn',billing:{status:'captured',chargedAgorot:3}});
+  context.LHG_PANEL.check({type:'lhg-check',text:'synthetic',platform:'gmail'},null,{manual:true});
+  assert.equal(context.document.body.querySelector('.lhg-billing')?.textContent,
+    context.LHG_I18N.t('billing.charged',{n:3}));
+  const recheck = queryAll(context.document.body,'button').find(b=>b.textContent===context.LHG_I18N.t('check.again'));
+  assert.ok(recheck);
+  recheck.events.click();
+  assert.equal(queryAll(context.document.body,'.lhg-billing').at(-1)?.textContent,
+    context.LHG_I18N.t('billing.charged',{n:6}));
 });
 
 test('panel: legacy page-level Ctrl+Shift+plus still opens status without sending a check', () => {

@@ -55,6 +55,14 @@ test('cache: unknown account does not persist an approval', async () => {
   await ask({ cacheIdentity: null }); await ask({ cacheIdentity: null });
   assert.equal(count, 2); assert.equal(Object.keys(store).length, 0);
 });
+test('cache: previously charged result reports no new charge', async () => {
+  const store = {}; let count = 0;
+  const ask = worker(store, () => { count++; return { alert:'warn',billing:{status:'captured',chargedAgorot:3} }; });
+  assert.equal((await ask({})).billing.chargedAgorot,3);
+  const cached = await worker(store, () => { throw Error('cache should be used'); })({});
+  assert.equal(cached.billing.status,'cached'); assert.equal(cached.billing.chargedAgorot,0);
+  assert.equal(count,1);
+});
 test('cache: importing a decider invalidates a fact-only result; transient meaning failure is retried', async () => {
  const store={};let count=0;
  const ask=worker(store,()=>{count++;return {alert:'unsure'};});

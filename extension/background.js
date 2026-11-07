@@ -21,6 +21,7 @@ async function settings() {
 // the content scripts). The proxy validates again against its catalog.
 try { if (typeof importScripts === 'function') importScripts('rules.js'); } catch (_e) { /* tests */ }
 try { if (typeof importScripts === 'function') importScripts('i18n.js'); } catch (_e) { /* tests */ }
+try { if (typeof importScripts === 'function') importScripts('billing.js'); } catch (_e) { /* tests */ }
 try { if (typeof importScripts === 'function') importScripts('check-mode.js'); } catch (_e) { /* tests */ }
 // One-time move of a stored old-default cloud model to Baseten (check-mode.js).
 try {
@@ -76,11 +77,13 @@ async function check(text, platform, direction, context, confirmedFacts, userNot
       try { data = await res.json(); } catch (_) { /* HTTP status is still useful */ }
       return { alert: 'not_checked',
         error: res.status === 429 ? 'rate_limited' : (typeof data?.error === 'string' ? data.error : 'http_' + res.status),
-        httpStatus: res.status, ...(data?.checkError ? { checkError: data.checkError } : {}) };
+        httpStatus: res.status, ...(data?.checkError ? { checkError: data.checkError } : {}),
+        ...(data?.billing ? { billing: data.billing } : {}) };
     }
     return await res.json();
   } catch (e) {
-    return { alert: 'not_checked', error: e && e.name === 'AbortError' ? 'timeout' : 'network' };
+    return { alert: 'not_checked', error: e && e.name === 'AbortError' ? 'timeout' : 'network',
+      ...(accessKey.startsWith('lap_') ? { billing: { status: 'unknown', chargedAgorot: null } } : {}) };
   } finally {
     clearTimeout(timer);
   }
@@ -132,7 +135,7 @@ async function cachedCheck(msg, sender = {}) {
     if (reusable && !msg.forceRecheck) {
       let saved;
       try { saved = (await chrome.storage.local.get(key))[key]; } catch (_) { /* storage failure is a cache miss */ }
-      if (saved?.expires > Date.now()) return saved.result;
+      if (saved?.expires > Date.now()) return { ...saved.result, billing: { status: 'cached', chargedAgorot: 0 } };
     }
     const M = globalThis.LHG_CHECK_MODE;
     const request = { text: msg.text, platform: msg.platform || 'unknown',

@@ -898,7 +898,7 @@ Example MESSAGE: \u05E9\u05DC\u05D5\u05DD, \u05E0\u05D9\u05E4\u05D2\u05E9 \u05D1
     });
   }
 
-  // ../../projects/lashon-hara-guard/engine/node_modules/@noble/hashes/esm/utils.js
+  // ../../lashon-hara-guard/engine/node_modules/@noble/hashes/esm/utils.js
   /*! noble-hashes - MIT License (c) 2022 Paul Miller (paulmillr.com) */
   function isBytes(a) {
     return a instanceof Uint8Array || ArrayBuffer.isView(a) && a.constructor.name === "Uint8Array";
@@ -970,7 +970,7 @@ Example MESSAGE: \u05E9\u05DC\u05D5\u05DD, \u05E0\u05D9\u05E4\u05D2\u05E9 \u05D1
     return hashC;
   }
 
-  // ../../projects/lashon-hara-guard/engine/node_modules/@noble/hashes/esm/_md.js
+  // ../../lashon-hara-guard/engine/node_modules/@noble/hashes/esm/_md.js
   function setBigUint64(view, byteOffset, value, isLE) {
     if (typeof view.setBigUint64 === "function")
       return view.setBigUint64(byteOffset, value, isLE);
@@ -1090,7 +1090,7 @@ Example MESSAGE: \u05E9\u05DC\u05D5\u05DD, \u05E0\u05D9\u05E4\u05D2\u05E9 \u05D1
     1541459225
   ]);
 
-  // ../../projects/lashon-hara-guard/engine/node_modules/@noble/hashes/esm/sha2.js
+  // ../../lashon-hara-guard/engine/node_modules/@noble/hashes/esm/sha2.js
   var SHA256_K = /* @__PURE__ */ Uint32Array.from([
     1116352408,
     1899447441,
@@ -1230,7 +1230,7 @@ Example MESSAGE: \u05E9\u05DC\u05D5\u05DD, \u05E0\u05D9\u05E4\u05D2\u05E9 \u05D1
   };
   var sha256 = /* @__PURE__ */ createHasher(() => new SHA256());
 
-  // ../../projects/lashon-hara-guard/engine/node_modules/@noble/hashes/esm/sha256.js
+  // ../../lashon-hara-guard/engine/node_modules/@noble/hashes/esm/sha256.js
   var sha2562 = sha256;
 
   // engine/src/chafetzChaim/referralData.ts

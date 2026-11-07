@@ -10,10 +10,11 @@ test('account calls use Worker-supported manual redirects and reject 3xx without
  assert.equal(result.status,503);assert.equal(calls,1);
 });
 const request=(path='/check',body:unknown={text:'synthetic'})=>new Request('https://proxy.test'+path,{method:'POST',headers:{'x-lhg-key':'lap_test'},body:JSON.stringify(body)});
-function mock(denied=false){const calls:Array<{path:string,body:any}>=[];return {calls,fetch:(async(url:any,opts:any)=>{const path=new URL(String(url)).pathname;calls.push({path,body:JSON.parse(opts.body)});return new Response(JSON.stringify(denied?{error:'no_access'}:{ok:true,userId:'same-account'}),{status:denied?403:200});}) as typeof fetch};}
+function mock(denied=false){const calls:Array<{path:string,body:any}>=[];return {calls,fetch:(async(url:any,opts:any)=>{const path=new URL(String(url)).pathname,body=JSON.parse(opts.body);calls.push({path,body});return new Response(JSON.stringify(denied?{error:'no_access'}:path.endsWith('/finish')?{ok:true,status:body.success?'captured':'released',chargedAgorot:body.success?3:0}:{ok:true,userId:'same-account'}),{status:denied?403:200});}) as typeof fetch};}
 test('personal token authorizes before provider and captures only completed work',async()=>{
  const m=mock();const r=await personalCheck(request(),env,async(req,settings)=>{assert.equal(req.headers.get('x-lhg-key'),'same-account');assert.equal(settings.LHG_ACCESS_KEY,'same-account');return new Response('{"status":"extracted"}');},m.fetch);
  assert.equal(r.status,200);assert.equal(m.calls.length,3);assert.equal(m.calls[2]!.body.success,true);
+ assert.deepEqual((await r.json() as any).billing,{status:'captured',chargedAgorot:3});
  assert.ok(!JSON.stringify(m.calls).includes('synthetic'),'account center never sees text');
 });
 test('provider failure releases; central refusal never invokes provider',async()=>{

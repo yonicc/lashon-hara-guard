@@ -14,6 +14,9 @@
 
   const DICT = {
     en: {
+      "billing.charged": "Charged: {n} agorot",
+      "billing.cached": "Cached result — no new charge",
+      "billing.unknown": "Charge status could not be confirmed",
       "decider.title": "Local meaning signal",
       "decider.download": "Download model ZIP (extract, then import folder; about 1.3 GB)",
       "decider.hint": "Optional, separate from the server gate. Import the pinned model folder to add local meaning warnings in local modes. Low scores stay unsure; this classifier cannot approve a message or fill missing facts. No message is sent for inference.",
@@ -363,6 +366,9 @@
       'preset.installFirst': 'Install the local model first; the setup wizard opened in a new tab.',
     },
     he: {
+      "billing.charged": "חויבו {n} אגורות",
+      "billing.cached": "תוצאה מהמטמון — ללא חיוב חדש",
+      "billing.unknown": "לא ניתן לאשר את מצב החיוב",
       "decider.title": "אות משמעות מקומי",
       "decider.download": "הורדת ZIP של המודל (חלצו ואז ייבאו תיקייה; כ־1.3GB)",
       "decider.hint": "רכיב רשות, נפרד מהשער בשרת. ייבוא תיקיית המודל המאומתת מוסיף אזהרות משמעות במצבים המקומיים. ציון נמוך נשאר לא בטוח; המסווג אינו מאשר הודעה ואינו משלים עובדות חסרות. ההודעה אינה נשלחת לצורך ההרצה.",

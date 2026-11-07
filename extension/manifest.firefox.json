@@ -1,12 +1,12 @@
 {
   "manifest_version": 3,
   "name": "Lashon Hara Guard (MVP)",
-  "version": "0.17.5",
+  "version": "0.17.6",
   "description": "תזכורת עדינה בזמן כתיבה וליד הודעות נכנסות כשהודעה עלולה להתפרש כגנאי. אינה פסיקה הלכתית.",
   "permissions": ["storage", "tabs"],
   "optional_host_permissions": ["https://lhg-proxy.yonicc.workers.dev/*", "https://huggingface.co/*", "https://*.hf.co/*", "http://127.0.0.1:11434/*"],
   "content_security_policy": {"extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"},
-  "background": {"scripts": ["rules.js", "i18n.js", "check-mode.js", "ollama-client.js", "ollama-engine.bundle.js", "ollama-register.js", "ollama-setup.js", "memory-background.js", "context-loop.js", "background.js"]},
+  "background": {"scripts": ["rules.js", "i18n.js", "billing.js", "check-mode.js", "ollama-client.js", "ollama-engine.bundle.js", "ollama-register.js", "ollama-setup.js", "memory-background.js", "context-loop.js", "background.js"]},
   "commands": {
     "open-panel": {
       "suggested_key": {
@@ -25,13 +25,13 @@
     },
     {
       "matches": ["https://web.whatsapp.com/*"],
-      "js": ["i18n.js", "settings.js", "context-dom.js", "context-store.js", "context-builder.js", "context-runtime.js", "selectors.js", "memory-content.js", "rules.js", "referral-topics.js", "panel.js", "compose-watch.js", "incoming.js", "content.js"],
+      "js": ["i18n.js", "settings.js", "billing.js", "context-dom.js", "context-store.js", "context-builder.js", "context-runtime.js", "selectors.js", "memory-content.js", "rules.js", "referral-topics.js", "panel.js", "compose-watch.js", "incoming.js", "content.js"],
       "css": ["content.css"],
       "run_at": "document_idle"
     },
     {
       "matches": ["https://chat.google.com/*", "https://mail.google.com/*"],
-      "js": ["i18n.js", "settings.js", "context-dom.js", "context-store.js", "context-builder.js", "context-runtime.js", "selectors.js", "memory-content.js", "rules.js", "referral-topics.js", "panel.js", "compose-watch.js", "incoming.js", "content-google.js"],
+      "js": ["i18n.js", "settings.js", "billing.js", "context-dom.js", "context-store.js", "context-builder.js", "context-runtime.js", "selectors.js", "memory-content.js", "rules.js", "referral-topics.js", "panel.js", "compose-watch.js", "incoming.js", "content-google.js"],
       "css": ["content.css"],
       "all_frames": true,
       "match_about_blank": true,

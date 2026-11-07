@@ -1,4 +1,4 @@
-import { personalCheck } from './accountAccess.js';
+import { personalCheck, withBilling } from './accountAccess.js';
 import { BasetenExtractorProvider } from './baseten.js';
 import { throttle } from './throttle.js';
 import { pickCloudModel, type CloudModel } from './cloudModels.js';
@@ -76,7 +76,7 @@ export async function handle(
   if (request.method === 'POST' && (path === '/check' || path === '/warm')) {
     // Cloudflare overwrites this header: never trust x-forwarded-for.
     const blocked = await throttle(env.EDGE_LIMITER, 'ip:' + (request.headers.get('cf-connecting-ip') || 'unknown'));
-    if (blocked) return blocked;
+    if (blocked) return path === '/check' ? withBilling(blocked, {status:'not_charged',chargedAgorot:0}) : blocked;
   }
   return personalCheck(request, env, (req, settings) => handleAuthorized(req, settings, makeProvider, fetchImpl), fetchImpl);
 }

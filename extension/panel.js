@@ -589,6 +589,12 @@
         else hide();
     }
     if (p) appendRules(p, r, opts);
+    if (p && r?.billing) {
+      const receipt = globalThis.LHG_BILLING?.read(r.billing);
+      if (receipt) p.appendChild(lineEl(t(receipt.status === 'unknown' ? 'billing.unknown'
+        : receipt.status === 'cached' ? 'billing.cached' : 'billing.charged',
+        { n: receipt.chargedAgorot }), 'lhg-line lhg-billing'));
+    }
     if (p && r?.alert !== 'not_checked' && (r?.checkError || r?.error)) {
       p.appendChild(lineEl(globalThis.LHG_I18N?.errorReason(r) || t('notChecked.body'), 'lhg-line lhg-limit'));
     }
@@ -623,6 +629,7 @@
     let revision = 0;
     let busy = false;
     let questionResult = null;
+    let billing = null;
     const answerDraft = {};
     let answerChain = Promise.resolve();
     let latestFacts = payload.confirmedFacts || {};
@@ -641,7 +648,9 @@
       send(msg, (r) => {
         if (!valid() || requestRevision !== revision) return;
         busy = false;
-        const res = chrome.runtime.lastError ? { alert: 'not_checked' } : r || { alert: 'not_checked' };
+        let res = chrome.runtime.lastError ? { alert: 'not_checked' } : r || { alert: 'not_checked' };
+        billing = globalThis.LHG_BILLING?.add(billing, res.billing) || billing;
+        if (billing) res = { ...res, billing };
         const failed = res.alert === 'not_checked' || res.error || res.rules?.notChecked;
         if (res.rules && !failed) questionResult = res;
         const display = failed && questionResult

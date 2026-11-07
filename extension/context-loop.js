@@ -1,6 +1,6 @@
 // One executor for cloud and local needs. Dependencies are injected for Node/MV3 tests.
 (() => {
-  async function run({ request, check, retrieve, exchange, schema, current = async () => true, timeoutMs = 5000 }) {
+  async function execute({ request, check, retrieve, exchange, schema, current = async () => true, timeoutMs = 5000 }) {
     async function bounded(work) {
       let timer;
       try { return await Promise.race([Promise.resolve().then(work), new Promise((_, reject) => {
@@ -46,6 +46,15 @@
       } catch (e) { stopped = e?.message === 'disabled' ? 'memory_disabled' : 'error'; break; }
     }
     return { ...safe(last), loopStopped: stopped };
+  }
+  async function run(options) {
+    let billing = null;
+    const result = await execute({ ...options, check: async req => {
+      const response = await options.check(req);
+      billing = globalThis.LHG_BILLING?.add(billing, response?.billing) || billing;
+      return response;
+    } });
+    return billing ? { ...result, billing } : result;
   }
   globalThis.LHG_CONTEXT_LOOP = { run };
   if (typeof module !== 'undefined') module.exports = { run };
