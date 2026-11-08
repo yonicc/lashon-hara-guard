@@ -536,6 +536,7 @@
         a.className = 'lhg-line lhg-referral-link';
         a.textContent = t('referral.openSource');
         det.appendChild(a);
+        det.appendChild(lineEl(t('referral.credit'), 'lhg-line lhg-referral-credit'));
       }
       box.appendChild(det);
     }

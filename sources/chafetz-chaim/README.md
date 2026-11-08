@@ -3,8 +3,12 @@
 The Hebrew text of **Chafetz Chaim**, Part One (Hilchot Issurei Lashon Hara, principles 1–10) and
 Part Two (Hilchot Issurei Rechilut, principles 1–9), as served by the Sefaria API.
 
-- **Attribution / license:** text from [Sefaria](https://www.sefaria.org), version "Chofetz Chaim",
-  license **CC-BY-SA** (per `heLicense` in each raw file). Keep this attribution with any copy.
+- **Attribution / license:** text from [Sefaria](https://www.sefaria.org/Chafetz_Chaim), version "Chofetz Chaim",
+  license **CC-BY-SA** (per `heLicense` in each raw file). Sefaria's `versionSource` for this version is
+  [Hebrew Wikisource](https://he.wikisource.org/wiki/%D7%97%D7%A4%D7%A5_%D7%97%D7%99%D7%99%D7%9D)
+  (checked 2026-11-08 via `https://www.sefaria.org/api/texts/versions/Chafetz_Chaim`). Keep this attribution
+  with any copy; the extension ships it as `extension/vendor/chafetz-chaim-sefaria-LICENSE.txt` (the Chrome
+  packager only allow-lists `vendor/*-LICENSE.txt` for non-code files).
 - `raw/` — the API responses (ref, heRef, license, version, `he`). Never hand-edit.
 - `text/` — one readable file per principle, one `[n]` paragraph per se'if.
 - `manifest.json` — per se'if: exact Sefaria `ref`, `url`, `chars`, short `sha256` of the cleaned text.

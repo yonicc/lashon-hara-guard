@@ -101,6 +101,7 @@
 - Never edit a file containing Hebrew with `Set-Content -Encoding ascii` / raw PowerShell replace: it turns Hebrew into `?` (happened to `extension/manifest.json`, caught by `git diff`). Use `remote_edit_file`.
 
 ## Extension distribution
+- Source attribution (owner 2026-11-08): Chafetz Chaim text = Sefaria version "Chofetz Chaim", whose `versionSource` is Hebrew Wikisource, CC-BY-SA. Keep the credit in README/SUBMISSION, `sources/chafetz-chaim/README.md`, the options page and the referral view (`referral.credit`, `opt.sourceCredit`), and ship `extension/vendor/chafetz-chaim-sefaria-LICENSE.txt` — the Chrome packager (lhg-site `package-extension.py`) only allow-lists code files plus `vendor/*-LICENSE.txt`. Text-derived data is CC BY-SA 4.0 (README "מקורות וקרדיט").
 - Firefox release runbook: `.claude/skills/lhg-firefox-release/SKILL.md` (build, QA, AMO signing status and site publication).
 - Firefox (AMO) build: docs/52-firefox.md (branch feat/firefox-mv3). Same version in both manifests; `node scripts/build-firefox.mjs` builds the AMO zip. Event-page script order must mirror the background.js importScripts chain.
   New AMO submissions declare data_collection_permissions (messages/auth/context); use Firefox >=140 for built-in consent. Request optional origins before awaiting contains() so Firefox retains the click gesture. Real Gecko selector smoke: `node scripts/test-selectors-firefox.mjs <playwright-package.json>`.

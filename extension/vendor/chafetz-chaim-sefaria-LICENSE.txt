@@ -1,0 +1,43 @@
+Chafetz Chaim source text - attribution and license
+===================================================
+
+The Chafetz Chaim passages used by this extension (the short source quotes in
+the referral view, and every section reference and "open the source" link) are
+taken from Sefaria:
+
+  Work:        Chafetz Chaim - Part One, Hilchot Issurei Lashon Hara
+               (principles 1-10), and Part Two, Hilchot Issurei Rechilut
+               (principles 1-9)
+  Taken from:  Sefaria - https://www.sefaria.org/Chafetz_Chaim
+               (fetched through the Sefaria API, https://www.sefaria.org/api/texts/)
+  Version:     "Chofetz Chaim" (Hebrew)
+  Its source:  Hebrew Wikisource (as stated by Sefaria for this version)
+               https://he.wikisource.org/wiki/%D7%97%D7%A4%D7%A5_%D7%97%D7%99%D7%99%D7%9D
+  License:     CC BY-SA (Creative Commons Attribution-ShareAlike), as stated
+               by Sefaria for this version.
+               https://creativecommons.org/licenses/by-sa/4.0/
+
+Changes: the extension shows short excerpts only. The summaries, questions,
+uncertainty notes and rule cards are this project's own draft wording based on
+the text; they are not part of the source, are not a halachic ruling, and have
+not been reviewed by a qualified authority.
+
+ShareAlike: these source-derived data (section quotes, summaries, questions,
+uncertainty notes and rule/referral cards) are distributed under CC BY-SA 4.0
+(https://creativecommons.org/licenses/by-sa/4.0/) with the attribution above.
+That license covers this text-derived data only, not the extension's code.
+
+The full source layer (raw API responses, per-section refs, URLs and hashes) is
+in the project repository: https://github.com/yonicc/lashon-hara-guard
+(sources/chafetz-chaim/).
+
+---------------------------------------------------------------------------
+
+מקור טקסט החפץ חיים - קרדיט ורישיון
+
+קטעי החפץ חיים שבתוסף (ציטוטי המקור הקצרים, מראי המקום וקישורי "פתח את המקור")
+נלקחו מספריא (Sefaria), https://www.sefaria.org/Chafetz_Chaim , מהדורת
+"Chofetz Chaim" בעברית, שמקורה לפי ספריא בוויקיטקסט העברי
+(https://he.wikisource.org/wiki/חפץ_חיים), ברישיון CC BY-SA
+(ייחוס-שיתוף זהה). התקצירים, השאלות וכרטיסי הכללים הם ניסוח טיוטה של הפרויקט
+ואינם חלק מהמקור ואינם פסק הלכה.

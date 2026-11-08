@@ -33,6 +33,16 @@ sources and open doubts.
   models built parts of the context layer, extractor, illustrations and
   explainer video. Details: `docs/31-model-contributions.md`.
 
+## Sources and credits
+
+The Chafetz Chaim text (Part One, Lashon Hara 1–10; Part Two, Rechilut 1–9)
+is taken from [Sefaria](https://www.sefaria.org/Chafetz_Chaim), Hebrew version
+"Chofetz Chaim", which Sefaria sourced from
+[Hebrew Wikisource](https://he.wikisource.org/wiki/%D7%97%D7%A4%D7%A5_%D7%97%D7%99%D7%99%D7%9D),
+licensed **CC BY-SA**. Source layer: `sources/chafetz-chaim/`. The extension
+carries the same attribution (`extension/vendor/chafetz-chaim-sefaria-LICENSE.txt`,
+the options page and the referral view).
+
 ## Try it (judges)
 
 1. Download the build: https://lhg.ysho.uk/downloads/
