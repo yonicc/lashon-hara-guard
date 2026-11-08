@@ -106,8 +106,9 @@ const zipName='lhg-firefox-'+fxManifest.version+'.zip';
 const zipPath=join(outDir,zipName);
 rmSync(zipPath,{force:true});
 if(process.platform==='win32') {
-  execFileSync('powershell.exe',['-NoProfile','-Command',
-    "Compress-Archive -Path '"+stage+sep+"*' -DestinationPath '"+zipPath+"' -Force"],{stdio:'inherit'});
+  // Not Compress-Archive: on Windows PowerShell 5.1 it stores 'vendor\x' entry names.
+  execFileSync('powershell.exe',['-NoProfile','-ExecutionPolicy','Bypass','-File',
+    join(root,'scripts','zip-forward-slash.ps1'),stage,zipPath],{stdio:'inherit'});
 } else {
   execFileSync('zip',['-r','-X','-q',zipPath,'.'],{cwd:stage,stdio:'inherit'});
 }
