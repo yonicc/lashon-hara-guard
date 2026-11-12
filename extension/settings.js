@@ -33,9 +33,9 @@
   }
   const get = () => ({ ...state, lhgPlatforms: { ...state.lhgPlatforms } });
 
-  function isActive(platform) {
-    if (!state.lhgEnabled) return false;
-    return PLATFORMS.includes(platform) ? state.lhgPlatforms[platform] !== false : true;
+  function isActive(platform, switches = state) {
+    if (!switches.lhgEnabled) return false;
+    return PLATFORMS.includes(platform) ? switches.lhgPlatforms[platform] !== false : true;
   }
 
   function set(patch) {

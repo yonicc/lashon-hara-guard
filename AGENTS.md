@@ -101,6 +101,7 @@
 - Never edit a file containing Hebrew with `Set-Content -Encoding ascii` / raw PowerShell replace: it turns Hebrew into `?` (happened to `extension/manifest.json`, caught by `git diff`). Use `remote_edit_file`.
 
 ## Extension distribution
+- Disable is checked at dispatch, not only scan: invalidate incoming queue generations when a master/platform switch turns off, reset the baseline on that event, and gate background checks, warmups and every context round with settings.js. A queued preparation may resolve after off/on; it must never become live again. Regression: extension/disabled.test.cjs (also run against the previous commit to prove failure).
 - Source attribution (owner 2026-11-08): Chafetz Chaim text = Sefaria version "Chofetz Chaim", whose `versionSource` is Hebrew Wikisource, CC-BY-SA. Keep the credit in README/SUBMISSION, `sources/chafetz-chaim/README.md`, the options page and the referral view (`referral.credit`, `opt.sourceCredit`), and ship `extension/vendor/chafetz-chaim-sefaria-LICENSE.txt` — the Chrome packager (lhg-site `package-extension.py`) only allow-lists code files plus `vendor/*-LICENSE.txt`. Text-derived data is CC BY-SA 4.0 (README "מקורות וקרדיט").
 - Firefox release runbook: `.claude/skills/lhg-firefox-release/SKILL.md` (build, QA, AMO signing status and site publication).
 - Firefox ZIP on Windows: never `Compress-Archive` (PS 5.1 stores `vendor\x` entry names; every Firefox ZIP up to 0.17.7 had 7 such entries). `build-firefox.mjs` zips through `scripts/zip-forward-slash.ps1`, which fails on any backslash entry.

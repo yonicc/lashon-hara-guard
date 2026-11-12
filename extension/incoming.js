@@ -358,12 +358,14 @@
     // The queue receives a separate, redacted packet, never this local object.
     const localByEl = new WeakMap();
     let baselined = false;
+    let epoch = 0;
     let settingsLoaded = !globalThis.LHG_SETTINGS?.ready;
     // On/off switches (settings.js). Absent module = on (tests, old builds).
     const active = () => !globalThis.LHG_SETTINGS || globalThis.LHG_SETTINGS.isActive(platform);
     const queue = makeQueue(
       (job) =>
         Promise.resolve(job.message).then((message) => new Promise((resolve) => {
+          if (!active() || job.epoch !== epoch) { resolve({ alert: 'not_checked', dropped: true }); return; }
           (globalThis.LHG_CONTEXT_RUNTIME?.sendPrepared || chrome.runtime.sendMessage.bind(chrome.runtime))(
             message,
             (r) => resolve(chrome.runtime.lastError ? { alert: 'not_checked' } : r || { alert: 'not_checked' }),
@@ -492,7 +494,7 @@
         state.set(row.id, { phase: isManual ? 'manual' : 'pending', result: null, revealed: false, held, el: row.el, els: [row.el] });
         state.get(row.id).recheck = () => {
           const st = state.get(row.id);
-          if (!st || st.phase === 'pending') return;
+          if (!active() || !st || st.phase === 'pending') return;
           st.phase = 'pending'; st.revealed = false; apply(row.id);
           const payload = { type: 'lhg-check', platform, direction: 'incoming', text: row.text.slice(0, 2000), forceRecheck: true };
           const done = r => { st.result = r; st.phase = phaseOf(r); apply(row.id); };
@@ -501,6 +503,7 @@
         };
         for (const d of pendingDup) if (d.id === row.id) addEl(row.id, d.el);
         const enqueue = () => queue.push({
+          epoch,
           text: row.text.slice(0, 2000),
           message: row.message,
           done: (r) => {
@@ -516,7 +519,7 @@
           // while pending (or after a result) is a no-op.
           state.get(row.id).sendCheck = () => {
             const st = state.get(row.id);
-            if (!st || st.phase !== 'manual') return;
+            if (!active() || !st || st.phase !== 'manual') return;
             st.phase = 'pending';
             st.revealed = false;
             apply(row.id);
@@ -534,7 +537,10 @@
     const repaintAll = () => { for (const id of state.keys()) apply(id); };
     try {
       if (globalThis.LHG_SETTINGS) {
-        globalThis.LHG_SETTINGS.onChange(() => { if (!active()) repaintAll(); else scan(); });
+        globalThis.LHG_SETTINGS.onChange(() => {
+          if (!active()) { epoch++; baselined = false; repaintAll(); }
+          else scan();
+        });
         globalThis.LHG_SETTINGS.ready?.().then(() => { settingsLoaded = true; scan(); });
       }
     } catch (_e) { /* ignore */ }

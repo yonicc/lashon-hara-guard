@@ -4,6 +4,15 @@
 const DEFAULT_PROXY = 'https://lhg-proxy.yonicc.workers.dev';
 const TIMEOUT_MS = 25000;
 
+try { if (typeof importScripts === 'function') importScripts('settings.js'); } catch (_e) { /* unavailable settings refuse checks below */ }
+async function active(platform) {
+  const S = globalThis.LHG_SETTINGS;
+  if (!S) return typeof importScripts !== 'function'; // legacy unit harnesses only
+  const raw = await chrome.storage.local.get(S.KEYS);
+  return S.isActive(platform, S.normalize(raw));
+}
+const disabled = () => ({ alert: 'not_checked', error: 'disabled', loopStopped: true });
+
 async function settings() {
   const I = globalThis.LHG_I18N;
   const M = globalThis.LHG_CHECK_MODE;
@@ -53,6 +62,7 @@ function userNoteOf(raw) {
 // `model`: optional cloud model id (check-mode.js CLOUD_MODELS); null/absent
 // keeps the request identical to older extensions (proxy default model).
 async function check(text, platform, direction, context, confirmedFacts, userNote, config, model, round = 1) {
+  if (!await active(platform)) return disabled();
   const { proxyUrl, accessKey, lang } = config || await settings();
   if (!accessKey) return { alert: 'not_configured' };
   const ctrl = new AbortController();
@@ -119,6 +129,7 @@ function canonical(value) {
   return Object.fromEntries(Object.keys(value).sort().map(k => [k, canonical(value[k])]));
 }
 async function cachedCheck(msg, sender = {}) {
+  if (!await active(msg.platform)) return disabled();
   const config = await settings();
   const facts = confirmedFactsOf(msg.confirmedFacts), note = userNoteOf(msg.userNote);
   const identity = msg.cacheIdentity;
@@ -141,7 +152,8 @@ async function cachedCheck(msg, sender = {}) {
     const request = { text: msg.text, platform: msg.platform || 'unknown',
         direction: msg.direction === 'incoming' ? 'incoming' : 'outgoing', context: msg.context,
         confirmedFacts: facts, userNote: note, lang: config.lang, routerHeads: msg.routerHeads };
-    const once = req => {
+    const once = async req => {
+      if (!await active(req.platform)) return disabled();
       const cloud = model => check(req.text, req.platform, req.direction, req.context, facts, note, config, model, req.round);
       return M && config.mode ? M.route(req, config.mode, cloud) : cloud(null);
     };
@@ -155,6 +167,7 @@ async function cachedCheck(msg, sender = {}) {
     const L = globalThis.LHG_CONTEXT_LOOP, schema = globalThis.LHG_NEEDS;
     const result = L && schema ? await L.run({ request, check: once, schema,
       current: async round => {
+        if (!await active(msg.platform)) return false;
         // A single-message caller without a bridge can check, never retrieve.
         if (!msg.loopToken) return round === 1;
         try { return (await exchange('current', { round })).current; } catch { return false; }
@@ -162,6 +175,7 @@ async function cachedCheck(msg, sender = {}) {
       retrieve: r => globalThis.LHG_MEMORY_READ(r, identity, sender),
       exchange: async (candidates, context) => (await exchange('merge', { candidates, context })).context,
     }) : await once(request);
+    if (!await active(msg.platform)) return disabled();
     // A cloud-fallback answer is not cached under the local mode's key: once
     // the local engine is installed, the same message must reach it.
     if (reusable && ['none', 'warn', 'unsure'].includes(result?.alert) && !result.error && !result.rules?.notChecked &&
@@ -196,7 +210,8 @@ chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
   }
   if (msg && msg.type === 'lhg-warm') {
     // Fire-and-forget: wake the proxy's fast classifier while the user types.
-    settings().then(({ proxyUrl, accessKey }) => {
+    settings().then(async ({ proxyUrl, accessKey }) => {
+      if (!await active(msg.platform)) return;
       if (accessKey) {
         fetch(proxyUrl + '/warm', { method: 'POST', headers: { 'x-lhg-key': accessKey } }).catch(() => {});
       }
